@@ -22,6 +22,7 @@ LyricLytic は、AI 音楽生成サービス向けの歌詞制作を支援する
 - **正本要件**: `docs/requirements/requirements.md`
 - **PoCタスク**: `docs/requirements/poc-task-breakdown-v1.md`
 - **実装入口**: `docs/implementation/bootstrap-checklist-v1.md`
+- **テスト設計**: `docs/implementation/test-design-v1.md`
 
 ## Birdseye
 
@@ -39,6 +40,8 @@ LyricLytic は、AI 音楽生成サービス向けの歌詞制作を支援する
 
 - 正式な要件定義: `docs/requirements/requirements.md`
 - フロントエンド要件定義: `docs/requirements/frontend-requirements-v1.md`
+- フロント質感差分レビュー: `docs/requirements/frontend-design/runtime-visual-gap-review-20260401.md`
+- フロント質感差分チェックリスト: `docs/requirements/frontend-design/runtime-visual-gap-checklist-20260401.md`
 - PoC 実装タスク分解: `docs/requirements/poc-task-breakdown-v1.md`
 - 実装準備パッケージ: `docs/implementation/README.md`
 - 参考調査レポート: `docs/research/deep-research-report-20260331.md`
@@ -71,6 +74,8 @@ LyricLytic/
   PoC 実装へ入る前のフェーズ分解です。どこから着手し、どこで破綻を見つけるかを整理しています。
 - `docs/implementation/README.md`
   実装開始前に読むべき設計入口です。構成、command 契約、初期チェックリストをまとめています。
+- `docs/implementation/test-design-v1.md`
+  要件定義と仕様に基づくテスト設計書です。層別方針、優先度付きチェックリスト、完了条件をまとめています。
 - `docs/requirements/frontend-requirements-v1.md`
   既存要件からフロントエンド実装に必要な内容だけを再編した文書です。画面、レイアウト、状態、導線、OS 差分をまとめています。
 - `docs/research/deep-research-report-20260331.md`

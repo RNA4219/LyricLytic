@@ -1,0 +1,59 @@
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="176" y1="128" x2="848" y2="896" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0F1735"/>
+      <stop offset="0.55" stop-color="#1B2152"/>
+      <stop offset="1" stop-color="#12182F"/>
+    </linearGradient>
+    <radialGradient id="glowTop" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(736 272) rotate(135) scale(298 314)">
+      <stop stop-color="#7C8BFF" stop-opacity="0.34"/>
+      <stop offset="1" stop-color="#7C8BFF" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowBottom" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(344 776) rotate(-35) scale(268 228)">
+      <stop stop-color="#F15A7D" stop-opacity="0.24"/>
+      <stop offset="1" stop-color="#F15A7D" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="note" x1="616" y1="248" x2="772" y2="520" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FF8F70"/>
+      <stop offset="0.55" stop-color="#F15A7D"/>
+      <stop offset="1" stop-color="#8E7CFF"/>
+    </linearGradient>
+    <linearGradient id="page" x1="348" y1="246" x2="692" y2="784" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFF7EC"/>
+      <stop offset="1" stop-color="#F3E7DA"/>
+    </linearGradient>
+    <filter id="shadow" x="240" y="170" width="548" height="680" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+      <feOffset dy="22"/>
+      <feGaussianBlur stdDeviation="28"/>
+      <feComposite in2="hardAlpha" operator="out"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0.0196078 0 0 0 0 0.0352941 0 0 0 0 0.0823529 0 0 0 0.34 0"/>
+      <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_0_1"/>
+      <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_0_1" result="shape"/>
+    </filter>
+  </defs>
+
+  <rect x="96" y="96" width="832" height="832" rx="208" fill="url(#bg)"/>
+  <rect x="96" y="96" width="832" height="832" rx="208" fill="url(#glowTop)"/>
+  <rect x="96" y="96" width="832" height="832" rx="208" fill="url(#glowBottom)"/>
+
+  <g filter="url(#shadow)">
+    <path d="M348 274C348 243.072 373.072 218 404 218H611.221C626.076 218 640.323 223.896 650.828 234.401L688.599 272.172C699.104 282.677 705 296.924 705 311.779V750C705 780.928 679.928 806 649 806H404C373.072 806 348 780.928 348 750V274Z" fill="url(#page)"/>
+    <path d="M611 218L705 312H637C622.641 312 611 300.359 611 286V218Z" fill="#E9D9C8"/>
+    <path d="M611 218L705 312H648C627.566 312 611 295.434 611 275V218Z" fill="#FFFDF9" fill-opacity="0.82"/>
+
+    <rect x="418" y="382" width="222" height="32" rx="16" fill="#F15A7D"/>
+    <rect x="418" y="456" width="176" height="28" rx="14" fill="#FFB36C"/>
+    <rect x="418" y="524" width="196" height="28" rx="14" fill="#C996FF"/>
+    <rect x="418" y="606" width="152" height="24" rx="12" fill="#C9B3A1" opacity="0.92"/>
+    <rect x="418" y="662" width="188" height="24" rx="12" fill="#C9B3A1" opacity="0.76"/>
+  </g>
+
+  <g>
+    <path d="M680 294C680 268.595 700.595 248 726 248C751.405 248 772 268.595 772 294V516.519C772 562.971 734.34 600.631 687.888 600.631C649.739 600.631 618.815 569.708 618.815 531.558C618.815 497.43 646.483 469.762 680.611 469.762C699.036 469.762 715.231 477.829 726 490.026V294C726 282.954 717.046 274 706 274C694.954 274 686 282.954 686 294V474.938C686 500.343 665.405 520.938 640 520.938C614.595 520.938 594 500.343 594 474.938C594 449.533 614.595 428.938 640 428.938C650.489 428.938 660.158 432.446 667.901 438.364V343.767L680 294Z" fill="url(#note)"/>
+    <path d="M698 255C706.5 248.333 717.667 245 731.5 245C745.333 245 756.667 248.333 765.5 255V327.5L698 347V255Z" fill="#FFD6C4" fill-opacity="0.42"/>
+  </g>
+
+  <rect x="122" y="122" width="780" height="780" rx="182" stroke="rgba(255,255,255,0.08)" stroke-width="2"/>
+</svg>

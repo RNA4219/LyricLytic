@@ -8,7 +8,8 @@
 1. `implementation-prep-v1.md`
 2. `system-architecture-v1.md`
 3. `command-contracts-v1.md`
-4. `bootstrap-checklist-v1.md`
+4. `test-design-v1.md`
+5. `bootstrap-checklist-v1.md`
 
 ## 役割
 
@@ -18,6 +19,8 @@
   Tauri / フロントエンド / Rust / SQLite の責務境界を整理する。
 - `command-contracts-v1.md`
   フロントエンドと Tauri コマンド境界の暫定契約を定義する。
+- `test-design-v1.md`
+  要件定義と仕様を基準に、層別テスト方針、優先度付きチェックリスト、完了条件を定義する。
 - `bootstrap-checklist-v1.md`
   repo 初期化から最初の縦切り完了までの作業手順を確認する。
 

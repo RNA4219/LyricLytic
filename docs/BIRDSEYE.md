@@ -31,7 +31,9 @@ LyricLytic の文書・設計・実装の読み順を、俯瞰で掴むための
 
 1. `docs/requirements/review-log.md`
 2. `docs/requirements/implementation-gap-checklist-20260401.md`
-3. `docs/requirements/acceptance-test-cases-v1.md`
+3. `docs/requirements/frontend-design/runtime-visual-gap-review-20260401.md`
+4. `docs/requirements/frontend-design/runtime-visual-gap-checklist-20260401.md`
+5. `docs/requirements/acceptance-test-cases-v1.md`
 
 ## 2. 主要ノード
 
@@ -45,6 +47,8 @@ LyricLytic の文書・設計・実装の読み順を、俯瞰で掴むための
 | `docs/implementation/system-architecture-v1.md` | 構成設計 | Frontend / Tauri / Repository / SQLite の境界確認 |
 | `docs/implementation/command-contracts-v1.md` | command 契約 | UI と Rust 間の責務確認 |
 | `docs/requirements/implementation-gap-checklist-20260401.md` | 実装逸脱一覧 | 直近のズレと優先度がまとまっている |
+| `docs/requirements/frontend-design/runtime-visual-gap-review-20260401.md` | モックとの差分レビュー | 要件段階の質感と現行 UI のズレを見られる |
+| `docs/requirements/frontend-design/runtime-visual-gap-checklist-20260401.md` | フロント修正チェックリスト | UI 質感差分を運用で埋めるため |
 
 ## 3. 依存の見方
 
@@ -69,6 +73,10 @@ LyricLytic の文書・設計・実装の読み順を、俯瞰で掴むための
 
 - `docs/requirements/implementation-gap-checklist-20260401.md`
   現行実装と要件のズレ一覧
+- `docs/requirements/frontend-design/runtime-visual-gap-review-20260401.md`
+  モックとランタイム UI の質感差分レビュー
+- `docs/requirements/frontend-design/runtime-visual-gap-checklist-20260401.md`
+  フロント質感差分の運用チェックリスト
 - `src/pages/Editor.tsx`
   母艦 UI として最も責務が集中している
 - `src/components/ExportPanel.tsx`

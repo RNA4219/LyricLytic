@@ -525,6 +525,7 @@ Working Draft と LyricVersion は明確に区別すること。
 - MVP の過去版横断検索対象は LyricVersion 本文および version_sections 本文とし、RevisionNote は含めないこと
 - MVP の断片検索対象は CollectedFragment の `text` と `source` とすること
 - MVP のタグ検索対象は Project、CollectedFragment、StyleProfile に付与されたタグとすること
+- PoC ではタグ検索対象を CollectedFragment のタグのみに縮退し、Project/StyleProfile タグは PoC 範囲外とすること
 - MVP の検索 UI は専用画面ではなく、歌詞編集画面から開く検索パネルまたは同等の非遷移 UI とすること
 - PoC では `本文 / 過去版 / 断片 / タグ` の検索種別を同一検索 UI 内で切り替えられること
 
@@ -616,7 +617,8 @@ Working Draft と LyricVersion は明確に区別すること。
 モデル頻出表現チェックは、ローカル LLM による局所レビュー機能である。  
 全文の常時監視や自動補正は行わない。
 
-PoC では、ユーザー環境で起動済みの OpenAI 互換ローカル HTTP API へ接続する方式を既定とする。
+PoC では、ユーザー環境で起動済みの OpenAI 互換ローカル HTTP API へ接続する方式を既定とする。  
+加えて `llama.cpp` に限り、LyricLytic から `llama-server` を直接起動し、その localhost API へ接続する補助モードを許容する。
 
 ### 16.2 発火条件
 
@@ -656,6 +658,7 @@ PoC では、ユーザー環境で起動済みの OpenAI 互換ローカル HTTP
 - 通常編集を阻害しないため、同一セクションに対する連続実行にはキャンセルまたは上書き制御を持つこと
 - 実行中であることを UI 上で識別できること
 - PoC では接続先を `127.0.0.1` または `localhost` に限定すること
+- `llama.cpp` 直起動モードでは、実行ファイルパスとモデルパスを設定できること
 
 ## 17. 低頻出候補レコメンド要件
 
@@ -702,6 +705,7 @@ AI 支援は当面、以下の局所支援に限定する。
 - 補助判定は参考情報として扱う
 - MVP ではアプリ同梱モデルを必須前提にせず、既存ローカル実行環境との接続を優先する
 - PoC では OpenAI 互換ローカル HTTP API 接続を 1 系統だけ実装対象とする
+- `llama.cpp` は、OpenAI 互換 localhost API を保ったままアプリ側から起動・停止を管理できてもよい
 
 ### 18.4 学習データ方針
 

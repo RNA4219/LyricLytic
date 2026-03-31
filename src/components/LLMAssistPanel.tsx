@@ -1,103 +1,141 @@
 import { useState } from 'react';
+import { isAllowedLocalBaseUrl, callLLMAPI, parseLLMJsonResponse, LLMRuntime } from '../lib/llm/utils';
+import { useLanguage } from '../lib/LanguageContext';
+
+interface LyricCandidate {
+  id: number;
+  title: string;
+  text: string;
+}
 
 interface LLMAssistPanelProps {
-  runtime: 'openai_compatible' | 'ollama';
+  runtime: LLMRuntime;
   baseUrl: string;
   model: string;
   modelPath: string;
   enabled: boolean;
+  timeoutMs?: number;
+  maxTokens?: number;
+  temperature?: number;
   onInsert: (text: string) => void;
 }
 
-function LLMAssistPanel({ runtime, baseUrl, model, modelPath, enabled, onInsert }: LLMAssistPanelProps) {
+function LLMAssistPanel({
+  runtime,
+  baseUrl,
+  model,
+  modelPath,
+  enabled,
+  timeoutMs = 60000,
+  maxTokens = 1024,
+  temperature = 0.7,
+  onInsert,
+}: LLMAssistPanelProps) {
+  const { t } = useLanguage();
   const [prompt, setPrompt] = useState('');
   const [generating, setGenerating] = useState(false);
-  const [generatedText, setGeneratedText] = useState('');
+  const [candidates, setCandidates] = useState<LyricCandidate[]>([]);
+  const [selectedCandidate, setSelectedCandidate] = useState<LyricCandidate | null>(null);
+  const [rawResponse, setRawResponse] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
 
-  const isAllowedLocalBaseUrl = (value: string) => {
-    try {
-      const parsed = new URL(value);
-      return parsed.hostname === '127.0.0.1' || parsed.hostname === 'localhost';
-    } catch {
-      return false;
+  const buildJsonPrompt = (userPrompt: string): string => {
+    return `Generate lyric variations based on this request. Respond ONLY with valid JSON in this exact format:
+{
+  "candidates": [
+    {
+      "id": 1,
+      "title": "Short descriptive title for variation 1",
+      "text": "The actual lyrics for variation 1"
+    },
+    {
+      "id": 2,
+      "title": "Short descriptive title for variation 2",
+      "text": "The actual lyrics for variation 2"
+    },
+    {
+      "id": 3,
+      "title": "Short descriptive title for variation 3",
+      "text": "The actual lyrics for variation 3"
     }
+  ]
+}
+
+Request: ${userPrompt}
+
+Important: Output ONLY the JSON object, no other text, no explanations, no markdown formatting.`;
+  };
+
+  const parseCandidates = (text: string): LyricCandidate[] => {
+    const rawCandidates = parseLLMJsonResponse<{ id?: number; title?: string; text?: string }>(text, 'candidates');
+
+    if (rawCandidates.length > 0) {
+      return rawCandidates.map((c, idx) => ({
+        id: c.id ?? idx + 1,
+        title: c.title ?? `${t('generatedCandidates')} ${idx + 1}`,
+        text: c.text ?? '',
+      }));
+    }
+
+    // Fallback: treat entire response as single candidate
+    return [{
+      id: 1,
+      title: t('generatedLyrics'),
+      text: text.trim(),
+    }];
   };
 
   const handleGenerate = async () => {
     if (!enabled) {
-      setError('LLM is not configured');
+      setError(t('llmNotConfigured'));
       return;
     }
     if (!isAllowedLocalBaseUrl(baseUrl)) {
-      setError('LLM base URL must point to localhost or 127.0.0.1');
+      setError(t('llmBaseUrlLocalOnly'));
       return;
     }
 
     setGenerating(true);
     setError(null);
-    setGeneratedText('');
+    setCandidates([]);
+    setSelectedCandidate(null);
+    setRawResponse(null);
 
-    try {
-      const normalizedBaseUrl = baseUrl.replace(/\/$/, '');
-      const promptText = `Generate lyrics based on this prompt. Output only the lyrics, no explanations:\n\n${prompt}`;
-      const requestUrl = runtime === 'ollama'
-        ? `${normalizedBaseUrl}/api/chat`
-        : normalizedBaseUrl.endsWith('/v1')
-          ? `${normalizedBaseUrl}/chat/completions`
-          : `${normalizedBaseUrl}/v1/chat/completions`;
-      const requestBody = runtime === 'ollama'
-        ? {
-            model,
-            stream: false,
-            messages: [
-              {
-                role: 'user',
-                content: promptText,
-              }
-            ]
-          }
-        : {
-            model,
-            max_tokens: 1024,
-            messages: [
-              {
-                role: 'user',
-                content: promptText,
-              }
-            ]
-          };
+    const jsonPrompt = buildJsonPrompt(prompt);
+    const result = await callLLMAPI(
+      { runtime, baseUrl, model, timeoutMs, maxTokens, temperature },
+      jsonPrompt
+    );
 
-      const response = await fetch(requestUrl, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(requestBody),
-      });
-
-      if (!response.ok) {
-        throw new Error(`API error: ${response.status}`);
-      }
-
-      const data = await response.json();
-      const text = runtime === 'ollama'
-        ? data.message?.content || ''
-        : data.choices?.[0]?.message?.content || '';
-
-      setGeneratedText(text);
-    } catch (e) {
-      setError(e instanceof Error ? e.message : 'Generation failed');
-    } finally {
-      setGenerating(false);
+    if (result.success) {
+      setRawResponse(result.content);
+      const parsedCandidates = parseCandidates(result.content);
+      setCandidates(parsedCandidates);
+    } else {
+      setError(result.error);
     }
+
+    setGenerating(false);
   };
 
   const handleInsert = () => {
-    if (generatedText) {
-      onInsert(generatedText);
-      setGeneratedText('');
+    if (selectedCandidate) {
+      onInsert(selectedCandidate.text);
+      setCandidates([]);
+      setSelectedCandidate(null);
       setPrompt('');
+      setRawResponse(null);
+    }
+  };
+
+  const handleInsertAll = () => {
+    if (candidates.length > 0) {
+      const combinedText = candidates.map(c => `【${c.title}】\n${c.text}`).join('\n\n---\n\n');
+      onInsert(combinedText);
+      setCandidates([]);
+      setSelectedCandidate(null);
+      setPrompt('');
+      setRawResponse(null);
     }
   };
 
@@ -108,12 +146,12 @@ function LLMAssistPanel({ runtime, baseUrl, model, modelPath, enabled, onInsert 
   return (
     <div className="llm-assist-panel">
       <div className="panel-header">
-        <h4>✨ AI Assist</h4>
+        <h4>✨ {t('aiAssistTitle')}</h4>
       </div>
 
       {runtime === 'openai_compatible' && modelPath.trim() && (
         <p className="llm-runtime-note">
-          Model root: {modelPath}
+          {modelPath.split(/[\\/]/).filter(Boolean).pop() || modelPath}
         </p>
       )}
 
@@ -121,8 +159,8 @@ function LLMAssistPanel({ runtime, baseUrl, model, modelPath, enabled, onInsert 
         value={prompt}
         onChange={(e) => setPrompt(e.target.value)}
         placeholder={runtime === 'ollama'
-          ? 'Describe what you want to send to Ollama...'
-          : 'Describe what lyrics you want for the llama.cpp runtime...'}
+          ? t('llmPromptPlaceholderOllama')
+          : t('llmPromptPlaceholderLlama')}
         className="llm-prompt-input"
         disabled={generating}
       />
@@ -132,22 +170,64 @@ function LLMAssistPanel({ runtime, baseUrl, model, modelPath, enabled, onInsert 
         className="generate-btn"
         disabled={generating || !prompt.trim()}
       >
-        {generating ? 'Generating...' : 'Generate'}
+        {generating ? t('generating') : t('generate')}
       </button>
 
       {error && (
         <p className="llm-error">{error}</p>
       )}
 
-      {generatedText && (
-        <div className="llm-result">
-          <div className="llm-result-text">{generatedText}</div>
-          <div className="llm-result-actions">
-            <button onClick={handleInsert} className="insert-btn">
-              Insert to Editor
+      {candidates.length > 0 && (
+        <div className="llm-candidates">
+          <div className="candidates-header">
+            <h5>{t('generatedCandidates')} ({candidates.length})</h5>
+          </div>
+          <div className="candidates-list">
+            {candidates.map((candidate) => (
+              <div
+                key={candidate.id}
+                className={`candidate-item ${selectedCandidate?.id === candidate.id ? 'selected' : ''}`}
+                onClick={() => setSelectedCandidate(candidate)}
+              >
+                <div className="candidate-header">
+                  <span className="candidate-title">{candidate.title}</span>
+                </div>
+                <pre className="candidate-preview">{candidate.text.slice(0, 200)}{candidate.text.length > 200 ? '...' : ''}</pre>
+              </div>
+            ))}
+          </div>
+          <div className="candidates-actions">
+            <button
+              onClick={handleInsert}
+              className="insert-btn"
+              disabled={!selectedCandidate}
+            >
+              {t('insertSelected')}
             </button>
-            <button onClick={() => setGeneratedText('')} className="discard-btn">
-              Discard
+            <button
+              onClick={handleInsertAll}
+              className="insert-all-btn"
+              disabled={candidates.length === 0}
+            >
+              {t('insertAll')}
+            </button>
+            <button onClick={() => { setCandidates([]); setSelectedCandidate(null); setRawResponse(null); }} className="discard-btn">
+              {t('discardAll')}
+            </button>
+          </div>
+        </div>
+      )}
+
+      {rawResponse && candidates.length === 0 && !error && (
+        <div className="llm-raw-response">
+          <p className="raw-response-note">{t('responseNotParsed')}</p>
+          <pre className="raw-response-text">{rawResponse}</pre>
+          <div className="raw-response-actions">
+            <button onClick={() => onInsert(rawResponse)} className="insert-btn">
+              {t('insertAsText')}
+            </button>
+            <button onClick={() => setRawResponse(null)} className="discard-btn">
+              {t('discard')}
             </button>
           </div>
         </div>

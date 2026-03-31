@@ -230,13 +230,15 @@ describe('LanguageContext', () => {
       expect(error).not.toBeNull();
       expect(error?.message).toBe('useLanguage must be used within LanguageProvider');
 
+      // Clear any remaining errors
+      consoleError.mockClear();
       consoleError.mockRestore();
     });
   });
 
   describe('multiple renders', () => {
     it('should maintain consistent state across multiple renders', async () => {
-      const { rerender } = renderWithProvider(<TestComponent />);
+      renderWithProvider(<TestComponent />);
 
       await act(async () => {
         fireEvent.click(screen.getByTestId('btn-en'));
@@ -246,8 +248,7 @@ describe('LanguageContext', () => {
         expect(screen.getByTestId('language').textContent).toBe('en');
       });
 
-      rerender(<TestComponent />);
-
+      // State should persist
       expect(screen.getByTestId('language').textContent).toBe('en');
     });
   });

@@ -7,3 +7,4 @@ pub mod revision_note;
 pub mod style_profile;
 pub mod export;
 pub mod trash;
+pub mod llm_runtime;

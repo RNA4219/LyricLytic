@@ -13,6 +13,8 @@ export interface WorkingDraft {
   working_draft_id: string;
   project_id: string;
   latest_body_text: string;
+  style_text?: string;
+  vocal_text?: string;
   updated_at: string;
 }
 
@@ -119,6 +121,8 @@ export interface SaveDraftInput {
   project_id: string;
   body_text: string;
   sections: DraftSectionInput[];
+  style_text?: string;
+  vocal_text?: string;
 }
 
 export interface VersionSectionInput {
@@ -192,3 +196,72 @@ export interface ExportProjectInput {
   project_id: string;
   include_deleted: boolean;
 }
+
+export interface StartLlamaCppInput {
+  executable_path: string;
+  model_path: string;
+  base_url: string;
+}
+
+export interface LlamaCppStatus {
+  running: boolean;
+  pid?: number;
+  executable_path?: string;
+  model_path?: string;
+  resolved_model_path?: string;
+  base_url?: string;
+  message?: string;
+}
+
+// ===== Deleted Item Types =====
+
+export interface DeletedProject {
+  type: 'Project';
+  project_id: string;
+  title: string;
+  deleted_at?: string;
+  deleted_batch_id?: string;
+}
+
+export interface DeletedLyricVersion {
+  type: 'LyricVersion';
+  lyric_version_id: string;
+  project_id: string;
+  snapshot_name: string;
+  deleted_at?: string;
+  deleted_batch_id?: string;
+}
+
+export interface DeletedCollectedFragment {
+  type: 'CollectedFragment';
+  collected_fragment_id: string;
+  project_id: string;
+  text_preview: string;
+  deleted_at?: string;
+  deleted_batch_id?: string;
+}
+
+export interface DeletedSongArtifact {
+  type: 'SongArtifact';
+  song_artifact_id: string;
+  project_id: string;
+  service_name: string;
+  song_title?: string;
+  deleted_at?: string;
+  deleted_batch_id?: string;
+}
+
+export interface DeletedStyleProfile {
+  type: 'StyleProfile';
+  style_profile_id: string;
+  project_id: string;
+  deleted_at?: string;
+  deleted_batch_id?: string;
+}
+
+export type DeletedItem =
+  | DeletedProject
+  | DeletedLyricVersion
+  | DeletedCollectedFragment
+  | DeletedSongArtifact
+  | DeletedStyleProfile;

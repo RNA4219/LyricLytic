@@ -1,20 +1,19 @@
 import { useState, useEffect } from 'react';
+import { COPY_OPTIONS } from '../lib/config';
 
 interface CopyOptions {
   includeHeadings: boolean;
   preserveBlankLines: boolean;
 }
 
-const STORAGE_KEY = 'lyriclytic_copy_options';
-
 const DEFAULT_OPTIONS: CopyOptions = {
-  includeHeadings: true,
-  preserveBlankLines: true,
+  includeHeadings: COPY_OPTIONS.DEFAULT_INCLUDE_HEADINGS,
+  preserveBlankLines: COPY_OPTIONS.DEFAULT_PRESERVE_BLANK_LINES,
 };
 
 function loadOptions(): CopyOptions {
   try {
-    const saved = localStorage.getItem(STORAGE_KEY);
+    const saved = localStorage.getItem(COPY_OPTIONS.STORAGE_KEY);
     if (saved) {
       return { ...DEFAULT_OPTIONS, ...JSON.parse(saved) };
     }
@@ -26,7 +25,7 @@ function loadOptions(): CopyOptions {
 
 function saveOptions(options: CopyOptions): void {
   try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(options));
+    localStorage.setItem(COPY_OPTIONS.STORAGE_KEY, JSON.stringify(options));
   } catch {
     // Ignore storage errors
   }

@@ -3,32 +3,139 @@
   margin: 0;
   padding: 0;
   scrollbar-width: thin;
-  scrollbar-color: rgba(255, 255, 255, 0.18) transparent;
+  scrollbar-color: rgba(192, 193, 255, 0.18) transparent;
 }
 
+/* Material Design 3 Color System */
 :root {
-  --bg-primary: #1a1a2e;
-  --bg-secondary: #16213e;
-  --bg-tertiary: #0f3460;
-  --bg-active: #1e3a5f;
-  --text-primary: #eaeaea;
-  --text-secondary: #a0a0a0;
-  --accent: #e94560;
-  --accent-hover: #ff6b8a;
+  /* Surface hierarchy (5 levels) */
+  --surface: #0b1326;
+  --surface-dim: #0b1326;
+  --surface-bright: #31394d;
+  --surface-container-lowest: #060e20;
+  --surface-container-low: #131b2e;
+  --surface-container: #171f33;
+  --surface-container-high: #222a3d;
+  --surface-container-highest: #2d3449;
+
+  /* Primary */
+  --primary: #c0c1ff;
+  --primary-container: #8083ff;
+  --primary-fixed: #e1e0ff;
+  --on-primary: #1000a9;
+  --on-primary-container: #0d0096;
+
+  /* Secondary */
+  --secondary: #b9c8de;
+  --secondary-container: #39485a;
+  --on-secondary: #233143;
+  --on-secondary-container: #a7b6cc;
+
+  /* Tertiary */
+  --tertiary: #ffb783;
+  --tertiary-container: #d97721;
+  --on-tertiary: #4f2500;
+
+  /* Text */
+  --on-surface: #dae2fd;
+  --on-surface-variant: #c7c4d7;
+  --on-background: #dae2fd;
+
+  /* Outline */
+  --outline: #908fa0;
+  --outline-variant: #464554;
+
+  /* Error */
+  --error: #ffb4ab;
+  --error-container: #93000a;
+
+  /* Legacy aliases for compatibility */
+  --bg-primary: var(--surface);
+  --bg-secondary: var(--surface-container-low);
+  --bg-tertiary: var(--surface-container-high);
+  --bg-active: var(--surface-container-highest);
+  --text-primary: var(--on-surface);
+  --text-secondary: var(--on-surface-variant);
+  --accent: var(--primary);
+  --accent-hover: var(--primary-fixed);
+  --accent-contrast: var(--on-primary);
   --success: #2ea043;
-  --border: #2a2a4e;
-  --danger: #f44336;
+  --border: var(--outline-variant);
+  --danger: var(--error);
+  --danger-contrast: #24324a;
+
+  /* Typography */
+  --font-headline: 'Newsreader', serif;
+  --font-body: 'Inter', 'Noto Sans JP', sans-serif;
+  --font-label: 'Inter', 'Noto Sans JP', sans-serif;
 }
 
 body {
-  font-family: 'Inter', 'Noto Sans JP', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  background: var(--bg-primary);
-  color: var(--text-primary);
+  font-family: var(--font-body);
+  background: var(--surface);
+  color: var(--on-surface);
+  overflow-x: hidden;
+}
+
+/* Main background gradient */
+.main-bg-gradient {
+  background: radial-gradient(circle at 50% -20%, #1a233a 0%, var(--surface) 70%);
+}
+
+/* Glass panel effect */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+/* Subtle overlay texture */
+.subtle-overlay {
+  opacity: 0.03;
+  pointer-events: none;
+}
+
+/* Typography classes */
+.font-headline {
+  font-family: var(--font-headline);
+}
+
+.font-body {
+  font-family: var(--font-body);
+}
+
+.font-label {
+  font-family: var(--font-label);
+}
+
+/* Headline styles (serif, italic, light weight) */
+.headline-xl {
+  font-family: var(--font-headline);
+  font-weight: 300;
+  font-style: italic;
+}
+
+.headline-lg {
+  font-family: var(--font-headline);
+  font-weight: 400;
+}
+
+/* Material Symbols styling */
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
 }
 
 *::-webkit-scrollbar {
-  width: 9px;
-  height: 9px;
+  width: 6px;
+  height: 6px;
 }
 
 *::-webkit-scrollbar-track {
@@ -36,15 +143,12 @@ body {
 }
 
 *::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.16);
-  border-radius: 999px;
-  border: 2px solid transparent;
-  background-clip: padding-box;
+  background: var(--outline-variant);
+  border-radius: 10px;
 }
 
 *::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.28);
-  background-clip: padding-box;
+  background: var(--outline);
 }
 
 .layout {
@@ -54,17 +158,21 @@ body {
 }
 
 .header {
-  padding: 1rem 2rem;
-  background: var(--bg-secondary);
-  border-bottom: 1px solid var(--border);
+  padding: 0.75rem 1.5rem;
+  background: rgba(6, 12, 28, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(70, 69, 84, 0.3);
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
 .header h1 {
-  font-size: 1.5rem;
-  font-weight: 600;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--primary);
+  letter-spacing: -0.02em;
 }
 
 .language-switch {
@@ -76,25 +184,32 @@ body {
   padding: 0.25rem 0.5rem;
   font-size: 0.75rem;
   font-weight: 500;
-  border: 1px solid var(--border);
+  border: 1px solid var(--outline-variant);
   background: transparent;
-  color: var(--text-secondary);
+  color: var(--on-surface-variant);
   cursor: pointer;
   transition: all 0.2s;
+  border-radius: 4px;
 }
 
 .lang-btn:hover {
-  background: var(--bg-tertiary);
-  color: var(--text-primary);
+  background: var(--surface-container-high);
+  color: var(--on-surface);
 }
 
 .lang-btn.active {
-  background: var(--accent);
-  color: var(--text-primary);
-  border-color: var(--accent);
+  background: var(--primary);
+  color: var(--on-primary);
+  border-color: var(--primary);
 }
 
 .main {
   flex: 1;
   display: flex;
+  overflow: hidden;
+}
+
+.main > * {
+  flex: 1;
+  min-height: 0;
 }

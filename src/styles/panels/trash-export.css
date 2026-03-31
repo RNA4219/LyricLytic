@@ -79,9 +79,9 @@
 
 .restore-btn {
   padding: 0.5rem 1rem;
-  background: var(--success);
+  background: var(--accent);
   border: none;
-  color: white;
+  color: var(--accent-contrast);
   border-radius: 4px;
   cursor: pointer;
   font-size: 0.875rem;

@@ -1,4 +1,5 @@
 import { DraftSection } from '../../lib/api';
+import { SECTION_PRESETS } from '../../lib/config';
 
 export interface Section {
   id: string;
@@ -8,7 +9,8 @@ export interface Section {
   bodyText: string;
 }
 
-export const SECTION_PRESETS = ['Intro', 'Verse', 'Pre-Chorus', 'Chorus', 'Bridge', 'Outro'];
+// Re-export SECTION_PRESETS for backward compatibility
+export { SECTION_PRESETS };
 
 /**
  * Generate a unique display name for a new section.

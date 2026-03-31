@@ -15,7 +15,6 @@ const STATUS_LABELS = {
 function FragmentPanel({ projectId, onInsert }: FragmentPanelProps) {
   const [fragments, setFragments] = useState<CollectedFragment[]>([]);
   const [loading, setLoading] = useState(true);
-  const [showAddForm, setShowAddForm] = useState(false);
   const [newText, setNewText] = useState('');
   const [newSource, setNewSource] = useState('');
   const [newTags, setNewTags] = useState('');
@@ -53,7 +52,6 @@ function FragmentPanel({ projectId, onInsert }: FragmentPanelProps) {
       setNewText('');
       setNewSource('');
       setNewTags('');
-      setShowAddForm(false);
     } catch (e) {
       console.error('Failed to create fragment:', e);
     }
@@ -71,7 +69,7 @@ function FragmentPanel({ projectId, onInsert }: FragmentPanelProps) {
   };
 
   const handleDelete = async (id: string) => {
-    if (!confirm('この断片を削除しますか？')) return;
+    if (!confirm('このフレーズを削除しますか？')) return;
 
     try {
       await deleteFragment(id);
@@ -98,16 +96,12 @@ function FragmentPanel({ projectId, onInsert }: FragmentPanelProps) {
   return (
     <div className="fragment-panel">
       <div className="panel-header">
-        <h4>📝 断片</h4>
-        <button onClick={() => setShowAddForm(!showAddForm)} className="add-btn">
-          {showAddForm ? '×' : '+'}
-        </button>
+        <h4>フレーズ</h4>
       </div>
 
-      {showAddForm && (
-        <div className="add-fragment-form">
+      <div className="add-fragment-form">
           <textarea
-            placeholder="断片のテキスト..."
+            placeholder="フレーズのテキスト..."
             value={newText}
             onChange={(e) => setNewText(e.target.value)}
             rows={3}
@@ -132,7 +126,6 @@ function FragmentPanel({ projectId, onInsert }: FragmentPanelProps) {
             追加
           </button>
         </div>
-      )}
 
       <div className="fragment-filters">
         <input
@@ -169,7 +162,7 @@ function FragmentPanel({ projectId, onInsert }: FragmentPanelProps) {
         {loading ? (
           <p className="loading-text">読み込み中...</p>
         ) : filteredFragments.length === 0 ? (
-          <p className="empty-text">断片がありません</p>
+          <p className="empty-text">フレーズがありません</p>
         ) : (
           filteredFragments.map(f => (
             <div key={f.collected_fragment_id} className={`fragment-item status-${f.status}`}>

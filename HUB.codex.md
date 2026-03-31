@@ -40,6 +40,7 @@ LyricLytic 配下のドキュメント・仕様・タスクを集約し、実装
 |---|---|
 | `docs/implementation/system-architecture-v1.md` | 4 層構成正本 |
 | `docs/implementation/command-contracts-v1.md` | Tauri command 契約正本 |
+| `docs/implementation/test-design-v1.md` | テスト設計 / 運用チェックリスト正本 |
 | `docs/implementation/bootstrap-checklist-v1.md` | 初期縦切り手順 |
 | `docs/requirements/sqlite-schema-v1.sql` | SQLite 正本 |
 
@@ -52,6 +53,8 @@ LyricLytic 配下のドキュメント・仕様・タスクを集約し、実装
 | `docs/requirements/local-llm-connector-v1.md` | LLM 接続仕様 |
 | `docs/requirements/logical-delete-ui-v1.md` | 論理削除 UI |
 | `docs/requirements/export-spec-v1.md` | エクスポート仕様 |
+| `docs/requirements/frontend-design/runtime-visual-gap-review-20260401.md` | モックと現行 UI の質感差分レビュー |
+| `docs/requirements/frontend-design/runtime-visual-gap-checklist-20260401.md` | フロント質感差分の対応チェックリスト |
 
 ## 3. PoC フェーズ参照
 

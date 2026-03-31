@@ -1,10 +1,6 @@
+// Unified API exports - use client.ts for all API calls
+export * from './api/client';
 export * from './api/types';
-export * from './api/projects';
-export * from './api/drafts';
-export * from './api/versions';
-export * from './api/fragments';
-export * from './api/songArtifacts';
-export * from './api/revisionNotes';
-export * from './api/styleProfiles';
-export * from './api/exports';
-export * from './api/trash';
+
+// Hooks
+export * from './useProjectData';

@@ -53,7 +53,7 @@
   width: 100%;
   padding: 0.5rem;
   background: var(--accent);
-  color: white;
+  color: var(--accent-contrast);
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -142,6 +142,7 @@
 
 .fragment-actions .delete-btn:hover {
   background: var(--danger);
+  color: var(--danger-contrast);
 }
 
 /* Fragment header with status badge */
@@ -159,7 +160,7 @@
   border-radius: 4px;
   font-size: 0.625rem;
   font-weight: 500;
-  color: white;
+  color: var(--accent-contrast);
 }
 
 .fragment-tags {
@@ -212,6 +213,7 @@
   display: flex;
   align-items: center;
   gap: 0.25rem;
+  color: var(--accent-contrast);
 }
 
 /* Fragment count */

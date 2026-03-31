@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { buildSearchResults, extractAllTags, SearchResult, SearchType } from './search/searchUtils';
+import { useLanguage } from '../lib/LanguageContext';
 
 interface SearchPanelProps {
   projectId: string;
@@ -27,6 +28,7 @@ function SearchPanel({
   onJumpToVersion,
   onJumpToFragment,
 }: SearchPanelProps) {
+  const { t } = useLanguage();
   const [searchType, setSearchType] = useState<SearchType>('draft');
   const [query, setQuery] = useState('');
   const [results, setResults] = useState<SearchResult[]>([]);
@@ -60,7 +62,7 @@ function SearchPanel({
   return (
     <div className="search-panel">
       <div className="search-header">
-        <h4>🔍 Search</h4>
+        <h4>🔍 {t('search')}</h4>
       </div>
 
       <div className="search-type-tabs">
@@ -68,25 +70,25 @@ function SearchPanel({
           className={searchType === 'draft' ? 'active' : ''}
           onClick={() => setSearchType('draft')}
         >
-          Draft
+          {t('searchDraft')}
         </button>
         <button
           className={searchType === 'versions' ? 'active' : ''}
           onClick={() => setSearchType('versions')}
         >
-          Versions
+          {t('searchVersions')}
         </button>
         <button
           className={searchType === 'fragments' ? 'active' : ''}
           onClick={() => setSearchType('fragments')}
         >
-          Fragments
+          {t('fragments')}
         </button>
         <button
           className={searchType === 'tags' ? 'active' : ''}
           onClick={() => setSearchType('tags')}
         >
-          Tags
+          {t('searchTags')}
         </button>
       </div>
 
@@ -96,7 +98,7 @@ function SearchPanel({
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
-          placeholder={searchType === 'tags' ? 'Search tags...' : 'Search...'}
+          placeholder={searchType === 'tags' ? t('searchTagsPlaceholder') : t('searchPlaceholder')}
           className="search-input"
         />
         <button onClick={handleSearch} className="search-btn" disabled={searching}>
@@ -106,7 +108,7 @@ function SearchPanel({
 
       {searchType === 'tags' && allTags.length > 0 && (
         <div className="tag-suggestions">
-          <span className="tag-hint">Available tags:</span>
+          <span className="tag-hint">{t('availableTags')}</span>
           <div className="tag-list">
             {allTags.slice(0, 10).map(tag => (
               <button
@@ -120,14 +122,14 @@ function SearchPanel({
                 {tag}
               </button>
             ))}
-            {allTags.length > 10 && <span className="tag-more">+{allTags.length - 10} more</span>}
+            {allTags.length > 10 && <span className="tag-more">+{allTags.length - 10} {t('moreCount')}</span>}
           </div>
         </div>
       )}
 
       <div className="search-results">
         {results.length === 0 && query && !searching && (
-          <p className="no-results">No results found</p>
+          <p className="no-results">{t('noResultsFound')}</p>
         )}
         {results.map((r, idx) => (
           <div

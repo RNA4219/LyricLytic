@@ -22,6 +22,35 @@
   overflow: hidden;
 }
 
+.llm-managed-runtime-card {
+  margin-bottom: 0.75rem;
+  padding: 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--bg-tertiary) 72%, transparent);
+}
+
+.llm-managed-runtime-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  align-items: flex-start;
+  margin-bottom: 0.75rem;
+}
+
+.llm-managed-runtime-header strong {
+  display: block;
+  font-size: 0.82rem;
+  margin-bottom: 0.2rem;
+}
+
+.llm-managed-runtime-header p {
+  margin: 0;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
 .llm-header {
   display: flex;
   justify-content: space-between;
@@ -51,6 +80,12 @@
   margin-bottom: 0.5rem;
 }
 
+.llm-model-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 0.35rem;
+}
+
 .llm-field label {
   font-size: 0.75rem;
   color: var(--text-secondary);
@@ -72,6 +107,112 @@
 .llm-field input:disabled,
 .llm-field select:disabled {
   opacity: 0.5;
+}
+
+.llm-path-row {
+  display: flex;
+  gap: 0.5rem;
+  align-items: stretch;
+}
+
+.llm-path-row-multi {
+  flex-wrap: wrap;
+}
+
+.llm-path-row input {
+  flex: 1;
+  min-width: 180px;
+}
+
+.llm-path-btn {
+  flex: 0 0 auto;
+  padding: 0.5rem 0.8rem;
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+
+.llm-path-btn.secondary {
+  background: transparent;
+  color: var(--text-secondary);
+}
+
+.llm-path-btn:hover:not(:disabled) {
+  background: var(--bg-active);
+}
+
+.llm-path-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.refresh-models-btn {
+  padding: 0.35rem 0.65rem;
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 0.75rem;
+}
+
+.llm-managed-runtime-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.35rem;
+}
+
+.llm-runtime-btn {
+  flex: 1;
+  padding: 0.55rem 0.85rem;
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+
+.llm-runtime-btn.secondary {
+  background: transparent;
+  color: var(--text-secondary);
+}
+
+.llm-runtime-btn:hover:not(:disabled) {
+  background: var(--bg-active);
+}
+
+.llm-runtime-btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.refresh-models-btn:hover:not(:disabled) {
+  background: var(--bg-active);
+}
+
+.refresh-models-btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.llm-help,
+.llm-error-text {
+  display: block;
+  margin-top: 0.35rem;
+  font-size: 0.75rem;
+}
+
+.llm-help {
+  color: var(--text-secondary);
+}
+
+.llm-error-text {
+  color: rgba(236, 241, 250, 0.86);
 }
 
 .llm-warning {
@@ -126,7 +267,7 @@
 
 .status-badge.error {
   background: var(--danger);
-  color: white;
+  color: var(--danger-contrast);
 }
 
 .status-badge.unknown {
@@ -170,7 +311,7 @@
   margin: 0 0.5rem;
   padding: 0.5rem;
   background: var(--accent);
-  color: white;
+  color: var(--accent-contrast);
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -183,7 +324,7 @@
 }
 
 .llm-error {
-  color: var(--danger);
+  color: rgba(236, 241, 250, 0.86);
   font-size: 0.75rem;
   padding: 0.5rem;
   margin: 0;
@@ -229,4 +370,329 @@
   border-radius: 4px;
   cursor: pointer;
   font-size: 0.75rem;
+}
+
+/* LLM Candidates Display */
+.llm-candidates {
+  padding: 0.5rem;
+  border-top: 1px solid var(--border);
+}
+
+.candidates-header {
+  margin-bottom: 0.5rem;
+}
+
+.candidates-header h5 {
+  margin: 0;
+  font-size: 0.875rem;
+  color: var(--text-primary);
+}
+
+.candidates-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-height: 250px;
+  overflow-y: auto;
+  margin-bottom: 0.5rem;
+}
+
+.candidate-item {
+  padding: 0.5rem;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.candidate-item:hover {
+  background: var(--bg-active);
+}
+
+.candidate-item.selected {
+  border-color: var(--accent);
+  background: var(--bg-active);
+}
+
+.candidate-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.candidate-title {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.candidate-preview {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  white-space: pre-wrap;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+}
+
+.candidates-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.candidates-actions .insert-btn {
+  flex: 1;
+  padding: 0.5rem;
+  background: var(--success);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.75rem;
+}
+
+.candidates-actions .insert-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.candidates-actions .insert-all-btn {
+  flex: 1;
+  padding: 0.5rem;
+  background: var(--accent);
+  color: var(--accent-contrast);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.75rem;
+}
+
+.candidates-actions .insert-all-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.candidates-actions .discard-btn {
+  padding: 0.5rem;
+  background: transparent;
+  color: var(--text-secondary);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.75rem;
+}
+
+/* Raw Response Fallback */
+.llm-raw-response {
+  padding: 0.5rem;
+  border-top: 1px solid var(--border);
+}
+
+.raw-response-note {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+}
+
+.raw-response-text {
+  font-size: 0.75rem;
+  color: var(--text-primary);
+  white-space: pre-wrap;
+  margin: 0;
+  padding: 0.5rem;
+  background: var(--bg-tertiary);
+  border-radius: 4px;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.raw-response-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.raw-response-actions .insert-btn {
+  flex: 1;
+  padding: 0.5rem;
+  background: var(--success);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.75rem;
+}
+
+.raw-response-actions .discard-btn {
+  padding: 0.5rem;
+  background: transparent;
+  color: var(--text-secondary);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.75rem;
+}
+
+/* LLM Review Panel */
+.llm-review-panel {
+  margin-top: 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.llm-review-panel .panel-header {
+  padding: 0.5rem;
+  background: var(--bg-tertiary);
+}
+
+.llm-review-panel .panel-header h4 {
+  margin: 0;
+  font-size: 0.875rem;
+}
+
+.review-description {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  padding: 0.5rem;
+  margin: 0;
+}
+
+.review-settings {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.5rem;
+}
+
+.review-field {
+  flex: 1;
+}
+
+.review-field label {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.review-field input {
+  width: 100%;
+  padding: 0.5rem;
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font-size: 0.875rem;
+}
+
+.analyze-btn {
+  width: calc(100% - 1rem);
+  margin: 0 0.5rem;
+  padding: 0.5rem;
+  background: var(--accent);
+  color: var(--accent-contrast);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.875rem;
+}
+
+.analyze-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Expressions Result */
+.expressions-result {
+  padding: 0.5rem;
+  border-top: 1px solid var(--border);
+}
+
+.expressions-header h5 {
+  margin: 0 0 0.5rem 0;
+  font-size: 0.875rem;
+  color: var(--text-primary);
+}
+
+.expressions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-height: 200px;
+  overflow-y: auto;
+  margin-bottom: 0.5rem;
+}
+
+.expression-item {
+  padding: 0.5rem;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+}
+
+.expression-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.expression-ratio {
+  font-size: 0.75rem;
+  font-weight: bold;
+  color: var(--danger-contrast);
+  padding: 0.25rem 0.5rem;
+  background: var(--bg-secondary);
+  border-radius: 4px;
+}
+
+.expression-text {
+  font-size: 0.875rem;
+  color: var(--text-primary);
+}
+
+.expression-reason {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.get-candidates-btn {
+  width: 100%;
+  padding: 0.5rem;
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.875rem;
+}
+
+.get-candidates-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Candidates Result in Review Panel */
+.llm-review-panel .candidates-result {
+  padding: 0.5rem;
+  border-top: 1px solid var(--border);
+}
+
+.llm-review-panel .candidates-result .candidates-header h5 {
+  margin: 0 0 0.5rem 0;
+  font-size: 0.875rem;
+  color: var(--text-primary);
+}
+
+.llm-review-panel .candidates-result .candidates-list {
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.llm-review-panel .candidates-result .candidate-rationale {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  margin: 0.25rem 0 0 0;
 }

@@ -1,4 +1,4 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest';
+import { describe, it, expect, beforeEach } from 'vitest';
 import { render, screen, fireEvent, waitFor, act } from '@testing-library/react';
 import { useState } from 'react';
 import { BrowserRouter } from 'react-router-dom';
@@ -91,7 +91,7 @@ describe('Language integration tests', () => {
       render(<MockApp />);
 
       expect(screen.getByText('AI音楽生成向け歌詞制作ツール')).toBeDefined();
-      expect(screen.getByText('プロジェクト')).toBeDefined();
+      expect(screen.getByText('プロジェクト (1)')).toBeDefined();
       expect(screen.getByText('+ 新規プロジェクト')).toBeDefined();
       expect(screen.getByText('⋯ その他')).toBeDefined();
       expect(screen.getByText('ローカルファースト • 自動保存 • バージョン履歴')).toBeDefined();
@@ -106,11 +106,12 @@ describe('Language integration tests', () => {
 
       await waitFor(() => {
         expect(screen.getByText('Lyric production tool for AI music generation')).toBeDefined();
-        expect(screen.getByText('Projects')).toBeDefined();
-        expect(screen.getByText('+ New Project')).toBeDefined();
-        expect(screen.getByText('⋯ More')).toBeDefined();
-        expect(screen.getByText('Local-first • Auto-save • Version history')).toBeDefined();
       });
+
+      expect(screen.getByText('Projects (1)')).toBeDefined();
+      expect(screen.getByText('+ New Project')).toBeDefined();
+      expect(screen.getByText('⋯ More')).toBeDefined();
+      expect(screen.getByText('Local-first • Auto-save • Version history')).toBeDefined();
     });
 
     it('should switch all text elements at once', async () => {

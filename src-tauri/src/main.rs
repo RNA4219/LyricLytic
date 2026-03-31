@@ -11,6 +11,7 @@ fn main() {
     tauri::Builder::default()
         .plugin(tauri_plugin_shell::init())
         .plugin(tauri_plugin_dialog::init())
+        .manage(commands::llm_runtime::LlamaCppRuntimeState::default())
         .setup(|app| {
             let app_handle = app.handle();
             db::init_database(&app_handle)?;
@@ -49,6 +50,9 @@ fn main() {
             commands::style_profile::update_style_profile,
             commands::style_profile::delete_style_profile,
             commands::export::export_project,
+            commands::llm_runtime::get_llama_cpp_runtime_status,
+            commands::llm_runtime::start_llama_cpp_runtime,
+            commands::llm_runtime::stop_llama_cpp_runtime,
             commands::trash::get_deleted_items,
             commands::trash::restore_fragment,
             commands::trash::restore_song_artifact,

@@ -24,6 +24,7 @@ interface EditorOverlaysProps {
   onCloseDeleteDialog: () => void;
   onDeleteProject: () => void;
   onCloseDiffViewer: () => void;
+  onRestoreVersion: (version: LyricVersion) => void;
   onCloseExportPanel: () => void;
   onImportAsFragment: (text: string, source: string) => void;
   onImportAsBody: (text: string) => void;
@@ -51,6 +52,7 @@ function EditorOverlays({
   onCloseDeleteDialog,
   onDeleteProject,
   onCloseDiffViewer,
+  onRestoreVersion,
   onCloseExportPanel,
   onImportAsFragment,
   onImportAsBody,
@@ -98,7 +100,7 @@ function EditorOverlays({
 
       {showDiffViewer && (
         <div className="modal-overlay">
-          <DiffViewer versions={versions} onClose={onCloseDiffViewer} />
+          <DiffViewer versions={versions} onClose={onCloseDiffViewer} onRestore={onRestoreVersion} />
         </div>
       )}
 

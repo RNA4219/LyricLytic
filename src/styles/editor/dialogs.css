@@ -31,7 +31,7 @@
 }
 
 .dialog .warning {
-  color: var(--accent);
+  color: rgba(235, 240, 250, 0.82);
   font-size: 0.875rem;
 }
 
@@ -70,10 +70,12 @@
 
 .dialog-buttons button.primary {
   background: var(--accent);
+  color: var(--accent-contrast);
 }
 
 .dialog-buttons button.danger {
   background: var(--danger);
+  color: var(--danger-contrast);
 }
 
 .dialog-buttons button:hover {
@@ -82,7 +84,7 @@
 
 /* Error & Loading */
 .error {
-  color: var(--accent);
+  color: rgba(235, 240, 250, 0.84);
   font-size: 0.875rem;
   margin-top: 0.5rem;
 }

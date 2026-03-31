@@ -7,12 +7,12 @@ import SongArtifactList from './songArtifacts/SongArtifactList';
 interface SongArtifactPanelProps {
   projectId: string;
   versions: LyricVersion[];
+  onShowSaveDialog?: () => void;
 }
 
-function SongArtifactPanel({ projectId, versions }: SongArtifactPanelProps) {
+function SongArtifactPanel({ projectId, versions, onShowSaveDialog }: SongArtifactPanelProps) {
   const [artifacts, setArtifacts] = useState<SongArtifact[]>([]);
   const [loading, setLoading] = useState(true);
-  const [showAddForm, setShowAddForm] = useState(false);
   const [selectedVersionId, setSelectedVersionId] = useState<string>('');
   const [serviceName, setServiceName] = useState('');
   const [songTitle, setSongTitle] = useState('');
@@ -73,7 +73,6 @@ function SongArtifactPanel({ projectId, versions }: SongArtifactPanelProps) {
   };
 
   const resetForm = () => {
-    setShowAddForm(false);
     setSelectedVersionId('');
     setServiceName('');
     setSongTitle('');
@@ -103,26 +102,24 @@ function SongArtifactPanel({ projectId, versions }: SongArtifactPanelProps) {
     <div className="song-artifact-panel">
       <div className="panel-header">
         <h4>🎵 Song Links</h4>
-        <button onClick={() => setShowAddForm(!showAddForm)} className="add-btn">
-          {showAddForm ? '×' : '+'}
-        </button>
       </div>
 
       {versions.length === 0 && (
         <div className="no-versions-warning">
-          <p className="warning-text">⚠️ No saved versions available.</p>
-          <p className="hint-text">Save a snapshot first to link songs to a specific version.</p>
+          <p className="warning-text">⚠️ No saved versions available</p>
+          <p className="hint-text">
+            Working Draft cannot be directly linked to songs.
+            Save a snapshot first to create version-specific song links.
+          </p>
+          {onShowSaveDialog && (
+            <button onClick={onShowSaveDialog} className="save-version-btn">
+              💾 Save Snapshot
+            </button>
+          )}
         </div>
       )}
 
-      {showAddForm && versions.length === 0 && (
-        <div className="guard-message">
-          <p>Working Draft cannot be directly linked to songs.</p>
-          <p>Please save a snapshot first, then add song links.</p>
-        </div>
-      )}
-
-      {showAddForm && versions.length > 0 && (
+      {versions.length > 0 && (
         <SongArtifactForm
           versions={versions}
           selectedVersionId={selectedVersionId}

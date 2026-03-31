@@ -1,11 +1,14 @@
+import { useState } from 'react';
 import CopyOptionsPanel from '../../components/CopyOptionsPanel';
 import FragmentPanel from '../../components/FragmentPanel';
 import LLMAssistPanel from '../../components/LLMAssistPanel';
-import LLMSettingsPanel, { LLMSettings } from '../../components/LLMSettingsPanel';
+import LLMReviewPanel from '../../components/LLMReviewPanel';
+import LLMSettingsPanel from '../../components/LLMSettingsPanel';
 import SearchPanel from '../../components/SearchPanel';
 import SongArtifactPanel from '../../components/SongArtifactPanel';
-import StyleProfilePanel from '../../components/StyleProfilePanel';
 import { LyricVersion, Project } from '../../lib/api';
+import { LLMSettings } from '../../lib/llm';
+import { useLanguage } from '../../lib/LanguageContext';
 import { Section, sectionsToBody } from './sectionUtils';
 
 interface FragmentSummary {
@@ -16,6 +19,8 @@ interface FragmentSummary {
   tags?: string[];
 }
 
+type InspectorTab = 'search' | 'fragments' | 'song' | 'history' | 'llm';
+
 interface ActionPaneProps {
   project: Project;
   projectId: string;
@@ -24,138 +29,168 @@ interface ActionPaneProps {
   versions: LyricVersion[];
   fragments: FragmentSummary[];
   llmSettings: LLMSettings;
-  showSearchPanel: boolean;
-  showFragmentPanel: boolean;
-  showSongPanel: boolean;
-  error: string | null;
   onSetShowSaveDialog: (value: boolean) => void;
-  onCopyNotify: () => void;
-  onSetShowExportPanel: (value: boolean) => void;
-  onSetShowImportDialog: (value: boolean) => void;
-  onToggleSearchPanel: () => void;
-  onToggleFragmentPanel: () => void;
-  onToggleSongPanel: () => void;
   onJumpToVersion: (versionId: string) => void;
   onInsertFragment: (text: string) => void;
   onLLMSettingsChange: (settings: LLMSettings) => void;
 }
 
 function ActionPane({
-  project,
   projectId,
   sections,
   activeSectionId,
   versions,
   fragments,
   llmSettings,
-  showSearchPanel,
-  showFragmentPanel,
-  showSongPanel,
-  error,
   onSetShowSaveDialog,
-  onCopyNotify,
-  onSetShowExportPanel,
-  onSetShowImportDialog,
-  onToggleSearchPanel,
-  onToggleFragmentPanel,
-  onToggleSongPanel,
   onJumpToVersion,
   onInsertFragment,
   onLLMSettingsChange,
 }: ActionPaneProps) {
+  const { language, t } = useLanguage();
+  const [activeTab, setActiveTab] = useState<InspectorTab>('llm');
+
+  const tabs: { id: InspectorTab; label: string }[] = [
+    { id: 'llm', label: t('aiAssist') },
+    { id: 'search', label: t('search') },
+    { id: 'fragments', label: t('fragments') },
+    { id: 'song', label: t('song') },
+    { id: 'history', label: t('history') },
+  ];
+
   return (
-    <div className="right-pane action-pane">
-      <h3>アクション</h3>
-
-      <button onClick={() => onSetShowSaveDialog(true)} className="primary-btn">
-        💾 スナップショット保存
-      </button>
-
-      <CopyOptionsPanel
-        sections={sections}
-        activeSectionId={activeSectionId}
-        onCopy={onCopyNotify}
-      />
-
-      <button onClick={() => onSetShowExportPanel(true)} className="secondary-btn">
-        📤 エクスポート
-      </button>
-
-      <button onClick={() => onSetShowImportDialog(true)} className="secondary-btn">
-        📥 .txt インポート
-      </button>
-
-      <button
-        onClick={onToggleSearchPanel}
-        className={`toggle-btn ${showSearchPanel ? 'active' : ''}`}
-      >
-        🔍 検索 {showSearchPanel ? '▼' : '▶'}
-      </button>
-
-      {showSearchPanel && (
-        <SearchPanel
-          projectId={projectId}
-          draftText={sectionsToBody(sections)}
-          versions={versions}
-          fragments={fragments}
-          onJumpToVersion={onJumpToVersion}
+    <div className="inspector-pane">
+      {/* Action Buttons */}
+      <div className="inspector-actions">
+        <CopyOptionsPanel
+          sections={sections}
+          activeSectionId={activeSectionId}
+          onCopy={() => {}}
         />
-      )}
-
-      <button
-        onClick={onToggleFragmentPanel}
-        className={`toggle-btn ${showFragmentPanel ? 'active' : ''}`}
-      >
-        📝 断片 {showFragmentPanel ? '▼' : '▶'}
-      </button>
-
-      {showFragmentPanel && (
-        <FragmentPanel projectId={projectId} onInsert={onInsertFragment} />
-      )}
-
-      <button
-        onClick={onToggleSongPanel}
-        className={`toggle-btn ${showSongPanel ? 'active' : ''}`}
-      >
-        🎵 曲リンク {showSongPanel ? '▼' : '▶'}
-      </button>
-
-      {showSongPanel && (
-        <SongArtifactPanel projectId={projectId} versions={versions} />
-      )}
-
-      <LLMSettingsPanel onSettingsChange={onLLMSettingsChange} />
-
-      <LLMAssistPanel
-        runtime={llmSettings.runtime}
-        baseUrl={llmSettings.baseUrl}
-        model={llmSettings.model}
-        modelPath={llmSettings.modelPath}
-        enabled={llmSettings.enabled}
-        onInsert={onInsertFragment}
-      />
-
-      <StyleProfilePanel projectId={projectId} />
-
-      <div className="project-settings">
-        <h4>プロジェクト設定</h4>
-        <label>
-          タイトル:
-          <input
-            value={project.title}
-            onChange={() => {/* TODO: update project */}}
-            readOnly
-          />
-        </label>
-        {project.theme && (
-          <label>
-            テーマ:
-            <input value={project.theme} readOnly />
-          </label>
-        )}
       </div>
 
-      {error && <p className="error">{error}</p>}
+      {/* Tab Bar */}
+      <div className="inspector-tabs">
+        {tabs.map((tab) => (
+          <button
+            key={tab.id}
+            className={`inspector-tab ${activeTab === tab.id ? 'active' : ''}`}
+            onClick={() => setActiveTab(tab.id)}
+          >
+            {tab.label}
+          </button>
+        ))}
+      </div>
+
+      {/* Content Area */}
+      <div className="inspector-content">
+        {activeTab === 'search' && (
+          <div className="inspector-section">
+            <SearchPanel
+              projectId={projectId}
+              draftText={sectionsToBody(sections)}
+              versions={versions}
+              fragments={fragments}
+              onJumpToVersion={onJumpToVersion}
+            />
+          </div>
+        )}
+
+        {activeTab === 'fragments' && (
+          <div className="inspector-section">
+            <div className="inspector-section-header">
+              <h3>{t('suggestedFragments')}</h3>
+            </div>
+            <FragmentPanel projectId={projectId} onInsert={onInsertFragment} />
+          </div>
+        )}
+
+        {activeTab === 'song' && (
+          <div className="inspector-section">
+            <div className="inspector-section-header">
+              <h3>{t('linkedArtifact')}</h3>
+            </div>
+            <SongArtifactPanel
+              projectId={projectId}
+              versions={versions}
+              onShowSaveDialog={() => onSetShowSaveDialog(true)}
+            />
+          </div>
+        )}
+
+        {activeTab === 'history' && (
+          <div className="inspector-section">
+            <div className="inspector-section-header">
+              <h3>{t('lyricVersions')}</h3>
+            </div>
+            <div className="version-timeline">
+              {versions.length === 0 ? (
+                <div className="empty-state">
+                  <p>{t('noSavedVersions')}</p>
+                  <button
+                    onClick={() => onSetShowSaveDialog(true)}
+                    className="primary-btn"
+                  >
+                    {t('saveSnapshot')}
+                  </button>
+                </div>
+              ) : (
+                versions.map((version) => (
+                  <div key={version.lyric_version_id} className="version-timeline-item">
+                    <div className="version-timeline-dot" />
+                    <div className="version-timeline-content">
+                      <div className="version-timeline-name">{version.snapshot_name}</div>
+                      <div className="version-timeline-date">
+                        {new Date(version.created_at).toLocaleString(language === 'ja' ? 'ja-JP' : 'en-US', {
+                          month: 'short',
+                          day: 'numeric',
+                          hour: '2-digit',
+                          minute: '2-digit',
+                        })}
+                      </div>
+                    </div>
+                  </div>
+                ))
+              )}
+            </div>
+          </div>
+        )}
+
+        {activeTab === 'llm' && (
+          <div className="inspector-section inspector-section-llm">
+            <div className="llm-section-header">
+              <h3>{t('aiAssist')}</h3>
+            </div>
+            <LLMAssistPanel
+              runtime={llmSettings.runtime}
+              baseUrl={llmSettings.baseUrl}
+              model={llmSettings.model}
+              modelPath={llmSettings.modelPath}
+              enabled={llmSettings.enabled}
+              timeoutMs={llmSettings.timeoutMs}
+              maxTokens={llmSettings.maxTokens}
+              temperature={llmSettings.temperature}
+              onInsert={onInsertFragment}
+            />
+            <LLMReviewPanel
+              runtime={llmSettings.runtime}
+              baseUrl={llmSettings.baseUrl}
+              model={llmSettings.model}
+              modelPath={llmSettings.modelPath}
+              enabled={llmSettings.enabled}
+              timeoutMs={llmSettings.timeoutMs}
+              maxTokens={llmSettings.maxTokens}
+              temperature={llmSettings.temperature}
+              sectionText={sections.find(s => s.id === activeSectionId)?.bodyText || ''}
+              onInsert={onInsertFragment}
+            />
+            <LLMSettingsPanel
+              settings={llmSettings}
+              onSettingsChange={onLLMSettingsChange}
+            />
+          </div>
+        )}
+      </div>
     </div>
   );
 }

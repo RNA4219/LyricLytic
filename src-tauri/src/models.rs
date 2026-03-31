@@ -18,6 +18,8 @@ pub struct WorkingDraft {
     pub working_draft_id: String,
     pub project_id: String,
     pub latest_body_text: String,
+    pub style_text: Option<String>,
+    pub vocal_text: Option<String>,
     pub updated_at: DateTime<Utc>,
 }
 
@@ -73,6 +75,8 @@ pub struct SaveDraftInput {
     pub project_id: String,
     pub body_text: String,
     pub sections: Vec<DraftSectionInput>,
+    pub style_text: Option<String>,
+    pub vocal_text: Option<String>,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -210,4 +214,22 @@ pub struct UpdateStyleProfileInput {
     pub taboo_words: Option<String>,
     pub structure_preference: Option<String>,
     pub memo: Option<String>,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct StartLlamaCppInput {
+    pub executable_path: String,
+    pub model_path: String,
+    pub base_url: String,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct LlamaCppStatus {
+    pub running: bool,
+    pub pid: Option<u32>,
+    pub executable_path: Option<String>,
+    pub model_path: Option<String>,
+    pub resolved_model_path: Option<String>,
+    pub base_url: Option<String>,
+    pub message: Option<String>,
 }

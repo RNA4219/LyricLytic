@@ -79,7 +79,7 @@
 
 .add-artifact-form .save-btn {
   background: var(--accent);
-  color: white;
+  color: var(--accent-contrast);
 }
 
 .add-artifact-form .save-btn:disabled {
@@ -109,6 +109,7 @@
   padding: 0.125rem 0.5rem;
   border-radius: 4px;
   font-size: 0.75rem;
+  color: var(--accent-contrast);
 }
 
 .version-badge {
@@ -164,7 +165,7 @@
   padding: 0.25rem 0.5rem;
   background: transparent;
   border: 1px solid var(--danger);
-  color: var(--danger);
+  color: var(--danger-contrast);
   border-radius: 4px;
   cursor: pointer;
   font-size: 0.75rem;
@@ -172,5 +173,80 @@
 
 .artifact-actions .delete-btn:hover {
   background: var(--danger);
-  color: white;
+  color: var(--danger-contrast);
+}
+
+/* No Versions Warning */
+.no-versions-warning {
+  padding: 0.75rem;
+  background: var(--bg-tertiary);
+  border-bottom: 1px solid var(--border);
+}
+
+.no-versions-warning .warning-text {
+  color: var(--text-primary);
+  font-weight: 500;
+  margin: 0 0 0.25rem 0;
+}
+
+.no-versions-warning .hint-text {
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+  margin: 0 0 0.5rem 0;
+}
+
+.no-versions-warning .save-version-btn {
+  width: 100%;
+  padding: 0.5rem;
+  background: var(--accent);
+  color: var(--accent-contrast);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.875rem;
+}
+
+/* Guard Message */
+.guard-message {
+  padding: 0.75rem;
+  background: var(--bg-tertiary);
+  border-bottom: 1px solid var(--border);
+}
+
+.guard-title {
+  color: var(--text-primary);
+  font-weight: 500;
+  margin: 0 0 0.25rem 0;
+}
+
+.guard-description {
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+  margin: 0 0 0.5rem 0;
+}
+
+.guard-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.guard-actions .save-version-btn {
+  flex: 1;
+  padding: 0.5rem;
+  background: var(--accent);
+  color: var(--accent-contrast);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.875rem;
+}
+
+.guard-actions .cancel-btn {
+  padding: 0.5rem;
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.875rem;
 }

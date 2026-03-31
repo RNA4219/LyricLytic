@@ -7,7 +7,7 @@ use uuid::Uuid;
 
 pub fn get_active_by_project(conn: &Connection, project_id: &str) -> AppResult<Option<WorkingDraft>> {
     let mut stmt = conn.prepare(
-        "SELECT working_draft_id, project_id, latest_body_text, updated_at
+        "SELECT working_draft_id, project_id, latest_body_text, style_text, vocal_text, updated_at
          FROM working_drafts
          WHERE project_id = ?1 AND deleted_at IS NULL"
     )?;
@@ -17,7 +17,9 @@ pub fn get_active_by_project(conn: &Connection, project_id: &str) -> AppResult<O
             working_draft_id: row.get(0)?,
             project_id: row.get(1)?,
             latest_body_text: row.get(2)?,
-            updated_at: row.get(3)?,
+            style_text: row.get(3)?,
+            vocal_text: row.get(4)?,
+            updated_at: row.get(5)?,
         })
     });
 
@@ -55,29 +57,34 @@ pub fn save(conn: &Connection, input: SaveDraftInput) -> AppResult<WorkingDraft>
     let now = Utc::now();
     let now_rfc3339 = now.to_rfc3339();
 
+    let style_text = input.style_text.clone().unwrap_or_default();
+    let vocal_text = input.vocal_text.clone().unwrap_or_default();
+
     // Get or create draft
     let draft = if let Some(existing) = get_active_by_project(conn, &input.project_id)? {
         existing
     } else {
         let draft_id = Uuid::new_v4().to_string();
         conn.execute(
-            "INSERT INTO working_drafts (working_draft_id, project_id, latest_body_text, updated_at)
-             VALUES (?1, ?2, ?3, ?4)",
-            params![draft_id, input.project_id, input.body_text, now_rfc3339],
+            "INSERT INTO working_drafts (working_draft_id, project_id, latest_body_text, style_text, vocal_text, updated_at)
+             VALUES (?1, ?2, ?3, ?4, ?5, ?6)",
+            params![draft_id, input.project_id, input.body_text, style_text, vocal_text, now_rfc3339],
         )?;
 
         WorkingDraft {
             working_draft_id: draft_id,
             project_id: input.project_id.clone(),
             latest_body_text: input.body_text.clone(),
+            style_text: Some(style_text.clone()),
+            vocal_text: Some(vocal_text.clone()),
             updated_at: now,
         }
     };
 
-    // Update body text
+    // Update body text, style_text, vocal_text
     conn.execute(
-        "UPDATE working_drafts SET latest_body_text = ?1, updated_at = ?2 WHERE working_draft_id = ?3",
-        params![input.body_text, now_rfc3339, draft.working_draft_id],
+        "UPDATE working_drafts SET latest_body_text = ?1, style_text = ?2, vocal_text = ?3, updated_at = ?4 WHERE working_draft_id = ?5",
+        params![input.body_text, style_text, vocal_text, now_rfc3339, draft.working_draft_id],
     )?;
 
     // Delete existing sections
@@ -110,6 +117,8 @@ pub fn save(conn: &Connection, input: SaveDraftInput) -> AppResult<WorkingDraft>
         working_draft_id: draft.working_draft_id,
         project_id: input.project_id,
         latest_body_text: input.body_text,
+        style_text: Some(style_text),
+        vocal_text: Some(vocal_text),
         updated_at: now,
     })
 }

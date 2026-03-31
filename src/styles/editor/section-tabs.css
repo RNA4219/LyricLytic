@@ -1,38 +1,154 @@
-/* Section Tabs */
-.section-tabs {
+/* Section List Pane - Glass effect */
+.section-list-pane {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
-  padding: 0;
-  background: transparent;
-  border-bottom: none;
+  gap: 1rem;
+  padding: 1.25rem;
+  background: rgba(6, 12, 28, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  overflow-y: auto;
 }
 
-.section-tab {
+.section-list-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 0.75rem;
-  padding: 0.75rem 0.875rem;
-  background: var(--bg-tertiary);
-  border: 1px solid var(--border);
-  border-radius: 10px;
+  gap: 1rem;
+}
+
+.section-list-header h3 {
+  margin: 0;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--primary);
+}
+
+.section-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.5rem;
+  height: 1.5rem;
+  padding: 0 0.375rem;
+  border-radius: 999px;
+  background: var(--surface-container-high);
+  color: var(--on-surface-variant);
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+/* Section Add - Collapsed by default */
+.section-add {
+  position: relative;
+}
+
+.section-add-toggle {
+  width: 100%;
+  padding: 0.75rem;
+  background: transparent;
+  border: 1px dashed rgba(100, 116, 139, 0.5);
+  border-radius: 8px;
+  color: var(--on-surface-variant);
   cursor: pointer;
-  transition: background 0.2s, border-color 0.2s;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.section-add-toggle:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  transform: translateY(-1px);
+}
+
+.section-add-expand {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.25rem;
+  padding: 0.5rem;
+  background: rgba(15, 23, 42, 0.5);
+  border-radius: 8px;
+  margin-top: 0.5rem;
+}
+
+.add-section-btn {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--on-surface-variant);
+  padding: 0.375rem 0.5rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.625rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: all 0.2s;
+}
+
+.add-section-btn:hover {
+  background: var(--primary);
+  color: var(--on-primary);
+  border-color: var(--primary);
+  transform: translateY(-1px);
+}
+
+/* Section List */
+.section-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+}
+
+/* Section Tab - Card Style with glass effect */
+.section-tab {
+  display: flex;
+  flex-direction: column;
+  padding: 0.75rem 1rem;
+  background: rgba(30, 41, 59, 0.3);
+  border: 1px solid transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 .section-tab:hover {
-  background: var(--bg-active);
-  border-color: var(--accent);
+  background: rgba(30, 41, 59, 0.5);
+  border-color: rgba(192, 193, 255, 0.2);
+  transform: translateY(-1px);
 }
 
+/* Active state - Primary accent */
 .section-tab.active {
-  background: var(--accent);
-  border-color: var(--accent);
+  background: rgba(99, 102, 241, 0.1);
+  border-color: rgba(192, 193, 255, 0.3);
 }
 
 .section-tab-all {
-  background: rgba(255,255,255,0.03);
+  flex-direction: row;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.section-tab-all:hover {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.section-tab-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
 }
 
 .section-tab-meta {
@@ -40,94 +156,240 @@
   align-items: center;
   gap: 0.75rem;
   min-width: 0;
+  flex: 1;
 }
 
+/* Drag handle */
+.section-drag-handle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1rem;
+  height: 1.5rem;
+  cursor: grab;
+  color: var(--outline);
+  font-size: 0.625rem;
+  letter-spacing: -0.1em;
+  opacity: 0.5;
+  flex-shrink: 0;
+}
+
+.section-drag-handle:hover {
+  opacity: 1;
+  color: var(--primary);
+}
+
+.section-drag-handle:active {
+  cursor: grabbing;
+}
+
+/* Order badge - Primary accent */
 .section-order {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 2rem;
-  height: 2rem;
-  padding: 0 0.5rem;
-  border-radius: 999px;
-  background: rgba(255,255,255,0.08);
-  color: var(--text-secondary);
-  font-size: 0.75rem;
+  min-width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 6px;
+  background: rgba(192, 193, 255, 0.15);
+  color: var(--primary);
+  font-size: 0.625rem;
   font-weight: 700;
 }
 
 .section-tab.active .section-order {
-  background: rgba(0,0,0,0.18);
-  color: var(--text-primary);
+  background: var(--primary);
+  color: var(--on-primary);
+  box-shadow: 0 0 6px rgba(192, 193, 255, 0.3);
+}
+
+/* Drag and drop styles */
+.section-tab {
+  cursor: grab;
+}
+
+.section-tab.dragging {
+  opacity: 0.06;
+  cursor: grabbing;
+  transform: scale(0.96);
+  border-style: dashed;
+  border-color: rgba(192, 193, 255, 0.3);
+  background: rgba(99, 102, 241, 0.04);
+  box-shadow: inset 0 0 0 1px rgba(192, 193, 255, 0.08);
+}
+
+.section-tab.drag-over {
+  border-color: var(--primary);
+  background: rgba(99, 102, 241, 0.15);
+  box-shadow: 0 0 8px rgba(99, 102, 241, 0.3);
+}
+
+.section-tab-placeholder {
+  display: flex;
+  align-items: center;
+  min-height: 72px;
+  padding: 0.9rem 1rem;
+  border-radius: 10px;
+  border: 1px dashed rgba(192, 193, 255, 0.28);
+  background: rgba(99, 102, 241, 0.06);
+}
+
+.section-tab-placeholder.drag-over {
+  border-color: rgba(192, 193, 255, 0.48);
+  background: rgba(99, 102, 241, 0.12);
+  box-shadow: inset 0 0 0 1px rgba(192, 193, 255, 0.12);
+}
+
+.section-placeholder-label {
+  font-size: 0.74rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+body.section-reorder-active,
+body.section-reorder-active * {
+  cursor: grabbing !important;
+}
+
+.section-drag-preview {
+  position: fixed;
+  z-index: 9999;
+  width: min(340px, 34vw);
+  pointer-events: none;
+  padding: 0.85rem 1rem;
+  border-radius: 10px;
+  border: 1px solid rgba(192, 193, 255, 0.35);
+  background: linear-gradient(180deg, rgba(20, 28, 48, 0.96), rgba(10, 16, 32, 0.96));
+  box-shadow:
+    0 34px 68px rgba(2, 6, 23, 0.58),
+    0 14px 28px rgba(76, 90, 200, 0.22),
+    0 0 0 1px rgba(255, 255, 255, 0.04) inset;
+  transform: translate3d(0, -10px, 0) rotate(-2deg) scale(1.06);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  animation: section-drag-float 1.6s ease-in-out infinite alternate;
+}
+
+.section-drag-preview-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.22rem 0.5rem;
+  margin-bottom: 0.55rem;
+  border-radius: 999px;
+  background: rgba(192, 193, 255, 0.16);
+  color: rgba(236, 241, 250, 0.88);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.section-drag-preview::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  border: 1px solid rgba(192, 193, 255, 0.18);
+  opacity: 0.8;
+}
+
+@keyframes section-drag-float {
+  from {
+    transform: translate3d(0, -10px, 0) rotate(-2deg) scale(1.06);
+  }
+  to {
+    transform: translate3d(0, -14px, 0) rotate(-1.1deg) scale(1.075);
+  }
 }
 
 .section-all-label {
-  color: var(--text-primary);
-  font-size: 0.95rem;
+  color: var(--on-surface);
+  font-size: 0.8125rem;
+  font-weight: 500;
 }
 
 .section-name-input {
   background: transparent;
   border: none;
-  color: var(--text-primary);
-  font-size: 0.95rem;
+  color: var(--on-surface);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
   width: 100%;
   min-width: 0;
+  padding: 0;
 }
 
 .section-name-input:focus {
   outline: none;
-  background: rgba(255,255,255,0.1);
-  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 4px;
+  padding: 0.125rem 0.25rem;
 }
 
+/* Preview - Serif italic */
+.section-preview {
+  font-size: 0.625rem;
+  font-family: var(--font-headline);
+  font-style: italic;
+  color: var(--outline);
+  margin-top: 0.375rem;
+  padding-left: 2.25rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  opacity: 0.8;
+}
+
+/* Action buttons - Hidden by default */
 .section-tab-actions {
   display: flex;
-  gap: 0.25rem;
-  opacity: 0.55;
+  gap: 0.125rem;
+  opacity: 0;
   transition: opacity 0.2s;
 }
 
 .section-tab:hover .section-tab-actions {
-  opacity: 1;
+  opacity: 0.7;
 }
 
 .section-tab-actions button {
   background: transparent;
   border: none;
-  color: var(--text-secondary);
+  color: var(--outline);
   cursor: pointer;
-  padding: 0.125rem 0.25rem;
+  padding: 0.25rem;
   font-size: 0.75rem;
+  border-radius: 4px;
+  transition: all 0.15s;
 }
 
 .section-tab-actions button:hover {
-  color: var(--text-primary);
+  color: var(--primary);
+  background: rgba(192, 193, 255, 0.1);
 }
 
-.section-add {
-  display: flex;
-  gap: 0.25rem;
-  flex-wrap: wrap;
+.section-tab-actions button:active {
+  transform: scale(0.95);
 }
 
-.section-add-inline {
-  margin-top: -0.25rem;
+/* Custom scrollbar */
+.section-list-pane::-webkit-scrollbar {
+  width: 4px;
 }
 
-.add-section-btn {
-  background: var(--bg-tertiary);
-  border: 1px dashed var(--border);
-  color: var(--text-secondary);
-  padding: 0.25rem 0.5rem;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 0.75rem;
-  transition: all 0.2s;
+.section-list-pane::-webkit-scrollbar-track {
+  background: transparent;
 }
 
-.add-section-btn:hover {
-  background: var(--accent);
-  color: var(--text-primary);
-  border-style: solid;
+.section-list-pane::-webkit-scrollbar-thumb {
+  background: var(--outline-variant);
+  border-radius: 10px;
+}
+
+.section-list-pane::-webkit-scrollbar-thumb:hover {
+  background: var(--outline);
 }
