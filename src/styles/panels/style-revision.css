@@ -1,0 +1,171 @@
+/* Style Profile Panel */
+.style-panel {
+  margin-top: 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.style-panel .panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+  background: var(--bg-tertiary);
+}
+
+.style-panel .panel-header h4 {
+  margin: 0;
+  font-size: 0.875rem;
+}
+
+.edit-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+}
+
+.style-form {
+  padding: 0.5rem;
+}
+
+.style-form .form-field {
+  margin-bottom: 0.5rem;
+}
+
+.style-form label {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.style-form input,
+.style-form textarea {
+  width: 100%;
+  padding: 0.5rem;
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font-size: 0.875rem;
+}
+
+.style-form .form-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.style-view {
+  padding: 0.5rem;
+}
+
+.style-item {
+  font-size: 0.75rem;
+  margin-bottom: 0.25rem;
+}
+
+.style-item .label {
+  color: var(--text-secondary);
+}
+
+.style-item .value.taboo {
+  color: var(--accent);
+}
+
+.style-item.memo {
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--border);
+}
+
+.empty-hint {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  text-align: center;
+}
+
+/* Revision Note Panel */
+.revision-note-panel {
+  margin-top: 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.revision-note-panel .panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+  background: var(--bg-tertiary);
+}
+
+.revision-note-panel .panel-header h4 {
+  margin: 0;
+  font-size: 0.75rem;
+}
+
+.add-note-form {
+  padding: 0.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.add-note-form select,
+.add-note-form textarea {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font-size: 0.875rem;
+}
+
+.notes-list {
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.note-item {
+  padding: 0.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.note-item.type-weakness {
+  border-left: 3px solid var(--danger);
+}
+
+.note-item.type-hook {
+  border-left: 3px solid var(--success);
+}
+
+.note-item.type-rewrite {
+  border-left: 3px solid #f0ad4e;
+}
+
+.note-item.type-hold {
+  border-left: 3px solid var(--text-secondary);
+}
+
+.note-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.25rem;
+}
+
+.note-type {
+  font-size: 0.625rem;
+  padding: 0.125rem 0.25rem;
+  background: var(--bg-tertiary);
+  border-radius: 2px;
+}
+
+.note-comment {
+  font-size: 0.75rem;
+  white-space: pre-wrap;
+}

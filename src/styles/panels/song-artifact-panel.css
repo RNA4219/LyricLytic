@@ -1,0 +1,176 @@
+/* Song Artifact Panel */
+.song-artifact-panel {
+  margin-top: 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.song-artifact-panel .panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+  background: var(--bg-tertiary);
+}
+
+.song-artifact-panel .panel-header h4 {
+  margin: 0;
+  font-size: 0.875rem;
+}
+
+.song-artifact-panel .add-btn {
+  background: transparent;
+  border: none;
+  color: var(--accent);
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.add-artifact-form {
+  padding: 0.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.add-artifact-form input,
+.add-artifact-form select,
+.add-artifact-form textarea {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 0.25rem;
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font-size: 0.875rem;
+}
+
+.add-artifact-form textarea {
+  min-height: 40px;
+  resize: vertical;
+}
+
+.add-artifact-form .form-hint {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  margin: 0 0 0.25rem 0;
+}
+
+.add-artifact-form .form-buttons {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.add-artifact-form .cancel-btn,
+.add-artifact-form .save-btn {
+  flex: 1;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.875rem;
+}
+
+.add-artifact-form .cancel-btn {
+  background: var(--bg-tertiary);
+  color: var(--text-secondary);
+}
+
+.add-artifact-form .save-btn {
+  background: var(--accent);
+  color: white;
+}
+
+.add-artifact-form .save-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.artifact-list {
+  max-height: 250px;
+  overflow-y: auto;
+}
+
+.artifact-item {
+  padding: 0.5rem;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.875rem;
+}
+
+.artifact-header {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.service-badge {
+  background: var(--accent);
+  padding: 0.125rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+}
+
+.version-badge {
+  background: var(--bg-tertiary);
+  padding: 0.125rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+.artifact-title {
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+}
+
+.artifact-links {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.link-btn {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.75rem;
+}
+
+.link-btn:hover {
+  background: var(--bg-active);
+}
+
+.file-path {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+.artifact-memo {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.25rem;
+}
+
+.artifact-actions {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.artifact-actions .delete-btn {
+  padding: 0.25rem 0.5rem;
+  background: transparent;
+  border: 1px solid var(--danger);
+  color: var(--danger);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.75rem;
+}
+
+.artifact-actions .delete-btn:hover {
+  background: var(--danger);
+  color: white;
+}

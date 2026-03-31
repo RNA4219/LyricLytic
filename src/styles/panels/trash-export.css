@@ -1,0 +1,133 @@
+/* Trash Panel */
+.trash-toggle-btn {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  width: 100%;
+}
+
+.trash-toggle-btn:hover {
+  background: var(--bg-active);
+}
+
+.trash-panel {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.trash-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.trash-header h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.trash-header .close-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 1.25rem;
+  cursor: pointer;
+  padding: 0.25rem;
+}
+
+.trash-header .close-btn:hover {
+  color: var(--text-primary);
+}
+
+.deleted-list {
+  list-style: none;
+}
+
+.deleted-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem;
+  background: var(--bg-tertiary);
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+}
+
+.deleted-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.deleted-title {
+  font-weight: 500;
+}
+
+.deleted-date {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+.restore-btn {
+  padding: 0.5rem 1rem;
+  background: var(--success);
+  border: none;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.875rem;
+}
+
+.restore-btn:hover {
+  opacity: 0.9;
+}
+
+/* Export Panel */
+.export-dialog {
+  min-width: 400px;
+}
+
+.export-info {
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+}
+
+.export-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.export-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 1rem;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  transition: background 0.2s;
+}
+
+.export-btn:hover {
+  background: var(--bg-active);
+}
+
+.export-btn .export-desc {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  margin-top: 0.25rem;
+}
