@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { getProjects, createProject, deleteProject, Project } from '../lib/api';
+import { getProjects, createProject, deleteProject, getStyleProfile, Project, StyleProfile } from '../lib/api';
 import { useLanguage } from '../lib/LanguageContext';
 import TrashPanel from '../components/TrashPanel';
 
@@ -10,6 +10,7 @@ function Home() {
   const navigate = useNavigate();
   const { t, language } = useLanguage();
   const [projects, setProjects] = useState<Project[]>([]);
+  const [styleProfiles, setStyleProfiles] = useState<Map<string, StyleProfile>>(new Map());
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [newProjectTitle, setNewProjectTitle] = useState('');
@@ -26,6 +27,20 @@ function Home() {
       const data = await getProjects();
       setProjects(data);
       setError(null);
+
+      // Load style profiles for each project
+      const profileMap = new Map<string, StyleProfile>();
+      for (const project of data) {
+        try {
+          const profile = await getStyleProfile(project.project_id);
+          if (profile) {
+            profileMap.set(project.project_id, profile);
+          }
+        } catch {
+          // Style profile may not exist, ignore
+        }
+      }
+      setStyleProfiles(profileMap);
     } catch (e) {
       setError(t('loadFailed'));
       console.error(e);
@@ -286,9 +301,9 @@ function Home() {
 
                     <h4>{project.title}</h4>
                     <p className="home-project-desc">
-                      {project.theme
-                        ? project.theme
-                        : (language === 'ja'
+                      {styleProfiles.get(project.project_id)?.memo
+                        || project.theme
+                        || (language === 'ja'
                           ? '新しいフレーズ、構成、改稿のアイデアをここから育てる。'
                           : 'Develop new phrases, structures, and rewrites from here.')}
                     </p>

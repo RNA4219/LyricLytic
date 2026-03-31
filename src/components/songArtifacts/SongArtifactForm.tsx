@@ -1,4 +1,5 @@
 import { LyricVersion } from '../../lib/api';
+import { useLanguage } from '../../lib/LanguageContext';
 
 interface SongArtifactFormProps {
   versions: LyricVersion[];
@@ -43,13 +44,15 @@ function SongArtifactForm({
   onCancel,
   onSubmit,
 }: SongArtifactFormProps) {
+  const { t } = useLanguage();
+
   return (
     <div className="add-artifact-form">
       <select
         value={selectedVersionId}
         onChange={(event) => onSelectedVersionIdChange(event.target.value)}
       >
-        <option value="">Select version...</option>
+        <option value="">{t('selectVersion')}</option>
         {versions.map((version) => (
           <option key={version.lyric_version_id} value={version.lyric_version_id}>
             {version.snapshot_name}
@@ -59,59 +62,59 @@ function SongArtifactForm({
 
       <input
         type="text"
-        placeholder="Service name (e.g., Suno, Udio)"
+        placeholder={t('serviceNamePlaceholder')}
         value={serviceName}
         onChange={(event) => onServiceNameChange(event.target.value)}
       />
 
       <input
         type="text"
-        placeholder="Song title"
+        placeholder={t('songTitlePlaceholder')}
         value={songTitle}
         onChange={(event) => onSongTitleChange(event.target.value)}
       />
 
       <input
         type="text"
-        placeholder="Source URL"
+        placeholder={t('sourceUrlPlaceholder')}
         value={sourceUrl}
         onChange={(event) => onSourceUrlChange(event.target.value)}
       />
-      <p className="form-hint">URL or File path required</p>
+      <p className="form-hint">{t('urlOrFileRequired')}</p>
 
       <input
         type="text"
-        placeholder="Or local file path"
+        placeholder={t('localFilePathPlaceholder')}
         value={sourceFilePath}
         onChange={(event) => onSourceFilePathChange(event.target.value)}
       />
 
       <textarea
-        placeholder="Prompt memo"
+        placeholder={t('promptMemoPlaceholder')}
         value={promptMemo}
         onChange={(event) => onPromptMemoChange(event.target.value)}
       />
 
       <textarea
-        placeholder="Style memo"
+        placeholder={t('styleMemoPlaceholder')}
         value={styleMemo}
         onChange={(event) => onStyleMemoChange(event.target.value)}
       />
 
       <textarea
-        placeholder="Evaluation memo"
+        placeholder={t('evaluationMemoPlaceholder')}
         value={evaluationMemo}
         onChange={(event) => onEvaluationMemoChange(event.target.value)}
       />
 
       <div className="form-buttons">
-        <button onClick={onCancel} className="cancel-btn">Cancel</button>
+        <button onClick={onCancel} className="cancel-btn">{t('cancel')}</button>
         <button
           onClick={onSubmit}
           className="save-btn"
           disabled={!selectedVersionId || !serviceName || (!sourceUrl && !sourceFilePath)}
         >
-          Add
+          {t('add')}
         </button>
       </div>
     </div>

@@ -257,10 +257,10 @@
 /* Editor Pane Header - Large spacing, serif headline */
 .editor-pane-header {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: flex-start;
   gap: 1rem;
-  padding: 3rem 4rem 2rem;
+  padding: 1rem 1.5rem;
   background: rgba(6, 12, 28, 0.95);
   min-width: 0;
 }
@@ -310,7 +310,14 @@
 
 .editor-header-main {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+}
+
+.editor-header-meta {
+  display: flex;
+  align-items: center;
   gap: 0.5rem;
 }
 
@@ -318,7 +325,6 @@
   display: flex;
   align-items: center;
   gap: 0.85rem;
-  flex-wrap: wrap;
 }
 
 .editor-bpm-control,
@@ -359,6 +365,36 @@
   font-size: 0.9rem;
   color: rgba(236, 241, 250, 0.92);
   font-weight: 600;
+}
+
+.editor-save-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  min-height: 2.35rem;
+  padding: 0.4rem 0.75rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-container) 100%);
+  border: none;
+  color: var(--on-primary);
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 4px 12px rgba(192, 193, 255, 0.15);
+}
+
+.editor-save-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(192, 193, 255, 0.25);
+}
+
+.editor-save-btn svg {
+  flex-shrink: 0;
+}
+
+.editor-save-btn span {
+  white-space: nowrap;
 }
 
 /* Headline - Serif, large, light weight */

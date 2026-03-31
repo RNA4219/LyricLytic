@@ -1,18 +1,14 @@
 import { useState, useEffect } from 'react';
 import { getFragments, createFragment, updateFragment, deleteFragment, CollectedFragment } from '../lib/api';
+import { useLanguage } from '../lib/LanguageContext';
 
 interface FragmentPanelProps {
   projectId: string;
   onInsert: (text: string) => void;
 }
 
-const STATUS_LABELS = {
-  unused: { label: '未使用', color: '#4ade80' },
-  used: { label: '使用済み', color: '#60a5fa' },
-  hold: { label: '保留', color: '#fbbf24' },
-};
-
 function FragmentPanel({ projectId, onInsert }: FragmentPanelProps) {
+  const { t } = useLanguage();
   const [fragments, setFragments] = useState<CollectedFragment[]>([]);
   const [loading, setLoading] = useState(true);
   const [newText, setNewText] = useState('');
@@ -21,6 +17,12 @@ function FragmentPanel({ projectId, onInsert }: FragmentPanelProps) {
   const [filter, setFilter] = useState<string>('all');
   const [searchQuery, setSearchQuery] = useState('');
   const [tagFilter, setTagFilter] = useState<string>('');
+
+  const STATUS_LABELS = {
+    unused: { label: t('fragmentStatusUnused'), color: '#4ade80' },
+    used: { label: t('fragmentStatusUsed'), color: '#60a5fa' },
+    hold: { label: t('fragmentStatusHold'), color: '#fbbf24' },
+  };
 
   useEffect(() => {
     loadFragments();
@@ -69,7 +71,7 @@ function FragmentPanel({ projectId, onInsert }: FragmentPanelProps) {
   };
 
   const handleDelete = async (id: string) => {
-    if (!confirm('このフレーズを削除しますか？')) return;
+    if (!confirm(t('fragmentDeleteConfirm'))) return;
 
     try {
       await deleteFragment(id);
@@ -96,25 +98,25 @@ function FragmentPanel({ projectId, onInsert }: FragmentPanelProps) {
   return (
     <div className="fragment-panel">
       <div className="panel-header">
-        <h4>フレーズ</h4>
+        <h4>{t('fragments')}</h4>
       </div>
 
       <div className="add-fragment-form">
           <textarea
-            placeholder="フレーズのテキスト..."
+            placeholder={t('fragmentPlaceholder')}
             value={newText}
             onChange={(e) => setNewText(e.target.value)}
             rows={3}
           />
           <input
             type="text"
-            placeholder="出典 (任意)"
+            placeholder={t('fragmentSourcePlaceholder')}
             value={newSource}
             onChange={(e) => setNewSource(e.target.value)}
           />
           <input
             type="text"
-            placeholder="タグ (カンマ区切り)"
+            placeholder={t('fragmentTagsPlaceholder')}
             value={newTags}
             onChange={(e) => setNewTags(e.target.value)}
           />
@@ -123,23 +125,23 @@ function FragmentPanel({ projectId, onInsert }: FragmentPanelProps) {
             className="save-btn"
             disabled={!newText.trim()}
           >
-            追加
+            {t('fragmentAdd')}
           </button>
         </div>
 
       <div className="fragment-filters">
         <input
           type="text"
-          placeholder="検索..."
+          placeholder={t('searchPlaceholder')}
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
           className="search-input"
         />
         <select value={filter} onChange={(e) => setFilter(e.target.value)}>
-          <option value="all">すべて</option>
-          <option value="unused">未使用</option>
-          <option value="used">使用済み</option>
-          <option value="hold">保留</option>
+          <option value="all">{t('filterAll')}</option>
+          <option value="unused">{t('fragmentStatusUnused')}</option>
+          <option value="used">{t('fragmentStatusUsed')}</option>
+          <option value="hold">{t('fragmentStatusHold')}</option>
         </select>
       </div>
 
@@ -150,7 +152,7 @@ function FragmentPanel({ projectId, onInsert }: FragmentPanelProps) {
             onChange={(e) => setTagFilter(e.target.value)}
             className="tag-filter-select"
           >
-            <option value="">タグで絞り込み</option>
+            <option value="">{t('filterByTag')}</option>
             {allTags.map(tag => (
               <option key={tag} value={tag}>{tag}</option>
             ))}
@@ -160,9 +162,9 @@ function FragmentPanel({ projectId, onInsert }: FragmentPanelProps) {
 
       <div className="fragment-list">
         {loading ? (
-          <p className="loading-text">読み込み中...</p>
+          <p className="loading-text">{t('loading')}</p>
         ) : filteredFragments.length === 0 ? (
-          <p className="empty-text">フレーズがありません</p>
+          <p className="empty-text">{t('noFragments')}</p>
         ) : (
           filteredFragments.map(f => (
             <div key={f.collected_fragment_id} className={`fragment-item status-${f.status}`}>
@@ -182,21 +184,21 @@ function FragmentPanel({ projectId, onInsert }: FragmentPanelProps) {
                 )}
               </div>
               <div className="fragment-text">{f.text}</div>
-              {f.source && <div className="fragment-source">出典: {f.source}</div>}
+              {f.source && <div className="fragment-source">{t('fragmentSource')}: {f.source}</div>}
               <div className="fragment-actions">
-                <button onClick={() => onInsert(f.text)} title="挿入" className="insert-btn">
-                  📥 挿入
+                <button onClick={() => onInsert(f.text)} title={t('fragmentInsert')} className="insert-btn">
+                  📥 {t('fragmentInsert')}
                 </button>
                 <select
                   value={f.status}
                   onChange={(e) => handleStatusChange(f.collected_fragment_id, e.target.value as 'unused' | 'used' | 'hold')}
                   className="status-select"
                 >
-                  <option value="unused">未使用</option>
-                  <option value="used">使用済み</option>
-                  <option value="hold">保留</option>
+                  <option value="unused">{t('fragmentStatusUnused')}</option>
+                  <option value="used">{t('fragmentStatusUsed')}</option>
+                  <option value="hold">{t('fragmentStatusHold')}</option>
                 </select>
-                <button onClick={() => handleDelete(f.collected_fragment_id)} className="delete-btn" title="削除">
+                <button onClick={() => handleDelete(f.collected_fragment_id)} className="delete-btn" title={t('fragmentDelete')}>
                   🗑
                 </button>
               </div>
@@ -206,7 +208,7 @@ function FragmentPanel({ projectId, onInsert }: FragmentPanelProps) {
       </div>
 
       <div className="fragment-count">
-        {filteredFragments.length} / {fragments.length} 件
+        {filteredFragments.length} / {fragments.length} {t('fragmentItems')}
       </div>
     </div>
   );

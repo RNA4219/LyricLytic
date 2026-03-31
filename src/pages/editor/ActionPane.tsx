@@ -98,18 +98,12 @@ function ActionPane({
 
         {activeTab === 'fragments' && (
           <div className="inspector-section">
-            <div className="inspector-section-header">
-              <h3>{t('suggestedFragments')}</h3>
-            </div>
             <FragmentPanel projectId={projectId} onInsert={onInsertFragment} />
           </div>
         )}
 
         {activeTab === 'song' && (
           <div className="inspector-section">
-            <div className="inspector-section-header">
-              <h3>{t('linkedArtifact')}</h3>
-            </div>
             <SongArtifactPanel
               projectId={projectId}
               versions={versions}
@@ -120,9 +114,6 @@ function ActionPane({
 
         {activeTab === 'history' && (
           <div className="inspector-section">
-            <div className="inspector-section-header">
-              <h3>{t('lyricVersions')}</h3>
-            </div>
             <div className="version-timeline">
               {versions.length === 0 ? (
                 <div className="empty-state">
@@ -158,9 +149,6 @@ function ActionPane({
 
         {activeTab === 'llm' && (
           <div className="inspector-section inspector-section-llm">
-            <div className="llm-section-header">
-              <h3>{t('aiAssist')}</h3>
-            </div>
             <LLMAssistPanel
               runtime={llmSettings.runtime}
               baseUrl={llmSettings.baseUrl}

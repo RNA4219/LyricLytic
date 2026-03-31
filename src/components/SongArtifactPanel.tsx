@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { open } from '@tauri-apps/plugin-shell';
 import { getSongArtifacts, createSongArtifact, deleteSongArtifact, SongArtifact, LyricVersion } from '../lib/api';
+import { useLanguage } from '../lib/LanguageContext';
 import SongArtifactForm from './songArtifacts/SongArtifactForm';
 import SongArtifactList from './songArtifacts/SongArtifactList';
 
@@ -11,6 +12,7 @@ interface SongArtifactPanelProps {
 }
 
 function SongArtifactPanel({ projectId, versions, onShowSaveDialog }: SongArtifactPanelProps) {
+  const { t } = useLanguage();
   const [artifacts, setArtifacts] = useState<SongArtifact[]>([]);
   const [loading, setLoading] = useState(true);
   const [selectedVersionId, setSelectedVersionId] = useState<string>('');
@@ -62,7 +64,7 @@ function SongArtifactPanel({ projectId, versions, onShowSaveDialog }: SongArtifa
   };
 
   const handleDelete = async (id: string) => {
-    if (!confirm('Delete this song link?')) return;
+    if (!confirm(t('deleteSongLinkConfirm'))) return;
 
     try {
       await deleteSongArtifact(id);
@@ -89,7 +91,7 @@ function SongArtifactPanel({ projectId, versions, onShowSaveDialog }: SongArtifa
   };
 
   const openExternalUrl = async (url: string) => {
-    if (confirm(`Open external link?\n${url}`)) {
+    if (confirm(`${t('openExternalLink')}\n${url}`)) {
       try {
         await open(url);
       } catch (e) {
@@ -101,19 +103,18 @@ function SongArtifactPanel({ projectId, versions, onShowSaveDialog }: SongArtifa
   return (
     <div className="song-artifact-panel">
       <div className="panel-header">
-        <h4>🎵 Song Links</h4>
+        <h4>🎵 {t('songLinks')}</h4>
       </div>
 
       {versions.length === 0 && (
         <div className="no-versions-warning">
-          <p className="warning-text">⚠️ No saved versions available</p>
+          <p className="warning-text">⚠️ {t('noSavedVersionsWarning')}</p>
           <p className="hint-text">
-            Working Draft cannot be directly linked to songs.
-            Save a snapshot first to create version-specific song links.
+            {t('noVersionsHint')}
           </p>
           {onShowSaveDialog && (
             <button onClick={onShowSaveDialog} className="save-version-btn">
-              💾 Save Snapshot
+              💾 {t('saveSnapshot')}
             </button>
           )}
         </div>

@@ -4,6 +4,7 @@ import Editor from '@monaco-editor/react';
 import { getProject, getWorkingDraft, getDraftSections, saveDraft, getVersions, createVersion, deleteProject, getFragments, createFragment, Project, LyricVersion, DraftSectionInput, VersionSectionInput } from '../lib/api';
 import { useLLMSettings } from '../lib/llm';
 import { useLanguage } from '../lib/LanguageContext';
+import { useProject } from '../lib/ProjectContext';
 import { usePaneResize, useKeyboardShortcuts, createEditorShortcuts } from '../lib/hooks';
 import { EDITOR, SECTION_PRESETS } from '../lib/config';
 import ActionPane from './editor/ActionPane';
@@ -17,6 +18,7 @@ function EditorPage() {
   const { projectId } = useParams<{ projectId: string }>();
   const navigate = useNavigate();
   const { language, t } = useLanguage();
+  const { setProjectTitle } = useProject();
   const [project, setProject] = useState<Project | null>(null);
   const [versions, setVersions] = useState<LyricVersion[]>([]);
   const [sections, setSections] = useState<Section[]>([]);
@@ -64,7 +66,6 @@ function EditorPage() {
     isLeftPaneVisible,
     rightPaneRef,
     showLeftPane,
-    hideLeftPane,
     handleLeftPaneResizeStart,
     handleRightPaneResizeStart,
     handleSectionPaneResizeStart,
@@ -112,6 +113,13 @@ function EditorPage() {
     };
   }, []);
 
+  // Clear project title on unmount
+  useEffect(() => {
+    return () => {
+      setProjectTitle(null);
+    };
+  }, [setProjectTitle]);
+
   useEffect(() => {
     if (activeSection !== EDITOR.ALL_SECTIONS_ID) {
       setAllViewText(sectionsToBody(sections));
@@ -140,6 +148,7 @@ function EditorPage() {
 
       const projectData = await getProject(pid);
       setProject(projectData);
+      setProjectTitle(projectData.title);
 
       const [draftResult, versionResult, fragmentResult] = await Promise.allSettled([
         getWorkingDraft(pid),
@@ -733,16 +742,12 @@ function EditorPage() {
       {isLeftPaneVisible && (
         <>
           <VersionPane
-            projectTitle={project.title}
             versions={versions}
-            saving={saving}
-            lastSaved={lastSaved}
             width={leftPaneWidth}
             styleText={styleText}
             vocalText={vocalText}
             onStyleTextChange={handleStyleTextChange}
             onVocalTextChange={handleVocalTextChange}
-            onToggleVisibility={() => hideLeftPane()}
             onOpenNotes={setSelectedVersionForNotes}
             onRestoreVersion={restoreVersion}
             onShowDiff={() => setShowDiffViewer(true)}
@@ -824,6 +829,18 @@ function EditorPage() {
                   <span className="editor-metric-label">{t('estimatedDuration')}</span>
                   <strong>{estimatedSeconds}{t('sec')}</strong>
                 </div>
+                <button
+                  className="editor-save-btn"
+                  onClick={() => setShowSaveDialog(true)}
+                  title={t('saveSnapshot')}
+                >
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path>
+                    <polyline points="17 21 17 13 7 13 7 21"></polyline>
+                    <polyline points="7 3 7 8 15 8"></polyline>
+                  </svg>
+                  <span>{language === 'ja' ? '保存' : 'Save'}</span>
+                </button>
               </div>
             </div>
           </div>

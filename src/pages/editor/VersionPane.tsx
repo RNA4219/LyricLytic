@@ -1,46 +1,62 @@
 import Editor from '@monaco-editor/react';
+import { useState } from 'react';
 import { LyricVersion } from '../../lib/api';
 import { useLanguage } from '../../lib/LanguageContext';
 
 interface VersionPaneProps {
-  projectTitle: string;
   versions: LyricVersion[];
-  saving: boolean;
-  lastSaved: Date | null;
   width: number;
   styleText: string;
   vocalText: string;
   onStyleTextChange: (text: string) => void;
   onVocalTextChange: (text: string) => void;
-  onToggleVisibility: () => void;
   onOpenNotes: (version: LyricVersion) => void;
   onRestoreVersion: (version: LyricVersion) => void;
   onShowDiff: () => void;
 }
 
+const EDITOR_HEIGHTS = [
+  { label: 'S', value: 80 },
+  { label: 'M', value: 120 },
+  { label: 'L', value: 200 },
+  { label: 'XL', value: 300 },
+];
+
 function VersionPane({
-  projectTitle,
   versions,
-  saving,
-  lastSaved,
   width,
   styleText,
   vocalText,
   onStyleTextChange,
   onVocalTextChange,
-  onToggleVisibility,
   onOpenNotes,
   onRestoreVersion,
   onShowDiff,
 }: VersionPaneProps) {
   const { language, t } = useLanguage();
+  const [styleCopied, setStyleCopied] = useState(false);
+  const [vocalCopied, setVocalCopied] = useState(false);
+  const [styleHeightIndex, setStyleHeightIndex] = useState(1);
+  const [vocalHeightIndex, setVocalHeightIndex] = useState(1);
 
-  // Character count function
   const countChars = (text: string) => {
     return text.replace(/\s/g, '').length;
   };
 
-  // Total character count for warning
+  const copyToClipboard = async (text: string, setCopied: (v: boolean) => void) => {
+    try {
+      await navigator.clipboard.writeText(text);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1500);
+    } catch (e) {
+      console.error('Failed to copy:', e);
+    }
+  };
+
+  const cycleHeight = (current: number) => {
+    return (current + 1) % EDITOR_HEIGHTS.length;
+  };
+
   const totalChars = countChars(styleText) + countChars(vocalText);
   const isOverLimit = totalChars >= 1000;
 
@@ -53,77 +69,74 @@ function VersionPane({
     });
   };
 
+  const editorOptions = {
+    minimap: { enabled: false },
+    lineNumbers: 'off' as const,
+    glyphMargin: false,
+    folding: false,
+    lineDecorationsWidth: 0,
+    lineNumbersMinChars: 0,
+    renderLineHighlight: 'none' as const,
+    scrollBeyondLastLine: false,
+    readOnly: false,
+    fontSize: 13,
+    fontFamily: "'Inter', 'Noto Sans JP', sans-serif",
+    wordWrap: 'on' as const,
+    padding: { top: 8, bottom: 8 },
+    scrollbar: {
+      vertical: 'auto' as const,
+      horizontal: 'hidden' as const,
+    },
+    overviewRulerLanes: 0,
+    hideCursorInOverviewRuler: true,
+    overviewRulerBorder: false,
+  };
+
   return (
     <aside className="left-pane structure-nav" style={{ width: `${width}px`, minWidth: `${width}px` }}>
-      {/* Project Header */}
-      <div className="nav-header">
-        <div className="nav-header-main">
-          <button
-            type="button"
-            className="left-pane-edge-toggle"
-            onClick={onToggleVisibility}
-            aria-label="左ペインを隠す"
-            title="左ペインを隠す"
-          >
-            <span className="left-pane-toggle-bars" aria-hidden="true">
-              <span />
-              <span />
-              <span />
-            </span>
-          </button>
-          <div className="project-brand">
-            <span className="brand-name">LyricLytic</span>
-            <h1 className="project-title-display">{projectTitle}</h1>
-          </div>
-        </div>
-        {(saving || lastSaved) && (
-          <div className="save-status">
-            {saving && <span className="saving-indicator">{t('loading')}</span>}
-            {lastSaved && !saving && (
-              <span className="saved-indicator">
-                {t('autosaved')} {lastSaved.toLocaleTimeString(language === 'ja' ? 'ja-JP' : 'en-US', { hour: '2-digit', minute: '2-digit' })}
-              </span>
-            )}
-          </div>
-        )}
-      </div>
-
       {/* Style Input Section */}
       <div className="nav-section style-section">
         <div className="nav-section-header">
           <span className="nav-section-title">Style</span>
-          <span className={`char-count ${isOverLimit ? 'char-count-warning' : ''}`}>{countChars(styleText)} {t('chars')}</span>
+          <div className="nav-section-header-right">
+            <span className={`char-count ${isOverLimit ? 'char-count-warning' : ''}`}>{countChars(styleText)} {t('chars')}</span>
+            <button
+              className="copy-mini-btn"
+              onClick={() => copyToClipboard(styleText, setStyleCopied)}
+              disabled={!styleText.trim()}
+              title="コピー"
+            >
+              {styleCopied ? (
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              ) : (
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                </svg>
+              )}
+            </button>
+          </div>
         </div>
-        <div className="mini-editor-container">
-          <Editor
-            height={120}
-            defaultLanguage="plaintext"
-            value={styleText}
-            onChange={(value) => onStyleTextChange(value || '')}
-            theme="vs-dark"
-            options={{
-              minimap: { enabled: false },
-              lineNumbers: 'off',
-              glyphMargin: false,
-              folding: false,
-              lineDecorationsWidth: 0,
-              lineNumbersMinChars: 0,
-              renderLineHighlight: 'none',
-              scrollBeyondLastLine: false,
-              readOnly: false,
-              fontSize: 13,
-              fontFamily: "'Inter', 'Noto Sans JP', sans-serif",
-              wordWrap: 'on',
-              padding: { top: 8, bottom: 8 },
-              scrollbar: {
-                vertical: 'auto',
-                horizontal: 'hidden',
-              },
-              overviewRulerLanes: 0,
-              hideCursorInOverviewRuler: true,
-              overviewRulerBorder: false,
-            }}
-          />
+        <div className="mini-editor-wrapper">
+          <div className="mini-editor-container">
+            <Editor
+              height={EDITOR_HEIGHTS[styleHeightIndex].value}
+              defaultLanguage="plaintext"
+              value={styleText}
+              onChange={(value) => onStyleTextChange(value || '')}
+              theme="vs-dark"
+              options={editorOptions}
+            />
+          </div>
+          <button
+            className="editor-resize-btn"
+            onClick={() => setStyleHeightIndex(cycleHeight(styleHeightIndex))}
+            title={`サイズ: ${EDITOR_HEIGHTS[styleHeightIndex].label}`}
+          >
+            {EDITOR_HEIGHTS[styleHeightIndex].label}
+          </button>
         </div>
       </div>
 
@@ -131,38 +144,45 @@ function VersionPane({
       <div className="nav-section vocal-section">
         <div className="nav-section-header">
           <span className="nav-section-title">Vocal</span>
-          <span className={`char-count ${isOverLimit ? 'char-count-warning' : ''}`}>{countChars(vocalText)} {t('chars')}</span>
+          <div className="nav-section-header-right">
+            <span className={`char-count ${isOverLimit ? 'char-count-warning' : ''}`}>{countChars(vocalText)} {t('chars')}</span>
+            <button
+              className="copy-mini-btn"
+              onClick={() => copyToClipboard(vocalText, setVocalCopied)}
+              disabled={!vocalText.trim()}
+              title="コピー"
+            >
+              {vocalCopied ? (
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              ) : (
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                </svg>
+              )}
+            </button>
+          </div>
         </div>
-        <div className="mini-editor-container">
-          <Editor
-            height={120}
-            defaultLanguage="plaintext"
-            value={vocalText}
-            onChange={(value) => onVocalTextChange(value || '')}
-            theme="vs-dark"
-            options={{
-              minimap: { enabled: false },
-              lineNumbers: 'off',
-              glyphMargin: false,
-              folding: false,
-              lineDecorationsWidth: 0,
-              lineNumbersMinChars: 0,
-              renderLineHighlight: 'none',
-              scrollBeyondLastLine: false,
-              readOnly: false,
-              fontSize: 13,
-              fontFamily: "'Inter', 'Noto Sans JP', sans-serif",
-              wordWrap: 'on',
-              padding: { top: 8, bottom: 8 },
-              scrollbar: {
-                vertical: 'auto',
-                horizontal: 'hidden',
-              },
-              overviewRulerLanes: 0,
-              hideCursorInOverviewRuler: true,
-              overviewRulerBorder: false,
-            }}
-          />
+        <div className="mini-editor-wrapper">
+          <div className="mini-editor-container">
+            <Editor
+              height={EDITOR_HEIGHTS[vocalHeightIndex].value}
+              defaultLanguage="plaintext"
+              value={vocalText}
+              onChange={(value) => onVocalTextChange(value || '')}
+              theme="vs-dark"
+              options={editorOptions}
+            />
+          </div>
+          <button
+            className="editor-resize-btn"
+            onClick={() => setVocalHeightIndex(cycleHeight(vocalHeightIndex))}
+            title={`サイズ: ${EDITOR_HEIGHTS[vocalHeightIndex].label}`}
+          >
+            {EDITOR_HEIGHTS[vocalHeightIndex].label}
+          </button>
         </div>
       </div>
 
