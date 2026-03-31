@@ -10,6 +10,7 @@ mod repositories;
 fn main() {
     tauri::Builder::default()
         .plugin(tauri_plugin_shell::init())
+        .plugin(tauri_plugin_dialog::init())
         .setup(|app| {
             let app_handle = app.handle();
             db::init_database(&app_handle)?;
@@ -36,6 +37,13 @@ fn main() {
             commands::song_artifact::get_song_artifacts,
             commands::song_artifact::create_song_artifact,
             commands::song_artifact::delete_song_artifact,
+            commands::revision_note::get_revision_notes,
+            commands::revision_note::create_revision_note,
+            commands::revision_note::delete_revision_note,
+            commands::style_profile::get_style_profile,
+            commands::style_profile::create_style_profile,
+            commands::style_profile::update_style_profile,
+            commands::style_profile::delete_style_profile,
         ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");

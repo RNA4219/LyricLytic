@@ -6,6 +6,8 @@ pub mod draft_repo;
 pub mod version_repo;
 pub mod fragment_repo;
 pub mod song_artifact_repo;
+pub mod revision_note_repo;
+pub mod style_profile_repo;
 
 pub fn touch_project_updated_at(conn: &Connection, project_id: &str, timestamp: &str) -> AppResult<()> {
     conn.execute(

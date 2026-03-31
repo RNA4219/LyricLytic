@@ -135,3 +135,58 @@ pub struct CreateSongArtifactInput {
     pub style_memo: Option<String>,
     pub evaluation_memo: Option<String>,
 }
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct RevisionNote {
+    pub revision_note_id: String,
+    pub lyric_version_id: String,
+    pub version_section_id: Option<String>,
+    pub range_start: Option<i32>,
+    pub range_end: Option<i32>,
+    pub note_type: String,
+    pub comment: String,
+    pub created_at: DateTime<Utc>,
+    pub updated_at: DateTime<Utc>,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct CreateRevisionNoteInput {
+    pub lyric_version_id: String,
+    pub version_section_id: Option<String>,
+    pub range_start: Option<i32>,
+    pub range_end: Option<i32>,
+    pub note_type: String,
+    pub comment: String,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct StyleProfile {
+    pub style_profile_id: String,
+    pub project_id: String,
+    pub tone: Option<String>,
+    pub vocabulary_bias: Option<String>,
+    pub taboo_words: Option<String>,
+    pub structure_preference: Option<String>,
+    pub memo: Option<String>,
+    pub created_at: DateTime<Utc>,
+    pub updated_at: DateTime<Utc>,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct CreateStyleProfileInput {
+    pub project_id: String,
+    pub tone: Option<String>,
+    pub vocabulary_bias: Option<String>,
+    pub taboo_words: Option<String>,
+    pub structure_preference: Option<String>,
+    pub memo: Option<String>,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct UpdateStyleProfileInput {
+    pub tone: Option<String>,
+    pub vocabulary_bias: Option<String>,
+    pub taboo_words: Option<String>,
+    pub structure_preference: Option<String>,
+    pub memo: Option<String>,
+}

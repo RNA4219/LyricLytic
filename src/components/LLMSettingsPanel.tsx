@@ -8,6 +8,7 @@ export interface LLMSettings {
   runtime: 'openai_compatible' | 'ollama';
   baseUrl: string;
   model: string;
+  modelPath: string;
   enabled: boolean;
 }
 
@@ -15,6 +16,7 @@ const DEFAULT_SETTINGS: LLMSettings = {
   runtime: 'openai_compatible',
   baseUrl: 'http://127.0.0.1:8080',
   model: 'local-model',
+  modelPath: 'C:\\Users\\ryo-n\\LLM model\\unsloth\\Qwen3.5-27B-GGUF',
   enabled: false,
 };
 
@@ -53,6 +55,12 @@ function LLMSettingsPanel({ onSettingsChange }: LLMSettingsPanelProps) {
 
   const handleModelChange = (model: string) => {
     const newSettings = { ...settings, model };
+    setSettings(newSettings);
+    onSettingsChange(newSettings);
+  };
+
+  const handleModelPathChange = (modelPath: string) => {
+    const newSettings = { ...settings, modelPath };
     setSettings(newSettings);
     onSettingsChange(newSettings);
   };
@@ -121,6 +129,22 @@ function LLMSettingsPanel({ onSettingsChange }: LLMSettingsPanelProps) {
             disabled={!settings.enabled}
           />
         </div>
+
+        {settings.runtime === 'openai_compatible' && (
+          <div className="llm-field">
+            <label>Model Root Path</label>
+            <input
+              type="text"
+              value={settings.modelPath}
+              onChange={(e) => handleModelPathChange(e.target.value)}
+              placeholder="C:\\Users\\ryo-n\\LLM model\\unsloth\\Qwen3.5-27B-GGUF"
+              disabled={!settings.enabled}
+            />
+            <small className="llm-help">
+              `llama.cpp` 系ランタイムで参照するモデル配置ルートです。必要ならこの配下の GGUF まで含めたパスへ変更できます。接続先 API 自体は localhost 上で動作している必要があります。
+            </small>
+          </div>
+        )}
 
         <div className="llm-warning">
           ⚠️ PoC では localhost / 127.0.0.1 上の `llama.cpp` または `Ollama` のみを想定します。

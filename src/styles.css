@@ -1316,3 +1316,388 @@ body {
   cursor: pointer;
   font-size: 0.75rem;
 }
+
+/* Search Panel */
+.search-panel {
+  margin-top: 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.search-panel .search-header {
+  padding: 0.5rem;
+  background: var(--bg-tertiary);
+}
+
+.search-panel .search-header h4 {
+  margin: 0;
+  font-size: 0.875rem;
+}
+
+.search-type-tabs {
+  display: flex;
+  border-bottom: 1px solid var(--border);
+}
+
+.search-type-tabs button {
+  flex: 1;
+  padding: 0.5rem;
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-size: 0.75rem;
+}
+
+.search-type-tabs button.active {
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+}
+
+.search-input-row {
+  display: flex;
+  padding: 0.5rem;
+  gap: 0.5rem;
+}
+
+.search-input {
+  flex: 1;
+  padding: 0.5rem;
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font-size: 0.875rem;
+}
+
+.search-btn {
+  padding: 0.5rem 0.75rem;
+  background: var(--accent);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.search-results {
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.no-results {
+  text-align: center;
+  color: var(--text-secondary);
+  padding: 1rem;
+  font-size: 0.875rem;
+}
+
+.search-result-item {
+  padding: 0.5rem;
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+}
+
+.search-result-item:hover {
+  background: var(--bg-active);
+}
+
+.result-header {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.result-type {
+  font-size: 0.625rem;
+  padding: 0.125rem 0.25rem;
+  background: var(--accent);
+  border-radius: 2px;
+}
+
+.result-title {
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.result-context {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  white-space: pre-wrap;
+}
+
+/* Import Dialog */
+.import-dialog {
+  min-width: 400px;
+}
+
+.import-file-select {
+  text-align: center;
+  padding: 1rem;
+}
+
+.select-file-btn {
+  padding: 0.75rem 1.5rem;
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+.import-preview {
+  background: var(--bg-tertiary);
+  border-radius: 4px;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.file-name {
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.preview-content {
+  font-size: 0.75rem;
+  white-space: pre-wrap;
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+.import-mode {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.import-mode label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+}
+
+/* Copy Options Panel */
+.copy-options-panel {
+  margin-top: 0.5rem;
+}
+
+.copy-main-actions {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.copy-btn {
+  flex: 1;
+  padding: 0.5rem;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.75rem;
+}
+
+.copy-btn:hover {
+  background: var(--bg-active);
+}
+
+.options-toggle {
+  padding: 0.5rem;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.options-toggle.active {
+  background: var(--accent);
+}
+
+.copy-options {
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  background: var(--bg-tertiary);
+  border-radius: 4px;
+}
+
+.option-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  margin-bottom: 0.25rem;
+}
+
+/* Style Profile Panel */
+.style-panel {
+  margin-top: 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.style-panel .panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+  background: var(--bg-tertiary);
+}
+
+.style-panel .panel-header h4 {
+  margin: 0;
+  font-size: 0.875rem;
+}
+
+.edit-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+}
+
+.style-form {
+  padding: 0.5rem;
+}
+
+.style-form .form-field {
+  margin-bottom: 0.5rem;
+}
+
+.style-form label {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.style-form input,
+.style-form textarea {
+  width: 100%;
+  padding: 0.5rem;
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font-size: 0.875rem;
+}
+
+.style-form .form-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.style-view {
+  padding: 0.5rem;
+}
+
+.style-item {
+  font-size: 0.75rem;
+  margin-bottom: 0.25rem;
+}
+
+.style-item .label {
+  color: var(--text-secondary);
+}
+
+.style-item .value.taboo {
+  color: var(--accent);
+}
+
+.style-item.memo {
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--border);
+}
+
+.empty-hint {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  text-align: center;
+}
+
+/* Revision Note Panel */
+.revision-note-panel {
+  margin-top: 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.revision-note-panel .panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+  background: var(--bg-tertiary);
+}
+
+.revision-note-panel .panel-header h4 {
+  margin: 0;
+  font-size: 0.75rem;
+}
+
+.add-note-form {
+  padding: 0.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.add-note-form select,
+.add-note-form textarea {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font-size: 0.875rem;
+}
+
+.notes-list {
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.note-item {
+  padding: 0.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.note-item.type-weakness {
+  border-left: 3px solid var(--danger);
+}
+
+.note-item.type-hook {
+  border-left: 3px solid var(--success);
+}
+
+.note-item.type-rewrite {
+  border-left: 3px solid #f0ad4e;
+}
+
+.note-item.type-hold {
+  border-left: 3px solid var(--text-secondary);
+}
+
+.note-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.25rem;
+}
+
+.note-type {
+  font-size: 0.625rem;
+  padding: 0.125rem 0.25rem;
+  background: var(--bg-tertiary);
+  border-radius: 2px;
+}
+
+.note-comment {
+  font-size: 0.75rem;
+  white-space: pre-wrap;
+}

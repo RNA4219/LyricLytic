@@ -40,6 +40,7 @@ function EditorPage() {
     runtime: 'openai_compatible',
     baseUrl: 'http://127.0.0.1:8080',
     model: 'local-model',
+    modelPath: 'C:\\Users\\ryo-n\\LLM model\\unsloth\\Qwen3.5-27B-GGUF',
     enabled: false,
   });
   const [snapshotName, setSnapshotName] = useState('');
@@ -468,6 +469,7 @@ function EditorPage() {
           runtime={llmSettings.runtime}
           baseUrl={llmSettings.baseUrl}
           model={llmSettings.model}
+          modelPath={llmSettings.modelPath}
           enabled={llmSettings.enabled}
           onInsert={insertFragment}
         />

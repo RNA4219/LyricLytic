@@ -4,11 +4,12 @@ interface LLMAssistPanelProps {
   runtime: 'openai_compatible' | 'ollama';
   baseUrl: string;
   model: string;
+  modelPath: string;
   enabled: boolean;
   onInsert: (text: string) => void;
 }
 
-function LLMAssistPanel({ runtime, baseUrl, model, enabled, onInsert }: LLMAssistPanelProps) {
+function LLMAssistPanel({ runtime, baseUrl, model, modelPath, enabled, onInsert }: LLMAssistPanelProps) {
   const [prompt, setPrompt] = useState('');
   const [generating, setGenerating] = useState(false);
   const [generatedText, setGeneratedText] = useState('');
@@ -109,6 +110,12 @@ function LLMAssistPanel({ runtime, baseUrl, model, enabled, onInsert }: LLMAssis
       <div className="panel-header">
         <h4>✨ AI Assist</h4>
       </div>
+
+      {runtime === 'openai_compatible' && modelPath.trim() && (
+        <p className="llm-runtime-note">
+          Model root: {modelPath}
+        </p>
+      )}
 
       <textarea
         value={prompt}
