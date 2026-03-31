@@ -20,6 +20,7 @@ LyricLytic 配下のドキュメント・仕様・タスクを集約し、実装
 | 実装着手 | `GUARDRAILS.md` → `docs/implementation/bootstrap-checklist-v1.md` |
 | タスク把握 | `docs/requirements/poc-task-breakdown-v1.md` |
 | 状態確認 | `docs/requirements/review-log.md` |
+| 俯瞰確認 | `docs/BIRDSEYE.md` → `docs/birdseye/index.json` |
 
 ## 2. 正本ドキュメント
 
@@ -71,7 +72,8 @@ LyricLytic 配下のドキュメント・仕様・タスクを集約し、実装
 
 ## 4. Birdseye 参照
 
-`docs/birdseye/index.json` は依存トポロジとノード役割を把握する基準面。
+人間向けの俯瞰入口は `docs/BIRDSEYE.md`。  
+機械向けの依存トポロジ正本は `docs/birdseye/index.json`。
 
 ## 5. Task Seed 参照
 
@@ -91,9 +93,10 @@ LyricLytic 配下のドキュメント・仕様・タスクを集約し、実装
 
 1. `BLUEPRINT.md`
 2. `GUARDRAILS.md`
-3. `docs/requirements/requirements.md` 目次
-4. `docs/requirements/poc-task-breakdown-v1.md` フェーズ 0
-5. `docs/implementation/bootstrap-checklist-v1.md`
+3. `docs/BIRDSEYE.md`
+4. `docs/requirements/requirements.md` 目次
+5. `docs/requirements/poc-task-breakdown-v1.md` フェーズ 0
+6. `docs/implementation/bootstrap-checklist-v1.md`
 
 ### 機能追加時
 

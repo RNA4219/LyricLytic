@@ -123,3 +123,40 @@ fn get_by_id(conn: &Connection, profile_id: &str) -> AppResult<StyleProfile> {
 
     Ok(profile)
 }
+
+#[derive(Debug, Clone)]
+pub struct DeletedStyleProfile {
+    pub style_profile_id: String,
+    pub project_id: String,
+    pub deleted_at: Option<chrono::DateTime<chrono::Utc>>,
+    pub deleted_batch_id: Option<String>,
+}
+
+pub fn get_all_deleted(conn: &Connection) -> AppResult<Vec<DeletedStyleProfile>> {
+    let mut stmt = conn.prepare(
+        "SELECT style_profile_id, project_id, deleted_at, deleted_batch_id
+         FROM style_profiles
+         WHERE deleted_at IS NOT NULL
+         ORDER BY deleted_at DESC"
+    )?;
+
+    let profiles = stmt.query_map(params![], |row| {
+        Ok(DeletedStyleProfile {
+            style_profile_id: row.get(0)?,
+            project_id: row.get(1)?,
+            deleted_at: row.get(2)?,
+            deleted_batch_id: row.get(3)?,
+        })
+    })?
+    .collect::<std::result::Result<Vec<_>, _>>()?;
+
+    Ok(profiles)
+}
+
+pub fn restore(conn: &Connection, profile_id: &str, batch_id: &str) -> AppResult<()> {
+    conn.execute(
+        "UPDATE style_profiles SET deleted_at = NULL, deleted_batch_id = NULL WHERE style_profile_id = ?1 AND deleted_batch_id = ?2",
+        params![profile_id, batch_id],
+    )?;
+    Ok(())
+}

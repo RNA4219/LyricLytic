@@ -16,7 +16,7 @@
 
 ## 2. 判定サマリ
 
-- Blocker: 2 件 (前回 3 件 → 1 件解決)
+- Blocker: 1 件 (前回 2 件 → 1 件解決)
 - High: 9 件 (前回 10 件 → 1 件解決)
 - Medium: 5 件 (前回 6 件 → 1 件解決)
 - 要件変更の判断待ち: 2 件
@@ -43,11 +43,10 @@
   現状: `StyleProfilePanel` が Editor 右ペインに統合された。
   対象: `docs/requirements/requirements.md`, `src/components/StyleProfilePanel.tsx`, `src/pages/Editor.tsx`
 
-- [ ] GAP-B05 削除済みデータ管理が Project のみで、主要対象を扱えていない
+- [x] GAP-B05 削除済みデータ管理が Project のみで、主要対象を扱えていない ✅ 解決済み
   要件: Project, LyricVersion, SongArtifact, CollectedFragment, RevisionNote, StyleProfile を削除済みデータ管理画面で確認・復元できること。
-  現状: `TrashPanel.tsx` は削除済み Project しか取得・表示できない。
-  対象: `docs/requirements/requirements.md`, `src/components/TrashPanel.tsx`, `src/lib/api.ts`, `src-tauri/src/commands/*.rs`
-  対応方針: 種別横断の deleted items API を追加し、バッチ単位表示へ再設計する。
+  現状: `get_deleted_items` コマンドが種別横断で削除済みアイテムを返す。各種別の restore コマンドを実装済み。
+  対象: `docs/requirements/requirements.md`, `src-tauri/src/commands/trash.rs`, `src-tauri/src/repositories/*.rs`
 
 - [x] GAP-B06 エクスポートが要件の zip package 契約を満たしていない ✅ 解決済み
   要件: Project 単位の `.lyrlytic.zip`、UTF-8 JSON 正本、保存ダイアログ方式、削除データ含有切替を持つこと。

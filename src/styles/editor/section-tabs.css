@@ -1,0 +1,89 @@
+/* Section Tabs */
+.section-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border);
+}
+
+.section-tab {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  background: var(--bg-tertiary);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.section-tab:hover {
+  background: var(--bg-active);
+}
+
+.section-tab.active {
+  background: var(--accent);
+}
+
+.section-name-input {
+  background: transparent;
+  border: none;
+  color: var(--text-primary);
+  font-size: 0.875rem;
+  width: 80px;
+}
+
+.section-name-input:focus {
+  outline: none;
+  background: rgba(255,255,255,0.1);
+  border-radius: 2px;
+}
+
+.section-tab-actions {
+  display: flex;
+  gap: 0.25rem;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.section-tab:hover .section-tab-actions {
+  opacity: 1;
+}
+
+.section-tab-actions button {
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 0.125rem 0.25rem;
+  font-size: 0.75rem;
+}
+
+.section-tab-actions button:hover {
+  color: var(--text-primary);
+}
+
+.section-add {
+  display: flex;
+  gap: 0.25rem;
+  flex-wrap: wrap;
+}
+
+.add-section-btn {
+  background: var(--bg-tertiary);
+  border: 1px dashed var(--border);
+  color: var(--text-secondary);
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.75rem;
+  transition: all 0.2s;
+}
+
+.add-section-btn:hover {
+  background: var(--accent);
+  color: var(--text-primary);
+  border-style: solid;
+}

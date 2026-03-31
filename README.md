@@ -18,13 +18,15 @@ LyricLytic は、AI 音楽生成サービス向けの歌詞制作を支援する
 - **最上位方針**: `BLUEPRINT.md`
 - **ガードレール**: `GUARDRAILS.md`
 - **ドキュメントハブ**: `HUB.codex.md`
+- **Birdseye**: `docs/BIRDSEYE.md`
 - **正本要件**: `docs/requirements/requirements.md`
 - **PoCタスク**: `docs/requirements/poc-task-breakdown-v1.md`
 - **実装入口**: `docs/implementation/bootstrap-checklist-v1.md`
 
 ## Birdseye
 
-`docs/birdseye/index.json` で依存トポロジを把握。
+- 人間向け俯瞰: `docs/BIRDSEYE.md`
+- 機械向け依存グラフ: `docs/birdseye/index.json`
 
 ## Task Seeds
 

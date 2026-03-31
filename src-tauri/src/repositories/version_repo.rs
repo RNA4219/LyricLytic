@@ -7,7 +7,7 @@ use uuid::Uuid;
 
 pub fn get_by_project(conn: &Connection, project_id: &str) -> AppResult<Vec<LyricVersion>> {
     let mut stmt = conn.prepare(
-        "SELECT lyric_version_id, project_id, snapshot_name, body_text, parent_lyric_version_id, note, created_at, deleted_at
+        "SELECT lyric_version_id, project_id, snapshot_name, body_text, parent_lyric_version_id, note, created_at, deleted_at, deleted_batch_id
          FROM lyric_versions
          WHERE project_id = ?1 AND deleted_at IS NULL
          ORDER BY created_at DESC"
@@ -23,6 +23,7 @@ pub fn get_by_project(conn: &Connection, project_id: &str) -> AppResult<Vec<Lyri
             note: row.get(5)?,
             created_at: row.get(6)?,
             deleted_at: row.get(7)?,
+            deleted_batch_id: row.get(8)?,
         })
     })?
     .collect::<std::result::Result<Vec<_>, _>>()?;
@@ -32,7 +33,7 @@ pub fn get_by_project(conn: &Connection, project_id: &str) -> AppResult<Vec<Lyri
 
 pub fn get_by_id(conn: &Connection, lyric_version_id: &str) -> AppResult<LyricVersion> {
     let mut stmt = conn.prepare(
-        "SELECT lyric_version_id, project_id, snapshot_name, body_text, parent_lyric_version_id, note, created_at, deleted_at
+        "SELECT lyric_version_id, project_id, snapshot_name, body_text, parent_lyric_version_id, note, created_at, deleted_at, deleted_batch_id
          FROM lyric_versions
          WHERE lyric_version_id = ?1 AND deleted_at IS NULL"
     )?;
@@ -47,6 +48,7 @@ pub fn get_by_id(conn: &Connection, lyric_version_id: &str) -> AppResult<LyricVe
             note: row.get(5)?,
             created_at: row.get(6)?,
             deleted_at: row.get(7)?,
+            deleted_batch_id: row.get(8)?,
         })
     })
     .map_err(|_| AppError::NotFound(format!("Version not found: {}", lyric_version_id)))?;
@@ -117,4 +119,51 @@ pub fn get_sections_by_version(conn: &Connection, lyric_version_id: &str) -> App
     .collect::<std::result::Result<Vec<_>, _>>()?;
 
     Ok(sections)
+}
+
+pub fn get_all_deleted(conn: &Connection) -> AppResult<Vec<LyricVersion>> {
+    let mut stmt = conn.prepare(
+        "SELECT lyric_version_id, project_id, snapshot_name, body_text, parent_lyric_version_id, note, created_at, deleted_at, deleted_batch_id
+         FROM lyric_versions
+         WHERE deleted_at IS NOT NULL
+         ORDER BY deleted_at DESC"
+    )?;
+
+    let versions = stmt.query_map(params![], |row| {
+        Ok(LyricVersion {
+            lyric_version_id: row.get(0)?,
+            project_id: row.get(1)?,
+            snapshot_name: row.get(2)?,
+            body_text: row.get(3)?,
+            parent_lyric_version_id: row.get(4)?,
+            note: row.get(5)?,
+            created_at: row.get(6)?,
+            deleted_at: row.get(7)?,
+            deleted_batch_id: row.get(8)?,
+        })
+    })?
+    .collect::<std::result::Result<Vec<_>, _>>()?;
+
+    Ok(versions)
+}
+
+pub fn restore(conn: &Connection, lyric_version_id: &str, batch_id: &str) -> AppResult<()> {
+    conn.execute(
+        "UPDATE lyric_versions SET deleted_at = NULL, deleted_batch_id = NULL WHERE lyric_version_id = ?1 AND deleted_batch_id = ?2",
+        params![lyric_version_id, batch_id],
+    )?;
+
+    // Also restore related version_sections
+    conn.execute(
+        "UPDATE version_sections SET deleted_at = NULL, deleted_batch_id = NULL WHERE lyric_version_id = ?1 AND deleted_batch_id = ?2",
+        params![lyric_version_id, batch_id],
+    )?;
+
+    // Also restore related revision_notes
+    conn.execute(
+        "UPDATE revision_notes SET deleted_at = NULL, deleted_batch_id = NULL WHERE lyric_version_id = ?1 AND deleted_batch_id = ?2",
+        params![lyric_version_id, batch_id],
+    )?;
+
+    Ok(())
 }

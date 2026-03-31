@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { open } from '@tauri-apps/plugin-shell';
 import { getSongArtifacts, createSongArtifact, deleteSongArtifact, SongArtifact, LyricVersion } from '../lib/api';
+import SongArtifactForm from './songArtifacts/SongArtifactForm';
+import SongArtifactList from './songArtifacts/SongArtifactList';
 
 interface SongArtifactPanelProps {
   projectId: string;
@@ -107,124 +109,37 @@ function SongArtifactPanel({ projectId, versions }: SongArtifactPanelProps) {
       </div>
 
       {showAddForm && (
-        <div className="add-artifact-form">
-          <select
-            value={selectedVersionId}
-            onChange={(e) => setSelectedVersionId(e.target.value)}
-          >
-            <option value="">Select version...</option>
-            {versions.map(v => (
-              <option key={v.lyric_version_id} value={v.lyric_version_id}>
-                {v.snapshot_name}
-              </option>
-            ))}
-          </select>
-
-          <input
-            type="text"
-            placeholder="Service name (e.g., Suno, Udio)"
-            value={serviceName}
-            onChange={(e) => setServiceName(e.target.value)}
-          />
-
-          <input
-            type="text"
-            placeholder="Song title"
-            value={songTitle}
-            onChange={(e) => setSongTitle(e.target.value)}
-          />
-
-          <input
-            type="text"
-            placeholder="Source URL"
-            value={sourceUrl}
-            onChange={(e) => setSourceUrl(e.target.value)}
-          />
-          <p className="form-hint">URL or File path required</p>
-
-          <input
-            type="text"
-            placeholder="Or local file path"
-            value={sourceFilePath}
-            onChange={(e) => setSourceFilePath(e.target.value)}
-          />
-
-          <textarea
-            placeholder="Prompt memo"
-            value={promptMemo}
-            onChange={(e) => setPromptMemo(e.target.value)}
-          />
-
-          <textarea
-            placeholder="Style memo"
-            value={styleMemo}
-            onChange={(e) => setStyleMemo(e.target.value)}
-          />
-
-          <textarea
-            placeholder="Evaluation memo"
-            value={evaluationMemo}
-            onChange={(e) => setEvaluationMemo(e.target.value)}
-          />
-
-          <div className="form-buttons">
-            <button onClick={resetForm} className="cancel-btn">Cancel</button>
-            <button
-              onClick={handleAddArtifact}
-              className="save-btn"
-              disabled={!selectedVersionId || !serviceName || (!sourceUrl && !sourceFilePath)}
-            >
-              Add
-            </button>
-          </div>
-        </div>
+        <SongArtifactForm
+          versions={versions}
+          selectedVersionId={selectedVersionId}
+          serviceName={serviceName}
+          songTitle={songTitle}
+          sourceUrl={sourceUrl}
+          sourceFilePath={sourceFilePath}
+          promptMemo={promptMemo}
+          styleMemo={styleMemo}
+          evaluationMemo={evaluationMemo}
+          onSelectedVersionIdChange={setSelectedVersionId}
+          onServiceNameChange={setServiceName}
+          onSongTitleChange={setSongTitle}
+          onSourceUrlChange={setSourceUrl}
+          onSourceFilePathChange={setSourceFilePath}
+          onPromptMemoChange={setPromptMemo}
+          onStyleMemoChange={setStyleMemo}
+          onEvaluationMemoChange={setEvaluationMemo}
+          onCancel={resetForm}
+          onSubmit={handleAddArtifact}
+        />
       )}
 
       <div className="artifact-list">
-        {loading ? (
-          <p className="loading-text">Loading...</p>
-        ) : artifacts.length === 0 ? (
-          <p className="empty-text">No song links yet</p>
-        ) : (
-          artifacts.map(a => (
-            <div key={a.song_artifact_id} className="artifact-item">
-              <div className="artifact-header">
-                <span className="service-badge">{a.service_name}</span>
-                <span className="version-badge">{getVersionName(a.lyric_version_id)}</span>
-              </div>
-
-              {a.song_title && (
-                <div className="artifact-title">{a.song_title}</div>
-              )}
-
-              <div className="artifact-links">
-                {a.source_url && (
-                  <button
-                    onClick={() => openExternalUrl(a.source_url!)}
-                    className="link-btn"
-                  >
-                    🔗 Open URL
-                  </button>
-                )}
-                {a.source_file_path && (
-                  <span className="file-path">📁 {a.source_file_path}</span>
-                )}
-              </div>
-
-              {a.evaluation_memo && (
-                <div className="artifact-memo">
-                  <strong>Evaluation:</strong> {a.evaluation_memo}
-                </div>
-              )}
-
-              <div className="artifact-actions">
-                <button onClick={() => handleDelete(a.song_artifact_id)} className="delete-btn">
-                  Delete
-                </button>
-              </div>
-            </div>
-          ))
-        )}
+        <SongArtifactList
+          artifacts={artifacts}
+          loading={loading}
+          onOpenUrl={openExternalUrl}
+          onDelete={handleDelete}
+          getVersionName={getVersionName}
+        />
       </div>
     </div>
   );

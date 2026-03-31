@@ -137,3 +137,42 @@ fn get_by_id(conn: &Connection, fragment_id: &str) -> AppResult<CollectedFragmen
 
     Ok(CollectedFragment { tags, ..fragment })
 }
+
+#[derive(Debug, Clone)]
+pub struct DeletedFragment {
+    pub collected_fragment_id: String,
+    pub project_id: String,
+    pub text: String,
+    pub deleted_at: Option<chrono::DateTime<chrono::Utc>>,
+    pub deleted_batch_id: Option<String>,
+}
+
+pub fn get_all_deleted(conn: &Connection) -> AppResult<Vec<DeletedFragment>> {
+    let mut stmt = conn.prepare(
+        "SELECT collected_fragment_id, project_id, text, deleted_at, deleted_batch_id
+         FROM collected_fragments
+         WHERE deleted_at IS NOT NULL
+         ORDER BY deleted_at DESC"
+    )?;
+
+    let fragments = stmt.query_map(params![], |row| {
+        Ok(DeletedFragment {
+            collected_fragment_id: row.get(0)?,
+            project_id: row.get(1)?,
+            text: row.get(2)?,
+            deleted_at: row.get(3)?,
+            deleted_batch_id: row.get(4)?,
+        })
+    })?
+    .collect::<std::result::Result<Vec<_>, _>>()?;
+
+    Ok(fragments)
+}
+
+pub fn restore(conn: &Connection, fragment_id: &str, batch_id: &str) -> AppResult<()> {
+    conn.execute(
+        "UPDATE collected_fragments SET deleted_at = NULL, deleted_batch_id = NULL WHERE collected_fragment_id = ?1 AND deleted_batch_id = ?2",
+        params![fragment_id, batch_id],
+    )?;
+    Ok(())
+}

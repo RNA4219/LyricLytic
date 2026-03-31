@@ -1,11 +1,13 @@
 import { useState } from 'react';
 import { getDeletedProjects, restoreProject, Project } from '../lib/api';
+import { useLanguage } from '../lib/LanguageContext';
 
 interface TrashPanelProps {
   onRestore: () => void;
 }
 
 function TrashPanel({ onRestore }: TrashPanelProps) {
+  const { t } = useLanguage();
   const [deletedProjects, setDeletedProjects] = useState<Project[]>([]);
   const [loading, setLoading] = useState(false);
   const [show, setShow] = useState(false);
@@ -47,7 +49,7 @@ function TrashPanel({ onRestore }: TrashPanelProps) {
   if (!show) {
     return (
       <button onClick={handleOpen} className="trash-toggle-btn">
-        🗑️ Trash ({deletedProjects.length > 0 ? '...' : '0'})
+        🗑️ {t('trash')} ({deletedProjects.length > 0 ? '...' : '0'})
       </button>
     );
   }
@@ -55,14 +57,14 @@ function TrashPanel({ onRestore }: TrashPanelProps) {
   return (
     <div className="trash-panel">
       <div className="trash-header">
-        <h3>🗑️ Deleted Projects</h3>
+        <h3>🗑️ {t('deletedProjects')}</h3>
         <button onClick={handleClose} className="close-btn">×</button>
       </div>
 
       {loading ? (
-        <p className="loading-text">Loading...</p>
+        <p className="loading-text">{t('loading')}</p>
       ) : deletedProjects.length === 0 ? (
-        <p className="empty-text">No deleted projects</p>
+        <p className="empty-text">{t('noDeleted')}</p>
       ) : (
         <ul className="deleted-list">
           {deletedProjects.map(p => (
@@ -70,11 +72,11 @@ function TrashPanel({ onRestore }: TrashPanelProps) {
               <div className="deleted-info">
                 <span className="deleted-title">{p.title}</span>
                 <span className="deleted-date">
-                  Deleted: {p.deleted_at ? new Date(p.deleted_at).toLocaleDateString() : 'N/A'}
+                  {t('deletedLabel')} {p.deleted_at ? new Date(p.deleted_at).toLocaleDateString() : 'N/A'}
                 </span>
               </div>
               <button onClick={() => handleRestore(p)} className="restore-btn">
-                Restore
+                {t('restore')}
               </button>
             </li>
           ))}

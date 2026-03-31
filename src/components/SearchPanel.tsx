@@ -1,14 +1,5 @@
 import { useState, useEffect } from 'react';
-
-type SearchType = 'draft' | 'versions' | 'fragments' | 'tags';
-
-interface SearchResult {
-  id: string;
-  type: SearchType;
-  title: string;
-  context: string;
-  match: string;
-}
+import { buildSearchResults, extractAllTags, SearchResult, SearchType } from './search/searchUtils';
 
 interface SearchPanelProps {
   projectId: string;
@@ -42,15 +33,8 @@ function SearchPanel({
   const [searching, setSearching] = useState(false);
   const [allTags, setAllTags] = useState<string[]>([]);
 
-  // Extract all unique tags from fragments
   useEffect(() => {
-    const tags = new Set<string>();
-    fragments.forEach(f => {
-      if (f.tags) {
-        f.tags.forEach(tag => tags.add(tag));
-      }
-    });
-    setAllTags(Array.from(tags).sort());
+    setAllTags(extractAllTags(fragments));
   }, [fragments]);
 
   const handleSearch = () => {
@@ -60,81 +44,9 @@ function SearchPanel({
     }
 
     setSearching(true);
-    const searchResults: SearchResult[] = [];
-    const lowerQuery = query.toLowerCase();
-
-    if (searchType === 'draft') {
-      const lines = draftText.split('\n');
-      lines.forEach((line, idx) => {
-        if (line.toLowerCase().includes(lowerQuery)) {
-          searchResults.push({
-            id: 'draft',
-            type: 'draft',
-            title: 'Working Draft',
-            context: getContext(lines, idx, 2),
-            match: line,
-          });
-        }
-      });
-    } else if (searchType === 'versions') {
-      versions.forEach(v => {
-        const lines = v.body_text.split('\n');
-        lines.forEach((line, idx) => {
-          if (line.toLowerCase().includes(lowerQuery)) {
-            searchResults.push({
-              id: v.lyric_version_id,
-              type: 'versions',
-              title: v.snapshot_name,
-              context: getContext(lines, idx, 2),
-              match: line,
-            });
-          }
-        });
-      });
-    } else if (searchType === 'fragments') {
-      fragments.forEach(f => {
-        if (f.text.toLowerCase().includes(lowerQuery)) {
-          searchResults.push({
-            id: f.collected_fragment_id,
-            type: 'fragments',
-            title: f.source || 'Fragment',
-            context: f.text.substring(0, 100),
-            match: f.text,
-          });
-        }
-        if (f.source && f.source.toLowerCase().includes(lowerQuery)) {
-          searchResults.push({
-            id: f.collected_fragment_id,
-            type: 'fragments',
-            title: f.text.substring(0, 30),
-            context: f.source,
-            match: f.source,
-          });
-        }
-      });
-    } else if (searchType === 'tags') {
-      // Search by tag
-      fragments.forEach(f => {
-        if (f.tags && f.tags.some(tag => tag.toLowerCase().includes(lowerQuery))) {
-          searchResults.push({
-            id: f.collected_fragment_id,
-            type: 'tags',
-            title: f.source || 'Fragment',
-            context: `Tags: ${(f.tags || []).join(', ')}`,
-            match: f.text.substring(0, 100),
-          });
-        }
-      });
-    }
-
-    setResults(searchResults.slice(0, 50));
+    const searchResults = buildSearchResults(searchType, query, draftText, versions, fragments);
+    setResults(searchResults);
     setSearching(false);
-  };
-
-  const getContext = (lines: string[], idx: number, contextLines: number): string => {
-    const start = Math.max(0, idx - contextLines);
-    const end = Math.min(lines.length, idx + contextLines + 1);
-    return lines.slice(start, end).join('\n');
   };
 
   const handleResultClick = (result: SearchResult) => {

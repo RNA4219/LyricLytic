@@ -113,3 +113,44 @@ fn get_by_id(conn: &Connection, artifact_id: &str) -> AppResult<SongArtifact> {
 
     Ok(artifact)
 }
+
+#[derive(Debug, Clone)]
+pub struct DeletedSongArtifact {
+    pub song_artifact_id: String,
+    pub project_id: String,
+    pub service_name: String,
+    pub song_title: Option<String>,
+    pub deleted_at: Option<chrono::DateTime<chrono::Utc>>,
+    pub deleted_batch_id: Option<String>,
+}
+
+pub fn get_all_deleted(conn: &Connection) -> AppResult<Vec<DeletedSongArtifact>> {
+    let mut stmt = conn.prepare(
+        "SELECT song_artifact_id, project_id, service_name, song_title, deleted_at, deleted_batch_id
+         FROM song_artifacts
+         WHERE deleted_at IS NOT NULL
+         ORDER BY deleted_at DESC"
+    )?;
+
+    let artifacts = stmt.query_map(params![], |row| {
+        Ok(DeletedSongArtifact {
+            song_artifact_id: row.get(0)?,
+            project_id: row.get(1)?,
+            service_name: row.get(2)?,
+            song_title: row.get(3)?,
+            deleted_at: row.get(4)?,
+            deleted_batch_id: row.get(5)?,
+        })
+    })?
+    .collect::<std::result::Result<Vec<_>, _>>()?;
+
+    Ok(artifacts)
+}
+
+pub fn restore(conn: &Connection, artifact_id: &str, batch_id: &str) -> AppResult<()> {
+    conn.execute(
+        "UPDATE song_artifacts SET deleted_at = NULL, deleted_batch_id = NULL WHERE song_artifact_id = ?1 AND deleted_batch_id = ?2",
+        params![artifact_id, batch_id],
+    )?;
+    Ok(())
+}

@@ -1,12 +1,14 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { getProjects, createProject, deleteProject, Project } from '../lib/api';
+import { useLanguage } from '../lib/LanguageContext';
 import TrashPanel from '../components/TrashPanel';
 
 const LAST_PROJECT_KEY = 'lyriclytic_last_project';
 
 function Home() {
   const navigate = useNavigate();
+  const { t, language } = useLanguage();
   const [projects, setProjects] = useState<Project[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -31,7 +33,7 @@ function Home() {
         // navigate(`/project/${lastProjectId}`);
       }
     } catch (e) {
-      setError('Failed to load projects');
+      setError(t('loadFailed'));
       console.error(e);
     } finally {
       setLoading(false);
@@ -41,12 +43,12 @@ function Home() {
   const handleCreateProject = async () => {
     try {
       const project = await createProject({
-        title: newProjectTitle || 'Untitled Project',
+        title: newProjectTitle || t('newProject'),
       });
       localStorage.setItem(LAST_PROJECT_KEY, project.project_id);
       navigate(`/project/${project.project_id}`);
     } catch (e) {
-      setError('Failed to create project');
+      setError(t('createFailed'));
       console.error(e);
     }
   };
@@ -58,7 +60,7 @@ function Home() {
 
   const handleDeleteProject = async (e: React.MouseEvent, projectId: string) => {
     e.stopPropagation();
-    if (!confirm('Delete this project? It can be restored from deleted items.')) return;
+    if (!confirm(t('deleteConfirm'))) return;
 
     try {
       await deleteProject(projectId);
@@ -67,13 +69,13 @@ function Home() {
         localStorage.removeItem(LAST_PROJECT_KEY);
       }
     } catch (e) {
-      setError('Failed to delete project');
+      setError(t('deleteFailed'));
       console.error(e);
     }
   };
 
   const formatDate = (dateStr: string) => {
-    return new Date(dateStr).toLocaleDateString('ja-JP', {
+    return new Date(dateStr).toLocaleDateString(language === 'ja' ? 'ja-JP' : 'en-US', {
       year: 'numeric',
       month: 'short',
       day: 'numeric',
@@ -85,41 +87,41 @@ function Home() {
   return (
     <div className="home">
       <div className="home-header">
-        <h2>LyricLytic</h2>
-        <p className="subtitle">AI音楽生成向け歌詞制作ツール</p>
+        <h2>{t('appTitle')}</h2>
+        <p className="subtitle">{t('subtitle')}</p>
       </div>
 
       {error && <p className="error">{error}</p>}
 
       <div className="project-list">
         <div className="project-list-header">
-          <h3>Projects ({projects.length})</h3>
+          <h3>{t('projects')} ({projects.length})</h3>
           {!showNewProjectInput ? (
             <button onClick={() => setShowNewProjectInput(true)}>
-              + New Project
+              + {t('newProject')}
             </button>
           ) : (
             <div className="new-project-form">
               <input
                 type="text"
-                placeholder="Project title"
+                placeholder={t('projectTitle')}
                 value={newProjectTitle}
                 onChange={(e) => setNewProjectTitle(e.target.value)}
                 onKeyDown={(e) => e.key === 'Enter' && handleCreateProject()}
                 autoFocus
               />
-              <button onClick={handleCreateProject}>Create</button>
+              <button onClick={handleCreateProject}>{t('create')}</button>
               <button onClick={() => { setShowNewProjectInput(false); setNewProjectTitle(''); }}>
-                Cancel
+                {t('cancel')}
               </button>
             </div>
           )}
         </div>
 
         {loading ? (
-          <p className="loading-text">Loading...</p>
+          <p className="loading-text">{t('loading')}</p>
         ) : projects.length === 0 ? (
-          <p className="empty-text">No projects yet. Create one to get started.</p>
+          <p className="empty-text">{t('noProjects')}</p>
         ) : (
           <ul className="projects">
             {projects.map((p) => (
@@ -131,7 +133,7 @@ function Home() {
                 <button
                   className="delete-btn"
                   onClick={(e) => handleDeleteProject(e, p.project_id)}
-                  title="Delete project"
+                  title={t('deleteProject')}
                 >
                   🗑
                 </button>
@@ -144,7 +146,7 @@ function Home() {
       <TrashPanel onRestore={loadProjects} />
 
       <div className="home-footer">
-        <p>Local-first • Auto-save • Version history</p>
+        <p>{t('footerText')}</p>
       </div>
     </div>
   );

@@ -1,0 +1,59 @@
+/* Editor Workspace */
+.editor-workspace {
+  display: flex;
+  flex: 1;
+  height: calc(100vh - 60px);
+}
+
+.left-pane,
+.right-pane {
+  width: 280px;
+  background: var(--bg-secondary);
+  border-right: 1px solid var(--border);
+  padding: 1rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.right-pane {
+  border-right: none;
+  border-left: 1px solid var(--border);
+}
+
+.pane-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.pane-header h3 {
+  margin: 0;
+}
+
+.saving-badge {
+  background: var(--accent);
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+}
+
+.saved-badge {
+  color: var(--success);
+  font-size: 0.75rem;
+}
+
+.center-pane {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-primary);
+  min-width: 0;
+}
+
+/* Editor Container */
+.editor-container {
+  flex: 1;
+  min-height: 0;
+}
