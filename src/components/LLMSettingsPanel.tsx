@@ -5,33 +5,27 @@ interface LLMSettingsPanelProps {
 }
 
 export interface LLMSettings {
-  provider: 'openai' | 'anthropic' | 'custom';
-  apiKey: string;
-  endpoint: string;
+  runtime: 'openai_compatible' | 'ollama';
+  baseUrl: string;
   model: string;
   enabled: boolean;
 }
 
 const DEFAULT_SETTINGS: LLMSettings = {
-  provider: 'openai',
-  apiKey: '',
-  endpoint: 'https://api.openai.com/v1',
-  model: 'gpt-4',
+  runtime: 'openai_compatible',
+  baseUrl: 'http://127.0.0.1:8080',
+  model: 'local-model',
   enabled: false,
 };
 
-const PROVIDER_CONFIGS = {
-  openai: {
-    endpoint: 'https://api.openai.com/v1',
-    models: ['gpt-4', 'gpt-4-turbo', 'gpt-3.5-turbo'],
+const RUNTIME_DEFAULTS: Record<LLMSettings['runtime'], Pick<LLMSettings, 'baseUrl' | 'model'>> = {
+  openai_compatible: {
+    baseUrl: 'http://127.0.0.1:8080',
+    model: 'local-model',
   },
-  anthropic: {
-    endpoint: 'https://api.anthropic.com/v1',
-    models: ['claude-3-opus', 'claude-3-sonnet', 'claude-3-haiku'],
-  },
-  custom: {
-    endpoint: '',
-    models: [],
+  ollama: {
+    baseUrl: 'http://127.0.0.1:11434',
+    model: 'llama3.2',
   },
 };
 
@@ -39,26 +33,20 @@ function LLMSettingsPanel({ onSettingsChange }: LLMSettingsPanelProps) {
   const [settings, setSettings] = useState<LLMSettings>(DEFAULT_SETTINGS);
   const [show, setShow] = useState(false);
 
-  const handleProviderChange = (provider: 'openai' | 'anthropic' | 'custom') => {
-    const config = PROVIDER_CONFIGS[provider];
+  const handleRuntimeChange = (runtime: LLMSettings['runtime']) => {
+    const defaults = RUNTIME_DEFAULTS[runtime];
     const newSettings = {
       ...settings,
-      provider,
-      endpoint: config.endpoint,
-      model: config.models[0] || '',
+      runtime,
+      baseUrl: defaults.baseUrl,
+      model: defaults.model,
     };
     setSettings(newSettings);
     onSettingsChange(newSettings);
   };
 
-  const handleApiKeyChange = (apiKey: string) => {
-    const newSettings = { ...settings, apiKey };
-    setSettings(newSettings);
-    onSettingsChange(newSettings);
-  };
-
-  const handleEndpointChange = (endpoint: string) => {
-    const newSettings = { ...settings, endpoint };
+  const handleBaseUrlChange = (baseUrl: string) => {
+    const newSettings = { ...settings, baseUrl };
     setSettings(newSettings);
     onSettingsChange(newSettings);
   };
@@ -101,75 +89,41 @@ function LLMSettingsPanel({ onSettingsChange }: LLMSettingsPanelProps) {
         </label>
 
         <div className="llm-field">
-          <label>Provider</label>
+          <label>Runtime</label>
           <select
-            value={settings.provider}
-            onChange={(e) => handleProviderChange(e.target.value as 'openai' | 'anthropic' | 'custom')}
+            value={settings.runtime}
+            onChange={(e) => handleRuntimeChange(e.target.value as LLMSettings['runtime'])}
             disabled={!settings.enabled}
           >
-            <option value="openai">OpenAI</option>
-            <option value="anthropic">Anthropic</option>
-            <option value="custom">Custom Endpoint</option>
+            <option value="openai_compatible">llama.cpp / OpenAI-compatible</option>
+            <option value="ollama">Ollama</option>
           </select>
         </div>
 
         <div className="llm-field">
-          <label>API Key</label>
+          <label>Base URL</label>
           <input
-            type="password"
-            value={settings.apiKey}
-            onChange={(e) => handleApiKeyChange(e.target.value)}
-            placeholder="Enter API key..."
+            type="text"
+            value={settings.baseUrl}
+            onChange={(e) => handleBaseUrlChange(e.target.value)}
+            placeholder={settings.runtime === 'ollama' ? 'http://127.0.0.1:11434' : 'http://127.0.0.1:8080'}
             disabled={!settings.enabled}
           />
         </div>
 
-        {settings.provider === 'custom' && (
-          <div className="llm-field">
-            <label>Endpoint URL</label>
-            <input
-              type="text"
-              value={settings.endpoint}
-              onChange={(e) => handleEndpointChange(e.target.value)}
-              placeholder="https://api.example.com/v1"
-              disabled={!settings.enabled}
-            />
-          </div>
-        )}
-
-        {(settings.provider !== 'custom' || PROVIDER_CONFIGS[settings.provider].models.length > 0) && (
-          <div className="llm-field">
-            <label>Model</label>
-            <select
-              value={settings.model}
-              onChange={(e) => handleModelChange(e.target.value)}
-              disabled={!settings.enabled}
-            >
-              {PROVIDER_CONFIGS[settings.provider].models.map(m => (
-                <option key={m} value={m}>{m}</option>
-              ))}
-              {settings.provider === 'custom' && (
-                <option value="custom">Custom model name</option>
-              )}
-            </select>
-          </div>
-        )}
-
-        {settings.provider === 'custom' && (
-          <div className="llm-field">
-            <label>Model Name</label>
-            <input
-              type="text"
-              value={settings.model}
-              onChange={(e) => handleModelChange(e.target.value)}
-              placeholder="model-name"
-              disabled={!settings.enabled}
-            />
-          </div>
-        )}
+        <div className="llm-field">
+          <label>Model Name</label>
+          <input
+            type="text"
+            value={settings.model}
+            onChange={(e) => handleModelChange(e.target.value)}
+            placeholder="local-model"
+            disabled={!settings.enabled}
+          />
+        </div>
 
         <div className="llm-warning">
-          ⚠️ API key is stored locally and never sent to our servers.
+          ⚠️ PoC では localhost / 127.0.0.1 上の `llama.cpp` または `Ollama` のみを想定します。
         </div>
       </div>
     </div>

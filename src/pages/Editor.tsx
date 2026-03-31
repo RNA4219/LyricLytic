@@ -37,10 +37,9 @@ function EditorPage() {
   const [showSongPanel, setShowSongPanel] = useState(false);
   const [showExportPanel, setShowExportPanel] = useState(false);
   const [llmSettings, setLLMSettings] = useState<LLMSettings>({
-    provider: 'openai',
-    apiKey: '',
-    endpoint: 'https://api.openai.com/v1',
-    model: 'gpt-4',
+    runtime: 'openai_compatible',
+    baseUrl: 'http://127.0.0.1:8080',
+    model: 'local-model',
     enabled: false,
   });
   const [snapshotName, setSnapshotName] = useState('');
@@ -150,42 +149,7 @@ function EditorPage() {
     }));
   };
 
-  const queueAutoSave = useCallback((secs: Section[]) => {
-    if (saveTimeoutRef.current) {
-      clearTimeout(saveTimeoutRef.current);
-    }
-
-    saveTimeoutRef.current = setTimeout(() => {
-      handleAutoSave(secs);
-    }, 1000);
-  }, []);
-
-  const updateSections = useCallback((
-    updater: (currentSections: Section[]) => Section[],
-    nextActiveSectionId?: string | null,
-  ) => {
-    const nextSections = updater(sections);
-    setSections(nextSections);
-    if (nextActiveSectionId !== undefined) {
-      setActiveSection(nextActiveSectionId);
-    }
-    queueAutoSave(nextSections);
-  }, [sections, queueAutoSave]);
-
-  const handleEditorChange = useCallback((value: string | undefined) => {
-    if (value === undefined) return;
-
-    updateSections((currentSections) => {
-      const updatedSections = [...currentSections];
-      const activeIdx = updatedSections.findIndex(s => s.id === activeSection);
-      if (activeIdx >= 0) {
-        updatedSections[activeIdx] = { ...updatedSections[activeIdx], bodyText: value };
-      }
-      return updatedSections;
-    });
-  }, [activeSection, updateSections]);
-
-  const handleAutoSave = async (secs: Section[]) => {
+  const handleAutoSave = useCallback(async (secs: Section[]) => {
     if (!projectId || saving) return;
 
     try {
@@ -211,7 +175,42 @@ function EditorPage() {
     } finally {
       setSaving(false);
     }
-  };
+  }, [projectId, saving]);
+
+  const queueAutoSave = useCallback((secs: Section[]) => {
+    if (saveTimeoutRef.current) {
+      clearTimeout(saveTimeoutRef.current);
+    }
+
+    saveTimeoutRef.current = setTimeout(() => {
+      handleAutoSave(secs);
+    }, 1000);
+  }, [handleAutoSave]);
+
+  const updateSections = useCallback((
+    updater: (currentSections: Section[]) => Section[],
+    nextActiveSectionId?: string | null,
+  ) => {
+    const nextSections = updater(sections);
+    setSections(nextSections);
+    if (nextActiveSectionId !== undefined) {
+      setActiveSection(nextActiveSectionId);
+    }
+    queueAutoSave(nextSections);
+  }, [sections, queueAutoSave]);
+
+  const handleEditorChange = useCallback((value: string | undefined) => {
+    if (value === undefined) return;
+
+    updateSections((currentSections) => {
+      const updatedSections = [...currentSections];
+      const activeIdx = updatedSections.findIndex(s => s.id === activeSection);
+      if (activeIdx >= 0) {
+        updatedSections[activeIdx] = { ...updatedSections[activeIdx], bodyText: value };
+      }
+      return updatedSections;
+    });
+  }, [activeSection, updateSections]);
 
   const addSection = (type: string) => {
     const newSection: Section = {
@@ -438,7 +437,7 @@ function EditorPage() {
         </div>
 
         <button onClick={() => setShowExportPanel(true)} className="secondary-btn">
-          📤 Export Project
+          📤 Quick Export
         </button>
 
         <button
@@ -466,8 +465,8 @@ function EditorPage() {
         <LLMSettingsPanel onSettingsChange={setLLMSettings} />
 
         <LLMAssistPanel
-          apiKey={llmSettings.apiKey}
-          endpoint={llmSettings.endpoint}
+          runtime={llmSettings.runtime}
+          baseUrl={llmSettings.baseUrl}
           model={llmSettings.model}
           enabled={llmSettings.enabled}
           onInsert={insertFragment}

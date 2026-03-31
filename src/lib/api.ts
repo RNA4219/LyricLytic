@@ -26,7 +26,6 @@ export interface DraftSection {
   display_name: string;
   sort_order: number;
   body_text: string;
-  note?: string;
 }
 
 export interface LyricVersion {
@@ -93,7 +92,6 @@ export interface CreateFragmentInput {
 export interface UpdateFragmentInput {
   text?: string;
   source?: string;
-  tags?: string[];
   status?: 'unused' | 'used' | 'hold';
 }
 

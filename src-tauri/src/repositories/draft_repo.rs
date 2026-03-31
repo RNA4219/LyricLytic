@@ -1,5 +1,5 @@
 use crate::error::AppResult;
-use crate::models::{DraftSection, SaveDraftInput, WorkingDraft};
+use crate::models::{SaveDraftInput, WorkingDraft, DraftSection};
 use crate::repositories::touch_project_updated_at;
 use chrono::Utc;
 use rusqlite::{params, Connection};
@@ -30,7 +30,7 @@ pub fn get_active_by_project(conn: &Connection, project_id: &str) -> AppResult<O
 
 pub fn get_sections(conn: &Connection, working_draft_id: &str) -> AppResult<Vec<DraftSection>> {
     let mut stmt = conn.prepare(
-        "SELECT draft_section_id, working_draft_id, section_type, display_name, sort_order, body_text, note
+        "SELECT draft_section_id, working_draft_id, section_type, display_name, sort_order, body_text
          FROM draft_sections
          WHERE working_draft_id = ?1 AND deleted_at IS NULL
          ORDER BY sort_order"
@@ -44,7 +44,6 @@ pub fn get_sections(conn: &Connection, working_draft_id: &str) -> AppResult<Vec<
             display_name: row.get(3)?,
             sort_order: row.get(4)?,
             body_text: row.get(5)?,
-            note: row.get(6)?,
         })
     })?
     .collect::<std::result::Result<Vec<_>, _>>()?;

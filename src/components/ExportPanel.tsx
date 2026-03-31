@@ -8,6 +8,8 @@ interface ExportPanelProps {
 }
 
 function ExportPanel({ project, versions, bodyText, onClose }: ExportPanelProps) {
+  const exportNotice = 'PoC の簡易出力です。ブラウザ経由の単一ファイル保存で、正式なバックアップ package やネイティブ保存ダイアログではありません。';
+
   const exportAsText = () => {
     const content = `[${project.title}]\n\n${bodyText}`;
     downloadFile(content, `${project.title}.txt`, 'text/plain');
@@ -69,25 +71,26 @@ function ExportPanel({ project, versions, bodyText, onClose }: ExportPanelProps)
   return (
     <div className="dialog-overlay">
       <div className="dialog export-dialog">
-        <h3>Export Project</h3>
+        <h3>Quick Export</h3>
         <p className="export-info">
-          Export "{project.title}" with {versions.length} saved versions.
+          "{project.title}" の内容を簡易出力します。保存済み Version は {versions.length} 件です。
         </p>
+        <p className="warning">{exportNotice}</p>
 
         <div className="export-options">
           <button onClick={exportAsText} className="export-btn">
             📄 Text (.txt)
-            <span className="export-desc">Plain lyrics text only</span>
+            <span className="export-desc">本文だけを素早く書き出す</span>
           </button>
 
           <button onClick={exportAsMarkdown} className="export-btn">
             📝 Markdown (.md)
-            <span className="export-desc">Full project with versions</span>
+            <span className="export-desc">Working Draft と Version を含めて書き出す</span>
           </button>
 
           <button onClick={exportAsJson} className="export-btn">
             🔧 JSON (.json)
-            <span className="export-desc">Machine-readable format</span>
+            <span className="export-desc">検証用の構造化出力</span>
           </button>
         </div>
 

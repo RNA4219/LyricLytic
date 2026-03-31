@@ -1,22 +1,35 @@
 import { useState } from 'react';
 
 interface LLMAssistPanelProps {
-  apiKey: string;
-  endpoint: string;
+  runtime: 'openai_compatible' | 'ollama';
+  baseUrl: string;
   model: string;
   enabled: boolean;
   onInsert: (text: string) => void;
 }
 
-function LLMAssistPanel({ apiKey, endpoint, model, enabled, onInsert }: LLMAssistPanelProps) {
+function LLMAssistPanel({ runtime, baseUrl, model, enabled, onInsert }: LLMAssistPanelProps) {
   const [prompt, setPrompt] = useState('');
   const [generating, setGenerating] = useState(false);
   const [generatedText, setGeneratedText] = useState('');
   const [error, setError] = useState<string | null>(null);
 
+  const isAllowedLocalBaseUrl = (value: string) => {
+    try {
+      const parsed = new URL(value);
+      return parsed.hostname === '127.0.0.1' || parsed.hostname === 'localhost';
+    } catch {
+      return false;
+    }
+  };
+
   const handleGenerate = async () => {
-    if (!enabled || !apiKey) {
+    if (!enabled) {
       setError('LLM is not configured');
+      return;
+    }
+    if (!isAllowedLocalBaseUrl(baseUrl)) {
+      setError('LLM base URL must point to localhost or 127.0.0.1');
       return;
     }
 
@@ -25,42 +38,40 @@ function LLMAssistPanel({ apiKey, endpoint, model, enabled, onInsert }: LLMAssis
     setGeneratedText('');
 
     try {
-      // Build request based on provider
-      const isAnthropic = endpoint.includes('anthropic');
-      const requestBody = isAnthropic ? {
-        model: model,
-        max_tokens: 1024,
-        messages: [
-          {
-            role: 'user',
-            content: `Generate lyrics based on this prompt. Output only the lyrics, no explanations:\n\n${prompt}`
+      const normalizedBaseUrl = baseUrl.replace(/\/$/, '');
+      const promptText = `Generate lyrics based on this prompt. Output only the lyrics, no explanations:\n\n${prompt}`;
+      const requestUrl = runtime === 'ollama'
+        ? `${normalizedBaseUrl}/api/chat`
+        : normalizedBaseUrl.endsWith('/v1')
+          ? `${normalizedBaseUrl}/chat/completions`
+          : `${normalizedBaseUrl}/v1/chat/completions`;
+      const requestBody = runtime === 'ollama'
+        ? {
+            model,
+            stream: false,
+            messages: [
+              {
+                role: 'user',
+                content: promptText,
+              }
+            ]
           }
-        ]
-      } : {
-        model: model,
-        max_tokens: 1024,
-        messages: [
-          {
-            role: 'user',
-            content: `Generate lyrics based on this prompt. Output only the lyrics, no explanations:\n\n${prompt}`
-          }
-        ]
-      };
+        : {
+            model,
+            max_tokens: 1024,
+            messages: [
+              {
+                role: 'user',
+                content: promptText,
+              }
+            ]
+          };
 
-      const headers: Record<string, string> = {
-        'Content-Type': 'application/json',
-      };
-
-      if (isAnthropic) {
-        headers['x-api-key'] = apiKey;
-        headers['anthropic-version'] = '2023-06-01';
-      } else {
-        headers['Authorization'] = `Bearer ${apiKey}`;
-      }
-
-      const response = await fetch(`${endpoint}/chat/completions`, {
+      const response = await fetch(requestUrl, {
         method: 'POST',
-        headers,
+        headers: {
+          'Content-Type': 'application/json',
+        },
         body: JSON.stringify(requestBody),
       });
 
@@ -69,8 +80,8 @@ function LLMAssistPanel({ apiKey, endpoint, model, enabled, onInsert }: LLMAssis
       }
 
       const data = await response.json();
-      const text = isAnthropic
-        ? data.content?.[0]?.text || ''
+      const text = runtime === 'ollama'
+        ? data.message?.content || ''
         : data.choices?.[0]?.message?.content || '';
 
       setGeneratedText(text);
@@ -102,7 +113,9 @@ function LLMAssistPanel({ apiKey, endpoint, model, enabled, onInsert }: LLMAssis
       <textarea
         value={prompt}
         onChange={(e) => setPrompt(e.target.value)}
-        placeholder="Describe what lyrics you want..."
+        placeholder={runtime === 'ollama'
+          ? 'Describe what you want to send to Ollama...'
+          : 'Describe what lyrics you want for the llama.cpp runtime...'}
         className="llm-prompt-input"
         disabled={generating}
       />

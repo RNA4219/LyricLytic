@@ -29,7 +29,6 @@ pub struct DraftSection {
     pub display_name: String,
     pub sort_order: i32,
     pub body_text: String,
-    pub note: Option<String>,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
