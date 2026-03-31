@@ -1,13 +1,18 @@
 import { useEffect, useState, useRef, useCallback } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import Editor from '@monaco-editor/react';
-import { getProject, getWorkingDraft, getDraftSections, saveDraft, getVersions, createVersion, deleteProject, Project, LyricVersion, DraftSectionInput, DraftSection } from '../lib/api';
+import { getProject, getWorkingDraft, getDraftSections, saveDraft, getVersions, createVersion, deleteProject, getFragments, createFragment, Project, LyricVersion, DraftSectionInput, DraftSection } from '../lib/api';
 import DiffViewer from '../components/DiffViewer';
 import FragmentPanel from '../components/FragmentPanel';
 import SongArtifactPanel from '../components/SongArtifactPanel';
 import ExportPanel from '../components/ExportPanel';
 import LLMSettingsPanel, { LLMSettings } from '../components/LLMSettingsPanel';
 import LLMAssistPanel from '../components/LLMAssistPanel';
+import SearchPanel from '../components/SearchPanel';
+import ImportDialog from '../components/ImportDialog';
+import CopyOptionsPanel from '../components/CopyOptionsPanel';
+import RevisionNotePanel from '../components/RevisionNotePanel';
+import StyleProfilePanel from '../components/StyleProfilePanel';
 
 interface Section {
   id: string;
@@ -36,6 +41,10 @@ function EditorPage() {
   const [showFragmentPanel, setShowFragmentPanel] = useState(false);
   const [showSongPanel, setShowSongPanel] = useState(false);
   const [showExportPanel, setShowExportPanel] = useState(false);
+  const [showSearchPanel, setShowSearchPanel] = useState(false);
+  const [showImportDialog, setShowImportDialog] = useState(false);
+  const [selectedVersionForNotes, setSelectedVersionForNotes] = useState<LyricVersion | null>(null);
+  const [fragments, setFragments] = useState<Array<{ collected_fragment_id: string; text: string; source?: string; status: string }>>([]);
   const [llmSettings, setLLMSettings] = useState<LLMSettings>({
     runtime: 'openai_compatible',
     baseUrl: 'http://127.0.0.1:8080',
@@ -65,13 +74,15 @@ function EditorPage() {
   const loadData = async (pid: string) => {
     try {
       setLoading(true);
-      const [projectData, draftData, versionData] = await Promise.all([
+      const [projectData, draftData, versionData, fragmentData] = await Promise.all([
         getProject(pid),
         getWorkingDraft(pid),
         getVersions(pid),
+        getFragments(pid),
       ]);
       setProject(projectData);
       setVersions(versionData);
+      setFragments(fragmentData);
 
       if (draftData) {
         const draftSections = await getDraftSections(draftData.working_draft_id);
@@ -299,17 +310,6 @@ function EditorPage() {
     await handleAutoSave(parsed);
   };
 
-  const copyToClipboard = (format: 'full' | 'section') => {
-    let text = '';
-    if (format === 'full') {
-      text = sectionsToBody(sections);
-    } else {
-      const section = sections.find(s => s.id === activeSection);
-      text = section?.bodyText || '';
-    }
-    navigator.clipboard.writeText(text);
-  };
-
   const insertFragment = (text: string) => {
     updateSections((currentSections) => {
       const updatedSections = [...currentSections];
@@ -323,6 +323,32 @@ function EditorPage() {
       }
       return updatedSections;
     });
+  };
+
+  const handleImportAsFragment = async (text: string, source: string) => {
+    if (!projectId) return;
+    try {
+      const fragment = await createFragment({
+        project_id: projectId,
+        text,
+        source,
+      });
+      setFragments([fragment, ...fragments]);
+    } catch (e) {
+      console.error('Failed to import fragment:', e);
+    }
+  };
+
+  const handleImportAsBody = (text: string) => {
+    const parsed = parseBodyToSections(text);
+    setSections(parsed);
+    if (parsed.length > 0) {
+      setActiveSection(parsed[0].id);
+    }
+  };
+
+  const handleCopyNotify = () => {
+    // Optional: show notification
   };
 
   if (loading) {
@@ -357,7 +383,10 @@ function EditorPage() {
           {versions.map((v) => (
             <div key={v.lyric_version_id} className="version-item">
               <span className="version-name">{v.snapshot_name}</span>
-              <button className="restore-btn" onClick={() => restoreVersion(v)}>Restore</button>
+              <div className="version-actions">
+                <button className="notes-btn" onClick={() => setSelectedVersionForNotes(v)}>📝</button>
+                <button className="restore-btn" onClick={() => restoreVersion(v)}>Restore</button>
+              </div>
             </div>
           ))}
         </div>
@@ -432,14 +461,39 @@ function EditorPage() {
           💾 Save Snapshot
         </button>
 
-        <div className="copy-actions">
-          <button onClick={() => copyToClipboard('full')}>Copy All</button>
-          <button onClick={() => copyToClipboard('section')}>Copy Section</button>
-        </div>
+        <CopyOptionsPanel
+          sections={sections}
+          activeSectionId={activeSection}
+          onCopy={handleCopyNotify}
+        />
 
         <button onClick={() => setShowExportPanel(true)} className="secondary-btn">
           📤 Quick Export
         </button>
+
+        <button onClick={() => setShowImportDialog(true)} className="secondary-btn">
+          📥 Import .txt
+        </button>
+
+        <button
+          onClick={() => setShowSearchPanel(!showSearchPanel)}
+          className={showSearchPanel ? 'active-toggle' : ''}
+        >
+          🔍 Search {showSearchPanel ? '▼' : '▶'}
+        </button>
+
+        {showSearchPanel && (
+          <SearchPanel
+            projectId={projectId || ''}
+            draftText={sectionsToBody(sections)}
+            versions={versions}
+            fragments={fragments}
+            onJumpToVersion={(versionId) => {
+              const version = versions.find(v => v.lyric_version_id === versionId);
+              if (version) restoreVersion(version);
+            }}
+          />
+        )}
 
         <button
           onClick={() => setShowFragmentPanel(!showFragmentPanel)}
@@ -473,6 +527,8 @@ function EditorPage() {
           enabled={llmSettings.enabled}
           onInsert={insertFragment}
         />
+
+        {projectId && <StyleProfilePanel projectId={projectId} />}
 
         <div className="project-settings">
           <h4>Project Settings</h4>
@@ -546,6 +602,31 @@ function EditorPage() {
           bodyText={sectionsToBody(sections)}
           onClose={() => setShowExportPanel(false)}
         />
+      )}
+
+      {/* Import Dialog */}
+      {showImportDialog && projectId && (
+        <ImportDialog
+          projectId={projectId}
+          onImportAsFragment={handleImportAsFragment}
+          onImportAsBody={handleImportAsBody}
+          onClose={() => setShowImportDialog(false)}
+        />
+      )}
+
+      {/* Revision Notes Panel */}
+      {selectedVersionForNotes && (
+        <div className="dialog-overlay">
+          <div className="dialog">
+            <RevisionNotePanel
+              lyricVersionId={selectedVersionForNotes.lyric_version_id}
+              versionName={selectedVersionForNotes.snapshot_name}
+            />
+            <div className="dialog-buttons">
+              <button onClick={() => setSelectedVersionForNotes(null)}>Close</button>
+            </div>
+          </div>
+        </div>
       )}
     </div>
   );

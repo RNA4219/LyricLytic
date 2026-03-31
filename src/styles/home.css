@@ -1,0 +1,140 @@
+/* Home */
+.home {
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.home-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.home-header h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.home-header .subtitle {
+  color: var(--text-secondary);
+}
+
+.home button {
+  padding: 0.75rem 1.5rem;
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.2s;
+}
+
+.home button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.home button:hover:not(:disabled) {
+  background: var(--accent-hover);
+}
+
+.project-list {
+  margin-top: 2rem;
+  padding: 1rem;
+  background: var(--bg-secondary);
+  border-radius: 8px;
+}
+
+.project-list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.project-list-header h3 {
+  margin: 0;
+}
+
+.new-project-form {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.new-project-form input {
+  padding: 0.5rem;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  color: var(--text-primary);
+  min-width: 200px;
+}
+
+.new-project-form button {
+  padding: 0.5rem 1rem;
+}
+
+.projects {
+  list-style: none;
+}
+
+.projects li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  margin-bottom: 0.5rem;
+  background: var(--bg-tertiary);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.projects li:hover {
+  background: var(--bg-active);
+}
+
+.project-item-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.project-title {
+  font-weight: 500;
+}
+
+.project-date {
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+}
+
+.delete-btn {
+  background: transparent !important;
+  padding: 0.5rem !important;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.projects li:hover .delete-btn {
+  opacity: 1;
+}
+
+.delete-btn:hover {
+  background: var(--danger) !important;
+}
+
+.empty-text,
+.loading-text {
+  text-align: center;
+  color: var(--text-secondary);
+  padding: 2rem;
+}
+
+.home-footer {
+  text-align: center;
+  margin-top: 2rem;
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
