@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Deleted Items | LyricLytic</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-secondary-fixed": "#0d1c2d",
+              "surface-dim": "#0b1326",
+              "secondary-container": "#39485a",
+              "surface-bright": "#31394d",
+              "tertiary-container": "#d97721",
+              "surface-container-lowest": "#060e20",
+              "on-background": "#dae2fd",
+              "outline": "#908fa0",
+              "inverse-primary": "#494bd6",
+              "on-tertiary-fixed": "#301400",
+              "surface-container": "#171f33",
+              "error-container": "#93000a",
+              "error": "#ffb4ab",
+              "surface": "#0b1326",
+              "surface-container-highest": "#2d3449",
+              "on-primary-fixed-variant": "#2f2ebe",
+              "surface-container-high": "#222a3d",
+              "on-tertiary-fixed-variant": "#703700",
+              "tertiary-fixed": "#ffdcc5",
+              "inverse-on-surface": "#283044",
+              "primary": "#c0c1ff",
+              "on-secondary-fixed-variant": "#39485a",
+              "on-primary": "#1000a9",
+              "primary-container": "#8083ff",
+              "outline-variant": "#464554",
+              "on-primary-fixed": "#07006c",
+              "on-primary-container": "#0d0096",
+              "on-tertiary": "#4f2500",
+              "tertiary-fixed-dim": "#ffb783",
+              "surface-tint": "#c0c1ff",
+              "secondary": "#b9c8de",
+              "on-surface": "#dae2fd",
+              "background": "#0b1326",
+              "on-surface-variant": "#c7c4d7",
+              "on-secondary": "#233143",
+              "surface-container-low": "#131b2e",
+              "secondary-fixed-dim": "#b9c8de",
+              "secondary-fixed": "#d4e4fa",
+              "primary-fixed-dim": "#c0c1ff",
+              "on-error": "#690005",
+              "on-secondary-container": "#a7b6cc",
+              "on-error-container": "#ffdad6",
+              "primary-fixed": "#e1e0ff",
+              "surface-variant": "#2d3449",
+              "tertiary": "#ffb783",
+              "on-tertiary-container": "#452000",
+              "inverse-surface": "#dae2fd"
+            },
+            fontFamily: {
+              "headline": ["Newsreader", "serif"],
+              "body": ["Inter", "sans-serif"],
+              "label": ["Inter", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        .font-serif { font-family: 'Newsreader', serif; }
+        .glass-panel {
+            background: rgba(49, 57, 77, 0.6);
+            backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface flex min-h-screen">
+<!-- SideNavBar (Authority: JSON + Design System) -->
+<aside class="flex flex-col h-screen py-6 px-4 gap-8 bg-[#0b1326] w-64 fixed left-0 top-0 z-20 overflow-y-auto">
+<div class="flex items-center gap-3 px-2">
+<div class="w-10 h-10 rounded-lg bg-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary-container" style="font-variation-settings: 'FILL' 1;">palette</span>
+</div>
+<div>
+<h1 class="font-serif text-lg text-[#dae2fd] leading-tight">LyricLytic</h1>
+<p class="text-[10px] uppercase tracking-[0.1em] text-on-surface-variant opacity-70">Digital Atelier</p>
+</div>
+</div>
+<button class="mx-2 py-3 px-4 rounded-lg bg-gradient-to-br from-primary to-primary-container text-on-primary font-medium text-sm flex items-center justify-center gap-2 shadow-lg shadow-primary/10 hover:brightness-110 transition-all">
+<span class="material-symbols-outlined text-[20px]">add</span>
+            Back to Projects
+        </button>
+<nav class="flex flex-col gap-1 flex-grow">
+<!-- Settings Home -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[#c7c4d7] hover:bg-[#222a3d] hover:text-[#dae2fd] transition-all group" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-sm font-medium tracking-wide">Settings</span>
+</a>
+<!-- General Tab -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[#c7c4d7] hover:bg-[#222a3d] hover:text-[#dae2fd] transition-all group" href="#">
+<span class="material-symbols-outlined">tune</span>
+<span class="text-sm font-medium tracking-wide">General</span>
+</a>
+<!-- Deleted Items Tab (ACTIVE STATE) -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[#c0c1ff] bg-[#131b2e] font-semibold translate-x-1 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">archive</span>
+<span class="text-sm tracking-wide">Deleted Items</span>
+</a>
+<!-- Shortcuts Tab -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[#c7c4d7] hover:bg-[#222a3d] hover:text-[#dae2fd] transition-all group" href="#">
+<span class="material-symbols-outlined">keyboard</span>
+<span class="text-sm font-medium tracking-wide">Shortcuts</span>
+</a>
+</nav>
+<div class="mt-auto border-t border-outline-variant/20 pt-6 flex flex-col gap-1">
+<a class="flex items-center gap-3 px-3 py-2 text-[#c7c4d7] hover:text-[#dae2fd] transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">settings</span>
+<span class="text-sm font-medium tracking-wide">Settings</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-[#c7c4d7] hover:text-[#dae2fd] transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">contact_support</span>
+<span class="text-sm font-medium tracking-wide">Support</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 flex-1 flex flex-col min-h-screen bg-surface-container-low">
+<!-- TopNavBar (Authority: JSON + Design System) -->
+<header class="flex justify-between items-center px-8 h-16 w-full bg-[#0b1326] sticky top-0 z-10">
+<div class="flex items-center gap-4">
+<h2 class="font-serif font-bold text-xl text-[#dae2fd] tracking-tight">Settings / Deleted Items</h2>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative group">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-on-surface-variant text-sm">search</span>
+<input class="bg-surface-container-highest border-none rounded-full pl-10 pr-4 py-1.5 text-sm w-64 focus:ring-1 focus:ring-primary/30 transition-all outline-none" placeholder="Search deleted items..." type="text"/>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-[#c7c4d7] hover:text-[#dae2fd] transition-colors duration-200">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<button class="text-[#c7c4d7] hover:text-[#dae2fd] transition-colors duration-200">
+<span class="material-symbols-outlined">help</span>
+</button>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-outline-variant/30">
+<img alt="User profile avatar" data-alt="professional portrait of a creative professional in soft studio lighting with a dark navy background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdGZkOKMdNFuegtkWr_eGt5exUYbp3LIsFVV2IuSt9v61AQzQK-c_LazOs-Cn3bFsJZskPrJ5OldijcoFrgiGvXxqCO3HzpxCT7o3HKe8m_A_pZkyxSHPiPdYGYofhXjY7kG12kRZcaVSSWJMtDYcKapz2Go_vTNzpjo4vVwoZErv8UTbhdECqvvs7JBd5W6qsh5vW_Au64uaDQPiXebCBnLRndO9g2FK6YS2eriqppkW49yjKVQLbmsgjuk3g9BK_81SGmr04ow"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Content Area -->
+<div class="p-10 max-w-6xl mx-auto w-full">
+<!-- Page Header -->
+<div class="mb-12">
+<h1 class="font-serif text-[3.5rem] leading-none text-on-background mb-4">Deleted Items</h1>
+<p class="text-on-surface-variant max-w-2xl leading-relaxed">
+                    Review softly deleted projects, lyric versions, fragments, and style profiles from a deeper settings layer without competing with the main writing workflow.
+                </p>
+</div>
+<!-- Filter Controls -->
+<div class="flex items-center justify-between mb-8">
+<div class="flex items-center gap-2 p-1 bg-surface-container rounded-lg">
+<button class="px-5 py-2 text-xs font-semibold tracking-wider uppercase rounded bg-surface-container-high text-primary shadow-sm">All Data</button>
+<button class="px-5 py-2 text-xs font-semibold tracking-wider uppercase rounded text-on-surface-variant hover:text-on-surface transition-colors">Projects</button>
+<button class="px-5 py-2 text-xs font-semibold tracking-wider uppercase rounded text-on-surface-variant hover:text-on-surface transition-colors">Lyric Versions</button>
+<button class="px-5 py-2 text-xs font-semibold tracking-wider uppercase rounded text-on-surface-variant hover:text-on-surface transition-colors">Fragments</button>
+<button class="px-5 py-2 text-xs font-semibold tracking-wider uppercase rounded text-on-surface-variant hover:text-on-surface transition-colors">Style Profiles</button>
+</div>
+<div class="text-xs font-mono text-on-surface-variant/60 tracking-widest uppercase">
+                    Total Items: 12
+                </div>
+</div>
+<!-- Data Table / Grid -->
+<div class="bg-surface-container rounded-xl overflow-hidden shadow-2xl">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-high/50 border-b border-outline-variant/10">
+<th class="px-6 py-4 text-[10px] uppercase tracking-widest text-on-surface-variant font-bold">Type</th>
+<th class="px-6 py-4 text-[10px] uppercase tracking-widest text-on-surface-variant font-bold">Item Name</th>
+<th class="px-6 py-4 text-[10px] uppercase tracking-widest text-on-surface-variant font-bold">Original Location</th>
+<th class="px-6 py-4 text-[10px] uppercase tracking-widest text-on-surface-variant font-bold">Deletion Date</th>
+<th class="px-6 py-4 text-[10px] uppercase tracking-widest text-on-surface-variant font-bold text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/10">
+<!-- Row 1: Project -->
+<tr class="hover:bg-surface-container-high transition-colors group">
+<td class="px-6 py-6">
+<span class="px-2 py-1 rounded-sm bg-primary/10 text-primary text-[10px] font-bold uppercase tracking-tight">Project</span>
+</td>
+<td class="px-6 py-6">
+<p class="font-serif text-lg text-on-surface">Midnight Soliloquy</p>
+<p class="text-[10px] text-on-surface-variant/60 uppercase mt-1">Full Concept Album</p>
+</td>
+<td class="px-6 py-6 text-on-surface-variant text-sm">Main Workspace</td>
+<td class="px-6 py-6 text-on-surface-variant text-sm">Oct 12, 2023</td>
+<td class="px-6 py-6 text-right">
+<div class="flex justify-end gap-3 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded bg-surface-bright text-primary text-xs font-medium hover:bg-primary hover:text-on-primary transition-all">
+<span class="material-symbols-outlined text-sm">restore_from_trash</span> Restore
+                                    </button>
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded border border-error/30 text-error text-xs font-medium hover:bg-error hover:text-on-error transition-all">
+<span class="material-symbols-outlined text-sm">delete_forever</span> Delete
+                                    </button>
+</div>
+</td>
+</tr>
+<!-- Row 2: Version -->
+<tr class="hover:bg-surface-container-high transition-colors group">
+<td class="px-6 py-6">
+<span class="px-2 py-1 rounded-sm bg-tertiary-container/20 text-tertiary text-[10px] font-bold uppercase tracking-tight">Version</span>
+</td>
+<td class="px-6 py-6">
+<p class="font-serif text-lg text-on-surface">Chorus Alternative (V3)</p>
+<p class="text-[10px] text-on-surface-variant/60 uppercase mt-1">Revision Draft</p>
+</td>
+<td class="px-6 py-6 text-on-surface-variant text-sm">Neon Desolation</td>
+<td class="px-6 py-6 text-on-surface-variant text-sm">Oct 08, 2023</td>
+<td class="px-6 py-6 text-right">
+<div class="flex justify-end gap-3 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded bg-surface-bright text-primary text-xs font-medium hover:bg-primary hover:text-on-primary transition-all">
+<span class="material-symbols-outlined text-sm">restore_from_trash</span> Restore
+                                    </button>
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded border border-error/30 text-error text-xs font-medium hover:bg-error hover:text-on-error transition-all">
+<span class="material-symbols-outlined text-sm">delete_forever</span> Delete
+                                    </button>
+</div>
+</td>
+</tr>
+<!-- Row 3: Fragment -->
+<tr class="hover:bg-surface-container-high transition-colors group">
+<td class="px-6 py-6">
+<span class="px-2 py-1 rounded-sm bg-secondary-container/30 text-secondary text-[10px] font-bold uppercase tracking-tight">Fragment</span>
+</td>
+<td class="px-6 py-6">
+<p class="font-serif text-lg text-on-surface italic">"The echo of a silent room..."</p>
+<p class="text-[10px] text-on-surface-variant/60 uppercase mt-1">Isolated Rhyme</p>
+</td>
+<td class="px-6 py-6 text-on-surface-variant text-sm">Collected Ideas</td>
+<td class="px-6 py-6 text-on-surface-variant text-sm">Sep 30, 2023</td>
+<td class="px-6 py-6 text-right">
+<div class="flex justify-end gap-3 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded bg-surface-bright text-primary text-xs font-medium hover:bg-primary hover:text-on-primary transition-all">
+<span class="material-symbols-outlined text-sm">restore_from_trash</span> Restore
+                                    </button>
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded border border-error/30 text-error text-xs font-medium hover:bg-error hover:text-on-error transition-all">
+<span class="material-symbols-outlined text-sm">delete_forever</span> Delete
+                                    </button>
+</div>
+</td>
+</tr>
+<!-- Row 4: Fragment -->
+<tr class="hover:bg-surface-container-high transition-colors group">
+<td class="px-6 py-6">
+<span class="px-2 py-1 rounded-sm bg-secondary-container/30 text-secondary text-[10px] font-bold uppercase tracking-tight">Fragment</span>
+</td>
+<td class="px-6 py-6">
+<p class="font-serif text-lg text-on-surface italic">"Fading lights on the avenue"</p>
+<p class="text-[10px] text-on-surface-variant/60 uppercase mt-1">Napkin Note</p>
+</td>
+<td class="px-6 py-6 text-on-surface-variant text-sm">Inspiration Box</td>
+<td class="px-6 py-6 text-on-surface-variant text-sm">Sep 28, 2023</td>
+<td class="px-6 py-6 text-right">
+<div class="flex justify-end gap-3 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded bg-surface-bright text-primary text-xs font-medium hover:bg-primary hover:text-on-primary transition-all">
+<span class="material-symbols-outlined text-sm">restore_from_trash</span> Restore
+                                    </button>
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded border border-error/30 text-error text-xs font-medium hover:bg-error hover:text-on-error transition-all">
+<span class="material-symbols-outlined text-sm">delete_forever</span> Delete
+                                    </button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Empty State Contextual Hint -->
+<div class="mt-12 p-8 border border-dashed border-outline-variant/30 rounded-xl flex flex-col items-center text-center">
+<div class="w-16 h-16 rounded-full bg-surface-container-highest flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-primary/40 text-3xl">auto_delete</span>
+</div>
+<h3 class="font-serif text-xl text-on-surface mb-2">Deletion Policy</h3>
+<p class="text-sm text-on-surface-variant max-w-md mb-6">PoC では自動削除を前提にせず、ユーザーが明示的に復元または完全削除を選ぶ。</p>
+<button class="text-sm font-semibold text-primary underline underline-offset-4 decoration-primary/30 hover:decoration-primary transition-all">Review Delete Flow</button>
+</div>
+</div>
+<!-- Footer Visual Decor -->
+<footer class="mt-auto p-10 border-t border-outline-variant/5">
+<div class="flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="flex items-center gap-2 opacity-30 grayscale contrast-125">
+<span class="material-symbols-outlined text-primary">flight</span>
+<span class="font-serif text-on-surface italic tracking-widest text-sm uppercase">Deleted Data Review</span>
+</div>
+<div class="flex gap-8">
+<span class="text-[10px] uppercase tracking-widest text-on-surface-variant font-bold">Settings Layer</span>
+<span class="text-[10px] uppercase tracking-widest text-on-surface-variant font-bold">Revision ID: 489-LYRICLYTIC</span>
+</div>
+</div>
+</footer>
+</main>
+<!-- Contextual "Permanent Clear" FAB (Suppressing normal FAB as per rules for specialized screens) -->
+<!-- Instead of a floating action, we use a pinned status bar at the bottom for major archive actions if needed -->
+<div class="fixed bottom-8 right-8">
+<div class="rounded-2xl bg-surface-container-highest/80 backdrop-blur-md border border-outline-variant/20 px-5 py-4 shadow-2xl">
+<div class="text-[10px] uppercase tracking-widest text-on-surface-variant/60 mb-2">Bulk Actions</div>
+<div class="flex items-center gap-3">
+<button class="px-4 py-2 rounded-lg bg-surface-container text-on-surface text-sm font-semibold hover:bg-surface-bright transition-colors">Select Items</button>
+<button class="px-4 py-2 rounded-lg border border-error/30 text-error text-sm font-semibold hover:bg-error hover:text-on-error transition-colors">Delete Selected</button>
+</div>
+</div>
+</div>
+</body></html>

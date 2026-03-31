@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>LyricLytic | Neon Solitude</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface-bright": "#31394d",
+            "secondary-fixed": "#d4e4fa",
+            "on-tertiary-fixed": "#301400",
+            "on-error-container": "#ffdad6",
+            "surface": "#0b1326",
+            "surface-variant": "#2d3449",
+            "inverse-primary": "#494bd6",
+            "surface-container-lowest": "#060e20",
+            "outline": "#908fa0",
+            "tertiary-fixed-dim": "#ffb783",
+            "on-primary-container": "#0d0096",
+            "surface-container-low": "#131b2e",
+            "primary": "#c0c1ff",
+            "background": "#0b1326",
+            "tertiary-container": "#d97721",
+            "tertiary": "#ffb783",
+            "error-container": "#93000a",
+            "secondary": "#b9c8de",
+            "on-error": "#690005",
+            "inverse-on-surface": "#283044",
+            "primary-container": "#8083ff",
+            "surface-container-high": "#222a3d",
+            "secondary-fixed-dim": "#b9c8de",
+            "surface-container": "#171f33",
+            "outline-variant": "#464554",
+            "primary-fixed": "#e1e0ff",
+            "surface-dim": "#0b1326",
+            "on-surface": "#dae2fd",
+            "on-secondary-fixed-variant": "#39485a",
+            "on-secondary": "#233143",
+            "inverse-surface": "#dae2fd",
+            "on-primary": "#1000a9",
+            "on-background": "#dae2fd",
+            "error": "#ffb4ab",
+            "surface-container-highest": "#2d3449",
+            "on-tertiary-fixed-variant": "#703700",
+            "on-surface-variant": "#c7c4d7",
+            "on-secondary-fixed": "#0d1c2d",
+            "secondary-container": "#39485a",
+            "on-tertiary-container": "#452000",
+            "primary-fixed-dim": "#c0c1ff",
+            "on-secondary-container": "#a7b6cc",
+            "surface-tint": "#c0c1ff",
+            "on-primary-fixed-variant": "#2f2ebe",
+            "on-primary-fixed": "#07006c",
+            "tertiary-fixed": "#ffdcc5",
+            "on-tertiary": "#4f2500"
+          },
+          fontFamily: {
+            "headline": ["Newsreader"],
+            "body": ["Inter"],
+            "label": ["Inter"]
+          },
+          borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      line-height: 1;
+      text-transform: none;
+      letter-spacing: normal;
+      word-wrap: normal;
+      white-space: nowrap;
+      direction: ltr;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 4px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #464554;
+      border-radius: 10px;
+    }
+    .glass-effect {
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface font-body overflow-hidden h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="bg-slate-950/80 backdrop-blur-xl flex justify-between items-center w-full px-6 py-3 fixed top-0 z-50">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-slate-400 cursor-pointer hover:text-indigo-200 transition-colors">arrow_back</span>
+<div class="flex flex-col">
+<span class="text-xl font-bold tracking-tight text-indigo-300 font-body">LyricLytic</span>
+<h1 class="font-headline text-lg italic text-indigo-200/80 leading-none">Neon Solitude</h1>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center bg-surface-container-highest/40 px-3 py-1.5 rounded-lg">
+<span class="material-symbols-outlined text-sm text-outline mr-2">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-48 text-on-surface placeholder:text-outline-variant" placeholder="Search lyrics..." type="text"/>
+</div>
+<div class="flex items-center gap-3">
+<button class="flex items-center gap-2 px-3 py-2 text-slate-400 hover:bg-slate-800/50 hover:text-indigo-200 transition-colors rounded-lg scale-95 duration-150">
+<span class="material-symbols-outlined" data-icon="compare">compare</span>
+<span class="text-xs font-medium uppercase tracking-wider">Compare</span>
+</button>
+<button class="flex items-center gap-2 px-4 py-2 bg-gradient-to-br from-primary to-primary-container text-on-primary font-semibold rounded-lg shadow-lg hover:opacity-90 transition-all scale-95 duration-150">
+<span class="material-symbols-outlined text-sm" data-icon="history">history</span>
+<span class="text-xs uppercase tracking-widest">Save Snapshot</span>
+</button>
+<button class="p-2 text-slate-400 hover:bg-slate-800/50 hover:text-indigo-200 rounded-full transition-colors">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+</div>
+</div>
+</header>
+<main class="flex flex-1 pt-16 h-full overflow-hidden">
+<!-- Left Pane: SideNavBar / Project Structure -->
+<aside class="bg-slate-950 flex flex-col h-full py-6 w-64 flex-shrink-0 transition-all duration-200 ease-in-out">
+<div class="px-6 mb-8">
+<div class="flex items-center justify-between mb-1">
+<h2 class="text-xs font-medium uppercase tracking-widest text-indigo-400">Project Structure</h2>
+<span class="text-[10px] text-slate-500">5 Sections</span>
+</div>
+<div class="h-1 w-full bg-slate-900 rounded-full overflow-hidden">
+<div class="bg-indigo-500 h-full w-3/5"></div>
+</div>
+</div>
+<nav class="flex-1 overflow-y-auto custom-scrollbar px-3 space-y-1">
+<!-- Nav Item -->
+<a class="group flex flex-col p-3 rounded-lg hover:bg-slate-900 hover:text-slate-200 transition-all text-slate-500" href="#">
+<div class="flex items-center gap-3 mb-1">
+<span class="material-symbols-outlined text-lg" data-icon="short_text">short_text</span>
+<span class="text-xs font-medium uppercase tracking-wider">Intro</span>
+</div>
+<p class="text-[10px] line-clamp-1 opacity-60">Fading lights and neon rain...</p>
+</a>
+<!-- Active Nav Item -->
+<a class="group flex flex-col p-3 rounded-lg bg-indigo-500/10 text-indigo-300 border-r-2 border-indigo-500 transition-all" href="#">
+<div class="flex items-center justify-between mb-1">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-lg" data-icon="segment">segment</span>
+<span class="text-xs font-medium uppercase tracking-wider">Verse 1</span>
+</div>
+<span class="text-[9px] bg-indigo-500/20 px-1.5 py-0.5 rounded uppercase font-bold">Used</span>
+</div>
+<p class="text-[10px] line-clamp-1 opacity-80">Walking through the electric haze...</p>
+</a>
+<a class="group flex flex-col p-3 rounded-lg hover:bg-slate-900 hover:text-slate-200 transition-all text-slate-500" href="#">
+<div class="flex items-center justify-between mb-1">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-lg" data-icon="Queue_music">queue_music</span>
+<span class="text-xs font-medium uppercase tracking-wider">Chorus</span>
+</div>
+</div>
+<p class="text-[10px] line-clamp-1 opacity-60">Oh, the solitude is ringing...</p>
+</a>
+<a class="group flex flex-col p-3 rounded-lg hover:bg-slate-900 hover:text-slate-200 transition-all text-slate-500" href="#">
+<div class="flex items-center gap-3 mb-1">
+<span class="material-symbols-outlined text-lg" data-icon="segment">segment</span>
+<span class="text-xs font-medium uppercase tracking-wider">Verse 2</span>
+</div>
+<p class="text-[10px] line-clamp-1 opacity-60">Shadows dance upon the walls...</p>
+</a>
+<a class="group flex flex-col p-3 rounded-lg hover:bg-slate-900 hover:text-slate-200 transition-all text-slate-500" href="#">
+<div class="flex items-center gap-3 mb-1">
+<span class="material-symbols-outlined text-lg" data-icon="Subject">subject</span>
+<span class="text-xs font-medium uppercase tracking-wider">Bridge</span>
+</div>
+<p class="text-[10px] line-clamp-1 opacity-60">Wait for the break of dawn...</p>
+</a>
+</nav>
+<div class="px-3 mt-6">
+<button class="w-full py-3 flex items-center justify-center gap-2 border border-dashed border-slate-700 rounded-lg text-slate-400 hover:border-indigo-400 hover:text-indigo-300 transition-all text-xs font-medium uppercase tracking-widest">
+<span class="material-symbols-outlined text-sm">add</span>
+          Add Section
+        </button>
+</div>
+<div class="mt-auto px-3 pt-6 border-t border-slate-900">
+<div class="text-[9px] text-slate-600 uppercase tracking-[0.25em] px-3 mb-2">Quick Panels</div>
+<div class="flex flex-col gap-1">
+<a class="flex items-center gap-3 p-3 rounded-lg text-slate-500 hover:bg-slate-900 transition-all" href="#">
+<span class="material-symbols-outlined text-lg">search</span>
+<span class="text-[10px] font-medium uppercase tracking-widest">Open Search</span>
+</a>
+<a class="flex items-center gap-3 p-3 rounded-lg text-slate-500 hover:bg-slate-900 transition-all" href="#">
+<span class="material-symbols-outlined text-lg">music_note</span>
+<span class="text-[10px] font-medium uppercase tracking-widest">Open Song Inspector</span>
+</a>
+<a class="flex items-center gap-3 p-3 rounded-lg text-slate-500 hover:bg-slate-900 transition-all" href="#">
+<span class="material-symbols-outlined text-lg">history</span>
+<span class="text-[10px] font-medium uppercase tracking-widest">Open Version History</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- Middle Pane: The Editor -->
+<section class="flex-1 bg-surface-container-low relative flex flex-col overflow-hidden">
+<div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: radial-gradient(circle at 50% 50%, #4f46e5 0%, transparent 50%);"></div>
+<div class="px-16 pt-12 pb-6 flex justify-between items-end">
+<div>
+<h2 class="font-headline text-5xl text-on-surface mb-2 font-light">Verse 1</h2>
+<div class="flex items-center gap-3">
+<span class="bg-tertiary/20 text-tertiary px-2 py-0.5 rounded text-[10px] font-bold tracking-widest uppercase">Working Draft</span>
+<span class="text-[10px] text-on-surface-variant/60 font-medium">Autosaved 2m ago</span>
+</div>
+</div>
+<div class="text-right">
+<div class="text-[10px] text-outline-variant font-bold uppercase tracking-widest mb-1">Section Tempo</div>
+<div class="text-2xl font-headline italic text-on-surface">112 BPM</div>
+</div>
+</div>
+<div class="flex-1 px-16 py-8 overflow-y-auto custom-scrollbar">
+<textarea class="w-full h-full bg-transparent border-none focus:ring-0 font-headline text-3xl leading-[1.6] text-on-surface-variant placeholder:text-surface-variant selection:bg-primary/30 resize-none" placeholder="Begin your masterpiece...">Walking through the electric haze, 
+where every shadow speaks a name I used to know.
+The grid is humming with a blue-hued blaze,
+and the silence is the only thing that's starting to grow.
+
+In the architecture of this empty street,
+I find the fragments of a soul I used to meet.</textarea>
+</div>
+<div class="px-16 py-6 flex items-center justify-between border-t border-indigo-500/5">
+<div class="flex gap-8">
+<div>
+<div class="text-[9px] uppercase tracking-tighter text-outline mb-1">Words</div>
+<div class="text-sm font-medium">42</div>
+</div>
+<div>
+<div class="text-[9px] uppercase tracking-tighter text-outline mb-1">Rhyme Density</div>
+<div class="text-sm font-medium">78%</div>
+</div>
+</div>
+<div class="flex gap-2">
+<button class="p-2 hover:bg-surface-container-high rounded-full transition-colors text-outline">
+<span class="material-symbols-outlined text-lg">format_italic</span>
+</button>
+<button class="p-2 hover:bg-surface-container-high rounded-full transition-colors text-outline">
+<span class="material-symbols-outlined text-lg">format_bold</span>
+</button>
+<button class="p-2 hover:bg-surface-container-high rounded-full transition-colors text-outline">
+<span class="material-symbols-outlined text-lg">auto_fix_high</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Right Pane: Inspector -->
+<aside class="w-80 bg-slate-900/40 backdrop-blur-sm flex flex-col border-l border-slate-900/50">
+<!-- Tabs -->
+<div class="flex p-2 gap-1 bg-surface-container-lowest/50">
+<button class="flex-1 py-2 text-[10px] font-bold uppercase tracking-widest rounded bg-surface-container text-primary">Search</button>
+<button class="flex-1 py-2 text-[10px] font-bold uppercase tracking-widest rounded hover:bg-surface-container/40 text-outline-variant">Fragments</button>
+<button class="flex-1 py-2 text-[10px] font-bold uppercase tracking-widest rounded hover:bg-surface-container/40 text-outline-variant">Song</button>
+<button class="flex-1 py-2 text-[10px] font-bold uppercase tracking-widest rounded hover:bg-surface-container/40 text-outline-variant">History</button>
+</div>
+<!-- Content Area -->
+<div class="flex-1 overflow-y-auto custom-scrollbar p-6 space-y-6">
+<div>
+<label class="text-[11px] font-bold text-on-surface-variant uppercase tracking-[0.2em] mb-3 block">Search</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-sm">search</span>
+<input class="w-full bg-surface-container-high rounded-lg py-2.5 pl-10 pr-4 text-sm text-on-surface placeholder:text-outline border-none focus:ring-1 focus:ring-primary/30 outline-none" placeholder="Search by phrase, mood, or image..." type="text"/>
+</div>
+</div>
+<!-- Fragments Section -->
+<div>
+<div class="flex items-center justify-between mb-4">
+<h3 class="text-[11px] font-bold text-on-surface-variant uppercase tracking-[0.2em]">Suggested Fragments</h3>
+<span class="material-symbols-outlined text-sm text-outline cursor-pointer">refresh</span>
+</div>
+<div class="space-y-3">
+<!-- Fragment Card -->
+<div class="group bg-surface-container-low p-4 rounded-xl border border-transparent hover:border-indigo-500/30 transition-all duration-300">
+<p class="font-headline italic text-on-surface mb-3">"the architecture of silence"</p>
+<div class="flex justify-between items-center opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="text-[9px] text-outline font-medium uppercase">Source: Noir Poetry</span>
+<button class="text-[9px] font-bold text-primary uppercase bg-primary/10 px-2 py-1 rounded">Insert</button>
+</div>
+</div>
+<div class="group bg-surface-container-low p-4 rounded-xl border border-transparent hover:border-indigo-500/30 transition-all duration-300">
+<p class="font-headline italic text-on-surface mb-3">"neon solitude"</p>
+<div class="flex justify-between items-center opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="text-[9px] text-outline font-medium uppercase">Source: Cyber-Metaphor</span>
+<button class="text-[9px] font-bold text-primary uppercase bg-primary/10 px-2 py-1 rounded">Insert</button>
+</div>
+</div>
+<div class="group bg-surface-container-low p-4 rounded-xl border border-transparent hover:border-indigo-500/30 transition-all duration-300">
+<p class="font-headline italic text-on-surface mb-3">"cobalt heartbeats in a copper world"</p>
+<div class="flex justify-between items-center opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="text-[9px] text-outline font-medium uppercase">Source: Digital Heart</span>
+<button class="text-[9px] font-bold text-primary uppercase bg-primary/10 px-2 py-1 rounded">Insert</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Song Artifact -->
+<div class="pt-4 border-t border-slate-800">
+<h3 class="text-[11px] font-bold text-on-surface-variant uppercase tracking-[0.2em] mb-4">Linked Artifact</h3>
+<div class="bg-surface-container-high rounded-xl p-4 flex items-center gap-4">
+<div class="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center text-primary shadow-inner">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</div>
+<div class="flex-1 overflow-hidden">
+<div class="text-xs font-bold truncate">Electric Haze.mp3</div>
+<div class="text-[9px] text-outline uppercase tracking-wider">3:42 • 44.1kHz</div>
+</div>
+<a class="text-primary hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined text-sm">open_in_new</span>
+</a>
+</div>
+</div>
+<!-- History Snapshot -->
+<div class="pt-4 border-t border-slate-800">
+<h3 class="text-[11px] font-bold text-on-surface-variant uppercase tracking-[0.2em] mb-4">Lyric Versions</h3>
+<div class="relative space-y-6 before:absolute before:left-3 before:top-2 before:bottom-2 before:w-px before:bg-slate-800">
+<!-- Version -->
+<div class="relative pl-8">
+<div class="absolute left-[9px] top-1.5 w-1.5 h-1.5 rounded-full bg-primary border border-surface shadow-[0_0_8px_rgba(192,193,255,0.5)]"></div>
+<div class="flex justify-between items-start">
+<div>
+<div class="text-xs font-bold">Draft v1</div>
+<div class="text-[9px] text-outline uppercase font-medium">Today, 2:14 PM</div>
+</div>
+<button class="text-[10px] font-bold text-primary/80 hover:text-primary uppercase tracking-tighter">Compare</button>
+</div>
+</div>
+<!-- Version -->
+<div class="relative pl-8">
+<div class="absolute left-[9px] top-1.5 w-1.5 h-1.5 rounded-full bg-slate-700 border border-surface"></div>
+<div class="flex justify-between items-start">
+<div>
+<div class="text-xs font-bold text-on-surface-variant">The Midnight Edit</div>
+<div class="text-[9px] text-outline uppercase font-medium">Yesterday, 11:58 PM</div>
+</div>
+<button class="text-[10px] font-bold text-primary/80 hover:text-primary uppercase tracking-tighter">Compare</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Info -->
+<div class="p-4 bg-surface-container-lowest/80 text-center">
+<p class="text-[9px] text-outline-variant font-medium uppercase tracking-[0.3em]">Curated by LyricLytic AI</p>
+</div>
+</aside>
+</main>
+<!-- Background Decorative Image (Subtle) -->
+<div class="fixed bottom-0 right-0 w-[40vw] h-[409px] pointer-events-none opacity-[0.03] overflow-hidden -z-10">
+<img alt="" class="w-full h-full object-cover grayscale" data-alt="abstract moody silhouettes of music recording equipment in a dark studio with soft glowing purple highlights and dust particles" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfdVCdLlmVE69hAekQnGu0MqDtIRjtJ61oSl_z1ZF9fgYHHRrdDAQDmahyvE3FBaeUb49QLA3yOmQIZv2g8MU9l1AupW6fNjlu6u1OXbVs67ckDDgqjh-hMxflXqoxNU43Ng9iEz5CojdXy2PUidUj2DsL3AqiLWGe8bYSki1thDefoPBnbx_Lyv-YihtWOiYIsoUpkpm2ceq1OAextPPIarTW3i7REzwEVtkUFR8K24kNqUnQXiQNpDTh3LL0h8T1nOGRGxiHYg"/>
+</div>
+</body></html>

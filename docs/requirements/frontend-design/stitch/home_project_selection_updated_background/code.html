@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-tertiary-fixed": "#301400",
+              "inverse-surface": "#dae2fd",
+              "secondary-fixed": "#d4e4fa",
+              "on-secondary-fixed": "#0d1c2d",
+              "surface-container-low": "#131b2e",
+              "on-tertiary": "#4f2500",
+              "on-surface": "#dae2fd",
+              "on-primary-fixed-variant": "#2f2ebe",
+              "on-secondary": "#233143",
+              "tertiary-fixed-dim": "#ffb783",
+              "surface-container": "#171f33",
+              "inverse-on-surface": "#283044",
+              "primary-container": "#8083ff",
+              "error": "#ffb4ab",
+              "error-container": "#93000a",
+              "surface-dim": "#0b1326",
+              "secondary-container": "#39485a",
+              "inverse-primary": "#494bd6",
+              "primary-fixed": "#e1e0ff",
+              "on-tertiary-container": "#452000",
+              "on-error-container": "#ffdad6",
+              "tertiary": "#ffb783",
+              "surface": "#0b1326",
+              "outline": "#908fa0",
+              "surface-bright": "#31394d",
+              "primary": "#c0c1ff",
+              "on-background": "#dae2fd",
+              "surface-tint": "#c0c1ff",
+              "tertiary-container": "#d97721",
+              "on-secondary-fixed-variant": "#39485a",
+              "outline-variant": "#464554",
+              "primary-fixed-dim": "#c0c1ff",
+              "secondary-fixed-dim": "#b9c8de",
+              "tertiary-fixed": "#ffdcc5",
+              "on-secondary-container": "#a7b6cc",
+              "surface-container-high": "#222a3d",
+              "on-error": "#690005",
+              "on-primary": "#1000a9",
+              "surface-container-lowest": "#060e20",
+              "on-surface-variant": "#c7c4d7",
+              "surface-variant": "#2d3449",
+              "on-primary-container": "#0d0096",
+              "on-primary-fixed": "#07006c",
+              "surface-container-highest": "#2d3449",
+              "on-tertiary-fixed-variant": "#703700",
+              "secondary": "#b9c8de",
+              "background": "#0b1326"
+            },
+            fontFamily: {
+              "headline": ["Newsreader", "serif"],
+              "body": ["Inter", "sans-serif"],
+              "label": ["Inter", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>body {
+    background-color: #0b1326;
+    font-family: "Inter", sans-serif;
+    overflow-x: hidden
+    }
+.main-bg-gradient {
+    background: radial-gradient(circle at 50% -20%, #1a233a 0%, #0b1326 70%)
+    }
+.material-symbols-outlined {
+    font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 0, "opsz" 24
+    }
+.glass-panel {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px)
+    }
+.cta-gradient {
+    background: linear-gradient(135deg, #c0c1ff 0%, #8083ff 100%)
+    }
+.subtle-overlay {
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuDS3jm2nc6WScAh3xhw22FELqIbNK-aTVvwynNvAoFKa_NK_cGCHRgzk6oFlCQr_FWjM28J-HDge9VvoorHV7B0y6XeRjHnVhVfWaDfqM-SPvg3VHKU1CcOKm4poqFrTJdPpSvvuOcWP1YFIx89FSgzZd9d_RES2iRSKpSN73jZx31HaOiOWzHv432VVEj2wZYTauIVE0qrNcQv5lGGz_vk7dPfU9YOyO8GECo7WQvV0iF5cDYL9iGSVDw5RXtGzRl7bK-mKozqSg);
+    opacity: 0.03;
+    pointer-events: none
+    }</style>
+</head>
+<body class="text-on-surface selection:bg-primary/30 min-h-screen">
+<div class="fixed inset-0 subtle-overlay z-0"></div>
+<!-- Predicted Component: SideNavBar -->
+<aside class="flex flex-col h-screen fixed left-0 top-0 py-6 px-4 w-64 border-r border-outline-variant/10 bg-[#0b1326] z-50">
+<div class="mb-10 px-2">
+<h1 class="text-xl font-serif font-bold text-indigo-100">LyricLytic</h1>
+<p class="text-[11px] uppercase tracking-wider text-on-surface-variant mt-1">Digital Atelier</p>
+</div>
+<button class="cta-gradient text-on-primary font-semibold py-3 px-4 rounded-lg flex items-center justify-center gap-2 mb-8 transition-transform active:scale-95 shadow-lg shadow-primary/10">
+<span class="material-symbols-outlined text-[20px]">add</span>
+<span>New Project</span>
+</button>
+<nav class="flex flex-col gap-1 flex-grow">
+<!-- Active State: Projects -->
+<a class="text-[#c0c1ff] font-bold bg-[#222a3d] rounded-lg flex items-center gap-3 px-4 py-3 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="folder_open">folder_open</span>
+<span class="text-sm">Projects</span>
+</a>
+<a class="text-[#c7c4d7] hover:text-[#dae2fd] hover:bg-[#222a3d] transition-colors duration-200 flex items-center gap-3 px-4 py-3 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="more_horiz">more_horiz</span>
+<span class="text-sm">More</span>
+</a>
+<a class="text-[#c7c4d7] hover:text-[#dae2fd] hover:bg-[#222a3d] transition-colors duration-200 flex items-center gap-3 px-4 py-3 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="text-sm">Settings</span>
+</a>
+</nav>
+<div class="mt-auto pt-6 border-t border-outline-variant/20 flex items-center gap-3 px-2">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest overflow-hidden border border-outline-variant/30">
+<img alt="User profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmzNQqcrCaQbmTK1zsQb9cwxrB100JEkl6z8i-TFEbxIyAHw-mjKQ0_x8gv2cSvyzyA1CeWErRFrb87gBQRV4ffq6j6dLczPE_EFqGFk81s0MdlgKx2V53J9tBXyNLhp-le3A_KJrABxqWpW88VdYdZDxRlElcpe1qR95_QxHDcXOz-KhPVhUKst-7pJEAJFico9YW5uB6b7WmWEhZj557fr3H4ZDHxCCjYXi46OJLvFdQx-qIgSjaJ2LvBqzmEp8XDIQC6iEBTw"/>
+</div>
+<div class="flex flex-col">
+<span class="text-xs font-medium">Julian Thorne</span>
+<span class="text-[10px] text-on-surface-variant">Pro Curator</span>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 min-h-screen main-bg-gradient relative z-10">
+<!-- Predicted Component: TopAppBar -->
+<header class="flex justify-between items-center w-full pl-8 pr-8 py-6 sticky top-0 z-40 bg-[#0b1326]/60 backdrop-blur-xl">
+<div class="flex flex-col">
+<h2 class="font-serif text-3xl font-bold tracking-tight text-on-surface">Your Projects</h2>
+<p class="text-sm text-on-surface-variant font-body mt-1">Curating 12 active lyrical drafts</p>
+</div>
+<div class="flex items-center gap-6">
+<!-- Search Bar -->
+<div class="relative flex items-center group">
+<span class="material-symbols-outlined absolute left-3 text-on-surface-variant text-[20px] group-focus-within:text-primary transition-colors">search</span>
+<input class="bg-surface-container-highest/50 border-none rounded-full pl-10 pr-4 py-2 text-sm w-64 focus:ring-1 focus:ring-primary/30 transition-all placeholder:text-on-surface-variant/50" placeholder="Search your atelier..." type="text"/>
+</div>
+<div class="flex items-center gap-4 text-on-surface-variant">
+<button class="hover:text-primary transition-colors opacity-80 hover:opacity-100">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<div class="h-4 w-[1px] bg-outline-variant/30"></div>
+<div class="text-right">
+<div class="text-[10px] uppercase tracking-widest text-on-surface-variant/60">Recent Activity</div>
+<button class="text-sm font-medium hover:text-primary transition-colors">Open Neon Solitude</button>
+</div>
+</div>
+</div>
+</header>
+<!-- Project Filtering Tabs -->
+<section class="px-8 mb-8">
+<div class="flex gap-8 border-b border-outline-variant/10">
+<button class="pb-4 text-sm font-semibold text-primary border-b-2 border-primary tracking-wide">Recent</button>
+<button class="pb-4 text-sm font-medium text-on-surface-variant hover:text-on-surface transition-colors tracking-wide">Favorites</button>
+<button class="pb-4 text-sm font-medium text-on-surface-variant hover:text-on-surface transition-colors tracking-wide">All Projects</button>
+</div>
+</section>
+<!-- Project Grid -->
+<section class="px-8 pb-12">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Project Card 1 -->
+<div class="group relative glass-panel rounded-xl p-6 transition-all duration-300 hover:bg-white/[0.06] hover:border-white/10 hover:-translate-y-1 cursor-pointer">
+<div class="flex justify-between items-start mb-4">
+<span class="text-[10px] uppercase tracking-widest font-bold text-tertiary bg-tertiary/10 px-2 py-1 rounded">Current Draft</span>
+<button class="text-on-surface-variant opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+<h3 class="font-serif text-2xl mb-2 text-on-surface leading-tight">Neon Solitude</h3>
+<p class="text-on-surface-variant text-sm line-clamp-2 font-light mb-6">Walking through the electric haze, where every shadow speaks a name I used to know...</p>
+<div class="flex items-center justify-between mt-auto">
+<div class="flex gap-2">
+<span class="text-[10px] font-body text-on-surface-variant border border-outline-variant/20 px-2 py-0.5 rounded">Synth-Pop</span>
+<span class="text-[10px] font-body text-on-surface-variant border border-outline-variant/20 px-2 py-0.5 rounded">124 BPM</span>
+</div>
+<span class="text-[11px] font-body text-on-surface-variant/60">Updated 2h ago</span>
+</div>
+</div>
+<!-- Project Card 2 -->
+<div class="group relative glass-panel rounded-xl p-6 transition-all duration-300 hover:bg-white/[0.06] hover:border-white/10 hover:-translate-y-1 cursor-pointer">
+<div class="flex justify-between items-start mb-4">
+<span class="text-[10px] uppercase tracking-widest font-bold text-primary bg-primary/10 px-2 py-1 rounded">Finalized</span>
+<button class="text-on-surface-variant opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+<h3 class="font-serif text-2xl mb-2 text-on-surface leading-tight">Vantage Point</h3>
+<p class="text-on-surface-variant text-sm line-clamp-2 font-light mb-6">From the jagged cliffs of memory, I see the tide of time returning what was lost.</p>
+<div class="flex items-center justify-between mt-auto">
+<div class="flex gap-2">
+<span class="text-[10px] font-body text-on-surface-variant border border-outline-variant/20 px-2 py-0.5 rounded">Folk</span>
+</div>
+<span class="text-[11px] font-body text-on-surface-variant/60">Updated Oct 24</span>
+</div>
+</div>
+<!-- Project Card 3 -->
+<div class="group relative glass-panel rounded-xl p-6 transition-all duration-300 hover:bg-white/[0.06] hover:border-white/10 hover:-translate-y-1 cursor-pointer">
+<div class="flex justify-between items-start mb-4">
+<div class="flex items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-[10px] uppercase tracking-widest font-bold">Favorite</span>
+</div>
+<button class="text-on-surface-variant opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+<h3 class="font-serif text-2xl mb-2 text-on-surface leading-tight">The Architect's Ghost</h3>
+<p class="text-on-surface-variant text-sm line-clamp-2 font-light mb-6">Blueprints scattered across the floor, building cathedrals in a room without doors.</p>
+<div class="flex items-center justify-between mt-auto">
+<div class="flex gap-2">
+<span class="text-[10px] font-body text-on-surface-variant border border-outline-variant/20 px-2 py-0.5 rounded">Alternative</span>
+<span class="text-[10px] font-body text-on-surface-variant border border-outline-variant/20 px-2 py-0.5 rounded">B Minor</span>
+</div>
+<span class="text-[11px] font-body text-on-surface-variant/60">Updated Oct 21</span>
+</div>
+</div>
+<!-- Project Card 4 -->
+<div class="group relative glass-panel rounded-xl p-6 transition-all duration-300 hover:bg-white/[0.06] hover:border-white/10 hover:-translate-y-1 cursor-pointer">
+<div class="flex justify-between items-start mb-4">
+<span class="text-[10px] uppercase tracking-widest font-bold text-tertiary bg-tertiary/10 px-2 py-1 rounded">Current Draft</span>
+<button class="text-on-surface-variant opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+<h3 class="font-serif text-2xl mb-2 text-on-surface leading-tight">Midnight Oil</h3>
+<p class="text-on-surface-variant text-sm line-clamp-2 font-light mb-6">The wick is low but the rhythm is high, catching lightning in a jar before the morning...</p>
+<div class="flex items-center justify-between mt-auto">
+<div class="flex gap-2">
+<span class="text-[10px] font-body text-on-surface-variant border border-outline-variant/20 px-2 py-0.5 rounded">Lofi</span>
+</div>
+<span class="text-[11px] font-body text-on-surface-variant/60">Updated Yesterday</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Secondary Bottom Section: Suggested Inspiration -->
+<section class="px-8 mt-12 mb-16">
+<h4 class="text-[11px] uppercase tracking-widest font-bold text-on-surface-variant mb-6">Fragment Library</h4>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+<div class="relative h-48 rounded-xl overflow-hidden group border border-white/5">
+<img alt="Moodboard" class="w-full h-full object-cover grayscale opacity-30 group-hover:grayscale-0 group-hover:opacity-60 group-hover:scale-105 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbZSm2s2P0B1b26mf3VIbJ5FaY0l69g4H-N8KjRaXs3IC_QDttvwXioFV7pnpLDlTLUG3_A7GZV1hfJLNMm5OS8M_u2OZjSicgvPb6lfMf9H1B_LBpxEWj3MF0NNsgY0oqygArO1F4amgqqm5v4r11FBFwrbHIVplJhqMaisd1GYvV5ifG0Sz1wmd0Svme_HtGB9DTWMihcFt_7K8kLL0Gc82r5d8LVHo1FqTqvxolrszN52WWdF61Ha3iBqZT0emkuqgTl5YdMA"/>
+<div class="absolute inset-0 bg-gradient-to-t from-[#0b1326] via-[#0b1326]/40 to-transparent p-6 flex flex-col justify-end">
+<h5 class="font-serif text-xl">The Rainy City Motif</h5>
+<p class="text-xs text-on-surface-variant">42 saved rhyming fragments</p>
+</div>
+</div>
+<div class="relative h-48 rounded-xl overflow-hidden group border border-white/5">
+<img alt="Classical inspiration" class="w-full h-full object-cover grayscale opacity-30 group-hover:grayscale-0 group-hover:opacity-60 group-hover:scale-105 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCl18ZW8XqwgHXcWY2_Bppgv45BbFpVMTdGqYKmS3EmzRrTn3i6NjBh4jeXy05R2KMJ-LxzjBNFIy8lrEkmZHx166NT0aVZpvZ-gH4RhrtHFKLIOrWCZn58rHiKpBZ5g_UvfkYALLqpscGhXR-zCqLStMp8YrqH0_N2B1GjBQmESIDB68cyntVkFx7oyc6-Wuh_JMuNFoBnClHos9NdbbfjoLhPnkQ7E943vF-o1_6xxotGkxqeYYeMu48iKiVQ02Can_0Cq1682w"/>
+<div class="absolute inset-0 bg-gradient-to-t from-[#0b1326] via-[#0b1326]/40 to-transparent p-6 flex flex-col justify-end">
+<h5 class="font-serif text-xl">Baroque Metaphors</h5>
+<p class="text-xs text-on-surface-variant">18 historical structure notes</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- FAB for New Project (Mobile) -->
+<button class="md:hidden fixed bottom-6 right-6 w-14 h-14 cta-gradient rounded-full flex items-center justify-center text-on-primary shadow-2xl z-50 active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-[30px]" data-icon="add">add</span>
+</button>
+</body></html>

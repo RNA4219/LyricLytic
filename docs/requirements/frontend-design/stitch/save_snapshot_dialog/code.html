@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>LyricLytic - Create Snapshot</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Newsreader:ital,wght@0,400;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-container-lowest": "#060e20",
+                        "on-tertiary-container": "#452000",
+                        "inverse-primary": "#494bd6",
+                        "outline-variant": "#464554",
+                        "on-surface-variant": "#c7c4d7",
+                        "inverse-on-surface": "#283044",
+                        "on-secondary-fixed": "#0d1c2d",
+                        "on-primary-container": "#0d0096",
+                        "surface-variant": "#2d3449",
+                        "on-background": "#dae2fd",
+                        "error-container": "#93000a",
+                        "surface-container-high": "#222a3d",
+                        "surface": "#0b1326",
+                        "secondary-fixed-dim": "#b9c8de",
+                        "secondary": "#b9c8de",
+                        "on-tertiary": "#4f2500",
+                        "on-primary-fixed": "#07006c",
+                        "tertiary": "#ffb783",
+                        "on-primary": "#1000a9",
+                        "on-primary-fixed-variant": "#2f2ebe",
+                        "outline": "#908fa0",
+                        "secondary-container": "#39485a",
+                        "surface-container-low": "#131b2e",
+                        "surface-container-highest": "#2d3449",
+                        "error": "#ffb4ab",
+                        "tertiary-fixed-dim": "#ffb783",
+                        "on-tertiary-fixed": "#301400",
+                        "primary-fixed": "#e1e0ff",
+                        "surface-bright": "#31394d",
+                        "on-surface": "#dae2fd",
+                        "on-error": "#690005",
+                        "tertiary-fixed": "#ffdcc5",
+                        "tertiary-container": "#d97721",
+                        "background": "#0b1326",
+                        "primary": "#c0c1ff",
+                        "inverse-surface": "#dae2fd",
+                        "on-secondary": "#233143",
+                        "on-error-container": "#ffdad6",
+                        "primary-fixed-dim": "#c0c1ff",
+                        "surface-tint": "#c0c1ff",
+                        "on-secondary-fixed-variant": "#39485a",
+                        "on-secondary-container": "#a7b6cc",
+                        "primary-container": "#8083ff",
+                        "surface-dim": "#0b1326",
+                        "surface-container": "#171f33",
+                        "secondary-fixed": "#d4e4fa",
+                        "on-tertiary-fixed-variant": "#703700"
+                    },
+                    fontFamily: {
+                        "headline": ["Newsreader", "serif"],
+                        "body": ["Inter", "sans-serif"],
+                        "label": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(49, 57, 77, 0.6);
+            backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary/30 min-h-screen overflow-hidden">
+<!-- Background Editor Canvas (Simulated) -->
+<div class="fixed inset-0 flex flex-col pointer-events-none opacity-40 blur-sm">
+<!-- TopNavBar Mockup -->
+<header class="bg-[#0b1326] flex justify-between items-center w-full px-8 py-4">
+<div class="text-2xl font-headline text-[#dae2fd]">LyricLytic</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-[#c7c4d7]">history</span>
+<span class="material-symbols-outlined text-[#c7c4d7]">settings</span>
+</div>
+</header>
+<div class="flex flex-1 overflow-hidden">
+<!-- SideNavBar Mockup -->
+<aside class="bg-[#0b1326] w-64 flex flex-col p-6 space-y-8">
+<div>
+<div class="text-xl font-headline text-[#dae2fd]">LyricLytic Workspace</div>
+<div class="text-xs text-on-surface-variant uppercase tracking-widest mt-1">Digital Atelier</div>
+</div>
+<nav class="space-y-2">
+<div class="flex items-center gap-3 px-3 py-2 text-[#c0c1ff] bg-[#131b2e] rounded-lg font-bold">
+<span class="material-symbols-outlined">edit_note</span>
+<span class="text-sm">Workspace</span>
+</div>
+<div class="flex items-center gap-3 px-3 py-2 text-[#c7c4d7] font-medium">
+<span class="material-symbols-outlined">description</span>
+<span class="text-sm">Versions</span>
+</div>
+</nav>
+</aside>
+<!-- Workspace Mockup -->
+<main class="flex-1 bg-surface-container-low p-12">
+<div class="max-w-3xl mx-auto space-y-12">
+<h1 class="font-headline text-5xl text-on-background">Neon Solitude</h1>
+<div class="space-y-6 font-headline text-2xl leading-relaxed text-on-surface-variant">
+<p>In the quiet hum of the electric night,</p>
+<p>Where the shadows dance in sapphire light.</p>
+<p>The city breathes a heavy, velvet sigh,</p>
+<p>Underneath a synthetic, violet sky.</p>
+</div>
+</div>
+</main>
+</div>
+</div>
+<!-- Modal Backdrop -->
+<div class="fixed inset-0 z-50 flex items-center justify-center bg-surface-container-lowest/60 backdrop-blur-md">
+<!-- Save Snapshot Modal -->
+<div class="relative w-full max-w-lg mx-4 glass-panel border border-outline-variant/20 rounded-xl overflow-hidden shadow-2xl">
+<!-- Glow Effect -->
+<div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent pointer-events-none"></div>
+<div class="p-8 relative z-10">
+<!-- Header -->
+<header class="mb-8">
+<div class="flex items-center justify-between mb-2">
+<h2 class="text-3xl font-headline text-on-background">Create Snapshot</h2>
+<span class="material-symbols-outlined text-primary" data-weight="fill" style="font-variation-settings: 'FILL' 1;">camera_roll</span>
+</div>
+<p class="text-on-surface-variant text-sm leading-relaxed">Preserve the current state of your lyrics as a milestone.</p>
+</header>
+<!-- Form Fields -->
+<div class="space-y-6">
+<!-- Snapshot Name Field -->
+<div class="space-y-2">
+<label class="block text-[0.6875rem] font-bold text-on-surface-variant uppercase tracking-[0.05em]" for="snapshot-name">Snapshot Name</label>
+<input class="w-full bg-surface-container-highest text-on-surface border-none rounded-lg px-4 py-3 focus:ring-1 focus:ring-primary/30 transition-all outline-none" id="snapshot-name" type="text" value="Neon Solitude - Draft 2"/>
+</div>
+<!-- Creative Note Field -->
+<div class="space-y-2">
+<label class="block text-[0.6875rem] font-bold text-on-surface-variant uppercase tracking-[0.05em]" for="creative-note">Creative Note</label>
+<textarea class="w-full bg-surface-container-highest text-on-surface border-none rounded-lg px-4 py-3 focus:ring-1 focus:ring-primary/30 transition-all outline-none resize-none placeholder:text-outline" id="creative-note" placeholder="What changed in this version? Any new directions?" rows="4"></textarea>
+</div>
+</div>
+<!-- Footer -->
+<footer class="mt-10 flex flex-col gap-6">
+<div class="flex items-center gap-3 text-xs text-on-surface-variant/80 italic">
+<span class="material-symbols-outlined text-[16px]">info</span>
+<p>After saving, you will continue editing the Working Draft.</p>
+</div>
+<div class="flex items-center justify-end gap-4">
+<button class="px-6 py-2.5 text-sm font-semibold text-primary border border-outline-variant/20 rounded-lg hover:bg-surface-container-high transition-all">
+                            Cancel
+                        </button>
+<button class="px-6 py-2.5 text-sm font-semibold text-on-primary bg-gradient-to-br from-primary to-primary-container rounded-lg shadow-lg shadow-primary/20 hover:scale-[0.98] transition-all">
+                            Save Snapshot
+                        </button>
+</div>
+</footer>
+</div>
+</div>
+</div>
+</body></html>
