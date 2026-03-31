@@ -1,4 +1,7 @@
-import { Project, LyricVersion } from '../lib/api';
+import { useState } from 'react';
+import { save } from '@tauri-apps/plugin-dialog';
+import { writeFile, readFile } from '@tauri-apps/plugin-fs';
+import { Project, LyricVersion, exportProject } from '../lib/api';
 
 interface ExportPanelProps {
   project: Project;
@@ -8,8 +11,47 @@ interface ExportPanelProps {
 }
 
 function ExportPanel({ project, versions, bodyText, onClose }: ExportPanelProps) {
-  const exportNotice = 'PoC の簡易出力です。ブラウザ経由の単一ファイル保存で、正式なバックアップ package やネイティブ保存ダイアログではありません。';
+  const [includeDeleted, setIncludeDeleted] = useState(false);
+  const [exporting, setExporting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [successPath, setSuccessPath] = useState<string | null>(null);
 
+  const handleFullExport = async () => {
+    setExporting(true);
+    setError(null);
+    setSuccessPath(null);
+
+    try {
+      // Generate the zip in temp directory
+      const tempPath = await exportProject({
+        project_id: project.project_id,
+        include_deleted: includeDeleted,
+      });
+
+      // Extract filename from temp path
+      const filename = tempPath.split(/[/\\]/).pop() || 'export.zip';
+
+      // Show save dialog
+      const savePath = await save({
+        defaultPath: filename,
+        filters: [{ name: 'LyricLytic Export', extensions: ['lyrlytic.zip'] }],
+      });
+
+      if (savePath) {
+        // Read the temp file and write to selected location
+        const fileData = await readFile(tempPath);
+        await writeFile(savePath, fileData);
+        setSuccessPath(savePath);
+      }
+    } catch (e) {
+      console.error('Export failed:', e);
+      setError(e instanceof Error ? e.message : 'Export failed');
+    } finally {
+      setExporting(false);
+    }
+  };
+
+  // Quick export functions (unchanged from original)
   const exportAsText = () => {
     const content = `[${project.title}]\n\n${bodyText}`;
     downloadFile(content, `${project.title}.txt`, 'text/plain');
@@ -71,27 +113,62 @@ function ExportPanel({ project, versions, bodyText, onClose }: ExportPanelProps)
   return (
     <div className="dialog-overlay">
       <div className="dialog export-dialog">
-        <h3>Quick Export</h3>
+        <h3>Export Project</h3>
         <p className="export-info">
-          "{project.title}" の内容を簡易出力します。保存済み Version は {versions.length} 件です。
+          "{project.title}" - {versions.length} versions saved
         </p>
-        <p className="warning">{exportNotice}</p>
 
-        <div className="export-options">
-          <button onClick={exportAsText} className="export-btn">
-            📄 Text (.txt)
-            <span className="export-desc">本文だけを素早く書き出す</span>
+        {/* Full Export Section */}
+        <div className="export-section">
+          <h4>📦 Full Backup (.lyrlytic.zip)</h4>
+          <p className="export-desc">
+            Complete project backup with all data: versions, fragments, style profile, song links, and revision notes.
+          </p>
+
+          <label className="checkbox-label">
+            <input
+              type="checkbox"
+              checked={includeDeleted}
+              onChange={(e) => setIncludeDeleted(e.target.checked)}
+            />
+            Include deleted items
+          </label>
+
+          <button
+            onClick={handleFullExport}
+            disabled={exporting}
+            className="primary-btn export-full-btn"
+          >
+            {exporting ? '⏳ Creating...' : '💾 Save Backup...'}
           </button>
 
-          <button onClick={exportAsMarkdown} className="export-btn">
-            📝 Markdown (.md)
-            <span className="export-desc">Working Draft と Version を含めて書き出す</span>
-          </button>
+          {error && <p className="error">{error}</p>}
+          {successPath && (
+            <p className="success">✅ Exported to: {successPath}</p>
+          )}
+        </div>
 
-          <button onClick={exportAsJson} className="export-btn">
-            🔧 JSON (.json)
-            <span className="export-desc">検証用の構造化出力</span>
-          </button>
+        {/* Quick Export Section */}
+        <div className="export-section">
+          <h4>📄 Quick Export</h4>
+          <p className="export-hint">Simple text exports for quick sharing</p>
+
+          <div className="export-options">
+            <button onClick={exportAsText} className="export-btn">
+              Text (.txt)
+              <span className="export-desc">Working draft only</span>
+            </button>
+
+            <button onClick={exportAsMarkdown} className="export-btn">
+              Markdown (.md)
+              <span className="export-desc">With version history</span>
+            </button>
+
+            <button onClick={exportAsJson} className="export-btn">
+              JSON (.json)
+              <span className="export-desc">Structured data</span>
+            </button>
+          </div>
         </div>
 
         <div className="dialog-buttons">

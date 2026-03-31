@@ -20,13 +20,32 @@ pub fn get_by_project(conn: &Connection, project_id: &str) -> AppResult<Vec<Coll
             text: row.get(2)?,
             source: row.get(3)?,
             status: row.get(4)?,
+            tags: vec![], // Will be populated below
             created_at: row.get(5)?,
             updated_at: row.get(6)?,
         })
     })?
     .collect::<std::result::Result<Vec<_>, _>>()?;
 
-    Ok(fragments)
+    // Fetch tags for each fragment
+    let fragments_with_tags = fragments.into_iter().map(|mut fragment| {
+        let tags = get_tags_for_fragment(conn, &fragment.collected_fragment_id).unwrap_or_default();
+        fragment.tags = tags;
+        fragment
+    }).collect();
+
+    Ok(fragments_with_tags)
+}
+
+fn get_tags_for_fragment(conn: &Connection, fragment_id: &str) -> AppResult<Vec<String>> {
+    let mut stmt = conn.prepare(
+        "SELECT tag FROM fragment_tags WHERE collected_fragment_id = ?1 ORDER BY tag"
+    )?;
+
+    let tags = stmt.query_map(params![fragment_id], |row| row.get(0))?
+        .collect::<std::result::Result<Vec<_>, _>>()?;
+
+    Ok(tags)
 }
 
 pub fn create(conn: &Connection, input: CreateFragmentInput) -> AppResult<CollectedFragment> {
@@ -106,11 +125,15 @@ fn get_by_id(conn: &Connection, fragment_id: &str) -> AppResult<CollectedFragmen
             text: row.get(2)?,
             source: row.get(3)?,
             status: row.get(4)?,
+            tags: vec![], // Will be populated below
             created_at: row.get(5)?,
             updated_at: row.get(6)?,
         })
     })
     .map_err(|_| crate::error::AppError::NotFound(format!("Fragment not found: {}", fragment_id)))?;
 
-    Ok(fragment)
+    // Fetch tags
+    let tags = get_tags_for_fragment(conn, fragment_id).unwrap_or_default();
+
+    Ok(CollectedFragment { tags, ..fragment })
 }

@@ -38,6 +38,15 @@ export interface LyricVersion {
   created_at: string;
 }
 
+export interface VersionSection {
+  version_section_id: string;
+  lyric_version_id: string;
+  section_type?: string;
+  display_name: string;
+  sort_order: number;
+  body_text: string;
+}
+
 export interface CreateProjectInput {
   title: string;
   theme?: string;
@@ -69,6 +78,14 @@ export interface CreateVersionInput {
   body_text: string;
   note?: string;
   parent_lyric_version_id?: string;
+  sections: VersionSectionInput[];
+}
+
+export interface VersionSectionInput {
+  section_type?: string;
+  display_name: string;
+  sort_order: number;
+  body_text: string;
 }
 
 export interface CollectedFragment {
@@ -177,6 +194,10 @@ export async function getVersion(lyricVersionId: string): Promise<LyricVersion> 
   return invoke('get_version', { lyricVersionId });
 }
 
+export async function getVersionSections(lyricVersionId: string): Promise<VersionSection[]> {
+  return invoke('get_version_sections', { lyricVersionId });
+}
+
 // Fragment API
 export async function getFragments(projectId: string): Promise<CollectedFragment[]> {
   return invoke('get_fragments', { projectId });
@@ -222,7 +243,7 @@ export interface RevisionNote {
 
 export interface CreateRevisionNoteInput {
   lyric_version_id: string;
-  version_section_id?: string;
+  version_section_id: string;
   range_start?: number;
   range_end?: number;
   note_type: string;
@@ -287,4 +308,14 @@ export async function updateStyleProfile(profileId: string, input: UpdateStylePr
 
 export async function deleteStyleProfile(profileId: string): Promise<void> {
   return invoke('delete_style_profile', { profileId });
+}
+
+// Export API
+export interface ExportProjectInput {
+  project_id: string;
+  include_deleted: boolean;
+}
+
+export async function exportProject(input: ExportProjectInput): Promise<string> {
+  return invoke('export_project', { input });
 }

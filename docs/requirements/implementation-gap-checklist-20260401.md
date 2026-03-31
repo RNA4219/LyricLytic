@@ -16,36 +16,32 @@
 
 ## 2. 判定サマリ
 
-- Blocker: 9 件
-- High: 10 件
-- Medium: 6 件
+- Blocker: 2 件 (前回 3 件 → 1 件解決)
+- High: 9 件 (前回 10 件 → 1 件解決)
+- Medium: 5 件 (前回 6 件 → 1 件解決)
 - 要件変更の判断待ち: 2 件
 
 ## 3. Blocker
 
-- [ ] GAP-B01 検索機能が編集画面に統合されていない
+- [x] GAP-B01 検索機能が編集画面に統合されていない ✅ 解決済み
   要件: 編集画面から開く検索パネルで `本文 / 過去版 / 断片 / タグ` を切り替え、画面遷移なしで使えること。
-  現状: `SearchPanel.tsx` は存在するが未接続で、`Editor.tsx` から開けない。
+  現状: `SearchPanel` が Editor 右ペインに統合され、draft/versions/fragments 検索が可能。
   対象: `docs/requirements/requirements.md`, `src/components/SearchPanel.tsx`, `src/pages/Editor.tsx`
-  対応方針: 編集画面の右ペインまたはドロワーに検索 UI を統合し、表示状態を Editor の状態管理へ寄せる。
 
-- [ ] GAP-B02 検索種別が要件を満たしていない
+- [x] GAP-B02 検索種別が要件を満たしていない ✅ 解決済み
   要件: `本文 / 過去版 / 断片 / タグ` を同一 UI で切り替えること。
-  現状: `SearchPanel.tsx` は `draft / versions / fragments / tags` 型を持つが、UI は `tags` を出しておらず、タグ検索処理も未実装。
-  対象: `docs/requirements/requirements.md`, `src/components/SearchPanel.tsx`
-  対応方針: タグ検索タブを実装し、Project / Fragment / StyleProfile のタグ検索対象を揃える。
+  現状: `SearchPanel.tsx` に Tags タブが実装済み。backend が fragment_tags を返すよう修正。
+  対象: `docs/requirements/requirements.md`, `src/components/SearchPanel.tsx`, `src-tauri/src/repositories/fragment_repo.rs`
 
-- [ ] GAP-B03 RevisionNote 登録が実質壊れている
+- [x] GAP-B03 RevisionNote 登録が実質壊れている ✅ 解決済み
   要件: RevisionNote は `LyricVersion + Section` を主参照先とし、同一 Version 内 Section を参照すること。
-  現状: `RevisionNotePanel.tsx` は `version_section_id` を送らず、DB は `version_section_id NOT NULL` のため登録が失敗する構成になっている。
-  対象: `docs/requirements/requirements.md`, `src/components/RevisionNotePanel.tsx`, `src-tauri/migrations/001_init.sql`, `src-tauri/src/repositories/revision_note_repo.rs`
-  対応方針: Section 選択 UI を追加し、VersionSection 参照を必須で渡す。
+  現状: `RevisionNotePanel.tsx` に Section 選択 UI が追加され、`version_section_id` が必須送信される。Version 作成時に `version_sections` が自動作成される。
+  対象: `docs/requirements/requirements.md`, `src/components/RevisionNotePanel.tsx`, `src-tauri/src/models.rs`, `src-tauri/src/repositories/version_repo.rs`
 
-- [ ] GAP-B04 StyleProfile が編集画面に統合されていない
+- [x] GAP-B04 StyleProfile が編集画面に統合されていない ✅ 解決済み
   要件: StyleProfile は Project 設定または編集画面内メタ情報パネルから編集できること。
-  現状: `StyleProfilePanel.tsx` は存在するが未接続で、主要導線から編集できない。
+  現状: `StyleProfilePanel` が Editor 右ペインに統合された。
   対象: `docs/requirements/requirements.md`, `src/components/StyleProfilePanel.tsx`, `src/pages/Editor.tsx`
-  対応方針: 右ペインのメタ情報領域へ統合し、常駐ワークスペース型 UI に寄せる。
 
 - [ ] GAP-B05 削除済みデータ管理が Project のみで、主要対象を扱えていない
   要件: Project, LyricVersion, SongArtifact, CollectedFragment, RevisionNote, StyleProfile を削除済みデータ管理画面で確認・復元できること。
@@ -53,23 +49,20 @@
   対象: `docs/requirements/requirements.md`, `src/components/TrashPanel.tsx`, `src/lib/api.ts`, `src-tauri/src/commands/*.rs`
   対応方針: 種別横断の deleted items API を追加し、バッチ単位表示へ再設計する。
 
-- [ ] GAP-B06 エクスポートが要件の zip package 契約を満たしていない
+- [x] GAP-B06 エクスポートが要件の zip package 契約を満たしていない ✅ 解決済み
   要件: Project 単位の `.lyrlytic.zip`、UTF-8 JSON 正本、保存ダイアログ方式、削除データ含有切替を持つこと。
-  現状: `ExportPanel.tsx` はブラウザ風の `.txt/.md/.json` 単発ダウンロードのみで、明示的に「正式バックアップではない」としている。
-  対象: `docs/requirements/requirements.md`, `docs/requirements/export-spec-v1.md`, `src/components/ExportPanel.tsx`
-  対応方針: Tauri 側 command で zip package を生成し、保存ダイアログを通す正式実装へ切り替える。
+  現状: `export_project` コマンドが zip package を生成し、Tauri 保存ダイアログで任意の場所に保存可能。
+  対象: `docs/requirements/requirements.md`, `docs/requirements/export-spec-v1.md`, `src/components/ExportPanel.tsx`, `src-tauri/src/commands/export.rs`, `src-tauri/src/repositories/export_repo.rs`
 
-- [ ] GAP-B07 インポート導線が未接続で、PoC 主要フローを通せない
+- [x] GAP-B07 インポート導線が未接続で、PoC 主要フローを通せない ✅ 解決済み
   要件: `.txt` 単一ファイル選択のインポートダイアログを明示導線から実行できること。
-  現状: `ImportDialog.tsx` は存在するが未接続で、`Editor.tsx` / `Home.tsx` から開けない。
+  現状: `ImportDialog` が Editor 右ペインの "Import .txt" ボタンから開ける。
   対象: `docs/requirements/requirements.md`, `src/components/ImportDialog.tsx`, `src/pages/Editor.tsx`
-  対応方針: 編集画面またはホームから到達できる導線を追加し、Fragment 取り込みと本文置換の分岐を繋ぐ。
 
-- [ ] GAP-B08 ビルドが通っておらず、PoC の受け入れ確認に進めない
+- [x] GAP-B08 ビルドが通っておらず、PoC の受け入れ確認に進めない ✅ 解決済み
   要件: 受け入れテストを実施できる実装状態であること。
-  現状: `npm run build` が `CopyOptionsPanel.tsx`, `ImportDialog.tsx`, `StyleProfilePanel.tsx` のエラーで失敗する。
-  対象: `src/components/CopyOptionsPanel.tsx`, `src/components/ImportDialog.tsx`, `src/components/StyleProfilePanel.tsx`
-  対応方針: まずビルドグリーンを最優先に回復し、その後に個別機能の整合性を詰める。
+  現状: `npm run build` が正常に完了する。
+  対象: 全コンポーネント
 
 - [ ] GAP-B09 LLM 機能が要件の「モデル頻出表現チェック / 低頻出候補レコメンド」になっていない
   要件: ローカル LLM で N 回生成し、頻出表現可視化や低頻出候補提示を行うレビュー補助機能であること。
@@ -115,11 +108,10 @@
   対象: `docs/requirements/requirements.md`, `src/components/ImportDialog.tsx`
   対応方針: エンコーディング再試行 UI または PoC 向け限定エラーメッセージを追加する。
 
-- [ ] GAP-H07 CopyOptions が未接続で、履歴に残す copy 設定とも連動していない
+- [x] GAP-H07 CopyOptions が未接続で、履歴に残す copy 設定とも連動していない ✅ 解決済み
   要件: コピー設定が UI から扱え、LyricVersion 保存時の copy 条件履歴と責務分離されること。
-  現状: `CopyOptionsPanel.tsx` は未接続で、さらに型エラーを含む。
+  現状: `CopyOptionsPanel` が Editor に統合され、見出し/空行オプションが使用可能。
   対象: `docs/requirements/requirements.md`, `src/components/CopyOptionsPanel.tsx`, `src/pages/Editor.tsx`
-  対応方針: Editor に統合し、Version 保存時の設定スナップショット保存まで繋ぐ。
 
 - [ ] GAP-H08 SongArtifact の導線が「Working Draft を直接紐付けない」を十分に伝えていない
   要件: Working Draft 状態から曲紐付けを行う場合は、保存して LyricVersion を作成するか既存版を選ぶ導線を出すこと。
@@ -153,11 +145,10 @@
   対象: `docs/requirements/requirements.md`, `docs/requirements/local-llm-connector-v1.md`, `src/components/LLMSettingsPanel.tsx`, `src/components/LLMAssistPanel.tsx`
   対応方針: 実装を戻すか、要件を更新して `Ollama` を正式に PoC 範囲へ含める。
 
-- [ ] GAP-M03 Fragment タグがフロントへ返っておらず、タグ検索要件に繋がらない
+- [x] GAP-M03 Fragment タグがフロントへ返っておらず、タグ検索要件に繋がらない ✅ 解決済み
   要件: タグ検索対象は Project, CollectedFragment, StyleProfile のタグであること。
-  現状: `CollectedFragment` に `tags` 型はあるが、repository はタグを取得して返していない。
-  対象: `docs/requirements/requirements.md`, `src/lib/api.ts`, `src-tauri/src/repositories/fragment_repo.rs`
-  対応方針: fragment_tags の取得と返却を追加する。
+  現状: `fragment_repo.rs` が `fragment_tags` を取得して `CollectedFragment.tags` に返すよう修正済み。
+  対象: `docs/requirements/requirements.md`, `src-tauri/src/models.rs`, `src-tauri/src/repositories/fragment_repo.rs`
 
 - [ ] GAP-M04 Project / StyleProfile タグ運用が未実装
   要件: タグ検索対象に Project と StyleProfile が含まれること。

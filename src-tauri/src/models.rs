@@ -44,6 +44,16 @@ pub struct LyricVersion {
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct VersionSection {
+    pub version_section_id: String,
+    pub lyric_version_id: String,
+    pub section_type: Option<String>,
+    pub display_name: String,
+    pub sort_order: i32,
+    pub body_text: String,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct CreateProjectInput {
     pub title: String,
     pub theme: Option<String>,
@@ -79,6 +89,15 @@ pub struct CreateVersionInput {
     pub body_text: String,
     pub note: Option<String>,
     pub parent_lyric_version_id: Option<String>,
+    pub sections: Vec<VersionSectionInput>,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct VersionSectionInput {
+    pub section_type: Option<String>,
+    pub display_name: String,
+    pub sort_order: i32,
+    pub body_text: String,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -88,6 +107,7 @@ pub struct CollectedFragment {
     pub text: String,
     pub source: Option<String>,
     pub status: String,
+    pub tags: Vec<String>,
     pub created_at: DateTime<Utc>,
     pub updated_at: DateTime<Utc>,
 }
@@ -152,7 +172,7 @@ pub struct RevisionNote {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct CreateRevisionNoteInput {
     pub lyric_version_id: String,
-    pub version_section_id: Option<String>,
+    pub version_section_id: String,
     pub range_start: Option<i32>,
     pub range_end: Option<i32>,
     pub note_type: String,

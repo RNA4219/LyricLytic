@@ -30,6 +30,7 @@ fn main() {
             commands::version::get_versions,
             commands::version::create_version,
             commands::version::get_version,
+            commands::version::get_version_sections,
             commands::fragment::get_fragments,
             commands::fragment::create_fragment,
             commands::fragment::update_fragment,
@@ -44,6 +45,7 @@ fn main() {
             commands::style_profile::create_style_profile,
             commands::style_profile::update_style_profile,
             commands::style_profile::delete_style_profile,
+            commands::export::export_project,
         ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 type SearchType = 'draft' | 'versions' | 'fragments' | 'tags';
 
@@ -23,6 +23,7 @@ interface SearchPanelProps {
     text: string;
     source?: string;
     status: string;
+    tags?: string[];
   }>;
   onJumpToVersion?: (versionId: string) => void;
   onJumpToFragment?: (fragmentId: string) => void;
@@ -39,6 +40,18 @@ function SearchPanel({
   const [query, setQuery] = useState('');
   const [results, setResults] = useState<SearchResult[]>([]);
   const [searching, setSearching] = useState(false);
+  const [allTags, setAllTags] = useState<string[]>([]);
+
+  // Extract all unique tags from fragments
+  useEffect(() => {
+    const tags = new Set<string>();
+    fragments.forEach(f => {
+      if (f.tags) {
+        f.tags.forEach(tag => tags.add(tag));
+      }
+    });
+    setAllTags(Array.from(tags).sort());
+  }, [fragments]);
 
   const handleSearch = () => {
     if (!query.trim()) {
@@ -99,6 +112,19 @@ function SearchPanel({
           });
         }
       });
+    } else if (searchType === 'tags') {
+      // Search by tag
+      fragments.forEach(f => {
+        if (f.tags && f.tags.some(tag => tag.toLowerCase().includes(lowerQuery))) {
+          searchResults.push({
+            id: f.collected_fragment_id,
+            type: 'tags',
+            title: f.source || 'Fragment',
+            context: `Tags: ${(f.tags || []).join(', ')}`,
+            match: f.text.substring(0, 100),
+          });
+        }
+      });
     }
 
     setResults(searchResults.slice(0, 50));
@@ -144,6 +170,12 @@ function SearchPanel({
         >
           Fragments
         </button>
+        <button
+          className={searchType === 'tags' ? 'active' : ''}
+          onClick={() => setSearchType('tags')}
+        >
+          Tags
+        </button>
       </div>
 
       <div className="search-input-row">
@@ -152,13 +184,34 @@ function SearchPanel({
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
-          placeholder="Search..."
+          placeholder={searchType === 'tags' ? 'Search tags...' : 'Search...'}
           className="search-input"
         />
         <button onClick={handleSearch} className="search-btn" disabled={searching}>
           {searching ? '...' : '🔍'}
         </button>
       </div>
+
+      {searchType === 'tags' && allTags.length > 0 && (
+        <div className="tag-suggestions">
+          <span className="tag-hint">Available tags:</span>
+          <div className="tag-list">
+            {allTags.slice(0, 10).map(tag => (
+              <button
+                key={tag}
+                className="tag-chip"
+                onClick={() => {
+                  setQuery(tag);
+                  setTimeout(handleSearch, 0);
+                }}
+              >
+                {tag}
+              </button>
+            ))}
+            {allTags.length > 10 && <span className="tag-more">+{allTags.length - 10} more</span>}
+          </div>
+        </div>
+      )}
 
       <div className="search-results">
         {results.length === 0 && query && !searching && (

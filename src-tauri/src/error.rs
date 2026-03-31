@@ -9,6 +9,8 @@ pub enum AppError {
     NotFound(String),
     #[error("IO error: {0}")]
     Io(#[from] std::io::Error),
+    #[error("{0}")]
+    Other(String),
 }
 
 impl Serialize for AppError {

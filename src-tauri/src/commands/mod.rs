@@ -5,3 +5,4 @@ pub mod fragment;
 pub mod song_artifact;
 pub mod revision_note;
 pub mod style_profile;
+pub mod export;
