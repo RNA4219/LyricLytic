@@ -10,6 +10,46 @@ export interface Section {
 
 export const SECTION_PRESETS = ['Intro', 'Verse', 'Pre-Chorus', 'Chorus', 'Bridge', 'Outro'];
 
+/**
+ * Generate a unique display name for a new section.
+ * If a section with the same base name exists, appends a number (e.g., "Verse 2", "Verse 3").
+ */
+export function generateUniqueSectionName(
+  baseName: string,
+  existingSections: Section[]
+): string {
+  const sameTypeCount = existingSections.filter(
+    s => s.type === baseName || s.displayName.startsWith(baseName)
+  ).length;
+
+  if (sameTypeCount === 0) {
+    return baseName;
+  }
+
+  // Check if there's already a section with exactly the base name
+  const hasExactMatch = existingSections.some(s => s.displayName === baseName);
+
+  if (!hasExactMatch) {
+    return baseName;
+  }
+
+  // Find the highest number suffix
+  let maxNumber = 1;
+  existingSections.forEach(s => {
+    if (s.displayName === baseName) {
+      maxNumber = Math.max(maxNumber, 1);
+    } else if (s.displayName.startsWith(baseName + ' ')) {
+      const suffix = s.displayName.slice(baseName.length + 1);
+      const num = parseInt(suffix, 10);
+      if (!isNaN(num)) {
+        maxNumber = Math.max(maxNumber, num);
+      }
+    }
+  });
+
+  return `${baseName} ${maxNumber + 1}`;
+}
+
 export function parseBodyToSections(body: string): Section[] {
   const lines = body.split('\n');
   const result: Section[] = [];

@@ -167,3 +167,27 @@ pub fn restore(conn: &Connection, lyric_version_id: &str, batch_id: &str) -> App
 
     Ok(())
 }
+
+pub fn soft_delete(conn: &Connection, lyric_version_id: &str, batch_id: &str) -> AppResult<()> {
+    let now = chrono::Utc::now().to_rfc3339();
+
+    // Soft delete the version
+    conn.execute(
+        "UPDATE lyric_versions SET deleted_at = ?1, deleted_batch_id = ?2 WHERE lyric_version_id = ?3",
+        params![now, batch_id, lyric_version_id],
+    )?;
+
+    // Soft delete related version_sections
+    conn.execute(
+        "UPDATE version_sections SET deleted_at = ?1, deleted_batch_id = ?2 WHERE lyric_version_id = ?3",
+        params![now, batch_id, lyric_version_id],
+    )?;
+
+    // Soft delete related revision_notes
+    conn.execute(
+        "UPDATE revision_notes SET deleted_at = ?1, deleted_batch_id = ?2 WHERE lyric_version_id = ?3",
+        params![now, batch_id, lyric_version_id],
+    )?;
+
+    Ok(())
+}

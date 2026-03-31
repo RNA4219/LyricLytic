@@ -1,38 +1,78 @@
 /* Section Tabs */
 .section-tabs {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  padding: 0.75rem;
-  background: var(--bg-secondary);
-  border-bottom: 1px solid var(--border);
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 0;
+  background: transparent;
+  border-bottom: none;
 }
 
 .section-tab {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.5rem 0.75rem;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.75rem 0.875rem;
   background: var(--bg-tertiary);
-  border-radius: 4px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
   cursor: pointer;
-  transition: background 0.2s;
+  transition: background 0.2s, border-color 0.2s;
 }
 
 .section-tab:hover {
   background: var(--bg-active);
+  border-color: var(--accent);
 }
 
 .section-tab.active {
   background: var(--accent);
+  border-color: var(--accent);
+}
+
+.section-tab-all {
+  background: rgba(255,255,255,0.03);
+}
+
+.section-tab-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-width: 0;
+}
+
+.section-order {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2rem;
+  height: 2rem;
+  padding: 0 0.5rem;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.08);
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.section-tab.active .section-order {
+  background: rgba(0,0,0,0.18);
+  color: var(--text-primary);
+}
+
+.section-all-label {
+  color: var(--text-primary);
+  font-size: 0.95rem;
 }
 
 .section-name-input {
   background: transparent;
   border: none;
   color: var(--text-primary);
-  font-size: 0.875rem;
-  width: 80px;
+  font-size: 0.95rem;
+  width: 100%;
+  min-width: 0;
 }
 
 .section-name-input:focus {
@@ -44,7 +84,7 @@
 .section-tab-actions {
   display: flex;
   gap: 0.25rem;
-  opacity: 0;
+  opacity: 0.55;
   transition: opacity 0.2s;
 }
 
@@ -69,6 +109,10 @@
   display: flex;
   gap: 0.25rem;
   flex-wrap: wrap;
+}
+
+.section-add-inline {
+  margin-top: -0.25rem;
 }
 
 .add-section-btn {

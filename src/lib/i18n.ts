@@ -23,9 +23,13 @@ export const translations = {
     // Trash
     trash: '削除済み',
     deletedProjects: '削除済みプロジェクト',
+    deletedItems: '削除済みアイテム',
     noDeleted: '削除済みプロジェクトはありません',
+    noDeletedItems: '削除済みアイテムはありません',
     restore: '復元',
     deletedLabel: '削除日:',
+    close: '閉じる',
+    more: 'その他',
 
     // Footer
     footerText: 'ローカルファースト • 自動保存 • バージョン履歴',
@@ -63,9 +67,13 @@ export const translations = {
     // Trash
     trash: 'Trash',
     deletedProjects: 'Deleted Projects',
+    deletedItems: 'Deleted Items',
     noDeleted: 'No deleted projects',
+    noDeletedItems: 'No deleted items',
     restore: 'Restore',
     deletedLabel: 'Deleted:',
+    close: 'Close',
+    more: 'More',
 
     // Footer
     footerText: 'Local-first • Auto-save • Version history',

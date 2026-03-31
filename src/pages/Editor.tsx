@@ -1,12 +1,14 @@
 import { useEffect, useState, useRef, useCallback } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import Editor from '@monaco-editor/react';
-import { getProject, getWorkingDraft, getDraftSections, saveDraft, getVersions, createVersion, deleteProject, getFragments, createFragment, Project, LyricVersion, DraftSectionInput, VersionSectionInput } from '../lib/api';
+import { getProject, getWorkingDraft, getDraftSections, saveDraft, getVersions, createVersion, deleteVersion, deleteProject, getFragments, createFragment, Project, LyricVersion, DraftSectionInput, VersionSectionInput } from '../lib/api';
 import { LLMSettings } from '../components/LLMSettingsPanel';
 import ActionPane from './editor/ActionPane';
 import EditorOverlays from './editor/EditorOverlays';
-import { Section, SECTION_PRESETS, mapDraftSections, parseBodyToSections, sectionsToBody } from './editor/sectionUtils';
+import { Section, SECTION_PRESETS, mapDraftSections, parseBodyToSections, sectionsToBody, generateUniqueSectionName } from './editor/sectionUtils';
 import VersionPane from './editor/VersionPane';
+
+const ALL_SECTIONS_ID = '__all__';
 
 function EditorPage() {
   const { projectId } = useParams<{ projectId: string }>();
@@ -75,7 +77,7 @@ function EditorPage() {
           : parseBodyToSections(draftData.latest_body_text);
 
         setSections(loadedSections);
-        setActiveSection(loadedSections[0]?.id ?? null);
+        setActiveSection(loadedSections.length > 0 ? ALL_SECTIONS_ID : null);
       } else {
         setSections([]);
         setActiveSection(null);
@@ -154,10 +156,11 @@ function EditorPage() {
   }, [activeSection, updateSections]);
 
   const addSection = (type: string) => {
+    const uniqueName = generateUniqueSectionName(type, sections);
     const newSection: Section = {
       id: crypto.randomUUID(),
       type,
-      displayName: type,
+      displayName: uniqueName,
       sortOrder: sections.length,
       bodyText: '',
     };
@@ -241,9 +244,21 @@ function EditorPage() {
     const parsed = parseBodyToSections(version.body_text);
     setSections(parsed);
     if (parsed.length > 0) {
-      setActiveSection(parsed[0].id);
+      setActiveSection(ALL_SECTIONS_ID);
     }
     await handleAutoSave(parsed);
+  };
+
+  const handleDeleteVersion = async (version: LyricVersion) => {
+    if (!confirm(`Delete version "${version.snapshot_name}"? It can be restored from deleted items.`)) return;
+
+    try {
+      await deleteVersion(version.lyric_version_id);
+      setVersions(versions.filter(v => v.lyric_version_id !== version.lyric_version_id));
+    } catch (e) {
+      setError('Failed to delete version');
+      console.error(e);
+    }
   };
 
   const insertFragment = (text: string) => {
@@ -279,7 +294,7 @@ function EditorPage() {
     const parsed = parseBodyToSections(text);
     setSections(parsed);
     if (parsed.length > 0) {
-      setActiveSection(parsed[0].id);
+      setActiveSection(ALL_SECTIONS_ID);
     }
   };
 
@@ -297,6 +312,8 @@ function EditorPage() {
 
   const currentProjectId = projectId ?? '';
   const activeSectionData = sections.find(s => s.id === activeSection);
+  const isAllView = activeSection === ALL_SECTIONS_ID;
+  const editorValue = isAllView ? sectionsToBody(sections) : (activeSectionData?.bodyText || '');
 
   return (
     <div className="editor-workspace">
@@ -307,34 +324,56 @@ function EditorPage() {
         lastSaved={lastSaved}
         onOpenNotes={setSelectedVersionForNotes}
         onRestoreVersion={restoreVersion}
+        onDeleteVersion={handleDeleteVersion}
         onShowDiff={() => setShowDiffViewer(true)}
         onShowDelete={() => setShowDeleteDialog(true)}
       />
 
       {/* Center Pane - Editor */}
       <main className="center-pane">
-        {/* Section Tabs */}
-        <div className="section-tabs">
-          {sections.map((s) => (
-            <div
-              key={s.id}
-              className={`section-tab ${s.id === activeSection ? 'active' : ''}`}
-              onClick={() => setActiveSection(s.id)}
-            >
-              <input
-                value={s.displayName}
-                onChange={(e) => renameSection(s.id, e.target.value)}
-                onClick={(e) => e.stopPropagation()}
-                className="section-name-input"
-              />
-              <div className="section-tab-actions">
-                <button onClick={(e) => { e.stopPropagation(); moveSection(s.id, 'up'); }}>↑</button>
-                <button onClick={(e) => { e.stopPropagation(); moveSection(s.id, 'down'); }}>↓</button>
-                <button onClick={(e) => { e.stopPropagation(); deleteSection(s.id); }}>×</button>
-              </div>
+        <div className="editor-pane">
+          <div className="editor-pane-header">
+            <div>
+              <p className="editor-pane-label">Working Draft</p>
+              <h2>{isAllView ? 'All Lyrics' : (activeSectionData?.displayName || 'No section selected')}</h2>
             </div>
-          ))}
-          <div className="section-add">
+            <span className="editor-pane-hint">
+              {isAllView
+                ? '全文をまとめて確認できます。個別編集は右上のセクション一覧から行います。'
+                : '中央で本文を編集しながら、右上でセクションを一覧できます。'}
+            </span>
+          </div>
+
+          <div className="editor-container">
+            <Editor
+              height="100%"
+              defaultLanguage="plaintext"
+              value={editorValue}
+              onChange={handleEditorChange}
+              theme="vs-dark"
+              options={{
+                minimap: { enabled: false },
+                fontSize: 14,
+                lineNumbers: 'off',
+                wordWrap: 'on',
+                scrollBeyondLastLine: false,
+                renderLineHighlight: 'line',
+                cursorBlinking: 'smooth',
+                readOnly: isAllView,
+              }}
+            />
+          </div>
+        </div>
+      </main>
+
+      <aside className="right-stack-pane">
+        <section className="section-list-pane">
+          <div className="section-list-header">
+            <h3>Sections</h3>
+            <span className="section-count">{sections.length}</span>
+          </div>
+
+          <div className="section-add section-add-inline">
             {SECTION_PRESETS.map((preset) => (
               <button key={preset} onClick={() => addSection(preset)} className="add-section-btn">
                 +{preset}
@@ -342,57 +381,72 @@ function EditorPage() {
             ))}
             <button onClick={() => addSection('Custom')} className="add-section-btn">+Custom</button>
           </div>
-        </div>
 
-        {/* Monaco Editor */}
-        <div className="editor-container">
-          <Editor
-            height="100%"
-            defaultLanguage="plaintext"
-            value={activeSectionData?.bodyText || ''}
-            onChange={handleEditorChange}
-            theme="vs-dark"
-            options={{
-              minimap: { enabled: false },
-              fontSize: 14,
-              lineNumbers: 'off',
-              wordWrap: 'on',
-              scrollBeyondLastLine: false,
-              renderLineHighlight: 'line',
-              cursorBlinking: 'smooth',
-            }}
-          />
-        </div>
-      </main>
+          <div className="section-list">
+            <div
+              className={`section-tab section-tab-all ${isAllView ? 'active' : ''}`}
+              onClick={() => setActiveSection(ALL_SECTIONS_ID)}
+            >
+              <div className="section-tab-meta">
+                <span className="section-order">All</span>
+                <span className="section-all-label">全文プレビュー</span>
+              </div>
+            </div>
 
-      <ActionPane
-        project={project}
-        projectId={currentProjectId}
-        sections={sections}
-        activeSectionId={activeSection}
-        versions={versions}
-        fragments={fragments}
-        llmSettings={llmSettings}
-        showSearchPanel={showSearchPanel}
-        showFragmentPanel={showFragmentPanel}
-        showSongPanel={showSongPanel}
-        error={error}
-        onSetShowSaveDialog={setShowSaveDialog}
-        onCopyNotify={handleCopyNotify}
-        onSetShowExportPanel={setShowExportPanel}
-        onSetShowImportDialog={setShowImportDialog}
-        onToggleSearchPanel={() => setShowSearchPanel(!showSearchPanel)}
-        onToggleFragmentPanel={() => setShowFragmentPanel(!showFragmentPanel)}
-        onToggleSongPanel={() => setShowSongPanel(!showSongPanel)}
-        onJumpToVersion={(versionId) => {
-          const version = versions.find((entry) => entry.lyric_version_id === versionId);
-          if (version) {
-            restoreVersion(version);
-          }
-        }}
-        onInsertFragment={insertFragment}
-        onLLMSettingsChange={setLLMSettings}
-      />
+            {sections.map((s, index) => (
+              <div
+                key={s.id}
+                className={`section-tab ${s.id === activeSection ? 'active' : ''}`}
+                onClick={() => setActiveSection(s.id)}
+              >
+                <div className="section-tab-meta">
+                  <span className="section-order">{index + 1}</span>
+                  <input
+                    value={s.displayName}
+                    onChange={(e) => renameSection(s.id, e.target.value)}
+                    onClick={(e) => e.stopPropagation()}
+                    className="section-name-input"
+                  />
+                </div>
+                <div className="section-tab-actions">
+                  <button onClick={(e) => { e.stopPropagation(); moveSection(s.id, 'up'); }}>↑</button>
+                  <button onClick={(e) => { e.stopPropagation(); moveSection(s.id, 'down'); }}>↓</button>
+                  <button onClick={(e) => { e.stopPropagation(); deleteSection(s.id); }}>×</button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <ActionPane
+          project={project}
+          projectId={currentProjectId}
+          sections={sections}
+          activeSectionId={activeSection}
+          versions={versions}
+          fragments={fragments}
+          llmSettings={llmSettings}
+          showSearchPanel={showSearchPanel}
+          showFragmentPanel={showFragmentPanel}
+          showSongPanel={showSongPanel}
+          error={error}
+          onSetShowSaveDialog={setShowSaveDialog}
+          onCopyNotify={handleCopyNotify}
+          onSetShowExportPanel={setShowExportPanel}
+          onSetShowImportDialog={setShowImportDialog}
+          onToggleSearchPanel={() => setShowSearchPanel(!showSearchPanel)}
+          onToggleFragmentPanel={() => setShowFragmentPanel(!showFragmentPanel)}
+          onToggleSongPanel={() => setShowSongPanel(!showSongPanel)}
+          onJumpToVersion={(versionId) => {
+            const version = versions.find((entry) => entry.lyric_version_id === versionId);
+            if (version) {
+              restoreVersion(version);
+            }
+          }}
+          onInsertFragment={insertFragment}
+          onLLMSettingsChange={setLLMSettings}
+        />
+      </aside>
 
       <EditorOverlays
         projectId={currentProjectId}

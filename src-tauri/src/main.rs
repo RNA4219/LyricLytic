@@ -31,6 +31,7 @@ fn main() {
             commands::version::create_version,
             commands::version::get_version,
             commands::version::get_version_sections,
+            commands::version::delete_version,
             commands::version::get_deleted_versions,
             commands::version::restore_version,
             commands::fragment::get_fragments,

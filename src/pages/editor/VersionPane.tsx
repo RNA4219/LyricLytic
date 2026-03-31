@@ -7,6 +7,7 @@ interface VersionPaneProps {
   lastSaved: Date | null;
   onOpenNotes: (version: LyricVersion) => void;
   onRestoreVersion: (version: LyricVersion) => void;
+  onDeleteVersion: (version: LyricVersion) => void;
   onShowDiff: () => void;
   onShowDelete: () => void;
 }
@@ -18,6 +19,7 @@ function VersionPane({
   lastSaved,
   onOpenNotes,
   onRestoreVersion,
+  onDeleteVersion,
   onShowDiff,
   onShowDelete,
 }: VersionPaneProps) {
@@ -42,8 +44,9 @@ function VersionPane({
           <div key={version.lyric_version_id} className="version-item">
             <span className="version-name">{version.snapshot_name}</span>
             <div className="version-actions">
-              <button className="notes-btn" onClick={() => onOpenNotes(version)}>📝</button>
+              <button className="notes-btn" onClick={() => onOpenNotes(version)} title="Notes">📝</button>
               <button className="restore-btn" onClick={() => onRestoreVersion(version)}>Restore</button>
+              <button className="delete-version-btn" onClick={() => onDeleteVersion(version)} title="Delete version">🗑</button>
             </div>
           </div>
         ))}

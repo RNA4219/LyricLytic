@@ -16,9 +16,9 @@
 
 ## 2. 判定サマリ
 
-- Blocker: 1 件 (前回 2 件 → 1 件解決)
-- High: 9 件 (前回 10 件 → 1 件解決)
-- Medium: 5 件 (前回 6 件 → 1 件解決)
+- Blocker: 1 件
+- High: 7 件 (前回 9 件 → 2 件解決)
+- Medium: 5 件
 - 要件変更の判断待ち: 2 件
 
 ## 3. Blocker
@@ -71,29 +71,25 @@
 
 ## 4. High
 
-- [ ] GAP-H01 StyleProfile の削除復元フローが未完成
+- [x] GAP-H01 StyleProfile の削除復元フローが未完成 ✅ 解決済み
   要件: StyleProfile は論理削除し、削除済みデータ管理から復元できること。
-  現状: `delete_style_profile` はあるが、復元 API / UI が存在しない。
-  対象: `docs/requirements/requirements.md`, `src/lib/api.ts`, `src-tauri/src/commands/style_profile.rs`, `src-tauri/src/repositories/style_profile_repo.rs`
-  対応方針: deleted items API に StyleProfile を含め、復元 command を追加する。
+  現状: `restoreStyleProfile` コマンドと `get_deleted_items` で StyleProfile を含めて実装済み。
+  対象: `docs/requirements/requirements.md`, `src-tauri/src/commands/trash.rs`, `src-tauri/src/repositories/style_profile_repo.rs`
 
-- [ ] GAP-H02 CollectedFragment / SongArtifact / RevisionNote の削除復元フローが未完成
+- [x] GAP-H02 CollectedFragment / SongArtifact / RevisionNote の削除復元フローが未完成 ✅ 解決済み
   要件: これらは論理削除を前提とし、UI から復元可能であること。
-  現状: soft delete はあるが、復元 API と UI がない。
-  対象: `docs/requirements/requirements.md`, `src-tauri/src/repositories/fragment_repo.rs`, `src-tauri/src/repositories/song_artifact_repo.rs`, `src-tauri/src/repositories/revision_note_repo.rs`
-  対応方針: 種別別 restore command と deleted items 一覧を追加する。
+  現状: 各種別の restore コマンドと `get_deleted_items` で実装済み。
+  対象: `docs/requirements/requirements.md`, `src-tauri/src/commands/trash.rs`, `src-tauri/src/repositories/*.rs`
 
-- [ ] GAP-H03 LyricVersion 単体削除と復元導線が未実装
+- [x] GAP-H03 LyricVersion 単体削除と復元導線が未実装 ✅ 解決済み
   要件: LyricVersion 単体削除は確認付き明示操作とし、バッチ単位復元できること。
-  現状: Version 作成と一覧はあるが、Version 削除 API / UI / 復元 UI がない。
-  対象: `docs/requirements/requirements.md`, `src/pages/Editor.tsx`, `src-tauri/src/commands/version.rs`
-  対応方針: Version の soft delete / restore を Project 削除と分けて実装する。
+  現状: VersionPane に削除ボタン追加。`delete_version` コマンドと `restore_version` コマンド実装済み。
+  対象: `docs/requirements/requirements.md`, `src/pages/editor/VersionPane.tsx`, `src-tauri/src/commands/version.rs`
 
-- [ ] GAP-H04 削除済みデータ管理画面の階層が要件より前面に出ている
+- [x] GAP-H04 削除済みデータ管理画面の階層が要件より前面に出ている ✅ 解決済み
   要件: 削除済みデータ管理は主導線ではなく、深い階層で扱うこと。
-  現状: `Home.tsx` で `TrashPanel` を常時表示しており、ホームの主要機能に見える。
-  対象: `docs/requirements/frontend-requirements-v1.md`, `src/pages/Home.tsx`, `src/components/TrashPanel.tsx`
-  対応方針: `More` または `Settings` 配下へ移す。
+  現状: Home.tsx で「⋯ More」ボタンの背後に配置され、主要機能に見えないよう配慮済み。
+  対象: `docs/requirements/frontend-requirements-v1.md`, `src/pages/Home.tsx`
 
 - [ ] GAP-H05 ImportDialog の実装方式が OS ネイティブ運用に十分追従していない
   要件: Windows / macOS で OS ネイティブのファイル選択ダイアログを使い、読み込み失敗時に再選択できること。

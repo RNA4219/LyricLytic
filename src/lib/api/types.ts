@@ -75,7 +75,7 @@ export interface SongArtifact {
 export interface RevisionNote {
   revision_note_id: string;
   lyric_version_id: string;
-  version_section_id?: string;
+  version_section_id: string;
   range_start?: number;
   range_end?: number;
   note_type: string;

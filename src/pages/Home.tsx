@@ -14,6 +14,7 @@ function Home() {
   const [error, setError] = useState<string | null>(null);
   const [newProjectTitle, setNewProjectTitle] = useState('');
   const [showNewProjectInput, setShowNewProjectInput] = useState(false);
+  const [showTrashPanel, setShowTrashPanel] = useState(false);
 
   useEffect(() => {
     loadProjects();
@@ -143,7 +144,18 @@ function Home() {
         )}
       </div>
 
-      <TrashPanel onRestore={loadProjects} />
+      <div className="home-actions">
+        <button onClick={() => setShowTrashPanel(true)} className="more-btn">
+          ⋯ {t('more')}
+        </button>
+      </div>
+
+      {showTrashPanel && (
+        <TrashPanel
+          onRestore={() => { loadProjects(); setShowTrashPanel(false); }}
+          onClose={() => setShowTrashPanel(false)}
+        />
+      )}
 
       <div className="home-footer">
         <p>{t('footerText')}</p>

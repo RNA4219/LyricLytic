@@ -163,7 +163,7 @@ function RevisionNotePanel({ lyricVersionId, versionName }: RevisionNotePanelPro
           notes.map(note => (
             <div key={note.revision_note_id} className={`note-item type-${note.note_type}`}>
               <div className="note-header">
-                <span className="note-section">{getSectionDisplayName(note.version_section_id || '')}</span>
+                <span className="note-section">{getSectionDisplayName(note.version_section_id)}</span>
                 <span className="note-type">{getNoteTypeLabel(note.note_type)}</span>
                 <button onClick={() => handleDelete(note.revision_note_id)} className="delete-btn">
                   ×

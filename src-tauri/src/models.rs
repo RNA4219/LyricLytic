@@ -161,7 +161,7 @@ pub struct CreateSongArtifactInput {
 pub struct RevisionNote {
     pub revision_note_id: String,
     pub lyric_version_id: String,
-    pub version_section_id: Option<String>,
+    pub version_section_id: String,
     pub range_start: Option<i32>,
     pub range_end: Option<i32>,
     pub note_type: String,

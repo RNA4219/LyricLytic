@@ -24,6 +24,122 @@ body {
   color: var(--text-primary);
 }
 
+html,
+body,
+.layout,
+.main,
+.home,
+.left-pane,
+.right-pane,
+.center-pane,
+.right-stack-pane,
+.section-list-pane,
+.version-tree,
+.fragment-list,
+.artifact-list,
+.search-results,
+.trash-panel,
+.style-panel,
+.revision-note-panel,
+.dialog,
+.modal-overlay {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.18) transparent;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar,
+.layout::-webkit-scrollbar,
+.main::-webkit-scrollbar,
+.home::-webkit-scrollbar,
+.left-pane::-webkit-scrollbar,
+.right-pane::-webkit-scrollbar,
+.center-pane::-webkit-scrollbar,
+.right-stack-pane::-webkit-scrollbar,
+.section-list-pane::-webkit-scrollbar,
+.version-tree::-webkit-scrollbar,
+.fragment-list::-webkit-scrollbar,
+.artifact-list::-webkit-scrollbar,
+.search-results::-webkit-scrollbar,
+.trash-panel::-webkit-scrollbar,
+.style-panel::-webkit-scrollbar,
+.revision-note-panel::-webkit-scrollbar,
+.dialog::-webkit-scrollbar,
+.modal-overlay::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+
+html::-webkit-scrollbar-track,
+body::-webkit-scrollbar-track,
+.layout::-webkit-scrollbar-track,
+.main::-webkit-scrollbar-track,
+.home::-webkit-scrollbar-track,
+.left-pane::-webkit-scrollbar-track,
+.right-pane::-webkit-scrollbar-track,
+.center-pane::-webkit-scrollbar-track,
+.right-stack-pane::-webkit-scrollbar-track,
+.section-list-pane::-webkit-scrollbar-track,
+.version-tree::-webkit-scrollbar-track,
+.fragment-list::-webkit-scrollbar-track,
+.artifact-list::-webkit-scrollbar-track,
+.search-results::-webkit-scrollbar-track,
+.trash-panel::-webkit-scrollbar-track,
+.style-panel::-webkit-scrollbar-track,
+.revision-note-panel::-webkit-scrollbar-track,
+.dialog::-webkit-scrollbar-track,
+.modal-overlay::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+html::-webkit-scrollbar-thumb,
+body::-webkit-scrollbar-thumb,
+.layout::-webkit-scrollbar-thumb,
+.main::-webkit-scrollbar-thumb,
+.home::-webkit-scrollbar-thumb,
+.left-pane::-webkit-scrollbar-thumb,
+.right-pane::-webkit-scrollbar-thumb,
+.center-pane::-webkit-scrollbar-thumb,
+.right-stack-pane::-webkit-scrollbar-thumb,
+.section-list-pane::-webkit-scrollbar-thumb,
+.version-tree::-webkit-scrollbar-thumb,
+.fragment-list::-webkit-scrollbar-thumb,
+.artifact-list::-webkit-scrollbar-thumb,
+.search-results::-webkit-scrollbar-thumb,
+.trash-panel::-webkit-scrollbar-thumb,
+.style-panel::-webkit-scrollbar-thumb,
+.revision-note-panel::-webkit-scrollbar-thumb,
+.dialog::-webkit-scrollbar-thumb,
+.modal-overlay::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.16);
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+html::-webkit-scrollbar-thumb:hover,
+body::-webkit-scrollbar-thumb:hover,
+.layout::-webkit-scrollbar-thumb:hover,
+.main::-webkit-scrollbar-thumb:hover,
+.home::-webkit-scrollbar-thumb:hover,
+.left-pane::-webkit-scrollbar-thumb:hover,
+.right-pane::-webkit-scrollbar-thumb:hover,
+.center-pane::-webkit-scrollbar-thumb:hover,
+.right-stack-pane::-webkit-scrollbar-thumb:hover,
+.section-list-pane::-webkit-scrollbar-thumb:hover,
+.version-tree::-webkit-scrollbar-thumb:hover,
+.fragment-list::-webkit-scrollbar-thumb:hover,
+.artifact-list::-webkit-scrollbar-thumb:hover,
+.search-results::-webkit-scrollbar-thumb:hover,
+.trash-panel::-webkit-scrollbar-thumb:hover,
+.style-panel::-webkit-scrollbar-thumb:hover,
+.revision-note-panel::-webkit-scrollbar-thumb:hover,
+.dialog::-webkit-scrollbar-thumb:hover,
+.modal-overlay::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.28);
+  background-clip: padding-box;
+}
+
 .layout {
   min-height: 100vh;
   display: flex;

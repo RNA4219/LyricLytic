@@ -1,8 +1,35 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 interface CopyOptions {
   includeHeadings: boolean;
   preserveBlankLines: boolean;
+}
+
+const STORAGE_KEY = 'lyriclytic_copy_options';
+
+const DEFAULT_OPTIONS: CopyOptions = {
+  includeHeadings: true,
+  preserveBlankLines: true,
+};
+
+function loadOptions(): CopyOptions {
+  try {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (saved) {
+      return { ...DEFAULT_OPTIONS, ...JSON.parse(saved) };
+    }
+  } catch {
+    // Ignore parse errors
+  }
+  return DEFAULT_OPTIONS;
+}
+
+function saveOptions(options: CopyOptions): void {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(options));
+  } catch {
+    // Ignore storage errors
+  }
 }
 
 interface CopyOptionsPanelProps {
@@ -17,10 +44,12 @@ interface CopyOptionsPanelProps {
 
 function CopyOptionsPanel({ sections, activeSectionId, onCopy }: CopyOptionsPanelProps) {
   const [showOptions, setShowOptions] = useState(false);
-  const [options, setOptions] = useState<CopyOptions>({
-    includeHeadings: true,
-    preserveBlankLines: true,
-  });
+  const [options, setOptions] = useState<CopyOptions>(loadOptions);
+
+  // Persist options when they change
+  useEffect(() => {
+    saveOptions(options);
+  }, [options]);
 
   const formatText = (
     secs: Array<{ displayName: string; bodyText: string }>,

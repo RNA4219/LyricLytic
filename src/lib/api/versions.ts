@@ -16,3 +16,7 @@ export async function getVersion(lyricVersionId: string): Promise<LyricVersion> 
 export async function getVersionSections(lyricVersionId: string): Promise<VersionSection[]> {
   return invoke('get_version_sections', { lyricVersionId });
 }
+
+export async function deleteVersion(lyricVersionId: string): Promise<void> {
+  return invoke('delete_version', { lyricVersionId });
+}
