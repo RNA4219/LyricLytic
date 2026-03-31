@@ -1,1 +1,34 @@
+# Dependencies
+node_modules/
+
+# Build
+dist/
+target/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Env
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+npm-debug.log*
+
+# Test
+coverage/
+
+# Tauri
+src-tauri/target/
+
+# Edge headless profile
 docs/requirements/frontend-design/.edge-headless-profile/

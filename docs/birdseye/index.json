@@ -1,0 +1,220 @@
+{
+  "generated_at": "2026-03-31T20:30:00Z",
+  "nodes": [
+    {
+      "node_id": "N-001",
+      "role": "blueprint",
+      "label": "BLUEPRINT.md",
+      "path": "BLUEPRINT.md",
+      "dependencies": [],
+      "dependents": ["N-002", "N-003", "N-004", "N-005", "N-006"]
+    },
+    {
+      "node_id": "N-002",
+      "role": "guardrails",
+      "label": "GUARDRAILS.md",
+      "path": "GUARDRAILS.md",
+      "dependencies": ["N-001"],
+      "dependents": ["N-004", "N-005"]
+    },
+    {
+      "node_id": "N-003",
+      "role": "hub",
+      "label": "HUB.codex.md",
+      "path": "HUB.codex.md",
+      "dependencies": ["N-001"],
+      "dependents": ["N-004", "N-005", "N-006"]
+    },
+    {
+      "node_id": "N-004",
+      "role": "requirements",
+      "label": "requirements.md",
+      "path": "docs/requirements/requirements.md",
+      "dependencies": ["N-001", "N-003"],
+      "dependents": ["N-007", "N-008", "N-009", "N-010"]
+    },
+    {
+      "node_id": "N-005",
+      "role": "poc-breakdown",
+      "label": "poc-task-breakdown-v1.md",
+      "path": "docs/requirements/poc-task-breakdown-v1.md",
+      "dependencies": ["N-001", "N-002", "N-003"],
+      "dependents": ["N-011", "N-012", "N-013", "N-014", "N-015", "N-016", "N-017", "N-018", "N-019", "N-020", "N-021", "N-022"]
+    },
+    {
+      "node_id": "N-006",
+      "role": "system-architecture",
+      "label": "system-architecture-v1.md",
+      "path": "docs/implementation/system-architecture-v1.md",
+      "dependencies": ["N-001", "N-003"],
+      "dependents": ["N-007", "N-011"]
+    },
+    {
+      "node_id": "N-007",
+      "role": "sqlite-schema",
+      "label": "sqlite-schema-v1.sql",
+      "path": "docs/requirements/sqlite-schema-v1.sql",
+      "dependencies": ["N-004", "N-006"],
+      "dependents": ["N-012", "N-013"]
+    },
+    {
+      "node_id": "N-008",
+      "role": "frontend-requirements",
+      "label": "frontend-requirements-v1.md",
+      "path": "docs/requirements/frontend-requirements-v1.md",
+      "dependencies": ["N-004"],
+      "dependents": ["N-014", "N-015"]
+    },
+    {
+      "node_id": "N-009",
+      "role": "screen-flow",
+      "label": "screen-flow-v1.md",
+      "path": "docs/requirements/screen-flow-v1.md",
+      "dependencies": ["N-004"],
+      "dependents": ["N-014"]
+    },
+    {
+      "node_id": "N-010",
+      "role": "acceptance-tests",
+      "label": "acceptance-test-cases-v1.md",
+      "path": "docs/requirements/acceptance-test-cases-v1.md",
+      "dependencies": ["N-004"],
+      "dependents": ["N-022"]
+    },
+    {
+      "node_id": "N-011",
+      "role": "command-contracts",
+      "label": "command-contracts-v1.md",
+      "path": "docs/implementation/command-contracts-v1.md",
+      "dependencies": ["N-005", "N-006"],
+      "dependents": ["N-012", "N-013", "N-014"]
+    },
+    {
+      "node_id": "N-012",
+      "role": "phase-0",
+      "label": "Phase 0: 開発基盤",
+      "path": "docs/requirements/poc-task-breakdown-v1.md#3.1",
+      "dependencies": ["N-005", "N-007", "N-011"],
+      "dependents": ["N-013"]
+    },
+    {
+      "node_id": "N-013",
+      "role": "phase-1",
+      "label": "Phase 1: 永続化基盤",
+      "path": "docs/requirements/poc-task-breakdown-v1.md#3.2",
+      "dependencies": ["N-005", "N-007", "N-012"],
+      "dependents": ["N-014"]
+    },
+    {
+      "node_id": "N-014",
+      "role": "phase-2",
+      "label": "Phase 2: Project/Draft",
+      "path": "docs/requirements/poc-task-breakdown-v1.md#3.3",
+      "dependencies": ["N-005", "N-008", "N-009", "N-011", "N-013"],
+      "dependents": ["N-015"]
+    },
+    {
+      "node_id": "N-015",
+      "role": "phase-3",
+      "label": "Phase 3: 歌詞編集",
+      "path": "docs/requirements/poc-task-breakdown-v1.md#3.4",
+      "dependencies": ["N-005", "N-008", "N-014"],
+      "dependents": ["N-016"]
+    },
+    {
+      "node_id": "N-016",
+      "role": "phase-4",
+      "label": "Phase 4: Snapshot",
+      "path": "docs/requirements/poc-task-breakdown-v1.md#3.5",
+      "dependencies": ["N-005", "N-015"],
+      "dependents": ["N-017"]
+    },
+    {
+      "node_id": "N-017",
+      "role": "phase-5",
+      "label": "Phase 5: 差分比較",
+      "path": "docs/requirements/poc-task-breakdown-v1.md#3.6",
+      "dependencies": ["N-005", "N-016"],
+      "dependents": ["N-018"]
+    },
+    {
+      "node_id": "N-018",
+      "role": "phase-6",
+      "label": "Phase 6: RevisionNote/Fragment",
+      "path": "docs/requirements/poc-task-breakdown-v1.md#3.7",
+      "dependencies": ["N-005", "N-017"],
+      "dependents": ["N-019"]
+    },
+    {
+      "node_id": "N-019",
+      "role": "phase-7",
+      "label": "Phase 7: SongArtifact",
+      "path": "docs/requirements/poc-task-breakdown-v1.md#3.8",
+      "dependencies": ["N-005", "N-018"],
+      "dependents": ["N-020"]
+    },
+    {
+      "node_id": "N-020",
+      "role": "phase-8",
+      "label": "Phase 8: 論理削除UI",
+      "path": "docs/requirements/poc-task-breakdown-v1.md#3.9",
+      "dependencies": ["N-005", "N-019"],
+      "dependents": ["N-021"]
+    },
+    {
+      "node_id": "N-021",
+      "role": "phase-9",
+      "label": "Phase 9: エクスポート",
+      "path": "docs/requirements/poc-task-breakdown-v1.md#3.10",
+      "dependencies": ["N-005", "N-020"],
+      "dependents": ["N-022"]
+    },
+    {
+      "node_id": "N-022",
+      "role": "phase-10-11",
+      "label": "Phase 10-11: LLM接続/OS検証",
+      "path": "docs/requirements/poc-task-breakdown-v1.md#3.11-3.12",
+      "dependencies": ["N-005", "N-010", "N-021"],
+      "dependents": []
+    }
+  ],
+  "edges": [
+    {"from": "N-001", "to": "N-002"},
+    {"from": "N-001", "to": "N-003"},
+    {"from": "N-001", "to": "N-004"},
+    {"from": "N-001", "to": "N-005"},
+    {"from": "N-001", "to": "N-006"},
+    {"from": "N-002", "to": "N-004"},
+    {"from": "N-002", "to": "N-005"},
+    {"from": "N-003", "to": "N-004"},
+    {"from": "N-003", "to": "N-005"},
+    {"from": "N-003", "to": "N-006"},
+    {"from": "N-004", "to": "N-007"},
+    {"from": "N-004", "to": "N-008"},
+    {"from": "N-004", "to": "N-009"},
+    {"from": "N-004", "to": "N-010"},
+    {"from": "N-005", "to": "N-011"},
+    {"from": "N-005", "to": "N-012"},
+    {"from": "N-006", "to": "N-007"},
+    {"from": "N-006", "to": "N-011"},
+    {"from": "N-007", "to": "N-012"},
+    {"from": "N-007", "to": "N-013"},
+    {"from": "N-008", "to": "N-014"},
+    {"from": "N-008", "to": "N-015"},
+    {"from": "N-009", "to": "N-014"},
+    {"from": "N-010", "to": "N-022"},
+    {"from": "N-011", "to": "N-012"},
+    {"from": "N-011", "to": "N-013"},
+    {"from": "N-011", "to": "N-014"},
+    {"from": "N-012", "to": "N-013"},
+    {"from": "N-013", "to": "N-014"},
+    {"from": "N-014", "to": "N-015"},
+    {"from": "N-015", "to": "N-016"},
+    {"from": "N-016", "to": "N-017"},
+    {"from": "N-017", "to": "N-018"},
+    {"from": "N-018", "to": "N-019"},
+    {"from": "N-019", "to": "N-020"},
+    {"from": "N-020", "to": "N-021"},
+    {"from": "N-021", "to": "N-022"}
+  ]
+}
