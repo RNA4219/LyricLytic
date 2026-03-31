@@ -301,11 +301,16 @@ function Home() {
 
                     <h4>{project.title}</h4>
                     <p className="home-project-desc">
-                      {styleProfiles.get(project.project_id)?.memo
-                        || project.theme
-                        || (language === 'ja'
+                      {(() => {
+                        const profile = styleProfiles.get(project.project_id);
+                        if (profile?.memo) return profile.memo;
+                        if (profile?.tone) return profile.tone;
+                        if (profile?.vocabulary_bias) return profile.vocabulary_bias;
+                        if (project.theme) return project.theme;
+                        return language === 'ja'
                           ? '新しいフレーズ、構成、改稿のアイデアをここから育てる。'
-                          : 'Develop new phrases, structures, and rewrites from here.')}
+                          : 'Develop new phrases, structures, and rewrites from here.';
+                      })()}
                     </p>
 
                     <div className="home-project-meta">

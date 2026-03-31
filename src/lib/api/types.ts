@@ -32,6 +32,8 @@ export interface LyricVersion {
   project_id: string;
   snapshot_name: string;
   body_text: string;
+  style_text?: string;
+  vocal_text?: string;
   parent_lyric_version_id?: string;
   note?: string;
   created_at: string;
@@ -136,6 +138,8 @@ export interface CreateVersionInput {
   project_id: string;
   snapshot_name: string;
   body_text: string;
+  style_text?: string;
+  vocal_text?: string;
   note?: string;
   parent_lyric_version_id?: string;
   sections: VersionSectionInput[];

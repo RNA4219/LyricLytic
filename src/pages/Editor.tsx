@@ -198,12 +198,17 @@ function EditorPage() {
     }
   };
 
-  const handleAutoSave = useCallback(async (secs: Section[]) => {
+  const handleAutoSave = useCallback(async (
+    secs: Section[],
+    overrides?: { styleText?: string; vocalText?: string }
+  ) => {
     if (!projectId || saving) return;
 
     try {
       setSaving(true);
       const body = sectionsToBody(secs);
+      const nextStyleText = overrides?.styleText ?? styleText;
+      const nextVocalText = overrides?.vocalText ?? vocalText;
       const sectionInputs: DraftSectionInput[] = secs.map(s => ({
         section_type: s.type,
         display_name: s.displayName,
@@ -215,8 +220,8 @@ function EditorPage() {
         project_id: projectId,
         body_text: body,
         sections: sectionInputs,
-        style_text: styleText,
-        vocal_text: vocalText,
+        style_text: nextStyleText,
+        vocal_text: nextVocalText,
       });
       setLastSaved(new Date());
       setError(null);
@@ -439,6 +444,8 @@ function EditorPage() {
         project_id: projectId,
         snapshot_name: snapshotName || new Date().toLocaleString('ja-JP'),
         body_text: body,
+        style_text: styleText || undefined,
+        vocal_text: vocalText || undefined,
         note: snapshotNote || undefined,
         parent_lyric_version_id: versions[0]?.lyric_version_id,
         sections: sectionInputs,
@@ -467,11 +474,16 @@ function EditorPage() {
 
   const restoreVersion = async (version: LyricVersion) => {
     const parsed = parseBodyToSections(version.body_text);
+    const nextStyleText = version.style_text || '';
+    const nextVocalText = version.vocal_text || '';
     setSections(parsed);
+    setAllViewText(version.body_text);
+    setStyleText(nextStyleText);
+    setVocalText(nextVocalText);
     if (parsed.length > 0) {
       setActiveSection(EDITOR.ALL_SECTIONS_ID);
     }
-    await handleAutoSave(parsed);
+    await handleAutoSave(parsed, { styleText: nextStyleText, vocalText: nextVocalText });
   };
 
   const insertFragment = (text: string) => {

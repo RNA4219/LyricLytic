@@ -151,6 +151,36 @@
   border-bottom: 1px solid var(--border);
 }
 
+.diff-field-tabs {
+  display: flex;
+  gap: 0.6rem;
+  padding: 0.85rem 1.25rem 0;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.diff-field-tab {
+  border: 1px solid var(--border);
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+  border-radius: 999px;
+  padding: 0.45rem 0.85rem;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: all 0.18s ease;
+}
+
+.diff-field-tab:hover {
+  color: var(--text-primary);
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+.diff-field-tab.active {
+  color: var(--text-primary);
+  border-color: var(--accent);
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.16);
+}
+
 .diff-stats {
   display: flex;
   gap: 0.75rem;

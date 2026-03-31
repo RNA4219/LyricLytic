@@ -82,6 +82,8 @@ interface DiffViewerProps {
   onRestore?: (version: LyricVersion) => void;
 }
 
+type CompareField = 'lyrics' | 'style' | 'vocal';
+
 function DiffViewer({ versions, onClose, onRestore }: DiffViewerProps) {
   const { t } = useLanguage();
   const [leftVersionId, setLeftVersionId] = useState<string | null>(
@@ -90,14 +92,33 @@ function DiffViewer({ versions, onClose, onRestore }: DiffViewerProps) {
   const [rightVersionId, setRightVersionId] = useState<string | null>(
     versions.length > 0 ? versions[0].lyric_version_id : null
   );
+  const [compareField, setCompareField] = useState<CompareField>('lyrics');
 
   const leftVersion = versions.find(v => v.lyric_version_id === leftVersionId);
   const rightVersion = versions.find(v => v.lyric_version_id === rightVersionId);
 
+  const getFieldValue = (version: LyricVersion | undefined, field: CompareField) => {
+    if (!version) return '';
+    switch (field) {
+      case 'style':
+        return version.style_text || '';
+      case 'vocal':
+        return version.vocal_text || '';
+      case 'lyrics':
+      default:
+        return version.body_text;
+    }
+  };
+
+  const compareText = useMemo(() => ({
+    left: getFieldValue(leftVersion, compareField),
+    right: getFieldValue(rightVersion, compareField),
+  }), [leftVersion, rightVersion, compareField]);
+
   const diffStats = useMemo(() => {
     if (!leftVersion || !rightVersion) return null;
-    return computeDiffStats(leftVersion.body_text, rightVersion.body_text);
-  }, [leftVersion, rightVersion]);
+    return computeDiffStats(compareText.left, compareText.right);
+  }, [leftVersion, rightVersion, compareText]);
 
   const handleRestoreLeft = () => {
     if (leftVersion && onRestore) {
@@ -190,12 +211,27 @@ function DiffViewer({ versions, onClose, onRestore }: DiffViewerProps) {
         </div>
       </div>
 
+      <div className="diff-field-tabs" role="tablist" aria-label={t('diffTarget')}>
+        {(['lyrics', 'style', 'vocal'] as CompareField[]).map((field) => (
+          <button
+            key={field}
+            type="button"
+            role="tab"
+            aria-selected={compareField === field}
+            className={`diff-field-tab ${compareField === field ? 'active' : ''}`}
+            onClick={() => setCompareField(field)}
+          >
+            {field === 'lyrics' ? t('diffFieldLyrics') : field === 'style' ? t('diffFieldStyle') : t('diffFieldVocal')}
+          </button>
+        ))}
+      </div>
+
       {diffStats && (
         <div className="diff-summary">
           <div className="diff-stats">
             <span className="stat-added">+{diffStats.linesAdded} {t('linesAdded')}</span>
             <span className="stat-removed">-{diffStats.linesRemoved} {t('linesRemoved')}</span>
-            <span className="stat-modified">~{diffStats.linesModified} 行変更</span>
+            <span className="stat-modified">~{diffStats.linesModified} {t('linesModified')}</span>
             <span className="stat-total">{diffStats.totalChanges} {t('totalChanges')}</span>
           </div>
         </div>
@@ -206,8 +242,8 @@ function DiffViewer({ versions, onClose, onRestore }: DiffViewerProps) {
           <DiffEditor
             height="100%"
             language="plaintext"
-            original={leftVersion.body_text}
-            modified={rightVersion.body_text}
+            original={compareText.left}
+            modified={compareText.right}
             theme="vs-dark"
             options={{
               minimap: { enabled: false },
@@ -226,7 +262,7 @@ function DiffViewer({ versions, onClose, onRestore }: DiffViewerProps) {
           />
         ) : (
           <div className="diff-placeholder">
-            <p>比較する 2 つのバージョンを選択してください。</p>
+            <p>{t('selectTwoVersionsToCompare')}</p>
           </div>
         )}
       </div>

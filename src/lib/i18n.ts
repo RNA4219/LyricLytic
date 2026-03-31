@@ -158,11 +158,17 @@ export const translations = {
     english: 'English',
 
     // DiffViewer
+    diffTarget: '比較対象',
+    diffFieldLyrics: 'Lyrics',
+    diffFieldStyle: 'Style',
+    diffFieldVocal: 'Vocal',
     linesAdded: '行追加',
     linesRemoved: '行削除',
+    linesModified: '行変更',
     totalChanges: '変更合計',
     restoreFromLeft: '左の版から復元',
     restoreFromRight: '右の版から復元',
+    selectTwoVersionsToCompare: '比較する 2 つのバージョンを選択してください。',
 
     // FragmentPanel
     fragmentPlaceholder: 'フレーズのテキスト...',
@@ -200,6 +206,7 @@ export const translations = {
     openExternalLink: '外部リンクを開きますか？',
     openUrl: 'URLを開く',
     evaluation: '評価',
+    delete: '削除',
   },
   en: {
     // Layout
@@ -358,11 +365,17 @@ export const translations = {
     english: 'English',
 
     // DiffViewer
+    diffTarget: 'Compare target',
+    diffFieldLyrics: 'Lyrics',
+    diffFieldStyle: 'Style',
+    diffFieldVocal: 'Vocal',
     linesAdded: 'lines added',
     linesRemoved: 'lines removed',
+    linesModified: 'lines modified',
     totalChanges: 'total changes',
     restoreFromLeft: 'Restore from left',
     restoreFromRight: 'Restore from right',
+    selectTwoVersionsToCompare: 'Select two versions to compare.',
 
     // FragmentPanel
     fragmentPlaceholder: 'Fragment text...',
@@ -398,5 +411,8 @@ export const translations = {
     noSongLinks: 'No song links yet',
     deleteSongLinkConfirm: 'Delete this song link?',
     openExternalLink: 'Open external link?',
+    openUrl: 'Open URL',
+    evaluation: 'Evaluation',
+    delete: 'Delete',
   },
 } as const;

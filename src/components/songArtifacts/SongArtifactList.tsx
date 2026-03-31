@@ -1,4 +1,5 @@
 import { SongArtifact } from '../../lib/api';
+import { useLanguage } from '../../lib/LanguageContext';
 
 interface SongArtifactListProps {
   artifacts: SongArtifact[];
@@ -15,12 +16,14 @@ function SongArtifactList({
   onDelete,
   getVersionName,
 }: SongArtifactListProps) {
+  const { t } = useLanguage();
+
   if (loading) {
-    return <p className="loading-text">Loading...</p>;
+    return <p className="loading-text">{t('loading')}</p>;
   }
 
   if (artifacts.length === 0) {
-    return <p className="empty-text">No song links yet</p>;
+    return <p className="empty-text">{t('noSongLinks')}</p>;
   }
 
   return (
@@ -40,7 +43,7 @@ function SongArtifactList({
                 onClick={() => onOpenUrl(artifact.source_url!)}
                 className="link-btn"
               >
-                🔗 Open URL
+                🔗 {t('openUrl')}
               </button>
             )}
             {artifact.source_file_path && (
@@ -50,13 +53,13 @@ function SongArtifactList({
 
           {artifact.evaluation_memo && (
             <div className="artifact-memo">
-              <strong>Evaluation:</strong> {artifact.evaluation_memo}
+              <strong>{t('evaluation')}:</strong> {artifact.evaluation_memo}
             </div>
           )}
 
           <div className="artifact-actions">
             <button onClick={() => onDelete(artifact.song_artifact_id)} className="delete-btn">
-              Delete
+              {t('delete')}
             </button>
           </div>
         </div>
