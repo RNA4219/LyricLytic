@@ -13,6 +13,7 @@ interface FragmentSummary {
   text: string;
   source?: string;
   status: string;
+  tags?: string[];
 }
 
 interface ActionPaneProps {
@@ -63,11 +64,11 @@ function ActionPane({
   onLLMSettingsChange,
 }: ActionPaneProps) {
   return (
-    <aside className="right-pane">
-      <h3>Actions</h3>
+    <div className="right-pane action-pane">
+      <h3>アクション</h3>
 
       <button onClick={() => onSetShowSaveDialog(true)} className="primary-btn">
-        💾 Save Snapshot
+        💾 スナップショット保存
       </button>
 
       <CopyOptionsPanel
@@ -77,18 +78,18 @@ function ActionPane({
       />
 
       <button onClick={() => onSetShowExportPanel(true)} className="secondary-btn">
-        📤 Quick Export
+        📤 エクスポート
       </button>
 
       <button onClick={() => onSetShowImportDialog(true)} className="secondary-btn">
-        📥 Import .txt
+        📥 .txt インポート
       </button>
 
       <button
         onClick={onToggleSearchPanel}
-        className={showSearchPanel ? 'active-toggle' : ''}
+        className={`toggle-btn ${showSearchPanel ? 'active' : ''}`}
       >
-        🔍 Search {showSearchPanel ? '▼' : '▶'}
+        🔍 検索 {showSearchPanel ? '▼' : '▶'}
       </button>
 
       {showSearchPanel && (
@@ -103,9 +104,9 @@ function ActionPane({
 
       <button
         onClick={onToggleFragmentPanel}
-        className={showFragmentPanel ? 'active-toggle' : ''}
+        className={`toggle-btn ${showFragmentPanel ? 'active' : ''}`}
       >
-        📝 Fragments {showFragmentPanel ? '▼' : '▶'}
+        📝 断片 {showFragmentPanel ? '▼' : '▶'}
       </button>
 
       {showFragmentPanel && (
@@ -114,9 +115,9 @@ function ActionPane({
 
       <button
         onClick={onToggleSongPanel}
-        className={showSongPanel ? 'active-toggle' : ''}
+        className={`toggle-btn ${showSongPanel ? 'active' : ''}`}
       >
-        🎵 Song Links {showSongPanel ? '▼' : '▶'}
+        🎵 曲リンク {showSongPanel ? '▼' : '▶'}
       </button>
 
       {showSongPanel && (
@@ -137,19 +138,25 @@ function ActionPane({
       <StyleProfilePanel projectId={projectId} />
 
       <div className="project-settings">
-        <h4>Project Settings</h4>
+        <h4>プロジェクト設定</h4>
         <label>
-          Title:
+          タイトル:
           <input
             value={project.title}
             onChange={() => {/* TODO: update project */}}
             readOnly
           />
         </label>
+        {project.theme && (
+          <label>
+            テーマ:
+            <input value={project.theme} readOnly />
+          </label>
+        )}
       </div>
 
       {error && <p className="error">{error}</p>}
-    </aside>
+    </div>
   );
 }
 

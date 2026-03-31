@@ -77,3 +77,36 @@
   color: var(--text-primary);
   margin-top: 0.25rem;
 }
+
+/* Toggle buttons */
+.toggle-btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.toggle-btn.active {
+  background: var(--bg-active) !important;
+  border-color: var(--accent) !important;
+}
+
+/* Secondary buttons */
+.secondary-btn {
+  background: transparent !important;
+  border-color: var(--border) !important;
+}
+
+.secondary-btn:hover {
+  background: var(--bg-tertiary) !important;
+}
+
+/* Action pane container */
+.action-pane {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.action-pane h3 {
+  margin-bottom: 0.5rem;
+}

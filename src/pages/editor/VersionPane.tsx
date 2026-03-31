@@ -23,12 +23,25 @@ function VersionPane({
   onShowDiff,
   onShowDelete,
 }: VersionPaneProps) {
+  const formatDate = (dateStr: string) => {
+    return new Date(dateStr).toLocaleDateString('ja-JP', {
+      month: 'short',
+      day: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit',
+    });
+  };
+
   return (
     <aside className="left-pane">
       <div className="pane-header">
-        <h3>Versions</h3>
-        {saving && <span className="saving-badge">Saving...</span>}
-        {lastSaved && <span className="saved-badge">Saved {lastSaved.toLocaleTimeString()}</span>}
+        <h3>📚 バージョン</h3>
+        {saving && <span className="saving-badge">保存中...</span>}
+        {lastSaved && (
+          <span className="saved-badge">
+            保存済み {lastSaved.toLocaleTimeString('ja-JP', { hour: '2-digit', minute: '2-digit' })}
+          </span>
+        )}
       </div>
 
       <div className="project-info">
@@ -38,15 +51,36 @@ function VersionPane({
       <div className="version-tree">
         <div className="version-item active">
           <span className="version-name">Working Draft</span>
-          <span className="version-label">(editing)</span>
+          <span className="version-label">(編集中)</span>
         </div>
         {versions.map((version) => (
           <div key={version.lyric_version_id} className="version-item">
-            <span className="version-name">{version.snapshot_name}</span>
+            <div className="version-info">
+              <span className="version-name">{version.snapshot_name}</span>
+              <span className="version-date">{formatDate(version.created_at)}</span>
+            </div>
             <div className="version-actions">
-              <button className="notes-btn" onClick={() => onOpenNotes(version)} title="Notes">📝</button>
-              <button className="restore-btn" onClick={() => onRestoreVersion(version)}>Restore</button>
-              <button className="delete-version-btn" onClick={() => onDeleteVersion(version)} title="Delete version">🗑</button>
+              <button
+                className="notes-btn"
+                onClick={() => onOpenNotes(version)}
+                title="メモ"
+              >
+                📝
+              </button>
+              <button
+                className="restore-btn"
+                onClick={() => onRestoreVersion(version)}
+                title="この版から再開"
+              >
+                復元
+              </button>
+              <button
+                className="delete-version-btn"
+                onClick={() => onDeleteVersion(version)}
+                title="削除"
+              >
+                🗑
+              </button>
             </div>
           </div>
         ))}
@@ -54,9 +88,11 @@ function VersionPane({
 
       <div className="pane-actions">
         <button onClick={onShowDiff} className="secondary-btn">
-          📊 Compare Versions
+          📊 バージョン比較
         </button>
-        <button onClick={onShowDelete} className="danger-btn">Delete Project</button>
+        <button onClick={onShowDelete} className="danger-btn">
+          プロジェクト削除
+        </button>
       </div>
     </aside>
   );

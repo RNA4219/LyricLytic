@@ -17,7 +17,7 @@
 ## 2. 判定サマリ
 
 - Blocker: 1 件
-- High: 7 件 (前回 9 件 → 2 件解決)
+- High: 5 件 (前回 7 件 → 2 件解決)
 - Medium: 5 件
 - 要件変更の判断待ち: 2 件
 
@@ -114,17 +114,15 @@
   対象: `docs/requirements/requirements.md`, `src/components/SongArtifactPanel.tsx`
   対応方針: Version 未作成時のガード文言と保存誘導 CTA を追加する。
 
-- [ ] GAP-H09 LLM 設定項目が要件より不足している
+- [x] GAP-H09 LLM 設定項目が要件より不足していた ✅ 解決済み
   要件: `llm_enabled`, `llm_base_url`, `llm_model_name`, `llm_timeout_ms`, `llm_max_output_tokens`, `llm_temperature` を設定できること。
-  現状: `runtime`, `baseUrl`, `model`, `modelPath`, `enabled` のみ。
+  現状: `enabled`, `baseUrl`, `model`, `modelPath`, `timeoutMs`, `maxTokens`, `temperature` が設定可能。
   対象: `docs/requirements/requirements.md`, `src/components/LLMSettingsPanel.tsx`
-  対応方針: 要件どおりの設定項目を追加するか、PoC 要件を実装現実に合わせて見直す。
 
-- [ ] GAP-H10 LLM 接続確認ボタンと接続状態表示がない
+- [x] GAP-H10 LLM 接続確認ボタンと接続状態表示がない ✅ 解決済み
   要件: PoC では AI 接続確認ボタンと接続状態表示を画面内から到達可能にすること。
-  現状: 生成実行はできるが、独立した接続確認とステータス表示がない。
-  対象: `docs/requirements/requirements.md`, `src/components/LLMSettingsPanel.tsx`, `src/components/LLMAssistPanel.tsx`
-  対応方針: `Test Connection` と状態バッジを追加する。
+  現状: LLMSettingsPanel に「Test Connection」ボタンとステータスバッジを追加。
+  対象: `docs/requirements/requirements.md`, `src/components/LLMSettingsPanel.tsx`
 
 ## 5. Medium
 

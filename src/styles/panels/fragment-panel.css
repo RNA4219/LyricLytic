@@ -143,3 +143,82 @@
 .fragment-actions .delete-btn:hover {
   background: var(--danger);
 }
+
+/* Fragment header with status badge */
+.fragment-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.25rem;
+  flex-wrap: wrap;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 0.125rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.625rem;
+  font-weight: 500;
+  color: white;
+}
+
+.fragment-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+
+.tag-chip {
+  display: inline-block;
+  padding: 0.125rem 0.375rem;
+  background: var(--bg-tertiary);
+  border-radius: 4px;
+  font-size: 0.625rem;
+  color: var(--text-secondary);
+}
+
+/* Tag filter row */
+.tag-filter-row {
+  padding: 0.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.tag-filter-select {
+  width: 100%;
+  padding: 0.25rem;
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font-size: 0.75rem;
+}
+
+/* Status colors */
+.fragment-item.status-unused {
+  border-left: 3px solid transparent;
+}
+
+.fragment-item.status-used {
+  border-left: 3px solid #60a5fa;
+  opacity: 0.7;
+}
+
+.fragment-item.status-hold {
+  border-left: 3px solid #fbbf24;
+}
+
+/* Insert button */
+.insert-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+/* Fragment count */
+.fragment-count {
+  padding: 0.5rem;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  text-align: center;
+  border-top: 1px solid var(--border);
+}

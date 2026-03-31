@@ -102,13 +102,27 @@ function SongArtifactPanel({ projectId, versions }: SongArtifactPanelProps) {
   return (
     <div className="song-artifact-panel">
       <div className="panel-header">
-        <h4>Song Links</h4>
+        <h4>🎵 Song Links</h4>
         <button onClick={() => setShowAddForm(!showAddForm)} className="add-btn">
           {showAddForm ? '×' : '+'}
         </button>
       </div>
 
-      {showAddForm && (
+      {versions.length === 0 && (
+        <div className="no-versions-warning">
+          <p className="warning-text">⚠️ No saved versions available.</p>
+          <p className="hint-text">Save a snapshot first to link songs to a specific version.</p>
+        </div>
+      )}
+
+      {showAddForm && versions.length === 0 && (
+        <div className="guard-message">
+          <p>Working Draft cannot be directly linked to songs.</p>
+          <p>Please save a snapshot first, then add song links.</p>
+        </div>
+      )}
+
+      {showAddForm && versions.length > 0 && (
         <SongArtifactForm
           versions={versions}
           selectedVersionId={selectedVersionId}

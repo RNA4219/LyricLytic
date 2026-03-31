@@ -80,6 +80,60 @@
   margin-top: 0.75rem;
 }
 
+.llm-connection-test {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--border);
+}
+
+.test-connection-btn {
+  padding: 0.5rem 1rem;
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.875rem;
+}
+
+.test-connection-btn:hover:not(:disabled) {
+  background: var(--bg-active);
+}
+
+.test-connection-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.status-badge {
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+}
+
+.status-badge.testing {
+  background: var(--bg-tertiary);
+  color: var(--text-secondary);
+}
+
+.status-badge.connected {
+  background: var(--success);
+  color: white;
+}
+
+.status-badge.error {
+  background: var(--danger);
+  color: white;
+}
+
+.status-badge.unknown {
+  background: var(--bg-tertiary);
+  color: var(--text-secondary);
+}
+
 /* LLM Assist Panel */
 .llm-assist-panel {
   margin-top: 0.5rem;

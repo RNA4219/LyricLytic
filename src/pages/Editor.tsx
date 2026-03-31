@@ -37,6 +37,9 @@ function EditorPage() {
     model: 'local-model',
     modelPath: 'C:\\Users\\ryo-n\\LLM model\\unsloth\\Qwen3.5-27B-GGUF',
     enabled: false,
+    timeoutMs: 60000,
+    maxTokens: 1024,
+    temperature: 0.7,
   });
   const [snapshotName, setSnapshotName] = useState('');
   const [snapshotNote, setSnapshotNote] = useState('');
@@ -360,6 +363,12 @@ function EditorPage() {
                 renderLineHighlight: 'line',
                 cursorBlinking: 'smooth',
                 readOnly: isAllView,
+                scrollbar: {
+                  verticalScrollbarSize: 8,
+                  horizontalScrollbarSize: 8,
+                  useShadows: false,
+                  alwaysConsumeMouseWheel: false,
+                },
               }}
             />
           </div>
