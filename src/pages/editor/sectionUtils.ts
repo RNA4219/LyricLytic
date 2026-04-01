@@ -12,6 +12,14 @@ export interface Section {
 // Re-export SECTION_PRESETS for backward compatibility
 export { SECTION_PRESETS };
 
+function trimTrailingSeparatorLines(lines: string[]): string[] {
+  const next = [...lines];
+  while (next.length > 0 && next[next.length - 1].trim() === '') {
+    next.pop();
+  }
+  return next;
+}
+
 /**
  * Generate a unique display name for a new section.
  * If a section with the same base name exists, appends a number (e.g., "Verse 2", "Verse 3").
@@ -63,7 +71,7 @@ export function parseBodyToSections(body: string): Section[] {
     const headerMatch = line.match(/^\[([^\]]+)\]$/);
     if (headerMatch) {
       if (currentSection) {
-        currentSection.bodyText = currentLines.join('\n');
+        currentSection.bodyText = trimTrailingSeparatorLines(currentLines).join('\n');
         result.push(currentSection);
       }
       currentSection = {
@@ -80,7 +88,7 @@ export function parseBodyToSections(body: string): Section[] {
   }
 
   if (currentSection) {
-    currentSection.bodyText = currentLines.join('\n');
+    currentSection.bodyText = trimTrailingSeparatorLines(currentLines).join('\n');
     result.push(currentSection);
   }
 

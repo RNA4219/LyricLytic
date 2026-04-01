@@ -1,5 +1,6 @@
 use crate::error::{AppError, AppResult};
 use crate::models::{LlamaCppStatus, StartLlamaCppInput};
+use std::env;
 use std::fs;
 use std::net::TcpStream;
 use std::path::{Path, PathBuf};
@@ -14,6 +15,8 @@ struct ManagedLlamaCppMeta {
     model_path: String,
     resolved_model_path: String,
     base_url: String,
+    ctx_size: u32,
+    effective_max_tokens: u32,
 }
 
 struct ManagedLlamaCppProcess {
@@ -108,9 +111,27 @@ fn resolve_model_path(raw_model_path: &str) -> AppResult<PathBuf> {
     let mut candidates = Vec::new();
     collect_model_candidates(&path, &mut candidates, 0)?;
 
-    candidates
-        .into_iter()
-        .next()
+    if candidates.is_empty() {
+        return Err(AppError::Other("No GGUF/GGML model file found under model path".into()));
+    }
+
+    let preferred = candidates
+        .iter()
+        .find(|candidate| {
+            let name = candidate
+                .file_name()
+                .and_then(|name| name.to_str())
+                .unwrap_or_default()
+                .to_ascii_lowercase();
+            !name.contains("mmproj")
+                && !name.contains("clip")
+                && !name.contains("vision")
+                && !name.contains("projector")
+        })
+        .cloned();
+
+    preferred
+        .or_else(|| candidates.into_iter().next())
         .ok_or_else(|| AppError::Other("No GGUF/GGML model file found under model path".into()))
 }
 
@@ -122,6 +143,8 @@ fn status_from_meta(meta: &ManagedLlamaCppMeta, pid: Option<u32>, message: Optio
         model_path: Some(meta.model_path.clone()),
         resolved_model_path: Some(meta.resolved_model_path.clone()),
         base_url: Some(meta.base_url.clone()),
+        ctx_size: Some(meta.ctx_size),
+        effective_max_tokens: Some(meta.effective_max_tokens),
         message,
     }
 }
@@ -134,8 +157,64 @@ fn stopped_status(message: Option<String>) -> LlamaCppStatus {
         model_path: None,
         resolved_model_path: None,
         base_url: None,
+        ctx_size: None,
+        effective_max_tokens: None,
         message,
     }
+}
+
+fn derive_ctx_size(requested_max_tokens: Option<u32>) -> u32 {
+    let max_tokens = requested_max_tokens.unwrap_or(262_144).clamp(2048, 262_144);
+    let with_buffer = max_tokens.saturating_add(2048);
+    with_buffer.clamp(4096, 262_144)
+}
+
+fn derive_effective_max_tokens(ctx_size: u32) -> u32 {
+    ctx_size.saturating_sub(2048).max(1024)
+}
+
+fn build_ctx_retry_plan(initial_ctx_size: u32) -> Vec<u32> {
+    let mut plan = Vec::new();
+    let mut current = initial_ctx_size.clamp(4096, 262_144);
+
+    while current >= 4096 {
+        if !plan.contains(&current) {
+            plan.push(current);
+        }
+        if current == 4096 {
+            break;
+        }
+        current = (current / 2).max(4096);
+    }
+
+    plan
+}
+
+fn launch_llama_cpp_process(
+    executable: &Path,
+    resolved_model_path: &Path,
+    host: &str,
+    port: u16,
+    ctx_size: u32,
+) -> AppResult<Child> {
+    let mut command = Command::new(executable);
+    command
+        .arg("--model")
+        .arg(resolved_model_path)
+        .arg("--n-gpu-layers")
+        .arg("999")
+        .arg("--host")
+        .arg(host)
+        .arg("--port")
+        .arg(port.to_string())
+        .arg("--ctx-size")
+        .arg(ctx_size.to_string())
+        .stdout(Stdio::null())
+        .stderr(Stdio::null())
+        .stdin(Stdio::null());
+    hide_console_window(&mut command);
+
+    Ok(command.spawn()?)
 }
 
 fn wait_for_port(host: &str, port: u16, timeout: Duration) -> AppResult<()> {
@@ -151,6 +230,63 @@ fn wait_for_port(host: &str, port: u16, timeout: Duration) -> AppResult<()> {
 
         std::thread::sleep(Duration::from_millis(250));
     }
+}
+
+fn executable_name_candidates() -> &'static [&'static str] {
+    #[cfg(target_os = "windows")]
+    {
+        &["llama-server.exe", "llama-server"]
+    }
+    #[cfg(not(target_os = "windows"))]
+    {
+        &["llama-server"]
+    }
+}
+
+fn find_executable_in_dir(dir: &Path) -> Option<PathBuf> {
+    executable_name_candidates()
+        .iter()
+        .map(|name| dir.join(name))
+        .find(|candidate| candidate.is_file())
+}
+
+fn detect_winget_llama_server() -> Option<PathBuf> {
+    let local_app_data = env::var_os("LOCALAPPDATA")?;
+    let packages_dir = PathBuf::from(local_app_data)
+        .join("Microsoft")
+        .join("WinGet")
+        .join("Packages");
+
+    let entries = fs::read_dir(packages_dir).ok()?;
+    for entry in entries.filter_map(|entry| entry.ok()) {
+        let path = entry.path();
+        let name = path
+            .file_name()
+            .and_then(|value| value.to_str())
+            .unwrap_or_default()
+            .to_ascii_lowercase();
+
+        if !name.contains("llamacpp") {
+            continue;
+        }
+
+        if let Some(found) = find_executable_in_dir(&path) {
+            return Some(found);
+        }
+    }
+
+    None
+}
+
+fn detect_llama_server_executable() -> Option<PathBuf> {
+    let path_env = env::var_os("PATH")?;
+    for path in env::split_paths(&path_env) {
+        if let Some(found) = find_executable_in_dir(&path) {
+            return Some(found);
+        }
+    }
+
+    detect_winget_llama_server()
 }
 
 #[cfg(target_os = "windows")]
@@ -193,6 +329,24 @@ pub fn get_llama_cpp_runtime_status(
 }
 
 #[tauri::command]
+pub fn detect_llama_cpp_executable(
+    state: State<'_, LlamaCppRuntimeState>,
+) -> AppResult<Option<String>> {
+    let mut guard = state
+        .process
+        .lock()
+        .map_err(|_| AppError::Other("Failed to lock llama.cpp runtime state".into()))?;
+
+    if let Some(process) = guard.as_mut() {
+        if process.child.try_wait()?.is_none() {
+            return Ok(Some(process.meta.executable_path.clone()));
+        }
+    }
+
+    Ok(detect_llama_server_executable().map(|path| path.to_string_lossy().to_string()))
+}
+
+#[tauri::command]
 pub fn stop_llama_cpp_runtime(
     state: State<'_, LlamaCppRuntimeState>,
 ) -> AppResult<LlamaCppStatus> {
@@ -227,6 +381,8 @@ pub fn start_llama_cpp_runtime(
 
     let resolved_model_path = resolve_model_path(&input.model_path)?;
     let (host, port) = parse_local_base_url(&input.base_url)?;
+    let requested_ctx_size = derive_ctx_size(input.max_tokens);
+    let ctx_retry_plan = build_ctx_retry_plan(requested_ctx_size);
 
     let mut guard = state
         .process
@@ -236,7 +392,8 @@ pub fn start_llama_cpp_runtime(
     if let Some(process) = guard.as_mut() {
         let same_process = process.meta.executable_path == executable.to_string_lossy()
             && process.meta.resolved_model_path == resolved_model_path.to_string_lossy()
-            && process.meta.base_url == input.base_url;
+            && process.meta.base_url == input.base_url
+            && process.meta.ctx_size == requested_ctx_size;
 
         if process.child.try_wait()?.is_none() && same_process {
             return Ok(status_from_meta(&process.meta, Some(process.child.id()), Some("Already running".into())));
@@ -247,39 +404,47 @@ pub fn start_llama_cpp_runtime(
         *guard = None;
     }
 
-    let mut command = Command::new(&executable);
-    command
-        .arg("--model")
-        .arg(&resolved_model_path)
-        .arg("--host")
-        .arg(&host)
-        .arg("--port")
-        .arg(port.to_string())
-        .stdout(Stdio::null())
-        .stderr(Stdio::null())
-        .stdin(Stdio::null());
-    hide_console_window(&mut command);
+    let mut last_error: Option<String> = None;
 
-    let child = command.spawn()?;
+    for ctx_size in ctx_retry_plan {
+        let child = launch_llama_cpp_process(&executable, &resolved_model_path, &host, port, ctx_size)?;
 
-    let meta = ManagedLlamaCppMeta {
-        executable_path: executable.to_string_lossy().to_string(),
-        model_path: input.model_path,
-        resolved_model_path: resolved_model_path.to_string_lossy().to_string(),
-        base_url: input.base_url,
-    };
+        let meta = ManagedLlamaCppMeta {
+            executable_path: executable.to_string_lossy().to_string(),
+            model_path: input.model_path.clone(),
+            resolved_model_path: resolved_model_path.to_string_lossy().to_string(),
+            base_url: input.base_url.clone(),
+            ctx_size,
+            effective_max_tokens: derive_effective_max_tokens(ctx_size),
+        };
 
-    *guard = Some(ManagedLlamaCppProcess { child, meta });
+        *guard = Some(ManagedLlamaCppProcess { child, meta });
 
-    if let Some(process) = guard.as_mut() {
-        let pid = process.child.id();
-        wait_for_port(&host, port, Duration::from_secs(20))?;
-        return Ok(status_from_meta(
-            &process.meta,
-            Some(pid),
-            Some("Started".into()),
-        ));
+        if let Some(process) = guard.as_mut() {
+            let pid = process.child.id();
+            match wait_for_port(&host, port, Duration::from_secs(20)) {
+                Ok(()) => {
+                    let message = if ctx_size == requested_ctx_size {
+                        Some("Started".into())
+                    } else {
+                        Some(format!(
+                            "Started with reduced ctx-size {} (requested {})",
+                            ctx_size, requested_ctx_size
+                        ))
+                    };
+                    return Ok(status_from_meta(&process.meta, Some(pid), message));
+                }
+                Err(err) => {
+                    last_error = Some(err.to_string());
+                    let _ = process.child.kill();
+                    let _ = process.child.wait();
+                    *guard = None;
+                }
+            }
+        }
     }
 
-    Err(AppError::Other("Failed to retain llama.cpp process state".into()))
+    Err(AppError::Other(
+        last_error.unwrap_or_else(|| "Failed to start llama.cpp runtime".into()),
+    ))
 }

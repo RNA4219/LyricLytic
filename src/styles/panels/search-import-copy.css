@@ -163,24 +163,29 @@
 
 /* Copy Options Panel */
 .copy-options-panel {
-  margin-top: 0.5rem;
+  margin-top: 0.1rem;
 }
 
 .copy-main-actions {
   display: flex;
+  align-items: center;
   gap: 0.25rem;
-  margin-right: 0.5rem;
+  margin-right: 0;
 }
 
 .copy-btn {
   flex: 1;
-  padding: 0.25rem 0.375rem;
+  min-height: 1.7rem;
+  padding: 0.22rem 0.38rem;
   background: var(--bg-tertiary);
   border: 1px solid var(--border);
   color: var(--text-primary);
   border-radius: 4px;
   cursor: pointer;
-  font-size: 0.75rem;
+  font-size: 0.7rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .copy-btn:hover {
@@ -188,12 +193,16 @@
 }
 
 .options-toggle {
-  padding: 0.25rem 0.375rem;
+  min-height: 1.7rem;
+  padding: 0.22rem 0.38rem;
   background: var(--bg-tertiary);
   border: 1px solid var(--border);
   border-radius: 4px;
   cursor: pointer;
-  font-size: 0.875rem;
+  font-size: 0.78rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .options-toggle.active {

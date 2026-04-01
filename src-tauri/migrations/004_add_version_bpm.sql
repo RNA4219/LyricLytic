@@ -1,0 +1,1 @@
+ALTER TABLE lyric_versions ADD COLUMN bpm INTEGER;

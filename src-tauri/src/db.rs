@@ -7,6 +7,8 @@ const MIGRATIONS: &[(&str, &str)] = &[
     ("001_init.sql", include_str!("../migrations/001_init.sql")),
     ("002_add_style_vocal.sql", include_str!("../migrations/002_add_style_vocal.sql")),
     ("003_add_version_style_vocal.sql", include_str!("../migrations/003_add_version_style_vocal.sql")),
+    ("004_add_version_bpm.sql", include_str!("../migrations/004_add_version_bpm.sql")),
+    ("005_add_working_draft_bpm.sql", include_str!("../migrations/005_add_working_draft_bpm.sql")),
 ];
 
 pub fn get_db_path(app: &AppHandle) -> PathBuf {

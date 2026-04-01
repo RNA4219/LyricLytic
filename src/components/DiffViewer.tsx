@@ -143,8 +143,8 @@ function DiffViewer({ versions, onClose, onRestore }: DiffViewerProps) {
     <div className="diff-viewer">
       <div className="diff-header">
         <div>
-          <h3>Version Diff</h3>
-          <p className="diff-subtitle">Git の差分確認に近い見え方で、変更箇所を左右比較します。</p>
+          <h3>{t('diffTitle')}</h3>
+          <p className="diff-subtitle">{t('diffSubtitle')}</p>
         </div>
         <button onClick={onClose} className="close-btn">×</button>
       </div>
@@ -152,7 +152,7 @@ function DiffViewer({ versions, onClose, onRestore }: DiffViewerProps) {
       <div className="diff-toolbar">
         <div className="selector-card">
           <div className="selector-card-header">
-            <label>Original</label>
+            <label>{t('diffOriginal')}</label>
             {leftVersion && onRestore && (
               <button className="restore-chip" onClick={handleRestoreLeft}>
                 {t('restoreFromLeft')}
@@ -163,7 +163,7 @@ function DiffViewer({ versions, onClose, onRestore }: DiffViewerProps) {
             value={leftVersionId || ''}
             onChange={(e) => setLeftVersionId(e.target.value || null)}
           >
-            <option value="">Select version...</option>
+            <option value="">{t('diffSelectVersion')}</option>
             {versions.map(v => (
               <option key={v.lyric_version_id} value={v.lyric_version_id}>
                 {v.snapshot_name}
@@ -178,13 +178,13 @@ function DiffViewer({ versions, onClose, onRestore }: DiffViewerProps) {
           )}
         </div>
 
-        <button className="swap-btn" onClick={swapVersions} title="左右を入れ替え">
+        <button className="swap-btn" onClick={swapVersions} title={t('swapSides')}>
           ⇄
         </button>
 
         <div className="selector-card">
           <div className="selector-card-header">
-            <label>Modified</label>
+            <label>{t('diffModified')}</label>
             {rightVersion && onRestore && (
               <button className="restore-chip" onClick={handleRestoreRight}>
                 {t('restoreFromRight')}
@@ -195,7 +195,7 @@ function DiffViewer({ versions, onClose, onRestore }: DiffViewerProps) {
             value={rightVersionId || ''}
             onChange={(e) => setRightVersionId(e.target.value || null)}
           >
-            <option value="">Select version...</option>
+            <option value="">{t('diffSelectVersion')}</option>
             {versions.map(v => (
               <option key={v.lyric_version_id} value={v.lyric_version_id}>
                 {v.snapshot_name}

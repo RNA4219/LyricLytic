@@ -3,12 +3,12 @@ import { open } from '@tauri-apps/plugin-dialog';
 import { readDir } from '@tauri-apps/plugin-fs';
 import { join } from '@tauri-apps/api/path';
 import {
+  detectLlamaCppExecutable,
   getLlamaCppRuntimeStatus,
   LlamaCppStatus,
   startLlamaCppRuntime,
-  stopLlamaCppRuntime,
 } from '../lib/api';
-import { LLMSettings, LLMRuntime, fetchLLMModels, isManagedLlamaCppRuntime } from '../lib/llm';
+import { LLMSettings, fetchLLMModels, isManagedLlamaCppRuntime } from '../lib/llm';
 import { useLanguage } from '../lib/LanguageContext';
 import { LLM_DEFAULTS } from '../lib/config';
 
@@ -20,6 +20,8 @@ interface LLMSettingsPanelProps {
 type ConnectionStatus = 'unknown' | 'testing' | 'connected' | 'error';
 type RuntimeActionStatus = 'idle' | 'running' | 'stopped' | 'starting' | 'error';
 type DirEntry = { name: string; isDirectory: boolean; isFile: boolean };
+
+const MODEL_FILE_PATTERN = /\.(gguf|ggml|safetensors)$/i;
 
 const DEFAULT_SETTINGS: LLMSettings = {
   runtime: 'openai_compatible',
@@ -33,32 +35,22 @@ const DEFAULT_SETTINGS: LLMSettings = {
   temperature: LLM_DEFAULTS.TEMPERATURE,
 };
 
-const RUNTIME_DEFAULTS: Record<LLMRuntime, Pick<LLMSettings, 'baseUrl' | 'model'>> = {
-  openai_compatible: {
-    baseUrl: LLM_DEFAULTS.BASE_URL_OPENAI,
-    model: LLM_DEFAULTS.MODEL_OPENAI,
-  },
-  ollama: {
-    baseUrl: LLM_DEFAULTS.BASE_URL_OLLAMA,
-    model: LLM_DEFAULTS.MODEL_OLLAMA,
-  },
-  lm_studio: {
-    baseUrl: LLM_DEFAULTS.BASE_URL_LM_STUDIO,
-    model: LLM_DEFAULTS.MODEL_LM_STUDIO,
-  },
-};
-
 function LLMSettingsPanel({ settings: externalSettings, onSettingsChange }: LLMSettingsPanelProps) {
   const { t } = useLanguage();
   const [settings, setSettings] = useState<LLMSettings>(externalSettings ?? DEFAULT_SETTINGS);
   const [connectionStatus, setConnectionStatus] = useState<ConnectionStatus>('unknown');
   const [connectionError, setConnectionError] = useState<string | null>(null);
-  const [availableModels, setAvailableModels] = useState<string[]>([]);
   const [modelsLoading, setModelsLoading] = useState(false);
-  const [modelsError, setModelsError] = useState<string | null>(null);
   const [runtimeStatus, setRuntimeStatus] = useState<LlamaCppStatus | null>(null);
   const [runtimeActionStatus, setRuntimeActionStatus] = useState<RuntimeActionStatus>('idle');
   const [runtimeActionError, setRuntimeActionError] = useState<string | null>(null);
+
+  const isAuxiliaryModelFile = (name: string) => {
+    const lower = name.toLowerCase();
+    return lower.includes('mmproj') || lower.includes('clip') || lower.includes('vision') || lower.includes('projector');
+  };
+
+  const isLikelyModelFile = (value: string) => MODEL_FILE_PATTERN.test(value.trim());
 
   useEffect(() => {
     setSettings(externalSettings ?? DEFAULT_SETTINGS);
@@ -96,6 +88,9 @@ function LLMSettingsPanel({ settings: externalSettings, onSettingsChange }: LLMS
 
         const lowerName = entry.name.toLowerCase();
         if (lowerName.endsWith('.gguf') || lowerName.endsWith('.ggml')) {
+          if (isAuxiliaryModelFile(entry.name)) {
+            continue;
+          }
           results.add(entry.name.replace(/\.(gguf|ggml)$/i, ''));
           continue;
         }
@@ -143,31 +138,46 @@ function LLMSettingsPanel({ settings: externalSettings, onSettingsChange }: LLMS
     onSettingsChange(nextSettings);
   };
 
-  const handleRuntimeChange = (runtime: LLMRuntime) => {
-    const defaults = RUNTIME_DEFAULTS[runtime];
-    const newSettings = {
-      ...settings,
-      runtime,
-      baseUrl: defaults.baseUrl,
-      model: defaults.model,
+  useEffect(() => {
+    if (!isManagedLlamaCppRuntime(settings.runtime)) return;
+    if (settings.executablePath.trim()) return;
+
+    let cancelled = false;
+
+    const detectExecutable = async () => {
+      try {
+        const detectedPath = await detectLlamaCppExecutable();
+        if (!cancelled && detectedPath) {
+          updateSettings({ ...settings, executablePath: detectedPath });
+        }
+      } catch {
+        // Quietly ignore auto-detect failures and let manual selection handle it
+      }
     };
-    updateSettings(newSettings);
-    setConnectionStatus('unknown');
-    setAvailableModels([]);
-    setModelsError(null);
-    setRuntimeStatus(null);
-    setRuntimeActionError(null);
-  };
+
+    detectExecutable();
+
+    return () => {
+      cancelled = true;
+    };
+  }, [settings.runtime, settings.executablePath]);
+
+  useEffect(() => {
+    if (!settings.executablePath.trim()) return;
+    if (!isLikelyModelFile(settings.executablePath)) return;
+
+    const correctedModelPath = settings.modelPath.trim() || settings.executablePath.trim();
+    updateSettings({
+      ...settings,
+      executablePath: '',
+      modelPath: correctedModelPath,
+    });
+    setRuntimeActionError(t('runtimeExecutableLooksLikeModel'));
+  }, [settings.executablePath, settings.modelPath]);
 
   const handleBaseUrlChange = (baseUrl: string) => {
     updateSettings({ ...settings, baseUrl });
     setConnectionStatus('unknown');
-    setAvailableModels([]);
-    setModelsError(null);
-  };
-
-  const handleModelChange = (model: string) => {
-    updateSettings({ ...settings, model });
   };
 
   const handleExecutablePathChange = (executablePath: string) => {
@@ -184,6 +194,7 @@ function LLMSettingsPanel({ settings: externalSettings, onSettingsChange }: LLMS
         directory: false,
         multiple: false,
         defaultPath: settings.executablePath || undefined,
+        filters: [{ name: 'Executable Files', extensions: ['exe'] }],
       });
 
       if (typeof selected === 'string') {
@@ -191,22 +202,6 @@ function LLMSettingsPanel({ settings: externalSettings, onSettingsChange }: LLMS
       }
     } catch (e) {
       setRuntimeActionError(e instanceof Error ? e.message : t('runtimeActionFailed'));
-    }
-  };
-
-  const handleSelectModelFolder = async () => {
-    try {
-      const selected = await open({
-        directory: true,
-        multiple: false,
-        defaultPath: settings.modelPath || undefined,
-      });
-
-      if (typeof selected === 'string') {
-        handleModelPathChange(selected);
-      }
-    } catch (e) {
-      setModelsError(e instanceof Error ? e.message : t('modelListLoadFailed'));
     }
   };
 
@@ -222,8 +217,8 @@ function LLMSettingsPanel({ settings: externalSettings, onSettingsChange }: LLMS
       if (typeof selected === 'string') {
         handleModelPathChange(selected);
       }
-    } catch (e) {
-      setModelsError(e instanceof Error ? e.message : t('modelListLoadFailed'));
+    } catch {
+      // ファイル選択失敗は UI 変更なしで無視
     }
   };
 
@@ -246,17 +241,16 @@ function LLMSettingsPanel({ settings: externalSettings, onSettingsChange }: LLMS
   const testConnection = async () => {
     setConnectionStatus('testing');
     setConnectionError(null);
-    setModelsError(null);
 
     setModelsLoading(true);
-    const result = await fetchLLMModels(settings.runtime, settings.baseUrl);
+      const result = await fetchLLMModels('openai_compatible', settings.baseUrl);
     let localModels: string[] = [];
 
-    if (settings.runtime !== 'ollama' && settings.modelPath.trim()) {
+    if (settings.modelPath.trim()) {
       try {
         localModels = await scanLocalModelCandidates(settings.modelPath);
-      } catch (e) {
-        setModelsError(e instanceof Error ? e.message : t('modelListLoadFailed'));
+      } catch {
+        // モデル候補取得失敗は接続確認の結果を優先
       }
     }
 
@@ -265,7 +259,6 @@ function LLMSettingsPanel({ settings: externalSettings, onSettingsChange }: LLMS
     const mergedModels = Array.from(new Set([...(result.models ?? []), ...localModels]));
 
     if (result.success) {
-      setAvailableModels(mergedModels);
       setConnectionStatus('connected');
       if (mergedModels.length > 0 && !mergedModels.includes(settings.model)) {
         updateSettings({ ...settings, model: mergedModels[0] });
@@ -274,7 +267,6 @@ function LLMSettingsPanel({ settings: externalSettings, onSettingsChange }: LLMS
     }
 
     if (mergedModels.length > 0) {
-      setAvailableModels(mergedModels);
       if (!mergedModels.includes(settings.model)) {
         updateSettings({ ...settings, model: mergedModels[0] });
       }
@@ -282,12 +274,16 @@ function LLMSettingsPanel({ settings: externalSettings, onSettingsChange }: LLMS
 
     setConnectionStatus('error');
     setConnectionError(result.error ?? t('connectionFailed'));
-    setModelsError(result.error ?? t('modelListLoadFailed'));
   };
 
   const handleStartManagedRuntime = async () => {
     if (!settings.executablePath.trim()) {
       setRuntimeActionError(t('runtimeLaunchRequiresExecutable'));
+      return;
+    }
+
+    if (isLikelyModelFile(settings.executablePath)) {
+      setRuntimeActionError(t('runtimeExecutableLooksLikeModel'));
       return;
     }
 
@@ -304,9 +300,13 @@ function LLMSettingsPanel({ settings: externalSettings, onSettingsChange }: LLMS
         executable_path: settings.executablePath,
         model_path: settings.modelPath,
         base_url: settings.baseUrl,
+        max_tokens: settings.maxTokens,
       });
       setRuntimeStatus(status);
       setRuntimeActionStatus(status.running ? 'running' : 'stopped');
+      if (status.effective_max_tokens && status.effective_max_tokens < settings.maxTokens) {
+        updateSettings({ ...settings, maxTokens: status.effective_max_tokens });
+      }
       if (status.running) {
         await testConnection();
       }
@@ -316,41 +316,27 @@ function LLMSettingsPanel({ settings: externalSettings, onSettingsChange }: LLMS
     }
   };
 
-  const handleStopManagedRuntime = async () => {
-    setRuntimeActionError(null);
-    try {
-      const status = await stopLlamaCppRuntime();
-      setRuntimeStatus(status);
-      setRuntimeActionStatus('stopped');
-    } catch (e) {
-      setRuntimeActionStatus('error');
-      setRuntimeActionError(e instanceof Error ? e.message : t('runtimeActionFailed'));
-    }
-  };
-
   useEffect(() => {
     const loadLocalModels = async () => {
-      if (settings.runtime === 'ollama' || !settings.modelPath.trim()) {
+      if (!settings.modelPath.trim()) {
         return;
       }
 
       setModelsLoading(true);
       try {
         const localModels = await scanLocalModelCandidates(settings.modelPath);
-        setAvailableModels((current) => Array.from(new Set([...current, ...localModels])));
         if (localModels.length > 0 && !localModels.includes(settings.model)) {
           updateSettings({ ...settings, model: localModels[0] });
         }
-        setModelsError(null);
-      } catch (e) {
-        setModelsError(e instanceof Error ? e.message : t('modelListLoadFailed'));
+      } catch {
+        // 候補取得失敗は UI を壊さず、手動入力のまま扱う
       } finally {
         setModelsLoading(false);
       }
     };
 
     loadLocalModels();
-  }, [settings.modelPath, settings.runtime]);
+  }, [settings.modelPath]);
 
   const getStatusBadge = () => {
     switch (connectionStatus) {
@@ -394,44 +380,21 @@ function LLMSettingsPanel({ settings: externalSettings, onSettingsChange }: LLMS
           {t('enableLlmAssistance')}
         </label>
 
-        <div className="llm-field">
-          <label>{t('runtime')}</label>
-          <select
-            value={settings.runtime}
-            onChange={(e) => handleRuntimeChange(e.target.value as LLMSettings['runtime'])}
-            disabled={!settings.enabled}
-          >
-            <option value="openai_compatible">{t('runtimeLlamaCpp')}</option>
-            <option value="lm_studio">{t('runtimeLmStudio')}</option>
-            <option value="ollama">{t('runtimeOllama')}</option>
-          </select>
+        <div className="llm-overview-grid">
+          <div className="llm-overview-card">
+            <span className="llm-overview-label">{t('llmSummaryStatus')}</span>
+            <div className="llm-overview-badge">{getRuntimeBadge()}</div>
+          </div>
         </div>
 
         <div className="llm-field">
-          <label>{t('baseUrl')}</label>
-          <input
-            type="text"
-            value={settings.baseUrl}
-            onChange={(e) => handleBaseUrlChange(e.target.value)}
-            placeholder={
-              settings.runtime === 'ollama'
-                ? LLM_DEFAULTS.BASE_URL_OLLAMA
-                : settings.runtime === 'lm_studio'
-                  ? LLM_DEFAULTS.BASE_URL_LM_STUDIO
-                  : LLM_DEFAULTS.BASE_URL_OPENAI
-            }
-            disabled={!settings.enabled}
-          />
-        </div>
-
-        {isManagedLlamaCppRuntime(settings.runtime) && (
+          <label>{t('runtimeLauncherTitle')}</label>
           <div className="llm-managed-runtime-card">
             <div className="llm-managed-runtime-header">
               <div>
-                <strong>{t('llamaCppManagedTitle')}</strong>
+                <strong>{t('runtimeLauncherTitle')}</strong>
                 <p>{t('llamaCppManagedHelp')}</p>
               </div>
-              {getRuntimeBadge()}
             </div>
 
             <div className="llm-field">
@@ -453,6 +416,41 @@ function LLMSettingsPanel({ settings: externalSettings, onSettingsChange }: LLMS
                   {t('selectExecutable')}
                 </button>
               </div>
+              <small className="llm-help">{t('executablePathHelp')}</small>
+            </div>
+
+            <div className="llm-field">
+              <label>{t('modelFilePath')}</label>
+              <div className="llm-path-row llm-path-row-multi">
+                <input
+                  type="text"
+                  value={settings.modelPath}
+                  onChange={(e) => handleModelPathChange(e.target.value)}
+                  placeholder="C:\\path\\to\\model.gguf"
+                  disabled={!settings.enabled}
+                />
+                <button
+                  type="button"
+                  className="llm-path-btn"
+                  onClick={handleSelectModelFile}
+                  disabled={!settings.enabled}
+                >
+                  {t('selectModelFile')}
+                </button>
+                {settings.modelPath.trim() && (
+                  <button
+                    type="button"
+                    className="llm-path-btn secondary"
+                    onClick={() => handleModelPathChange('')}
+                    disabled={!settings.enabled}
+                  >
+                    {t('clearPath')}
+                  </button>
+                )}
+              </div>
+              <small className="llm-help">
+                {t('modelFileHelpManaged')}
+              </small>
             </div>
 
             <div className="llm-managed-runtime-actions">
@@ -464,14 +462,6 @@ function LLMSettingsPanel({ settings: externalSettings, onSettingsChange }: LLMS
               >
                 ▶ {t('startRuntime')}
               </button>
-              <button
-                type="button"
-                className="llm-runtime-btn secondary"
-                onClick={handleStopManagedRuntime}
-                disabled={!settings.enabled || runtimeActionStatus !== 'running'}
-              >
-                ■ {t('stopRuntime')}
-              </button>
             </div>
 
             {runtimeStatus?.resolved_model_path && (
@@ -479,7 +469,7 @@ function LLMSettingsPanel({ settings: externalSettings, onSettingsChange }: LLMS
                 {runtimeStatus.resolved_model_path}
               </small>
             )}
-            {!runtimeStatus?.running && (
+            {runtimeActionStatus === 'idle' && !runtimeStatus?.running && (
               <small className="llm-help">
                 {t('runtimeManagedConnectedHint')}
               </small>
@@ -488,136 +478,6 @@ function LLMSettingsPanel({ settings: externalSettings, onSettingsChange }: LLMS
               <small className="llm-error-text">{runtimeActionError}</small>
             )}
           </div>
-        )}
-
-        <div className="llm-field">
-          <label>{t('modelName')}</label>
-          <div className="llm-model-actions">
-            <button
-              type="button"
-              onClick={testConnection}
-              disabled={!settings.enabled || connectionStatus === 'testing' || modelsLoading}
-              className="refresh-models-btn"
-            >
-              {modelsLoading ? t('loadingModels') : t('refreshModels')}
-            </button>
-          </div>
-          {availableModels.length > 0 && (
-            <>
-              <select
-                value={availableModels.includes(settings.model) ? settings.model : ''}
-                onChange={(e) => handleModelChange(e.target.value)}
-                disabled={!settings.enabled}
-              >
-                <option value="" disabled>
-                  {t('availableModels')}
-                </option>
-                {availableModels.map((modelName) => (
-                  <option key={modelName} value={modelName}>
-                    {modelName}
-                  </option>
-                ))}
-              </select>
-              <small className="llm-help">{t('manualModelEntry')}</small>
-            </>
-          )}
-          <input
-            type="text"
-            value={settings.model}
-            onChange={(e) => handleModelChange(e.target.value)}
-            placeholder="local-model"
-            disabled={!settings.enabled}
-          />
-          {modelsError && (
-            <small className="llm-error-text">{modelsError}</small>
-          )}
-          {!modelsLoading && availableModels.length === 0 && connectionStatus === 'connected' && (
-            <small className="llm-help">{t('noModelsFound')}</small>
-          )}
-        </div>
-
-        {settings.runtime !== 'ollama' && (
-          <div className="llm-field">
-            <label>{t('modelRootPath')}</label>
-            <div className="llm-path-row llm-path-row-multi">
-              <input
-                type="text"
-                value={settings.modelPath}
-                onChange={(e) => handleModelPathChange(e.target.value)}
-                placeholder="C:\\path\\to\\model or folder"
-                disabled={!settings.enabled}
-              />
-              <button
-                type="button"
-                className="llm-path-btn"
-                onClick={handleSelectModelFolder}
-                disabled={!settings.enabled}
-              >
-                {t('selectFolder')}
-              </button>
-              <button
-                type="button"
-                className="llm-path-btn"
-                onClick={handleSelectModelFile}
-                disabled={!settings.enabled}
-              >
-                {t('selectModelFile')}
-              </button>
-              {settings.modelPath.trim() && (
-                <button
-                  type="button"
-                  className="llm-path-btn secondary"
-                  onClick={() => handleModelPathChange('')}
-                  disabled={!settings.enabled}
-                >
-                  {t('clearPath')}
-                </button>
-              )}
-            </div>
-            <small className="llm-help">
-              {isManagedLlamaCppRuntime(settings.runtime) ? t('modelPathHelpManaged') : t('modelRootHelp')}
-            </small>
-          </div>
-        )}
-
-        <div className="llm-field">
-          <label>{t('timeoutMsLabel')}</label>
-          <input
-            type="number"
-            value={settings.timeoutMs}
-            onChange={(e) => handleTimeoutChange(parseInt(e.target.value, 10) || 30000)}
-            placeholder="30000"
-            disabled={!settings.enabled}
-            min={1000}
-            max={300000}
-          />
-        </div>
-
-        <div className="llm-field">
-          <label>{t('maxOutputTokens')}</label>
-          <input
-            type="number"
-            value={settings.maxTokens}
-            onChange={(e) => handleMaxTokensChange(parseInt(e.target.value, 10) || 1024)}
-            placeholder="1024"
-            disabled={!settings.enabled}
-            min={1}
-            max={32768}
-          />
-        </div>
-
-        <div className="llm-field">
-          <label>{t('temperature')}</label>
-          <input
-            type="number"
-            value={settings.temperature}
-            onChange={(e) => handleTemperatureChange(parseFloat(e.target.value) || 0.7)}
-            placeholder="0.7"
-            disabled={!settings.enabled}
-            min={0}
-            max={2}
-            step={0.1}
-          />
         </div>
 
         <div className="llm-connection-test">
@@ -637,8 +497,68 @@ function LLMSettingsPanel({ settings: externalSettings, onSettingsChange }: LLMS
           </div>
         )}
 
+        <details className="llm-advanced-section">
+          <summary>{t('llmAdvancedSettings')}</summary>
+
+          <div className="llm-advanced-grid">
+            <div className="llm-field">
+              <label>{t('baseUrl')}</label>
+              <input
+                type="text"
+                value={settings.baseUrl}
+                onChange={(e) => handleBaseUrlChange(e.target.value)}
+                placeholder={LLM_DEFAULTS.BASE_URL_OPENAI}
+                disabled={!settings.enabled}
+              />
+            </div>
+
+            <div className="llm-field">
+              <label>{t('timeoutMsLabel')}</label>
+              <input
+                type="number"
+                value={settings.timeoutMs}
+                onChange={(e) => handleTimeoutChange(parseInt(e.target.value, 10) || 30000)}
+                placeholder="30000"
+                disabled={!settings.enabled}
+                min={1000}
+                max={300000}
+              />
+              <small className="llm-help">{t('timeoutHelpPlain')}</small>
+            </div>
+
+            <div className="llm-field">
+              <label>{t('maxOutputTokens')}</label>
+              <input
+                type="number"
+                value={settings.maxTokens}
+                onChange={(e) => handleMaxTokensChange(parseInt(e.target.value, 10) || 1024)}
+                placeholder="1024"
+                disabled={!settings.enabled}
+                min={1}
+                max={262144}
+              />
+              <small className="llm-help">{t('maxTokensHelpPlain')}</small>
+            </div>
+
+            <div className="llm-field">
+              <label>{t('temperature')}</label>
+              <input
+                type="number"
+                value={settings.temperature}
+                onChange={(e) => handleTemperatureChange(parseFloat(e.target.value) || 0.7)}
+                placeholder="0.7"
+                disabled={!settings.enabled}
+                min={0}
+                max={2}
+                step={0.1}
+              />
+              <small className="llm-help">{t('temperatureHelpPlain')}</small>
+            </div>
+          </div>
+        </details>
+
         <div className="llm-warning">
-          ⚠️ {t('llmLocalWarning')}
+          ⚠️ {t('llmLocalLlamaCppOnlyWarning')}
         </div>
       </div>
     </div>

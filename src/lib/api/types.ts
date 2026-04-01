@@ -13,6 +13,7 @@ export interface WorkingDraft {
   working_draft_id: string;
   project_id: string;
   latest_body_text: string;
+  bpm?: number;
   style_text?: string;
   vocal_text?: string;
   updated_at: string;
@@ -32,6 +33,7 @@ export interface LyricVersion {
   project_id: string;
   snapshot_name: string;
   body_text: string;
+  bpm?: number;
   style_text?: string;
   vocal_text?: string;
   parent_lyric_version_id?: string;
@@ -123,6 +125,7 @@ export interface SaveDraftInput {
   project_id: string;
   body_text: string;
   sections: DraftSectionInput[];
+  bpm?: number;
   style_text?: string;
   vocal_text?: string;
 }
@@ -138,6 +141,7 @@ export interface CreateVersionInput {
   project_id: string;
   snapshot_name: string;
   body_text: string;
+  bpm?: number;
   style_text?: string;
   vocal_text?: string;
   note?: string;
@@ -205,6 +209,7 @@ export interface StartLlamaCppInput {
   executable_path: string;
   model_path: string;
   base_url: string;
+  max_tokens?: number;
 }
 
 export interface LlamaCppStatus {
@@ -214,7 +219,19 @@ export interface LlamaCppStatus {
   model_path?: string;
   resolved_model_path?: string;
   base_url?: string;
+  ctx_size?: number;
+  effective_max_tokens?: number;
   message?: string;
+}
+
+export type DetectLlamaCppExecutableResult = string | null;
+
+export interface RhymeGuideRowDto {
+  line: string;
+  romanizedText: string;
+  vowelText: string;
+  consonantText: string;
+  source: 'fallback' | 'sudachi_core';
 }
 
 // ===== Deleted Item Types =====

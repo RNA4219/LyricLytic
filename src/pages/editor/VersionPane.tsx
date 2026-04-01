@@ -1,4 +1,3 @@
-import Editor from '@monaco-editor/react';
 import { useState } from 'react';
 import { LyricVersion } from '../../lib/api';
 import { useLanguage } from '../../lib/LanguageContext';
@@ -10,17 +9,10 @@ interface VersionPaneProps {
   vocalText: string;
   onStyleTextChange: (text: string) => void;
   onVocalTextChange: (text: string) => void;
-  onOpenNotes: (version: LyricVersion) => void;
   onRestoreVersion: (version: LyricVersion) => void;
+  onHideVersion: (version: LyricVersion) => void;
   onShowDiff: () => void;
 }
-
-const EDITOR_HEIGHTS = [
-  { label: 'S', value: 80 },
-  { label: 'M', value: 120 },
-  { label: 'L', value: 200 },
-  { label: 'XL', value: 300 },
-];
 
 function VersionPane({
   versions,
@@ -29,15 +21,13 @@ function VersionPane({
   vocalText,
   onStyleTextChange,
   onVocalTextChange,
-  onOpenNotes,
   onRestoreVersion,
+  onHideVersion,
   onShowDiff,
 }: VersionPaneProps) {
   const { language, t } = useLanguage();
   const [styleCopied, setStyleCopied] = useState(false);
   const [vocalCopied, setVocalCopied] = useState(false);
-  const [styleHeightIndex, setStyleHeightIndex] = useState(1);
-  const [vocalHeightIndex, setVocalHeightIndex] = useState(1);
 
   const countChars = (text: string) => {
     return text.replace(/\s/g, '').length;
@@ -53,10 +43,6 @@ function VersionPane({
     }
   };
 
-  const cycleHeight = (current: number) => {
-    return (current + 1) % EDITOR_HEIGHTS.length;
-  };
-
   const totalChars = countChars(styleText) + countChars(vocalText);
   const isOverLimit = totalChars >= 1000;
 
@@ -67,29 +53,6 @@ function VersionPane({
       hour: '2-digit',
       minute: '2-digit',
     });
-  };
-
-  const editorOptions = {
-    minimap: { enabled: false },
-    lineNumbers: 'off' as const,
-    glyphMargin: false,
-    folding: false,
-    lineDecorationsWidth: 0,
-    lineNumbersMinChars: 0,
-    renderLineHighlight: 'none' as const,
-    scrollBeyondLastLine: false,
-    readOnly: false,
-    fontSize: 13,
-    fontFamily: "'Inter', 'Noto Sans JP', sans-serif",
-    wordWrap: 'on' as const,
-    padding: { top: 8, bottom: 8 },
-    scrollbar: {
-      vertical: 'auto' as const,
-      horizontal: 'hidden' as const,
-    },
-    overviewRulerLanes: 0,
-    hideCursorInOverviewRuler: true,
-    overviewRulerBorder: false,
   };
 
   return (
@@ -120,23 +83,12 @@ function VersionPane({
           </div>
         </div>
         <div className="mini-editor-wrapper">
-          <div className="mini-editor-container">
-            <Editor
-              height={EDITOR_HEIGHTS[styleHeightIndex].value}
-              defaultLanguage="plaintext"
-              value={styleText}
-              onChange={(value) => onStyleTextChange(value || '')}
-              theme="vs-dark"
-              options={editorOptions}
-            />
-          </div>
-          <button
-            className="editor-resize-btn"
-            onClick={() => setStyleHeightIndex(cycleHeight(styleHeightIndex))}
-            title={`サイズ: ${EDITOR_HEIGHTS[styleHeightIndex].label}`}
-          >
-            {EDITOR_HEIGHTS[styleHeightIndex].label}
-          </button>
+          <textarea
+            className="mini-editor-textarea"
+            value={styleText}
+            onChange={(event) => onStyleTextChange(event.target.value)}
+            spellCheck={false}
+          />
         </div>
       </div>
 
@@ -166,23 +118,12 @@ function VersionPane({
           </div>
         </div>
         <div className="mini-editor-wrapper">
-          <div className="mini-editor-container">
-            <Editor
-              height={EDITOR_HEIGHTS[vocalHeightIndex].value}
-              defaultLanguage="plaintext"
-              value={vocalText}
-              onChange={(value) => onVocalTextChange(value || '')}
-              theme="vs-dark"
-              options={editorOptions}
-            />
-          </div>
-          <button
-            className="editor-resize-btn"
-            onClick={() => setVocalHeightIndex(cycleHeight(vocalHeightIndex))}
-            title={`サイズ: ${EDITOR_HEIGHTS[vocalHeightIndex].label}`}
-          >
-            {EDITOR_HEIGHTS[vocalHeightIndex].label}
-          </button>
+          <textarea
+            className="mini-editor-textarea"
+            value={vocalText}
+            onChange={(event) => onVocalTextChange(event.target.value)}
+            spellCheck={false}
+          />
         </div>
       </div>
 
@@ -195,17 +136,31 @@ function VersionPane({
           </div>
           <div className="version-timeline-nav">
             {versions.slice(0, 5).map((version, index) => (
-              <button
+              <div
                 key={version.lyric_version_id}
                 className="version-timeline-item"
-                onClick={() => onRestoreVersion(version)}
               >
-                <div className={`timeline-dot ${index === 0 ? 'latest' : ''}`} />
-                <div className="timeline-content">
-                  <span className="timeline-name">{version.snapshot_name}</span>
-                  <span className="timeline-date">{formatDate(version.created_at)}</span>
-                </div>
-              </button>
+                <button
+                  className="version-timeline-main"
+                  onClick={() => onRestoreVersion(version)}
+                >
+                  <div className={`timeline-dot ${index === 0 ? 'latest' : ''}`} />
+                  <div className="timeline-content">
+                    <span className="timeline-name">{version.snapshot_name}</span>
+                    <span className="timeline-date">{formatDate(version.created_at)}</span>
+                  </div>
+                </button>
+                <button
+                  className="version-hide-btn"
+                  onClick={(event) => {
+                    event.stopPropagation();
+                    onHideVersion(version);
+                  }}
+                  title={t('hideVersion')}
+                >
+                  {t('hide')}
+                </button>
+              </div>
             ))}
           </div>
         </div>
@@ -221,19 +176,6 @@ function VersionPane({
           </span>
           <span className="quick-action-meta">{t('open')}</span>
         </button>
-        {versions.length > 0 && versions.slice(0, 1).map((version) => (
-          <button
-            key={version.lyric_version_id}
-            className="quick-action-btn"
-            onClick={() => onOpenNotes(version)}
-          >
-            <span className="quick-action-main">
-              <span className="quick-action-icon">📝</span>
-              <span className="quick-action-text">{t('revisionNotes')}</span>
-            </span>
-            <span className="quick-action-meta">{t('open')}</span>
-          </button>
-        ))}
       </div>
     </aside>
   );

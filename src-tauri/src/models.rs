@@ -18,6 +18,7 @@ pub struct WorkingDraft {
     pub working_draft_id: String,
     pub project_id: String,
     pub latest_body_text: String,
+    pub bpm: Option<i32>,
     pub style_text: Option<String>,
     pub vocal_text: Option<String>,
     pub updated_at: DateTime<Utc>,
@@ -39,6 +40,7 @@ pub struct LyricVersion {
     pub project_id: String,
     pub snapshot_name: String,
     pub body_text: String,
+    pub bpm: Option<i32>,
     pub style_text: Option<String>,
     pub vocal_text: Option<String>,
     pub parent_lyric_version_id: Option<String>,
@@ -77,6 +79,7 @@ pub struct SaveDraftInput {
     pub project_id: String,
     pub body_text: String,
     pub sections: Vec<DraftSectionInput>,
+    pub bpm: Option<i32>,
     pub style_text: Option<String>,
     pub vocal_text: Option<String>,
 }
@@ -94,6 +97,7 @@ pub struct CreateVersionInput {
     pub project_id: String,
     pub snapshot_name: String,
     pub body_text: String,
+    pub bpm: Option<i32>,
     pub style_text: Option<String>,
     pub vocal_text: Option<String>,
     pub note: Option<String>,
@@ -225,6 +229,7 @@ pub struct StartLlamaCppInput {
     pub executable_path: String,
     pub model_path: String,
     pub base_url: String,
+    pub max_tokens: Option<u32>,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -235,5 +240,7 @@ pub struct LlamaCppStatus {
     pub model_path: Option<String>,
     pub resolved_model_path: Option<String>,
     pub base_url: Option<String>,
+    pub ctx_size: Option<u32>,
+    pub effective_max_tokens: Option<u32>,
     pub message: Option<String>,
 }

@@ -55,14 +55,10 @@ export const COPY_OPTIONS = {
 export const LLM_DEFAULTS = {
   RUNTIME: 'openai_compatible' as const,
   BASE_URL_OPENAI: 'http://127.0.0.1:8080',
-  BASE_URL_OLLAMA: 'http://127.0.0.1:11434',
-  BASE_URL_LM_STUDIO: 'http://127.0.0.1:1234',
   MODEL_OPENAI: 'local-model',
-  MODEL_OLLAMA: 'llama3.2',
-  MODEL_LM_STUDIO: 'local-model',
   EXECUTABLE_PATH: '',
-  TIMEOUT_MS: 30000,
-  MAX_TOKENS: 1024,
+  TIMEOUT_MS: 300000,
+  MAX_TOKENS: 262144,
   TEMPERATURE: 0.7,
 } as const;
 

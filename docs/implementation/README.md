@@ -10,6 +10,7 @@
 3. `command-contracts-v1.md`
 4. `test-design-v1.md`
 5. `bootstrap-checklist-v1.md`
+6. `rhyme-implementation-checklist-v1.md`
 
 ## 役割
 
@@ -23,6 +24,8 @@
   要件定義と仕様を基準に、層別テスト方針、優先度付きチェックリスト、完了条件を定義する。
 - `bootstrap-checklist-v1.md`
   repo 初期化から最初の縦切り完了までの作業手順を確認する。
+- `rhyme-implementation-checklist-v1.md`
+  韻ガイドを `辞書層 / 正規化層 / 候補抽出層 / LLM補正層 / UI層` に分けて段階実装するための運用チェックリスト。
 
 ## 正本との関係
 

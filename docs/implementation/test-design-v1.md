@@ -27,6 +27,7 @@
 - 論理削除 / 復元
 - Export / Import
 - LLM 接続と JSON 契約
+- 韻ガイドの正規化と表示契約
 - Windows / macOS 差分確認
 
 つまり、現状のテストは `見た目や一部ユーティリティ` に偏っており、PoC の主要価値を保証する層が薄い。
@@ -139,6 +140,7 @@ LyricLytic では以下の比率を目標とする。
 - SearchPanel の種別切替
 - TrashPanel の種別・バッチ表示
 - LLM 設定フォームのローカルホスト制約
+- 韻ガイドの `ローマ字 / 母音列 / 子音列` 変換
 
 ## 7.2 Rust Unit / Repository
 

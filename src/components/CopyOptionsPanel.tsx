@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { COPY_OPTIONS } from '../lib/config';
+import { useLanguage } from '../lib/LanguageContext';
 
 interface CopyOptions {
   includeHeadings: boolean;
@@ -42,6 +43,7 @@ interface CopyOptionsPanelProps {
 }
 
 function CopyOptionsPanel({ sections, activeSectionId, onCopy }: CopyOptionsPanelProps) {
+  const { t } = useLanguage();
   const [showOptions, setShowOptions] = useState(false);
   const [options, setOptions] = useState<CopyOptions>(loadOptions);
 
@@ -93,10 +95,10 @@ function CopyOptionsPanel({ sections, activeSectionId, onCopy }: CopyOptionsPane
     <div className="copy-options-panel">
       <div className="copy-main-actions">
         <button onClick={handleCopyAll} className="copy-btn">
-          📋 Copy All
+          📋 {t('copyAll')}
         </button>
         <button onClick={handleCopySection} className="copy-btn" disabled={!activeSectionId}>
-          📄 Copy Section
+          📄 {t('copySection')}
         </button>
         <button
           onClick={() => setShowOptions(!showOptions)}
@@ -114,7 +116,7 @@ function CopyOptionsPanel({ sections, activeSectionId, onCopy }: CopyOptionsPane
               checked={options.includeHeadings}
               onChange={(e) => setOptions({ ...options, includeHeadings: e.target.checked })}
             />
-            Include section headings
+            {t('includeSectionHeadings')}
           </label>
           <label className="option-row">
             <input
@@ -122,7 +124,7 @@ function CopyOptionsPanel({ sections, activeSectionId, onCopy }: CopyOptionsPane
               checked={options.preserveBlankLines}
               onChange={(e) => setOptions({ ...options, preserveBlankLines: e.target.checked })}
             />
-            Preserve blank lines
+            {t('preserveBlankLines')}
           </label>
         </div>
       )}

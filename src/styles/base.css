@@ -168,6 +168,13 @@ body {
   align-items: center;
 }
 
+.header-title-group {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  min-width: 0;
+}
+
 .header h1 {
   font-size: 1.25rem;
   font-weight: 700;
@@ -185,6 +192,7 @@ body {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  min-width: 0;
 }
 
 .header-title-btn:hover {
@@ -206,9 +214,57 @@ body {
   color: var(--outline);
 }
 
+.header-runtime-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  flex-wrap: wrap;
+}
+
+.header-runtime-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+  padding: 0.38rem 0.72rem;
+  border: 1px solid var(--outline-variant);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--surface-container-high) 78%, transparent);
+  color: var(--on-surface);
+  cursor: pointer;
+  font-size: 0.74rem;
+  transition: background 0.18s ease, opacity 0.18s ease;
+}
+
+.header-runtime-btn:hover:not(:disabled) {
+  background: var(--surface-container-high);
+}
+
+.header-runtime-btn-secondary {
+  background: transparent;
+  color: var(--on-surface-variant);
+}
+
+.header-runtime-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
 .language-switch {
   display: flex;
   gap: 0.25rem;
+}
+
+@media (max-width: 900px) {
+  .header {
+    flex-wrap: wrap;
+    gap: 0.6rem;
+  }
+
+  .header-title-group {
+    width: 100%;
+    justify-content: space-between;
+  }
 }
 
 .lang-btn {

@@ -31,7 +31,7 @@ function loadSettings(): LLMSettings {
     const saved = localStorage.getItem(STORAGE_KEYS.LLM_SETTINGS);
     if (saved) {
       const parsed = JSON.parse(saved);
-      return { ...DEFAULT_SETTINGS, ...parsed };
+      return { ...DEFAULT_SETTINGS, ...parsed, runtime: 'openai_compatible' };
     }
   } catch {
     // Ignore parse errors

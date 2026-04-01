@@ -3,6 +3,81 @@
 LyricLytic は、AI 音楽生成サービス向けの歌詞制作を支援するデスクトップアプリです。
 歌詞の断片収集、構成整理、推敲、バージョン管理、曲紐付けを一貫して扱うローカル完結環境を提供します。
 
+## 導入手順
+
+LyricLytic は現在、`llama.cpp` を LyricLytic 側から直接起動する前提です。  
+LM Studio や Ollama は使わず、`llama-server.exe + GGUF` をローカルで扱います。
+
+### 1. 前提ソフトを入れる
+
+- Node.js 20 系以上
+- Rust / Cargo
+- Windows では WebView2 Runtime
+- `llama.cpp`
+
+Windows で `llama.cpp` を入れる一番簡単な方法は `winget` です。
+
+```powershell
+winget install --id ggml.llamacpp --accept-package-agreements --accept-source-agreements
+```
+
+インストール後、`llama-server.exe` の場所は環境によって違いますが、LyricLytic からは次のようなパスで見つかることが多いです。
+
+```text
+C:\Users\<ユーザー名>\AppData\Local\Microsoft\WinGet\Packages\ggml.llamacpp_Microsoft.Winget.Source_8wekyb3d8bbwe\llama-server.exe
+```
+
+### 2. モデルをダウンロードする
+
+2026-04-01 時点でのおすすめ GGUF は次の 3 つです。
+
+1. 軽さ優先: `Qwen3.5-4B`
+   - [Hugging Face](https://huggingface.co/unsloth/Qwen3.5-4B-GGUF?show_file_info=Qwen3.5-4B-UD-Q4_K_XL.gguf&library=llama-cpp-python)
+   - まず試すならこれが一番扱いやすいです。
+2. バランス型: `Qwen3.5-9B`
+   - [Hugging Face](https://huggingface.co/unsloth/Qwen3.5-9B-GGUF?show_file_info=Qwen3.5-9B-UD-Q4_K_XL.gguf)
+   - 品質と速度のバランスが良く、常用しやすいです。
+3. 表現力重視: `GPT-OSS-Swallow-20B`
+   - [Hugging Face](https://huggingface.co/mmnga-o/GPT-OSS-Swallow-20B-RL-v0.1-gguf/blob/main/GPT-OSS-Swallow-20B-RL-v0.1-Q4_K_M.gguf)
+   - VRAM とメモリに余裕がある環境向けです。
+
+モデルは `.gguf` ファイルとして保存してください。  
+LyricLytic では、フォルダではなく **GGUF ファイルそのもの** を指定するのがいちばん確実です。
+
+### 3. LyricLytic を起動する
+
+依存を入れてから開発起動します。
+
+```powershell
+npm install
+npm run tauri:dev
+```
+
+またはルートにある [Start.bat](C:\Users\ryo-n\Codex_dev\LyricLytic\Start.bat) でも起動できます。
+
+### 4. 初回の LLM 設定
+
+右下の `AI補助` から `LLM構成` を開き、次の 2 つを設定します。
+
+- `llama.cpp 実行ファイルパス`
+  - `llama-server.exe` を指定
+- `モデルファイルパス`
+  - ダウンロードした `.gguf` を指定
+
+その後、
+
+1. `AI起動`
+2. `接続確認`
+
+の順に押してください。
+
+### 5. 使い始める前の注意
+
+- `Style` と `Vocal` の AI 生成は英語出力前提です。
+- `Lyrics` は現在の JA / EN 言語設定に合わせて生成します。
+- `最大出力トークン` は大きめで始まりますが、重すぎて起動しにくい場合は LyricLytic が自動で下げます。
+- `タイムアウト` の既定値は 300 秒です。重いモデルでも途中停止しにくいよう、やや長めにしています。
+
 ## Agent_tools 連携
 
 本リポジトリは Agent_tools パターン適用済み:
@@ -20,6 +95,8 @@ LyricLytic は、AI 音楽生成サービス向けの歌詞制作を支援する
 - **ドキュメントハブ**: `HUB.codex.md`
 - **Birdseye**: `docs/BIRDSEYE.md`
 - **正本要件**: `docs/requirements/requirements.md`
+- **韻ガイド仕様**: `docs/requirements/rhyme-analysis-v1.md`
+- **韻ガイド実装チェックリスト**: `docs/implementation/rhyme-implementation-checklist-v1.md`
 - **PoCタスク**: `docs/requirements/poc-task-breakdown-v1.md`
 - **実装入口**: `docs/implementation/bootstrap-checklist-v1.md`
 - **テスト設計**: `docs/implementation/test-design-v1.md`

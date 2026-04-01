@@ -7,7 +7,7 @@ use uuid::Uuid;
 
 pub fn get_by_project(conn: &Connection, project_id: &str) -> AppResult<Vec<LyricVersion>> {
     let mut stmt = conn.prepare(
-        "SELECT lyric_version_id, project_id, snapshot_name, body_text, style_text, vocal_text, parent_lyric_version_id, note, created_at, deleted_at, deleted_batch_id
+        "SELECT lyric_version_id, project_id, snapshot_name, body_text, bpm, style_text, vocal_text, parent_lyric_version_id, note, created_at, deleted_at, deleted_batch_id
          FROM lyric_versions
          WHERE project_id = ?1 AND deleted_at IS NULL
          ORDER BY created_at DESC"
@@ -19,13 +19,14 @@ pub fn get_by_project(conn: &Connection, project_id: &str) -> AppResult<Vec<Lyri
             project_id: row.get(1)?,
             snapshot_name: row.get(2)?,
             body_text: row.get(3)?,
-            style_text: row.get(4)?,
-            vocal_text: row.get(5)?,
-            parent_lyric_version_id: row.get(6)?,
-            note: row.get(7)?,
-            created_at: row.get(8)?,
-            deleted_at: row.get(9)?,
-            deleted_batch_id: row.get(10)?,
+            bpm: row.get(4)?,
+            style_text: row.get(5)?,
+            vocal_text: row.get(6)?,
+            parent_lyric_version_id: row.get(7)?,
+            note: row.get(8)?,
+            created_at: row.get(9)?,
+            deleted_at: row.get(10)?,
+            deleted_batch_id: row.get(11)?,
         })
     })?
     .collect::<std::result::Result<Vec<_>, _>>()?;
@@ -35,7 +36,7 @@ pub fn get_by_project(conn: &Connection, project_id: &str) -> AppResult<Vec<Lyri
 
 pub fn get_by_id(conn: &Connection, lyric_version_id: &str) -> AppResult<LyricVersion> {
     let mut stmt = conn.prepare(
-        "SELECT lyric_version_id, project_id, snapshot_name, body_text, style_text, vocal_text, parent_lyric_version_id, note, created_at, deleted_at, deleted_batch_id
+        "SELECT lyric_version_id, project_id, snapshot_name, body_text, bpm, style_text, vocal_text, parent_lyric_version_id, note, created_at, deleted_at, deleted_batch_id
          FROM lyric_versions
          WHERE lyric_version_id = ?1 AND deleted_at IS NULL"
     )?;
@@ -46,13 +47,14 @@ pub fn get_by_id(conn: &Connection, lyric_version_id: &str) -> AppResult<LyricVe
             project_id: row.get(1)?,
             snapshot_name: row.get(2)?,
             body_text: row.get(3)?,
-            style_text: row.get(4)?,
-            vocal_text: row.get(5)?,
-            parent_lyric_version_id: row.get(6)?,
-            note: row.get(7)?,
-            created_at: row.get(8)?,
-            deleted_at: row.get(9)?,
-            deleted_batch_id: row.get(10)?,
+            bpm: row.get(4)?,
+            style_text: row.get(5)?,
+            vocal_text: row.get(6)?,
+            parent_lyric_version_id: row.get(7)?,
+            note: row.get(8)?,
+            created_at: row.get(9)?,
+            deleted_at: row.get(10)?,
+            deleted_batch_id: row.get(11)?,
         })
     })
     .map_err(|_| AppError::NotFound(format!("Version not found: {}", lyric_version_id)))?;
@@ -66,13 +68,14 @@ pub fn create(conn: &Connection, input: CreateVersionInput) -> AppResult<LyricVe
     let now_rfc3339 = now.to_rfc3339();
 
     conn.execute(
-        "INSERT INTO lyric_versions (lyric_version_id, project_id, snapshot_name, body_text, style_text, vocal_text, parent_lyric_version_id, note, created_at)
-         VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9)",
+        "INSERT INTO lyric_versions (lyric_version_id, project_id, snapshot_name, body_text, bpm, style_text, vocal_text, parent_lyric_version_id, note, created_at)
+         VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9, ?10)",
         params![
             version_id,
             input.project_id,
             input.snapshot_name,
             input.body_text,
+            input.bpm,
             input.style_text,
             input.vocal_text,
             input.parent_lyric_version_id,
@@ -129,7 +132,7 @@ pub fn get_sections_by_version(conn: &Connection, lyric_version_id: &str) -> App
 
 pub fn get_all_deleted(conn: &Connection) -> AppResult<Vec<LyricVersion>> {
     let mut stmt = conn.prepare(
-        "SELECT lyric_version_id, project_id, snapshot_name, body_text, style_text, vocal_text, parent_lyric_version_id, note, created_at, deleted_at, deleted_batch_id
+        "SELECT lyric_version_id, project_id, snapshot_name, body_text, bpm, style_text, vocal_text, parent_lyric_version_id, note, created_at, deleted_at, deleted_batch_id
          FROM lyric_versions
          WHERE deleted_at IS NOT NULL
          ORDER BY deleted_at DESC"
@@ -141,13 +144,14 @@ pub fn get_all_deleted(conn: &Connection) -> AppResult<Vec<LyricVersion>> {
             project_id: row.get(1)?,
             snapshot_name: row.get(2)?,
             body_text: row.get(3)?,
-            style_text: row.get(4)?,
-            vocal_text: row.get(5)?,
-            parent_lyric_version_id: row.get(6)?,
-            note: row.get(7)?,
-            created_at: row.get(8)?,
-            deleted_at: row.get(9)?,
-            deleted_batch_id: row.get(10)?,
+            bpm: row.get(4)?,
+            style_text: row.get(5)?,
+            vocal_text: row.get(6)?,
+            parent_lyric_version_id: row.get(7)?,
+            note: row.get(8)?,
+            created_at: row.get(9)?,
+            deleted_at: row.get(10)?,
+            deleted_batch_id: row.get(11)?,
         })
     })?
     .collect::<std::result::Result<Vec<_>, _>>()?;

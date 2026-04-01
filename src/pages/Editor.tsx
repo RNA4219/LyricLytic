@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef, useCallback, useMemo } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import Editor from '@monaco-editor/react';
-import { getProject, getWorkingDraft, getDraftSections, saveDraft, getVersions, createVersion, deleteProject, getFragments, createFragment, Project, LyricVersion, DraftSectionInput, VersionSectionInput } from '../lib/api';
+import { getProject, getWorkingDraft, getDraftSections, saveDraft, getVersions, createVersion, deleteProject, deleteVersion, restoreVersion as restoreVersionApi, getFragments, createFragment, Project, LyricVersion, DraftSectionInput, VersionSectionInput } from '../lib/api';
 import { useLLMSettings } from '../lib/llm';
 import { useLanguage } from '../lib/LanguageContext';
 import { useProject } from '../lib/ProjectContext';
@@ -11,8 +11,24 @@ import ActionPane from './editor/ActionPane';
 import EditorOverlays from './editor/EditorOverlays';
 import { Section, mapDraftSections, parseBodyToSections, sectionsToBody, generateUniqueSectionName } from './editor/sectionUtils';
 import VersionPane from './editor/VersionPane';
+import { analyzeRhymeGuideRows, buildFallbackRhymeGuideRows, getGuideHighlightParts, type RhymeGuideRow } from '../lib/rhyme/analysis';
 
 const BPM_PRESETS = [172, 144, 132, 128, 124, 122, 121, 120, 92, 90];
+
+function countRomanizedGuideUnits(value: string) {
+  return value
+    .split(/\s+/)
+    .filter(Boolean)
+    .filter((token) => token !== '|')
+    .length;
+}
+
+function buildLyricsOnlyBody(sections: Section[]) {
+  return sections
+    .map((section) => section.bodyText.trimEnd())
+    .filter((body) => body.length > 0)
+    .join('\n\n');
+}
 
 function EditorPage() {
   const { projectId } = useParams<{ projectId: string }>();
@@ -27,16 +43,17 @@ function EditorPage() {
   const [error, setError] = useState<string | null>(null);
   const [saving, setSaving] = useState(false);
   const [lastSaved, setLastSaved] = useState<Date | null>(null);
-  const [showSaveDialog, setShowSaveDialog] = useState(false);
+  const [saveToastVisible, setSaveToastVisible] = useState(false);
+  const [hideToastVisible, setHideToastVisible] = useState(false);
   const [showDeleteDialog, setShowDeleteDialog] = useState(false);
   const [showDiffViewer, setShowDiffViewer] = useState(false);
   const [showExportPanel, setShowExportPanel] = useState(false);
   const [showImportDialog, setShowImportDialog] = useState(false);
-  const [selectedVersionForNotes, setSelectedVersionForNotes] = useState<LyricVersion | null>(null);
   const [fragments, setFragments] = useState<Array<{ collected_fragment_id: string; text: string; source?: string; status: string }>>([]);
+  const [allCopyFeedback, setAllCopyFeedback] = useState(false);
+  const [lyricsOnlyCopyFeedback, setLyricsOnlyCopyFeedback] = useState(false);
+  const [lastHiddenVersion, setLastHiddenVersion] = useState<{ version: LyricVersion; batchId: string } | null>(null);
   const { settings: llmSettings, updateSettings: setLLMSettings } = useLLMSettings();
-  const [snapshotName, setSnapshotName] = useState('');
-  const [snapshotNote, setSnapshotNote] = useState('');
   const [styleText, setStyleText] = useState('');
   const [vocalText, setVocalText] = useState('');
   const [allViewText, setAllViewText] = useState('');
@@ -47,16 +64,54 @@ function EditorPage() {
   const [dragOverSectionId, setDragOverSectionId] = useState<string | null>(null);
   const [dragPointerPosition, setDragPointerPosition] = useState<{ x: number; y: number } | null>(null);
   const [phoneticGuideHeight, setPhoneticGuideHeight] = useState(220);
+  const [phoneticGuideRows, setPhoneticGuideRows] = useState<RhymeGuideRow[]>([]);
   const pointerDragStartRef = useRef<{ sectionId: string; x: number; y: number } | null>(null);
   const activePointerDragRef = useRef<string | null>(null);
   const editorContainerRef = useRef<HTMLDivElement | null>(null);
   const isResizingPhoneticGuideRef = useRef(false);
 
   const saveTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const saveToastTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const hideToastTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const allCopyFeedbackTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const lyricsOnlyCopyFeedbackTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const editorInstanceRef = useRef<{
     onDidScrollChange: (callback: (event: { scrollTop: number }) => void) => { dispose: () => void };
+    onDidChangeCursorPosition?: (callback: (event: {
+      position: { lineNumber: number; column: number };
+    }) => void) => { dispose: () => void };
+    getSelection?: () => {
+      startLineNumber: number;
+      startColumn: number;
+      endLineNumber: number;
+      endColumn: number;
+    } | null;
+    getModel?: () => {
+      getLineMaxColumn: (lineNumber: number) => number;
+    } | null;
+    executeEdits?: (
+      source: string,
+      edits: Array<{
+        range: {
+          startLineNumber: number;
+          startColumn: number;
+          endLineNumber: number;
+          endColumn: number;
+        };
+        text: string;
+        forceMoveMarkers?: boolean;
+      }>,
+    ) => void;
+    focus?: () => void;
   } | null>(null);
   const editorScrollDisposeRef = useRef<{ dispose: () => void } | null>(null);
+  const editorCursorDisposeRef = useRef<{ dispose: () => void } | null>(null);
+  const lastEditorSelectionRef = useRef<{
+    startLineNumber: number;
+    startColumn: number;
+    endLineNumber: number;
+    endColumn: number;
+  } | null>(null);
 
   // Pane resize hook
   const {
@@ -82,7 +137,20 @@ function EditorPage() {
       if (saveTimeoutRef.current) {
         clearTimeout(saveTimeoutRef.current);
       }
+      if (saveToastTimeoutRef.current) {
+        clearTimeout(saveToastTimeoutRef.current);
+      }
+      if (hideToastTimeoutRef.current) {
+        clearTimeout(hideToastTimeoutRef.current);
+      }
+      if (allCopyFeedbackTimeoutRef.current) {
+        clearTimeout(allCopyFeedbackTimeoutRef.current);
+      }
+      if (lyricsOnlyCopyFeedbackTimeoutRef.current) {
+        clearTimeout(lyricsOnlyCopyFeedbackTimeoutRef.current);
+      }
       editorScrollDisposeRef.current?.dispose();
+      editorCursorDisposeRef.current?.dispose();
     };
   }, []);
 
@@ -129,7 +197,8 @@ function EditorPage() {
   // Keyboard shortcuts hook
   useKeyboardShortcuts({
     shortcuts: createEditorShortcuts({
-      onSave: () => setShowSaveDialog(true),
+      onSave: () => { handleSaveSnapshot(); },
+      onUndoHide: () => { void handleUndoHideVersion(); },
       onSearch: () => { /* search not implemented */ },
       onCopyAll: () => {
         const text = sectionsToBody(sections);
@@ -174,12 +243,18 @@ function EditorPage() {
         setActiveSection(loadedSections.length > 0 ? EDITOR.ALL_SECTIONS_ID : null);
         setStyleText(draftData.style_text || '');
         setVocalText(draftData.vocal_text || '');
+        const nextBpm = draftData.bpm ?? versionData[0]?.bpm ?? 120;
+        setBpmValue(nextBpm);
+        setBpmMode(BPM_PRESETS.includes(nextBpm) ? 'preset' : 'custom');
       } else {
         setSections([]);
         setAllViewText('');
         setActiveSection(null);
         setStyleText('');
         setVocalText('');
+        const nextBpm = versionData[0]?.bpm ?? 120;
+        setBpmValue(nextBpm);
+        setBpmMode(BPM_PRESETS.includes(nextBpm) ? 'preset' : 'custom');
       }
 
       if (
@@ -201,8 +276,8 @@ function EditorPage() {
   const handleAutoSave = useCallback(async (
     secs: Section[],
     overrides?: { styleText?: string; vocalText?: string }
-  ) => {
-    if (!projectId || saving) return;
+    ) => {
+      if (!projectId || saving) return;
 
     try {
       setSaving(true);
@@ -216,22 +291,23 @@ function EditorPage() {
         body_text: s.bodyText,
       }));
 
-      await saveDraft({
-        project_id: projectId,
-        body_text: body,
-        sections: sectionInputs,
-        style_text: nextStyleText,
-        vocal_text: nextVocalText,
-      });
+        await saveDraft({
+          project_id: projectId,
+          body_text: body,
+          sections: sectionInputs,
+          bpm: bpmValue,
+          style_text: nextStyleText,
+          vocal_text: nextVocalText,
+        });
       setLastSaved(new Date());
       setError(null);
     } catch (e) {
-      setError('Auto-save failed');
-      console.error(e);
-    } finally {
-      setSaving(false);
-    }
-  }, [projectId, saving, styleText, vocalText]);
+        setError('Auto-save failed');
+        console.error(e);
+      } finally {
+        setSaving(false);
+      }
+    }, [projectId, saving, styleText, vocalText, bpmValue]);
 
   const queueAutoSave = useCallback((secs: Section[]) => {
     if (saveTimeoutRef.current) {
@@ -252,6 +328,23 @@ function EditorPage() {
     setVocalText(text);
     queueAutoSave(sections);
   }, [sections, queueAutoSave]);
+
+  const handleBpmPresetChange = useCallback((value: string) => {
+    if (value === 'custom') {
+      setBpmMode('custom');
+      return;
+    }
+
+    setBpmMode('preset');
+    setBpmValue(Number(value));
+    queueAutoSave(sections);
+  }, [queueAutoSave, sections]);
+
+  const handleCustomBpmChange = useCallback((value: string) => {
+    const nextBpm = Math.max(40, Number(value) || 120);
+    setBpmValue(nextBpm);
+    queueAutoSave(sections);
+  }, [queueAutoSave, sections]);
 
   const updateSections = useCallback((
     updater: (currentSections: Section[]) => Section[],
@@ -298,6 +391,22 @@ function EditorPage() {
       sortOrder: sections.length,
       bodyText: '',
     };
+
+    if (activeSection === EDITOR.ALL_SECTIONS_ID) {
+      const tagText = `\n[${uniqueName}]`;
+      if (appendTextToEditorSelection(tagText)) {
+        return;
+      }
+
+      const nextSections = [...sections, newSection];
+      const nextBody = sectionsToBody(nextSections);
+      setSections(nextSections);
+      setAllViewText(nextBody);
+      setActiveSection(EDITOR.ALL_SECTIONS_ID);
+      queueAutoSave(nextSections);
+      return;
+    }
+
     updateSections((currentSections) => [...currentSections, newSection], newSection.id);
   };
 
@@ -431,7 +540,7 @@ function EditorPage() {
 
   const handleSaveSnapshot = async () => {
     if (!projectId) return;
-
+  
     try {
       const body = sectionsToBody(sections);
       const sectionInputs: VersionSectionInput[] = sections.map(s => ({
@@ -442,18 +551,22 @@ function EditorPage() {
       }));
       const version = await createVersion({
         project_id: projectId,
-        snapshot_name: snapshotName || new Date().toLocaleString('ja-JP'),
+        snapshot_name: new Date().toLocaleString(language === 'ja' ? 'ja-JP' : 'en-US'),
         body_text: body,
+        bpm: bpmValue,
         style_text: styleText || undefined,
         vocal_text: vocalText || undefined,
-        note: snapshotNote || undefined,
         parent_lyric_version_id: versions[0]?.lyric_version_id,
         sections: sectionInputs,
       });
       setVersions([version, ...versions]);
-      setShowSaveDialog(false);
-      setSnapshotName('');
-      setSnapshotNote('');
+      setSaveToastVisible(true);
+      if (saveToastTimeoutRef.current) {
+        clearTimeout(saveToastTimeoutRef.current);
+      }
+      saveToastTimeoutRef.current = setTimeout(() => {
+        setSaveToastVisible(false);
+      }, 1800);
     } catch (e) {
       setError('Failed to save snapshot');
       console.error(e);
@@ -472,34 +585,81 @@ function EditorPage() {
     }
   };
 
+  const handleHideVersion = async (version: LyricVersion) => {
+    try {
+      const batchId = await deleteVersion(version.lyric_version_id);
+      setVersions((current) => current.filter((item) => item.lyric_version_id !== version.lyric_version_id));
+      setLastHiddenVersion({ version, batchId });
+      setHideToastVisible(true);
+      if (hideToastTimeoutRef.current) {
+        clearTimeout(hideToastTimeoutRef.current);
+      }
+      hideToastTimeoutRef.current = setTimeout(() => {
+        setHideToastVisible(false);
+      }, 2200);
+    } catch (e) {
+      setError(t('hideVersionFailed'));
+      console.error(e);
+    }
+  };
+
+  const handleUndoHideVersion = useCallback(async () => {
+    if (!lastHiddenVersion) return;
+
+    try {
+      await restoreVersionApi(lastHiddenVersion.version.lyric_version_id, lastHiddenVersion.batchId);
+      setVersions((current) => [lastHiddenVersion.version, ...current].sort((a, b) =>
+        new Date(b.created_at).getTime() - new Date(a.created_at).getTime(),
+      ));
+      setLastHiddenVersion(null);
+      setHideToastVisible(false);
+      if (hideToastTimeoutRef.current) {
+        clearTimeout(hideToastTimeoutRef.current);
+      }
+    } catch (e) {
+      setError(t('restoreVersionFailed'));
+      console.error(e);
+    }
+  }, [lastHiddenVersion, t]);
+
   const restoreVersion = async (version: LyricVersion) => {
     const parsed = parseBodyToSections(version.body_text);
     const nextStyleText = version.style_text || '';
     const nextVocalText = version.vocal_text || '';
+    const nextBpm = version.bpm ?? 120;
     setSections(parsed);
     setAllViewText(version.body_text);
     setStyleText(nextStyleText);
     setVocalText(nextVocalText);
+    setBpmValue(nextBpm);
+    setBpmMode(BPM_PRESETS.includes(nextBpm) ? 'preset' : 'custom');
     if (parsed.length > 0) {
       setActiveSection(EDITOR.ALL_SECTIONS_ID);
     }
     await handleAutoSave(parsed, { styleText: nextStyleText, vocalText: nextVocalText });
   };
 
-  const insertFragment = (text: string) => {
-    updateSections((currentSections) => {
-      const updatedSections = [...currentSections];
-      const activeIdx = updatedSections.findIndex(s => s.id === activeSection);
-      if (activeIdx >= 0) {
-        const current = updatedSections[activeIdx];
-        updatedSections[activeIdx] = {
-          ...current,
-          bodyText: current.bodyText + (current.bodyText ? '\n' : '') + text,
-        };
-      }
-      return updatedSections;
-    });
-  };
+  const appendTextToEditorSelection = useCallback((text: string) => {
+    const editor = editorInstanceRef.current;
+    const selection = editor?.getSelection?.() ?? lastEditorSelectionRef.current;
+    
+    if (editor?.executeEdits && selection) {
+      editor.executeEdits('lyriclytic-append-selection', [{
+        range: {
+          startLineNumber: selection.endLineNumber,
+          startColumn: selection.endColumn,
+          endLineNumber: selection.endLineNumber,
+          endColumn: selection.endColumn,
+        },
+        text,
+        forceMoveMarkers: true,
+      }]);
+      editor.focus?.();
+      return true;
+    }
+
+    return false;
+  }, []);
 
   const handleImportAsFragment = async (text: string, source: string) => {
     if (!projectId) return;
@@ -531,214 +691,129 @@ function EditorPage() {
   const editorValue = isAllView ? allViewText : (activeSectionData?.bodyText || '');
   const lineCharacterCounts = useMemo(() => {
     const lines = editorValue.split('\n');
+    let guideIndex = 0;
+
     return lines.map((line) => {
-      if (/^\[[^\]]+\]$/.test(line.trim())) {
+      const trimmedLine = line.trim();
+      if (trimmedLine.length === 0 || /^\[[^\]]+\]$/.test(trimmedLine)) {
         return null;
       }
-      return [...line].length;
+      const guideRow = phoneticGuideRows[guideIndex];
+      guideIndex += 1;
+      if (!guideRow) {
+        return [...line].length;
+      }
+      return countRomanizedGuideUnits(guideRow.romanizedText);
     });
-  }, [editorValue]);
+  }, [editorValue, phoneticGuideRows]);
 
-  const phoneticGuideRows = useMemo(() => {
-    const latinVowels = new Set(['a', 'e', 'i', 'o', 'u', 'y']);
-
-    const kanaRomajiMap: Record<string, string> = {
-      あ: 'a', い: 'i', う: 'u', え: 'e', お: 'o',
-      か: 'ka', き: 'ki', く: 'ku', け: 'ke', こ: 'ko',
-      さ: 'sa', し: 'shi', す: 'su', せ: 'se', そ: 'so',
-      た: 'ta', ち: 'chi', つ: 'tsu', て: 'te', と: 'to',
-      な: 'na', に: 'ni', ぬ: 'nu', ね: 'ne', の: 'no',
-      は: 'ha', ひ: 'hi', ふ: 'fu', へ: 'he', ほ: 'ho',
-      ま: 'ma', み: 'mi', む: 'mu', め: 'me', も: 'mo',
-      や: 'ya', ゆ: 'yu', よ: 'yo',
-      ら: 'ra', り: 'ri', る: 'ru', れ: 're', ろ: 'ro',
-      わ: 'wa', を: 'o', ん: 'n',
-      が: 'ga', ぎ: 'gi', ぐ: 'gu', げ: 'ge', ご: 'go',
-      ざ: 'za', じ: 'ji', ず: 'zu', ぜ: 'ze', ぞ: 'zo',
-      だ: 'da', ぢ: 'ji', づ: 'zu', で: 'de', ど: 'do',
-      ば: 'ba', び: 'bi', ぶ: 'bu', べ: 'be', ぼ: 'bo',
-      ぱ: 'pa', ぴ: 'pi', ぷ: 'pu', ぺ: 'pe', ぽ: 'po',
-      ぁ: 'a', ぃ: 'i', ぅ: 'u', ぇ: 'e', ぉ: 'o',
-      ゔ: 'vu',
-    };
-
-    const digraphMap: Record<string, string> = {
-      きゃ: 'kya', きゅ: 'kyu', きょ: 'kyo',
-      しゃ: 'sha', しゅ: 'shu', しょ: 'sho',
-      ちゃ: 'cha', ちゅ: 'chu', ちょ: 'cho',
-      にゃ: 'nya', にゅ: 'nyu', にょ: 'nyo',
-      ひゃ: 'hya', ひゅ: 'hyu', ひょ: 'hyo',
-      みゃ: 'mya', みゅ: 'myu', みょ: 'myo',
-      りゃ: 'rya', りゅ: 'ryu', りょ: 'ryo',
-      ぎゃ: 'gya', ぎゅ: 'gyu', ぎょ: 'gyo',
-      じゃ: 'ja', じゅ: 'ju', じょ: 'jo',
-      ぢゃ: 'ja', ぢゅ: 'ju', ぢょ: 'jo',
-      びゃ: 'bya', びゅ: 'byu', びょ: 'byo',
-      ぴゃ: 'pya', ぴゅ: 'pyu', ぴょ: 'pyo',
-      うぁ: 'wa', うぃ: 'wi', うぇ: 'we', うぉ: 'wo',
-      ふぁ: 'fa', ふぃ: 'fi', ふぇ: 'fe', ふぉ: 'fo',
-      てぃ: 'ti', でぃ: 'di',
-      とぅ: 'tu', どぅ: 'du',
-      ゔぁ: 'va', ゔぃ: 'vi', ゔぇ: 've', ゔぉ: 'vo',
-    };
-
-    const katakanaToHiragana = (value: string) =>
-      value.replace(/[\u30a1-\u30f6]/g, (char) =>
-        String.fromCharCode(char.charCodeAt(0) - 0x60),
-      );
-
-    const splitRomanized = (romaji: string) => {
-      const letters = romaji.toLowerCase().replace(/[^a-z]/g, '');
-      if (!letters) {
-        return null;
-      }
-
-      let vowelPart = '';
-      let consonantPart = '';
-
-      for (const char of letters) {
-        if (latinVowels.has(char)) {
-          vowelPart += char;
-        } else {
-          consonantPart += char;
+  useEffect(() => {
+    let cancelled = false;
+    const timer = window.setTimeout(async () => {
+      try {
+        const rows = await analyzeRhymeGuideRows(editorValue);
+        if (!cancelled) {
+          setPhoneticGuideRows(rows);
+        }
+      } catch (error) {
+        if (!cancelled) {
+          console.warn('Failed to load Sudachi rhyme guide. Falling back to local analysis.', error);
+          setPhoneticGuideRows(buildFallbackRhymeGuideRows(editorValue));
         }
       }
+    }, 120);
 
-      return {
-        romanized: letters,
-        vowels: vowelPart || '—',
-        consonants: consonantPart || '—',
-      };
+    return () => {
+      cancelled = true;
+      window.clearTimeout(timer);
     };
-
-    const toRomanizedTokens = (line: string) => {
-      const normalizedLine = katakanaToHiragana(line.toLowerCase());
-      const tokens: string[] = [];
-      let index = 0;
-
-      while (index < normalizedLine.length) {
-        const current = normalizedLine[index];
-        const next = normalizedLine[index + 1] ?? '';
-        const pair = `${current}${next}`;
-
-        if (/\s/.test(current)) {
-          if (tokens[tokens.length - 1] !== '|') {
-            tokens.push('|');
-          }
-          index += 1;
-          continue;
-        }
-
-        if (current === 'っ') {
-          const lookaheadPair = `${next}${normalizedLine[index + 2] ?? ''}`;
-          const nextRomaji = digraphMap[lookaheadPair] || kanaRomajiMap[next] || '';
-          if (nextRomaji) {
-            tokens.push(nextRomaji[0]);
-          }
-          index += 1;
-          continue;
-        }
-
-        if (current === 'ー') {
-          const prev = tokens[tokens.length - 1] ?? '';
-          const prevVowelMatch = prev.match(/[aeiou]$/);
-          if (prevVowelMatch) {
-            tokens.push(prevVowelMatch[0]);
-          }
-          index += 1;
-          continue;
-        }
-
-        if (digraphMap[pair]) {
-          tokens.push(digraphMap[pair]);
-          index += 2;
-          continue;
-        }
-
-        if (kanaRomajiMap[current]) {
-          tokens.push(kanaRomajiMap[current]);
-          index += 1;
-          continue;
-        }
-
-        if (/[a-z]/.test(current)) {
-          let latinWord = current;
-          let j = index + 1;
-          while (j < normalizedLine.length && /[a-z]/.test(normalizedLine[j])) {
-            latinWord += normalizedLine[j];
-            j += 1;
-          }
-          tokens.push(latinWord);
-          index = j;
-          continue;
-        }
-
-        index += 1;
-      }
-
-      return tokens;
-    };
-
-    const toGuide = (line: string) => {
-      const rawTokens = toRomanizedTokens(line);
-      const guideTokens = rawTokens
-        .map((token) => {
-          if (token === '|') {
-            return { romanized: '|', vowels: '|', consonants: '|' };
-          }
-          return splitRomanized(token);
-        })
-        .filter((token): token is { romanized: string; vowels: string; consonants: string } => Boolean(token));
-
-      if (guideTokens.length === 0) {
-        return null;
-      }
-
-      const normalizePipeSpacing = (value: string) =>
-        value.replace(/\s*\|\s*/g, ' | ').trim().replace(/^\|\s*|\s*\|$/g, '');
-
-      const romanizedText = normalizePipeSpacing(guideTokens.map((token) => token.romanized).join(' '));
-      const vowelText = normalizePipeSpacing(guideTokens.map((token) => token.vowels).join(' '));
-      const consonantText = normalizePipeSpacing(guideTokens.map((token) => token.consonants).join(' '));
-
-      return {
-        line,
-        romanizedText: romanizedText || '—',
-        vowelText: vowelText || '—',
-        consonantText: consonantText || '—',
-      };
-    };
-
-    return editorValue
-      .split('\n')
-      .filter((line) => line.trim().length > 0 && !/^\[[^\]]+\]$/.test(line.trim()))
-      .map(toGuide)
-      .filter((row): row is NonNullable<typeof row> => Boolean(row));
   }, [editorValue]);
 
   const totalLyricChars = useMemo(() => {
-    const lines = editorValue.split('\n');
-    return lines.reduce((sum, line) => {
-      if (/^\[[^\]]+\]$/.test(line.trim())) {
-        return sum;
-      }
-      return sum + [...line].length;
-    }, 0);
-  }, [editorValue]);
+    return lineCharacterCounts.reduce<number>((sum, count) => sum + (count ?? 0), 0);
+  }, [lineCharacterCounts]);
 
   const estimatedSeconds = useMemo(() => {
     if (bpmValue <= 0) return 0;
     return Math.max(0, Math.round((totalLyricChars * 60) / bpmValue));
   }, [bpmValue, totalLyricChars]);
 
+  const rhymeGuideSourceLabel = useMemo(() => {
+    const source = phoneticGuideRows[0]?.source;
+    if (source === 'sudachi_core') {
+      return t('analysisSourceSudachi');
+    }
+    return t('analysisSourceFallback');
+  }, [phoneticGuideRows, t]);
+
+  const copyTextToClipboard = useCallback(async (
+    text: string,
+    setFeedback?: React.Dispatch<React.SetStateAction<boolean>>,
+    timerRef?: React.MutableRefObject<ReturnType<typeof setTimeout> | null>,
+  ) => {
+    if (!text.trim()) return;
+
+    try {
+      await navigator.clipboard.writeText(text);
+      if (setFeedback) {
+        setFeedback(true);
+      }
+      if (timerRef?.current) {
+        clearTimeout(timerRef.current);
+      }
+      if (setFeedback && timerRef) {
+        timerRef.current = setTimeout(() => {
+          setFeedback(false);
+        }, 1500);
+      }
+    } catch (error) {
+      console.error('Failed to copy text:', error);
+      setError(t('copyFailed'));
+    }
+  }, [t]);
+
+  const handleCopyAllWithTags = useCallback(() => {
+    void copyTextToClipboard(
+      sectionsToBody(sections),
+      setAllCopyFeedback,
+      allCopyFeedbackTimeoutRef,
+    );
+  }, [copyTextToClipboard, sections]);
+
+  const handleCopyLyricsOnly = useCallback(() => {
+    void copyTextToClipboard(
+      buildLyricsOnlyBody(sections),
+      setLyricsOnlyCopyFeedback,
+      lyricsOnlyCopyFeedbackTimeoutRef,
+    );
+  }, [copyTextToClipboard, sections]);
+
   const handleEditorMount = useCallback((editorInstance: {
     onDidScrollChange: (callback: (event: { scrollTop: number }) => void) => { dispose: () => void };
+    onDidChangeCursorPosition?: (callback: (event: {
+      position: { lineNumber: number; column: number };
+    }) => void) => { dispose: () => void };
+    getSelection?: () => {
+      startLineNumber: number;
+      startColumn: number;
+      endLineNumber: number;
+      endColumn: number;
+    } | null;
   }) => {
     editorScrollDisposeRef.current?.dispose();
+    editorCursorDisposeRef.current?.dispose();
     editorInstanceRef.current = editorInstance;
     editorScrollDisposeRef.current = editorInstance.onDidScrollChange((event) => {
       setEditorScrollTop(event.scrollTop);
     });
+    if (editorInstance.onDidChangeCursorPosition) {
+      editorCursorDisposeRef.current = editorInstance.onDidChangeCursorPosition(() => {
+        const selection = editorInstance.getSelection?.();
+        if (selection) {
+          lastEditorSelectionRef.current = selection;
+        }
+      });
+    }
   }, []);
 
   if (loading) {
@@ -749,21 +824,34 @@ function EditorPage() {
     return <div className="editor-workspace"><p className="error">{t('projectNotFound')}</p></div>;
   }
 
+  const renderGuideValue = (value: string, previousValue?: string) => {
+    const parts = getGuideHighlightParts(value, previousValue);
+    if (!parts.match) {
+      return <span className="phonetic-chip-value">{value}</span>;
+    }
+    return (
+      <span className="phonetic-chip-value">
+        {parts.prefix ? `${parts.prefix} ` : ''}
+        <span className="phonetic-chip-match">{parts.match}</span>
+      </span>
+    );
+  };
+
   return (
     <div className={`editor-workspace ${isLeftPaneVisible ? '' : 'left-pane-hidden'}`}>
       {isLeftPaneVisible && (
         <>
-          <VersionPane
-            versions={versions}
-            width={leftPaneWidth}
-            styleText={styleText}
-            vocalText={vocalText}
-            onStyleTextChange={handleStyleTextChange}
-            onVocalTextChange={handleVocalTextChange}
-            onOpenNotes={setSelectedVersionForNotes}
-            onRestoreVersion={restoreVersion}
-            onShowDiff={() => setShowDiffViewer(true)}
-          />
+            <VersionPane
+              versions={versions}
+              width={leftPaneWidth}
+              styleText={styleText}
+              vocalText={vocalText}
+              onStyleTextChange={handleStyleTextChange}
+              onVocalTextChange={handleVocalTextChange}
+              onRestoreVersion={restoreVersion}
+              onHideVersion={handleHideVersion}
+              onShowDiff={() => setShowDiffViewer(true)}
+            />
           <div
             className="pane-resize-handle pane-resize-handle-left"
             onMouseDown={handleLeftPaneResizeStart}
@@ -806,18 +894,11 @@ function EditorPage() {
               <div className="editor-metric-row">
                 <div className="editor-bpm-control">
                   <span className="editor-metric-label">{t('bpm')}</span>
-                  <select
-                    value={bpmMode === 'preset' ? String(bpmValue) : 'custom'}
-                    onChange={(e) => {
-                      if (e.target.value === 'custom') {
-                        setBpmMode('custom');
-                        return;
-                      }
-                      setBpmMode('preset');
-                      setBpmValue(Number(e.target.value));
-                    }}
-                    className="editor-bpm-select"
-                  >
+                    <select
+                      value={bpmMode === 'preset' ? String(bpmValue) : 'custom'}
+                      onChange={(e) => handleBpmPresetChange(e.target.value)}
+                      className="editor-bpm-select"
+                    >
                     {BPM_PRESETS.map((preset) => (
                       <option key={preset} value={preset}>
                         {preset}
@@ -826,24 +907,59 @@ function EditorPage() {
                     <option value="custom">{t('custom')}</option>
                   </select>
                   {bpmMode === 'custom' && (
-                    <input
-                      type="number"
-                      min={40}
-                      max={260}
-                      step={1}
-                      value={bpmValue}
-                      onChange={(e) => setBpmValue(Math.max(40, Number(e.target.value) || 120))}
-                      className="editor-bpm-input"
-                    />
+                      <input
+                        type="number"
+                        min={40}
+                        max={260}
+                        step={1}
+                        value={bpmValue}
+                        onChange={(e) => handleCustomBpmChange(e.target.value)}
+                        className="editor-bpm-input"
+                      />
                   )}
                 </div>
                 <div className="editor-duration-pill">
                   <span className="editor-metric-label">{t('estimatedDuration')}</span>
                   <strong>{estimatedSeconds}{t('sec')}</strong>
                 </div>
+                <div className="editor-copy-actions">
+                  <button
+                    className="copy-mini-btn"
+                    onClick={handleCopyAllWithTags}
+                    title={t('copyAllWithTags')}
+                  >
+                    {allCopyFeedback ? (
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                      </svg>
+                    ) : (
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                      </svg>
+                    )}
+                  </button>
+                  <button
+                    className="copy-mini-btn"
+                    onClick={handleCopyLyricsOnly}
+                    title={t('copyLyricsOnly')}
+                  >
+                    {lyricsOnlyCopyFeedback ? (
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                      </svg>
+                    ) : (
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                        <path d="M9 13h9"></path>
+                      </svg>
+                    )}
+                  </button>
+                </div>
                 <button
                   className="editor-save-btn"
-                  onClick={() => setShowSaveDialog(true)}
+                  onClick={handleSaveSnapshot}
                   title={t('saveSnapshot')}
                 >
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -857,9 +973,19 @@ function EditorPage() {
             </div>
           </div>
 
-          {error && <div className="editor-error-banner">{error}</div>}
-
-          <div className="editor-container" ref={editorContainerRef}>
+            {error && <div className="editor-error-banner">{error}</div>}
+            {saveToastVisible && (
+              <div className="save-toast" role="status" aria-live="polite">
+                {t('snapshotSavedToast')}
+              </div>
+            )}
+            {hideToastVisible && (
+              <div className="save-toast save-toast-secondary" role="status" aria-live="polite">
+                {t('versionHiddenToast')}
+              </div>
+            )}
+  
+            <div className="editor-container" ref={editorContainerRef}>
             <div className="editor-shell">
               <div className="editor-main">
                 <Editor
@@ -912,6 +1038,9 @@ function EditorPage() {
             <div className="phonetic-guide-panel" style={{ height: `${phoneticGuideHeight}px` }}>
               <div className="phonetic-guide-header">
                 <h4>{t('rhymeGuide')}</h4>
+                <span className="phonetic-guide-source">
+                  {t('analysisSource')}: {rhymeGuideSourceLabel}
+                </span>
               </div>
               {phoneticGuideRows.length === 0 ? (
                 <p className="phonetic-guide-empty">{t('noPhoneticGuide')}</p>
@@ -923,15 +1052,15 @@ function EditorPage() {
                       <div className="phonetic-spellings">
                         <div className="phonetic-chip">
                           <span className="phonetic-chip-label">{t('romanizedSpelling')}</span>
-                          <span className="phonetic-chip-value">{row.romanizedText}</span>
+                          {renderGuideValue(row.romanizedText, phoneticGuideRows[index - 1]?.romanizedText)}
                         </div>
                         <div className="phonetic-chip">
                           <span className="phonetic-chip-label">{t('vowelSpelling')}</span>
-                          <span className="phonetic-chip-value">{row.vowelText}</span>
+                          {renderGuideValue(row.vowelText, phoneticGuideRows[index - 1]?.vowelText)}
                         </div>
                         <div className="phonetic-chip">
                           <span className="phonetic-chip-label">{t('consonantSpelling')}</span>
-                          <span className="phonetic-chip-value">{row.consonantText}</span>
+                          {renderGuideValue(row.consonantText, phoneticGuideRows[index - 1]?.consonantText)}
                         </div>
                       </div>
                     </div>
@@ -1056,21 +1185,12 @@ function EditorPage() {
 
         <div className="action-pane-wrapper" style={{ flexBasis: `${100 - sectionPaneHeight}%` }}>
           <ActionPane
-            project={project}
-            projectId={currentProjectId}
             sections={sections}
             activeSectionId={activeSection}
-            versions={versions}
-            fragments={fragments}
+            currentLyrics={editorValue}
+            currentStyle={styleText}
+            currentVocal={vocalText}
             llmSettings={llmSettings}
-            onSetShowSaveDialog={setShowSaveDialog}
-            onJumpToVersion={(versionId) => {
-              const version = versions.find((entry) => entry.lyric_version_id === versionId);
-              if (version) {
-                restoreVersion(version);
-              }
-            }}
-            onInsertFragment={insertFragment}
             onLLMSettingsChange={setLLMSettings}
           />
         </div>
@@ -1080,19 +1200,11 @@ function EditorPage() {
         projectId={currentProjectId}
         project={project}
         versions={versions}
-        selectedVersionForNotes={selectedVersionForNotes}
-        showSaveDialog={showSaveDialog}
         showDeleteDialog={showDeleteDialog}
         showDiffViewer={showDiffViewer}
         showExportPanel={showExportPanel}
         showImportDialog={showImportDialog}
-        snapshotName={snapshotName}
-        snapshotNote={snapshotNote}
         bodyText={sectionsToBody(sections)}
-        onSnapshotNameChange={setSnapshotName}
-        onSnapshotNoteChange={setSnapshotNote}
-        onCloseSaveDialog={() => setShowSaveDialog(false)}
-        onSaveSnapshot={handleSaveSnapshot}
         onCloseDeleteDialog={() => setShowDeleteDialog(false)}
         onDeleteProject={handleDeleteProject}
         onCloseDiffViewer={() => setShowDiffViewer(false)}
@@ -1101,7 +1213,6 @@ function EditorPage() {
         onImportAsFragment={handleImportAsFragment}
         onImportAsBody={handleImportAsBody}
         onCloseImportDialog={() => setShowImportDialog(false)}
-        onCloseRevisionNotes={() => setSelectedVersionForNotes(null)}
       />
     </div>
   );

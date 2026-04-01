@@ -28,6 +28,8 @@ import type {
   DeletedItem,
   StartLlamaCppInput,
   LlamaCppStatus,
+  DetectLlamaCppExecutableResult,
+  RhymeGuideRowDto,
 } from './types';
 
 // Re-export all types
@@ -85,6 +87,8 @@ const COMMANDS = {
   START_LLAMA_CPP_RUNTIME: 'start_llama_cpp_runtime',
   STOP_LLAMA_CPP_RUNTIME: 'stop_llama_cpp_runtime',
   GET_LLAMA_CPP_RUNTIME_STATUS: 'get_llama_cpp_runtime_status',
+  DETECT_LLAMA_CPP_EXECUTABLE: 'detect_llama_cpp_executable',
+  ANALYZE_RHYME_TEXT: 'analyze_rhyme_text',
 
   // Trash
   GET_DELETED_ITEMS: 'get_deleted_items',
@@ -174,8 +178,8 @@ export async function getVersionSections(lyricVersionId: string): Promise<Versio
   return call<VersionSection[]>(COMMANDS.GET_VERSION_SECTIONS, { lyricVersionId });
 }
 
-export async function deleteVersion(lyricVersionId: string): Promise<void> {
-  return call<void>(COMMANDS.DELETE_VERSION, { lyricVersionId });
+export async function deleteVersion(lyricVersionId: string): Promise<string> {
+  return call<string>(COMMANDS.DELETE_VERSION, { lyricVersionId });
 }
 
 // ===== Fragments API =====
@@ -260,6 +264,14 @@ export async function stopLlamaCppRuntime(): Promise<LlamaCppStatus> {
 
 export async function getLlamaCppRuntimeStatus(): Promise<LlamaCppStatus> {
   return call<LlamaCppStatus>(COMMANDS.GET_LLAMA_CPP_RUNTIME_STATUS);
+}
+
+export async function detectLlamaCppExecutable(): Promise<DetectLlamaCppExecutableResult> {
+  return call<DetectLlamaCppExecutableResult>(COMMANDS.DETECT_LLAMA_CPP_EXECUTABLE);
+}
+
+export async function analyzeRhymeText(text: string): Promise<RhymeGuideRowDto[]> {
+  return call<RhymeGuideRowDto[]>(COMMANDS.ANALYZE_RHYME_TEXT, { text });
 }
 
 // ===== Trash API =====

@@ -1,0 +1,1 @@
+ALTER TABLE working_drafts ADD COLUMN bpm INTEGER DEFAULT 120;

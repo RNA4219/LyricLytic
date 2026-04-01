@@ -30,10 +30,11 @@ pub fn get_version_sections(app: AppHandle, lyric_version_id: String) -> AppResu
 }
 
 #[tauri::command]
-pub fn delete_version(app: AppHandle, lyric_version_id: String) -> AppResult<()> {
+pub fn delete_version(app: AppHandle, lyric_version_id: String) -> AppResult<String> {
     let conn = db::get_connection(&app)?;
     let batch_id = Uuid::new_v4().to_string();
-    version_repo::soft_delete(&conn, &lyric_version_id, &batch_id)
+    version_repo::soft_delete(&conn, &lyric_version_id, &batch_id)?;
+    Ok(batch_id)
 }
 
 #[tauri::command]

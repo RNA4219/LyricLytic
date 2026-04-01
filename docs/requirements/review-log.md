@@ -749,3 +749,241 @@ PoC 実装は、要件文書だけでなく `implementation/` を起点に開始
 
 `テスト設計レビュー可能` と `フロント質感差分の運用導線整備済み` を維持しつつ、`llama.cpp 直起動の PoC 実装済み` まで前進。  
 LM Studio 常駐に依存せず、LyricLytic 側からローカル推論ランタイムを立ち上げる最小経路が追加された。
+
+## Gate 22
+
+実施日: 2026-04-01  
+対象: `docs/requirements/rhyme-analysis-v1.md`, `docs/requirements/requirements.md`, `docs/requirements/frontend-requirements-v1.md`, `docs/implementation/test-design-v1.md`, `src/lib/rhyme/analysis.ts`, `src/test/rhyme-analysis.test.ts`, `src/pages/Editor.tsx`
+
+### 目的
+
+韻ガイド機能を、その場しのぎの UI 表示ではなく、`辞書層 / 音韻正規化層 / LLM 補正層` に責務分離された要件として定義し、実装も将来の辞書差し替えに耐える境界へ整理する。
+
+### レビュー観点
+
+- 韻候補検索の主処理を LLM に依存しない要件として定義できているか
+- 実行時辞書、補完辞書、検証辞書の役割が文書で分離されているか
+- UI 側が `原文 / ローマ字 / 母音列 / 子音列` を安定して表示できるか
+- 実装が巨大なページ内ロジックではなく、独立した分析モジュールへ切り出されているか
+- 最低限の自動テストが追加されているか
+
+### 反映した改善
+
+- `rhyme-analysis-v1.md` を追加し、`SudachiDict-core + NEologd + UniDic + LLM補正` の責務分離方針を定義
+- `requirements.md` に韻ガイドを MVP 範囲として追記
+- `frontend-requirements-v1.md` に編集画面下部の韻ガイド表示要件を追記
+- `test-design-v1.md` に韻ガイドの正規化・表示契約テストを追記
+- `src/lib/rhyme/analysis.ts` を追加し、フォールバック版のローマ字 / 母音 / 子音変換を独立モジュール化
+- `src/test/rhyme-analysis.test.ts` を追加し、タグ除外・日本語変換・空行除外のテストを追加
+- `Editor.tsx` のインライン変換ロジックを `buildRhymeGuideRows()` 呼び出しへ整理
+
+### 現時点で残る未確定事項
+
+- Sudachi / NEologd / UniDic の実導入タイミング
+- 音韻インデックスと韻候補抽出 UI の詳細仕様
+- 辞書ライセンス表記の最終配置先
+
+### 判定
+
+`llama.cpp 直起動の PoC 実装済み` を維持しつつ、`韻ガイド要件化と実装境界整理済み` まで前進。  
+現段階ではフォールバック実装だが、辞書ベース実装へ差し替えるための入口とテスト足場は整った。
+
+## Gate 23
+
+実施日: 2026-04-01  
+対象: `src-tauri/scripts/rhyme_analysis.py`, `src-tauri/src/commands/rhyme.rs`, `src/lib/rhyme/analysis.ts`, `src/lib/api/client.ts`, `src/lib/api/types.ts`, `src/pages/Editor.tsx`
+
+### 目的
+
+韻ガイドの実行時主辞書として `SudachiDict-core` を使う最小実装を投入し、Tauri 実行時には `SudachiPy` の読み取得結果を使い、失敗時のみ既存フォールバックへ戻る構成へ前進させる。
+
+### レビュー観点
+
+- Tauri 実行時にフロントが辞書層へ直接依存していないか
+- `SudachiPy + SudachiDict-core` による読み取得が UI 表示用 DTO に変換されているか
+- backend 失敗時に既存の韻ガイド表示が壊れないか
+- build / check / 既存テストが維持されているか
+
+### 反映した改善
+
+- `src-tauri/scripts/rhyme_analysis.py` を追加し、`SudachiPy + SudachiDict-core` による行単位の読み取得と `ローマ字 / 母音列 / 子音列` 生成を実装
+- `src-tauri/src/commands/rhyme.rs` を追加し、Python スクリプトを child process 経由で呼び出す `analyze_rhyme_text` command を実装
+- `src/lib/api/client.ts` と `src/lib/api/types.ts` に韻ガイド API 契約を追加
+- `src/lib/rhyme/analysis.ts` を `fallback builder + async analyzer` の二層構成へ整理
+- `Editor.tsx` を `useMemo` の同期計算から、非同期で Sudachi 結果を受け取り、失敗時はフォールバックへ戻す表示に変更
+
+### 現時点で残る未確定事項
+
+- `NEologd` 補完の組み込み方法
+- `UniDic` を使った検証ジョブの具体形
+- Python 依存を Rust ネイティブ実装へ寄せるかどうか
+
+### 判定
+
+`韻ガイド要件化と実装境界整理済み` を維持しつつ、`SudachiDict-core を使う実行時解析の PoC 実装済み` まで前進。  
+フロントの UI 契約は維持したまま、Tauri 実行時に辞書ベース解析へ切り替わる構造が入った。
+
+## Gate 24
+
+実施日: 2026-04-01  
+対象: `docs/implementation/rhyme-implementation-checklist-v1.md`, `README.md`, `HUB.codex.md`, `src/pages/Editor.tsx`, `src/styles/editor/workspace.css`, `src/lib/i18n.ts`
+
+### 目的
+
+韻ガイド実装を場当たりで増やさず、段階的に前進させるための運用チェックリストを作成し、あわせて最初の UX 改善として「どの解析系で動いているか」が UI から分かるようにする。
+
+### レビュー観点
+
+- 要件から実装への分解がチェックリストで追えるか
+- README / HUB から辿れるか
+- 現在の PoC 実装状態がチェックリストに反映されているか
+- Sudachi / Fallback の解析ソースが UI から分かるか
+
+### 反映した改善
+
+- `rhyme-implementation-checklist-v1.md` を追加
+- `README.md` と `HUB.codex.md` に入口を追加
+- 韻ガイドヘッダに `解析ソース: Sudachi Core / Fallback` を表示
+- 翻訳キーと表示スタイルを追加
+
+### 現時点で残る未確定事項
+
+- Sudachi の split mode 最終決定
+- NEologd の導入方式
+- UniDic 検証ジョブ
+
+### 判定
+
+`SudachiDict-core を使う実行時解析の PoC 実装済み` を維持しつつ、`韻ガイド実装の運用チェックリスト整備済み` まで前進。  
+今後は本チェックリストを使って、辞書拡張・候補抽出・LLM補正を段階的に積み上げる。
+
+## Gate 25
+
+実施日: 2026-04-01  
+対象: `src/lib/rhyme/analysis.ts`, `src/test/rhyme-analysis.test.ts`, `src/pages/Editor.tsx`, `src/styles/editor/workspace.css`, `docs/implementation/rhyme-implementation-checklist-v1.md`
+
+### 目的
+
+韻ガイドを「表示しているだけ」の状態から一歩進めて、連続する行の末尾一致を視覚的に追えるようにし、あわせて正規化テストを拡充する。
+
+### レビュー観点
+
+- 末尾一致の抽出ロジックが UI 依存ではなく関数として切り出されているか
+- 既存の `RhymeGuideRow[]` 契約を崩していないか
+- 強調表示が過剰ではなく、補助情報として自然か
+- 正規化ロジックの追加テストが build / test を維持しているか
+
+### 反映した改善
+
+- `getGuideHighlightParts()` を追加し、ガイド値同士の共通 suffix を抽出可能にした
+- `rhyme-analysis.test.ts` に `長音 / 促音` の smoke と末尾一致抽出テストを追加
+- `Editor.tsx` で前行との共通 suffix を `ローマ字 / 母音 / 子音` に対して強調表示
+- `workspace.css` に一致部分のハイライトスタイルを追加
+- `rhyme-implementation-checklist-v1.md` の Phase B / Phase E を更新
+
+### 現時点で残る未確定事項
+
+- 末尾一致の強調粒度を token 単位で十分とするか、モーラ単位へ寄せるか
+- 韻ガイド行の本文コピー導線
+- 英字 / 数字混在時の正規化基準
+
+### 判定
+
+`韻ガイド実装の運用チェックリスト整備済み` を維持しつつ、`末尾一致の可視化と正規化テスト拡張済み` まで前進。  
+次は split mode の最終決定か、本文コピー導線のどちらかを進めるとバランスがよい。
+
+## Gate 26
+
+実施日: 2026-04-01  
+対象: `src/pages/Editor.tsx`, `src/styles/editor/workspace.css`, `src/lib/i18n.ts`, `docs/implementation/rhyme-implementation-checklist-v1.md`
+
+### 目的
+
+韻ガイドを比較専用の補助 UI として保ち、歌詞挿入のような別責務を混ぜない方針を確認する。
+
+### レビュー観点
+
+- 韻ガイドの責務が `比較` に保たれているか
+- 本文操作導線を混ぜず、読みやすさを優先できているか
+- 実装チェックリストの状態が実態と一致しているか
+
+### 反映した改善
+
+- 韻ガイド行への `歌詞へ挿入` 導線は採用しない判断に戻した
+- 比較専用 UI として、末尾一致強調と解析ソース表示に集中させた
+- 実装チェックリストの `韻ガイド行から本文へコピーできる` を未着手へ戻した
+
+### 現時点で残る未確定事項
+
+- 韻ガイド表示密度の切り替え
+- 大量行時の負荷評価
+- split mode の最終決定
+
+### 判定
+
+`末尾一致の可視化と正規化テスト拡張済み` を維持しつつ、`韻ガイドは比較専用 UI として維持` を再確認。  
+次は split mode の最終決定か、韻ガイドの表示密度切り替えが自然な次手になる。
+
+## Gate 27
+
+実施日: 2026-04-01  
+対象: `src/components/LLMReviewPanel.tsx`, `src/pages/editor/ActionPane.tsx`, `docs/requirements/requirements.md`, `docs/requirements/acceptance-test-cases-v1.md`
+
+### 目的
+
+`AIレビュー補助` が実態として要件とズレていたため、`AIモデル頻出表現チェック` として名称・対象・結果表示の正本を揃える。
+
+### レビュー観点
+
+- 対象が `選択セクション` ではなく `入力フレーズ + 歌詞全文` になっているか
+- 閾値未満除外と出現件数降順が要件に明記されているか
+- ボタンの無効化条件が、全文があるのに押せない状態を作っていないか
+
+### 反映した改善
+
+- UI 名称を `AIモデル頻出表現チェック` に変更した
+- 入力フレーズ用 textarea を追加し、歌詞全文を解析対象として渡す形へ補正した
+- 要件と受け入れケースへ `閾値未満除外 + 出現件数降順表示` を追記した
+
+### 現時点で残る未確定事項
+
+- 頻出表現 JSON 契約に `hit_count` を必須化するか
+- 低頻出候補レコメンド側で `凡庸な方向 / 奇抜な方向` を UI パラメータ化するか
+- 長文歌詞時の最大トークン見積もり
+
+### 判定
+
+`AIモデル頻出表現チェック` の名称と基本挙動は正本に戻せた。  
+次は `hit_count` の JSON 契約固定と、凡庸な方向 / 奇抜な方向の切替 UI を詰めるのが自然。
+
+## Gate 28
+
+実施日: 2026-04-01  
+対象: `src/components/LLMReviewPanel.tsx`, `src/lib/rhyme/analysis.ts`, `docs/requirements/requirements.md`, `docs/requirements/acceptance-test-cases-v1.md`
+
+### 目的
+
+モデル頻出表現チェックを、`凡庸` / `奇抜` の両方向で扱えるようにし、候補に韻判断のための音韻メタ情報を追加する。
+
+### レビュー観点
+
+- `凡庸` / `奇抜` の切替が threshold 解釈に反映されているか
+- サンプル数が PoC に見合う大きめレンジを取れているか
+- 候補表示にローマ字 / 母音 / 子音 / 韻の近さが含まれているか
+
+### 反映した改善
+
+- レビューモードを `凡庸` / `奇抜` の 2 タブに分けた
+- サンプル数プリセットを 500 以上へ引き上げた
+- 結果と代替候補に音韻メタと韻の近さを追加した
+
+### 現時点で残る未確定事項
+
+- `hit_count` を必須 JSON 契約として厳密化するか
+- 代替候補を 1 回の大きな prompt で作るか、段階生成に分けるか
+- 韻の近さを suffix token 数以外のスコアへ広げるか
+
+### 判定
+
+モデル頻出表現チェックは、`出やすい / 出にくい` の両方向を扱える段階まで前進。  
+次は `hit_count` 契約の厳密化か、代替候補生成の実サンプル感を高める方針の確定が自然。

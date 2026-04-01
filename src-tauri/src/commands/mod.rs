@@ -8,3 +8,4 @@ pub mod style_profile;
 pub mod export;
 pub mod trash;
 pub mod llm_runtime;
+pub mod rhyme;

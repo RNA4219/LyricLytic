@@ -26,7 +26,12 @@ export function useKeyboardShortcuts(options: UseKeyboardShortcutsOptions): void
 
     // Don't trigger shortcuts when typing in inputs
     const target = e.target as HTMLElement;
-    if (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA') {
+    if (
+      target.tagName === 'INPUT' ||
+      target.tagName === 'TEXTAREA' ||
+      target.isContentEditable ||
+      !!target.closest('.monaco-editor')
+    ) {
       return;
     }
 
@@ -62,9 +67,11 @@ export function createEditorShortcuts(actions: {
   onDiff: () => void;
   onImport: () => void;
   onExport: () => void;
+  onUndoHide: () => void;
 }): KeyboardShortcut[] {
   return [
     { key: 's', ctrl: true, action: actions.onSave, description: 'Save snapshot' },
+    { key: 'z', ctrl: true, action: actions.onUndoHide, description: 'Undo hidden version' },
     { key: 'f', ctrl: true, action: actions.onSearch, description: 'Toggle search' },
     { key: 'C', ctrl: true, shift: true, action: actions.onCopyAll, description: 'Copy all' },
     { key: 'd', ctrl: true, action: actions.onDiff, description: 'Show diff viewer' },

@@ -296,21 +296,11 @@
 .version-timeline-item {
   position: relative;
   display: flex;
-  align-items: flex-start;
+  align-items: stretch;
   gap: 0.75rem;
-  padding: 0.625rem 0.5rem;
+  padding: 0.25rem 0;
   margin-left: 0.5rem;
-  background: transparent;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background 0.2s;
   width: 100%;
-  text-align: left;
-}
-
-.version-timeline-item:hover {
-  background: rgba(15, 23, 42, 0.8);
 }
 
 /* Timeline dot - Glow effect */
@@ -331,6 +321,25 @@
   box-shadow: 0 0 8px rgba(192, 193, 255, 0.5);
 }
 
+.version-timeline-main {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  flex: 1;
+  padding: 0.625rem 0.5rem;
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+  text-align: left;
+}
+
+.version-timeline-main:hover {
+  background: rgba(15, 23, 42, 0.8);
+}
+
 .timeline-content {
   display: flex;
   flex-direction: column;
@@ -349,6 +358,27 @@
   text-transform: uppercase;
   letter-spacing: 0.05em;
   font-weight: 500;
+}
+
+.version-hide-btn {
+  align-self: center;
+  padding: 0.4rem 0.55rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--on-surface-variant);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.version-hide-btn:hover {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(255, 255, 255, 0.16);
+  color: var(--on-surface);
 }
 
 /* Add Section Button */
@@ -476,16 +506,6 @@
   background: rgba(15, 23, 42, 0.8);
 }
 
-.mini-editor-container .monaco-editor,
-.mini-editor-container .monaco-editor-background,
-.mini-editor-container .inputarea.ime-input {
-  background: transparent !important;
-}
-
-.mini-editor-container .monaco-editor .margin {
-  background: transparent !important;
-}
-
 .char-count {
   font-size: 0.5625rem;
   color: var(--outline);
@@ -502,24 +522,23 @@
   position: relative;
 }
 
-.editor-resize-btn {
-  position: absolute;
-  bottom: 0.5rem;
-  right: 0.5rem;
-  padding: 0.25rem 0.5rem;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 4px;
-  color: var(--on-surface-variant);
-  font-size: 0.625rem;
-  font-weight: 700;
-  cursor: pointer;
-  transition: all 0.2s;
-  z-index: 1;
+.mini-editor-textarea {
+  width: 100%;
+  min-height: 120px;
+  padding: 0.7rem 0.8rem;
+  border-radius: 8px;
+  border: 1px solid rgba(51, 65, 85, 0.4);
+  background: rgba(15, 23, 42, 0.6);
+  color: var(--on-surface);
+  font-size: 0.85rem;
+  font-family: 'Inter', 'Noto Sans JP', sans-serif;
+  line-height: 1.55;
+  resize: vertical;
+  box-sizing: border-box;
 }
 
-.editor-resize-btn:hover {
-  background: rgba(192, 193, 255, 0.15);
-  border-color: var(--primary);
-  color: var(--primary);
+.mini-editor-textarea:focus {
+  outline: none;
+  border-color: rgba(192, 193, 255, 0.3);
+  background: rgba(15, 23, 42, 0.8);
 }

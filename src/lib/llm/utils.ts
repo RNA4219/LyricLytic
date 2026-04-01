@@ -2,7 +2,7 @@
  * LLM utility functions shared across components
  */
 
-export type LLMRuntime = 'openai_compatible' | 'ollama' | 'lm_studio';
+export type LLMRuntime = 'openai_compatible';
 
 export interface LLMConfig {
   runtime: LLMRuntime;
@@ -39,24 +39,16 @@ export function isAllowedLocalBaseUrl(value: string): boolean {
 /**
  * Builds the request URL based on runtime type and base URL
  */
-export function buildLLMRequestUrl(runtime: LLMRuntime, baseUrl: string): string {
+export function buildLLMRequestUrl(_runtime: LLMRuntime, baseUrl: string): string {
   const normalizedBaseUrl = baseUrl.replace(/\/$/, '');
-
-  if (runtime === 'ollama') {
-    return `${normalizedBaseUrl}/api/chat`;
-  }
 
   return normalizedBaseUrl.endsWith('/v1')
     ? `${normalizedBaseUrl}/chat/completions`
     : `${normalizedBaseUrl}/v1/chat/completions`;
 }
 
-function buildModelListUrl(runtime: LLMRuntime, baseUrl: string): string {
+function buildModelListUrl(_runtime: LLMRuntime, baseUrl: string): string {
   const normalizedBaseUrl = baseUrl.replace(/\/$/, '');
-
-  if (runtime === 'ollama') {
-    return `${normalizedBaseUrl}/api/tags`;
-  }
 
   return normalizedBaseUrl.endsWith('/v1')
     ? `${normalizedBaseUrl}/models`
@@ -82,13 +74,9 @@ export async function fetchLLMModels(
     }
 
     const data = await response.json();
-    const models = runtime === 'ollama'
-      ? ((data.models as Array<{ name?: string }> | undefined) ?? [])
-          .map((entry) => entry.name?.trim())
-          .filter((name): name is string => Boolean(name))
-      : ((data.data as Array<{ id?: string }> | undefined) ?? [])
-          .map((entry) => entry.id?.trim())
-          .filter((id): id is string => Boolean(id));
+    const models = ((data.data as Array<{ id?: string }> | undefined) ?? [])
+      .map((entry) => entry.id?.trim())
+      .filter((id): id is string => Boolean(id));
 
     return { success: true, models };
   } catch (e) {
@@ -100,27 +88,21 @@ export async function fetchLLMModels(
  * Builds the request body based on runtime type
  */
 export function buildLLMRequestBody(
-  runtime: LLMRuntime,
+  _runtime: LLMRuntime,
   model: string,
   prompt: string,
   options?: { maxTokens?: number; temperature?: number }
 ): Record<string, unknown> {
   const temperature = options?.temperature ?? 0.7;
 
-  if (runtime === 'ollama') {
-    return {
-      model,
-      stream: false,
-      messages: [{ role: 'user', content: prompt }],
-      options: { temperature },
-    };
-  }
-
   return {
     model,
     max_tokens: options?.maxTokens ?? 1024,
     temperature,
     messages: [{ role: 'user', content: prompt }],
+    chat_template_kwargs: {
+      enable_thinking: false,
+    },
   };
 }
 
@@ -128,14 +110,14 @@ export function buildLLMRequestBody(
  * Extracts the response content from LLM API response
  */
 export function extractLLMResponseContent(
-  runtime: LLMRuntime,
+  _runtime: LLMRuntime,
   data: Record<string, unknown>
 ): string {
-  if (runtime === 'ollama') {
-    return (data.message as { content?: string })?.content || '';
-  }
+  const message = (data.choices as Array<{
+    message?: { content?: string; reasoning_content?: string };
+  }>)?.[0]?.message;
 
-  return ((data.choices as Array<{ message?: { content?: string } }>)?.[0]?.message?.content) || '';
+  return message?.content || message?.reasoning_content || '';
 }
 
 /**
@@ -157,11 +139,87 @@ export function parseLLMJsonResponse<T>(text: string, arrayKey: string): T[] {
       return parsed[arrayKey];
     }
   } catch {
-    // JSON parse failed
+    const recovered = recoverArrayItemsFromPartialJson<T>(jsonStr, arrayKey);
+    if (recovered.length > 0) {
+      return recovered;
+    }
+
     return [];
   }
 
   return [];
+}
+
+function recoverArrayItemsFromPartialJson<T>(text: string, arrayKey: string): T[] {
+  const keyIndex = text.indexOf(`"${arrayKey}"`);
+  if (keyIndex === -1) {
+    return [];
+  }
+
+  const arrayStart = text.indexOf('[', keyIndex);
+  if (arrayStart === -1) {
+    return [];
+  }
+
+  const results: T[] = [];
+  let depth = 0;
+  let inString = false;
+  let escaped = false;
+  let objectStart = -1;
+
+  for (let i = arrayStart + 1; i < text.length; i += 1) {
+    const ch = text[i];
+
+    if (escaped) {
+      escaped = false;
+      continue;
+    }
+
+    if (ch === '\\') {
+      escaped = true;
+      continue;
+    }
+
+    if (ch === '"') {
+      inString = !inString;
+      continue;
+    }
+
+    if (inString) {
+      continue;
+    }
+
+    if (ch === '{') {
+      if (depth === 0) {
+        objectStart = i;
+      }
+      depth += 1;
+      continue;
+    }
+
+    if (ch === '}') {
+      if (depth > 0) {
+        depth -= 1;
+      }
+
+      if (depth === 0 && objectStart !== -1) {
+        const objectText = text.slice(objectStart, i + 1);
+        try {
+          results.push(JSON.parse(objectText) as T);
+        } catch {
+          // ignore incomplete or malformed fragments
+        }
+        objectStart = -1;
+      }
+      continue;
+    }
+
+    if (ch === ']' && depth === 0) {
+      break;
+    }
+  }
+
+  return results;
 }
 
 /**
