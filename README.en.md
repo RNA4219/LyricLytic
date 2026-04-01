@@ -7,7 +7,7 @@
 LyricLytic is a desktop app for writing lyrics locally for AI music workflows.  
 It keeps lyrics, BPM, rhyme guidance, AI assistance, snapshots, and diff comparison in one workspace.
 
-As long as you follow the licenses of the software and models you use, the app is basically free to use.  
+As long as you follow the licenses of the software and models you use, the app is basically free to use, including its AI features.  
 It is also structured in a way that makes local customization and modification easy.
 
 - Local-first
