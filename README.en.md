@@ -261,7 +261,7 @@ This includes:
 ## If you get stuck
 
 - If this README does not solve it, reply or DM [@rna4219 on X](https://x.com/rna4219)
-- Support is planned for about six months after release
+- Support is planned through 2026/07/01 (about three months after release)
 - Windows is the main supported environment
 - macOS is designed to launch, but cannot be guaranteed because it has not been tested on an actual Mac
 
