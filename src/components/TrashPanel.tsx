@@ -6,6 +6,11 @@ import {
   restoreFragment,
   restoreSongArtifact,
   restoreStyleProfile,
+  permanentlyDeleteProject,
+  permanentlyDeleteVersion,
+  permanentlyDeleteFragment,
+  permanentlyDeleteSongArtifact,
+  permanentlyDeleteStyleProfile,
   DeletedItem,
 } from '../lib/api';
 import { useLanguage } from '../lib/LanguageContext';
@@ -61,6 +66,34 @@ function TrashPanel({ onRestore, onClose }: TrashPanelProps) {
       onRestore();
     } catch (e) {
       console.error('Failed to restore item:', e);
+    }
+  };
+
+  const handlePermanentDelete = async (item: DeletedItem) => {
+    if (!item.deleted_batch_id) return;
+
+    try {
+      switch (item.type) {
+        case 'Project':
+          await permanentlyDeleteProject(item.project_id, item.deleted_batch_id);
+          break;
+        case 'LyricVersion':
+          await permanentlyDeleteVersion(item.lyric_version_id, item.deleted_batch_id);
+          break;
+        case 'CollectedFragment':
+          await permanentlyDeleteFragment(item.collected_fragment_id, item.deleted_batch_id);
+          break;
+        case 'SongArtifact':
+          await permanentlyDeleteSongArtifact(item.song_artifact_id, item.deleted_batch_id);
+          break;
+        case 'StyleProfile':
+          await permanentlyDeleteStyleProfile(item.style_profile_id, item.deleted_batch_id);
+          break;
+      }
+      setDeletedItems(deletedItems.filter(i => !isSameItem(i, item)));
+      onRestore();
+    } catch (e) {
+      console.error('Failed to permanently delete item:', e);
     }
   };
 
@@ -145,9 +178,14 @@ function TrashPanel({ onRestore, onClose }: TrashPanelProps) {
                     {t('deletedLabel')} {item.deleted_at ? new Date(item.deleted_at).toLocaleDateString() : 'N/A'}
                   </span>
                 </div>
-                <button onClick={() => handleRestore(item)} className="restore-btn">
-                  {t('restore')}
-                </button>
+                <div className="deleted-actions">
+                  <button onClick={() => handleRestore(item)} className="restore-btn">
+                    {t('restore')}
+                  </button>
+                  <button onClick={() => handlePermanentDelete(item)} className="permanent-delete-btn">
+                    {t('delete')}
+                  </button>
+                </div>
               </li>
             ))}
           </ul>

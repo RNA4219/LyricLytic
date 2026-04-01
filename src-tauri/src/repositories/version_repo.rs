@@ -203,3 +203,22 @@ pub fn soft_delete(conn: &Connection, lyric_version_id: &str, batch_id: &str) ->
 
     Ok(())
 }
+
+pub fn hard_delete(conn: &Connection, lyric_version_id: &str, batch_id: &str) -> AppResult<()> {
+    conn.execute(
+        "DELETE FROM revision_notes WHERE lyric_version_id = ?1 AND deleted_batch_id = ?2",
+        params![lyric_version_id, batch_id],
+    )?;
+
+    conn.execute(
+        "DELETE FROM version_sections WHERE lyric_version_id = ?1 AND deleted_batch_id = ?2",
+        params![lyric_version_id, batch_id],
+    )?;
+
+    conn.execute(
+        "DELETE FROM lyric_versions WHERE lyric_version_id = ?1 AND deleted_batch_id = ?2",
+        params![lyric_version_id, batch_id],
+    )?;
+
+    Ok(())
+}

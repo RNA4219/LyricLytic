@@ -16,13 +16,13 @@ LyricLytic の文書・設計・実装の読み順を、俯瞰で掴むための
 ### 全体像を掴みたいとき
 
 1. `README.md`
-2. `HUB.codex.md`
-3. `BLUEPRINT.md`
+2. `docs/project/HUB.codex.md`
+3. `docs/project/BLUEPRINT.md`
 4. `docs/requirements/requirements.md`
 
 ### 実装に入るとき
 
-1. `GUARDRAILS.md`
+1. `docs/project/GUARDRAILS.md`
 2. `docs/implementation/bootstrap-checklist-v1.md`
 3. `docs/implementation/system-architecture-v1.md`
 4. `docs/implementation/command-contracts-v1.md`
@@ -39,9 +39,9 @@ LyricLytic の文書・設計・実装の読み順を、俯瞰で掴むための
 
 | ノード | 役割 | 先に読むべき理由 |
 |---|---|---|
-| `BLUEPRINT.md` | 最上位方針 | MVP 範囲と技術スタックの前提を掴める |
-| `GUARDRAILS.md` | 実装制約 | ローカル完結、論理削除、LLM 制約を外さないため |
-| `HUB.codex.md` | ドキュメントハブ | 正本と補助資料の位置がまとまっている |
+| `docs/project/BLUEPRINT.md` | 最上位方針 | MVP 範囲と技術スタックの前提を掴める |
+| `docs/project/GUARDRAILS.md` | 実装制約 | ローカル完結、論理削除、LLM 制約を外さないため |
+| `docs/project/HUB.codex.md` | ドキュメントハブ | 正本と補助資料の位置がまとまっている |
 | `docs/requirements/requirements.md` | 要件正本 | 実装判断の最終基準 |
 | `docs/requirements/poc-task-breakdown-v1.md` | フェーズ分解 | 今どの段階を進めるべきか判断しやすい |
 | `docs/implementation/system-architecture-v1.md` | 構成設計 | Frontend / Tauri / Repository / SQLite の境界確認 |
@@ -54,9 +54,9 @@ LyricLytic の文書・設計・実装の読み順を、俯瞰で掴むための
 
 `docs/birdseye/index.json` では、以下の流れで依存がつながっています。
 
-- `BLUEPRINT.md`
+- `docs/project/BLUEPRINT.md`
   全体方針の起点
-- `HUB.codex.md`
+- `docs/project/HUB.codex.md`
   正本と実装入口のハブ
 - `docs/requirements/requirements.md`
   機能・非機能・受け入れ基準の正本
@@ -97,10 +97,10 @@ LyricLytic の文書・設計・実装の読み順を、俯瞰で掴むための
 
 ## 6. HUB との関係
 
-`HUB.codex.md` は正本への導線ハブ、`docs/BIRDSEYE.md` は読み順と熱い領域の俯瞰です。  
+`docs/project/HUB.codex.md` は正本への導線ハブ、`docs/BIRDSEYE.md` は読み順と熱い領域の俯瞰です。  
 判断に迷ったら:
 
-1. `HUB.codex.md` で正本を特定する
+1. `docs/project/HUB.codex.md` で正本を特定する
 2. `docs/BIRDSEYE.md` で読む順番を決める
 3. `docs/birdseye/index.json` で依存を精査する
 

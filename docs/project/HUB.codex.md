@@ -16,8 +16,8 @@ LyricLytic 配下のドキュメント・仕様・タスクを集約し、実装
 
 | 目的 | 最初に読む |
 |---|---|
-| 要件理解 | `BLUEPRINT.md` → `docs/requirements/requirements.md` |
-| 実装着手 | `GUARDRAILS.md` → `docs/implementation/bootstrap-checklist-v1.md` |
+| 要件理解 | `docs/project/BLUEPRINT.md` → `docs/requirements/requirements.md` |
+| 実装着手 | `docs/project/GUARDRAILS.md` → `docs/implementation/bootstrap-checklist-v1.md` |
 | タスク把握 | `docs/requirements/poc-task-breakdown-v1.md` |
 | 状態確認 | `docs/requirements/review-log.md` |
 | 俯瞰確認 | `docs/BIRDSEYE.md` → `docs/birdseye/index.json` |
@@ -41,9 +41,11 @@ LyricLytic 配下のドキュメント・仕様・タスクを集約し、実装
 | `docs/implementation/system-architecture-v1.md` | 4 層構成正本 |
 | `docs/implementation/command-contracts-v1.md` | Tauri command 契約正本 |
 | `docs/implementation/test-design-v1.md` | テスト設計 / 運用チェックリスト正本 |
+| `docs/implementation/acceptance-review-20260401.md` | 最新の検収レビュー（実装を正、テストは追随状況も併記） |
 | `docs/implementation/bootstrap-checklist-v1.md` | 初期縦切り手順 |
 | `docs/implementation/rhyme-implementation-checklist-v1.md` | 韻ガイド実装チェックリスト |
 | `docs/requirements/sqlite-schema-v1.sql` | SQLite 正本 |
+| `THIRD_PARTY_LICENSES.md` | 主要ソフトのライセンス一覧 |
 
 ### 2.3 補助
 
@@ -96,8 +98,8 @@ LyricLytic 配下のドキュメント・仕様・タスクを集約し、実装
 
 ### 新規実装者
 
-1. `BLUEPRINT.md`
-2. `GUARDRAILS.md`
+1. `docs/project/BLUEPRINT.md`
+2. `docs/project/GUARDRAILS.md`
 3. `docs/BIRDSEYE.md`
 4. `docs/requirements/requirements.md` 目次
 5. `docs/requirements/poc-task-breakdown-v1.md` フェーズ 0
@@ -105,7 +107,7 @@ LyricLytic 配下のドキュメント・仕様・タスクを集約し、実装
 
 ### 機能追加時
 
-1. `GUARDRAILS.md` 禁止事項確認
+1. `docs/project/GUARDRAILS.md` 禁止事項確認
 2. 対象フェーズ正本節
 3. `docs/implementation/command-contracts-v1.md` 契約確認
 4. 実装 → テスト → Gate ログ
@@ -114,7 +116,7 @@ LyricLytic 配下のドキュメント・仕様・タスクを集約し、実装
 
 1. `docs/requirements/requirements.md` 対象節
 2. `docs/requirements/review-log.md` Gate 追記
-3. 影響フェーズ確認 → BLUEPRINT 更新
+3. 影響フェーズ確認 → `docs/project/BLUEPRINT.md` 更新
 
 ## 8. 運用メモ
 

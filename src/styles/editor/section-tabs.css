@@ -378,18 +378,22 @@ body.section-reorder-active * {
 
 /* Custom scrollbar */
 .section-list-pane::-webkit-scrollbar {
-  width: 4px;
+  width: 10px;
 }
 
 .section-list-pane::-webkit-scrollbar-track {
-  background: transparent;
+  background: var(--scrollbar-track);
+  border-radius: 999px;
 }
 
 .section-list-pane::-webkit-scrollbar-thumb {
-  background: var(--outline-variant);
-  border-radius: 10px;
+  background: var(--scrollbar-thumb);
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
 }
 
 .section-list-pane::-webkit-scrollbar-thumb:hover {
-  background: var(--outline);
+  background: var(--scrollbar-thumb-hover);
+  background-clip: padding-box;
 }

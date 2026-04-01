@@ -154,3 +154,11 @@ pub fn restore(conn: &Connection, artifact_id: &str, batch_id: &str) -> AppResul
     )?;
     Ok(())
 }
+
+pub fn hard_delete(conn: &Connection, artifact_id: &str, batch_id: &str) -> AppResult<()> {
+    conn.execute(
+        "DELETE FROM song_artifacts WHERE song_artifact_id = ?1 AND deleted_batch_id = ?2",
+        params![artifact_id, batch_id],
+    )?;
+    Ok(())
+}

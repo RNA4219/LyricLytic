@@ -4,24 +4,24 @@
     {
       "node_id": "N-001",
       "role": "blueprint",
-      "label": "BLUEPRINT.md",
-      "path": "BLUEPRINT.md",
+      "label": "docs/project/BLUEPRINT.md",
+      "path": "docs/project/BLUEPRINT.md",
       "dependencies": [],
       "dependents": ["N-002", "N-003", "N-004", "N-005", "N-006"]
     },
     {
       "node_id": "N-002",
       "role": "guardrails",
-      "label": "GUARDRAILS.md",
-      "path": "GUARDRAILS.md",
+      "label": "docs/project/GUARDRAILS.md",
+      "path": "docs/project/GUARDRAILS.md",
       "dependencies": ["N-001"],
       "dependents": ["N-004", "N-005"]
     },
     {
       "node_id": "N-003",
       "role": "hub",
-      "label": "HUB.codex.md",
-      "path": "HUB.codex.md",
+      "label": "docs/project/HUB.codex.md",
+      "path": "docs/project/HUB.codex.md",
       "dependencies": ["N-001"],
       "dependents": ["N-004", "N-005", "N-006"]
     },

@@ -96,6 +96,11 @@ const COMMANDS = {
   RESTORE_FRAGMENT: 'restore_fragment',
   RESTORE_SONG_ARTIFACT: 'restore_song_artifact',
   RESTORE_STYLE_PROFILE: 'restore_style_profile',
+  PERMANENTLY_DELETE_PROJECT: 'permanently_delete_project',
+  PERMANENTLY_DELETE_VERSION: 'permanently_delete_version',
+  PERMANENTLY_DELETE_FRAGMENT: 'permanently_delete_fragment',
+  PERMANENTLY_DELETE_SONG_ARTIFACT: 'permanently_delete_song_artifact',
+  PERMANENTLY_DELETE_STYLE_PROFILE: 'permanently_delete_style_profile',
 } as const;
 
 /**
@@ -294,4 +299,24 @@ export async function restoreSongArtifact(artifactId: string, batchId: string): 
 
 export async function restoreStyleProfile(profileId: string, batchId: string): Promise<void> {
   return call<void>(COMMANDS.RESTORE_STYLE_PROFILE, { profileId, batchId });
+}
+
+export async function permanentlyDeleteProject(projectId: string, batchId: string): Promise<void> {
+  return call<void>(COMMANDS.PERMANENTLY_DELETE_PROJECT, { projectId, batchId });
+}
+
+export async function permanentlyDeleteVersion(lyricVersionId: string, batchId: string): Promise<void> {
+  return call<void>(COMMANDS.PERMANENTLY_DELETE_VERSION, { lyricVersionId, batchId });
+}
+
+export async function permanentlyDeleteFragment(fragmentId: string, batchId: string): Promise<void> {
+  return call<void>(COMMANDS.PERMANENTLY_DELETE_FRAGMENT, { fragmentId, batchId });
+}
+
+export async function permanentlyDeleteSongArtifact(artifactId: string, batchId: string): Promise<void> {
+  return call<void>(COMMANDS.PERMANENTLY_DELETE_SONG_ARTIFACT, { artifactId, batchId });
+}
+
+export async function permanentlyDeleteStyleProfile(profileId: string, batchId: string): Promise<void> {
+  return call<void>(COMMANDS.PERMANENTLY_DELETE_STYLE_PROFILE, { profileId, batchId });
 }

@@ -179,3 +179,33 @@ pub fn restore_style_profile(app: AppHandle, profile_id: String, batch_id: Strin
     let conn = db::get_connection(&app)?;
     style_profile_repo::restore(&conn, &profile_id, &batch_id)
 }
+
+#[tauri::command]
+pub fn permanently_delete_project(app: AppHandle, project_id: String, batch_id: String) -> AppResult<()> {
+    let conn = db::get_connection(&app)?;
+    project_repo::hard_delete(&conn, &project_id, &batch_id)
+}
+
+#[tauri::command]
+pub fn permanently_delete_version(app: AppHandle, lyric_version_id: String, batch_id: String) -> AppResult<()> {
+    let conn = db::get_connection(&app)?;
+    version_repo::hard_delete(&conn, &lyric_version_id, &batch_id)
+}
+
+#[tauri::command]
+pub fn permanently_delete_fragment(app: AppHandle, fragment_id: String, batch_id: String) -> AppResult<()> {
+    let conn = db::get_connection(&app)?;
+    fragment_repo::hard_delete(&conn, &fragment_id, &batch_id)
+}
+
+#[tauri::command]
+pub fn permanently_delete_song_artifact(app: AppHandle, artifact_id: String, batch_id: String) -> AppResult<()> {
+    let conn = db::get_connection(&app)?;
+    song_artifact_repo::hard_delete(&conn, &artifact_id, &batch_id)
+}
+
+#[tauri::command]
+pub fn permanently_delete_style_profile(app: AppHandle, profile_id: String, batch_id: String) -> AppResult<()> {
+    let conn = db::get_connection(&app)?;
+    style_profile_repo::hard_delete(&conn, &profile_id, &batch_id)
+}

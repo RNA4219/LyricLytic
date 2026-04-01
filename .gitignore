@@ -4,12 +4,15 @@ node_modules/
 # Build
 dist/
 target/
+playwright-report/
+test-results/
 
 # IDE
 .vscode/
 .idea/
 *.swp
 *.swo
+.claude/
 
 # OS
 .DS_Store

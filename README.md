@@ -1,168 +1,263 @@
 # LyricLytic
 
-LyricLytic は、AI 音楽生成サービス向けの歌詞制作を支援するデスクトップアプリです。
-歌詞の断片収集、構成整理、推敲、バージョン管理、曲紐付けを一貫して扱うローカル完結環境を提供します。
+![LyricLytic icon](docs/icon.png)
 
-## 導入手順
+LyricLytic は、AI 音楽生成向けの歌詞制作をローカルで完結させるためのデスクトップアプリです。  
+歌詞本文、BPM、韻ガイド、AI補助、スナップショット保存、差分比較を 1 つのワークスペースで扱えます。
 
-LyricLytic は現在、`llama.cpp` を LyricLytic 側から直接起動する前提です。  
-LM Studio や Ollama は使わず、`llama-server.exe + GGUF` をローカルで扱います。
+- ローカルファースト
+- `llama.cpp` 直起動
+- 歌詞制作に寄せた UI
+- スナップショットと差分比較
+- 韻ガイドによる母音 / 子音 / ローマ字の可視化
 
-### 1. 前提ソフトを入れる
+## 画面イメージ
 
-- Node.js 20 系以上
+実際の動作中画面です。
+
+![LyricLytic runtime](docs/runtime-captures/lyriclytic-desktop-20260401.png)
+
+### 起動した直後にプロジェクトが無い場合
+
+最初はこの画面になります。  
+上の `+ 新規プロジェクト` を押せば始められます。
+
+![LyricLytic empty home](docs/runtime-captures/スクリーンショット%202026-04-01%20220931.png)
+
+### 起動した直後にプロジェクトがある場合
+
+前に使ったプロジェクトがカードで並びます。  
+開きたいカードを押すだけです。
+
+![LyricLytic home with projects](docs/runtime-captures/スクリーンショット%202026-04-01%20220905.png)
+
+## 主な機能
+
+- 歌詞編集
+  - `ALL` 表示とセクション単位編集
+  - セクションの追加、並べ替え、改名
+  - BPM 入力と目安秒数表示
+- 韻ガイド
+  - 漢字を含む日本語歌詞の読みを解析
+  - ローマ字 / 母音 / 子音の確認
+  - 行末の響きの比較
+- AI補助
+  - `Lyrics / Style / Vocal` の生成
+  - `llama.cpp` を LyricLytic から直接起動
+  - `Style / Vocal` は英語寄りの出力前提
+- スナップショット
+  - 保存時点の歌詞、Style、Vocal、BPM を保持
+  - バージョン差分比較
+- 削除済み管理
+  - 論理削除
+  - 復元
+  - 完全削除
+
+## このアプリでできること
+
+- 歌詞をまとめて書く
+- セクションごとに整理する
+- BPM を見ながら長さの目安を取る
+- 韻ガイドで響きを確認する
+- AI で Lyrics / Style / Vocal の案を出す
+- スナップショット保存で後から差分比較する
+
+## 動作方針
+
+- 主対応 OS は Windows
+- macOS は導入手順のみ記載
+- macOS は **動作保証しません**
+- macOS で動かない場合は **自分で直してください**
+- テストより実機挙動を優先して運用しています
+
+## はじめに
+
+LyricLytic を使うには、ざっくり次の 4 つだけです。
+
+1. `llama.cpp` を入れる
+2. モデルを 1 つダウンロードする
+3. LyricLytic を起動する
+4. `AI起動` と `接続確認` を押す
+
+以下に順番どおり書いています。
+
+## まず何をすればいい？
+
+初めてなら、この順番で大丈夫です。
+
+1. `llama.cpp` を入れる
+2. おすすめモデルを 1 つダウンロードする
+3. LyricLytic を起動する
+4. `LLM構成` を開く
+5. `llama-server` の場所と `.gguf` を指定する
+6. `AI起動` を押す
+7. `接続確認` を押す
+8. ホームで `+ 新規プロジェクト` を押す
+9. 歌詞を書き始める
+
+難しそうに見えても、実際に触る場所はかなり少ないです。
+
+## クイックスタート
+
+### 1. 前提ソフト
+
+- Node.js 20 以上
 - Rust / Cargo
-- Windows では WebView2 Runtime
+- Windows の場合は WebView2 Runtime
 - `llama.cpp`
 
-Windows で `llama.cpp` を入れる一番簡単な方法は `winget` です。
+### 2. `llama.cpp` を入れる
+
+#### Windows
 
 ```powershell
 winget install --id ggml.llamacpp --accept-package-agreements --accept-source-agreements
 ```
 
-インストール後、`llama-server.exe` の場所は環境によって違いますが、LyricLytic からは次のようなパスで見つかることが多いです。
+`llama-server.exe` の例:
 
 ```text
 C:\Users\<ユーザー名>\AppData\Local\Microsoft\WinGet\Packages\ggml.llamacpp_Microsoft.Winget.Source_8wekyb3d8bbwe\llama-server.exe
 ```
 
-### 2. モデルをダウンロードする
+#### macOS
 
-2026-04-01 時点でのおすすめ GGUF は次の 3 つです。
+```bash
+brew install llama.cpp
+```
+
+`llama-server` の例:
+
+```text
+/opt/homebrew/bin/llama-server
+/usr/local/bin/llama-server
+```
+
+### 3. モデルをダウンロードする
+
+2026-04-01 時点でのおすすめモデルは次の 3 つです。
 
 1. 軽さ優先: `Qwen3.5-4B`
    - [Hugging Face](https://huggingface.co/unsloth/Qwen3.5-4B-GGUF?show_file_info=Qwen3.5-4B-UD-Q4_K_XL.gguf&library=llama-cpp-python)
-   - まず試すならこれが一番扱いやすいです。
 2. バランス型: `Qwen3.5-9B`
    - [Hugging Face](https://huggingface.co/unsloth/Qwen3.5-9B-GGUF?show_file_info=Qwen3.5-9B-UD-Q4_K_XL.gguf)
-   - 品質と速度のバランスが良く、常用しやすいです。
 3. 表現力重視: `GPT-OSS-Swallow-20B`
    - [Hugging Face](https://huggingface.co/mmnga-o/GPT-OSS-Swallow-20B-RL-v0.1-gguf/blob/main/GPT-OSS-Swallow-20B-RL-v0.1-Q4_K_M.gguf)
-   - VRAM とメモリに余裕がある環境向けです。
 
-モデルは `.gguf` ファイルとして保存してください。  
-LyricLytic では、フォルダではなく **GGUF ファイルそのもの** を指定するのがいちばん確実です。
+モデルは `.gguf` ファイルで保存してください。
 
-### 3. LyricLytic を起動する
+補足:
 
-依存を入れてから開発起動します。
+- LyricLytic はフォルダではなく **GGUF ファイルそのもの** を指定する使い方が一番確実です
+- モデル本体のライセンスは各配布ページの記載に従ってください
+
+### 4. LyricLytic を起動する
 
 ```powershell
 npm install
 npm run tauri:dev
 ```
 
-またはルートにある [Start.bat](C:\Users\ryo-n\Codex_dev\LyricLytic\Start.bat) でも起動できます。
+Windows では [Start.bat](Start.bat) でも起動できます。
 
-### 4. 初回の LLM 設定
+macOS では `Start.bat` は使えません。  
+そのまま `npm install` と `npm run tauri:dev` を実行してください。
 
-右下の `AI補助` から `LLM構成` を開き、次の 2 つを設定します。
+### 5. 最初の設定
+
+右下の `AI補助` から `LLM構成` を開き、次を設定します。
 
 - `llama.cpp 実行ファイルパス`
-  - `llama-server.exe` を指定
+  - Windows: `llama-server.exe`
+  - macOS: `llama-server`
 - `モデルファイルパス`
-  - ダウンロードした `.gguf` を指定
+  - ダウンロードした `.gguf`
 
 その後、
 
 1. `AI起動`
 2. `接続確認`
 
-の順に押してください。
+の順で進めてください。
 
-### 5. 使い始める前の注意
+ここまでできれば、すぐに歌詞生成を試せます。
 
-- `Style` と `Vocal` の AI 生成は英語出力前提です。
-- `Lyrics` は現在の JA / EN 言語設定に合わせて生成します。
-- `最大出力トークン` は大きめで始まりますが、重すぎて起動しにくい場合は LyricLytic が自動で下げます。
-- `タイムアウト` の既定値は 300 秒です。重いモデルでも途中停止しにくいよう、やや長めにしています。
+## 迷いやすいポイント
 
-## Agent_tools 連携
+### `llama.cpp 実行ファイルパス` には何を入れる？
 
-本リポジトリは Agent_tools パターン適用済み:
+`llama-server.exe` または `llama-server` です。  
+`.gguf` ファイルではありません。
 
-| Agent_tools | 活用 |
-|---|---|
-| workflow-cookbook | Birdseye/Task Seed パターン |
-| shipyard-cp | CLI-first オーケストレーション |
-| agent-protocols | IntentContract/TaskSeed 契約 |
+### `モデルファイルパス` には何を入れる？
 
-## 入口
+ダウンロードした `.gguf` ファイルそのものです。
 
-- **最上位方針**: `BLUEPRINT.md`
-- **ガードレール**: `GUARDRAILS.md`
-- **ドキュメントハブ**: `HUB.codex.md`
-- **Birdseye**: `docs/BIRDSEYE.md`
-- **正本要件**: `docs/requirements/requirements.md`
-- **韻ガイド仕様**: `docs/requirements/rhyme-analysis-v1.md`
-- **韻ガイド実装チェックリスト**: `docs/implementation/rhyme-implementation-checklist-v1.md`
-- **PoCタスク**: `docs/requirements/poc-task-breakdown-v1.md`
-- **実装入口**: `docs/implementation/bootstrap-checklist-v1.md`
-- **テスト設計**: `docs/implementation/test-design-v1.md`
+### `AI起動` を押しても動かない
 
-## Birdseye
+次の 2 つを見直してください。
 
-- 人間向け俯瞰: `docs/BIRDSEYE.md`
-- 機械向け依存グラフ: `docs/birdseye/index.json`
+- `llama.cpp 実行ファイルパス`
+- `モデルファイルパス`
 
-## Task Seeds
+ほとんどの場合、このどちらかです。
 
-`docs/tasks/` で未着手タスク候補:
+### プロジェクトが無い
 
-- TS-001: Tauri 最小構成
-- TS-002: SQLite 初期化
-- TS-003: Repository 層 CRUD
-- TS-004: 両 OS 起動確認
+問題ありません。  
+ホームの `+ 新規プロジェクト` を押せばすぐ始められます。
 
-- 正式な要件定義: `docs/requirements/requirements.md`
-- フロントエンド要件定義: `docs/requirements/frontend-requirements-v1.md`
-- フロント質感差分レビュー: `docs/requirements/frontend-design/runtime-visual-gap-review-20260401.md`
-- フロント質感差分チェックリスト: `docs/requirements/frontend-design/runtime-visual-gap-checklist-20260401.md`
-- PoC 実装タスク分解: `docs/requirements/poc-task-breakdown-v1.md`
-- 実装準備パッケージ: `docs/implementation/README.md`
-- 参考調査レポート: `docs/research/deep-research-report-20260331.md`
-- 詳細要件の元メモ: `docs/notes/detailed-requirements-source.txt`
+## LLM 設定の考え方
 
-## 現在の構成
+- `タイムアウト` の既定値は 300 秒
+- `最大出力トークン` は大きめから始める
+- `Temperature` は文章のばらつきの強さ
+  - 低いほど安定
+  - 高いほど遊びが増える
+
+## ライセンス
+
+主要ソフトウェアと辞書のライセンスは [THIRD_PARTY_LICENSES.md](THIRD_PARTY_LICENSES.md) にまとめています。
+
+含まれる主な項目:
+
+- React
+- Vite
+- Tauri
+- Rust
+- SQLite
+- Monaco Editor
+- `llama.cpp`
+- SudachiPy / SudachiDict-core
+
+## 困ったとき
+
+- Windows が主対応です
+- macOS は未検証です
+- 古い自動テストは現仕様に完全追随していない可能性があります
+- 実機挙動を正として運用しています
+
+## 詳しいドキュメント
+
+詳しい設計や仕様は `docs/` にあります。
+
+- ドキュメントハブ: [docs/project/HUB.codex.md](docs/project/HUB.codex.md)
+- 正本要件: [docs/requirements/requirements.md](docs/requirements/requirements.md)
+- フロントエンド要件: [docs/requirements/frontend-requirements-v1.md](docs/requirements/frontend-requirements-v1.md)
+- 韻ガイド仕様: [docs/requirements/rhyme-analysis-v1.md](docs/requirements/rhyme-analysis-v1.md)
+- 実装入口: [docs/implementation/README.md](docs/implementation/README.md)
+- 検収レビュー: [docs/implementation/acceptance-review-20260401.md](docs/implementation/acceptance-review-20260401.md)
+- Birdseye: [docs/BIRDSEYE.md](docs/BIRDSEYE.md)
+
+## リポジトリ構成
 
 ```text
 LyricLytic/
 ├─ README.md
-├─ LICENSE
+├─ THIRD_PARTY_LICENSES.md
+├─ Start.bat
+├─ package.json
+├─ src/
+├─ src-tauri/
 └─ docs/
-   ├─ implementation/
-   │  └─ README.md
-   ├─ notes/
-   │  └─ detailed-requirements-source.txt
-   ├─ requirements/
-   │  ├─ requirements.md
-   │  ├─ frontend-requirements-v1.md
-   │  └─ poc-task-breakdown-v1.md
-   ├─ research/
-   │  └─ deep-research-report-20260331.md
 ```
-
-## ドキュメントの使い分け
-
-- `docs/requirements/requirements.md`
-  実装判断の基準にする統合版の要件定義です。MVP 範囲、ドメインモデル、機能要件、非機能要件、受け入れ基準をまとめています。
-- `docs/requirements/poc-task-breakdown-v1.md`
-  PoC 実装へ入る前のフェーズ分解です。どこから着手し、どこで破綻を見つけるかを整理しています。
-- `docs/implementation/README.md`
-  実装開始前に読むべき設計入口です。構成、command 契約、初期チェックリストをまとめています。
-- `docs/implementation/test-design-v1.md`
-  要件定義と仕様に基づくテスト設計書です。層別方針、優先度付きチェックリスト、完了条件をまとめています。
-- `docs/requirements/frontend-requirements-v1.md`
-  既存要件からフロントエンド実装に必要な内容だけを再編した文書です。画面、レイアウト、状態、導線、OS 差分をまとめています。
-- `docs/research/deep-research-report-20260331.md`
-  技術選定や構想の背景として参照する調査資料です。Monaco / Tauri / SQLite 前提の比較や設計観点を含みます。
-- `docs/notes/detailed-requirements-source.txt`
-  統合前の元メモです。判断の経緯や補足の参照元として残しています。
-
-## 次に着手しやすいもの
-
-1. `docs/requirements/requirements.md` の残論点を詰める
-2. `docs/requirements/sqlite-schema-v1.sql` と要件の整合レビューを続ける
-3. `docs/requirements/screen-flow-v1.md` と UI 要件の破綻を洗う
-4. 実装に入る場合は `docs/implementation/README.md` を起点に着手する

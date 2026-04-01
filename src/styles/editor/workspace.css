@@ -190,28 +190,32 @@
 .right-stack-pane .section-list-pane,
 .right-stack-pane .right-pane {
   scrollbar-width: thin;
-  scrollbar-color: var(--outline-variant) transparent;
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
 }
 
 .right-stack-pane .section-list-pane::-webkit-scrollbar,
 .right-stack-pane .right-pane::-webkit-scrollbar {
-  width: 4px;
+  width: 10px;
 }
 
 .right-stack-pane .section-list-pane::-webkit-scrollbar-track,
 .right-stack-pane .right-pane::-webkit-scrollbar-track {
-  background: transparent;
+  background: var(--scrollbar-track);
+  border-radius: 999px;
 }
 
 .right-stack-pane .section-list-pane::-webkit-scrollbar-thumb,
 .right-stack-pane .right-pane::-webkit-scrollbar-thumb {
-  background: var(--outline-variant);
-  border-radius: 10px;
+  background: var(--scrollbar-thumb);
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
 }
 
 .right-stack-pane .section-list-pane::-webkit-scrollbar-thumb:hover,
 .right-stack-pane .right-pane::-webkit-scrollbar-thumb:hover {
-  background: var(--outline);
+  background: var(--scrollbar-thumb-hover);
+  background-clip: padding-box;
 }
 
 .section-list-header {
@@ -664,25 +668,29 @@
 }
 
 .phonetic-guide-panel::-webkit-scrollbar {
-  width: 6px;
+  width: 10px;
 }
 
 .phonetic-guide-panel::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.phonetic-guide-panel::-webkit-scrollbar-thumb {
-  background: rgba(192, 193, 255, 0.18);
+  background: var(--scrollbar-track);
   border-radius: 999px;
 }
 
+.phonetic-guide-panel::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
 .phonetic-guide-panel::-webkit-scrollbar-thumb:hover {
-  background: rgba(192, 193, 255, 0.28);
+  background: var(--scrollbar-thumb-hover);
+  background-clip: padding-box;
 }
 
 .phonetic-guide-panel {
   scrollbar-width: thin;
-  scrollbar-color: rgba(192, 193, 255, 0.18) transparent;
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
 }
 
 .line-counts {

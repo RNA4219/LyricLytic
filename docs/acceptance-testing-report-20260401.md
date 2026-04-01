@@ -8,7 +8,7 @@
 
 ## 1. 検収概要
 
-本報告書は `HUB.codex.md`、`BLUEPRINT.md`、`requirements.md` に記載された要件定義と実際の実装を突き合わせ、PoC 完了判定を行うための要件適合性確認結果をまとめたものである。
+本報告書は `docs/project/HUB.codex.md`、`docs/project/BLUEPRINT.md`、`requirements.md` に記載された要件定義と実際の実装を突き合わせ、PoC 完了判定を行うための要件適合性確認結果をまとめたものである。
 
 ---
 

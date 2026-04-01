@@ -249,3 +249,73 @@ pub fn restore(conn: &Connection, project_id: &str, batch_id: &str) -> AppResult
 
     Ok(())
 }
+
+pub fn hard_delete(conn: &Connection, project_id: &str, batch_id: &str) -> AppResult<()> {
+    conn.execute(
+        "DELETE FROM fragment_tags
+         WHERE collected_fragment_id IN (
+             SELECT collected_fragment_id FROM collected_fragments
+             WHERE project_id = ?1 AND deleted_batch_id = ?2
+         )",
+        params![project_id, batch_id],
+    )?;
+
+    conn.execute(
+        "DELETE FROM draft_sections
+         WHERE working_draft_id IN (
+             SELECT working_draft_id FROM working_drafts
+             WHERE project_id = ?1 AND deleted_batch_id = ?2
+         )",
+        params![project_id, batch_id],
+    )?;
+
+    conn.execute(
+        "DELETE FROM revision_notes
+         WHERE lyric_version_id IN (
+             SELECT lyric_version_id FROM lyric_versions
+             WHERE project_id = ?1 AND deleted_batch_id = ?2
+         )",
+        params![project_id, batch_id],
+    )?;
+
+    conn.execute(
+        "DELETE FROM version_sections
+         WHERE lyric_version_id IN (
+             SELECT lyric_version_id FROM lyric_versions
+             WHERE project_id = ?1 AND deleted_batch_id = ?2
+         )",
+        params![project_id, batch_id],
+    )?;
+
+    conn.execute(
+        "DELETE FROM song_artifacts WHERE project_id = ?1 AND deleted_batch_id = ?2",
+        params![project_id, batch_id],
+    )?;
+
+    conn.execute(
+        "DELETE FROM collected_fragments WHERE project_id = ?1 AND deleted_batch_id = ?2",
+        params![project_id, batch_id],
+    )?;
+
+    conn.execute(
+        "DELETE FROM style_profiles WHERE project_id = ?1 AND deleted_batch_id = ?2",
+        params![project_id, batch_id],
+    )?;
+
+    conn.execute(
+        "DELETE FROM lyric_versions WHERE project_id = ?1 AND deleted_batch_id = ?2",
+        params![project_id, batch_id],
+    )?;
+
+    conn.execute(
+        "DELETE FROM working_drafts WHERE project_id = ?1 AND deleted_batch_id = ?2",
+        params![project_id, batch_id],
+    )?;
+
+    conn.execute(
+        "DELETE FROM projects WHERE project_id = ?1 AND deleted_batch_id = ?2",
+        params![project_id, batch_id],
+    )?;
+
+    Ok(())
+}

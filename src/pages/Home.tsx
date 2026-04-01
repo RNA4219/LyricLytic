@@ -13,9 +13,38 @@ import {
   DraftSection,
 } from '../lib/api';
 import { useLanguage } from '../lib/LanguageContext';
+import TrashPanel from '../components/TrashPanel';
 
 const LAST_PROJECT_KEY = 'lyriclytic_last_project';
+const PROJECT_ORDER_KEY = 'lyriclytic_project_order';
 const PREVIEW_SECTION_PRIORITY = ['intro', 'chorus', 'verse', 'pre-chorus', 'bridge', 'outro'];
+
+function readProjectOrder() {
+  try {
+    const raw = localStorage.getItem(PROJECT_ORDER_KEY);
+    if (!raw) return [] as string[];
+    const parsed = JSON.parse(raw);
+    return Array.isArray(parsed) ? parsed.filter((value): value is string => typeof value === 'string') : [];
+  } catch {
+    return [] as string[];
+  }
+}
+
+function writeProjectOrder(order: string[]) {
+  localStorage.setItem(PROJECT_ORDER_KEY, JSON.stringify(order));
+}
+
+function touchProjectOrder(projectId: string) {
+  const nextOrder = [projectId, ...readProjectOrder().filter((id) => id !== projectId)];
+  writeProjectOrder(nextOrder);
+  return nextOrder;
+}
+
+function removeProjectFromOrder(projectId: string) {
+  const nextOrder = readProjectOrder().filter((id) => id !== projectId);
+  writeProjectOrder(nextOrder);
+  return nextOrder;
+}
 
 function normalizeSectionName(name?: string) {
   return (name ?? '').trim().toLowerCase();
@@ -76,6 +105,12 @@ function Home() {
   const [showNewProjectInput, setShowNewProjectInput] = useState(false);
   const [editingProjectId, setEditingProjectId] = useState<string | null>(null);
   const [editingProjectTitle, setEditingProjectTitle] = useState('');
+  const [pendingDeleteProject, setPendingDeleteProject] = useState<Project | null>(null);
+  const [showTrashPanel, setShowTrashPanel] = useState(false);
+  const [lastOpenedProjectId, setLastOpenedProjectId] = useState<string | null>(() => (
+    localStorage.getItem(LAST_PROJECT_KEY)
+  ));
+  const [projectOrder, setProjectOrder] = useState<string[]>(() => readProjectOrder());
 
   useEffect(() => {
     loadProjects();
@@ -131,6 +166,8 @@ function Home() {
         title: newProjectTitle.trim() || t('newProject'),
       });
       localStorage.setItem(LAST_PROJECT_KEY, project.project_id);
+      setLastOpenedProjectId(project.project_id);
+      setProjectOrder(touchProjectOrder(project.project_id));
       navigate(`/project/${project.project_id}`);
     } catch (e) {
       setError(t('createFailed'));
@@ -140,23 +177,36 @@ function Home() {
 
   const openProject = (projectId: string) => {
     localStorage.setItem(LAST_PROJECT_KEY, projectId);
+    setLastOpenedProjectId(projectId);
+    setProjectOrder(touchProjectOrder(projectId));
     navigate(`/project/${projectId}`);
   };
 
-  const handleDeleteProject = async (e: React.MouseEvent, projectId: string) => {
+  const requestDeleteProject = (e: React.MouseEvent, project: Project) => {
     e.stopPropagation();
-    if (!confirm(t('deleteConfirm'))) return;
+    setPendingDeleteProject(project);
+  };
 
+  const confirmDeleteProject = async () => {
+    if (!pendingDeleteProject) return;
+    const projectId = pendingDeleteProject.project_id;
     try {
       await deleteProject(projectId);
       setProjects((current) => current.filter((project) => project.project_id !== projectId));
       if (localStorage.getItem(LAST_PROJECT_KEY) === projectId) {
         localStorage.removeItem(LAST_PROJECT_KEY);
+        setLastOpenedProjectId(null);
       }
+      setProjectOrder(removeProjectFromOrder(projectId));
+      setPendingDeleteProject(null);
     } catch (e) {
       setError(t('deleteFailed'));
       console.error(e);
     }
+  };
+
+  const cancelDeleteProject = () => {
+    setPendingDeleteProject(null);
   };
 
   const startEditingProjectTitle = (e: React.MouseEvent, project: Project) => {
@@ -204,16 +254,27 @@ function Home() {
 
   const recentProject = useMemo(() => {
     if (projects.length === 0) return null;
+    if (lastOpenedProjectId) {
+      const lastOpenedProject = projects.find((project) => project.project_id === lastOpenedProjectId);
+      if (lastOpenedProject) return lastOpenedProject;
+    }
     return [...projects].sort((a, b) => (
       new Date(b.updated_at).getTime() - new Date(a.updated_at).getTime()
     ))[0];
-  }, [projects]);
+  }, [lastOpenedProjectId, projects]);
 
   const sortedProjects = useMemo(() => (
-    [...projects].sort((a, b) => (
-      new Date(b.updated_at).getTime() - new Date(a.updated_at).getTime()
-    ))
-  ), [projects]);
+    [...projects].sort((a, b) => {
+      const aOrderIndex = projectOrder.indexOf(a.project_id);
+      const bOrderIndex = projectOrder.indexOf(b.project_id);
+      if (aOrderIndex !== -1 || bOrderIndex !== -1) {
+        if (aOrderIndex === -1) return 1;
+        if (bOrderIndex === -1) return -1;
+        return aOrderIndex - bOrderIndex;
+      }
+      return new Date(b.updated_at).getTime() - new Date(a.updated_at).getTime();
+    })
+  ), [projectOrder, projects]);
 
   const projectSummary = useMemo(() => {
     if (projects.length === 0) {
@@ -302,7 +363,7 @@ function Home() {
                       </span>
                       <button
                         className="home-project-delete"
-                        onClick={(e) => handleDeleteProject(e, project.project_id)}
+                        onClick={(e) => requestDeleteProject(e, project)}
                         title={t('deleteProject')}
                       >
                         ×
@@ -370,7 +431,38 @@ function Home() {
             </div>
           )}
         </section>
+
+        <section className="home-trash-entry">
+          <button className="home-trash-link" onClick={() => setShowTrashPanel(true)}>
+            {t('deletedItems')}
+          </button>
+        </section>
       </main>
+
+      {pendingDeleteProject && (
+        <div className="home-modal-backdrop" onClick={cancelDeleteProject}>
+          <div className="home-modal-card" onClick={(e) => e.stopPropagation()}>
+            <h4>{t('deleteProject')}</h4>
+            <p>{t('deleteConfirm')}</p>
+            <div className="home-modal-project-name">{pendingDeleteProject.title}</div>
+            <div className="home-modal-actions">
+              <button className="home-modal-cancel" onClick={cancelDeleteProject}>
+                {t('cancel')}
+              </button>
+              <button className="home-modal-delete" onClick={confirmDeleteProject}>
+                {t('delete')}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {showTrashPanel && (
+        <TrashPanel
+          onRestore={loadProjects}
+          onClose={() => setShowTrashPanel(false)}
+        />
+      )}
     </div>
   );
 }

@@ -176,3 +176,17 @@ pub fn restore(conn: &Connection, fragment_id: &str, batch_id: &str) -> AppResul
     )?;
     Ok(())
 }
+
+pub fn hard_delete(conn: &Connection, fragment_id: &str, batch_id: &str) -> AppResult<()> {
+    conn.execute(
+        "DELETE FROM fragment_tags WHERE collected_fragment_id = ?1",
+        params![fragment_id],
+    )?;
+
+    conn.execute(
+        "DELETE FROM collected_fragments WHERE collected_fragment_id = ?1 AND deleted_batch_id = ?2",
+        params![fragment_id, batch_id],
+    )?;
+
+    Ok(())
+}

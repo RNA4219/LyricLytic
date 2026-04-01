@@ -160,3 +160,11 @@ pub fn restore(conn: &Connection, profile_id: &str, batch_id: &str) -> AppResult
     )?;
     Ok(())
 }
+
+pub fn hard_delete(conn: &Connection, profile_id: &str, batch_id: &str) -> AppResult<()> {
+    conn.execute(
+        "DELETE FROM style_profiles WHERE style_profile_id = ?1 AND deleted_batch_id = ?2",
+        params![profile_id, batch_id],
+    )?;
+    Ok(())
+}

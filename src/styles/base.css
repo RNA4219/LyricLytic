@@ -3,7 +3,7 @@
   margin: 0;
   padding: 0;
   scrollbar-width: thin;
-  scrollbar-color: rgba(192, 193, 255, 0.18) transparent;
+  scrollbar-color: rgba(206, 214, 243, 0.34) rgba(255, 255, 255, 0.04);
 }
 
 /* Material Design 3 Color System */
@@ -63,6 +63,10 @@
   --border: var(--outline-variant);
   --danger: var(--error);
   --danger-contrast: #24324a;
+  --scrollbar-thumb: rgba(206, 214, 243, 0.34);
+  --scrollbar-thumb-hover: rgba(224, 230, 252, 0.52);
+  --scrollbar-track: rgba(255, 255, 255, 0.045);
+  --scrollbar-track-hover: rgba(255, 255, 255, 0.07);
 
   /* Typography */
   --font-headline: 'Newsreader', serif;
@@ -134,21 +138,30 @@ body {
 }
 
 *::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+  width: 10px;
+  height: 10px;
 }
 
 *::-webkit-scrollbar-track {
-  background: transparent;
+  background: var(--scrollbar-track);
+  border-radius: 999px;
 }
 
 *::-webkit-scrollbar-thumb {
-  background: var(--outline-variant);
-  border-radius: 10px;
+  background: var(--scrollbar-thumb);
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  min-height: 28px;
 }
 
 *::-webkit-scrollbar-thumb:hover {
-  background: var(--outline);
+  background: var(--scrollbar-thumb-hover);
+  background-clip: padding-box;
+}
+
+*:hover::-webkit-scrollbar-track {
+  background: var(--scrollbar-track-hover);
 }
 
 .layout {
