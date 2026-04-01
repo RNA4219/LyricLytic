@@ -2,6 +2,8 @@
 
 <img src="docs/icon.png" alt="LyricLytic icon" width="96" />
 
+[English README](README.en.md)
+
 LyricLytic は、AI 音楽生成向けの歌詞制作をローカルで完結させるためのデスクトップアプリです。  
 歌詞本文、BPM、韻ガイド、AI補助、スナップショット保存、差分比較を 1 つのワークスペースで扱えます。
 
@@ -148,6 +150,25 @@ brew install llama.cpp
 
 モデルは `.gguf` ファイルで保存してください。
 
+#### ダウンロードのしかた
+
+1. 上のリンクを開く
+2. 欲しいモデル名の行を開く
+3. `.gguf` ファイル名を確認する
+4. `Download` か `↓` のボタンを押す
+5. 分かりやすい場所に保存する
+
+最初は `ダウンロード` フォルダでも大丈夫です。  
+あとで LyricLytic の `モデルファイルパス` でその `.gguf` を選びます。
+
+#### どのファイルを選べばいい？
+
+- 基本は README に書いてあるファイル名そのものを選んでください
+- 拡張子が `.gguf` のファイルを選んでください
+- `mmproj` という名前のファイルは選ばないでください
+
+迷ったら、まずは一番軽い `Qwen3.5-4B` から始めるのがおすすめです。
+
 補足:
 
 - LyricLytic はフォルダではなく **GGUF ファイルそのもの** を指定する使い方が一番確実です
@@ -163,7 +184,13 @@ npm run tauri:dev
 Windows では [Start.bat](Start.bat) でも起動できます。
 
 macOS では `Start.bat` は使えません。  
-そのまま `npm install` と `npm run tauri:dev` を実行してください。
+LyricLytic のフォルダをターミナルで開いてから、次を実行してください。
+
+```bash
+cd /LyricLytic を置いた場所/LyricLytic
+npm install
+npm run tauri:dev
+```
 
 ### 5. 最初の設定
 
@@ -234,7 +261,7 @@ macOS では `Start.bat` は使えません。
 
 ## 困ったとき
 
-- README で解決しない場合は、製作者に X でリプライを飛ばしてください
+- README で解決しない場合は、X の [@rna4219](https://x.com/rna4219) にリプライやDMを飛ばしてください
 - リリースから半年まではサポート予定です
 - Windows が主対応です
 - macOS は起動するように実装をしていますが、所持していないため、動作保証しかねます。
