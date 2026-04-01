@@ -20,7 +20,7 @@ LyricLytic は、AI 音楽生成向けの歌詞制作をローカルで完結さ
 
 実際の動作中画面です。
 
-![LyricLytic runtime](docs/runtime-captures/lyriclytic-desktop-20260401.png)
+![LyricLytic runtime](docs/runtime-captures/lyriclytic-desktop-20260401_2.png)
 
 ### 起動した直後にプロジェクトが無い場合
 
