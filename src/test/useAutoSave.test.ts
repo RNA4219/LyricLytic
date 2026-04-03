@@ -25,6 +25,13 @@ describe('useAutoSave', () => {
 
       expect(result.current.lastSaved).toBe(null);
     });
+
+    it('should have error as null', () => {
+      const saveFn = vi.fn().mockResolvedValue(undefined);
+      const { result } = renderHook(() => useAutoSave({ saveFn }));
+
+      expect(result.current.error).toBe(null);
+    });
   });
 
   describe('queueAutoSave', () => {
@@ -93,6 +100,21 @@ describe('useAutoSave', () => {
 
       expect(result.current.saving).toBe(false);
     });
+
+    it('should set error when save fails', async () => {
+      const saveFn = vi.fn().mockRejectedValue(new Error('Save failed'));
+      const { result } = renderHook(() => useAutoSave({ saveFn, delayMs: 100 }));
+
+      act(() => {
+        result.current.queueAutoSave('data');
+      });
+
+      await act(async () => {
+        await vi.advanceTimersByTimeAsync(100);
+      });
+
+      expect(result.current.error).toBe('Auto-save failed');
+    });
   });
 
   describe('saveNow', () => {
@@ -144,6 +166,34 @@ describe('useAutoSave', () => {
 
       expect(saveFn).toHaveBeenCalledTimes(1);
     });
+
+    it('should cancel pending save when called', async () => {
+      const saveFn = vi.fn().mockResolvedValue(undefined);
+      const { result } = renderHook(() => useAutoSave({ saveFn, delayMs: 1000 }));
+
+      act(() => {
+        result.current.queueAutoSave('queued data');
+      });
+
+      await act(async () => {
+        await result.current.saveNow('immediate data');
+      });
+
+      // saveNow should cancel the queued save and save immediately
+      expect(saveFn).toHaveBeenCalledTimes(1);
+      expect(saveFn).toHaveBeenCalledWith('immediate data');
+    });
+
+    it('should set error when save fails', async () => {
+      const saveFn = vi.fn().mockRejectedValue(new Error('Save failed'));
+      const { result } = renderHook(() => useAutoSave({ saveFn }));
+
+      await act(async () => {
+        await result.current.saveNow('data');
+      });
+
+      expect(result.current.error).toBe('Auto-save failed');
+    });
   });
 
   describe('cancelPending', () => {
@@ -161,6 +211,29 @@ describe('useAutoSave', () => {
       });
 
       expect(saveFn).not.toHaveBeenCalled();
+    });
+  });
+
+  describe('clearError', () => {
+    it('should clear error', async () => {
+      const saveFn = vi.fn().mockRejectedValue(new Error('Save failed'));
+      const { result } = renderHook(() => useAutoSave({ saveFn, delayMs: 100 }));
+
+      act(() => {
+        result.current.queueAutoSave('data');
+      });
+
+      await act(async () => {
+        await vi.advanceTimersByTimeAsync(100);
+      });
+
+      expect(result.current.error).toBe('Auto-save failed');
+
+      act(() => {
+        result.current.clearError();
+      });
+
+      expect(result.current.error).toBe(null);
     });
   });
 });
