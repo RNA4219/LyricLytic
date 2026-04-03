@@ -5,7 +5,7 @@ import { getProject, getWorkingDraft, getDraftSections, saveDraft, getVersions, 
 import { useLLMSettings } from '../lib/llm';
 import { useLanguage } from '../lib/LanguageContext';
 import { useProject } from '../lib/ProjectContext';
-import { usePaneResize, useKeyboardShortcuts, createEditorShortcuts, usePhoneticGuide, useSectionDragDrop } from '../lib/hooks';
+import { usePaneResize, useKeyboardShortcuts, createEditorShortcuts, usePhoneticGuide, useSectionDragDrop, useUIState } from '../lib/hooks';
 import { EDITOR, SECTION_PRESETS } from '../lib/config';
 import ActionPane from './editor/ActionPane';
 import EditorOverlays from './editor/EditorOverlays';
@@ -28,15 +28,7 @@ function EditorPage() {
   const [error, setError] = useState<string | null>(null);
   const [saving, setSaving] = useState(false);
   const [lastSaved, setLastSaved] = useState<Date | null>(null);
-  const [saveToastVisible, setSaveToastVisible] = useState(false);
-  const [hideToastVisible, setHideToastVisible] = useState(false);
-  const [showDeleteDialog, setShowDeleteDialog] = useState(false);
-  const [showDiffViewer, setShowDiffViewer] = useState(false);
-  const [showExportPanel, setShowExportPanel] = useState(false);
-  const [showImportDialog, setShowImportDialog] = useState(false);
   const [fragments, setFragments] = useState<Array<{ collected_fragment_id: string; text: string; source?: string; status: string }>>([]);
-  const [allCopyFeedback, setAllCopyFeedback] = useState(false);
-  const [lyricsOnlyCopyFeedback, setLyricsOnlyCopyFeedback] = useState(false);
   const [lastHiddenVersion, setLastHiddenVersion] = useState<{ version: LyricVersion; batchId: string } | null>(null);
   const { settings: llmSettings, updateSettings: setLLMSettings } = useLLMSettings();
   const [styleText, setStyleText] = useState('');
@@ -67,11 +59,27 @@ function EditorPage() {
     commitReorder,
   } = useSectionDragDrop(sections, { onReorder: setSections });
 
+  // UI state hook (dialogs & toasts)
+  const {
+    showDeleteDialog,
+    showDiffViewer,
+    showExportPanel,
+    showImportDialog,
+    setShowDeleteDialog,
+    setShowDiffViewer,
+    setShowExportPanel,
+    setShowImportDialog,
+    saveToastVisible,
+    hideToastVisible,
+    allCopyFeedback,
+    lyricsOnlyCopyFeedback,
+    showSaveToast,
+    showHideToast,
+    showAllCopyFeedback,
+    showLyricsOnlyCopyFeedback,
+  } = useUIState();
+
   const saveTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const saveToastTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const hideToastTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const allCopyFeedbackTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const lyricsOnlyCopyFeedbackTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const editorInstanceRef = useRef<{
     onDidScrollChange: (callback: (event: { scrollTop: number }) => void) => { dispose: () => void };
     onDidChangeCursorPosition?: (callback: (event: {
@@ -133,18 +141,6 @@ function EditorPage() {
     return () => {
       if (saveTimeoutRef.current) {
         clearTimeout(saveTimeoutRef.current);
-      }
-      if (saveToastTimeoutRef.current) {
-        clearTimeout(saveToastTimeoutRef.current);
-      }
-      if (hideToastTimeoutRef.current) {
-        clearTimeout(hideToastTimeoutRef.current);
-      }
-      if (allCopyFeedbackTimeoutRef.current) {
-        clearTimeout(allCopyFeedbackTimeoutRef.current);
-      }
-      if (lyricsOnlyCopyFeedbackTimeoutRef.current) {
-        clearTimeout(lyricsOnlyCopyFeedbackTimeoutRef.current);
       }
       editorScrollDisposeRef.current?.dispose();
       editorCursorDisposeRef.current?.dispose();
@@ -557,13 +553,7 @@ function EditorPage() {
         sections: sectionInputs,
       });
       setVersions([version, ...versions]);
-      setSaveToastVisible(true);
-      if (saveToastTimeoutRef.current) {
-        clearTimeout(saveToastTimeoutRef.current);
-      }
-      saveToastTimeoutRef.current = setTimeout(() => {
-        setSaveToastVisible(false);
-      }, 1800);
+      showSaveToast();
     } catch (e) {
       setError('Failed to save snapshot');
       console.error(e);
@@ -587,13 +577,7 @@ function EditorPage() {
       const batchId = await deleteVersion(version.lyric_version_id);
       setVersions((current) => current.filter((item) => item.lyric_version_id !== version.lyric_version_id));
       setLastHiddenVersion({ version, batchId });
-      setHideToastVisible(true);
-      if (hideToastTimeoutRef.current) {
-        clearTimeout(hideToastTimeoutRef.current);
-      }
-      hideToastTimeoutRef.current = setTimeout(() => {
-        setHideToastVisible(false);
-      }, 2200);
+      showHideToast();
     } catch (e) {
       setError(t('hideVersionFailed'));
       console.error(e);
@@ -609,10 +593,6 @@ function EditorPage() {
         new Date(b.created_at).getTime() - new Date(a.created_at).getTime(),
       ));
       setLastHiddenVersion(null);
-      setHideToastVisible(false);
-      if (hideToastTimeoutRef.current) {
-        clearTimeout(hideToastTimeoutRef.current);
-      }
     } catch (e) {
       setError(t('restoreVersionFailed'));
       console.error(e);
@@ -745,24 +725,13 @@ function EditorPage() {
 
   const copyTextToClipboard = useCallback(async (
     text: string,
-    setFeedback?: React.Dispatch<React.SetStateAction<boolean>>,
-    timerRef?: React.MutableRefObject<ReturnType<typeof setTimeout> | null>,
+    showFeedback?: () => void,
   ) => {
     if (!text.trim()) return;
 
     try {
       await navigator.clipboard.writeText(text);
-      if (setFeedback) {
-        setFeedback(true);
-      }
-      if (timerRef?.current) {
-        clearTimeout(timerRef.current);
-      }
-      if (setFeedback && timerRef) {
-        timerRef.current = setTimeout(() => {
-          setFeedback(false);
-        }, 1500);
-      }
+      showFeedback?.();
     } catch (error) {
       console.error('Failed to copy text:', error);
       setError(t('copyFailed'));
@@ -772,16 +741,14 @@ function EditorPage() {
   const handleCopyAllWithTags = useCallback(() => {
     void copyTextToClipboard(
       sectionsToBody(sections),
-      setAllCopyFeedback,
-      allCopyFeedbackTimeoutRef,
+      showAllCopyFeedback,
     );
   }, [copyTextToClipboard, sections]);
 
   const handleCopyLyricsOnly = useCallback(() => {
     void copyTextToClipboard(
       buildLyricsOnlyBody(sections),
-      setLyricsOnlyCopyFeedback,
-      lyricsOnlyCopyFeedbackTimeoutRef,
+      showLyricsOnlyCopyFeedback,
     );
   }, [copyTextToClipboard, sections]);
 
