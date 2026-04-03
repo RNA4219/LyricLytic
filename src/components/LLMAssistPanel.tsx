@@ -3,6 +3,7 @@ import { isAllowedLocalBaseUrl, callLLMAPI, parseLLMJsonResponse } from '../lib/
 import { useLanguage } from '../lib/LanguageContext';
 import { useLLMPanel } from '../lib/hooks';
 import { buildLanguageInstruction } from '../lib/llm/promptBuilder';
+import { buildSunoPromptReferenceBlock } from '../lib/llm/sunoPromptCatalog';
 import type { LLMPanelBaseProps } from '../lib/llm/types';
 
 interface LyricCandidate {
@@ -84,15 +85,52 @@ function LLMAssistPanel({
     return lines.slice(-lineCount).join('\n');
   };
 
-  const buildJsonPrompt = (userPrompt: string): string => {
+  const buildJsonPrompt = async (userPrompt: string): Promise<string> => {
     const forceEnglishOutput = target === 'style' || target === 'vocal';
     const languageInstruction = buildLanguageInstruction({ language, forceEnglish: forceEnglishOutput });
     const emotionHint = emotionToneOptions.find(e => e.value === emotionTone)?.promptHint || '';
+    const trimmedUserPrompt = userPrompt.trim();
+    const paraphraseLineCount = Math.max(
+      1,
+      trimmedUserPrompt
+        .split('\n')
+        .map((line) => line.trim())
+        .filter(Boolean)
+        .length,
+    );
+    const emotionPriorityInstruction = (() => {
+      if (!emotionHint) {
+        return '';
+      }
+
+      if (target === 'style') {
+        return `Emotion/Tone priority: ${emotionHint}. Make this mood unmistakable in genre cues, arrangement choices, production texture, and sonic imagery.`;
+      }
+
+      if (target === 'vocal') {
+        return `Emotion/Tone priority: ${emotionHint}. Make this mood unmistakable in delivery, phrasing, dynamics, articulation, layering, and performance character.`;
+      }
+
+      return `Emotion/Tone priority: ${emotionHint}. Make this mood unmistakable in imagery, word choice, rhythm, momentum, and line endings.`;
+    })();
+    const emotionRule = emotionHint
+      ? `- Every candidate must clearly reflect this emotion/tone: ${emotionHint}. It should be obvious even if the user prompt is short.`
+      : '';
+    const sunoReferenceBlock = (target === 'style' || target === 'vocal')
+      ? await buildSunoPromptReferenceBlock({
+          target,
+          userPrompt: trimmedUserPrompt,
+          currentLyrics,
+          currentStyle,
+          currentVocal,
+          emotionHint,
+        })
+      : '';
 
     const targetInstruction = target === 'style'
-      ? 'Generate concise style direction notes for a song. Focus on genre, mood, arrangement hints, production texture, and sonic imagery. Do not generate lyrics.'
+      ? 'Generate concise Suno-ready style direction notes for a song. Focus on genre, mood, arrangement hints, production texture, sonic imagery, and prompt vocabulary that works well in a Styles field. Do not generate lyrics.'
       : target === 'vocal'
-        ? 'Generate concise vocal direction notes for a song. Focus on delivery, tone, phrasing, dynamics, layering, and performance character. Do not generate lyrics.'
+        ? 'Generate concise Suno-ready vocal direction notes for a song. Focus on delivery, tone, phrasing, dynamics, layering, performance character, and prompt vocabulary that works well in a Styles field. Do not generate lyrics.'
         : 'Generate concise lyric variations for a song request. Focus on actual singable lyrics.';
 
     const targetLabel = target === 'style'
@@ -142,7 +180,7 @@ function LLMAssistPanel({
           : 'Continue writing from the current lyrics.';
       }
       if (assistMode === 'paraphrase') {
-        const inputText = userPrompt.trim();
+        const inputText = trimmedUserPrompt;
         if (!inputText) {
           return language === 'ja'
             ? '言い換えるテキストを入力してください。'
@@ -163,7 +201,7 @@ function LLMAssistPanel({
 
     return `${targetInstruction}
 ${languageInstruction}
-${emotionHint ? `Emotion/Tone: ${emotionHint}` : ''}
+${emotionPriorityInstruction}
 ${modeInstruction}
 
 Respond ONLY with valid JSON in this exact format:
@@ -186,14 +224,23 @@ Request: ${requestText}
 ${Object.entries(references)
   .map(([key, value]) => `Reference ${key}:\n${value}`)
   .join('\n\n')}
+${sunoReferenceBlock ? `\n\n${sunoReferenceBlock}` : ''}
 
 Important rules:
 - Output ONLY the JSON object. No markdown, no explanations, no prose outside JSON.
 - Use exactly ${normalizedCandidateCount} candidates.
 - Keep each title under 8 words.
 - Keep each text concise so the whole response stays short.
-- For lyrics: use exactly ${normalizedLyricLineCount} short lines per candidate, and write line breaks as \\n inside the JSON string.
+- ${target === 'lyrics'
+    ? 'Do not give generic lines. Make each candidate feel emotionally specific and evocative.'
+    : 'Do not give generic notes. Make each candidate feel emotionally specific and production/performance-ready.'}
+- ${assistMode === 'paraphrase'
+    ? paraphraseLineCount === 1
+      ? 'For paraphrase: keep each candidate as a single short line that preserves the original meaning and singability.'
+      : `For paraphrase: keep each candidate to exactly ${paraphraseLineCount} short lines, preserving the original meaning and line structure where possible.`
+    : `For lyrics: use exactly ${normalizedLyricLineCount} short lines per candidate, and write line breaks as \\n inside the JSON string.`}
 - For style/vocal: 3 short sentences maximum per candidate.
+${emotionRule}
 - Escape quotes correctly and keep the JSON parseable.`;
   };
 
@@ -225,6 +272,10 @@ Important rules:
       setError(t('llmBaseUrlLocalOnly'));
       return;
     }
+    if (assistMode === 'paraphrase' && !prompt.trim()) {
+      setError(t('paraphrasePromptRequired'));
+      return;
+    }
 
     setGenerating(true);
     setError(null);
@@ -232,7 +283,7 @@ Important rules:
     setSelectedCandidate(null);
     setRawResponse(null);
 
-    const jsonPrompt = buildJsonPrompt(prompt);
+    const jsonPrompt = await buildJsonPrompt(prompt);
     const result = await callLLMAPI(
       {
         runtime,

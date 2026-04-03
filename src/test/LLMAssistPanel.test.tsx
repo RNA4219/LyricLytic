@@ -136,6 +136,34 @@ describe('LLMAssistPanel', () => {
       expect(screen.getByText('明るい/楽しい')).toBeInTheDocument();
       expect(screen.getByText('悲しい/切ない')).toBeInTheDocument();
     });
+
+    it('should include strong emotion instructions in generated prompt', async () => {
+      const mockFetch = vi.fn().mockResolvedValue({
+        ok: true,
+        json: () => Promise.resolve({
+          choices: [{ message: { content: JSON.stringify({ candidates: [{ id: 1, title: 'Bright', text: 'line1\\nline2\\nline3\\nline4' }] }) } }],
+        }),
+      });
+      global.fetch = mockFetch;
+
+      renderWithProvider(<LLMAssistPanel {...mockProps} />);
+      fireEvent.change(screen.getByLabelText('感情/トーン'), { target: { value: 'happy' } });
+      fireEvent.change(screen.getByRole('textbox'), { target: { value: '夜明けに向かう歌詞' } });
+
+      const generateBtns = screen.getAllByRole('button', { name: '生成' });
+      const actionBtn = generateBtns.find(b => b.classList.contains('generate-btn'));
+      if (actionBtn) fireEvent.click(actionBtn);
+
+      await waitFor(() => {
+        expect(mockFetch).toHaveBeenCalled();
+      });
+
+      const requestBody = JSON.parse(mockFetch.mock.calls[0][1].body as string);
+      const promptText = requestBody.messages[0].content as string;
+      expect(promptText).toContain('Emotion/Tone priority: bright, joyful, uplifting tone.');
+      expect(promptText).toContain('Make this mood unmistakable in imagery, word choice, rhythm, momentum, and line endings.');
+      expect(promptText).toContain('Every candidate must clearly reflect this emotion/tone: bright, joyful, uplifting tone.');
+    });
   });
 
   describe('candidate count', () => {
@@ -226,6 +254,163 @@ describe('LLMAssistPanel', () => {
   });
 
   describe('generation flow', () => {
+    it('should include Suno prompt references for style generation', async () => {
+      const mockFetch = vi.fn().mockResolvedValue({
+        ok: true,
+        json: () => Promise.resolve({
+          choices: [{ message: { content: JSON.stringify({ candidates: [{ id: 1, title: 'Style', text: 'city pop, electric piano, future funk' }] }) } }],
+        }),
+      });
+      global.fetch = mockFetch;
+
+      renderWithProvider(<LLMAssistPanel {...mockProps} />);
+      fireEvent.click(screen.getByRole('tab', { name: 'Style' }));
+      fireEvent.change(screen.getByRole('textbox'), { target: { value: '80年代のシティポップ' } });
+
+      const generateBtn = screen.getByRole('button', { name: '生成' });
+      fireEvent.click(generateBtn);
+
+      await waitFor(() => {
+        expect(mockFetch).toHaveBeenCalledTimes(1);
+      });
+
+      const requestBody = JSON.parse(mockFetch.mock.calls[0][1].body as string);
+      const promptText = requestBody.messages[0].content as string;
+      expect(promptText).toContain('Suno prompt references:');
+      expect(promptText).toContain('offline catalog facets');
+      expect(promptText).toMatch(/City Pop|Future Funk|J-POP 80年代セット1/);
+    });
+
+    it('should include Suno prompt references for vocal generation', async () => {
+      const mockFetch = vi.fn().mockResolvedValue({
+        ok: true,
+        json: () => Promise.resolve({
+          choices: [{ message: { content: JSON.stringify({ candidates: [{ id: 1, title: 'Vocal', text: 'female vocals, breathy, intimate' }] }) } }],
+        }),
+      });
+      global.fetch = mockFetch;
+
+      renderWithProvider(<LLMAssistPanel {...mockProps} />);
+      fireEvent.click(screen.getByRole('tab', { name: 'Vocal' }));
+      fireEvent.change(screen.getByRole('textbox'), { target: { value: '女性ボーカルでささやく感じ' } });
+
+      const generateBtn = screen.getByRole('button', { name: '生成' });
+      fireEvent.click(generateBtn);
+
+      await waitFor(() => {
+        expect(mockFetch).toHaveBeenCalledTimes(1);
+      });
+
+      const requestBody = JSON.parse(mockFetch.mock.calls[0][1].body as string);
+      const promptText = requestBody.messages[0].content as string;
+      expect(promptText).toContain('Suno prompt references:');
+      expect(promptText).toContain('offline catalog facets');
+      expect(promptText).toMatch(/Female Vocals|Vocal|Voice|ボーカル/);
+    });
+
+    it('should send continue prompt with recent lyrics context', async () => {
+      const mockFetch = vi.fn().mockResolvedValue({
+        ok: true,
+        json: () => Promise.resolve({
+          choices: [{ message: { content: JSON.stringify({ candidates: [{ id: 1, title: 'Next', text: 'line1\\nline2\\nline3\\nline4' }] }) } }],
+        }),
+      });
+      global.fetch = mockFetch;
+
+      renderWithProvider(<LLMAssistPanel {...mockProps} />);
+      fireEvent.click(screen.getByRole('tab', { name: '続きを書いて' }));
+
+      const generateBtns = screen.getAllByRole('button', { name: '生成' });
+      const actionBtn = generateBtns.find(b => b.classList.contains('generate-btn'));
+      if (actionBtn) fireEvent.click(actionBtn);
+
+      await waitFor(() => {
+        expect(mockFetch).toHaveBeenCalled();
+      });
+
+      const requestBody = JSON.parse(mockFetch.mock.calls[0][1].body as string);
+      const promptText = requestBody.messages[0].content as string;
+      expect(promptText).toContain('Continue writing from the existing lyrics.');
+      expect(promptText).toContain('Request: 現在の歌詞から続きを書いてください。');
+      expect(promptText).toContain('Reference recentLyrics:');
+      expect(promptText).toContain('First line');
+      expect(promptText).toContain('Third line');
+    });
+
+    it('should block paraphrase generation when input is empty', async () => {
+      const mockFetch = vi.fn();
+      global.fetch = mockFetch;
+
+      renderWithProvider(<LLMAssistPanel {...mockProps} />);
+      fireEvent.click(screen.getByRole('tab', { name: '言い換え' }));
+
+      const generateBtns = screen.getAllByRole('button', { name: '生成' });
+      const actionBtn = generateBtns.find(b => b.classList.contains('generate-btn'));
+      if (actionBtn) fireEvent.click(actionBtn);
+
+      await waitFor(() => {
+        expect(screen.getByText('言い換えたいテキストを入力してください')).toBeInTheDocument();
+      });
+
+      expect(mockFetch).not.toHaveBeenCalled();
+    });
+
+    it('should send paraphrase prompt as a single line for single-line input', async () => {
+      const mockFetch = vi.fn().mockResolvedValue({
+        ok: true,
+        json: () => Promise.resolve({
+          choices: [{ message: { content: JSON.stringify({ candidates: [{ id: 1, title: 'Alt', text: '別表現' }] }) } }],
+        }),
+      });
+      global.fetch = mockFetch;
+
+      renderWithProvider(<LLMAssistPanel {...mockProps} />);
+      fireEvent.click(screen.getByRole('tab', { name: '言い換え' }));
+      fireEvent.change(screen.getByRole('textbox'), { target: { value: '君の声がまだ残ってる' } });
+
+      const generateBtns = screen.getAllByRole('button', { name: '生成' });
+      const actionBtn = generateBtns.find(b => b.classList.contains('generate-btn'));
+      if (actionBtn) fireEvent.click(actionBtn);
+
+      await waitFor(() => {
+        expect(mockFetch).toHaveBeenCalled();
+      });
+
+      const requestBody = JSON.parse(mockFetch.mock.calls[0][1].body as string);
+      const promptText = requestBody.messages[0].content as string;
+      expect(promptText).toContain('Paraphrase or rephrase the input text.');
+      expect(promptText).toContain('君の声がまだ残ってる');
+      expect(promptText).toContain('For paraphrase: keep each candidate as a single short line');
+      expect(promptText).not.toContain('For lyrics: use exactly 4 short lines per candidate');
+    });
+
+    it('should preserve multi-line structure in paraphrase prompts', async () => {
+      const mockFetch = vi.fn().mockResolvedValue({
+        ok: true,
+        json: () => Promise.resolve({
+          choices: [{ message: { content: JSON.stringify({ candidates: [{ id: 1, title: 'Alt', text: '一行目\\n二行目' }] }) } }],
+        }),
+      });
+      global.fetch = mockFetch;
+
+      renderWithProvider(<LLMAssistPanel {...mockProps} />);
+      fireEvent.click(screen.getByRole('tab', { name: '言い換え' }));
+      fireEvent.change(screen.getByRole('textbox'), { target: { value: '君の声が\nまだ残ってる' } });
+
+      const generateBtns = screen.getAllByRole('button', { name: '生成' });
+      const actionBtn = generateBtns.find(b => b.classList.contains('generate-btn'));
+      if (actionBtn) fireEvent.click(actionBtn);
+
+      await waitFor(() => {
+        expect(mockFetch).toHaveBeenCalled();
+      });
+
+      const requestBody = JSON.parse(mockFetch.mock.calls[0][1].body as string);
+      const promptText = requestBody.messages[0].content as string;
+      expect(promptText).toContain('For paraphrase: keep each candidate to exactly 2 short lines');
+      expect(promptText).not.toContain('For lyrics: use exactly 4 short lines per candidate');
+    });
+
     it('should show candidates on successful generation', async () => {
       const mockResponse = {
         candidates: [

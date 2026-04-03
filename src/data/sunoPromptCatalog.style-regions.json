@@ -1,0 +1,5346 @@
+{
+  "target": "style",
+  "mode": "rest",
+  "bucketKey": "style-regions",
+  "sections": [
+    "アフリカ",
+    "Africa",
+    "Europe",
+    "Asia",
+    "アメリカ",
+    "アジア",
+    "中南米",
+    "中南米地域",
+    "ヨーロッパ",
+    "オセアニア",
+    "中東",
+    "America",
+    "極地"
+  ],
+  "entryCount": 380,
+  "entries": [
+    {
+      "id": "アジア-インド風セット",
+      "section": "アジア",
+      "title": "インド風セット",
+      "prompt": "Heavy Sitar Drum And Bass With Sitar Melodies.Sitar",
+      "description": "シタール強めなインド風味の音楽になります (AIの気分と詩にもよります。)",
+      "tags": [
+        "janle",
+        "アジア"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アジア-中華風セット",
+      "section": "アジア",
+      "title": "中華風セット",
+      "prompt": "Taiko, Soprano Diva, Tenor Diva, Shamisen, Shakuhachi, Koto, Nohkan, Shinobue, Fue, Thirteen-String Koto, Seventeen-String Koto, Satsuma Biwa, Pipa, Guzheng, Japanese Traditional, Chine",
+      "description": "中華風な楽曲＊1になります。 編成楽器を見ると、？？ん？和楽器じゃね？？というモノがありますが、参考曲の通り良い感じになります（歌モノ、インスト両対応編成） ＊1管理人の考える中華風です。個人差があります。",
+      "tags": [
+        "janle",
+        "アジア"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アジア-ヒンディ",
+      "section": "アジア",
+      "title": "ヒンディ",
+      "prompt": "Hindi",
+      "description": "ヒンディ言葉の音楽",
+      "tags": [
+        "janle",
+        "アジア"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アジア-仏教",
+      "section": "アジア",
+      "title": "仏教",
+      "prompt": "Buddhist",
+      "description": "",
+      "tags": [
+        "janle",
+        "アジア"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アジア-仏教-読経-真言",
+      "section": "アジア",
+      "title": "仏教 読経 真言",
+      "prompt": "Buddhist Mantra",
+      "description": "仏教のマントラとは、サンスクリット語で「マントラ」と呼ばれ、特定の仏や菩薩の教えや誓いが込められた言葉です。日本語では「真言」",
+      "tags": [
+        "janle",
+        "アジア"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アジア-カルナーティック",
+      "section": "アジア",
+      "title": "カルナーティック",
+      "prompt": "Carnatic",
+      "description": "インドの伝統音楽の二大潮流のひとつで、南インドの古典音楽",
+      "tags": [
+        "janle",
+        "アジア"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アジア-コプティック",
+      "section": "アジア",
+      "title": "コプティック",
+      "prompt": "Coptic",
+      "description": "コプトの宗教音楽 エジプト音楽",
+      "tags": [
+        "janle",
+        "アジア"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アジア-エジプシャン-ビッグバンド",
+      "section": "アジア",
+      "title": "エジプシャン ビッグバンド",
+      "prompt": "Egyptian Big",
+      "description": "ビッグバンド編成によるエジプト音楽",
+      "tags": [
+        "janle",
+        "アジア"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アジア-ラーガ",
+      "section": "アジア",
+      "title": "ラーガ",
+      "prompt": "Raga",
+      "description": "インド古典音楽の演奏体系や実演体系を指す言葉で、サンスクリット語で「色付け」を意味",
+      "tags": [
+        "janle",
+        "アジア"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アジア-カルナーティック-アフロ-キューバン",
+      "section": "アジア",
+      "title": "カルナーティック アフロ キューバン",
+      "prompt": "Carnatic Afro-Cuban",
+      "description": "カルナーティック音楽とアフロキューバン音楽の融合",
+      "tags": [
+        "janle",
+        "アジア"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アジア-カルナーティック-アンビエント",
+      "section": "アジア",
+      "title": "カルナーティック アンビエント",
+      "prompt": "Carnatic Ambient",
+      "description": "カルナーティック音楽とアンビエント音楽の融合",
+      "tags": [
+        "janle",
+        "アジア"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アジア-カルナーティック-マンダリン",
+      "section": "アジア",
+      "title": "カルナーティック マンダリン",
+      "prompt": "Carnatic Mandarin",
+      "description": "カルナーティック音楽と中国の音楽の融合",
+      "tags": [
+        "janle",
+        "アジア"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アジア-カルナーティック-プログレッシブ",
+      "section": "アジア",
+      "title": "カルナーティック プログレッシブ",
+      "prompt": "Carnatic Prog",
+      "description": "カルナーティック音楽のプログレッシブなスタイル",
+      "tags": [
+        "janle",
+        "アジア"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アジア-コプティック-16ビット",
+      "section": "アジア",
+      "title": "コプティック 16ビット",
+      "prompt": "Coptic 16-Bit",
+      "description": "コプト音楽と16ビットサウンドの融合",
+      "tags": [
+        "janle",
+        "アジア"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アジア-コプティック-ベッドルーム",
+      "section": "アジア",
+      "title": "コプティック ベッドルーム",
+      "prompt": "Coptic Bedroom",
+      "description": "ベッドルームポップとコプト音楽の融合",
+      "tags": [
+        "janle",
+        "アジア"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アジア-コプティック-シャンソン",
+      "section": "アジア",
+      "title": "コプティック シャンソン",
+      "prompt": "Coptic Chanson",
+      "description": "シャンソンとコプト音楽の融合",
+      "tags": [
+        "janle",
+        "アジア"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アジア-コプティック-ドリーミー",
+      "section": "アジア",
+      "title": "コプティック ドリーミー",
+      "prompt": "Coptic Dreamy",
+      "description": "夢のようなコプト音楽",
+      "tags": [
+        "janle",
+        "アジア"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アジア-コプティック-ハイファイ",
+      "section": "アジア",
+      "title": "コプティック ハイファイ",
+      "prompt": "Coptic Hyphy",
+      "description": "ハイファイサウンドとコプト音楽の融合",
+      "tags": [
+        "janle",
+        "アジア"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アジア-コプティック-ニュー",
+      "section": "アジア",
+      "title": "コプティック ニュー",
+      "prompt": "Coptic New",
+      "description": "新しいスタイルのコプト音楽",
+      "tags": [
+        "janle",
+        "アジア"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アジア-エジプシャン-ブレイクビート-ウェーブ-チルステップ",
+      "section": "アジア",
+      "title": "エジプシャン ブレイクビート ウェーブ チルステップ",
+      "prompt": "Egyptian Breakbeat Wave Chillstep",
+      "description": "エジプト、ブレイクビーツ、ウェーブ、チルステップを融合",
+      "tags": [
+        "janle",
+        "アジア"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アジア-エジプシャン-バブルガム",
+      "section": "アジア",
+      "title": "エジプシャン バブルガム",
+      "prompt": "Egyptian Bubblegum",
+      "description": "エジプト音楽とバブルガムポップを融合",
+      "tags": [
+        "janle",
+        "アジア"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アジア-エジプシャン-コプティック",
+      "section": "アジア",
+      "title": "エジプシャン コプティック",
+      "prompt": "Egyptian Coptic",
+      "description": "エジプト音楽とコプト音楽を融合",
+      "tags": [
+        "janle",
+        "アジア"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アジア-エジプシャン-ヒンディー",
+      "section": "アジア",
+      "title": "エジプシャン ヒンディー",
+      "prompt": "Egyptian Hindi",
+      "description": "エジプト音楽とヒンディー音楽の要素を融合",
+      "tags": [
+        "janle",
+        "アジア"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アジア-エジプシャン-コリアン",
+      "section": "アジア",
+      "title": "エジプシャン コリアン",
+      "prompt": "Egyptian Korean",
+      "description": "エジプト音楽と韓国の音楽要素を融合",
+      "tags": [
+        "janle",
+        "アジア"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アジア-エジプシャン-ソウルフル",
+      "section": "アジア",
+      "title": "エジプシャン ソウルフル",
+      "prompt": "Egyptian Soulful",
+      "description": "エジプト音楽にソウルフルな要素を加えた音楽",
+      "tags": [
+        "janle",
+        "アジア"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アジア-ラーガ-アフロビート-アンビエント",
+      "section": "アジア",
+      "title": "ラーガ アフロビート アンビエント",
+      "prompt": "Raga Afrobeat Ambient",
+      "description": "ラーガ、アフロビート、アンビエントを融合",
+      "tags": [
+        "janle",
+        "アジア"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アジア-ラーガ-ブルース",
+      "section": "アジア",
+      "title": "ラーガ ブルース",
+      "prompt": "Raga Blues",
+      "description": "ラーガとブルースを融合",
+      "tags": [
+        "janle",
+        "アジア"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アジア-ラーガ-ダーク",
+      "section": "アジア",
+      "title": "ラーガ ダーク",
+      "prompt": "Raga Dark",
+      "description": "暗い雰囲気のラーガ",
+      "tags": [
+        "janle",
+        "アジア"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アジア-ラーガ-ディスコ",
+      "section": "アジア",
+      "title": "ラーガ ディスコ",
+      "prompt": "Raga Disco",
+      "description": "ディスコの影響を受けたラーガ",
+      "tags": [
+        "janle",
+        "アジア"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アジア-ラーガ-ゴア",
+      "section": "アジア",
+      "title": "ラーガ ゴア",
+      "prompt": "Raga Goa",
+      "description": "ゴアトランスの影響を受けたラーガ",
+      "tags": [
+        "janle",
+        "アジア"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アジア-ラーガ-スイング",
+      "section": "アジア",
+      "title": "ラーガ スイング",
+      "prompt": "Raga Swing",
+      "description": "スイングジャズの要素を取り入れたラーガ",
+      "tags": [
+        "janle",
+        "アジア"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アフリカ-アフリカ",
+      "section": "アフリカ",
+      "title": "アフリカ",
+      "prompt": "African",
+      "description": "大陸の音楽の総称多様な民族、言語、文化が存在するため、音楽も非常に多様",
+      "tags": [
+        "janle",
+        "アフリカ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アフリカ-アフリカーナー",
+      "section": "アフリカ",
+      "title": "アフリカーナー",
+      "prompt": "Afrikaner",
+      "description": "南の白人アフリカーナーが作る音楽アフロビートやジャズの影響も",
+      "tags": [
+        "janle",
+        "アフリカ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アフリカ-アフロ",
+      "section": "アフリカ",
+      "title": "アフロ",
+      "prompt": "Afro",
+      "description": "のリズムやスタイルを取り入れた音楽の総称",
+      "tags": [
+        "janle",
+        "アフリカ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アフリカ-ケープ",
+      "section": "アフリカ",
+      "title": "ケープ",
+      "prompt": "Cape",
+      "description": "南のケープタウン周辺の音楽",
+      "tags": [
+        "janle",
+        "アフリカ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アフリカ-グリオ",
+      "section": "アフリカ",
+      "title": "グリオ",
+      "prompt": "Griot",
+      "description": "西の伝統音楽の世襲制の音楽家集団",
+      "tags": [
+        "janle",
+        "アフリカ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アフリカ-ヴェルデ",
+      "section": "アフリカ",
+      "title": "ヴェルデ",
+      "prompt": "Verdean",
+      "description": "カーボベルデ諸島の音楽",
+      "tags": [
+        "janle",
+        "アフリカ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アフリカ-アフロ-ピアノ",
+      "section": "アフリカ",
+      "title": "アフロ ピアノ",
+      "prompt": "Afro Piano",
+      "description": "アフロピアノとの伝統音楽の要素を融合",
+      "tags": [
+        "janle",
+        "アフリカ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アフリカ-アフロ-ピアノ-アラビック",
+      "section": "アフリカ",
+      "title": "アフロ ピアノ アラビック",
+      "prompt": "Afro Piano Arabic",
+      "description": "アフロピアノとアラブ音楽の要素を融合",
+      "tags": [
+        "janle",
+        "アフリカ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アフリカ-アフロ-ピアノ-カリビアン-シティ",
+      "section": "アフリカ",
+      "title": "アフロ ピアノ カリビアン シティ",
+      "prompt": "Afro Piano Caribbean City",
+      "description": "アフロピアノとカリブ海の都市的な音楽を融合",
+      "tags": [
+        "janle",
+        "アフリカ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アフリカ-アフロ-ピアノ-ジャズ",
+      "section": "アフリカ",
+      "title": "アフロ ピアノ ジャズ",
+      "prompt": "Afro Piano Jazz",
+      "description": "アフロピアノとジャズの融合",
+      "tags": [
+        "janle",
+        "アフリカ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アフリカ-アフロ-ピアノ-メタル",
+      "section": "アフリカ",
+      "title": "アフロ ピアノ メタル",
+      "prompt": "Afro Piano Metal",
+      "description": "アフロピアノとメタルを融合",
+      "tags": [
+        "janle",
+        "アフリカ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アフリカ-アフロ-スイング-ボサノヴァ",
+      "section": "アフリカ",
+      "title": "アフロ スイング ボサノヴァ",
+      "prompt": "Afro Swing Bossa",
+      "description": "アフロスイングとボサノヴァを融合",
+      "tags": [
+        "janle",
+        "アフリカ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アフリカ-アフロ-スイング-コーラル",
+      "section": "アフリカ",
+      "title": "アフロ スイング コーラル",
+      "prompt": "Afro Swing Choral",
+      "description": "アフロスイングにコーラスを重視した音楽",
+      "tags": [
+        "janle",
+        "アフリカ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アフリカ-アフロ-スイング-サイケデリック",
+      "section": "アフリカ",
+      "title": "アフロ スイング サイケデリック",
+      "prompt": "Afro Swing Psychedelic",
+      "description": "アフロスイングとサイケデリックロックを融合",
+      "tags": [
+        "janle",
+        "アフリカ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アフリカ-アフロ-スイング-シタール",
+      "section": "アフリカ",
+      "title": "アフロ スイング シタール",
+      "prompt": "Afro Swing Sitar",
+      "description": "アフロスイングにシタールの音色を加えた音楽",
+      "tags": [
+        "janle",
+        "アフリカ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アフリカ-アフロ-キューバン",
+      "section": "アフリカ",
+      "title": "アフロ キューバン",
+      "prompt": "Afro-Cuban",
+      "description": "とキューバの音楽が融合した音楽サルサなどが代表的",
+      "tags": [
+        "janle",
+        "アフリカ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アフリカ-アフロ-ファンク-ヒプナゴジック",
+      "section": "アフリカ",
+      "title": "アフロ ファンク ヒプナゴジック",
+      "prompt": "Afro-Funk Hypnagogic",
+      "description": "アフロファンクにヒプナゴジックポップの要素を加えた、夢幻的な音楽",
+      "tags": [
+        "janle",
+        "アフリカ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アフリカ-アフロ-ファンク-ラップ",
+      "section": "アフリカ",
+      "title": "アフロ ファンク ラップ",
+      "prompt": "Afro-Funk Rap",
+      "description": "アフロファンクとラップを融合",
+      "tags": [
+        "janle",
+        "アフリカ"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "アフリカ-アフロ-ファンク-ロシア",
+      "section": "アフリカ",
+      "title": "アフロ ファンク ロシア",
+      "prompt": "Afro-Funk Russian",
+      "description": "アフロファンクとロシア音楽の要素を融合",
+      "tags": [
+        "janle",
+        "アフリカ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アフリカ-アフロ-ファンク-シンセ-ウェーブ",
+      "section": "アフリカ",
+      "title": "アフロ ファンク シンセ ウェーブ",
+      "prompt": "Afro-Funk Synthwave",
+      "description": "アフロファンクとシンセウェーブを融合",
+      "tags": [
+        "janle",
+        "アフリカ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アフリカ-アフロ-ジャズ-16ビット-アコースティック",
+      "section": "アフリカ",
+      "title": "アフロ ジャズ 16ビット アコースティック",
+      "prompt": "Afro-Jazz 16-Bit Acoustic",
+      "description": "アフロジャズに16ビットのデジタルサウンドとアコースティック楽器を加えた音楽",
+      "tags": [
+        "janle",
+        "アフリカ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アフリカ-アフロ-ジャズ-アフロ-ビート",
+      "section": "アフリカ",
+      "title": "アフロ ジャズ アフロ ビート",
+      "prompt": "Afro-Jazz Afrobeat",
+      "description": "アフロジャズとアフロビートを融合",
+      "tags": [
+        "janle",
+        "アフリカ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アフリカ-アフロ-ジャズ-edm",
+      "section": "アフリカ",
+      "title": "アフロ ジャズ EDM",
+      "prompt": "Afro-Jazz Edm",
+      "description": "アフロジャズとエレクトロニックダンス音楽を融合",
+      "tags": [
+        "janle",
+        "アフリカ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アフリカ-アフロ-ジャズ-ヒンディー",
+      "section": "アフリカ",
+      "title": "アフロ ジャズ ヒンディー",
+      "prompt": "Afro-Jazz Hindi",
+      "description": "アフロジャズとヒンディー音楽の要素を融合",
+      "tags": [
+        "janle",
+        "アフリカ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アフリカ-アフロ-ジャズ-レゲエ",
+      "section": "アフリカ",
+      "title": "アフロ ジャズ レゲエ",
+      "prompt": "Afro-Jazz Reggae",
+      "description": "アフロジャズとレゲエを融合",
+      "tags": [
+        "janle",
+        "アフリカ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アフリカ-アフロ-ロック-サイケデリック",
+      "section": "アフリカ",
+      "title": "アフロ ロック サイケデリック",
+      "prompt": "Afro-Rock Psychedelic",
+      "description": "アフロロックとサイケデリックロックを融合",
+      "tags": [
+        "janle",
+        "アフリカ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アフリカ-アフロ-ロック-スク-ホーン",
+      "section": "アフリカ",
+      "title": "アフロ ロック スク ホーン",
+      "prompt": "Afro-Rock Saxophone",
+      "description": "アフロロックにサックスの音色を前面に出した音楽",
+      "tags": [
+        "janle",
+        "アフリカ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アフリカ-アフロ-ビート-アフロ-ピアノ-アンビエント",
+      "section": "アフリカ",
+      "title": "アフロ ビート アフロ ピアノ アンビエント",
+      "prompt": "Afrobeat Afro Piano Ambient",
+      "description": "アフロビートとアフロピアノを組み合わせ、アンビエントな雰囲気を加えた音楽",
+      "tags": [
+        "janle",
+        "アフリカ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アフリカ-アフロ-ビート-デルタ",
+      "section": "アフリカ",
+      "title": "アフロ ビート デルタ",
+      "prompt": "Afrobeat Delta",
+      "description": "アフロビートとデルタブルースの要素を融合",
+      "tags": [
+        "janle",
+        "アフリカ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アフリカ-アフロ-ビート-ハルシコード",
+      "section": "アフリカ",
+      "title": "アフロ ビート ハルシコード",
+      "prompt": "Afrobeat Harpsichord",
+      "description": "アフロビートにハルシコードの音色を加えた音楽",
+      "tags": [
+        "janle",
+        "アフリカ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アフリカ-アフロ-ビート-ヒプナゴジック",
+      "section": "アフリカ",
+      "title": "アフロ ビート ヒプナゴジック",
+      "prompt": "Afrobeat Hypnagogic",
+      "description": "アフロビートにヒプナゴジックポップの要素を加えた、夢幻的な音楽",
+      "tags": [
+        "janle",
+        "アフリカ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アフリカ-アフロ-ビート-ローファイ",
+      "section": "アフリカ",
+      "title": "アフロ ビート ローファイ",
+      "prompt": "Afrobeat Lo-Fi",
+      "description": "ローファイなサウンドのアフロビート",
+      "tags": [
+        "janle",
+        "アフリカ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アフリカ-アフロ-ビート-マンダリン",
+      "section": "アフリカ",
+      "title": "アフロ ビート マンダリン",
+      "prompt": "Afrobeat Mandarin",
+      "description": "アフロビートと中国の音楽の要素を融合",
+      "tags": [
+        "janle",
+        "アフリカ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アフリカ-アフロ-ビート-サイケデリック",
+      "section": "アフリカ",
+      "title": "アフロ ビート サイケデリック",
+      "prompt": "Afrobeat Psychedelic",
+      "description": "アフロビートとサイケデリックロックを融合",
+      "tags": [
+        "janle",
+        "アフリカ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アフリカ-アフロ-ビート-レゲエ-ダーク",
+      "section": "アフリカ",
+      "title": "アフロ ビート レゲエ ダーク",
+      "prompt": "Afrobeat Reggae Dark",
+      "description": "アフロビートとレゲエを組み合わせ、ダークな雰囲気を出した音楽",
+      "tags": [
+        "janle",
+        "アフリカ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アフリカ-アフロ-ビート-ロシア",
+      "section": "アフリカ",
+      "title": "アフロ ビート ロシア",
+      "prompt": "Afrobeat Russian",
+      "description": "アフロビートとロシア音楽の要素を融合",
+      "tags": [
+        "janle",
+        "アフリカ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アフリカ-アフロ-ビート-スペイン",
+      "section": "アフリカ",
+      "title": "アフロ ビート スペイン",
+      "prompt": "Afrobeat Spanish",
+      "description": "アフロビートとスペイン音楽の要素を融合",
+      "tags": [
+        "janle",
+        "アフリカ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アフリカ-クランク-アフリカーナー",
+      "section": "アフリカ",
+      "title": "クランク アフリカーナー",
+      "prompt": "Crunk Afrikaner",
+      "description": "クランク音楽とーナー音楽の融合",
+      "tags": [
+        "janle",
+        "アフリカ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アフリカ-クランク-オルタナティブ",
+      "section": "アフリカ",
+      "title": "クランク オルタナティブ",
+      "prompt": "Crunk Alternative",
+      "description": "クランク音楽とオルタナティブロックの融合",
+      "tags": [
+        "janle",
+        "アフリカ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アフリカ-グナワ-アコースティック",
+      "section": "アフリカ",
+      "title": "グナワ アコースティック",
+      "prompt": "Gnawa Acoustic",
+      "description": "アコースティック楽器で演奏されるグナワ音楽",
+      "tags": [
+        "janle",
+        "アフリカ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アフリカ-グナワ",
+      "section": "アフリカ",
+      "title": "グナワ",
+      "prompt": "Gnawa Gnawa",
+      "description": "モロッコの伝統音楽の一種",
+      "tags": [
+        "janle",
+        "アフリカ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アフリカ-グナワ-ニュー",
+      "section": "アフリカ",
+      "title": "グナワ ニュー",
+      "prompt": "Gnawa New",
+      "description": "新しいスタイルのグナワ音楽",
+      "tags": [
+        "janle",
+        "アフリカ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アフリカ-グリオ-アンビエント",
+      "section": "アフリカ",
+      "title": "グリオ アンビエント",
+      "prompt": "Griot Ambient",
+      "description": "グリオ音楽とアンビエント音楽を融合",
+      "tags": [
+        "janle",
+        "アフリカ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アフリカ-グリオ-アラビック",
+      "section": "アフリカ",
+      "title": "グリオ アラビック",
+      "prompt": "Griot Arabic",
+      "description": "グリオ音楽とアラブ音楽の要素を融合",
+      "tags": [
+        "janle",
+        "アフリカ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アフリカ-グリオ-ブルーグラス",
+      "section": "アフリカ",
+      "title": "グリオ ブルーグラス",
+      "prompt": "Griot Bluegrass",
+      "description": "グリオ音楽とブルーグラスを融合",
+      "tags": [
+        "janle",
+        "アフリカ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アフリカ-グリオ-コーラル",
+      "section": "アフリカ",
+      "title": "グリオ コーラル",
+      "prompt": "Griot Choral",
+      "description": "グリオ音楽にコーラスを重視した音楽",
+      "tags": [
+        "janle",
+        "アフリカ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アフリカ-グリオ-ルーツ",
+      "section": "アフリカ",
+      "title": "グリオ ルーツ",
+      "prompt": "Griot Roots",
+      "description": "グリオ音楽のルーツを追求した音楽",
+      "tags": [
+        "janle",
+        "アフリカ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アフリカ-ヴェルデアン-アフロジャズ-アンビエント",
+      "section": "アフリカ",
+      "title": "ヴェルデアン アフロジャズ アンビエント",
+      "prompt": "Verdean Afro-Jazz Ambient",
+      "description": "アフロジャズとアンビエントを融合させたヴェルデ",
+      "tags": [
+        "janle",
+        "アフリカ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アフリカ-ヴェルデアン-ブレイクビート",
+      "section": "アフリカ",
+      "title": "ヴェルデアン ブレイクビート",
+      "prompt": "Verdean Breakbeat",
+      "description": "ブレイクビートの影響を受けたヴェルデ",
+      "tags": [
+        "janle",
+        "アフリカ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アフリカ-ヴェルデアン-シティ",
+      "section": "アフリカ",
+      "title": "ヴェルデアン シティ",
+      "prompt": "Verdean City",
+      "description": "都市的な要素を取り入れたヴェルデ",
+      "tags": [
+        "janle",
+        "アフリカ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アフリカ-ヴェルデアン-ジェイポップ",
+      "section": "アフリカ",
+      "title": "ヴェルデアン ジェイポップ",
+      "prompt": "Verdean J-Pop",
+      "description": "J-POPの影響を受けたヴェルデ",
+      "tags": [
+        "janle",
+        "アフリカ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アフリカ-ヴェルデアン-パンク",
+      "section": "アフリカ",
+      "title": "ヴェルデアン パンク",
+      "prompt": "Verdean Punk",
+      "description": "パンクの影響を受けたヴェルデ",
+      "tags": [
+        "janle",
+        "アフリカ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アフリカ-ヴェルデアン-スワンプ",
+      "section": "アフリカ",
+      "title": "ヴェルデアン スワンプ",
+      "prompt": "Verdean Swamp",
+      "description": "スワンプ音楽の影響を受けたヴェルデ",
+      "tags": [
+        "janle",
+        "アフリカ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アメリカ-アメリカン",
+      "section": "アメリカ",
+      "title": "アメリカン",
+      "prompt": "American",
+      "description": "の音楽の総称多様なジャンルが存在する",
+      "tags": [
+        "janle",
+        "アメリカ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アメリカ-アパラチアン",
+      "section": "アメリカ",
+      "title": "アパラチアン",
+      "prompt": "Appalachian",
+      "description": "のアパラチア山脈地域の伝統音楽",
+      "tags": [
+        "janle",
+        "アメリカ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アメリカ-ブルーグラス",
+      "section": "アメリカ",
+      "title": "ブルーグラス",
+      "prompt": "Bluegrass",
+      "description": "のアパラチア山脈周辺で生まれたカントリー音楽の一種で、バンジョーやマンドリン、バイオリンと歌が特徴",
+      "tags": [
+        "janle",
+        "アメリカ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アメリカ-シカゴ",
+      "section": "アメリカ",
+      "title": "シカゴ",
+      "prompt": "Chicago",
+      "description": "シカゴ発祥の音楽、特にハウス音楽を指すことが多い",
+      "tags": [
+        "janle",
+        "アメリカ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アメリカ-ドゥーワップ",
+      "section": "アメリカ",
+      "title": "ドゥーワップ",
+      "prompt": "Doo-Wop",
+      "description": "1950年代から1960年代にかけてで流行した黒人の音楽ジャンル",
+      "tags": [
+        "janle",
+        "アメリカ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アメリカ-エモ",
+      "section": "アメリカ",
+      "title": "エモ",
+      "prompt": "Emo",
+      "description": "エモの語源は Emothional Hardcore",
+      "tags": [
+        "janle",
+        "アメリカ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アメリカ-ハワイアン-アコースティック",
+      "section": "アメリカ",
+      "title": "ハワイアン アコースティック",
+      "prompt": "Hawaiian Acoustic",
+      "description": "アコースティックなハワイアン音楽",
+      "tags": [
+        "janle",
+        "アメリカ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アメリカ-オーリンズ",
+      "section": "アメリカ",
+      "title": "オーリンズ",
+      "prompt": "Orleans",
+      "description": "ニューオーリンズジャズの影響を受けた音楽",
+      "tags": [
+        "janle",
+        "アメリカ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アメリカ-サルサ",
+      "section": "アメリカ",
+      "title": "サルサ",
+      "prompt": "Salsa",
+      "description": "カリブ海諸国の音楽をベースにした発祥の音楽",
+      "tags": [
+        "janle",
+        "アメリカ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アメリカ-サウス",
+      "section": "アメリカ",
+      "title": "サウス",
+      "prompt": "South",
+      "description": "南部の音楽、特にカントリーやブルースの影響を受けた音楽",
+      "tags": [
+        "janle",
+        "アメリカ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アメリカ-サザン",
+      "section": "アメリカ",
+      "title": "サザン",
+      "prompt": "Southern",
+      "description": "南部の音楽、特にカントリーやブルースの影響を受けた音楽",
+      "tags": [
+        "janle",
+        "アメリカ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アメリカ-スワンプ",
+      "section": "アメリカ",
+      "title": "スワンプ",
+      "prompt": "Swamp",
+      "description": "の南部湿地帯の音楽、ブルースやファンクの影響を受けた音楽",
+      "tags": [
+        "janle",
+        "アメリカ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アメリカ-テキサス",
+      "section": "アメリカ",
+      "title": "テキサス",
+      "prompt": "Texas",
+      "description": "テキサス州の音楽、カントリーやブルースの影響を受けた音楽",
+      "tags": [
+        "janle",
+        "アメリカ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アメリカ-アメリカナ-チルウェーブ-ウェーブ-クランク",
+      "section": "アメリカ",
+      "title": "アメリカナ チルウェーブ ウェーブ クランク",
+      "prompt": "Americana Chillwave Wave Crunk",
+      "description": "ナ、チルウェーブ、ウェーブ、クランクを融合",
+      "tags": [
+        "janle",
+        "アメリカ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アメリカ-アメリカナ-ポルトガル語",
+      "section": "アメリカ",
+      "title": "アメリカナ ポルトガル語",
+      "prompt": "Americana Portuguese",
+      "description": "ナ音楽とポルトガルの音楽要素を融合",
+      "tags": [
+        "janle",
+        "アメリカ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アメリカ-アメリカナ-ロシア語",
+      "section": "アメリカ",
+      "title": "アメリカナ ロシア語",
+      "prompt": "Americana Russian",
+      "description": "ナ音楽とロシア音楽の要素を融合",
+      "tags": [
+        "janle",
+        "アメリカ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アメリカ-アメリカナ-シューゲイズ",
+      "section": "アメリカ",
+      "title": "アメリカナ シューゲイズ",
+      "prompt": "Americana Shoegaze",
+      "description": "ナ音楽とシューゲイズを融合",
+      "tags": [
+        "janle",
+        "アメリカ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アメリカ-アメリカナ-シタール",
+      "section": "アメリカ",
+      "title": "アメリカナ シタール",
+      "prompt": "Americana Sitar",
+      "description": "ナ音楽にシタールの音色を加えた音楽",
+      "tags": [
+        "janle",
+        "アメリカ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アメリカ-ブルーグラス-ビッグ-バンド",
+      "section": "アメリカ",
+      "title": "ブルーグラス ビッグ バンド",
+      "prompt": "Bluegrass Big",
+      "description": "ビッグバンド編成によるブルーグラス",
+      "tags": [
+        "janle",
+        "アメリカ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アメリカ-ブルーグラス-ケイジャン",
+      "section": "アメリカ",
+      "title": "ブルーグラス ケイジャン",
+      "prompt": "Bluegrass Cajun",
+      "description": "ブルーグラスとケイジャンの融合",
+      "tags": [
+        "janle",
+        "アメリカ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アメリカ-ブルーグラス-エレクトロニック",
+      "section": "アメリカ",
+      "title": "ブルーグラス エレクトロニック",
+      "prompt": "Bluegrass Electronic",
+      "description": "ブルーグラスとエレクトロニック音楽の融合",
+      "tags": [
+        "janle",
+        "アメリカ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アメリカ-ブルーグラス-p-ファンク-プログ",
+      "section": "アメリカ",
+      "title": "ブルーグラス P-ファンク プログ",
+      "prompt": "Bluegrass P-Funk Prog",
+      "description": "ブルーグラス、P-ファンク、プログレッシブロックを融合",
+      "tags": [
+        "janle",
+        "アメリカ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アメリカ-ドゥーワップ-アンビエント",
+      "section": "アメリカ",
+      "title": "ドゥーワップ アンビエント",
+      "prompt": "Doo-Wop Ambient",
+      "description": "ドゥーワップとアンビエント音楽を融合",
+      "tags": [
+        "janle",
+        "アメリカ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アメリカ-ドゥーワップ-ポルトガル語",
+      "section": "アメリカ",
+      "title": "ドゥーワップ ポルトガル語",
+      "prompt": "Doo-Wop Portuguese",
+      "description": "ドゥーワップとポルトガルの音楽要素を融合",
+      "tags": [
+        "janle",
+        "アメリカ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アメリカ-ドゥーワップ-スワンプ",
+      "section": "アメリカ",
+      "title": "ドゥーワップ スワンプ",
+      "prompt": "Doo-Wop Swamp",
+      "description": "ドゥーワップとスワンプロックを融合",
+      "tags": [
+        "janle",
+        "アメリカ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アメリカ-エモ-アコースティック",
+      "section": "アメリカ",
+      "title": "エモ アコースティック",
+      "prompt": "Emo Acoustic",
+      "description": "エモとアコースティック楽器を組み合わせた音楽",
+      "tags": [
+        "janle",
+        "アメリカ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アメリカ-エモ-ラガ",
+      "section": "アメリカ",
+      "title": "エモ ラガ",
+      "prompt": "Emo Raga",
+      "description": "エモとラガを融合",
+      "tags": [
+        "janle",
+        "アメリカ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アメリカ-ハワイアン-アンチフォーク",
+      "section": "アメリカ",
+      "title": "ハワイアン アンチフォーク",
+      "prompt": "Hawaiian Anti-Folk",
+      "description": "ハワイアン音楽とアンチフォークを融合",
+      "tags": [
+        "janle",
+        "アメリカ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アメリカ-ハワイアン-ダーク",
+      "section": "アメリカ",
+      "title": "ハワイアン ダーク",
+      "prompt": "Hawaiian Dark",
+      "description": "ダークな雰囲気のハワイアン音楽",
+      "tags": [
+        "janle",
+        "アメリカ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アメリカ-ハワイアン-エレクトロ-ニュー",
+      "section": "アメリカ",
+      "title": "ハワイアン エレクトロ ニュー",
+      "prompt": "Hawaiian Electro-New",
+      "description": "ハワイアン音楽とエレクトロニック音楽の新しい融合",
+      "tags": [
+        "janle",
+        "アメリカ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アメリカ-ハワイアン-ウルドゥー",
+      "section": "アメリカ",
+      "title": "ハワイアン ウルドゥー",
+      "prompt": "Hawaiian Urdu",
+      "description": "ハワイアン音楽とウルドゥー語圏の音楽を融合",
+      "tags": [
+        "janle",
+        "アメリカ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アメリカ-サルサ-ドリル",
+      "section": "アメリカ",
+      "title": "サルサ ドリル",
+      "prompt": "Salsa Drill",
+      "description": "ドリル音楽の影響を受けたサルサ",
+      "tags": [
+        "janle",
+        "アメリカ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アメリカ-サルサ-ハイパー-ブルース",
+      "section": "アメリカ",
+      "title": "サルサ ハイパー ブルース",
+      "prompt": "Salsa Hyper-Blues",
+      "description": "ハイパーなエネルギーとブルースの要素を取り入れたサルサ",
+      "tags": [
+        "janle",
+        "アメリカ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アメリカ-サウス-コーラル",
+      "section": "アメリカ",
+      "title": "サウス コーラル",
+      "prompt": "South Choral",
+      "description": "合唱を取り入れたサザン音楽",
+      "tags": [
+        "janle",
+        "アメリカ"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "アメリカ-サウス-ドリル",
+      "section": "アメリカ",
+      "title": "サウス ドリル",
+      "prompt": "South Drill",
+      "description": "ドリル音楽の影響を受けたサザン音楽",
+      "tags": [
+        "janle",
+        "アメリカ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アメリカ-サウス-ジャングル",
+      "section": "アメリカ",
+      "title": "サウス ジャングル",
+      "prompt": "South Jungle",
+      "description": "ジャングル音楽の影響を受けたサザン音楽",
+      "tags": [
+        "janle",
+        "アメリカ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アメリカ-サウス-サルサ",
+      "section": "アメリカ",
+      "title": "サウス サルサ",
+      "prompt": "South Salsa",
+      "description": "サルサの影響を受けたサザン音楽",
+      "tags": [
+        "janle",
+        "アメリカ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "アメリカ-サウス-セルタネーホ",
+      "section": "アメリカ",
+      "title": "サウス セルタネーホ",
+      "prompt": "South Sertanejo",
+      "description": "セルタネーホの要素を取り入れたサザン音楽",
+      "tags": [
+        "janle",
+        "アメリカ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ヨーロッパ-バルカン",
+      "section": "ヨーロッパ",
+      "title": "バルカン",
+      "prompt": "Balkan",
+      "description": "バルカン半島の音楽の総称多様な民族、言語、文化が存在するため、音楽も非常に多様",
+      "tags": [
+        "janle",
+        "ヨーロッパ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ヨーロッパ-ケルティック",
+      "section": "ヨーロッパ",
+      "title": "ケルティック",
+      "prompt": "Celtic",
+      "description": "伝統的なケルト音楽 アイルランド、スコットランド等ケルト圏の音楽",
+      "tags": [
+        "janle",
+        "ヨーロッパ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ヨーロッパ-ケルティック-フュージョン",
+      "section": "ヨーロッパ",
+      "title": "ケルティック フュージョン",
+      "prompt": "Celtic Fusion",
+      "description": "バグパイプを高確率で使ってくれる！（by KakuniManjuさん）",
+      "tags": [
+        "janle",
+        "ヨーロッパ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ヨーロッパ-クレズマー",
+      "section": "ヨーロッパ",
+      "title": "クレズマー",
+      "prompt": "Klezmer",
+      "description": "東欧のユダヤ人によって発展した伝統的な音楽",
+      "tags": [
+        "janle",
+        "ヨーロッパ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ヨーロッパ-ポルカ",
+      "section": "ヨーロッパ",
+      "title": "ポルカ",
+      "prompt": "Polka",
+      "description": "チェコ語で「半分」を意味する「půlka」に由来するといわれる、2/4拍子の活発な舞曲です。",
+      "tags": [
+        "janle",
+        "ヨーロッパ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ヨーロッパ-ケルティック-アコースティック",
+      "section": "ヨーロッパ",
+      "title": "ケルティック アコースティック",
+      "prompt": "Celtic Acoustic",
+      "description": "アコースティックなケルト音楽",
+      "tags": [
+        "janle",
+        "ヨーロッパ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ヨーロッパ-ケルティック-クラシック",
+      "section": "ヨーロッパ",
+      "title": "ケルティック クラシック",
+      "prompt": "Celtic Celtic Classical",
+      "description": "クラシック音楽とケルト音楽の融合",
+      "tags": [
+        "janle",
+        "ヨーロッパ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ヨーロッパ-ケルティック-ダカール",
+      "section": "ヨーロッパ",
+      "title": "ケルティック ダカール",
+      "prompt": "Celtic Dakar",
+      "description": "ケルト音楽とセネガルのダカール音楽の融合",
+      "tags": [
+        "janle",
+        "ヨーロッパ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ヨーロッパ-ケルティック-ヒップホップ",
+      "section": "ヨーロッパ",
+      "title": "ケルティック ヒップホップ",
+      "prompt": "Celtic Hip",
+      "description": "ケルト音楽とヒップホップの融合",
+      "tags": [
+        "janle",
+        "ヨーロッパ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ヨーロッパ-フラメンコ-ダーティ",
+      "section": "ヨーロッパ",
+      "title": "フラメンコ ダーティ",
+      "prompt": "Flamenco Dirty",
+      "description": "フラメンコにダーティな要素を加えた音楽",
+      "tags": [
+        "janle",
+        "ヨーロッパ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ヨーロッパ-フラメンコ-ドリーミー",
+      "section": "ヨーロッパ",
+      "title": "フラメンコ ドリーミー",
+      "prompt": "Flamenco Dream",
+      "description": "夢のようなフラメンコ",
+      "tags": [
+        "janle",
+        "ヨーロッパ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ヨーロッパ-フラメンコ-グリオ",
+      "section": "ヨーロッパ",
+      "title": "フラメンコ グリオ",
+      "prompt": "Flamenco Griot",
+      "description": "フラメンコと西アフリカのグリオ音楽を融合",
+      "tags": [
+        "janle",
+        "ヨーロッパ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ヨーロッパ-フラメンコ-ヒップホップ",
+      "section": "ヨーロッパ",
+      "title": "フラメンコ ヒップホップ",
+      "prompt": "Flamenco Hip",
+      "description": "フラメンコとヒップホップを融合",
+      "tags": [
+        "janle",
+        "ヨーロッパ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ヨーロッパ-フラメンコ-インストゥルメンタル",
+      "section": "ヨーロッパ",
+      "title": "フラメンコ インストゥルメンタル",
+      "prompt": "Flamenco Instrumental",
+      "description": "楽器のみで演奏されるフラメンコ",
+      "tags": [
+        "janle",
+        "ヨーロッパ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ヨーロッパ-フラメンコ-リバプール",
+      "section": "ヨーロッパ",
+      "title": "フラメンコ リバプール",
+      "prompt": "Flamenco Liverpool",
+      "description": "フラメンコとリバプールサウンドを融合",
+      "tags": [
+        "janle",
+        "ヨーロッパ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ヨーロッパ-フラメンコ-スウィング",
+      "section": "ヨーロッパ",
+      "title": "フラメンコ スウィング",
+      "prompt": "Flamenco Swing",
+      "description": "フラメンコとスウィングを融合",
+      "tags": [
+        "janle",
+        "ヨーロッパ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ヨーロッパ-クレズマー-アコーディオン",
+      "section": "ヨーロッパ",
+      "title": "クレズマー アコーディオン",
+      "prompt": "Klezmer Accordion",
+      "description": "アコーディオンをメイン楽器としたクレズマー音楽",
+      "tags": [
+        "janle",
+        "ヨーロッパ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ヨーロッパ-クレズマー-アールアンドビー",
+      "section": "ヨーロッパ",
+      "title": "クレズマー アールアンドビー",
+      "prompt": "Klezmer R&B",
+      "description": "クレズマーとR&Bを融合",
+      "tags": [
+        "janle",
+        "ヨーロッパ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ヨーロッパ-ポルカ-ジェイポップ",
+      "section": "ヨーロッパ",
+      "title": "ポルカ ジェイポップ",
+      "prompt": "Polka J-Pop",
+      "description": "ポルカとJ-POPを融合",
+      "tags": [
+        "janle",
+        "ヨーロッパ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ヨーロッパ-ポルカ-モータウン-ポップ",
+      "section": "ヨーロッパ",
+      "title": "ポルカ モータウン ポップ",
+      "prompt": "Polka Motown Pop",
+      "description": "ポルカ、モータウン、ポップを融合",
+      "tags": [
+        "janle",
+        "ヨーロッパ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ヨーロッパ-ポルカ-ニュー",
+      "section": "ヨーロッパ",
+      "title": "ポルカ ニュー",
+      "prompt": "Polka New",
+      "description": "新しいスタイルのポルカ",
+      "tags": [
+        "janle",
+        "ヨーロッパ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ヨーロッパ-ポルカ-ソウルフル",
+      "section": "ヨーロッパ",
+      "title": "ポルカ ソウルフル",
+      "prompt": "Polka Soulful",
+      "description": "ソウルフルなポルカ",
+      "tags": [
+        "janle",
+        "ヨーロッパ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "中南米-バチャータ",
+      "section": "中南米",
+      "title": "バチャータ",
+      "prompt": "Bachata",
+      "description": "ドミニカ共和国発祥のラテン音楽のジャンルで、「非公式なパーティー」を意味",
+      "tags": [
+        "janle",
+        "中南米"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "中南米-カリプソ",
+      "section": "中南米",
+      "title": "カリプソ",
+      "prompt": "Calypso",
+      "description": "カリブ海トリニダード島で生まれたジャズ調の民俗音楽",
+      "tags": [
+        "janle",
+        "中南米"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "中南米-カリビアン",
+      "section": "中南米",
+      "title": "カリビアン",
+      "prompt": "Caribbean",
+      "description": "カリブ海周辺の島々の音楽",
+      "tags": [
+        "janle",
+        "中南米"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "中南米-クンビア",
+      "section": "中南米",
+      "title": "クンビア",
+      "prompt": "Cumbia",
+      "description": "南米コロンビアのカリブ海沿岸地域で生まれた民族音楽と舞踊",
+      "tags": [
+        "janle",
+        "中南米"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "中南米-マリアチ",
+      "section": "中南米",
+      "title": "マリアチ",
+      "prompt": "Mariachi",
+      "description": "メキシコを代表する伝統的な楽団形式や、その楽団が演奏する音楽",
+      "tags": [
+        "janle",
+        "中南米"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "中南米-メント",
+      "section": "中南米",
+      "title": "メント",
+      "prompt": "Mento",
+      "description": "ジャマイカの民族音楽で、スカやレゲエに大きな影響を与えたフォーク音楽の一形態",
+      "tags": [
+        "janle",
+        "中南米"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "中南米-パシフィック",
+      "section": "中南米",
+      "title": "パシフィック",
+      "prompt": "Pacific",
+      "description": "太平洋地域の音楽の影響を受けた音楽",
+      "tags": [
+        "janle",
+        "中南米"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "中南米-セルタネーホ",
+      "section": "中南米",
+      "title": "セルタネーホ",
+      "prompt": "Sertanejo",
+      "description": "ブラジルの1920年代をルーツとするカントリー音楽",
+      "tags": [
+        "janle",
+        "中南米"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "中南米-バチャータ-アンビエント",
+      "section": "中南米",
+      "title": "バチャータ アンビエント",
+      "prompt": "Bachata Ambient",
+      "description": "バチャータとアンビエント音楽を融合",
+      "tags": [
+        "janle",
+        "中南米"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "中南米-バチャータ-コーラル",
+      "section": "中南米",
+      "title": "バチャータ コーラル",
+      "prompt": "Bachata Choral",
+      "description": "バチャータにコーラスを重視した音楽",
+      "tags": [
+        "janle",
+        "中南米"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "中南米-バチャータ-ヒンディー",
+      "section": "中南米",
+      "title": "バチャータ ヒンディー",
+      "prompt": "Bachata Hindi",
+      "description": "バチャータとヒンディー音楽の要素を融合",
+      "tags": [
+        "janle",
+        "中南米"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "中南米-バチャータ-ジャズ",
+      "section": "中南米",
+      "title": "バチャータ ジャズ",
+      "prompt": "Bachata Jazz",
+      "description": "バチャータとジャズの融合",
+      "tags": [
+        "janle",
+        "中南米"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "中南米-カリプソ-アシッド",
+      "section": "中南米",
+      "title": "カリプソ アシッド",
+      "prompt": "Calypso Acid",
+      "description": "カリプソ音楽にアシッドサウンドを加えたもの",
+      "tags": [
+        "janle",
+        "中南米"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "中南米-カリプソ-クレズマー",
+      "section": "中南米",
+      "title": "カリプソ クレズマー",
+      "prompt": "Calypso Klezmer",
+      "description": "カリプソとクレズマーの融合",
+      "tags": [
+        "janle",
+        "中南米"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "中南米-カリビアン-カルナーティック",
+      "section": "中南米",
+      "title": "カリビアン カルナーティック",
+      "prompt": "Caribbean Carnatic",
+      "description": "カリブ海とインド南部のカルナーティック音楽の融合",
+      "tags": [
+        "janle",
+        "中南米"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "中南米-カリビアン-カントリー",
+      "section": "中南米",
+      "title": "カリビアン カントリー",
+      "prompt": "Caribbean Country",
+      "description": "カリブ海の要素を取り入れたカントリー音楽",
+      "tags": [
+        "janle",
+        "中南米"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "中南米-カリビアン-サイケデリック",
+      "section": "中南米",
+      "title": "カリビアン サイケデリック",
+      "prompt": "Caribbean Psychedelic",
+      "description": "カリブ海のサイケデリック音楽",
+      "tags": [
+        "janle",
+        "中南米"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "中南米-クンビア-アコースティック",
+      "section": "中南米",
+      "title": "クンビア アコースティック",
+      "prompt": "Cumbia Acoustic",
+      "description": "アコースティックなクンビア",
+      "tags": [
+        "janle",
+        "中南米"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "中南米-クンビア-ケイジャン-コーラル",
+      "section": "中南米",
+      "title": "クンビア ケイジャン コーラル",
+      "prompt": "Cumbia Cajun Choral",
+      "description": "クンビア、ケイジャン、コーラスを融合",
+      "tags": [
+        "janle",
+        "中南米"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "中南米-クンビア-カリプソ",
+      "section": "中南米",
+      "title": "クンビア カリプソ",
+      "prompt": "Cumbia Calypso",
+      "description": "クンビアとカリプソの融合",
+      "tags": [
+        "janle",
+        "中南米"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "中南米-クンビア-ダーク",
+      "section": "中南米",
+      "title": "クンビア ダーク",
+      "prompt": "Cumbia Dark",
+      "description": "ダークな雰囲気のクンビア",
+      "tags": [
+        "janle",
+        "中南米"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "中南米-クンビア-ファイフ",
+      "section": "中南米",
+      "title": "クンビア ファイフ",
+      "prompt": "Cumbia Fife",
+      "description": "クンビアにファイフという楽器の音色を加えた音楽",
+      "tags": [
+        "janle",
+        "中南米"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "中南米-クンビア-ハワイアン",
+      "section": "中南米",
+      "title": "クンビア ハワイアン",
+      "prompt": "Cumbia Hawaiian",
+      "description": "クンビアとハワイアン音楽の融合",
+      "tags": [
+        "janle",
+        "中南米"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "中南米-クンビア-ヒンディー",
+      "section": "中南米",
+      "title": "クンビア ヒンディー",
+      "prompt": "Cumbia Hindi",
+      "description": "クンビアとヒンディー音楽の要素を融合",
+      "tags": [
+        "janle",
+        "中南米"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "中南米-クンビア-シューゲイズ",
+      "section": "中南米",
+      "title": "クンビア シューゲイズ",
+      "prompt": "Cumbia Shoegaze",
+      "description": "クンビアとシューゲイズを融合",
+      "tags": [
+        "janle",
+        "中南米"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "中南米-クンビア-スペイン",
+      "section": "中南米",
+      "title": "クンビア スペイン",
+      "prompt": "Cumbia Spanish",
+      "description": "クンビアとスペイン音楽の要素を融合",
+      "tags": [
+        "janle",
+        "中南米"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "中南米-マリアチ-アフロキューバン",
+      "section": "中南米",
+      "title": "マリアチ アフロキューバン",
+      "prompt": "Mariachi Afro-Cuban",
+      "description": "マリアチとアフロキューバン音楽を融合",
+      "tags": [
+        "janle",
+        "中南米"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "中南米-マリアチ-ハイパージャングル-ベンガル",
+      "section": "中南米",
+      "title": "マリアチ ハイパージャングル ベンガル",
+      "prompt": "Mariachi Hyper-Jungle Bengali",
+      "description": "マリアチ、ハイパー・ジャングル、ベンガル音楽を融合",
+      "tags": [
+        "janle",
+        "中南米"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "中南米-マリアチ-サイビエント",
+      "section": "中南米",
+      "title": "マリアチ サイビエント",
+      "prompt": "Mariachi Psybient",
+      "description": "マリアチとサイビエントを融合",
+      "tags": [
+        "janle",
+        "中南米"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "中南米-マリアチ-レゲエ",
+      "section": "中南米",
+      "title": "マリアチ レゲエ",
+      "prompt": "Mariachi Reggae",
+      "description": "マリアチとレゲエを融合",
+      "tags": [
+        "janle",
+        "中南米"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "中南米-メント-コプティック",
+      "section": "中南米",
+      "title": "メント コプティック",
+      "prompt": "Mento Coptic",
+      "description": "メントとコプト音楽を融合",
+      "tags": [
+        "janle",
+        "中南米"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "中南米-メント-フレンチ",
+      "section": "中南米",
+      "title": "メント フレンチ",
+      "prompt": "Mento French",
+      "description": "フランスの影響を受けたメント音楽",
+      "tags": [
+        "janle",
+        "中南米"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "asia-日本",
+      "section": "Asia",
+      "title": "日本",
+      "prompt": "Japan",
+      "description": "東アジアの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Asia"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "asia-日本人",
+      "section": "Asia",
+      "title": "日本人",
+      "prompt": "Jananese",
+      "description": "sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Asia"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "asia-中国",
+      "section": "Asia",
+      "title": "中国",
+      "prompt": "China",
+      "description": "東アジアの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Asia"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "asia-中国人",
+      "section": "Asia",
+      "title": "中国人",
+      "prompt": "Chinese",
+      "description": "sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Asia"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "asia-韓国",
+      "section": "Asia",
+      "title": "韓国",
+      "prompt": "Korea",
+      "description": "東アジアの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Asia"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "asia-韓国人",
+      "section": "Asia",
+      "title": "韓国人",
+      "prompt": "Korean",
+      "description": "sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Asia"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "asia-香港",
+      "section": "Asia",
+      "title": "香港",
+      "prompt": "Hong Kong",
+      "description": "東アジアの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Asia"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "asia-インド",
+      "section": "Asia",
+      "title": "インド",
+      "prompt": "India",
+      "description": "南アジアの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Asia"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "asia-インドネシア",
+      "section": "Asia",
+      "title": "インドネシア",
+      "prompt": "Indonesia",
+      "description": "東南アジアの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Asia"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "asia-マカオ",
+      "section": "Asia",
+      "title": "マカオ",
+      "prompt": "Macao",
+      "description": "東アジアの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Asia"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "asia-フィリピン",
+      "section": "Asia",
+      "title": "フィリピン",
+      "prompt": "Philippines",
+      "description": "東南アジアの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Asia"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "asia-シンガポール",
+      "section": "Asia",
+      "title": "シンガポール",
+      "prompt": "Singapore",
+      "description": "東南アジアの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Asia"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "asia-台湾",
+      "section": "Asia",
+      "title": "台湾",
+      "prompt": "Taiwan",
+      "description": "東アジアの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Asia"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "asia-台湾人",
+      "section": "Asia",
+      "title": "台湾人",
+      "prompt": "Taiwanese",
+      "description": "sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Asia"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "asia-トルコ",
+      "section": "Asia",
+      "title": "トルコ",
+      "prompt": "Turkey",
+      "description": "西アジアの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Asia"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "asia-アフガニスタン",
+      "section": "Asia",
+      "title": "アフガニスタン",
+      "prompt": "Afghanistan",
+      "description": "中央アジアの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Asia"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "asia-アルメニア",
+      "section": "Asia",
+      "title": "アルメニア",
+      "prompt": "Armenia",
+      "description": "西アジアの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Asia"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "asia-アゼルバイジャン",
+      "section": "Asia",
+      "title": "アゼルバイジャン",
+      "prompt": "Azerbaijan",
+      "description": "西アジアの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Asia"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "asia-バングラデシュ",
+      "section": "Asia",
+      "title": "バングラデシュ",
+      "prompt": "Bangladesh",
+      "description": "南アジアの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Asia"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "asia-ブータン",
+      "section": "Asia",
+      "title": "ブータン",
+      "prompt": "Bhutan",
+      "description": "南アジアの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Asia"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "asia-ブルネイ",
+      "section": "Asia",
+      "title": "ブルネイ",
+      "prompt": "Brunei",
+      "description": "東南アジアの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Asia"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "asia-カンボジア",
+      "section": "Asia",
+      "title": "カンボジア",
+      "prompt": "Cambodia",
+      "description": "東南アジアの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Asia"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "asia-ジョージア",
+      "section": "Asia",
+      "title": "ジョージア",
+      "prompt": "Georgia",
+      "description": "西アジアの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Asia"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "asia-カザフスタン",
+      "section": "Asia",
+      "title": "カザフスタン",
+      "prompt": "Kazakhstan",
+      "description": "中央アジアの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Asia"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "asia-キルギス",
+      "section": "Asia",
+      "title": "キルギス",
+      "prompt": "Kyrgyzstan",
+      "description": "中央アジアの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Asia"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "asia-ラオス",
+      "section": "Asia",
+      "title": "ラオス",
+      "prompt": "Lao People S",
+      "description": "東南アジアの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Asia"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "asia-マレーシア",
+      "section": "Asia",
+      "title": "マレーシア",
+      "prompt": "Malaysia",
+      "description": "東南アジアの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Asia"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "asia-モルディブ",
+      "section": "Asia",
+      "title": "モルディブ",
+      "prompt": "Maldives",
+      "description": "南アジアの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Asia"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "asia-モンゴル",
+      "section": "Asia",
+      "title": "モンゴル",
+      "prompt": "Mongolia",
+      "description": "東アジアの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Asia"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "asia-ミャンマー",
+      "section": "Asia",
+      "title": "ミャンマー",
+      "prompt": "Myanmar",
+      "description": "東南アジアの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Asia"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "asia-ネパール",
+      "section": "Asia",
+      "title": "ネパール",
+      "prompt": "Nepal",
+      "description": "南アジアの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Asia"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "asia-北朝鮮",
+      "section": "Asia",
+      "title": "北朝鮮",
+      "prompt": "North Korea",
+      "description": "東アジアの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Asia"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "asia-パキスタン",
+      "section": "Asia",
+      "title": "パキスタン",
+      "prompt": "Pakistan",
+      "description": "南アジアの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Asia"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "asia-スリランカ",
+      "section": "Asia",
+      "title": "スリランカ",
+      "prompt": "Sri Lanka",
+      "description": "南アジアの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Asia"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "asia-タジキスタン",
+      "section": "Asia",
+      "title": "タジキスタン",
+      "prompt": "Tajikistan",
+      "description": "中央アジアの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Asia"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "asia-タイ",
+      "section": "Asia",
+      "title": "タイ",
+      "prompt": "Thailand",
+      "description": "東南アジアの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Asia"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "asia-東ティモール",
+      "section": "Asia",
+      "title": "東ティモール",
+      "prompt": "Timor-Leste",
+      "description": "東南アジアの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Asia"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "asia-トルクメニスタン",
+      "section": "Asia",
+      "title": "トルクメニスタン",
+      "prompt": "Turkmenistan",
+      "description": "中央アジアの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Asia"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "asia-ウズベキスタン",
+      "section": "Asia",
+      "title": "ウズベキスタン",
+      "prompt": "Uzbekistan",
+      "description": "中央アジアの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Asia"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "asia-ベトナム",
+      "section": "Asia",
+      "title": "ベトナム",
+      "prompt": "Viet Nam",
+      "description": "東南アジアの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Asia"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "america-アメリカ",
+      "section": "America",
+      "title": "アメリカ",
+      "prompt": "America",
+      "description": "北アメリカの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[America"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "america-ジャマイカ",
+      "section": "America",
+      "title": "ジャマイカ",
+      "prompt": "Jamaica",
+      "description": "カリブ海の sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[America"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "america-メキシコ",
+      "section": "America",
+      "title": "メキシコ",
+      "prompt": "Mexico",
+      "description": "北アメリカの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[America"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "america-カナダ",
+      "section": "America",
+      "title": "カナダ",
+      "prompt": "Canada",
+      "description": "北アメリカの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[America"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "america-キューバ",
+      "section": "America",
+      "title": "キューバ",
+      "prompt": "Cuba",
+      "description": "カリブ海の sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[America"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "america-ドミニカ",
+      "section": "America",
+      "title": "ドミニカ",
+      "prompt": "Dominican",
+      "description": "カリブ海の sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[America"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "america-ハイチ",
+      "section": "America",
+      "title": "ハイチ",
+      "prompt": "Haiti",
+      "description": "カリブ海の sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[America"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "america-グレナダ",
+      "section": "America",
+      "title": "グレナダ",
+      "prompt": "Grenada",
+      "description": "カリブ海の sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[America"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "america-セントクリストファー-ネービス",
+      "section": "America",
+      "title": "セントクリストファー・ネービス",
+      "prompt": "Saint Kitts And Nevis",
+      "description": "カリブ海の sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[America"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "america-セントルシア",
+      "section": "America",
+      "title": "セントルシア",
+      "prompt": "Saint Lucia",
+      "description": "カリブ海の sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[America"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "america-セントビンセント",
+      "section": "America",
+      "title": "セントビンセント",
+      "prompt": "Saint Vincent",
+      "description": "カリブ海の sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[America"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "america-トリニダード-トバゴ",
+      "section": "America",
+      "title": "トリニダード・トバゴ",
+      "prompt": "Trinidad And Tobago",
+      "description": "カリブ海の sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[America"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "europe-イギリス",
+      "section": "Europe",
+      "title": "イギリス",
+      "prompt": "United Kingdom",
+      "description": "ヨーロッパの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Europe"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "europe-オーストリア",
+      "section": "Europe",
+      "title": "オーストリア",
+      "prompt": "Austria",
+      "description": "ヨーロッパの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Europe"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "europe-ベルギー",
+      "section": "Europe",
+      "title": "ベルギー",
+      "prompt": "Belgium",
+      "description": "ヨーロッパの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Europe"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "europe-デンマーク",
+      "section": "Europe",
+      "title": "デンマーク",
+      "prompt": "Denmark",
+      "description": "ヨーロッパの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Europe"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "europe-フランス",
+      "section": "Europe",
+      "title": "フランス",
+      "prompt": "France",
+      "description": "ヨーロッパの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Europe"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "europe-ドイツ",
+      "section": "Europe",
+      "title": "ドイツ",
+      "prompt": "Germany",
+      "description": "ヨーロッパの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Europe"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "europe-ギリシャ",
+      "section": "Europe",
+      "title": "ギリシャ",
+      "prompt": "Greece",
+      "description": "ヨーロッパの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Europe"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "europe-バチカン",
+      "section": "Europe",
+      "title": "バチカン",
+      "prompt": "Holy See",
+      "description": "ヨーロッパの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Europe"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "europe-ハンガリー",
+      "section": "Europe",
+      "title": "ハンガリー",
+      "prompt": "Hungary",
+      "description": "ヨーロッパの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Europe"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "europe-アイスランド",
+      "section": "Europe",
+      "title": "アイスランド",
+      "prompt": "Iceland",
+      "description": "ヨーロッパの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Europe"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "europe-イタリア",
+      "section": "Europe",
+      "title": "イタリア",
+      "prompt": "Italy",
+      "description": "ヨーロッパの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Europe"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "europe-オランダ",
+      "section": "Europe",
+      "title": "オランダ",
+      "prompt": "Netherlands",
+      "description": "ヨーロッパの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Europe"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "europe-ノルウェー",
+      "section": "Europe",
+      "title": "ノルウェー",
+      "prompt": "Norway",
+      "description": "ヨーロッパの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Europe"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "europe-ポーランド",
+      "section": "Europe",
+      "title": "ポーランド",
+      "prompt": "Poland",
+      "description": "ヨーロッパの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Europe"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "europe-ポルトガル",
+      "section": "Europe",
+      "title": "ポルトガル",
+      "prompt": "Portugal",
+      "description": "ヨーロッパの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Europe"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "europe-スペイン",
+      "section": "Europe",
+      "title": "スペイン",
+      "prompt": "Spain",
+      "description": "ヨーロッパの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Europe"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "europe-スウェーデン",
+      "section": "Europe",
+      "title": "スウェーデン",
+      "prompt": "Sweden",
+      "description": "ヨーロッパの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Europe"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "europe-スイス",
+      "section": "Europe",
+      "title": "スイス",
+      "prompt": "Switzerland",
+      "description": "ヨーロッパの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Europe"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "europe-ロシア",
+      "section": "Europe",
+      "title": "ロシア",
+      "prompt": "Russian",
+      "description": "ヨーロッパの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Europe"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "europe-アルバニア",
+      "section": "Europe",
+      "title": "アルバニア",
+      "prompt": "Albania",
+      "description": "ヨーロッパの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Europe"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "europe-アンドラ",
+      "section": "Europe",
+      "title": "アンドラ",
+      "prompt": "Andorra",
+      "description": "ヨーロッパの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Europe"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "europe-ベラルーシ",
+      "section": "Europe",
+      "title": "ベラルーシ",
+      "prompt": "Belarus",
+      "description": "ヨーロッパの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Europe"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "europe-ボスニアヘルツェゴビナ",
+      "section": "Europe",
+      "title": "ボスニアヘルツェゴビナ",
+      "prompt": "Bosnia And Herzegovina",
+      "description": "ヨーロッパの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Europe"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "europe-ブルガリア",
+      "section": "Europe",
+      "title": "ブルガリア",
+      "prompt": "Bulgaria",
+      "description": "ヨーロッパの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Europe"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "europe-クロアチア",
+      "section": "Europe",
+      "title": "クロアチア",
+      "prompt": "Croatia",
+      "description": "ヨーロッパの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Europe"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "europe-チェコ",
+      "section": "Europe",
+      "title": "チェコ",
+      "prompt": "Czechia",
+      "description": "ヨーロッパの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Europe"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "europe-エストニア",
+      "section": "Europe",
+      "title": "エストニア",
+      "prompt": "Estonia",
+      "description": "ヨーロッパの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Europe"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "europe-フィンランド",
+      "section": "Europe",
+      "title": "フィンランド",
+      "prompt": "Finland",
+      "description": "ヨーロッパの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Europe"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "europe-アイルランド",
+      "section": "Europe",
+      "title": "アイルランド",
+      "prompt": "Ireland",
+      "description": "ヨーロッパの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Europe"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "europe-コソボ",
+      "section": "Europe",
+      "title": "コソボ",
+      "prompt": "Kosovo",
+      "description": "ヨーロッパの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Europe"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "europe-ラトビア",
+      "section": "Europe",
+      "title": "ラトビア",
+      "prompt": "Latvia",
+      "description": "ヨーロッパの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Europe"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "europe-リヒテンシュタイン",
+      "section": "Europe",
+      "title": "リヒテンシュタイン",
+      "prompt": "Liechtenstein",
+      "description": "ヨーロッパの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Europe"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "europe-リトアニア",
+      "section": "Europe",
+      "title": "リトアニア",
+      "prompt": "Lithuania",
+      "description": "ヨーロッパの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Europe"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "europe-ルクセンブルク",
+      "section": "Europe",
+      "title": "ルクセンブルク",
+      "prompt": "Luxembourg",
+      "description": "ヨーロッパの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Europe"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "europe-北マケドニア",
+      "section": "Europe",
+      "title": "北マケドニア",
+      "prompt": "Macedonia",
+      "description": "ヨーロッパの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Europe"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "europe-マルタ",
+      "section": "Europe",
+      "title": "マルタ",
+      "prompt": "Malta",
+      "description": "ヨーロッパの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Europe"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "europe-モルドバ",
+      "section": "Europe",
+      "title": "モルドバ",
+      "prompt": "Moldova",
+      "description": "ヨーロッパの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Europe"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "europe-モナコ",
+      "section": "Europe",
+      "title": "モナコ",
+      "prompt": "Monaco",
+      "description": "ヨーロッパの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Europe"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "europe-モンテネグロ",
+      "section": "Europe",
+      "title": "モンテネグロ",
+      "prompt": "Montenegro",
+      "description": "ヨーロッパの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Europe"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "europe-ルーマニア",
+      "section": "Europe",
+      "title": "ルーマニア",
+      "prompt": "Romania",
+      "description": "ヨーロッパの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Europe"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "europe-サンマリノ",
+      "section": "Europe",
+      "title": "サンマリノ",
+      "prompt": "San Marino",
+      "description": "ヨーロッパの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Europe"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "europe-セルビア",
+      "section": "Europe",
+      "title": "セルビア",
+      "prompt": "Serbia",
+      "description": "ヨーロッパの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Europe"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "europe-スロバキア",
+      "section": "Europe",
+      "title": "スロバキア",
+      "prompt": "Slovakia",
+      "description": "ヨーロッパの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Europe"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "europe-スロベニア",
+      "section": "Europe",
+      "title": "スロベニア",
+      "prompt": "Slovenia",
+      "description": "ヨーロッパの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Europe"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "europe-ウクライナ",
+      "section": "Europe",
+      "title": "ウクライナ",
+      "prompt": "Ukraine",
+      "description": "ヨーロッパの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Europe"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "africa-エジプト",
+      "section": "Africa",
+      "title": "エジプト",
+      "prompt": "Egypt",
+      "description": "北アフリカの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Africa"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "africa-モロッコ",
+      "section": "Africa",
+      "title": "モロッコ",
+      "prompt": "Morocco",
+      "description": "北アフリカの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Africa"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "africa-コンゴ",
+      "section": "Africa",
+      "title": "コンゴ",
+      "prompt": "Congo",
+      "description": "中部アフリカの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Africa"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "africa-ギニア",
+      "section": "Africa",
+      "title": "ギニア",
+      "prompt": "Equatorial Guinea",
+      "description": "西アフリカの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Africa"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "africa-ガーナ",
+      "section": "Africa",
+      "title": "ガーナ",
+      "prompt": "Ghana",
+      "description": "西アフリカの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Africa"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "africa-ケニア",
+      "section": "Africa",
+      "title": "ケニア",
+      "prompt": "Kenya",
+      "description": "東アフリカの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Africa"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "africa-南アフリカ",
+      "section": "Africa",
+      "title": "南アフリカ",
+      "prompt": "South Africa",
+      "description": "南部アフリカの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Africa"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "africa-ウガンダ",
+      "section": "Africa",
+      "title": "ウガンダ",
+      "prompt": "Uganda",
+      "description": "東アフリカの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Africa"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "africa-アルジェリア",
+      "section": "Africa",
+      "title": "アルジェリア",
+      "prompt": "Algeria",
+      "description": "北アフリカの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Africa"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "africa-アンゴラ",
+      "section": "Africa",
+      "title": "アンゴラ",
+      "prompt": "Angola",
+      "description": "南部アフリカの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Africa"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "africa-ベナン",
+      "section": "Africa",
+      "title": "ベナン",
+      "prompt": "Benin",
+      "description": "西アフリカの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Africa"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "africa-ボツワナ",
+      "section": "Africa",
+      "title": "ボツワナ",
+      "prompt": "Botswana",
+      "description": "南部アフリカの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Africa"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "africa-ブルキナファソ",
+      "section": "Africa",
+      "title": "ブルキナファソ",
+      "prompt": "Burkina Faso",
+      "description": "西アフリカの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Africa"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "africa-ブルンジ",
+      "section": "Africa",
+      "title": "ブルンジ",
+      "prompt": "Burundi",
+      "description": "東アフリカの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Africa"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "africa-カーボベルデ",
+      "section": "Africa",
+      "title": "カーボベルデ",
+      "prompt": "Cabo Verde",
+      "description": "西アフリカの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Africa"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "africa-カメルーン",
+      "section": "Africa",
+      "title": "カメルーン",
+      "prompt": "Cameroon",
+      "description": "中部アフリカの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Africa"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "africa-中央アフリカ",
+      "section": "Africa",
+      "title": "中央アフリカ",
+      "prompt": "Central African",
+      "description": "中部アフリカの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Africa"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "africa-チャド",
+      "section": "Africa",
+      "title": "チャド",
+      "prompt": "Chad",
+      "description": "中部アフリカの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Africa"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "africa-コモロ",
+      "section": "Africa",
+      "title": "コモロ",
+      "prompt": "Comoros",
+      "description": "東アフリカの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Africa"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "africa-コートジボワール",
+      "section": "Africa",
+      "title": "コートジボワール",
+      "prompt": "Cote D Ivoire",
+      "description": "西アフリカの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Africa"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "africa-ジブチ",
+      "section": "Africa",
+      "title": "ジブチ",
+      "prompt": "Djibouti",
+      "description": "東アフリカの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Africa"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "africa-エリトリア",
+      "section": "Africa",
+      "title": "エリトリア",
+      "prompt": "Eritrea",
+      "description": "東アフリカの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Africa"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "africa-エスワティニ",
+      "section": "Africa",
+      "title": "エスワティニ",
+      "prompt": "Eswatini",
+      "description": "南部アフリカの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Africa"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "africa-エチオピア",
+      "section": "Africa",
+      "title": "エチオピア",
+      "prompt": "Ethiopia",
+      "description": "東アフリカの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Africa"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "africa-ガボン",
+      "section": "Africa",
+      "title": "ガボン",
+      "prompt": "Gabon",
+      "description": "中部アフリカの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Africa"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "africa-ガンビア",
+      "section": "Africa",
+      "title": "ガンビア",
+      "prompt": "Gambia",
+      "description": "西アフリカの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Africa"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "africa-ギニア",
+      "section": "Africa",
+      "title": "ギニア",
+      "prompt": "Guinea-Bissau",
+      "description": "西アフリカの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Africa"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "africa-レソト",
+      "section": "Africa",
+      "title": "レソト",
+      "prompt": "Lesotho",
+      "description": "南部アフリカの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Africa"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "africa-リベリア",
+      "section": "Africa",
+      "title": "リベリア",
+      "prompt": "Liberia",
+      "description": "西アフリカの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Africa"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "africa-リビア",
+      "section": "Africa",
+      "title": "リビア",
+      "prompt": "Libya",
+      "description": "北アフリカの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Africa"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "africa-マダガスカル",
+      "section": "Africa",
+      "title": "マダガスカル",
+      "prompt": "Madagascar",
+      "description": "東アフリカの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Africa"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "africa-マラウイ",
+      "section": "Africa",
+      "title": "マラウイ",
+      "prompt": "Malawi",
+      "description": "東アフリカの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Africa"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "africa-マリ",
+      "section": "Africa",
+      "title": "マリ",
+      "prompt": "Mali",
+      "description": "西アフリカの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Africa"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "africa-モーリタニア",
+      "section": "Africa",
+      "title": "モーリタニア",
+      "prompt": "Mauritania",
+      "description": "西アフリカの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Africa"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "africa-モーリシャス",
+      "section": "Africa",
+      "title": "モーリシャス",
+      "prompt": "Mauritius",
+      "description": "東アフリカの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Africa"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "africa-モザンビーク",
+      "section": "Africa",
+      "title": "モザンビーク",
+      "prompt": "Mozambique",
+      "description": "東アフリカの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Africa"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "africa-ナミビア",
+      "section": "Africa",
+      "title": "ナミビア",
+      "prompt": "Namibia",
+      "description": "南部アフリカの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Africa"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "africa-ニジェール",
+      "section": "Africa",
+      "title": "ニジェール",
+      "prompt": "Niger",
+      "description": "西アフリカの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Africa"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "africa-ナイジェリア",
+      "section": "Africa",
+      "title": "ナイジェリア",
+      "prompt": "Nigeria",
+      "description": "西アフリカの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Africa"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "africa-ルワンダ",
+      "section": "Africa",
+      "title": "ルワンダ",
+      "prompt": "Rwanda",
+      "description": "東アフリカの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Africa"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "africa-サントメ-プリンシペ",
+      "section": "Africa",
+      "title": "サントメ・プリンシペ",
+      "prompt": "Sao Tome",
+      "description": "中部アフリカの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Africa"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "africa-セネガル",
+      "section": "Africa",
+      "title": "セネガル",
+      "prompt": "Senegal",
+      "description": "西アフリカの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Africa"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "africa-セーシェル",
+      "section": "Africa",
+      "title": "セーシェル",
+      "prompt": "Seychelles",
+      "description": "東アフリカの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Africa"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "africa-シェラレオネ",
+      "section": "Africa",
+      "title": "シェラレオネ",
+      "prompt": "Sierra Leone",
+      "description": "西アフリカの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Africa"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "africa-ソマリア",
+      "section": "Africa",
+      "title": "ソマリア",
+      "prompt": "Somalia",
+      "description": "東アフリカの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Africa"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "africa-南スーダン",
+      "section": "Africa",
+      "title": "南スーダン",
+      "prompt": "South Sudan",
+      "description": "東アフリカの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Africa"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "africa-スーダン",
+      "section": "Africa",
+      "title": "スーダン",
+      "prompt": "Sudan",
+      "description": "北アフリカの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Africa"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "africa-タンザニア",
+      "section": "Africa",
+      "title": "タンザニア",
+      "prompt": "Tanzania",
+      "description": "東アフリカの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Africa"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "africa-トーゴ",
+      "section": "Africa",
+      "title": "トーゴ",
+      "prompt": "Togo",
+      "description": "西アフリカの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Africa"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "africa-チュニジア",
+      "section": "Africa",
+      "title": "チュニジア",
+      "prompt": "Tunisia",
+      "description": "北アフリカの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Africa"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "africa-ザンビア",
+      "section": "Africa",
+      "title": "ザンビア",
+      "prompt": "Zambia",
+      "description": "南部アフリカの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Africa"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "africa-ジンバブエ",
+      "section": "Africa",
+      "title": "ジンバブエ",
+      "prompt": "Zimbabwe",
+      "description": "南部アフリカの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[Africa"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "オセアニア-オーストラリア",
+      "section": "オセアニア",
+      "title": "オーストラリア",
+      "prompt": "Australia",
+      "description": "オセアニアの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[オセアニア"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "オセアニア-ニュージーランド",
+      "section": "オセアニア",
+      "title": "ニュージーランド",
+      "prompt": "New Zealand",
+      "description": "オセアニアの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[オセアニア"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "オセアニア-クック",
+      "section": "オセアニア",
+      "title": "クック",
+      "prompt": "Cook Islands",
+      "description": "オセアニアの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[オセアニア"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "オセアニア-フィジー",
+      "section": "オセアニア",
+      "title": "フィジー",
+      "prompt": "Fiji",
+      "description": "オセアニアの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[オセアニア"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "オセアニア-キリバス",
+      "section": "オセアニア",
+      "title": "キリバス",
+      "prompt": "Kiribati",
+      "description": "オセアニアの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[オセアニア"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "オセアニア-マーシャル諸島",
+      "section": "オセアニア",
+      "title": "マーシャル諸島",
+      "prompt": "Marshall Islands",
+      "description": "オセアニアの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[オセアニア"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "オセアニア-ミクロネシア",
+      "section": "オセアニア",
+      "title": "ミクロネシア",
+      "prompt": "Micronesia",
+      "description": "オセアニアの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[オセアニア"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "オセアニア-ナウル",
+      "section": "オセアニア",
+      "title": "ナウル",
+      "prompt": "Nauru",
+      "description": "オセアニアの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[オセアニア"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "オセアニア-ニウエ",
+      "section": "オセアニア",
+      "title": "ニウエ",
+      "prompt": "Niue",
+      "description": "オセアニアの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[オセアニア"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "オセアニア-パラオ",
+      "section": "オセアニア",
+      "title": "パラオ",
+      "prompt": "Palau",
+      "description": "オセアニアの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[オセアニア"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "オセアニア-パプアニューギニア",
+      "section": "オセアニア",
+      "title": "パプアニューギニア",
+      "prompt": "Papua New Guinea",
+      "description": "オセアニアの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[オセアニア"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "オセアニア-サモア",
+      "section": "オセアニア",
+      "title": "サモア",
+      "prompt": "Samoa",
+      "description": "オセアニアの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[オセアニア"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "オセアニア-ソロモン",
+      "section": "オセアニア",
+      "title": "ソロモン",
+      "prompt": "Solomon Islands",
+      "description": "オセアニアの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[オセアニア"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "オセアニア-トンガ",
+      "section": "オセアニア",
+      "title": "トンガ",
+      "prompt": "Tonga",
+      "description": "オセアニアの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[オセアニア"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "オセアニア-ツバル",
+      "section": "オセアニア",
+      "title": "ツバル",
+      "prompt": "Tuvalu",
+      "description": "オセアニアの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[オセアニア"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "オセアニア-バヌアツ",
+      "section": "オセアニア",
+      "title": "バヌアツ",
+      "prompt": "Vanuatu",
+      "description": "オセアニアの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[オセアニア"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "極地-南極",
+      "section": "極地",
+      "title": "南極",
+      "prompt": "Antarctic",
+      "description": "極地の sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[極地"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "極地-北極",
+      "section": "極地",
+      "title": "北極",
+      "prompt": "North Pole",
+      "description": "極地の sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[極地"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "中東-バーレーン",
+      "section": "中東",
+      "title": "バーレーン",
+      "prompt": "Bahrain",
+      "description": "中東の sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[中東"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "中東-キプロス",
+      "section": "中東",
+      "title": "キプロス",
+      "prompt": "Cyprus",
+      "description": "中東の sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[中東"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "中東-イラン",
+      "section": "中東",
+      "title": "イラン",
+      "prompt": "Iran",
+      "description": "中東の sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[中東"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "中東-イラク",
+      "section": "中東",
+      "title": "イラク",
+      "prompt": "Iraq",
+      "description": "中東の sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[中東"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "中東-イスラエル",
+      "section": "中東",
+      "title": "イスラエル",
+      "prompt": "Israel",
+      "description": "中東の sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[中東"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "中東-ヨルダン",
+      "section": "中東",
+      "title": "ヨルダン",
+      "prompt": "Jordan",
+      "description": "中東の sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[中東"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "中東-クウェート",
+      "section": "中東",
+      "title": "クウェート",
+      "prompt": "Kuwait",
+      "description": "中東の sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[中東"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "中東-レバノン",
+      "section": "中東",
+      "title": "レバノン",
+      "prompt": "Lebanon",
+      "description": "中東の sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[中東"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "中東-オマーン",
+      "section": "中東",
+      "title": "オマーン",
+      "prompt": "Oman",
+      "description": "中東の sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[中東"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "中東-パレスチナ",
+      "section": "中東",
+      "title": "パレスチナ",
+      "prompt": "Palestine",
+      "description": "中東の sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[中東"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "中東-カタール",
+      "section": "中東",
+      "title": "カタール",
+      "prompt": "Qatar",
+      "description": "中東の sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[中東"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "中東-サウジアラビア",
+      "section": "中東",
+      "title": "サウジアラビア",
+      "prompt": "Saudi Arabia",
+      "description": "中東の sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[中東"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "中東-シリア",
+      "section": "中東",
+      "title": "シリア",
+      "prompt": "Syrian",
+      "description": "中東の sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[中東"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "中東-uae",
+      "section": "中東",
+      "title": "UAE",
+      "prompt": "United Arab Emirates",
+      "description": "中東の sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[中東"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "中東-イエメン",
+      "section": "中東",
+      "title": "イエメン",
+      "prompt": "Yemen",
+      "description": "中東の sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[中東"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "中南米地域-アルゼンチン",
+      "section": "中南米地域",
+      "title": "アルゼンチン",
+      "prompt": "Argentina",
+      "description": "南アメリカの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[中南米地域"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "中南米地域-ブラジル",
+      "section": "中南米地域",
+      "title": "ブラジル",
+      "prompt": "Brazil",
+      "description": "南アメリカの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[中南米地域"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "中南米地域-チリ",
+      "section": "中南米地域",
+      "title": "チリ",
+      "prompt": "Chile",
+      "description": "南アメリカの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[中南米地域"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "中南米地域-ペルー",
+      "section": "中南米地域",
+      "title": "ペルー",
+      "prompt": "Peru",
+      "description": "南アメリカの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[中南米地域"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "中南米地域-アンティグア-バーブーダ",
+      "section": "中南米地域",
+      "title": "アンティグア・バーブーダ",
+      "prompt": "Antigua And Barbuda",
+      "description": "カリブ海の sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[中南米地域"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "中南米地域-バハマ",
+      "section": "中南米地域",
+      "title": "バハマ",
+      "prompt": "Bahamas",
+      "description": "カリブ海の sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[中南米地域"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "中南米地域-バルバドス",
+      "section": "中南米地域",
+      "title": "バルバドス",
+      "prompt": "Barbados",
+      "description": "カリブ海の sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[中南米地域"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "中南米地域-ベリーズ",
+      "section": "中南米地域",
+      "title": "ベリーズ",
+      "prompt": "Belize",
+      "description": "中央アメリカの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[中南米地域"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "中南米地域-ボリビア",
+      "section": "中南米地域",
+      "title": "ボリビア",
+      "prompt": "Bolivia",
+      "description": "南アメリカの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[中南米地域"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "中南米地域-コロンビア",
+      "section": "中南米地域",
+      "title": "コロンビア",
+      "prompt": "Colombia",
+      "description": "南アメリカの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[中南米地域"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "中南米地域-コスタリカ",
+      "section": "中南米地域",
+      "title": "コスタリカ",
+      "prompt": "Costa Rica",
+      "description": "中央アメリカの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[中南米地域"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "中南米地域-エクアドル",
+      "section": "中南米地域",
+      "title": "エクアドル",
+      "prompt": "Ecuador",
+      "description": "南アメリカの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[中南米地域"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "中南米地域-エルサルバドル",
+      "section": "中南米地域",
+      "title": "エルサルバドル",
+      "prompt": "El Salvador",
+      "description": "中央アメリカの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[中南米地域"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "中南米地域-グアテマラ",
+      "section": "中南米地域",
+      "title": "グアテマラ",
+      "prompt": "Guatemala",
+      "description": "中央アメリカの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[中南米地域"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "中南米地域-ガイアナ",
+      "section": "中南米地域",
+      "title": "ガイアナ",
+      "prompt": "Guyana",
+      "description": "南アメリカの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[中南米地域"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "中南米地域-ホンジュラス",
+      "section": "中南米地域",
+      "title": "ホンジュラス",
+      "prompt": "Honduras",
+      "description": "中央アメリカの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[中南米地域"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "中南米地域-ニカラグア",
+      "section": "中南米地域",
+      "title": "ニカラグア",
+      "prompt": "Nicaragua",
+      "description": "中央アメリカの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[中南米地域"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "中南米地域-パナマ",
+      "section": "中南米地域",
+      "title": "パナマ",
+      "prompt": "Panama",
+      "description": "中央アメリカの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[中南米地域"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "中南米地域-パラグアイ",
+      "section": "中南米地域",
+      "title": "パラグアイ",
+      "prompt": "Paraguay",
+      "description": "南アメリカの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[中南米地域"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "中南米地域-スリナム",
+      "section": "中南米地域",
+      "title": "スリナム",
+      "prompt": "Suriname",
+      "description": "南アメリカの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[中南米地域"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "中南米地域-ウルグアイ",
+      "section": "中南米地域",
+      "title": "ウルグアイ",
+      "prompt": "Uruguay",
+      "description": "南アメリカの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[中南米地域"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "中南米地域-ベネズエラ",
+      "section": "中南米地域",
+      "title": "ベネズエラ",
+      "prompt": "Venezuela",
+      "description": "南アメリカの sunoプロンプトでは、Janle/楽器等の他要素と組合せて利用 ]",
+      "tags": [
+        "国",
+        "[中南米地域"
+      ],
+      "targets": [
+        "style"
+      ]
+    }
+  ],
+  "entryEnrichment": {}
+}

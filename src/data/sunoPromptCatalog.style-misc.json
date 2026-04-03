@@ -1,0 +1,6630 @@
+{
+  "target": "style",
+  "mode": "rest",
+  "bucketKey": "style-misc",
+  "sections": [
+    "Classic",
+    "healing",
+    "ラテン",
+    "set",
+    "テンポ",
+    "曲調",
+    "効果音",
+    "メロディ",
+    "ストーリー",
+    "ハーモニー",
+    "ペース",
+    "リズム",
+    "感情2",
+    "環境/雰囲気"
+  ],
+  "entryCount": 479,
+  "entries": [
+    {
+      "id": "classic-クラシック",
+      "section": "Classic",
+      "title": "クラシック",
+      "prompt": "Crassic",
+      "description": "西洋の伝統的な作曲技法や演奏法による芸術音楽の総称",
+      "tags": [
+        "janle",
+        "Classic"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "classic-orchestra",
+      "section": "Classic",
+      "title": "Orchestra",
+      "prompt": "Orchestra",
+      "description": "オーケストラ 弦楽器、管楽器、打楽器などで構成された楽曲クラシック中心",
+      "tags": [
+        "janle",
+        "Classic"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "classic-symphonic",
+      "section": "Classic",
+      "title": "Symphonic",
+      "prompt": "Symphonic",
+      "description": "シンフォニック オーケストラによる大規模な音楽",
+      "tags": [
+        "janle",
+        "Classic"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "classic-ゴスペル",
+      "section": "Classic",
+      "title": "ゴスペル",
+      "prompt": "Gospel",
+      "description": "キリスト教音楽感動的な歌詞表現が特徴",
+      "tags": [
+        "janle",
+        "Classic"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "classic-piano",
+      "section": "Classic",
+      "title": "Piano",
+      "prompt": "Piano",
+      "description": "ピアノ ピアノ使用の音楽ポップからクラシックまで幅広いジャンルで使用",
+      "tags": [
+        "janle",
+        "Classic"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "classic-brass",
+      "section": "Classic",
+      "title": "Brass",
+      "prompt": "Brass",
+      "description": "ブラス 金管楽器を使用した音楽",
+      "tags": [
+        "janle",
+        "Classic"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "classic-cello",
+      "section": "Classic",
+      "title": "Cello",
+      "prompt": "Cello",
+      "description": "チェロ チェロを利用した音楽幅広いジャンルで使用される",
+      "tags": [
+        "janle",
+        "Classic"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "classic-オペラ",
+      "section": "Classic",
+      "title": "オペラ",
+      "prompt": "Opera",
+      "description": "音楽と演劇が融合した総合芸術で、日本語では「歌劇」とも呼ばれる",
+      "tags": [
+        "janle",
+        "Classic"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "classic-violin",
+      "section": "Classic",
+      "title": "Violin",
+      "prompt": "Violin",
+      "description": "バイオリン バイオリンを中心とした音楽",
+      "tags": [
+        "janle",
+        "Classic"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "classic-バーバーショップ",
+      "section": "Classic",
+      "title": "バーバーショップ",
+      "prompt": "Barbershop",
+      "description": "アカペラのクローズハーモニー（密集和声）のスタイルで、無伴奏で歌われる音楽",
+      "tags": [
+        "janle",
+        "Classic"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "classic-ビッグ",
+      "section": "Classic",
+      "title": "ビッグ",
+      "prompt": "Big Band",
+      "description": "大編成のバンドによる壮大な音楽",
+      "tags": [
+        "janle",
+        "Classic"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "classic-ファイフ",
+      "section": "Classic",
+      "title": "ファイフ",
+      "prompt": "Fife",
+      "description": "ピッコロのような小さなフルート",
+      "tags": [
+        "janle",
+        "Classic"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "classic-プリミティビズム",
+      "section": "Classic",
+      "title": "プリミティビズム",
+      "prompt": "Primitivism",
+      "description": "原始的な、素朴な音楽表現",
+      "tags": [
+        "janle",
+        "Classic"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "classic-聖歌隊付属セット",
+      "section": "Classic",
+      "title": "聖歌隊付属セット",
+      "prompt": "Ethereal, Boy Vocals, Girl Vocals, Euphonium, Harpsichord, Double Bass, Harp, Orchestra, Ethereal, Gospel, Pipe Organ, Choir Voices, Choir,",
+      "description": "合唱による聖歌隊付きの曲になります(AIの気分と詩にもよります。)",
+      "tags": [
+        "janle",
+        "Classic"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "classic-ゴスペルpopセット",
+      "section": "Classic",
+      "title": "ゴスペルPOPセット",
+      "prompt": "Orchestra, Japan, Ethereal, Barbershop, Gospel, Pipe Organ, Girl Vocals, Boy Vocals, Choir Voices, Chant Vocals",
+      "description": "ゴスペル風POP曲になります(AIの気分と詩にもよります。)",
+      "tags": [
+        "janle",
+        "Classic"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "classic-バーバーショップ-アシッド",
+      "section": "Classic",
+      "title": "バーバーショップ アシッド",
+      "prompt": "Barbershop Acid",
+      "description": "バーバーショップコーラスとアシッドサウンドを融合",
+      "tags": [
+        "janle",
+        "Classic"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "classic-バーバーショップ-ブレイクビート",
+      "section": "Classic",
+      "title": "バーバーショップ ブレイクビート",
+      "prompt": "Barbershop Breakbeat",
+      "description": "バーバーショップコーラスとブレイクビーツを融合",
+      "tags": [
+        "janle",
+        "Classic"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "classic-バーバーショップ-ロシア",
+      "section": "Classic",
+      "title": "バーバーショップ ロシア",
+      "prompt": "Barbershop Russian",
+      "description": "バーバーショップコーラスとロシア音楽の要素を融合",
+      "tags": [
+        "janle",
+        "Classic"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "classic-バロック",
+      "section": "Classic",
+      "title": "バロック",
+      "prompt": "Baroque",
+      "description": "中世ヨーロッパのクラシック音楽",
+      "tags": [
+        "janle",
+        "Classic"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "classic-クラシカル-アフロジャズ",
+      "section": "Classic",
+      "title": "クラシカル アフロジャズ",
+      "prompt": "Classical Afro-Jazz",
+      "description": "クラシックとアフロジャズの融合",
+      "tags": [
+        "janle",
+        "Classic"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "classic-クラシカル-ブルーグラス-ケイジャン",
+      "section": "Classic",
+      "title": "クラシカル ブルーグラス ケイジャン",
+      "prompt": "Classical Bluegrass Cajun",
+      "description": "クラシック、ブルーグラス、ケイジャンの融合",
+      "tags": [
+        "janle",
+        "Classic"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "classic-クラシカル-ブルース",
+      "section": "Classic",
+      "title": "クラシカル ブルース",
+      "prompt": "Classical Blues",
+      "description": "クラシックとブルースの融合",
+      "tags": [
+        "janle",
+        "Classic"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "classic-クラシカル-ダカール",
+      "section": "Classic",
+      "title": "クラシカル ダカール",
+      "prompt": "Classical Dakar",
+      "description": "クラシックとセネガルのダカール音楽の融合",
+      "tags": [
+        "janle",
+        "Classic"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "classic-クラシカル-ドラム",
+      "section": "Classic",
+      "title": "クラシカル ドラム",
+      "prompt": "Classical Drum",
+      "description": "クラシックとドラムンベースの融合",
+      "tags": [
+        "janle",
+        "Classic"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "classic-クラシック-ダブステップ-グライム-ハバナ",
+      "section": "Classic",
+      "title": "クラシック ダブステップ グライム ハバナ",
+      "prompt": "Classical Dubstep Grime Havana",
+      "description": "クラシック、ダブステップ、グライム、ハバナの融合",
+      "tags": [
+        "janle",
+        "Classic"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "classic-エレクトリックファンファーレ",
+      "section": "Classic",
+      "title": "エレクトリックファンファーレ",
+      "prompt": "Electric Fanfare",
+      "description": "ディズニーのアレ風",
+      "tags": [
+        "janle",
+        "Classic"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "classic-クラシカル-ソウルフル",
+      "section": "Classic",
+      "title": "クラシカル ソウルフル",
+      "prompt": "Classical Soulful",
+      "description": "クラシックとソウルの融合",
+      "tags": [
+        "janle",
+        "Classic"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "classic-ゴスペル-クリスチャン",
+      "section": "Classic",
+      "title": "ゴスペル＆クリスチャン",
+      "prompt": "Gospel & Christian",
+      "description": "神への賛美歌感動的な曲調",
+      "tags": [
+        "janle",
+        "Classic"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "classic-ゴスペル-ローファイ",
+      "section": "Classic",
+      "title": "ゴスペル ローファイ",
+      "prompt": "Gospel Lo-Fi",
+      "description": "ローファイなサウンドのゴスペル",
+      "tags": [
+        "janle",
+        "Classic"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "classic-ゴスペル-マンダリン",
+      "section": "Classic",
+      "title": "ゴスペル マンダリン",
+      "prompt": "Gospel Mandarin",
+      "description": "ゴスペルと中国の音楽の要素を融合",
+      "tags": [
+        "janle",
+        "Classic"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "classic-ゴスペル-ソウルフル",
+      "section": "Classic",
+      "title": "ゴスペル ソウルフル",
+      "prompt": "Gospel Soulful",
+      "description": "ソウルフルなゴスペル",
+      "tags": [
+        "janle",
+        "Classic"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "classic-オペラ-アコースティック",
+      "section": "Classic",
+      "title": "オペラ アコースティック",
+      "prompt": "Opera Acoustic",
+      "description": "アコースティック楽器を用いたオペラ",
+      "tags": [
+        "janle",
+        "Classic"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "classic-オペラ-コーラル",
+      "section": "Classic",
+      "title": "オペラ コーラル",
+      "prompt": "Opera Choral",
+      "description": "合唱団によるオペラ",
+      "tags": [
+        "janle",
+        "Classic"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "classic-オペラ-ロシア",
+      "section": "Classic",
+      "title": "オペラ ロシア",
+      "prompt": "Opera Russian",
+      "description": "ロシア語のオペラ",
+      "tags": [
+        "janle",
+        "Classic"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "classic-プリミティビズム-アコーディオン",
+      "section": "Classic",
+      "title": "プリミティビズム アコーディオン",
+      "prompt": "Primitivism Accordion",
+      "description": "アコーディオンを用いたプリミティブな音楽",
+      "tags": [
+        "janle",
+        "Classic"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "classic-プリミティビズム-ボサノバ",
+      "section": "Classic",
+      "title": "プリミティビズム ボサノバ",
+      "prompt": "Primitivism Bossa",
+      "description": "ボサノバの要素を取り入れたプリミティブな音楽",
+      "tags": [
+        "janle",
+        "Classic"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "classic-プリミティビズム-カルナティック-シティ",
+      "section": "Classic",
+      "title": "プリミティビズム カルナティック シティ",
+      "prompt": "Primitivism Carnatic City",
+      "description": "カルナティック音楽と都市的な要素を組み合わせたプリミティブな音楽",
+      "tags": [
+        "janle",
+        "Classic"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "classic-プリミティビズム-サザン",
+      "section": "Classic",
+      "title": "プリミティビズム サザン",
+      "prompt": "Primitivism Southern",
+      "description": "サザンロックの要素を取り入れたプリミティブな音楽",
+      "tags": [
+        "janle",
+        "Classic"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "classic-プリミティビズム-スパニッシュ",
+      "section": "Classic",
+      "title": "プリミティビズム スパニッシュ",
+      "prompt": "Primitivism Spanish",
+      "description": "スペインの伝統音楽やフラメンコなどの要素を取り入れたプリミティブな音楽",
+      "tags": [
+        "janle",
+        "Classic"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "healing-ヒーリング",
+      "section": "healing",
+      "title": "ヒーリング",
+      "prompt": "Healing Music",
+      "description": "癒しや安心感などリラックス効果の期待できる音楽",
+      "tags": [
+        "janle",
+        "healing "
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "healing-リラクシング",
+      "section": "healing",
+      "title": "リラクシング",
+      "prompt": "Relaxing Music",
+      "description": "癒しや安心感などリラックス効果の期待できる音楽",
+      "tags": [
+        "janle",
+        "healing "
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "healing-アンビエント",
+      "section": "healing",
+      "title": "アンビエント",
+      "prompt": "Ambient",
+      "description": "環境音楽背景音楽として聴くことを目的とした、穏やかでリラックスできる音楽",
+      "tags": [
+        "janle",
+        "healing "
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "healing-チル",
+      "section": "healing",
+      "title": "チル",
+      "prompt": "Chill",
+      "description": "リラックス音楽スローテンポ＋ソフトサウンドが特徴",
+      "tags": [
+        "janle",
+        "healing "
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "healing-サイビエント",
+      "section": "healing",
+      "title": "サイビエント",
+      "prompt": "Psybient",
+      "description": "アンビエント音楽をベースに、宗教的、民族的体験のようなサイケデリック音を取り入れた音楽",
+      "tags": [
+        "janle",
+        "healing "
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "healing-チルシンセアフロビート",
+      "section": "healing",
+      "title": "チルシンセアフロビート",
+      "prompt": "Chill Synth Afrobeat",
+      "description": "チルシンセとアフロビートの融合",
+      "tags": [
+        "janle",
+        "healing "
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "healing-チルシンセ-ダカール",
+      "section": "healing",
+      "title": "チルシンセ ダカール",
+      "prompt": "Chill Synth Dakar",
+      "description": "チルシンセとセネガルのダカール音楽の融合",
+      "tags": [
+        "janle",
+        "healing "
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "healing-チルシンセ-ダーク",
+      "section": "healing",
+      "title": "チルシンセ ダーク",
+      "prompt": "Chill Synth Dark",
+      "description": "ダークな雰囲気のチルシンセ",
+      "tags": [
+        "janle",
+        "healing "
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "healing-チルシンセ-ドラム",
+      "section": "healing",
+      "title": "チルシンセ ドラム",
+      "prompt": "Chill Synth Drum",
+      "description": "チルシンセとドラムンベースの融合",
+      "tags": [
+        "janle",
+        "healing "
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "healing-チルシンセ-フレンチ",
+      "section": "healing",
+      "title": "チルシンセ フレンチ",
+      "prompt": "Chill Synth French",
+      "description": "フランスの要素を取り入れたチルシンセ",
+      "tags": [
+        "janle",
+        "healing "
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "healing-チルシンセ-ゴスペル-ウェーブ-ハバナ",
+      "section": "healing",
+      "title": "チルシンセ ゴスペル ウェーブ ハバナ",
+      "prompt": "Chill Synth Gospel Wave Havana",
+      "description": "チルシンセ、ゴスペル、ウェーブ、ハバナの要素を融合",
+      "tags": [
+        "janle",
+        "healing "
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "healing-チルシンセ-ローファイ",
+      "section": "healing",
+      "title": "チルシンセ ローファイ",
+      "prompt": "Chill Synth Lo-Fi",
+      "description": "ローファイなサウンドのチルシンセ",
+      "tags": [
+        "janle",
+        "healing "
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "healing-チルステップ-アコースティック",
+      "section": "healing",
+      "title": "チルステップ アコースティック",
+      "prompt": "Chillstep Acoustic",
+      "description": "チルステップとアコースティック音楽の融合",
+      "tags": [
+        "janle",
+        "healing "
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "healing-チルステップ-アフロ-ピアノ",
+      "section": "healing",
+      "title": "チルステップ アフロ ピアノ",
+      "prompt": "Chillstep Afro Piano",
+      "description": "チルステップとアフロピアノの融合",
+      "tags": [
+        "janle",
+        "healing "
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "healing-チルステップ-ダンス-ホール-ドゥーワップ",
+      "section": "healing",
+      "title": "チルステップ ダンス ホール ドゥーワップ",
+      "prompt": "Chillstep Dancehall Doo-Wop",
+      "description": "チルステップ、ダンスホール、ドゥーワップの融合",
+      "tags": [
+        "janle",
+        "healing "
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "healing-チルステップ-ドリーミー",
+      "section": "healing",
+      "title": "チルステップ ドリーミー",
+      "prompt": "Chillstep Dreamy",
+      "description": "夢のような、ゆったりとしたチルステップ",
+      "tags": [
+        "janle",
+        "healing "
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "healing-チルステップ-ドラム",
+      "section": "healing",
+      "title": "チルステップ ドラム",
+      "prompt": "Chillstep Drum",
+      "description": "ドラムンベースとチルステップの融合",
+      "tags": [
+        "janle",
+        "healing "
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "healing-チルステップ-フレンチ",
+      "section": "healing",
+      "title": "チルステップ フレンチ",
+      "prompt": "Chillstep French",
+      "description": "フランスの要素を取り入れたチルステップ",
+      "tags": [
+        "janle",
+        "healing "
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "healing-チルステップ-ファンク",
+      "section": "healing",
+      "title": "チルステップ ファンク",
+      "prompt": "Chillstep Funk",
+      "description": "ファンクとチルステップの融合",
+      "tags": [
+        "janle",
+        "healing "
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "healing-チルステップ-パンク",
+      "section": "healing",
+      "title": "チルステップ パンク",
+      "prompt": "Chillstep Punk",
+      "description": "パンクとチルステップの融合",
+      "tags": [
+        "janle",
+        "healing "
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "healing-チルウェーブ-クラウド",
+      "section": "healing",
+      "title": "チルウェーブ クラウド",
+      "prompt": "Chillwave Cloud",
+      "description": "雲のようにふわふわとしたチルウェーブ",
+      "tags": [
+        "janle",
+        "healing "
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "healing-チルウェーブ-edm",
+      "section": "healing",
+      "title": "チルウェーブ EDM",
+      "prompt": "Chillwave Edm",
+      "description": "チルウェーブとエレクトロニックダンス音楽の融合",
+      "tags": [
+        "janle",
+        "healing "
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "healing-チルウェーブ-ゴア",
+      "section": "healing",
+      "title": "チルウェーブ ゴア",
+      "prompt": "Chillwave Goa",
+      "description": "ゴアトランスとチルウェーブの融合",
+      "tags": [
+        "janle",
+        "healing "
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "healing-チルウェーブ-コリアン",
+      "section": "healing",
+      "title": "チルウェーブ コリアン",
+      "prompt": "Chillwave Korean",
+      "description": "韓国の要素を取り入れたチルウェーブ",
+      "tags": [
+        "janle",
+        "healing "
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "healing-チルウェーブ-プログレッシブ",
+      "section": "healing",
+      "title": "チルウェーブ プログレッシブ",
+      "prompt": "Chillwave Prog",
+      "description": "プログレッシブなチルウェーブ",
+      "tags": [
+        "janle",
+        "healing "
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "healing-サイビエント-アコースティック",
+      "section": "healing",
+      "title": "サイビエント アコースティック",
+      "prompt": "Psybient Acoustic",
+      "description": "アコースティック楽器を用いたサイケデリックでアンビエントな音楽",
+      "tags": [
+        "janle",
+        "healing "
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "healing-サイビエント-アフロ",
+      "section": "healing",
+      "title": "サイビエント アフロ",
+      "prompt": "Psybient Afro",
+      "description": "アフリカ音楽の影響を受けたサイケデリックでアンビエントな音楽",
+      "tags": [
+        "janle",
+        "healing "
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "healing-サイビエント-アンチフォーク",
+      "section": "healing",
+      "title": "サイビエント アンチフォーク",
+      "prompt": "Psybient Anti-Folk",
+      "description": "フォーク音楽に対するアンチテーゼ的な要素を取り入れたサイケデリックでアンビエントな音楽",
+      "tags": [
+        "janle",
+        "healing "
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "healing-サイビエント-バブルガム",
+      "section": "healing",
+      "title": "サイビエント バブルガム",
+      "prompt": "Psybient Bubblegum",
+      "description": "ポップでキャッチーな要素を取り入れたサイケデリックでアンビエントな音楽",
+      "tags": [
+        "janle",
+        "healing "
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "healing-サイビエント-ダカール",
+      "section": "healing",
+      "title": "サイビエント ダカール",
+      "prompt": "Psybient Dakar",
+      "description": "セネガル・ダカールの音楽シーンの影響を受けたサイケデリックでアンビエントな音楽",
+      "tags": [
+        "janle",
+        "healing "
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "healing-サイビエント-コリアン",
+      "section": "healing",
+      "title": "サイビエント コリアン",
+      "prompt": "Psybient Korean",
+      "description": "韓国の音楽要素を取り入れたサイケデリックでアンビエントな音楽",
+      "tags": [
+        "janle",
+        "healing "
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "healing-サイビエント-スラッシュウェーブ",
+      "section": "healing",
+      "title": "サイビエント スラッシュウェーブ",
+      "prompt": "Psybient Slushwave",
+      "description": "スラッシュウェーブの要素を取り入れたサイケデリックでアンビエントな音楽",
+      "tags": [
+        "janle",
+        "healing "
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ラテン-ボサノヴァ",
+      "section": "ラテン",
+      "title": "ボサノヴァ",
+      "prompt": "Bossa Nova",
+      "description": "ブラジルのポピュラー音楽の一種ゆったりとしたリズムとメロディが特徴",
+      "tags": [
+        "janle",
+        "ラテン"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ラテン-レゲエ",
+      "section": "ラテン",
+      "title": "レゲエ",
+      "prompt": "Reggae",
+      "description": "ジャマイカ発祥の音楽ジャンル",
+      "tags": [
+        "janle",
+        "ラテン"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ラテン-サンバ",
+      "section": "ラテン",
+      "title": "サンバ",
+      "prompt": "Samba",
+      "description": "ブラジルで生まれた音楽の代表的なスタイル",
+      "tags": [
+        "janle",
+        "ラテン"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ラテン-タンゴ",
+      "section": "ラテン",
+      "title": "タンゴ",
+      "prompt": "Tango",
+      "description": "ダンス音楽の一種で、四分の二拍子または八分の四拍子のシンコペーションのリズムを持つ曲",
+      "tags": [
+        "janle",
+        "ラテン"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ラテン-デムボ",
+      "section": "ラテン",
+      "title": "デムボ",
+      "prompt": "Dembow",
+      "description": "レゲトンの1種。デンボウの特徴は、繰り返し「デンボー」というキーワードが飛び交うこと",
+      "tags": [
+        "janle",
+        "ラテン"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ラテン-ダブ",
+      "section": "ラテン",
+      "title": "ダブ",
+      "prompt": "Dub",
+      "description": "レゲエから派生した音楽ジャンルエコーやリバーブを多用した重低音のサウンドが特徴",
+      "tags": [
+        "janle",
+        "ラテン"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ラテン-メレンゲ",
+      "section": "ラテン",
+      "title": "メレンゲ",
+      "prompt": "Merengue",
+      "description": "カリブ海のドミニカ共和国で生まれた音楽で、2/4拍子の軽快なリズムが特徴です。",
+      "tags": [
+        "janle",
+        "ラテン"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ラテン-ルーツ",
+      "section": "ラテン",
+      "title": "ルーツ",
+      "prompt": "Roots",
+      "description": "ルーツ・レゲエ、レゲエの原点となる音楽",
+      "tags": [
+        "janle",
+        "ラテン"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ラテン-スカ",
+      "section": "ラテン",
+      "title": "スカ",
+      "prompt": "Ska",
+      "description": "レゲエやロックステディの前身。2ビートを基調とした速い裏打ちリズムが特徴",
+      "tags": [
+        "janle",
+        "ラテン"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ラテン-デムボ-オルタナティブ-カントリー",
+      "section": "ラテン",
+      "title": "デムボ オルタナティブ カントリー",
+      "prompt": "Dembow Alt-Country",
+      "description": "デムボとオルタナティブカントリーの融合",
+      "tags": [
+        "janle",
+        "ラテン"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ラテン-デムボ-アラビック",
+      "section": "ラテン",
+      "title": "デムボ アラビック",
+      "prompt": "Dembow Arabic",
+      "description": "デムボとアラブ音楽の要素を融合",
+      "tags": [
+        "janle",
+        "ラテン"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ラテン-デムボ-ダンスホール",
+      "section": "ラテン",
+      "title": "デムボ ダンスホール",
+      "prompt": "Dembow Dancehall",
+      "description": "デムボとダンスホールを融合",
+      "tags": [
+        "janle",
+        "ラテン"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ラテン-デムボ-エジプシャン-グリオ",
+      "section": "ラテン",
+      "title": "デムボ エジプシャン・グリオ",
+      "prompt": "Dembow Egyptian Griot",
+      "description": "デムボ、エジプト音楽、グリオ音楽を融合",
+      "tags": [
+        "janle",
+        "ラテン"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ラテン-デムボ-ニュー",
+      "section": "ラテン",
+      "title": "デムボ ニュー",
+      "prompt": "Dembow New",
+      "description": "新しいスタイルのデムボ",
+      "tags": [
+        "janle",
+        "ラテン"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ラテン-デムボ-プログ",
+      "section": "ラテン",
+      "title": "デムボ プログ",
+      "prompt": "Dembow Prog",
+      "description": "デムボとプログレッシブロックを融合",
+      "tags": [
+        "janle",
+        "ラテン"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ラテン-デムボ-サーフ",
+      "section": "ラテン",
+      "title": "デムボ サーフ",
+      "prompt": "Dembow Surf",
+      "description": "デムボとサーフ音楽を融合",
+      "tags": [
+        "janle",
+        "ラテン"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ラテン-ドラム-ステップ",
+      "section": "ラテン",
+      "title": "ドラム ステップ",
+      "prompt": "Drumstep",
+      "description": "ドラムンベースとダブステップがミックスされたもの",
+      "tags": [
+        "janle",
+        "ラテン"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ラテン-ドラム-ステップ-イルビエント",
+      "section": "ラテン",
+      "title": "ドラム ステップ イルビエント",
+      "prompt": "Drumstep Illbient",
+      "description": "ドラムステップとイルビエントを融合",
+      "tags": [
+        "janle",
+        "ラテン"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ラテン-ドラム-ステップ-ロシア",
+      "section": "ラテン",
+      "title": "ドラム ステップ ロシア",
+      "prompt": "Drumstep Russian",
+      "description": "ドラムステップとロシア音楽の要素を融合",
+      "tags": [
+        "janle",
+        "ラテン"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ラテン-ドラム-ステップ-トゥアレグ-ハルシコード",
+      "section": "ラテン",
+      "title": "ドラム ステップ トゥアレグ ハルシコード",
+      "prompt": "Drumstep Tuareg Harpsichord",
+      "description": "ドラムステップ、トゥアレグ音楽、ハルシコードを融合",
+      "tags": [
+        "janle",
+        "ラテン"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ラテン-ダブ-アンビエント",
+      "section": "ラテン",
+      "title": "ダブ アンビエント",
+      "prompt": "Dub Ambient",
+      "description": "ダブとアンビエント音楽を融合",
+      "tags": [
+        "janle",
+        "ラテン"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ラテン-ダブ-パシフィック",
+      "section": "ラテン",
+      "title": "ダブ パシフィック",
+      "prompt": "Dub Pacific",
+      "description": "ダブと太平洋地域の音楽を融合",
+      "tags": [
+        "janle",
+        "ラテン"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ラテン-ダブ-タブラ",
+      "section": "ラテン",
+      "title": "ダブ タブラ",
+      "prompt": "Dub Tabla",
+      "description": "ダブとタブラのリズムを融合",
+      "tags": [
+        "janle",
+        "ラテン"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ラテン-ダブステップ-アパラチアン",
+      "section": "ラテン",
+      "title": "ダブステップ アパラチアン",
+      "prompt": "Dubstep Appalachian",
+      "description": "ダブステップとアパラチアン音楽を融合",
+      "tags": [
+        "janle",
+        "ラテン"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ラテン-ダブステップ-ヒップホップ",
+      "section": "ラテン",
+      "title": "ダブステップ ヒップホップ",
+      "prompt": "Dubstep Hip",
+      "description": "ダブステップとヒップホップを融合",
+      "tags": [
+        "janle",
+        "ラテン"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ラテン-ダブステップ-コリアン",
+      "section": "ラテン",
+      "title": "ダブステップ コリアン",
+      "prompt": "Dubstep Korean",
+      "description": "ダブステップと韓国の音楽要素を融合",
+      "tags": [
+        "janle",
+        "ラテン"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ラテン-ダブステップ-ロカビリー",
+      "section": "ラテン",
+      "title": "ダブステップ ロカビリー",
+      "prompt": "Dubstep Rockabilly",
+      "description": "ダブステップとロカビリーを融合",
+      "tags": [
+        "janle",
+        "ラテン"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ラテン-ダブステップ-シタール",
+      "section": "ラテン",
+      "title": "ダブステップ シタール",
+      "prompt": "Dubstep Sitar",
+      "description": "ダブステップにシタールの音色を加えた音楽",
+      "tags": [
+        "janle",
+        "ラテン"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ラテン-メレンゲ-シャンソン",
+      "section": "ラテン",
+      "title": "メレンゲ シャンソン",
+      "prompt": "Merengue Chanson",
+      "description": "メレンゲとフランスのシャンソンを融合",
+      "tags": [
+        "janle",
+        "ラテン"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ラテン-メレンゲ-ドリーミー",
+      "section": "ラテン",
+      "title": "メレンゲ ドリーミー",
+      "prompt": "Merengue Dreamy",
+      "description": "夢のような、幻想的な雰囲気のメレンゲ",
+      "tags": [
+        "janle",
+        "ラテン"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ラテン-メレンゲ-ハイパーモータウン-ベンガル",
+      "section": "ラテン",
+      "title": "メレンゲ ハイパーモータウン ベンガル",
+      "prompt": "Merengue Hyper-Motown Bengali",
+      "description": "メレンゲ、ハイパー・モータウン、ベンガル音楽を融合",
+      "tags": [
+        "janle",
+        "ラテン"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ラテン-メレンゲ-ロシア",
+      "section": "ラテン",
+      "title": "メレンゲ ロシア",
+      "prompt": "Merengue Russian",
+      "description": "ロシアの影響を受けたメレンゲ音楽",
+      "tags": [
+        "janle",
+        "ラテン"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ラテン-メレンゲ-シタール",
+      "section": "ラテン",
+      "title": "メレンゲ シタール",
+      "prompt": "Merengue Sitar",
+      "description": "シタールを取り入れたメレンゲ音楽",
+      "tags": [
+        "janle",
+        "ラテン"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ラテン-レゲエ-アシッド",
+      "section": "ラテン",
+      "title": "レゲエ アシッド",
+      "prompt": "Reggae Acid",
+      "description": "アシッドハウスの影響を受けたレゲエ",
+      "tags": [
+        "janle",
+        "ラテン"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ラテン-レゲエ-アコースティック",
+      "section": "ラテン",
+      "title": "レゲエ アコースティック",
+      "prompt": "Reggae Acoustic",
+      "description": "アコースティック楽器を用いたレゲエ",
+      "tags": [
+        "janle",
+        "ラテン"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ラテン-レゲエ-アルゴレイブ",
+      "section": "ラテン",
+      "title": "レゲエ アルゴレイブ",
+      "prompt": "Reggae Algorave",
+      "description": "アルゴレイブの影響を受けたレゲエ",
+      "tags": [
+        "janle",
+        "ラテン"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ラテン-レゲエ-アヴァンギャルド",
+      "section": "ラテン",
+      "title": "レゲエ アヴァンギャルド",
+      "prompt": "Reggae Avant-Garde",
+      "description": "アバンギャルドな要素を取り入れたレゲエ",
+      "tags": [
+        "janle",
+        "ラテン"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ラテン-レゲエ-ダカール",
+      "section": "ラテン",
+      "title": "レゲエ ダカール",
+      "prompt": "Reggae Dakar",
+      "description": "セネガル・ダカールの音楽シーンの影響を受けたレゲエ",
+      "tags": [
+        "janle",
+        "ラテン"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ラテン-レゲエ-デムボウ",
+      "section": "ラテン",
+      "title": "レゲエ デムボウ",
+      "prompt": "Reggae Dembow",
+      "description": "デムボウのリズムを取り入れたレゲエ",
+      "tags": [
+        "janle",
+        "ラテン"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ラテン-レゲエ-レクトロボサ",
+      "section": "ラテン",
+      "title": "レゲエ レクトロボサ",
+      "prompt": "Reggae Electro-Bossa",
+      "description": "エレクトロニックとボサノヴァの要素を取り入れたレゲエ",
+      "tags": [
+        "janle",
+        "ラテン"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ラテン-レゲ-ハイパー-アフロビート-ベンガル",
+      "section": "ラテン",
+      "title": "レゲ ハイパー アフロビート ベンガル",
+      "prompt": "Reggae Hyper-Afrobeat Bengali",
+      "description": "ハイパーなエネルギーとアフロビート、ベンガル音楽を融合させたレゲエ",
+      "tags": [
+        "janle",
+        "ラテン"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ラテン-レゲエ-コト",
+      "section": "ラテン",
+      "title": "レゲエ コト",
+      "prompt": "Reggae Koto",
+      "description": "琴を取り入れたレゲエ",
+      "tags": [
+        "janle",
+        "ラテン"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ラテン-レゲエ-ピアノ",
+      "section": "ラテン",
+      "title": "レゲエ ピアノ",
+      "prompt": "Reggae Piano",
+      "description": "ピアノをメイン楽器としたレゲエ",
+      "tags": [
+        "janle",
+        "ラテン"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ラテン-レゲエ-ロッケ-レクトロ-ジャングル-ヒンディー",
+      "section": "ラテン",
+      "title": "レゲエ ロッケ レクトロ ジャングル ヒンディー",
+      "prompt": "Reggae Rock Electro-Jungle Hindi",
+      "description": "ロック、エレクトロニック、ジャングル、ヒンディー音楽を融合させたレゲエ",
+      "tags": [
+        "janle",
+        "ラテン"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ラテン-レゲエ-サックス",
+      "section": "ラテン",
+      "title": "レゲエ サックス",
+      "prompt": "Reggae Saxophone",
+      "description": "サックスをフィーチャーしたレゲエ",
+      "tags": [
+        "janle",
+        "ラテン"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ラテン-レゲエ-スカ-ベッドルーム",
+      "section": "ラテン",
+      "title": "レゲエ スカ ベッドルーム",
+      "prompt": "Reggae Ska Bedroom",
+      "description": "ベッドルーム音楽とスカを融合させたレゲエ",
+      "tags": [
+        "janle",
+        "ラテン"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ラテン-レゲエ-サーフ",
+      "section": "ラテン",
+      "title": "レゲエ サーフ",
+      "prompt": "Reggae Surf",
+      "description": "サーフロックの影響を受けたレゲエ",
+      "tags": [
+        "janle",
+        "ラテン"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ラテン-レゲトン",
+      "section": "ラテン",
+      "title": "レゲトン",
+      "prompt": "Reggaeton",
+      "description": "サルサや・リズム、ヒップホップ、レゲエなどの音楽をミックスして作られたダンス音楽",
+      "tags": [
+        "janle",
+        "ラテン"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ラテン-レゲトン-アシッド",
+      "section": "ラテン",
+      "title": "レゲトン アシッド",
+      "prompt": "Reggaeton Acid",
+      "description": "アシッドハウスの影響を受けたレゲトン",
+      "tags": [
+        "janle",
+        "ラテン"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ラテン-レゲトン-アフロジャズ",
+      "section": "ラテン",
+      "title": "レゲトン アフロジャズ",
+      "prompt": "Reggaeton Afro-Jazz",
+      "description": "アフロジャズの要素を取り入れたレゲトン",
+      "tags": [
+        "janle",
+        "ラテン"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ラテン-レゲトン-ドリル-グリッチ",
+      "section": "ラテン",
+      "title": "レゲトン ドリル グリッチ",
+      "prompt": "Reggaeton Drill Glitch",
+      "description": "ドリル音楽とグリッチを融合させたレゲトン",
+      "tags": [
+        "janle",
+        "ラテン"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ラテン-レゲトン-サザン",
+      "section": "ラテン",
+      "title": "レゲトン サザン",
+      "prompt": "Reggaeton Southern",
+      "description": "サザンサウンドの影響を受けたレゲトン",
+      "tags": [
+        "janle",
+        "ラテン"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ラテン-ルンバ-バーバーショップ",
+      "section": "ラテン",
+      "title": "ルンバ バーバーショップ",
+      "prompt": "Rumba Barbershop",
+      "description": "バーバーショップコーラスとルンバを融合",
+      "tags": [
+        "janle",
+        "ラテン"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ラテン-ルンバ-サーフ",
+      "section": "ラテン",
+      "title": "ルンバ サーフ",
+      "prompt": "Rumba Surf",
+      "description": "サーフロックの影響を受けたルンバ",
+      "tags": [
+        "janle",
+        "ラテン"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ラテン-サンバ-ブギー",
+      "section": "ラテン",
+      "title": "サンバ ブギー",
+      "prompt": "Samba Boogie",
+      "description": "ブギーウギの影響を受けたサンバ",
+      "tags": [
+        "janle",
+        "ラテン"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ラテン-サンバ-チルシンセ-コプティック-スアックス",
+      "section": "ラテン",
+      "title": "サンバ チルシンセ コプティック スアックス",
+      "prompt": "Samba Chill Synth Coptic Saxophone",
+      "description": "チルアウト、シンセポップ、コプト音楽、サックスを融合させたサンバ",
+      "tags": [
+        "janle",
+        "ラテン"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ラテン-サンバ-カントリー",
+      "section": "ラテン",
+      "title": "サンバ カントリー",
+      "prompt": "Samba Country",
+      "description": "カントリー音楽の影響を受けたサンバ",
+      "tags": [
+        "janle",
+        "ラテン"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ラテン-サンバ-グライム",
+      "section": "ラテン",
+      "title": "サンバ グライム",
+      "prompt": "Samba Grime",
+      "description": "グライムの影響を受けたサンバ",
+      "tags": [
+        "janle",
+        "ラテン"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ラテン-サンバ-ハイパー-クランク-ベンガル",
+      "section": "ラテン",
+      "title": "サンバ ハイパー クランク ベンガル",
+      "prompt": "Samba Hyper-Crunk Bengali",
+      "description": "ハイパーなエネルギーとクランク、ベンガル音楽を融合させたサンバ",
+      "tags": [
+        "janle",
+        "ラテン"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ラテン-サンバ-ハイフィ-ベンガル",
+      "section": "ラテン",
+      "title": "サンバ ハイフィ ベンガル",
+      "prompt": "Samba Hyphy Bengali",
+      "description": "ハイフィとベンガル音楽を融合させたサンバ",
+      "tags": [
+        "janle",
+        "ラテン"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ラテン-サンバ-イルビエント",
+      "section": "ラテン",
+      "title": "サンバ イルビエント",
+      "prompt": "Samba Illbient",
+      "description": "イルビエントの影響を受けたサンバ",
+      "tags": [
+        "janle",
+        "ラテン"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ラテン-サンバ-コリアン",
+      "section": "ラテン",
+      "title": "サンバ コリアン",
+      "prompt": "Samba Korean",
+      "description": "韓国の音楽要素を取り入れたサンバ",
+      "tags": [
+        "janle",
+        "ラテン"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ラテン-サンバ-プログ",
+      "section": "ラテン",
+      "title": "サンバ プログ",
+      "prompt": "Samba Prog",
+      "description": "プログレッシブロックの影響を受けたサンバ",
+      "tags": [
+        "janle",
+        "ラテン"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ラテン-サンバ-サイケデリック",
+      "section": "ラテン",
+      "title": "サンバ サイケデリック",
+      "prompt": "Samba Psychedelic",
+      "description": "サイケデリックな要素を取り入れたサンバ",
+      "tags": [
+        "janle",
+        "ラテン"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ラテン-セルタネーホ-ベッドルーム",
+      "section": "ラテン",
+      "title": "セルタネーホ ベッドルーム",
+      "prompt": "Sertanejo Bedroom",
+      "description": "ベッドルーム音楽の影響を受けたセルタネーホ",
+      "tags": [
+        "janle",
+        "ラテン"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ラテン-セルタネーホ-エレクトロニック",
+      "section": "ラテン",
+      "title": "セルタネーホ エレクトロニック",
+      "prompt": "Sertanejo Electronic",
+      "description": "エレクトロニック音楽の影響を受けたセルタネーホ",
+      "tags": [
+        "janle",
+        "ラテン"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ラテン-セルタネーホ-ゴスペル",
+      "section": "ラテン",
+      "title": "セルタネーホ ゴスペル",
+      "prompt": "Sertanejo Gospel",
+      "description": "ゴスペルの要素を取り入れたセルタネーホ",
+      "tags": [
+        "janle",
+        "ラテン"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ラテン-セルタネーホ-ローファイ",
+      "section": "ラテン",
+      "title": "セルタネーホ ローファイ",
+      "prompt": "Sertanejo Lo-Fi",
+      "description": "ローファイな要素を取り入れたセルタネーホ",
+      "tags": [
+        "janle",
+        "ラテン"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ラテン-スカ-ボーム",
+      "section": "ラテン",
+      "title": "スカ ボーム",
+      "prompt": "Ska Boom",
+      "description": "ボーム・バップの影響を受けたスカ",
+      "tags": [
+        "janle",
+        "ラテン"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ラテン-スカ-ダーク",
+      "section": "ラテン",
+      "title": "スカ ダーク",
+      "prompt": "Ska Dark",
+      "description": "暗い雰囲気のスカ",
+      "tags": [
+        "janle",
+        "ラテン"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ラテン-スカ-ドラムステップ",
+      "section": "ラテン",
+      "title": "スカ ドラムステップ",
+      "prompt": "Ska Drumstep",
+      "description": "ドラムステップの影響を受けたスカ",
+      "tags": [
+        "janle",
+        "ラテン"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ラテン-スカ-コリアン",
+      "section": "ラテン",
+      "title": "スカ コリアン",
+      "prompt": "Ska Korean",
+      "description": "韓国の音楽要素を取り入れたスカ",
+      "tags": [
+        "janle",
+        "ラテン"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ラテン-スカ-サイケデリック",
+      "section": "ラテン",
+      "title": "スカ サイケデリック",
+      "prompt": "Ska Psychedelic",
+      "description": "サイケデリックな要素を取り入れたスカ",
+      "tags": [
+        "janle",
+        "ラテン"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ラテン-タンゴ-アフリカン",
+      "section": "ラテン",
+      "title": "タンゴ アフリカン",
+      "prompt": "Tango African",
+      "description": "アフリカ音楽の影響を受けたタンゴ",
+      "tags": [
+        "janle",
+        "ラテン"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ラテン-タンゴ-アルゴレイブ",
+      "section": "ラテン",
+      "title": "タンゴ アルゴレイブ",
+      "prompt": "Tango Algorave",
+      "description": "アルゴレイブの影響を受けたタンゴ",
+      "tags": [
+        "janle",
+        "ラテン"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ラテン-タンゴ-クラシック",
+      "section": "ラテン",
+      "title": "タンゴ クラシック",
+      "prompt": "Tango Classical",
+      "description": "クラシック音楽の要素を取り入れたタンゴ",
+      "tags": [
+        "janle",
+        "ラテン"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ラテン-タンゴ-グリッチ",
+      "section": "ラテン",
+      "title": "タンゴ グリッチ",
+      "prompt": "Tango Glitch",
+      "description": "グリッチの影響を受けたタンゴ",
+      "tags": [
+        "janle",
+        "ラテン"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ラテン-タンゴ-グランジ",
+      "section": "ラテン",
+      "title": "タンゴ グランジ",
+      "prompt": "Tango Grunge",
+      "description": "グランジの影響を受けたタンゴ",
+      "tags": [
+        "janle",
+        "ラテン"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ラテン-タンゴ-サックス",
+      "section": "ラテン",
+      "title": "タンゴ サックス",
+      "prompt": "Tango Saxophone",
+      "description": "サックスをフィーチャーしたタンゴ",
+      "tags": [
+        "janle",
+        "ラテン"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ラテン-タンゴ-スワンプ",
+      "section": "ラテン",
+      "title": "タンゴ スワンプ",
+      "prompt": "Tango Swamp",
+      "description": "スワンプ音楽の影響を受けたタンゴ",
+      "tags": [
+        "janle",
+        "ラテン"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "set-演歌セット1",
+      "section": "set",
+      "title": "演歌セット1",
+      "prompt": "Japanese Enka, Enka, Emotional Strings, Violin, Enka, [Traditional Voice], -Piano, -Rock Drums",
+      "description": "演歌になります (AIの気分と詩にもよります)",
+      "tags": [
+        "set"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "set-演歌セット2",
+      "section": "set",
+      "title": "演歌セット2",
+      "prompt": "Japanese Enka, Enka, Emotional Strings, Violin, Koto, Enka, [Traditional Voice], Vibrato Vocals, Fork Guitar, Japanese Enka, Slow Tempo, Shamisen, Taiko, Shakuhachi, Enka",
+      "description": "演歌になります (AIの気分と詩にもよります)尺八、琴、三味線、太鼓等を入れていますので、ガチャるもヨシ！お好みを残すもヨシ！",
+      "tags": [
+        "set"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "set-演歌セット3",
+      "section": "set",
+      "title": "演歌セット3",
+      "prompt": "Japanese Enka, Enka, Emotional Strings, Violin, Taiko, Shamisen, Koto, Kokyu, Suzu, Nokan, Shakuhachi, Slow Tempo, Traditional Voice, Vibrato, Emotional Vocals",
+      "description": "演歌になります (AIの気分と詩にもよります)",
+      "tags": [
+        "set"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "set-歌謡曲セット-70年代",
+      "section": "set",
+      "title": "歌謡曲セット(70年代)",
+      "prompt": "Kayōkyoku, Hard Outdated, Enka, Male Vocal, 70S Retro, Disco, Melodic, Cry Guitar, Enka Vocal",
+      "description": "70年代風の歌謡曲になります (AIの気分と詩にもよります。)",
+      "tags": [
+        "set"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "set-歌謡曲セット-昭和高度成長期風",
+      "section": "set",
+      "title": "歌謡曲セット(昭和高度成長期風）",
+      "prompt": "Samba, Dancing, Piccolo, Flute, Oboe, Bassoon, Clarinet, Saxophone, Piano, Trumpet, Horn, Trombone, Euphonium, Tuba, Timpani, Glockenspiel, Xylophone, Timbales, Conga,",
+      "description": "昭和というか、高度成長期にTV等でよく見た楽器編成で、明るく元気に歌います。 検証曲の詩は、松健サンバを目指していますが、本プロンプトは、昭和歌謡曲セットです。",
+      "tags": [
+        "set"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "set-デュエットセット",
+      "section": "set",
+      "title": "デュエットセット",
+      "prompt": "Male&Female Vocals, Duet Vocals",
+      "description": "女性、男性が歌う。 本プロンプトは、歌唱指定の最低限ですので、ジャンル/曲調/楽器はお好みで。 【重要】「メタタグ」で()で歌詞を括ると()内を異性が歌ったり、歌詞中に 等で性別指定したりすると、任意の性別が歌唱する 。 ・‥事もある。 検証曲は、（）内を異性が歌うパターンと、Vease等の区分別に、異性が歌うパターンです。（歌詞は、楽曲タイトルからsunoのページにてご確認下さい）",
+      "tags": [
+        "set"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "set-ライブ化セット-live",
+      "section": "set",
+      "title": "ライブ化セット(Live)",
+      "prompt": "Live Band, Crowd Roar, Crowd Singing, Live Performance, Live Vocals, Live Guitar, Live Drums, Live Keyboard, Clapping, Sing-Along, Outdoor Concert, Festival,",
+      "description": "楽曲がライブ演奏風味になります。(MC的なモノが入る事も) このプロンプトだけでStyleの200文字中の、156文字を消費します。 この為、CoverSongで前曲の要素を引き継いでライブバージョンを作成したい場合は簡単にできますが、最初から制作の際には、他のStyle要素で文字数が圧迫する際、必要に応じて、本要素の一部を削除してください",
+      "tags": [
+        "set"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "set-j-popお手軽セット",
+      "section": "set",
+      "title": "J-POPお手軽セット",
+      "prompt": "Electric Piano, Emotional Vocals, This Year Style, Japan, Smooth, Acoustic Guitar, Cello, Violin, Strings, Piano, Emotional, Anime Song",
+      "description": "万人受けするJ-POP風味になります(AIの気分と詩にもよります) 楽器に全音域対応のピアノや、ストリングス等、多彩に仕込んでいて詩の内容によって発動。親族、彼女、友人に「へぇ～」と、無難な返事を頂きやすいプロンプト。(当サイト調べ)",
+      "tags": [
+        "set"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "set-j-pop-80年代セット1",
+      "section": "set",
+      "title": "J-POP 80年代セット1",
+      "prompt": "Electric Piano, 80’S City Pop, Future Funk",
+      "description": "Electric Piano, 80\\’S City Pop, Future Funk 80年代のシティポップ風味になります(AIの気分と詩にもよります)",
+      "tags": [
+        "set"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "set-j-pop-80年代セット2",
+      "section": "set",
+      "title": "J-POP 80年代セット2",
+      "prompt": "Soothing Vocals, Exhilarating, Cheap Drum Machine, Tr-808, Drum Machine, J-Pop, Synthesizer, Clean Guitar, Electric Piano, 1980S Style, 80S Retro",
+      "description": "80年代のシティポップ風味になります。クリーンギターとエレピがミソです(AIの気分と詩にもよります)",
+      "tags": [
+        "set"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "set-j-pop-80年代セット3",
+      "section": "set",
+      "title": "J-POP 80年代セット3",
+      "prompt": "80S Jpop Funk, Upbeat, Cheerful, Synth-Pop, Female High-Pitched Doll-Like Electronic Voice, Rhythm-Driven, 120 Bpm, Catchy Melodies With Electronic Elements, Smooth And Playful Vocal Performance Style",
+      "description": "80年代のJ-POPになります（女性ボーカル指定済）",
+      "tags": [
+        "set"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "set-j-pop聖歌隊付セット",
+      "section": "set",
+      "title": "J-POP聖歌隊付セット",
+      "prompt": "Ethereal, Boy Vocals, Girl Vocals, Euphonium, Harpsichord, Double Bass, Harp, Orchestra, Ethereal, Gospel, Pipe Organ, Choir Voices, Choir,",
+      "description": "合唱による聖歌隊付きの曲になります(AIの気分と詩にもよります。)",
+      "tags": [
+        "set"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "set-j-pop幻想セット",
+      "section": "set",
+      "title": "J-POP幻想セット",
+      "prompt": "Mysterious, Female Vocals, New Age, Celtic, Harp, Piano, Double Bass, Viola, Cello, Violin",
+      "description": "幻想的な曲になります(AIの気分と詩にもよります。) ストリングス＋ピアノ＋ハーブ他に加え、ケルティック音楽の進化系のNewAge指定で、エ●ヤ以下J-POP以上の楽曲になりやすいです",
+      "tags": [
+        "set"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "set-j-popゴスペルセット",
+      "section": "set",
+      "title": "J-POPゴスペルセット",
+      "prompt": "Orchestra, Japan, Ethereal, Barbershop, Gospel, Pipe Organ, Girl Vocals, Boy Vocals, Choir Voices, Chant Vocals",
+      "description": "ゴスペル風POP曲になります(AIの気分と詩にもよります。)",
+      "tags": [
+        "set"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "set-テクノセット-ymo風",
+      "section": "set",
+      "title": "テクノセット(YMO風)",
+      "prompt": "Arpeggio, Techno, 1980S Style, Cheap Effect, 80S Effect, Tr-808, Sampler, Synthesizer, Drum Machine, Cheap Drum Machine",
+      "description": "80年代のテクノ風味な音楽になります。TR-808指定が効くとかなり寄ります。参考曲1を聞くと、声も含めYMOを召喚出来る(こともある)事が分ります。(参考曲1は、YMO新曲 作者:dandyワニさん転載許可済)",
+      "tags": [
+        "set"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "set-攻殻セット",
+      "section": "set",
+      "title": "攻殻セット",
+      "prompt": "Progressive, Trance, Anime, Synth, Break Beats, Echo, Odd Time Signatures, Female Voice, Computer Voice, Moods:Battle, Paces:Fast, Vocal Styles:Melodic, Melodies:Catchy",
+      "description": "攻殻機動・・・おっと、近未来アニメOP風の疾走感のあるリズムの素敵楽曲になります。作者のHagieenさんが、日本語掲示板で研究成果を発表したものの転載です。 Styleのみではなく、歌詞欄での指定も参考にしてください 作者：Hagieenさん",
+      "tags": [
+        "set"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "set-ファミコンセット",
+      "section": "set",
+      "title": "ファミコンセット",
+      "prompt": "Tr-808, 8-Bit, Vocoder, Sequence, Techno, 80S, Synthstrings, Synthlead, Electricpiano, Synthbase, Synthpad, Cheap Drum Machine, Tr-808, Ymo-Like, Vocoder, 1980S-Style, Cheapsound",
+      "description": "ファミコン的な音楽になります (AIの気分と詩にもよります。)",
+      "tags": [
+        "set"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "set-お手軽rockセット-オーケストラ付き",
+      "section": "set",
+      "title": "お手軽Rockセット(オーケストラ付き)",
+      "prompt": "Rock Choral, Epic, Energetic, Guitar, Chor, Orchestra, Dark Metal, Experimental Ambient, Opera",
+      "description": "Rock Choral, Epic, Energetic, Guitar , Chor , Orchestra , Dark Metal , Experimental Ambient, Opera バックにオーケストラを配置したRockバンドをお手軽に召喚出来ます。 楽器編成に追加や、強くしたい要素があれば修正下さい。",
+      "tags": [
+        "set"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "set-お手軽bluesrockセット",
+      "section": "set",
+      "title": "お手軽BluesRockセット",
+      "prompt": "Seasoned Voice, Ballad Rock Blues, Bpm98, Acoustic Guitar, Hammond Organ, Electric Guitar, Piano, Percussion, Strings, Backing Vocals, Key:C/Am, Emotional Vocals,",
+      "description": "アコギ、エレギ、稀にハモンドの編成で、手軽にブルースロックを作成できます",
+      "tags": [
+        "set"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "set-お手軽discoセット-70年代",
+      "section": "set",
+      "title": "お手軽Discoセット(70年代)",
+      "prompt": "Disco Funk Soul, 70S, African American Male Vocals, Four On The Floor, Piano, Boogie Woogie,",
+      "description": "検証曲で分かる通り、どうやっても70年代のDisco曲で軽やかにフィーバーします。ボーカルにはアメリカチックに歌ってねと指示しています。 検証曲の詩は、WASAO_Officialさんより頂いた、津軽弁による情熱的な雪かきSONGで、イントネーションの近さもあってか、見事に吸収してくれます。",
+      "tags": [
+        "set"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "set-ドンキセット-ブルーノマーズcm風",
+      "section": "set",
+      "title": "ドンキセット(ブルーノマーズCM風）",
+      "prompt": "Tech House_Ibiza-Inspired, Energetic_Groovy_Hypnotic_Vibrant, Punchy Kick Drum, Rolling Bassline, Crisp Hi-Hats, Layered Claps, Atmospheric Pads, Modular Synth Lines, Percussive Loops,",
+      "description": "ドン・キホーテCM ドンキイクヨ を作曲/出演した ブルーノマーズの楽曲風になりますが、こちらは、Styleのみではなく、メタタグでも強烈な指定をしています。詳しくは、楽曲のリンクからsuno公式の歌詞欄をご覧ください。 ちゃんと歌詞を入れたい場合、参考曲の中に、世界的に有名な著作権フリー歌詞（般若心経）を入れた版があります。 また、参考曲のうち5曲は Global、JapaneseTrending入りしましたので、歌詞を変えて使ってみて下さい",
+      "tags": [
+        "set"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "set-インド風セット",
+      "section": "set",
+      "title": "インド風セット",
+      "prompt": "Heavy Sitar Drum And Bass With Sitar Melodies, Sitar",
+      "description": "シタール強めなインド風味の音楽になります (AIの気分と詩にもよります。)",
+      "tags": [
+        "set"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "set-中華風セット",
+      "section": "set",
+      "title": "中華風セット",
+      "prompt": "Taiko, Soprano Diva, Tenor Diva, Shamisen, Shakuhachi, Koto, Nohkan, Shinobue, Fue, Thirteen-String Koto, Seventeen-String Koto, Satsuma Biwa, Pipa, Guzheng, Japanese Traditional, Chine",
+      "description": "中華風な楽曲＊1になります。 編成楽器を見ると、？？ん？和楽器じゃね？？というモノがありますが、参考曲の通り良い感じになります（歌モノ、インスト両対応編成） ＊1管理人の考える中華風です。個人差があります。",
+      "tags": [
+        "set"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "テンポ-ミディアムテンポ",
+      "section": "テンポ",
+      "title": "ミディアムテンポ",
+      "prompt": "Medium Tempo",
+      "description": "中程度のの音楽",
+      "tags": [
+        "テンポ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "テンポ-スローテンポ",
+      "section": "テンポ",
+      "title": "スローテンポ",
+      "prompt": "Slow Tempo",
+      "description": "ゆったりとした",
+      "tags": [
+        "テンポ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "テンポ-非常に遅めのテンポ",
+      "section": "テンポ",
+      "title": "非常に遅めのテンポ",
+      "prompt": "Bpm60",
+      "description": "非常に遅めの 1分間の拍数を表す 60なら1分に60回1秒間に1拍",
+      "tags": [
+        "テンポ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "テンポ-非常に遅めのテンポ",
+      "section": "テンポ",
+      "title": "非常に遅めのテンポ",
+      "prompt": "Bpm65",
+      "description": "非常に遅めの 1分間の拍数を表す 65なら1分に65回",
+      "tags": [
+        "テンポ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "テンポ-非常に遅めのテンポ",
+      "section": "テンポ",
+      "title": "非常に遅めのテンポ",
+      "prompt": "Bpm70",
+      "description": "非常に遅めの 1分間の拍数を表す 70なら1分に70回",
+      "tags": [
+        "テンポ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "テンポ-非常に遅めのテンポ",
+      "section": "テンポ",
+      "title": "非常に遅めのテンポ",
+      "prompt": "Bpm75",
+      "description": "非常に遅めの 1分間の拍数を表す 75なら1分に75回",
+      "tags": [
+        "テンポ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "テンポ-遅めのテンポ",
+      "section": "テンポ",
+      "title": "遅めのテンポ",
+      "prompt": "Bpm80",
+      "description": "遅めの 1分間の拍数を表す 80なら1分に80回",
+      "tags": [
+        "テンポ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "テンポ-遅めのテンポ",
+      "section": "テンポ",
+      "title": "遅めのテンポ",
+      "prompt": "Bpm85",
+      "description": "遅めの 1分間の拍数を表す 85なら1分に85回",
+      "tags": [
+        "テンポ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "テンポ-遅めのテンポ",
+      "section": "テンポ",
+      "title": "遅めのテンポ",
+      "prompt": "Bpm90",
+      "description": "遅めの 1分間の拍数を表す 90なら1分に90回1秒間に1.5拍",
+      "tags": [
+        "テンポ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "テンポ-遅めのテンポ",
+      "section": "テンポ",
+      "title": "遅めのテンポ",
+      "prompt": "Bpm95",
+      "description": "遅めの 1分間の拍数を表す 95なら1分に95回",
+      "tags": [
+        "テンポ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "テンポ-やや遅めのテンポ",
+      "section": "テンポ",
+      "title": "やや遅めのテンポ",
+      "prompt": "Bpm100",
+      "description": "やや遅めの楽曲 1分間の拍数を表す 100なら1分に100回",
+      "tags": [
+        "テンポ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "テンポ-やや遅めのテンポ",
+      "section": "テンポ",
+      "title": "やや遅めのテンポ",
+      "prompt": "Bpm105",
+      "description": "やや遅めの 1分間の拍数を表す 105なら1分に105回",
+      "tags": [
+        "テンポ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "テンポ-標準的なテンポ",
+      "section": "テンポ",
+      "title": "標準的なテンポ",
+      "prompt": "Bpm110",
+      "description": "一般的な 1分間の拍数を表す 110なら1分に110回",
+      "tags": [
+        "テンポ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "テンポ-標準的なテンポ",
+      "section": "テンポ",
+      "title": "標準的なテンポ",
+      "prompt": "Bpm115",
+      "description": "一般的な 1分間の拍数を表す 115なら1分に115回",
+      "tags": [
+        "テンポ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "テンポ-標準的なテンポ",
+      "section": "テンポ",
+      "title": "標準的なテンポ",
+      "prompt": "Bpm120",
+      "description": "一般的な 1分間の拍数を表す 120なら1分に120回1秒間に2拍",
+      "tags": [
+        "テンポ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "テンポ-標準的なテンポ",
+      "section": "テンポ",
+      "title": "標準的なテンポ",
+      "prompt": "Bpm125",
+      "description": "一般的な 1分間の拍数を表す 125なら1分に125回",
+      "tags": [
+        "テンポ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "テンポ-標準的なテンポ",
+      "section": "テンポ",
+      "title": "標準的なテンポ",
+      "prompt": "Bpm130",
+      "description": "一般的な 1分間の拍数を表す 130なら1分に130回",
+      "tags": [
+        "テンポ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "テンポ-やや早めのテンポ",
+      "section": "テンポ",
+      "title": "やや早めのテンポ",
+      "prompt": "Bpm135",
+      "description": "やや早めの 1分間の拍数を表す 135なら1分に135回",
+      "tags": [
+        "テンポ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "テンポ-やや早めのテンポ",
+      "section": "テンポ",
+      "title": "やや早めのテンポ",
+      "prompt": "Bpm140",
+      "description": "やや早めの 1分間の拍数を表す 140なら1分に140回",
+      "tags": [
+        "テンポ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "テンポ-早めのテンポ",
+      "section": "テンポ",
+      "title": "早めのテンポ",
+      "prompt": "Bpm145",
+      "description": "早めの 1分間の拍数を表す 145なら1分に145回",
+      "tags": [
+        "テンポ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "テンポ-早めのテンポ",
+      "section": "テンポ",
+      "title": "早めのテンポ",
+      "prompt": "Bpm150",
+      "description": "早めの 1分間の拍数を表す 150なら1分に150回1秒間に2.5拍",
+      "tags": [
+        "テンポ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "テンポ-早めのテンポ",
+      "section": "テンポ",
+      "title": "早めのテンポ",
+      "prompt": "Bpm155",
+      "description": "早めの 1分間の拍数を表す 155なら1分に155回",
+      "tags": [
+        "テンポ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "テンポ-早めのテンポ",
+      "section": "テンポ",
+      "title": "早めのテンポ",
+      "prompt": "Bpm160",
+      "description": "早めの 1分間の拍数を表す 160なら1分に160回",
+      "tags": [
+        "テンポ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "テンポ-非常に早いテンポ",
+      "section": "テンポ",
+      "title": "非常に早いテンポ",
+      "prompt": "Bpm165",
+      "description": "非常に早めの 1分間の拍数を表す 165なら1分に165回人間の心拍なら救急車を呼ぶ事を検討した方がよいレベル",
+      "tags": [
+        "テンポ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "テンポ-非常に早いテンポ",
+      "section": "テンポ",
+      "title": "非常に早いテンポ",
+      "prompt": "Bpm170",
+      "description": "非常に早めの 1分間の拍数を表す 170なら1分に170回人間の心拍なら救急車を呼ぶレベル",
+      "tags": [
+        "テンポ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "テンポ-非常に早いテンポ",
+      "section": "テンポ",
+      "title": "非常に早いテンポ",
+      "prompt": "Bpm175",
+      "description": "非常に早めの 1分間の拍数を表す 180なら1分に180回1秒間に3拍 人間の心拍なら救急車を呼ぶレベル",
+      "tags": [
+        "テンポ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "テンポ-非常に早いテンポ",
+      "section": "テンポ",
+      "title": "非常に早いテンポ",
+      "prompt": "Bpm180",
+      "description": "非常に早めの 1分間の拍数を表す 185なら1分に185回人間の心拍なら救急車を呼ぶレベル",
+      "tags": [
+        "テンポ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "テンポ-アダージェット",
+      "section": "テンポ",
+      "title": "アダージェット",
+      "prompt": "Adagietto",
+      "description": "ややゆったりと",
+      "tags": [
+        "テンポ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "テンポ-アダージョ",
+      "section": "テンポ",
+      "title": "アダージョ",
+      "prompt": "Adagio",
+      "description": "ゆったりと",
+      "tags": [
+        "テンポ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "テンポ-アレグレット",
+      "section": "テンポ",
+      "title": "アレグレット",
+      "prompt": "Allegretto",
+      "description": "やや快活に",
+      "tags": [
+        "テンポ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "テンポ-アレグロ",
+      "section": "テンポ",
+      "title": "アレグロ",
+      "prompt": "Allegro",
+      "description": "快活に",
+      "tags": [
+        "テンポ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "テンポ-アレグロ-ヴィヴァーチェ",
+      "section": "テンポ",
+      "title": "アレグロ・ヴィヴァーチェ",
+      "prompt": "Allegro Vivace",
+      "description": "快活・活発に",
+      "tags": [
+        "テンポ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "テンポ-アンダンテ",
+      "section": "テンポ",
+      "title": "アンダンテ",
+      "prompt": "Andante",
+      "description": "ゆるやかに",
+      "tags": [
+        "テンポ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "テンポ-アンダンティーノ",
+      "section": "テンポ",
+      "title": "アンダンティーノ",
+      "prompt": "Andantino",
+      "description": "ややゆるやかに",
+      "tags": [
+        "テンポ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "テンポ-ラルゴ",
+      "section": "テンポ",
+      "title": "ラルゴ",
+      "prompt": "Largo",
+      "description": "幅広く",
+      "tags": [
+        "テンポ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "テンポ-レント",
+      "section": "テンポ",
+      "title": "レント",
+      "prompt": "Lento",
+      "description": "遅く",
+      "tags": [
+        "テンポ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "テンポ-ミッドテンポ",
+      "section": "テンポ",
+      "title": "ミッドテンポ",
+      "prompt": "Mid-Tempo",
+      "description": "音楽ののなかで中くらいの速度を指し、一般的に8ビートの曲の場合90～110BPM程度を指します",
+      "tags": [
+        "テンポ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "テンポ-モデラート",
+      "section": "テンポ",
+      "title": "モデラート",
+      "prompt": "Moderato",
+      "description": "中庸に・節制をもって",
+      "tags": [
+        "テンポ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "テンポ-プレスティッシモ",
+      "section": "テンポ",
+      "title": "プレスティッシモ",
+      "prompt": "Prestissimo",
+      "description": "非常に速く",
+      "tags": [
+        "テンポ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "テンポ-プレスト",
+      "section": "テンポ",
+      "title": "プレスト",
+      "prompt": "Presto",
+      "description": "早く",
+      "tags": [
+        "テンポ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "テンポ-ヴィヴァーチェ",
+      "section": "テンポ",
+      "title": "ヴィヴァーチェ",
+      "prompt": "Vivace",
+      "description": "快活に",
+      "tags": [
+        "テンポ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "テンポ-11-8拍子",
+      "section": "テンポ",
+      "title": "11/8拍子",
+      "prompt": "11/8 Time Signature",
+      "description": "11分の8拍子。変拍子の一つ。 1小節に八分音符(♪)が11個入る構造。 歌詞のイントロ等にも と指定してあげましょう",
+      "tags": [
+        "テンポ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "テンポ-13-8拍子",
+      "section": "テンポ",
+      "title": "13/8拍子",
+      "prompt": "13/8 Time Signature",
+      "description": "13分の8拍子。変拍子の一つ。 1小節に八分音符(♪)が13個入る構造。 歌詞のイントロ等にも と指定してあげましょう。",
+      "tags": [
+        "テンポ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "曲調-アコースティック",
+      "section": "曲調",
+      "title": "アコースティック",
+      "prompt": "Acoustic",
+      "description": "アコースティック楽器のみで演奏される音楽",
+      "tags": [
+        "曲調"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "曲調-アグレッシブ",
+      "section": "曲調",
+      "title": "アグレッシブ",
+      "prompt": "Aggressive",
+      "description": "積極的、攻撃的な音楽",
+      "tags": [
+        "曲調"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "曲調-アルペジオ",
+      "section": "曲調",
+      "title": "アルペジオ",
+      "prompt": "Arpeggio",
+      "description": "繰り返しのシーケンスフレーズを含む。テクノ等で多用",
+      "tags": [
+        "曲調"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "曲調-バラード",
+      "section": "曲調",
+      "title": "バラード",
+      "prompt": "Ballad",
+      "description": "感情豊かなゆったりとした曲恋愛や感傷的な音楽",
+      "tags": [
+        "曲調"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "曲調-ブライトトーン",
+      "section": "曲調",
+      "title": "ブライトトーン",
+      "prompt": "Bright Tune",
+      "description": "明るい",
+      "tags": [
+        "曲調"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "曲調-チープエフェクト",
+      "section": "曲調",
+      "title": "チープエフェクト",
+      "prompt": "Cheap Effect",
+      "description": "音質やエフェクトを古めかしいものにする。旧世代曲作りで利用",
+      "tags": [
+        "曲調"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "曲調-ダークトーン",
+      "section": "曲調",
+      "title": "ダークトーン",
+      "prompt": "Dark Tune",
+      "description": "暗い",
+      "tags": [
+        "曲調"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "曲調-47抜き音階",
+      "section": "曲調",
+      "title": "47抜き音階",
+      "prompt": "Pentatonic Scale",
+      "description": "47抜き音階は、スケールから、4番目のファと7番目のシを抜いた音階。日本古来の曲や沖縄民謡、世界各地で利用。代表的な曲には「こいのぼり」「お正月」",
+      "tags": [
+        "曲調"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "曲調-パワフル",
+      "section": "曲調",
+      "title": "パワフル",
+      "prompt": "Powerful",
+      "description": "力強い",
+      "tags": [
+        "曲調"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "曲調-ロッキン",
+      "section": "曲調",
+      "title": "ロッキン",
+      "prompt": "Rockin",
+      "description": "ロックな",
+      "tags": [
+        "曲調"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "曲調-スムース",
+      "section": "曲調",
+      "title": "スムース",
+      "prompt": "Smooth",
+      "description": "滑らかでスムーズな",
+      "tags": [
+        "曲調"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "曲調-ライブ化セット-live",
+      "section": "曲調",
+      "title": "ライブ化セット(Live)",
+      "prompt": "Live Band, Crowd Roar, Crowd Singing, Live Performance, Live Vocals, Live Guitar, Live Drums, Live Keyboard, Clapping, Sing-Along, Outdoor Concert, Festival,",
+      "description": "楽曲がライブ演奏風味になります(MC的なモノが入る事も)。 このプロンプトだけでStyleの200文字中の、156文字を消費します。 この為、CoverSongで前曲の要素を引き継いでライブバージョンを作成したい場合は簡単にできますが、最初から制作の際には、他のStyle要素で文字数が圧迫する際、必要に応じて、本要素の一部を削除してください",
+      "tags": [
+        "曲調"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "曲調-アカペラ",
+      "section": "曲調",
+      "title": "アカペラ",
+      "prompt": "A Cappella",
+      "description": "独唱で歌う事",
+      "tags": [
+        "曲調"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "曲調-アクティブ",
+      "section": "曲調",
+      "title": "アクティブ",
+      "prompt": "Active",
+      "description": "活発な",
+      "tags": [
+        "曲調"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "曲調-アヴァンギャルド",
+      "section": "曲調",
+      "title": "アヴァンギャルド",
+      "prompt": "Avant-Garde",
+      "description": "伝統や形式にとらわれない、実験的な音楽",
+      "tags": [
+        "曲調"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "曲調-クリスマス",
+      "section": "曲調",
+      "title": "クリスマス",
+      "prompt": "Christmas",
+      "description": "クリスマス音楽賛美歌やポップな",
+      "tags": [
+        "曲調"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "曲調-シティ",
+      "section": "曲調",
+      "title": "シティ",
+      "prompt": "City",
+      "description": "都市的な雰囲気を持つ音楽、特に都会的なエレクトロニック音楽",
+      "tags": [
+        "曲調"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "曲調-クラウド",
+      "section": "曲調",
+      "title": "クラウド",
+      "prompt": "Cloud",
+      "description": "雲のようにふわふわとした雰囲気の音楽",
+      "tags": [
+        "曲調"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "曲調-クール",
+      "section": "曲調",
+      "title": "クール",
+      "prompt": "Cool",
+      "description": "かっこいい、洗練された",
+      "tags": [
+        "曲調"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "曲調-コア",
+      "section": "曲調",
+      "title": "コア",
+      "prompt": "Core",
+      "description": "中心的な",
+      "tags": [
+        "曲調"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "曲調-ドラム",
+      "section": "曲調",
+      "title": "ドラム",
+      "prompt": "Drum",
+      "description": "ドラムを中心とした音楽",
+      "tags": [
+        "曲調"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "曲調-ダイナミック",
+      "section": "曲調",
+      "title": "ダイナミック",
+      "prompt": "Dynamic",
+      "description": "躍動的な",
+      "tags": [
+        "曲調"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "曲調-イージー",
+      "section": "曲調",
+      "title": "イージー",
+      "prompt": "Easy",
+      "description": "リラックスした",
+      "tags": [
+        "曲調"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "曲調-フューチャー",
+      "section": "曲調",
+      "title": "フューチャー",
+      "prompt": "Future",
+      "description": "未来的なサウンドを追求する音楽の総称",
+      "tags": [
+        "曲調"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "曲調-ローファイ",
+      "section": "曲調",
+      "title": "ローファイ",
+      "prompt": "Lo-Fi",
+      "description": "低音とアナログ音色が特徴リラックスに適する音楽",
+      "tags": [
+        "曲調"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "曲調-ニューエイジ",
+      "section": "曲調",
+      "title": "ニューエイジ",
+      "prompt": "New Age",
+      "description": "アンビエントや瞑想的なサウンドスケープが特徴の音楽",
+      "tags": [
+        "曲調"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "曲調-パーティー",
+      "section": "曲調",
+      "title": "パーティー",
+      "prompt": "Party",
+      "description": "パーティー用音楽アップテンポ",
+      "tags": [
+        "曲調"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "曲調-シンプル",
+      "section": "曲調",
+      "title": "シンプル",
+      "prompt": "Simple",
+      "description": "シンプルで親しみやすい",
+      "tags": [
+        "曲調"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "曲調-スタンダード",
+      "section": "曲調",
+      "title": "スタンダード",
+      "prompt": "Standard",
+      "description": "標準的な",
+      "tags": [
+        "曲調"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "曲調-シンコペーション",
+      "section": "曲調",
+      "title": "シンコペーション",
+      "prompt": "Syncopated",
+      "description": "強い拍と弱い拍の位置を通常と変えて、リズムに変化を与えること",
+      "tags": [
+        "曲調"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "曲調-テクノ",
+      "section": "曲調",
+      "title": "テクノ",
+      "prompt": "Trance",
+      "description": "トランス風な",
+      "tags": [
+        "曲調"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "曲調-アーバン",
+      "section": "曲調",
+      "title": "アーバン",
+      "prompt": "Urban",
+      "description": "都会的な",
+      "tags": [
+        "曲調"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "曲調-ヴィヴィッド",
+      "section": "曲調",
+      "title": "ヴィヴィッド",
+      "prompt": "Vivid",
+      "description": "鮮やかな",
+      "tags": [
+        "曲調"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "曲調-ヘビーベース",
+      "section": "曲調",
+      "title": "ヘビーベース",
+      "prompt": "Heavy Bass",
+      "description": "重低音",
+      "tags": [
+        "曲調"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "曲調-11-8拍子",
+      "section": "曲調",
+      "title": "11/8拍子",
+      "prompt": "11/8 Time Signature",
+      "description": "11分の8拍子。変拍子の一つ。 1小節に八分音符(♪)が11個入る構造。 歌詞のイントロ等にも と指定してあげましょう",
+      "tags": [
+        "曲調"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "曲調-13-8拍子",
+      "section": "曲調",
+      "title": "13/8拍子",
+      "prompt": "13/8 Time Signature",
+      "description": "13分の8拍子。変拍子の一つ。 1小節に八分音符(♪)が13個入る構造。 歌詞のイントロ等にも と指定してあげましょう。",
+      "tags": [
+        "曲調"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "効果音-アナウンサー",
+      "section": "効果音",
+      "title": "アナウンサー",
+      "prompt": "Announcer",
+      "description": "アナウンサーの声",
+      "tags": [
+        "効果音"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "効果音-拍手",
+      "section": "効果音",
+      "title": "拍手",
+      "prompt": "Applause",
+      "description": "拍手の音",
+      "tags": [
+        "効果音"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "効果音-観客の笑い声",
+      "section": "効果音",
+      "title": "観客の笑い声",
+      "prompt": "Audience Laughing",
+      "description": "観客の笑い声",
+      "tags": [
+        "効果音"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "効果音-犬の鳴き声",
+      "section": "効果音",
+      "title": "犬の鳴き声",
+      "prompt": "Barking",
+      "description": "犬の鳴き声",
+      "tags": [
+        "効果音"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "効果音-ビープ音",
+      "section": "効果音",
+      "title": "ビープ音",
+      "prompt": "Beeping",
+      "description": "ビープ音",
+      "tags": [
+        "効果音"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "効果音-ベルの音",
+      "section": "効果音",
+      "title": "ベルの音",
+      "prompt": "Bell Dings",
+      "description": "ベルの音",
+      "tags": [
+        "効果音"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "効果音-鳥のさえずり",
+      "section": "効果音",
+      "title": "鳥のさえずり",
+      "prompt": "Birds Chirping",
+      "description": "鳥のさえずり",
+      "tags": [
+        "効果音"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "効果音-ピー音",
+      "section": "効果音",
+      "title": "ピー音",
+      "prompt": "Bleep",
+      "description": "ピー音",
+      "tags": [
+        "効果音"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "効果音-検閲音",
+      "section": "効果音",
+      "title": "検閲音",
+      "prompt": "Censored",
+      "description": "検閲音",
+      "tags": [
+        "効果音"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "効果音-歓声",
+      "section": "効果音",
+      "title": "歓声",
+      "prompt": "Cheering",
+      "description": "歓声の音",
+      "tags": [
+        "効果音"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "効果音-歓声と拍手",
+      "section": "効果音",
+      "title": "歓声と拍手",
+      "prompt": "Cheers And Applause",
+      "description": "歓声と拍手の音",
+      "tags": [
+        "効果音"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "効果音-くすくす笑い",
+      "section": "効果音",
+      "title": "くすくす笑い",
+      "prompt": "Chuckles",
+      "description": "くすくす笑う音",
+      "tags": [
+        "効果音"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "効果音-拍手",
+      "section": "効果音",
+      "title": "拍手",
+      "prompt": "Clapping",
+      "description": "拍手の音",
+      "tags": [
+        "効果音"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "効果音-咳払い",
+      "section": "効果音",
+      "title": "咳払い",
+      "prompt": "Clears Throat",
+      "description": "咳払いの音",
+      "tags": [
+        "効果音"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "効果音-咳",
+      "section": "効果音",
+      "title": "咳",
+      "prompt": "Cough",
+      "description": "咳の音",
+      "tags": [
+        "効果音"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "効果音-女性ナレーター",
+      "section": "効果音",
+      "title": "女性ナレーター",
+      "prompt": "Female Narrator",
+      "description": "女性ナレーターの声",
+      "tags": [
+        "効果音"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "効果音-戦い",
+      "section": "効果音",
+      "title": "戦い",
+      "prompt": "Fighting",
+      "description": "戦う音",
+      "tags": [
+        "効果音"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "効果音-クスクス笑い",
+      "section": "効果音",
+      "title": "クスクス笑い",
+      "prompt": "Giggles",
+      "description": "クスクス笑う音",
+      "tags": [
+        "効果音"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "効果音-笑い声",
+      "section": "効果音",
+      "title": "笑い声",
+      "prompt": "Giggling",
+      "description": "笑い声",
+      "tags": [
+        "効果音"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "効果音-グリッチ",
+      "section": "効果音",
+      "title": "グリッチ",
+      "prompt": "Glitch",
+      "description": "デジタル音源のエラーやノイズを音楽に取り入れたもの",
+      "tags": [
+        "効果音"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "効果音-うめき声",
+      "section": "効果音",
+      "title": "うめき声",
+      "prompt": "Groaning",
+      "description": "うめく音",
+      "tags": [
+        "効果音"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "効果音-男性ナレーター",
+      "section": "効果音",
+      "title": "男性ナレーター",
+      "prompt": "Man Narrator",
+      "description": "男性ナレーターの声",
+      "tags": [
+        "効果音"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "効果音-ノイズ",
+      "section": "効果音",
+      "title": "ノイズ",
+      "prompt": "Noise",
+      "description": "ノイズや歪んだ音を主体とした音楽",
+      "tags": [
+        "効果音"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "効果音-電話の音",
+      "section": "効果音",
+      "title": "電話の音",
+      "prompt": "Phone Ringing",
+      "description": "電話の鳴る音",
+      "tags": [
+        "効果音"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "効果音-レポーター",
+      "section": "効果音",
+      "title": "レポーター",
+      "prompt": "Reporter",
+      "description": "レポーターの声",
+      "tags": [
+        "効果音"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "効果音-鐘の音",
+      "section": "効果音",
+      "title": "鐘の音",
+      "prompt": "Ringing",
+      "description": "鐘の音",
+      "tags": [
+        "効果音"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "効果音-悲鳴",
+      "section": "効果音",
+      "title": "悲鳴",
+      "prompt": "Screams",
+      "description": "叫び声",
+      "tags": [
+        "効果音"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "効果音-ため息",
+      "section": "効果音",
+      "title": "ため息",
+      "prompt": "Sighs",
+      "description": "ため息の音",
+      "tags": [
+        "効果音"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "効果音-沈黙",
+      "section": "効果音",
+      "title": "沈黙",
+      "prompt": "Silence",
+      "description": "無音",
+      "tags": [
+        "効果音"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "効果音-会話調",
+      "section": "効果音",
+      "title": "会話調",
+      "prompt": "Spoken Word",
+      "description": "会話するような声",
+      "tags": [
+        "効果音"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "効果音-鳥の鳴き声",
+      "section": "効果音",
+      "title": "鳥の鳴き声",
+      "prompt": "Squawking",
+      "description": "鳥の鳴き声",
+      "tags": [
+        "効果音"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "効果音-ささやき",
+      "section": "効果音",
+      "title": "ささやき",
+      "prompt": "Whispers",
+      "description": "ささやく声",
+      "tags": [
+        "効果音"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "効果音-ホイッスル",
+      "section": "効果音",
+      "title": "ホイッスル",
+      "prompt": "Whistle",
+      "description": "高音の笛型楽器単純な構造",
+      "tags": [
+        "効果音"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "効果音-口笛",
+      "section": "効果音",
+      "title": "口笛",
+      "prompt": "Whistling",
+      "description": "口笛の音",
+      "tags": [
+        "効果音"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "効果音-ライブ化セット-live",
+      "section": "効果音",
+      "title": "ライブ化セット(Live)",
+      "prompt": "Live Band, Crowd Roar, Crowd Singing, Live Performance, Live Vocals, Live Guitar, Live Drums, Live Keyboard, Clapping, Sing-Along, Outdoor Concert, Festival,",
+      "description": "楽曲がライブ演奏風味になります。(MC的なモノが入る事も) このプロンプトだけでStyleの200文字中の、156文字を消費します。 この為、CoverSongで前曲の要素を引き継いでライブバージョンを作成したい場合は簡単にできますが、最初から制作の際には、他のStyle要素で文字数が圧迫する際、必要に応じて、本要素の一部を削除してください",
+      "tags": [
+        "効果音"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "メロディ-キャッチーな",
+      "section": "メロディ",
+      "title": "キャッチーな",
+      "prompt": "[Melodies:Catchy]",
+      "description": "このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "メロディ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "メロディ-流れる",
+      "section": "メロディ",
+      "title": "流れる",
+      "prompt": "[Melodies:Flowing]",
+      "description": "このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "メロディ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "メロディ-単純",
+      "section": "メロディ",
+      "title": "単純",
+      "prompt": "[Melodies:Simple]",
+      "description": "このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "メロディ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "メロディ-複雑な",
+      "section": "メロディ",
+      "title": "複雑な",
+      "prompt": "[Melodies:Complex]",
+      "description": "このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "メロディ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "メロディ-思い出深い",
+      "section": "メロディ",
+      "title": "思い出深い",
+      "prompt": "[Melodies:Memorable]",
+      "description": "このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "メロディ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "メロディ-繰り返しの",
+      "section": "メロディ",
+      "title": "繰り返しの",
+      "prompt": "[Melodies:Repetitive]",
+      "description": "このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "メロディ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "メロディ-忘れられない",
+      "section": "メロディ",
+      "title": "忘れられない",
+      "prompt": "[Melodies:Haunting]",
+      "description": "このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "メロディ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "メロディ-高揚感のある",
+      "section": "メロディ",
+      "title": "高揚感のある",
+      "prompt": "[Melodies:Uplifting]",
+      "description": "このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "メロディ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "メロディ-降順",
+      "section": "メロディ",
+      "title": "降順",
+      "prompt": "[Melodies:Descending]",
+      "description": "このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "メロディ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "メロディ-遊び心のある",
+      "section": "メロディ",
+      "title": "遊び心のある",
+      "prompt": "[Melodies:Playful]",
+      "description": "このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "メロディ"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ストーリー-共通の思い出",
+      "section": "ストーリー",
+      "title": "共通の思い出",
+      "prompt": "[Story Details:Shared Memory]",
+      "description": "このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "ストーリー"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ストーリー-初対面",
+      "section": "ストーリー",
+      "title": "初対面",
+      "prompt": "[Story Details:First Meeting]",
+      "description": "このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "ストーリー"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ストーリー-別れ",
+      "section": "ストーリー",
+      "title": "別れ",
+      "prompt": "[Story Details:A Farewell]",
+      "description": "このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "ストーリー"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ストーリー-子供の頃の夢",
+      "section": "ストーリー",
+      "title": "子供の頃の夢",
+      "prompt": "[Story Details:Childhood Dream]",
+      "description": "このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "ストーリー"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ストーリー-秘密",
+      "section": "ストーリー",
+      "title": "秘密",
+      "prompt": "[Story Details:A Secret]",
+      "description": "このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "ストーリー"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ストーリー-冒険",
+      "section": "ストーリー",
+      "title": "冒険",
+      "prompt": "[Story Details:An Adventure]",
+      "description": "このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "ストーリー"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ストーリー-約束",
+      "section": "ストーリー",
+      "title": "約束",
+      "prompt": "[Story Details:A Promise]",
+      "description": "このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "ストーリー"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ストーリー-挑戦",
+      "section": "ストーリー",
+      "title": "挑戦",
+      "prompt": "[Story Details:A Challenge]",
+      "description": "このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "ストーリー"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ストーリー-転換点",
+      "section": "ストーリー",
+      "title": "転換点",
+      "prompt": "[Story Details:A Turning Point]",
+      "description": "このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "ストーリー"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ストーリー-発見",
+      "section": "ストーリー",
+      "title": "発見",
+      "prompt": "[Story Details:A Discovery]",
+      "description": "このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "ストーリー"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ハーモニー-暖かい",
+      "section": "ハーモニー",
+      "title": "暖かい",
+      "prompt": "[Harmonies:Warm]",
+      "description": "このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "ハーモニー"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ハーモニー-単純",
+      "section": "ハーモニー",
+      "title": "単純",
+      "prompt": "[Harmonies:Simple]",
+      "description": "このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "ハーモニー"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ハーモニー-不協和音",
+      "section": "ハーモニー",
+      "title": "不協和音",
+      "prompt": "[Harmonies:Dissonant]",
+      "description": "このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "ハーモニー"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ハーモニー-リッチ",
+      "section": "ハーモニー",
+      "title": "リッチ",
+      "prompt": "[Harmonies:Rich]",
+      "description": "このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "ハーモニー"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ハーモニー-子音",
+      "section": "ハーモニー",
+      "title": "子音",
+      "prompt": "[Harmonies:Consonant]",
+      "description": "このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "ハーモニー"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ハーモニー-複雑な",
+      "section": "ハーモニー",
+      "title": "複雑な",
+      "prompt": "[Harmonies:Intricate]",
+      "description": "このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "ハーモニー"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ハーモニー-層状の",
+      "section": "ハーモニー",
+      "title": "層状の",
+      "prompt": "[Harmonies:Layered]",
+      "description": "このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "ハーモニー"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ハーモニー-解決する",
+      "section": "ハーモニー",
+      "title": "解決する",
+      "prompt": "[Harmonies:Resolving]",
+      "description": "このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "ハーモニー"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ハーモニー-サスペンスフルな",
+      "section": "ハーモニー",
+      "title": "サスペンスフルな",
+      "prompt": "[Harmonies:Suspenseful]",
+      "description": "このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "ハーモニー"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ハーモニー-優しい",
+      "section": "ハーモニー",
+      "title": "優しい",
+      "prompt": "[Harmonies:Gentle]",
+      "description": "このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "ハーモニー"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ペース-明るい",
+      "section": "ペース",
+      "title": "明るい",
+      "prompt": "[Paces:Upbeat]",
+      "description": "このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "ペース"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ペース-遅い",
+      "section": "ペース",
+      "title": "遅い",
+      "prompt": "[Paces:Slow]",
+      "description": "このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "ペース"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ペース-中くらい",
+      "section": "ペース",
+      "title": "中くらい",
+      "prompt": "[Paces:Medium]",
+      "description": "このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "ペース"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ペース-速い",
+      "section": "ペース",
+      "title": "速い",
+      "prompt": "[Paces:Fast]",
+      "description": "このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "ペース"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ペース-リラックスした",
+      "section": "ペース",
+      "title": "リラックスした",
+      "prompt": "[Paces:Relaxed]",
+      "description": "このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "ペース"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ペース-運転",
+      "section": "ペース",
+      "title": "運転",
+      "prompt": "[Paces:Driving]",
+      "description": "このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "ペース"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ペース-優しい",
+      "section": "ペース",
+      "title": "優しい",
+      "prompt": "[Paces:Gentle]",
+      "description": "このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "ペース"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ペース-活発な",
+      "section": "ペース",
+      "title": "活発な",
+      "prompt": "[Paces:Brisk]",
+      "description": "このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "ペース"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ペース-のんびり",
+      "section": "ペース",
+      "title": "のんびり",
+      "prompt": "[Paces:Leisurely]",
+      "description": "このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "ペース"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ペース-適度",
+      "section": "ペース",
+      "title": "適度",
+      "prompt": "[Paces:Moderate]",
+      "description": "このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "ペース"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ペース-ミディアムテンポ",
+      "section": "ペース",
+      "title": "ミディアムテンポ",
+      "prompt": "[Paces:Medium Tempo]",
+      "description": "中程度のテンポの音楽",
+      "tags": [
+        "詳細設定",
+        "ペース"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ペース-スローテンポ",
+      "section": "ペース",
+      "title": "スローテンポ",
+      "prompt": "[Paces:Slow Tempo]",
+      "description": "ゆったりとしたテンポ",
+      "tags": [
+        "詳細設定",
+        "ペース"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ペース-非常に遅めのテンポ",
+      "section": "ペース",
+      "title": "非常に遅めのテンポ",
+      "prompt": "[Paces:Bpm60]",
+      "description": "非常に遅めのテンポ 1分間の拍数を表す 60なら1分に60回1秒間に1拍",
+      "tags": [
+        "詳細設定",
+        "ペース"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ペース-非常に遅めのテンポ",
+      "section": "ペース",
+      "title": "非常に遅めのテンポ",
+      "prompt": "[Paces:Bpm65]",
+      "description": "非常に遅めのテンポ 1分間の拍数を表す 65なら1分に65回",
+      "tags": [
+        "詳細設定",
+        "ペース"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ペース-非常に遅めのテンポ",
+      "section": "ペース",
+      "title": "非常に遅めのテンポ",
+      "prompt": "[Paces:Bpm70]",
+      "description": "非常に遅めのテンポ 1分間の拍数を表す 70なら1分に70回",
+      "tags": [
+        "詳細設定",
+        "ペース"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ペース-非常に遅めのテンポ",
+      "section": "ペース",
+      "title": "非常に遅めのテンポ",
+      "prompt": "[Paces:Bpm75]",
+      "description": "非常に遅めのテンポ 1分間の拍数を表す 75なら1分に75回",
+      "tags": [
+        "詳細設定",
+        "ペース"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ペース-遅めのテンポ",
+      "section": "ペース",
+      "title": "遅めのテンポ",
+      "prompt": "[Paces:Bpm80]",
+      "description": "遅めのテンポ 1分間の拍数を表す 80なら1分に80回",
+      "tags": [
+        "詳細設定",
+        "ペース"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ペース-遅めのテンポ",
+      "section": "ペース",
+      "title": "遅めのテンポ",
+      "prompt": "[Paces:Bpm85]",
+      "description": "遅めのテンポ 1分間の拍数を表す 85なら1分に85回",
+      "tags": [
+        "詳細設定",
+        "ペース"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ペース-遅めのテンポ",
+      "section": "ペース",
+      "title": "遅めのテンポ",
+      "prompt": "[Paces:Bpm90]",
+      "description": "遅めのテンポ 1分間の拍数を表す 90なら1分に90回1秒間に1.5拍",
+      "tags": [
+        "詳細設定",
+        "ペース"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ペース-遅めのテンポ",
+      "section": "ペース",
+      "title": "遅めのテンポ",
+      "prompt": "[Paces:Bpm95]",
+      "description": "遅めのテンポ 1分間の拍数を表す 95なら1分に95回",
+      "tags": [
+        "詳細設定",
+        "ペース"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ペース-やや遅めのテンポ",
+      "section": "ペース",
+      "title": "やや遅めのテンポ",
+      "prompt": "[Paces:Bpm100]",
+      "description": "やや遅めの楽曲テンポ 1分間の拍数を表す 100なら1分に100回",
+      "tags": [
+        "詳細設定",
+        "ペース"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ペース-やや遅めのテンポ",
+      "section": "ペース",
+      "title": "やや遅めのテンポ",
+      "prompt": "[Paces:Bpm105]",
+      "description": "やや遅めのテンポ 1分間の拍数を表す 105なら1分に105回",
+      "tags": [
+        "詳細設定",
+        "ペース"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ペース-標準的なテンポ",
+      "section": "ペース",
+      "title": "標準的なテンポ",
+      "prompt": "[Paces:Bpm110]",
+      "description": "一般的なテンポ 1分間の拍数を表す 110なら1分に110回",
+      "tags": [
+        "詳細設定",
+        "ペース"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ペース-標準的なテンポ",
+      "section": "ペース",
+      "title": "標準的なテンポ",
+      "prompt": "[Paces:Bpm115]",
+      "description": "一般的なテンポ 1分間の拍数を表す 115なら1分に115回",
+      "tags": [
+        "詳細設定",
+        "ペース"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ペース-標準的なテンポ",
+      "section": "ペース",
+      "title": "標準的なテンポ",
+      "prompt": "[Paces:Bpm120]",
+      "description": "一般的なテンポ 1分間の拍数を表す 120なら1分に120回1秒間に2拍",
+      "tags": [
+        "詳細設定",
+        "ペース"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ペース-標準的なテンポ",
+      "section": "ペース",
+      "title": "標準的なテンポ",
+      "prompt": "[Paces:Bpm125]",
+      "description": "一般的なテンポ 1分間の拍数を表す 125なら1分に125回",
+      "tags": [
+        "詳細設定",
+        "ペース"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ペース-標準的なテンポ",
+      "section": "ペース",
+      "title": "標準的なテンポ",
+      "prompt": "[Paces:Bpm130]",
+      "description": "一般的なテンポ 1分間の拍数を表す 130なら1分に130回",
+      "tags": [
+        "詳細設定",
+        "ペース"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ペース-やや早めのテンポ",
+      "section": "ペース",
+      "title": "やや早めのテンポ",
+      "prompt": "[Paces:Bpm135]",
+      "description": "やや早めのテンポ 1分間の拍数を表す 135なら1分に135回",
+      "tags": [
+        "詳細設定",
+        "ペース"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ペース-やや早めのテンポ",
+      "section": "ペース",
+      "title": "やや早めのテンポ",
+      "prompt": "[Paces:Bpm140]",
+      "description": "やや早めのテンポ 1分間の拍数を表す 140なら1分に140回",
+      "tags": [
+        "詳細設定",
+        "ペース"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ペース-早めのテンポ",
+      "section": "ペース",
+      "title": "早めのテンポ",
+      "prompt": "[Paces:Bpm145]",
+      "description": "早めのテンポ 1分間の拍数を表す 145なら1分に145回",
+      "tags": [
+        "詳細設定",
+        "ペース"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ペース-早めのテンポ",
+      "section": "ペース",
+      "title": "早めのテンポ",
+      "prompt": "[Paces:Bpm150]",
+      "description": "早めのテンポ 1分間の拍数を表す 150なら1分に150回1秒間に2.5拍",
+      "tags": [
+        "詳細設定",
+        "ペース"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ペース-早めのテンポ",
+      "section": "ペース",
+      "title": "早めのテンポ",
+      "prompt": "[Paces:Bpm155]",
+      "description": "早めのテンポ 1分間の拍数を表す 155なら1分に155回",
+      "tags": [
+        "詳細設定",
+        "ペース"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ペース-早めのテンポ",
+      "section": "ペース",
+      "title": "早めのテンポ",
+      "prompt": "[Paces:Bpm160]",
+      "description": "早めのテンポ 1分間の拍数を表す 160なら1分に160回",
+      "tags": [
+        "詳細設定",
+        "ペース"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ペース-非常に早いテンポ",
+      "section": "ペース",
+      "title": "非常に早いテンポ",
+      "prompt": "[Paces:Bpm165]",
+      "description": "非常に早めのテンポ 1分間の拍数を表す 165なら1分に165回人間の心拍なら救急車を呼ぶ事を検討した方がよいレベル",
+      "tags": [
+        "詳細設定",
+        "ペース"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ペース-非常に早いテンポ",
+      "section": "ペース",
+      "title": "非常に早いテンポ",
+      "prompt": "[Paces:Bpm170]",
+      "description": "非常に早めのテンポ 1分間の拍数を表す 170なら1分に170回人間の心拍なら救急車を呼ぶレベル",
+      "tags": [
+        "詳細設定",
+        "ペース"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ペース-非常に早いテンポ",
+      "section": "ペース",
+      "title": "非常に早いテンポ",
+      "prompt": "[Paces:Bpm175]",
+      "description": "非常に早めのテンポ 1分間の拍数を表す 180なら1分に180回1秒間に3拍 人間の心拍なら救急車を呼ぶレベル",
+      "tags": [
+        "詳細設定",
+        "ペース"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ペース-非常に早いテンポ",
+      "section": "ペース",
+      "title": "非常に早いテンポ",
+      "prompt": "[Paces:Bpm180]",
+      "description": "非常に早めのテンポ 1分間の拍数を表す 185なら1分に185回人間の心拍なら救急車を呼ぶレベル",
+      "tags": [
+        "詳細設定",
+        "ペース"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ペース-アダージェット",
+      "section": "ペース",
+      "title": "アダージェット",
+      "prompt": "[Paces:Adagietto]",
+      "description": "ややゆったりと",
+      "tags": [
+        "詳細設定",
+        "ペース"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ペース-アダージョ",
+      "section": "ペース",
+      "title": "アダージョ",
+      "prompt": "[Paces:Adagio]",
+      "description": "ゆったりと",
+      "tags": [
+        "詳細設定",
+        "ペース"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ペース-アレグレット",
+      "section": "ペース",
+      "title": "アレグレット",
+      "prompt": "[Paces:Allegretto]",
+      "description": "やや快活に",
+      "tags": [
+        "詳細設定",
+        "ペース"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ペース-アレグロ",
+      "section": "ペース",
+      "title": "アレグロ",
+      "prompt": "[Paces:Allegro]",
+      "description": "快活に",
+      "tags": [
+        "詳細設定",
+        "ペース"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ペース-アレグロ-ヴィヴァーチェ",
+      "section": "ペース",
+      "title": "アレグロ・ヴィヴァーチェ",
+      "prompt": "[Paces:Allegro Vivace]",
+      "description": "快活・活発に",
+      "tags": [
+        "詳細設定",
+        "ペース"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ペース-アンダンテ",
+      "section": "ペース",
+      "title": "アンダンテ",
+      "prompt": "[Paces:Andante]",
+      "description": "ゆるやかに",
+      "tags": [
+        "詳細設定",
+        "ペース"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ペース-アンダンティーノ",
+      "section": "ペース",
+      "title": "アンダンティーノ",
+      "prompt": "[Paces:Andantino]",
+      "description": "ややゆるやかに",
+      "tags": [
+        "詳細設定",
+        "ペース"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ペース-ラルゴ",
+      "section": "ペース",
+      "title": "ラルゴ",
+      "prompt": "[Paces:Largo]",
+      "description": "幅広く",
+      "tags": [
+        "詳細設定",
+        "ペース"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ペース-レント",
+      "section": "ペース",
+      "title": "レント",
+      "prompt": "[Paces:Lento]",
+      "description": "遅く",
+      "tags": [
+        "詳細設定",
+        "ペース"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ペース-ミッドテンポ",
+      "section": "ペース",
+      "title": "ミッドテンポ",
+      "prompt": "[Paces:Mid-Tempo]",
+      "description": "音楽のテンポのなかで中くらいの速度を指し、一般的に8ビートの曲の場合90～110BPM程度を指します",
+      "tags": [
+        "詳細設定",
+        "ペース"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ペース-モデラート",
+      "section": "ペース",
+      "title": "モデラート",
+      "prompt": "[Paces:Moderato]",
+      "description": "中庸に・節制をもって",
+      "tags": [
+        "詳細設定",
+        "ペース"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ペース-プレスティッシモ",
+      "section": "ペース",
+      "title": "プレスティッシモ",
+      "prompt": "[Paces:Prestissimo]",
+      "description": "非常に速く",
+      "tags": [
+        "詳細設定",
+        "ペース"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ペース-プレスト",
+      "section": "ペース",
+      "title": "プレスト",
+      "prompt": "[Paces:Presto]",
+      "description": "早く",
+      "tags": [
+        "詳細設定",
+        "ペース"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ペース-ヴィヴァーチェ",
+      "section": "ペース",
+      "title": "ヴィヴァーチェ",
+      "prompt": "[Paces:Vivace]",
+      "description": "快活に",
+      "tags": [
+        "詳細設定",
+        "ペース"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ペース-11-8拍子",
+      "section": "ペース",
+      "title": "11/8拍子",
+      "prompt": "[Paces:11/8 Time Signature]",
+      "description": "11分の8拍子。変拍子の一つ。 1小節に八分音符(♪)が11個入る構造。 歌詞のイントロ等にも と指定してあげましょう",
+      "tags": [
+        "詳細設定",
+        "ペース"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "ペース-13-8拍子",
+      "section": "ペース",
+      "title": "13/8拍子",
+      "prompt": "[Paces:13/8 Time Signature]",
+      "description": "13分の8拍子。変拍子の一つ。 1小節に八分音符(♪)が13個入る構造。 歌詞のイントロ等にも と指定してあげましょう。",
+      "tags": [
+        "詳細設定",
+        "ペース"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "リズム-単純",
+      "section": "リズム",
+      "title": "単純",
+      "prompt": "[Rhythms:Simple]",
+      "description": "このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "リズム"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "リズム-流れる",
+      "section": "リズム",
+      "title": "流れる",
+      "prompt": "[Rhythms:Flowing]",
+      "description": "このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "リズム"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "リズム-安定した",
+      "section": "リズム",
+      "title": "安定した",
+      "prompt": "[Rhythms:Steady]",
+      "description": "このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "リズム"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "リズム-シンコペーションされた",
+      "section": "リズム",
+      "title": "シンコペーションされた",
+      "prompt": "[Rhythms:Syncopated]",
+      "description": "このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "リズム"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "リズム-運転",
+      "section": "リズム",
+      "title": "運転",
+      "prompt": "[Rhythms:Driving]",
+      "description": "このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "リズム"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "リズム-リラックスした",
+      "section": "リズム",
+      "title": "リラックスした",
+      "prompt": "[Rhythms:Relaxed]",
+      "description": "このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "リズム"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "リズム-ダンサブルな",
+      "section": "リズム",
+      "title": "ダンサブルな",
+      "prompt": "[Rhythms:Danceable]",
+      "description": "このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "リズム"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "リズム-複雑な",
+      "section": "リズム",
+      "title": "複雑な",
+      "prompt": "[Rhythms:Complex]",
+      "description": "このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "リズム"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "リズム-不規則な",
+      "section": "リズム",
+      "title": "不規則な",
+      "prompt": "[Rhythms:Irregular]",
+      "description": "このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "リズム"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "リズム-パーカッシブな",
+      "section": "リズム",
+      "title": "パーカッシブな",
+      "prompt": "[Rhythms:Percussive]",
+      "description": "このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "リズム"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "感情2-曖昧な",
+      "section": "感情2",
+      "title": "曖昧な",
+      "prompt": "[Emotions:Ambiguous]",
+      "description": "アンビギュアス：曖昧な",
+      "tags": [
+        "詳細設定",
+        "感情2"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "感情2-怒りの感情",
+      "section": "感情2",
+      "title": "怒りの感情",
+      "prompt": "[Emotions:Anger]",
+      "description": "このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "感情2"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "感情2-怒ってる",
+      "section": "感情2",
+      "title": "怒ってる",
+      "prompt": "[Emotions:Angry]",
+      "description": "アングリー：怒った",
+      "tags": [
+        "詳細設定",
+        "感情2"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "感情2-甘苦い",
+      "section": "感情2",
+      "title": "甘苦い",
+      "prompt": "[Emotions:Bittersweet]",
+      "description": "ビタースイート：切ない、ほろ苦い",
+      "tags": [
+        "詳細設定",
+        "感情2"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "感情2-陰気な",
+      "section": "感情2",
+      "title": "陰気な",
+      "prompt": "[Emotions:Brooding]",
+      "description": "ブルーディング：陰鬱な",
+      "tags": [
+        "詳細設定",
+        "感情2"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "感情2-穏やかな",
+      "section": "感情2",
+      "title": "穏やかな",
+      "prompt": "[Emotions:Calm]",
+      "description": "カーム：穏やかな",
+      "tags": [
+        "詳細設定",
+        "感情2"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "感情2-祝う感じ",
+      "section": "感情2",
+      "title": "祝う感じ",
+      "prompt": "[Emotions:Celebratory]",
+      "description": "セレブラトリー：祝祭的な",
+      "tags": [
+        "詳細設定",
+        "感情2"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "感情2-安心感",
+      "section": "感情2",
+      "title": "安心感",
+      "prompt": "[Emotions:Comforting]",
+      "description": "コンフォーティング：心地よい 安心感や心の安らぎを与える感じ",
+      "tags": [
+        "詳細設定",
+        "感情2"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "感情2-暗い雰囲気",
+      "section": "感情2",
+      "title": "暗い雰囲気",
+      "prompt": "[Emotions:Dark]",
+      "description": "ダーク：暗い",
+      "tags": [
+        "詳細設定",
+        "感情2"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "感情2-不気味",
+      "section": "感情2",
+      "title": "不気味",
+      "prompt": "[Emotions:Eerie]",
+      "description": "不気味、怖い、恐怖",
+      "tags": [
+        "詳細設定",
+        "感情2"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "感情2-オーガニック",
+      "section": "感情2",
+      "title": "オーガニック",
+      "prompt": "[Feels:[Feels:Organic]]",
+      "description": "音楽における「Feels」は、演奏者の感情や心情、雰囲気などを指す言葉です。",
+      "tags": [
+        "詳細設定",
+        "感情2"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "感情2-シンセサイザー",
+      "section": "感情2",
+      "title": "シンセサイザー",
+      "prompt": "[Feels:Synth]",
+      "description": "音楽における「Feels」は、演奏者の感情や心情、雰囲気などを指す言葉です。",
+      "tags": [
+        "詳細設定",
+        "感情2"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "感情2-音響",
+      "section": "感情2",
+      "title": "音響",
+      "prompt": "[Feels:Acoustic]",
+      "description": "音楽における「Feels」は、演奏者の感情や心情、雰囲気などを指す言葉です。",
+      "tags": [
+        "詳細設定",
+        "感情2"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "感情2-電気",
+      "section": "感情2",
+      "title": "電気",
+      "prompt": "[Feels:Electric]",
+      "description": "音楽における「Feels」は、演奏者の感情や心情、雰囲気などを指す言葉です。",
+      "tags": [
+        "詳細設定",
+        "感情2"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "感情2-映画的な",
+      "section": "感情2",
+      "title": "映画的な",
+      "prompt": "[Feels:Cinematic]",
+      "description": "音楽における「Feels」は、演奏者の感情や心情、雰囲気などを指す言葉です。",
+      "tags": [
+        "詳細設定",
+        "感情2"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "感情2-親密な",
+      "section": "感情2",
+      "title": "親密な",
+      "prompt": "[Feels:Intimate]",
+      "description": "音楽における「Feels」は、演奏者の感情や心情、雰囲気などを指す言葉です。",
+      "tags": [
+        "詳細設定",
+        "感情2"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "感情2-すごい",
+      "section": "感情2",
+      "title": "すごい",
+      "prompt": "[Feels:Epic]",
+      "description": "音楽における「Feels」は、演奏者の感情や心情、雰囲気などを指す言葉です。",
+      "tags": [
+        "詳細設定",
+        "感情2"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "感情2-生",
+      "section": "感情2",
+      "title": "生",
+      "prompt": "[Feels:Raw]",
+      "description": "音楽における「Feels」は、演奏者の感情や心情、雰囲気などを指す言葉です。",
+      "tags": [
+        "詳細設定",
+        "感情2"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "感情2-スムーズ",
+      "section": "感情2",
+      "title": "スムーズ",
+      "prompt": "[Feels:Smooth]",
+      "description": "音楽における「Feels」は、演奏者の感情や心情、雰囲気などを指す言葉です。",
+      "tags": [
+        "詳細設定",
+        "感情2"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "感情2-エーテル的な",
+      "section": "感情2",
+      "title": "エーテル的な",
+      "prompt": "[Feels:Ethereal]",
+      "description": "音楽における「Feels」は、演奏者の感情や心情、雰囲気などを指す言葉です。",
+      "tags": [
+        "詳細設定",
+        "感情2"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "感情2-汚れてる",
+      "section": "感情2",
+      "title": "汚れてる",
+      "prompt": "[Emotions:Dirty]",
+      "description": "ダーティ：暗い/汚い/闇、という意味合いを含み、攻撃的で過激な音楽を指す場合がある",
+      "tags": [
+        "詳細設定",
+        "感情2"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "感情2-夢のよう",
+      "section": "感情2",
+      "title": "夢のよう",
+      "prompt": "[Emotions:Dream]",
+      "description": "ドリーム：夢のような、幻想的な音楽",
+      "tags": [
+        "詳細設定",
+        "感情2"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "感情2-夢幻的",
+      "section": "感情2",
+      "title": "夢幻的",
+      "prompt": "[Emotions:Dreamy]",
+      "description": "ドリーミー：夢のような",
+      "tags": [
+        "詳細設定",
+        "感情2"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "感情2-感情的",
+      "section": "感情2",
+      "title": "感情的",
+      "prompt": "[Emotions:Emotional]",
+      "description": "エモーショナル：感情的。感情に訴えかける、心を動かすような雰囲気",
+      "tags": [
+        "詳細設定",
+        "感情2"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "感情2-元気な",
+      "section": "感情2",
+      "title": "元気な",
+      "prompt": "[Emotions:Energetic]",
+      "description": "エナジェティック：活気のある",
+      "tags": [
+        "詳細設定",
+        "感情2"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "感情2-壮大な",
+      "section": "感情2",
+      "title": "壮大な",
+      "prompt": "[Emotions:Epic]",
+      "description": "エピック：壮大な",
+      "tags": [
+        "詳細設定",
+        "感情2"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "感情2-幻想的",
+      "section": "感情2",
+      "title": "幻想的",
+      "prompt": "[Emotions:Ethereal]",
+      "description": "エセリアル：幻想的な",
+      "tags": [
+        "詳細設定",
+        "感情2"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "感情2-興奮の感情",
+      "section": "感情2",
+      "title": "興奮の感情",
+      "prompt": "[Emotions:Excitement]",
+      "description": "このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "感情2"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "感情2-爽快な",
+      "section": "感情2",
+      "title": "爽快な",
+      "prompt": "[Emotions:Exhilarating]",
+      "description": "エグジラレイティング：爽快な",
+      "tags": [
+        "詳細設定",
+        "感情2"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "感情2-恐れの感情",
+      "section": "感情2",
+      "title": "恐れの感情",
+      "prompt": "[Emotions:Fear]",
+      "description": "このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "感情2"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "感情2-祝祭的",
+      "section": "感情2",
+      "title": "祝祭的",
+      "prompt": "[Emotions:Festive]",
+      "description": "フェスティブ：祭り。お祝いのような陽気で楽しい雰囲気",
+      "tags": [
+        "詳細設定",
+        "感情2"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "感情2-慌ただしい",
+      "section": "感情2",
+      "title": "慌ただしい",
+      "prompt": "[Emotions:Frantic]",
+      "description": "フランティック：慌ただしい",
+      "tags": [
+        "詳細設定",
+        "感情2"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "感情2-楽しい",
+      "section": "感情2",
+      "title": "楽しい",
+      "prompt": "[Emotions:Fun]",
+      "description": "ファン：楽しい",
+      "tags": [
+        "詳細設定",
+        "感情2"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "感情2-希望的",
+      "section": "感情2",
+      "title": "希望的",
+      "prompt": "[Emotions:Hopeful]",
+      "description": "ホープフル：前向き、希望に満ちた",
+      "tags": [
+        "詳細設定",
+        "感情2"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "感情2-強烈な",
+      "section": "感情2",
+      "title": "強烈な",
+      "prompt": "[Emotions:Intense]",
+      "description": "インテンス：強烈な",
+      "tags": [
+        "詳細設定",
+        "感情2"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "感情2-陽気な",
+      "section": "感情2",
+      "title": "陽気な",
+      "prompt": "[Emotions:Jovial]",
+      "description": "ジョヴィアル：陽気な",
+      "tags": [
+        "詳細設定",
+        "感情2"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "感情2-喜びの感情",
+      "section": "感情2",
+      "title": "喜びの感情",
+      "prompt": "[Emotions:Joy]",
+      "description": "このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "感情2"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "感情2-喜ばしい",
+      "section": "感情2",
+      "title": "喜ばしい",
+      "prompt": "[Emotions:Joyful]",
+      "description": "ジョイフル：喜びに満ちた",
+      "tags": [
+        "詳細設定",
+        "感情2"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "感情2-軽快な",
+      "section": "感情2",
+      "title": "軽快な",
+      "prompt": "[Emotions:Lighthearted]",
+      "description": "ライトハーテッド：気軽な",
+      "tags": [
+        "詳細設定",
+        "感情2"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "感情2-憧れの感情",
+      "section": "感情2",
+      "title": "憧れの感情",
+      "prompt": "[Emotions:Longing]",
+      "description": "このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "感情2"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "感情2-機械的な",
+      "section": "感情2",
+      "title": "機械的な",
+      "prompt": "[Emotions:Mechanical Singing]",
+      "description": "機械的な歌い方をします",
+      "tags": [
+        "詳細設定",
+        "感情2"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "感情2-憂鬱な",
+      "section": "感情2",
+      "title": "憂鬱な",
+      "prompt": "[Emotions:Melancholy]",
+      "description": "メランコリー：憂鬱な",
+      "tags": [
+        "詳細設定",
+        "感情2"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "感情2-劇的な",
+      "section": "感情2",
+      "title": "劇的な",
+      "prompt": "[Emotions:Melodramatic]",
+      "description": "メロドラマティック：メロドラマのような",
+      "tags": [
+        "詳細設定",
+        "感情2"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "感情2-神秘的",
+      "section": "感情2",
+      "title": "神秘的",
+      "prompt": "[Emotions:Mysterious]",
+      "description": "ミステリアス：神秘的な",
+      "tags": [
+        "詳細設定",
+        "感情2"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "感情2-神秘的",
+      "section": "感情2",
+      "title": "神秘的",
+      "prompt": "[Emotions:Mystical]",
+      "description": "ミスティカル：神秘的な",
+      "tags": [
+        "詳細設定",
+        "感情2"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "感情2-ノスタルジーの感情",
+      "section": "感情2",
+      "title": "ノスタルジーの感情",
+      "prompt": "[Emotions:Nostalgia]",
+      "description": "このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "感情2"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "感情2-懐かしい",
+      "section": "感情2",
+      "title": "懐かしい",
+      "prompt": "[Emotions:Nostalgic]",
+      "description": "ノスタルジック：懐かしい",
+      "tags": [
+        "詳細設定",
+        "感情2"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "感情2-楽観的",
+      "section": "感情2",
+      "title": "楽観的",
+      "prompt": "[Emotions:Optimistic]",
+      "description": "オプティミスティック：楽観的な",
+      "tags": [
+        "詳細設定",
+        "感情2"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "感情2-情熱的",
+      "section": "感情2",
+      "title": "情熱的",
+      "prompt": "[Emotions:Passionate]",
+      "description": "パッショネイト：情熱的な 強い情熱や感情がこもった状態",
+      "tags": [
+        "詳細設定",
+        "感情2"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "感情2-平和の感情",
+      "section": "感情2",
+      "title": "平和の感情",
+      "prompt": "[Emotions:Peace]",
+      "description": "このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "感情2"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "感情2-悲観的",
+      "section": "感情2",
+      "title": "悲観的",
+      "prompt": "[Emotions:Pessimistic]",
+      "description": "ペシミスティック：悲観的な",
+      "tags": [
+        "詳細設定",
+        "感情2"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "感情2-遊び心",
+      "section": "感情2",
+      "title": "遊び心",
+      "prompt": "[Emotions:Playful]",
+      "description": "プレイフル：遊び心のある",
+      "tags": [
+        "詳細設定",
+        "感情2"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "感情2-進歩的",
+      "section": "感情2",
+      "title": "進歩的",
+      "prompt": "[Emotions:Progressive]",
+      "description": "プログレッシブ：進歩的、革新的",
+      "tags": [
+        "詳細設定",
+        "感情2"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "感情2-思索的",
+      "section": "感情2",
+      "title": "思索的",
+      "prompt": "[Emotions:Reflective]",
+      "description": "リフレクティブ：内省的な",
+      "tags": [
+        "詳細設定",
+        "感情2"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "感情2-高貴な",
+      "section": "感情2",
+      "title": "高貴な",
+      "prompt": "[Emotions:Regal]",
+      "description": "リーガル：威厳のある",
+      "tags": [
+        "詳細設定",
+        "感情2"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "感情2-くつろげる",
+      "section": "感情2",
+      "title": "くつろげる",
+      "prompt": "[Emotions:Relaxing]",
+      "description": "リラクシング：落ち着いた。リラックスできる",
+      "tags": [
+        "詳細設定",
+        "感情2"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "感情2-恋愛的",
+      "section": "感情2",
+      "title": "恋愛的",
+      "prompt": "[Emotions:Romantic]",
+      "description": "ロマンチック：感情豊かなメロディとロマンチックな歌詞",
+      "tags": [
+        "詳細設定",
+        "感情2"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "感情2-感傷的",
+      "section": "感情2",
+      "title": "感傷的",
+      "prompt": "[Emotions:Sentimental]",
+      "description": "センチメンタル：感傷的な",
+      "tags": [
+        "詳細設定",
+        "感情2"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "感情2-静けさの感情",
+      "section": "感情2",
+      "title": "静けさの感情",
+      "prompt": "[Emotions:Serenity]",
+      "description": "このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "感情2"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "感情2-陰鬱な",
+      "section": "感情2",
+      "title": "陰鬱な",
+      "prompt": "[Emotions:Somber]",
+      "description": "ソンバー：陰鬱な",
+      "tags": [
+        "詳細設定",
+        "感情2"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "感情2-癒される",
+      "section": "感情2",
+      "title": "癒される",
+      "prompt": "[Emotions:Soothing]",
+      "description": "スージング：心地よい、安心感、うっとりするような音楽",
+      "tags": [
+        "詳細設定",
+        "感情2"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "感情2-悲しみの感情",
+      "section": "感情2",
+      "title": "悲しみの感情",
+      "prompt": "[Emotions:Sorrow]",
+      "description": "このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "感情2"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "感情2-緊張感",
+      "section": "感情2",
+      "title": "緊張感",
+      "prompt": "[Emotions:Tense]",
+      "description": "テンス：緊張した",
+      "tags": [
+        "詳細設定",
+        "感情2"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "感情2-勝利感",
+      "section": "感情2",
+      "title": "勝利感",
+      "prompt": "[Emotions:Triumphant]",
+      "description": "トライアンファント：勝利の",
+      "tags": [
+        "詳細設定",
+        "感情2"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "感情2-高揚感",
+      "section": "感情2",
+      "title": "高揚感",
+      "prompt": "[Emotions:Uplifting]",
+      "description": "アップリフティング：励みになる",
+      "tags": [
+        "詳細設定",
+        "感情2"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "感情2-鮮やか",
+      "section": "感情2",
+      "title": "鮮やか",
+      "prompt": "[Emotions:Vibrant]",
+      "description": "ヴァイブラント：活気ある エネルギーと活力に満ち明るく元気な雰囲気",
+      "tags": [
+        "詳細設定",
+        "感情2"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "感情2-気まぐれ",
+      "section": "感情2",
+      "title": "気まぐれ",
+      "prompt": "[Emotions:Whimsical]",
+      "description": "ウィムジカル：気まぐれな",
+      "tags": [
+        "詳細設定",
+        "感情2"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "感情2-不思議の感情",
+      "section": "感情2",
+      "title": "不思議の感情",
+      "prompt": "[Emotions:Wonder]",
+      "description": "このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "感情2"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "環境-雰囲気-ハッピーな曲の雰囲気",
+      "section": "環境/雰囲気",
+      "title": "ハッピーな曲の雰囲気",
+      "prompt": "[Moods:Happy]",
+      "description": "このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "環境/雰囲気"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "環境-雰囲気-悲しい曲の雰囲気",
+      "section": "環境/雰囲気",
+      "title": "悲しい曲の雰囲気",
+      "prompt": "[Moods:Sad]",
+      "description": "このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "環境/雰囲気"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "環境-雰囲気-落ち着いた曲の雰囲気",
+      "section": "環境/雰囲気",
+      "title": "落ち着いた曲の雰囲気",
+      "prompt": "[Moods:Calm]",
+      "description": "このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "環境/雰囲気"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "環境-雰囲気-エネルギッシュな曲の雰囲気",
+      "section": "環境/雰囲気",
+      "title": "エネルギッシュな曲の雰囲気",
+      "prompt": "[Moods:Energetic]",
+      "description": "このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "環境/雰囲気"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "環境-雰囲気-反射的な曲の雰囲気",
+      "section": "環境/雰囲気",
+      "title": "反射的な曲の雰囲気",
+      "prompt": "[Moods:Reflective]",
+      "description": "このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "環境/雰囲気"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "環境-雰囲気-神秘的な曲の雰囲気",
+      "section": "環境/雰囲気",
+      "title": "神秘的な曲の雰囲気",
+      "prompt": "[Moods:Mysterious]",
+      "description": "このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "環境/雰囲気"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "環境-雰囲気-ロマンチックな曲の雰囲気",
+      "section": "環境/雰囲気",
+      "title": "ロマンチックな曲の雰囲気",
+      "prompt": "[Moods:Romantic]",
+      "description": "このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "環境/雰囲気"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "環境-雰囲気-メランコリックな曲の雰囲気",
+      "section": "環境/雰囲気",
+      "title": "メランコリックな曲の雰囲気",
+      "prompt": "[Moods:Melancholic]",
+      "description": "このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "環境/雰囲気"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "環境-雰囲気-平和な曲の雰囲気",
+      "section": "環境/雰囲気",
+      "title": "平和な曲の雰囲気",
+      "prompt": "[Moods:Peaceful]",
+      "description": "このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "環境/雰囲気"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "環境-雰囲気-張り詰めた曲の雰囲気",
+      "section": "環境/雰囲気",
+      "title": "張り詰めた曲の雰囲気",
+      "prompt": "[Moods:Tense]",
+      "description": "このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "環境/雰囲気"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "環境-雰囲気-海辺にいる曲の雰囲気",
+      "section": "環境/雰囲気",
+      "title": "海辺にいる曲の雰囲気",
+      "prompt": "[Settings:Beach]",
+      "description": "このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "環境/雰囲気"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "環境-雰囲気-森にいる曲の雰囲気",
+      "section": "環境/雰囲気",
+      "title": "森にいる曲の雰囲気",
+      "prompt": "[Settings:Forest]",
+      "description": "このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "環境/雰囲気"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "環境-雰囲気-都市的な曲の雰囲気",
+      "section": "環境/雰囲気",
+      "title": "都市的な曲の雰囲気",
+      "prompt": "[Settings:City]",
+      "description": "このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "環境/雰囲気"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "環境-雰囲気-山にいる曲の雰囲気",
+      "section": "環境/雰囲気",
+      "title": "山にいる曲の雰囲気",
+      "prompt": "[Settings:Mountains]",
+      "description": "このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "環境/雰囲気"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "環境-雰囲気-砂漠にいる曲の雰囲気",
+      "section": "環境/雰囲気",
+      "title": "砂漠にいる曲の雰囲気",
+      "prompt": "[Settings:Desert]",
+      "description": "このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "環境/雰囲気"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "環境-雰囲気-宇宙にいる曲の雰囲気",
+      "section": "環境/雰囲気",
+      "title": "宇宙にいる曲の雰囲気",
+      "prompt": "[Settings:Space]",
+      "description": "このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "環境/雰囲気"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "環境-雰囲気-庭にいる曲の雰囲気",
+      "section": "環境/雰囲気",
+      "title": "庭にいる曲の雰囲気",
+      "prompt": "[Settings:Garden]",
+      "description": "このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "環境/雰囲気"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "環境-雰囲気-城にいる曲の雰囲気",
+      "section": "環境/雰囲気",
+      "title": "城にいる曲の雰囲気",
+      "prompt": "[Settings:Castle]",
+      "description": "このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "環境/雰囲気"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "環境-雰囲気-海にいる曲の雰囲気",
+      "section": "環境/雰囲気",
+      "title": "海にいる曲の雰囲気",
+      "prompt": "[Settings:Ocean]",
+      "description": "このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "環境/雰囲気"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "環境-雰囲気-空にいる曲の雰囲気",
+      "section": "環境/雰囲気",
+      "title": "空にいる曲の雰囲気",
+      "prompt": "[Settings:Sky]",
+      "description": "このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "環境/雰囲気"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "環境-雰囲気-太陽をイメージ",
+      "section": "環境/雰囲気",
+      "title": "太陽をイメージ",
+      "prompt": "[Imageries:Sun]",
+      "description": "このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "環境/雰囲気"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "環境-雰囲気-星をイメージ",
+      "section": "環境/雰囲気",
+      "title": "星をイメージ",
+      "prompt": "[Imageries:Stars]",
+      "description": "このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "環境/雰囲気"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "環境-雰囲気-雨をイメージ",
+      "section": "環境/雰囲気",
+      "title": "雨をイメージ",
+      "prompt": "[Imageries:Rain]",
+      "description": "このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "環境/雰囲気"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "環境-雰囲気-月をイメージ",
+      "section": "環境/雰囲気",
+      "title": "月をイメージ",
+      "prompt": "[Imageries:Moon]",
+      "description": "このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "環境/雰囲気"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "環境-雰囲気-炎をイメージ",
+      "section": "環境/雰囲気",
+      "title": "炎をイメージ",
+      "prompt": "[Imageries:Fire]",
+      "description": "このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "環境/雰囲気"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "環境-雰囲気-風をイメージ",
+      "section": "環境/雰囲気",
+      "title": "風をイメージ",
+      "prompt": "[Imageries:Wind]",
+      "description": "このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "環境/雰囲気"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "環境-雰囲気-樹木をイメージ",
+      "section": "環境/雰囲気",
+      "title": "樹木をイメージ",
+      "prompt": "[Imageries:Trees]",
+      "description": "このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "環境/雰囲気"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "環境-雰囲気-雲をイメージ",
+      "section": "環境/雰囲気",
+      "title": "雲をイメージ",
+      "prompt": "[Imageries:Clouds]",
+      "description": "このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "環境/雰囲気"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "環境-雰囲気-川をイメージ",
+      "section": "環境/雰囲気",
+      "title": "川をイメージ",
+      "prompt": "[Imageries:River]",
+      "description": "このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "環境/雰囲気"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "環境-雰囲気-海をイメージ",
+      "section": "環境/雰囲気",
+      "title": "海をイメージ",
+      "prompt": "[Imageries:Ocean]",
+      "description": "このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "環境/雰囲気"
+      ],
+      "targets": [
+        "style"
+      ]
+    }
+  ],
+  "entryEnrichment": {}
+}

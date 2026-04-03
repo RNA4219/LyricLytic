@@ -1,0 +1,3678 @@
+{
+  "target": "style",
+  "mode": "important",
+  "bucketKey": "style-voice",
+  "sections": [
+    "声",
+    "ボーカル"
+  ],
+  "entryCount": 101,
+  "entries": [
+    {
+      "id": "声-female-vocals",
+      "section": "声",
+      "title": "Female Vocals",
+      "prompt": "Female Vocals",
+      "description": "女性ボーカル 女性の",
+      "tags": [
+        "声"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "声-male-vocals",
+      "section": "声",
+      "title": "Male Vocals",
+      "prompt": "Male Vocals",
+      "description": "男性ボーカル 男性の",
+      "tags": [
+        "声"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "声-boy-vocals",
+      "section": "声",
+      "title": "Boy Vocals",
+      "prompt": "Boy Vocals",
+      "description": "少年ボーカル 少年の",
+      "tags": [
+        "声"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "声-girl-vocals",
+      "section": "声",
+      "title": "Girl Vocals",
+      "prompt": "Girl Vocals",
+      "description": "少女ボーカル 少女の",
+      "tags": [
+        "声"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "声-male-female-vocals",
+      "section": "声",
+      "title": "Male&Female Vocals",
+      "prompt": "Male&Female Vocals",
+      "description": "デュエットボーカル 女性、男性が歌う。プロンプトでは、念の為、female、maleも併用を推奨。 メタタグで 等で指定したり ()で歌詞を括ると異性が歌う。‥事もある。 念の為、女性/男性ボーカルのスタイルや male&female vocalsプロンプトも同時指定して、AIに強く指示を推奨",
+      "tags": [
+        "声"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "声-duet-vocals",
+      "section": "声",
+      "title": "Duet Vocals",
+      "prompt": "Duet Vocals",
+      "description": "デュエットボーカル 女性、男性が歌う。プロンプトでは、念の為、female、maleも併用を推奨。 メタタグで 等で指定したり ()で歌詞を括ると異性が歌う。‥事もある。 念の為、女性/男性ボーカルのスタイルや male&female vocalsプロンプトも同時指定して、AIに強く指示を推奨",
+      "tags": [
+        "声"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "声-twin-vocals",
+      "section": "声",
+      "title": "Twin Vocals",
+      "prompt": "Twin Vocals",
+      "description": "ツインボーカル 複数ボーカル",
+      "tags": [
+        "声"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "声-スポークン",
+      "section": "声",
+      "title": "スポークン",
+      "prompt": "Spoken",
+      "description": "セリフ的にしゃべります。",
+      "tags": [
+        "声"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "声-vocaloid-vocals",
+      "section": "声",
+      "title": "Vocaloid Vocals",
+      "prompt": "Vocaloid Vocals",
+      "description": "ボーカロイド 機械的なボーカル",
+      "tags": [
+        "声"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "声-アカペラ",
+      "section": "声",
+      "title": "アカペラ",
+      "prompt": "A Cappella",
+      "description": "楽器の伴奏がない状態で独唱・合唱・重唱すること",
+      "tags": [
+        "声"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "声-ブライトボーカル",
+      "section": "声",
+      "title": "ブライトボーカル",
+      "prompt": "Bright Vocals",
+      "description": "明るいボーカル",
+      "tags": [
+        "声"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "声-ヴィンテージ",
+      "section": "声",
+      "title": "ヴィンテージ",
+      "prompt": "Vintage Vocal",
+      "description": "古いというか、年季の入った重厚感のあるになります。",
+      "tags": [
+        "声"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "声-ダーティボーカル",
+      "section": "声",
+      "title": "ダーティボーカル",
+      "prompt": "Dirty Vocals",
+      "description": "暗い雰囲気のボーカル",
+      "tags": [
+        "声"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "声-エモーショナル-ボーカル",
+      "section": "声",
+      "title": "エモーショナル ボーカル",
+      "prompt": "Emotional Vocals",
+      "description": "感情的歌い方",
+      "tags": [
+        "声"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "声-エセリアル-ボーカル",
+      "section": "声",
+      "title": "エセリアル ボーカル",
+      "prompt": "Ethereal Vocals",
+      "description": "優美な歌い方",
+      "tags": [
+        "声"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "声-スージングボーカル",
+      "section": "声",
+      "title": "スージングボーカル",
+      "prompt": "Soothing Vocals",
+      "description": "心地よい、安心感、うっとりするような歌い方",
+      "tags": [
+        "声"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "声-シュプレッヒゲザング",
+      "section": "声",
+      "title": "シュプレッヒゲザング",
+      "prompt": "Sprechgesang",
+      "description": "歌うというよりはむしろ語るように歌うことを求めた歌い方",
+      "tags": [
+        "声"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "声-サルトリーボーカル",
+      "section": "声",
+      "title": "サルトリーボーカル",
+      "prompt": "Sultry Vocals",
+      "description": "色っぽい、官能的なボーカル",
+      "tags": [
+        "声"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "声-こぶしボーカル",
+      "section": "声",
+      "title": "こぶしボーカル",
+      "prompt": "Vibrato Vocals",
+      "description": "演歌等、ビブラートを効かせたボーカル",
+      "tags": [
+        "声"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "声-ボコーダーエフェクト",
+      "section": "声",
+      "title": "ボコーダーエフェクト",
+      "prompt": "Vocoder Vocals Effect",
+      "description": "人間のを独自の方法で分析・合成。テクノなどで利用",
+      "tags": [
+        "声"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "声-スキャット",
+      "section": "声",
+      "title": "スキャット",
+      "prompt": "Scat",
+      "description": "ジャズやポップスなどの歌唱法で、意味のない音をメロディーに合わせて即興的に歌うこと 。 ちゃんと歌詞通りに歌ってくれない時に効果を発揮する ・・かもしれない",
+      "tags": [
+        "声"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "声-chant-vocals",
+      "section": "声",
+      "title": "Chant Vocals",
+      "prompt": "Chant Vocals",
+      "description": "チャント ボーカル 教会曲や聖歌を歌うボーカル",
+      "tags": [
+        "声"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "声-choir-voices",
+      "section": "声",
+      "title": "Choir Voices",
+      "prompt": "Choir Voices",
+      "description": "クワイアーボーカル 合唱団や聖歌隊。複数の人間が歌う合唱でのボーカル",
+      "tags": [
+        "声"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "声-girl-group",
+      "section": "声",
+      "title": "Girl Group",
+      "prompt": "Girl Group",
+      "description": "ガール グループ 女性ボーカルグループハモリとキャッチーなメロディ",
+      "tags": [
+        "声"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "声-ラウンジシンガー",
+      "section": "声",
+      "title": "ラウンジシンガー",
+      "prompt": "Lounge Singer",
+      "description": "聞き手にリラックス感じるを与える歌い方",
+      "tags": [
+        "声"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "声-機械的な",
+      "section": "声",
+      "title": "機械的な",
+      "prompt": "Mechanical Singing",
+      "description": "機械的な歌い方をします",
+      "tags": [
+        "声"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "声-トラディショナル-ボイス",
+      "section": "声",
+      "title": "トラディショナル ボイス",
+      "prompt": "Traditional Voice",
+      "description": "伝統的な歌い方。演歌や地域音楽等、独特/古風な歌いまわし",
+      "tags": [
+        "声"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "声-rap-battle",
+      "section": "声",
+      "title": "Rap Battle",
+      "prompt": "Rap Battle",
+      "description": "ラップバトル 掛け合いによる歌いあいが始まる ・・・事がある（AIの気分や詩にもよります）",
+      "tags": [
+        "声"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "声-関西弁",
+      "section": "声",
+      "title": "関西弁",
+      "prompt": "Kansai Dialect",
+      "description": "このプロンプトは、標準語の歌詞を方言で歌わせるものではありませんｗ 過度な期待はしないで下さい。 方言発で「ひらがな」記載した歌詞と一緒に組み合わせると、Sunoが「あーーーそれな！」と思って、方言的にしてくれる ・・・事もあります。",
+      "tags": [
+        "声"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "声-津軽弁",
+      "section": "声",
+      "title": "津軽弁",
+      "prompt": "Tsugaru Dialect",
+      "description": "このプロンプトは、標準語の歌詞を方言で歌わせるものではありませんｗ 過度な期待はしないで下さい。 方言発で「ひらがな」記載した歌詞と一緒に組み合わせると、Sunoが「あーーーそれな！」と思って、方言的にしてくれる ・・・事もあります。",
+      "tags": [
+        "声"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "声-東北弁",
+      "section": "声",
+      "title": "東北弁",
+      "prompt": "Tohoku Dialect",
+      "description": "このプロンプトは、標準語の歌詞を方言で歌わせるものではありませんｗ 過度な期待はしないで下さい。 方言発で「ひらがな」記載した歌詞と一緒に組み合わせると、Sunoが「あーーーそれな！」と思って、方言的にしてくれる ・・・事もあります。",
+      "tags": [
+        "声"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "声-名古屋弁",
+      "section": "声",
+      "title": "名古屋弁",
+      "prompt": "Nagoya Dialect",
+      "description": "このプロンプトは、標準語の歌詞を方言で歌わせるものではありませんｗ 過度な期待はしないで下さい。 方言発で「ひらがな」記載した歌詞と一緒に組み合わせると、Sunoが「あーーーそれな！」と思って、方言的にしてくれる ・・・事もあります。",
+      "tags": [
+        "声"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "声-博多弁",
+      "section": "声",
+      "title": "博多弁",
+      "prompt": "Hakata Dialect",
+      "description": "このプロンプトは、標準語の歌詞を方言で歌わせるものではありませんｗ 過度な期待はしないで下さい。 方言発で「ひらがな」記載した歌詞と一緒に組み合わせると、Sunoが「あーーーそれな！」と思って、方言的にしてくれる ・・・事もあります。",
+      "tags": [
+        "声"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "声-鹿児島弁",
+      "section": "声",
+      "title": "鹿児島弁",
+      "prompt": "Kagoshima Dialect",
+      "description": "このプロンプトは、標準語の歌詞を方言で歌わせるものではありませんｗ 過度な期待はしないで下さい。 方言発で「ひらがな」記載した歌詞と一緒に組み合わせると、Sunoが「あーーーそれな！」と思って、方言的にしてくれる ・・・事もあります。",
+      "tags": [
+        "声"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "声-沖縄方言",
+      "section": "声",
+      "title": "沖縄方言",
+      "prompt": "Okinawa Dialect",
+      "description": "このプロンプトは、標準語の歌詞を方言で歌わせるものではありませんｗ 過度な期待はしないで下さい。 方言発で「ひらがな」記載した歌詞と一緒に組み合わせると、Sunoが「あーーーそれな！」と思って、方言的にしてくれる ・・・事もあります。",
+      "tags": [
+        "声"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "声-会津弁",
+      "section": "声",
+      "title": "会津弁",
+      "prompt": "Aizu Dialect",
+      "description": "このプロンプトは、標準語の歌詞を方言で歌わせるものではありませんｗ 過度な期待はしないで下さい。 方言発で「ひらがな」記載した歌詞と一緒に組み合わせると、Sunoが「あーーーそれな！」と思って、方言的にしてくれる ・・・事もあります。",
+      "tags": [
+        "声"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "声-新潟弁",
+      "section": "声",
+      "title": "新潟弁",
+      "prompt": "Niigata Dialect",
+      "description": "このプロンプトは、標準語の歌詞を方言で歌わせるものではありませんｗ 過度な期待はしないで下さい。 方言発で「ひらがな」記載した歌詞と一緒に組み合わせると、Sunoが「あーーーそれな！」と思って、方言的にしてくれる ・・・事もあります。",
+      "tags": [
+        "声"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "声-越後弁",
+      "section": "声",
+      "title": "越後弁",
+      "prompt": "Echigo Dialect",
+      "description": "このプロンプトは、標準語の歌詞を方言で歌わせるものではありませんｗ 過度な期待はしないで下さい。 方言発で「ひらがな」記載した歌詞と一緒に組み合わせると、Sunoが「あーーーそれな！」と思って、方言的にしてくれる ・・・事もあります。",
+      "tags": [
+        "声"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "声-庄内弁",
+      "section": "声",
+      "title": "庄内弁",
+      "prompt": "Shonai Dialect",
+      "description": "このプロンプトは、標準語の歌詞を方言で歌わせるものではありませんｗ 過度な期待はしないで下さい。 方言発で「ひらがな」記載した歌詞と一緒に組み合わせると、Sunoが「あーーーそれな！」と思って、方言的にしてくれる ・・・事もあります。",
+      "tags": [
+        "声"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "声-岩手弁",
+      "section": "声",
+      "title": "岩手弁",
+      "prompt": "Iwate Dialect",
+      "description": "このプロンプトは、標準語の歌詞を方言で歌わせるものではありませんｗ 過度な期待はしないで下さい。 方言発で「ひらがな」記載した歌詞と一緒に組み合わせると、Sunoが「あーーーそれな！」と思って、方言的にしてくれる ・・・事もあります。",
+      "tags": [
+        "声"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "声-秋田弁",
+      "section": "声",
+      "title": "秋田弁",
+      "prompt": "Akita Dialect",
+      "description": "このプロンプトは、標準語の歌詞を方言で歌わせるものではありませんｗ 過度な期待はしないで下さい。 方言発で「ひらがな」記載した歌詞と一緒に組み合わせると、Sunoが「あーーーそれな！」と思って、方言的にしてくれる ・・・事もあります。",
+      "tags": [
+        "声"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "声-山形弁",
+      "section": "声",
+      "title": "山形弁",
+      "prompt": "Yamagata Dialect",
+      "description": "このプロンプトは、標準語の歌詞を方言で歌わせるものではありませんｗ 過度な期待はしないで下さい。 方言発で「ひらがな」記載した歌詞と一緒に組み合わせると、Sunoが「あーーーそれな！」と思って、方言的にしてくれる ・・・事もあります。",
+      "tags": [
+        "声"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "声-福島弁",
+      "section": "声",
+      "title": "福島弁",
+      "prompt": "Fukushima Dialect",
+      "description": "このプロンプトは、標準語の歌詞を方言で歌わせるものではありませんｗ 過度な期待はしないで下さい。 方言発で「ひらがな」記載した歌詞と一緒に組み合わせると、Sunoが「あーーーそれな！」と思って、方言的にしてくれる ・・・事もあります。",
+      "tags": [
+        "声"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "声-長野弁",
+      "section": "声",
+      "title": "長野弁",
+      "prompt": "Nagano Dialect",
+      "description": "このプロンプトは、標準語の歌詞を方言で歌わせるものではありませんｗ 過度な期待はしないで下さい。 方言発で「ひらがな」記載した歌詞と一緒に組み合わせると、Sunoが「あーーーそれな！」と思って、方言的にしてくれる ・・・事もあります。",
+      "tags": [
+        "声"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "声-富山弁",
+      "section": "声",
+      "title": "富山弁",
+      "prompt": "Toyama Dialect",
+      "description": "このプロンプトは、標準語の歌詞を方言で歌わせるものではありませんｗ 過度な期待はしないで下さい。 方言発で「ひらがな」記載した歌詞と一緒に組み合わせると、Sunoが「あーーーそれな！」と思って、方言的にしてくれる ・・・事もあります。",
+      "tags": [
+        "声"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "声-石川弁",
+      "section": "声",
+      "title": "石川弁",
+      "prompt": "Ishikawa Dialect",
+      "description": "このプロンプトは、標準語の歌詞を方言で歌わせるものではありませんｗ 過度な期待はしないで下さい。 方言発で「ひらがな」記載した歌詞と一緒に組み合わせると、Sunoが「あーーーそれな！」と思って、方言的にしてくれる ・・・事もあります。",
+      "tags": [
+        "声"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "声-福井弁",
+      "section": "声",
+      "title": "福井弁",
+      "prompt": "Fukui Dialect",
+      "description": "このプロンプトは、標準語の歌詞を方言で歌わせるものではありませんｗ 過度な期待はしないで下さい。 方言発で「ひらがな」記載した歌詞と一緒に組み合わせると、Sunoが「あーーーそれな！」と思って、方言的にしてくれる ・・・事もあります。",
+      "tags": [
+        "声"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "声-岐阜弁",
+      "section": "声",
+      "title": "岐阜弁",
+      "prompt": "Gifu Dialect",
+      "description": "このプロンプトは、標準語の歌詞を方言で歌わせるものではありませんｗ 過度な期待はしないで下さい。 方言発で「ひらがな」記載した歌詞と一緒に組み合わせると、Sunoが「あーーーそれな！」と思って、方言的にしてくれる ・・・事もあります。",
+      "tags": [
+        "声"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "声-静岡弁",
+      "section": "声",
+      "title": "静岡弁",
+      "prompt": "Shizuoka Dialect",
+      "description": "このプロンプトは、標準語の歌詞を方言で歌わせるものではありませんｗ 過度な期待はしないで下さい。 方言発で「ひらがな」記載した歌詞と一緒に組み合わせると、Sunoが「あーーーそれな！」と思って、方言的にしてくれる ・・・事もあります。",
+      "tags": [
+        "声"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "声-三河弁",
+      "section": "声",
+      "title": "三河弁",
+      "prompt": "Mikawa Dialect",
+      "description": "このプロンプトは、標準語の歌詞を方言で歌わせるものではありませんｗ 過度な期待はしないで下さい。 方言発で「ひらがな」記載した歌詞と一緒に組み合わせると、Sunoが「あーーーそれな！」と思って、方言的にしてくれる ・・・事もあります。",
+      "tags": [
+        "声"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "声-大阪弁",
+      "section": "声",
+      "title": "大阪弁",
+      "prompt": "Osaka Dialect",
+      "description": "このプロンプトは、標準語の歌詞を方言で歌わせるものではありませんｗ 過度な期待はしないで下さい。 方言発で「ひらがな」記載した歌詞と一緒に組み合わせると、Sunoが「あーーーそれな！」と思って、方言的にしてくれる ・・・事もあります。",
+      "tags": [
+        "声"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "声-京都弁",
+      "section": "声",
+      "title": "京都弁",
+      "prompt": "Kyoto Dialect",
+      "description": "このプロンプトは、標準語の歌詞を方言で歌わせるものではありませんｗ 過度な期待はしないで下さい。 方言発で「ひらがな」記載した歌詞と一緒に組み合わせると、Sunoが「あーーーそれな！」と思って、方言的にしてくれる ・・・事もあります。",
+      "tags": [
+        "声"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "声-神戸弁",
+      "section": "声",
+      "title": "神戸弁",
+      "prompt": "Kobe Dialect",
+      "description": "このプロンプトは、標準語の歌詞を方言で歌わせるものではありませんｗ 過度な期待はしないで下さい。 方言発で「ひらがな」記載した歌詞と一緒に組み合わせると、Sunoが「あーーーそれな！」と思って、方言的にしてくれる ・・・事もあります。",
+      "tags": [
+        "声"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "声-奈良弁",
+      "section": "声",
+      "title": "奈良弁",
+      "prompt": "Nara Dialect",
+      "description": "このプロンプトは、標準語の歌詞を方言で歌わせるものではありませんｗ 過度な期待はしないで下さい。 方言発で「ひらがな」記載した歌詞と一緒に組み合わせると、Sunoが「あーーーそれな！」と思って、方言的にしてくれる ・・・事もあります。",
+      "tags": [
+        "声"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "声-和歌山弁",
+      "section": "声",
+      "title": "和歌山弁",
+      "prompt": "Wakayama Dialect",
+      "description": "このプロンプトは、標準語の歌詞を方言で歌わせるものではありませんｗ 過度な期待はしないで下さい。 方言発で「ひらがな」記載した歌詞と一緒に組み合わせると、Sunoが「あーーーそれな！」と思って、方言的にしてくれる ・・・事もあります。",
+      "tags": [
+        "声"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "声-岡山弁",
+      "section": "声",
+      "title": "岡山弁",
+      "prompt": "Okayama Dialect",
+      "description": "このプロンプトは、標準語の歌詞を方言で歌わせるものではありませんｗ 過度な期待はしないで下さい。 方言発で「ひらがな」記載した歌詞と一緒に組み合わせると、Sunoが「あーーーそれな！」と思って、方言的にしてくれる ・・・事もあります。",
+      "tags": [
+        "声"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "声-広島弁",
+      "section": "声",
+      "title": "広島弁",
+      "prompt": "Hiroshima Dialect",
+      "description": "このプロンプトは、標準語の歌詞を方言で歌わせるものではありませんｗ 過度な期待はしないで下さい。 方言発で「ひらがな」記載した歌詞と一緒に組み合わせると、Sunoが「あーーーそれな！」と思って、方言的にしてくれる ・・・事もあります。",
+      "tags": [
+        "声"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "声-山口弁",
+      "section": "声",
+      "title": "山口弁",
+      "prompt": "Yamaguchi Dialect",
+      "description": "このプロンプトは、標準語の歌詞を方言で歌わせるものではありませんｗ 過度な期待はしないで下さい。 方言発で「ひらがな」記載した歌詞と一緒に組み合わせると、Sunoが「あーーーそれな！」と思って、方言的にしてくれる ・・・事もあります。",
+      "tags": [
+        "声"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "声-島根弁",
+      "section": "声",
+      "title": "島根弁",
+      "prompt": "Shimane Dialect",
+      "description": "このプロンプトは、標準語の歌詞を方言で歌わせるものではありませんｗ 過度な期待はしないで下さい。 方言発で「ひらがな」記載した歌詞と一緒に組み合わせると、Sunoが「あーーーそれな！」と思って、方言的にしてくれる ・・・事もあります。",
+      "tags": [
+        "声"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "声-鳥取弁",
+      "section": "声",
+      "title": "鳥取弁",
+      "prompt": "Tottori Dialect",
+      "description": "このプロンプトは、標準語の歌詞を方言で歌わせるものではありませんｗ 過度な期待はしないで下さい。 方言発で「ひらがな」記載した歌詞と一緒に組み合わせると、Sunoが「あーーーそれな！」と思って、方言的にしてくれる ・・・事もあります。",
+      "tags": [
+        "声"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "声-徳島弁",
+      "section": "声",
+      "title": "徳島弁",
+      "prompt": "Tokushima Dialect",
+      "description": "このプロンプトは、標準語の歌詞を方言で歌わせるものではありませんｗ 過度な期待はしないで下さい。 方言発で「ひらがな」記載した歌詞と一緒に組み合わせると、Sunoが「あーーーそれな！」と思って、方言的にしてくれる ・・・事もあります。",
+      "tags": [
+        "声"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "声-香川弁",
+      "section": "声",
+      "title": "香川弁",
+      "prompt": "Kagawa Dialect",
+      "description": "このプロンプトは、標準語の歌詞を方言で歌わせるものではありませんｗ 過度な期待はしないで下さい。 方言発で「ひらがな」記載した歌詞と一緒に組み合わせると、Sunoが「あーーーそれな！」と思って、方言的にしてくれる ・・・事もあります。",
+      "tags": [
+        "声"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "声-愛媛弁",
+      "section": "声",
+      "title": "愛媛弁",
+      "prompt": "Ehime Dialect",
+      "description": "このプロンプトは、標準語の歌詞を方言で歌わせるものではありませんｗ 過度な期待はしないで下さい。 方言発で「ひらがな」記載した歌詞と一緒に組み合わせると、Sunoが「あーーーそれな！」と思って、方言的にしてくれる ・・・事もあります。",
+      "tags": [
+        "声"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "声-高知弁",
+      "section": "声",
+      "title": "高知弁",
+      "prompt": "Kochi Dialect",
+      "description": "このプロンプトは、標準語の歌詞を方言で歌わせるものではありませんｗ 過度な期待はしないで下さい。 方言発で「ひらがな」記載した歌詞と一緒に組み合わせると、Sunoが「あーーーそれな！」と思って、方言的にしてくれる ・・・事もあります。",
+      "tags": [
+        "声"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "声-佐賀弁",
+      "section": "声",
+      "title": "佐賀弁",
+      "prompt": "Saga Dialect",
+      "description": "このプロンプトは、標準語の歌詞を方言で歌わせるものではありませんｗ 過度な期待はしないで下さい。 方言発で「ひらがな」記載した歌詞と一緒に組み合わせると、Sunoが「あーーーそれな！」と思って、方言的にしてくれる ・・・事もあります。",
+      "tags": [
+        "声"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "声-長崎弁",
+      "section": "声",
+      "title": "長崎弁",
+      "prompt": "Nagasaki Dialect",
+      "description": "このプロンプトは、標準語の歌詞を方言で歌わせるものではありませんｗ 過度な期待はしないで下さい。 方言発で「ひらがな」記載した歌詞と一緒に組み合わせると、Sunoが「あーーーそれな！」と思って、方言的にしてくれる ・・・事もあります。",
+      "tags": [
+        "声"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "声-熊本弁",
+      "section": "声",
+      "title": "熊本弁",
+      "prompt": "Kumamoto Dialect",
+      "description": "このプロンプトは、標準語の歌詞を方言で歌わせるものではありませんｗ 過度な期待はしないで下さい。 方言発で「ひらがな」記載した歌詞と一緒に組み合わせると、Sunoが「あーーーそれな！」と思って、方言的にしてくれる ・・・事もあります。",
+      "tags": [
+        "声"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "声-大分弁",
+      "section": "声",
+      "title": "大分弁",
+      "prompt": "Oita Dialect",
+      "description": "このプロンプトは、標準語の歌詞を方言で歌わせるものではありませんｗ 過度な期待はしないで下さい。 方言発で「ひらがな」記載した歌詞と一緒に組み合わせると、Sunoが「あーーーそれな！」と思って、方言的にしてくれる ・・・事もあります。",
+      "tags": [
+        "声"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "声-宮崎弁",
+      "section": "声",
+      "title": "宮崎弁",
+      "prompt": "Miyazaki Dialect",
+      "description": "このプロンプトは、標準語の歌詞を方言で歌わせるものではありませんｗ 過度な期待はしないで下さい。 方言発で「ひらがな」記載した歌詞と一緒に組み合わせると、Sunoが「あーーーそれな！」と思って、方言的にしてくれる ・・・事もあります。",
+      "tags": [
+        "声"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "声-宮古方言",
+      "section": "声",
+      "title": "宮古方言",
+      "prompt": "Miyako Dialect",
+      "description": "このプロンプトは、標準語の歌詞を方言で歌わせるものではありませんｗ 過度な期待はしないで下さい。 方言発で「ひらがな」記載した歌詞と一緒に組み合わせると、Sunoが「あーーーそれな！」と思って、方言的にしてくれる ・・・事もあります。",
+      "tags": [
+        "声"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "声-八重山方言",
+      "section": "声",
+      "title": "八重山方言",
+      "prompt": "Yaeyama Dialect",
+      "description": "このプロンプトは、標準語の歌詞を方言で歌わせるものではありませんｗ 過度な期待はしないで下さい。 方言発で「ひらがな」記載した歌詞と一緒に組み合わせると、Sunoが「あーーーそれな！」と思って、方言的にしてくれる ・・・事もあります。",
+      "tags": [
+        "声"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "ボーカル-クリア",
+      "section": "ボーカル",
+      "title": "クリア",
+      "prompt": "[Vocal Styles:Clear]",
+      "description": "Vocal Styles このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "ボーカル"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "ボーカル-暖かい",
+      "section": "ボーカル",
+      "title": "暖かい",
+      "prompt": "[Vocal Styles:Warm]",
+      "description": "Vocal Styles このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "ボーカル"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "ボーカル-生",
+      "section": "ボーカル",
+      "title": "生",
+      "prompt": "[Vocal Styles:Raw]",
+      "description": "Vocal Styles このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "ボーカル"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "ボーカル-強力な",
+      "section": "ボーカル",
+      "title": "強力な",
+      "prompt": "[Vocal Styles:Powerful]",
+      "description": "Vocal Styles このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "ボーカル"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "ボーカル-息が詰まる",
+      "section": "ボーカル",
+      "title": "息が詰まる",
+      "prompt": "[Vocal Styles:Breathy]",
+      "description": "Vocal Styles このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "ボーカル"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "ボーカル-ソウルフルな",
+      "section": "ボーカル",
+      "title": "ソウルフルな",
+      "prompt": "[Vocal Styles:Soulful]",
+      "description": "Vocal Styles このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "ボーカル"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "ボーカル-ガラガラ音",
+      "section": "ボーカル",
+      "title": "ガラガラ音",
+      "prompt": "[Vocal Styles:Raspy]",
+      "description": "Vocal Styles このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "ボーカル"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "ボーカル-オペラ的な",
+      "section": "ボーカル",
+      "title": "オペラ的な",
+      "prompt": "[Vocal Styles:Operatic]",
+      "description": "Vocal Styles このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "ボーカル"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "ボーカル-ささやき声で",
+      "section": "ボーカル",
+      "title": "ささやき声で",
+      "prompt": "[Vocal Styles:Whispery]",
+      "description": "Vocal Styles このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "ボーカル"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "ボーカル-メロディックな",
+      "section": "ボーカル",
+      "title": "メロディックな",
+      "prompt": "[Vocal Styles:Melodic]",
+      "description": "Vocal Styles このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "ボーカル"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "ボーカル-単純",
+      "section": "ボーカル",
+      "title": "単純",
+      "prompt": "[Vocal Harmonies:Simple]",
+      "description": "Vocal Harmonies(ハーモニー) このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "ボーカル"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "ボーカル-複雑な",
+      "section": "ボーカル",
+      "title": "複雑な",
+      "prompt": "[Vocal Harmonies:Complex]",
+      "description": "Vocal Harmonies(ハーモニー) このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "ボーカル"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "ボーカル-近い",
+      "section": "ボーカル",
+      "title": "近い",
+      "prompt": "[Vocal Harmonies:Close]",
+      "description": "Vocal Harmonies(ハーモニー) このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "ボーカル"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "ボーカル-層状の",
+      "section": "ボーカル",
+      "title": "層状の",
+      "prompt": "[Vocal Harmonies:Layered]",
+      "description": "Vocal Harmonies(ハーモニー) このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "ボーカル"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "ボーカル-リッチ",
+      "section": "ボーカル",
+      "title": "リッチ",
+      "prompt": "[Vocal Harmonies:Rich]",
+      "description": "Vocal Harmonies(ハーモニー) このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "ボーカル"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "ボーカル-まばらな",
+      "section": "ボーカル",
+      "title": "まばらな",
+      "prompt": "[Vocal Harmonies:Sparse]",
+      "description": "Vocal Harmonies(ハーモニー) このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "ボーカル"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "ボーカル-急上昇する",
+      "section": "ボーカル",
+      "title": "急上昇する",
+      "prompt": "[Vocal Harmonies:Soaring]",
+      "description": "Vocal Harmonies(ハーモニー) このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "ボーカル"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "ボーカル-響く",
+      "section": "ボーカル",
+      "title": "響く",
+      "prompt": "[Vocal Harmonies:Echoing]",
+      "description": "Vocal Harmonies(ハーモニー) このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "ボーカル"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "ボーカル-繊細",
+      "section": "ボーカル",
+      "title": "繊細",
+      "prompt": "[Vocal Harmonies:Delicate]",
+      "description": "Vocal Harmonies(ハーモニー) このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "ボーカル"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "ボーカル-アンセミックな",
+      "section": "ボーカル",
+      "title": "アンセミックな",
+      "prompt": "[Vocal Harmonies:Anthemic]",
+      "description": "Vocal Harmonies(ハーモニー) このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "ボーカル"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "ボーカル-明るい",
+      "section": "ボーカル",
+      "title": "明るい",
+      "prompt": "[Vocal Tones:Bright]",
+      "description": "Vocal Tones このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "ボーカル"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "ボーカル-柔らかい",
+      "section": "ボーカル",
+      "title": "柔らかい",
+      "prompt": "[Vocal Tones:Soft]",
+      "description": "Vocal Tones このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "ボーカル"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "ボーカル-深い",
+      "section": "ボーカル",
+      "title": "深い",
+      "prompt": "[Vocal Tones:Deep]",
+      "description": "Vocal Tones このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "ボーカル"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "ボーカル-スムーズ",
+      "section": "ボーカル",
+      "title": "スムーズ",
+      "prompt": "[Vocal Tones:Smooth]",
+      "description": "Vocal Tones このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "ボーカル"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "ボーカル-エッジの効いた",
+      "section": "ボーカル",
+      "title": "エッジの効いた",
+      "prompt": "[Vocal Tones:Edgy]",
+      "description": "Vocal Tones このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "ボーカル"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "ボーカル-甘い",
+      "section": "ボーカル",
+      "title": "甘い",
+      "prompt": "[Vocal Tones:Sweet]",
+      "description": "Vocal Tones このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "ボーカル"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "ボーカル-暗い",
+      "section": "ボーカル",
+      "title": "暗い",
+      "prompt": "[Vocal Tones:Dark]",
+      "description": "Vocal Tones このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "ボーカル"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "ボーカル-メランコリック",
+      "section": "ボーカル",
+      "title": "メランコリック",
+      "prompt": "[Vocal Tones:Melancholic]",
+      "description": "Vocal Tones このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "ボーカル"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "ボーカル-希望に満ちた",
+      "section": "ボーカル",
+      "title": "希望に満ちた",
+      "prompt": "[Vocal Tones:Hopeful]",
+      "description": "Vocal Tones このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "ボーカル"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "ボーカル-激しい",
+      "section": "ボーカル",
+      "title": "激しい",
+      "prompt": "[Vocal Tones:Intense]",
+      "description": "Vocal Tones このプロンプトは、AIへ強く意図を伝える為、特殊形式を使用しています(複数選択しても自動でまとめます)",
+      "tags": [
+        "詳細設定",
+        "ボーカル"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    }
+  ],
+  "entryEnrichment": {
+    "声-female-vocals": {
+      "routeTags": [
+        "female",
+        "vocal",
+        "singing"
+      ],
+      "moods": [
+        "bright"
+      ],
+      "eras": [
+        "modern"
+      ],
+      "regions": [
+        "global"
+      ],
+      "instruments": [
+        "synth",
+        "strings"
+      ],
+      "vocalTraits": [
+        "female",
+        "soft"
+      ],
+      "energy": "medium"
+    },
+    "声-male-vocals": {
+      "routeTags": [
+        "male",
+        "vocal",
+        "singing"
+      ],
+      "moods": [
+        "dramatic"
+      ],
+      "eras": [
+        "modern"
+      ],
+      "regions": [
+        "global"
+      ],
+      "instruments": [
+        "synth",
+        "strings"
+      ],
+      "vocalTraits": [
+        "male",
+        "powerful"
+      ],
+      "energy": "high"
+    },
+    "声-boy-vocals": {
+      "routeTags": [
+        "boy vocals",
+        "youthful",
+        "anime style"
+      ],
+      "moods": [
+        "hopeful"
+      ],
+      "eras": [
+        "modern"
+      ],
+      "regions": [
+        "japan"
+      ],
+      "instruments": [],
+      "vocalTraits": [
+        "boy",
+        "soft"
+      ],
+      "energy": "medium"
+    },
+    "声-girl-vocals": {
+      "routeTags": [
+        "girl vocals",
+        "youthful",
+        "anime style"
+      ],
+      "moods": [
+        "cute"
+      ],
+      "eras": [
+        "modern"
+      ],
+      "regions": [
+        "japan"
+      ],
+      "instruments": [],
+      "vocalTraits": [
+        "girl",
+        "soft"
+      ],
+      "energy": "medium"
+    },
+    "声-male-female-vocals": {
+      "routeTags": [
+        "duet vocals",
+        "mixed gender",
+        "dual harmony"
+      ],
+      "moods": [
+        "romantic"
+      ],
+      "eras": [
+        "modern"
+      ],
+      "regions": [
+        "japan"
+      ],
+      "instruments": [],
+      "vocalTraits": [
+        "duet",
+        "soft"
+      ],
+      "energy": "medium"
+    },
+    "声-duet-vocals": {
+      "routeTags": [
+        "duet vocals",
+        "mixed gender",
+        "dual harmony"
+      ],
+      "moods": [
+        "romantic"
+      ],
+      "eras": [
+        "modern"
+      ],
+      "regions": [
+        "japan"
+      ],
+      "instruments": [],
+      "vocalTraits": [
+        "duet",
+        "soft"
+      ],
+      "energy": "medium"
+    },
+    "声-twin-vocals": {
+      "routeTags": [
+        "twin vocals",
+        "octave",
+        "layered"
+      ],
+      "moods": [
+        "playful"
+      ],
+      "eras": [
+        "modern"
+      ],
+      "regions": [
+        "japan"
+      ],
+      "instruments": [],
+      "vocalTraits": [
+        "duet"
+      ],
+      "energy": "high"
+    },
+    "声-スポークン": {
+      "routeTags": [
+        "spoken word",
+        "narrative",
+        "dialogue"
+      ],
+      "moods": [
+        "calm"
+      ],
+      "eras": [
+        "modern"
+      ],
+      "regions": [
+        "japan"
+      ],
+      "instruments": [],
+      "vocalTraits": [
+        "spoken",
+        "soft"
+      ],
+      "energy": "low"
+    },
+    "声-vocaloid-vocals": {
+      "routeTags": [
+        "vocaloid",
+        "robotic",
+        "synthesized"
+      ],
+      "moods": [
+        "mysterious"
+      ],
+      "eras": [
+        "modern"
+      ],
+      "regions": [
+        "japan"
+      ],
+      "instruments": [
+        "synth",
+        "electronic"
+      ],
+      "vocalTraits": [
+        "robotic",
+        "ethereal"
+      ],
+      "energy": "medium"
+    },
+    "声-アカペラ": {
+      "routeTags": [
+        "acapella",
+        "vocal only",
+        "pure voice"
+      ],
+      "moods": [
+        "spiritual"
+      ],
+      "eras": [
+        "timeless"
+      ],
+      "regions": [
+        "global"
+      ],
+      "instruments": [],
+      "vocalTraits": [
+        "choir",
+        "powerful"
+      ],
+      "energy": "high"
+    },
+    "声-ブライトボーカル": {
+      "routeTags": [
+        "bright vocals",
+        "upbeat",
+        "cheerful"
+      ],
+      "moods": [
+        "joyful"
+      ],
+      "eras": [
+        "modern"
+      ],
+      "regions": [
+        "japan"
+      ],
+      "instruments": [],
+      "vocalTraits": [
+        "female"
+      ],
+      "energy": "high"
+    },
+    "声-ヴィンテージ": {
+      "routeTags": [
+        "vintage",
+        "retro",
+        "aged"
+      ],
+      "moods": [
+        "nostalgic"
+      ],
+      "eras": [
+        "70s"
+      ],
+      "regions": [
+        "global"
+      ],
+      "instruments": [
+        "piano",
+        "strings"
+      ],
+      "vocalTraits": [
+        "male",
+        "soulful"
+      ],
+      "energy": "medium"
+    },
+    "声-ダーティボーカル": {
+      "routeTags": [
+        "dirty vocals",
+        "dark",
+        "gritty"
+      ],
+      "moods": [
+        "dark"
+      ],
+      "eras": [
+        "modern"
+      ],
+      "regions": [
+        "europe"
+      ],
+      "instruments": [
+        "electric-piano",
+        "guitar"
+      ],
+      "vocalTraits": [
+        "male"
+      ],
+      "energy": "high"
+    },
+    "声-エモーショナル-ボーカル": {
+      "routeTags": [
+        "emotional",
+        "passionate",
+        "intense"
+      ],
+      "moods": [
+        "dramatic"
+      ],
+      "eras": [
+        "modern"
+      ],
+      "regions": [
+        "global"
+      ],
+      "instruments": [
+        "strings",
+        "orchestra"
+      ],
+      "vocalTraits": [
+        "female",
+        "powerful"
+      ],
+      "energy": "high"
+    },
+    "声-エセリアル-ボーカル": {
+      "routeTags": [
+        "ethereal",
+        "vocal",
+        "soaring"
+      ],
+      "moods": [
+        "dreamy",
+        "spiritual"
+      ],
+      "eras": [
+        "timeless"
+      ],
+      "regions": [
+        "global"
+      ],
+      "instruments": [
+        "choir"
+      ],
+      "vocalTraits": [
+        "female",
+        "ethereal"
+      ],
+      "energy": "medium"
+    },
+    "声-スージングボーカル": {
+      "routeTags": [
+        "soothing",
+        "vocal",
+        "relaxing"
+      ],
+      "moods": [
+        "calm",
+        "warm"
+      ],
+      "eras": [
+        "modern"
+      ],
+      "regions": [
+        "global"
+      ],
+      "instruments": [
+        "strings"
+      ],
+      "vocalTraits": [
+        "soft",
+        "breathy"
+      ],
+      "energy": "low"
+    },
+    "声-シュプレッヒゲザング": {
+      "routeTags": [
+        "speech-song",
+        "vocal",
+        "rhythmic"
+      ],
+      "moods": [
+        "mysterious",
+        "dramatic"
+      ],
+      "eras": [
+        "retro"
+      ],
+      "regions": [
+        "japan"
+      ],
+      "instruments": [
+        "traditional-japanese"
+      ],
+      "vocalTraits": [
+        "male",
+        "powerful"
+      ],
+      "energy": "high"
+    },
+    "声-サルトリーボーカル": {
+      "routeTags": [
+        "sultry",
+        "vocal",
+        "seductive"
+      ],
+      "moods": [
+        "romantic",
+        "dark"
+      ],
+      "eras": [
+        "modern"
+      ],
+      "regions": [
+        "global"
+      ],
+      "instruments": [
+        "strings"
+      ],
+      "vocalTraits": [
+        "female",
+        "soulful"
+      ],
+      "energy": "medium"
+    },
+    "声-こぶしボーカル": {
+      "routeTags": [
+        "vibrato",
+        "vocal",
+        "expressive"
+      ],
+      "moods": [
+        "nostalgic",
+        "dramatic"
+      ],
+      "eras": [
+        "retro"
+      ],
+      "regions": [
+        "japan"
+      ],
+      "instruments": [
+        "traditional-japanese"
+      ],
+      "vocalTraits": [
+        "male",
+        "powerful"
+      ],
+      "energy": "high"
+    },
+    "声-ボコーダーエフェクト": {
+      "routeTags": [
+        "vocoder",
+        "vocal",
+        "synthetic"
+      ],
+      "moods": [
+        "mysterious",
+        "cool"
+      ],
+      "eras": [
+        "2000s"
+      ],
+      "regions": [
+        "global"
+      ],
+      "instruments": [
+        "electronic",
+        "fx"
+      ],
+      "vocalTraits": [
+        "robotic",
+        "male"
+      ],
+      "energy": "high"
+    },
+    "声-スキャット": {
+      "routeTags": [
+        "scat",
+        "vocal",
+        "jazz"
+      ],
+      "moods": [
+        "groovy",
+        "playful"
+      ],
+      "eras": [
+        "70s"
+      ],
+      "regions": [
+        "america"
+      ],
+      "instruments": [
+        "brass",
+        "woodwinds"
+      ],
+      "vocalTraits": [
+        "male",
+        "soulful"
+      ],
+      "energy": "high"
+    },
+    "声-chant-vocals": {
+      "routeTags": [
+        "chant",
+        "vocal",
+        "religious"
+      ],
+      "moods": [
+        "spiritual",
+        "calm"
+      ],
+      "eras": [
+        "traditional"
+      ],
+      "regions": [
+        "global"
+      ],
+      "instruments": [
+        "choir"
+      ],
+      "vocalTraits": [
+        "choir",
+        "powerful"
+      ],
+      "energy": "medium"
+    },
+    "声-choir-voices": {
+      "routeTags": [
+        "choir",
+        "vocal",
+        "harmony"
+      ],
+      "moods": [
+        "hopeful",
+        "spiritual"
+      ],
+      "eras": [
+        "timeless"
+      ],
+      "regions": [
+        "global"
+      ],
+      "instruments": [
+        "choir"
+      ],
+      "vocalTraits": [
+        "choir",
+        "soft"
+      ],
+      "energy": "medium"
+    },
+    "声-girl-group": {
+      "routeTags": [
+        "girl-group",
+        "vocal",
+        "harmony"
+      ],
+      "moods": [
+        "joyful",
+        "cute"
+      ],
+      "eras": [],
+      "regions": [
+        "america"
+      ],
+      "instruments": [
+        "strings"
+      ],
+      "vocalTraits": [
+        "female"
+      ],
+      "energy": "high"
+    },
+    "声-ラウンジシンガー": {
+      "routeTags": [
+        "lounge",
+        "vocal",
+        "smooth"
+      ],
+      "moods": [
+        "calm",
+        "cool"
+      ],
+      "eras": [
+        "70s"
+      ],
+      "regions": [
+        "america"
+      ],
+      "instruments": [
+        "piano",
+        "electric-piano"
+      ],
+      "vocalTraits": [
+        "female",
+        "soft"
+      ],
+      "energy": "low"
+    },
+    "声-機械的な": {
+      "routeTags": [
+        "mechanical",
+        "vocal",
+        "digital"
+      ],
+      "moods": [
+        "dark",
+        "mysterious"
+      ],
+      "eras": [
+        "2010s"
+      ],
+      "regions": [
+        "global"
+      ],
+      "instruments": [
+        "electronic",
+        "fx"
+      ],
+      "vocalTraits": [
+        "robotic",
+        "male"
+      ],
+      "energy": "high"
+    },
+    "声-トラディショナル-ボイス": {
+      "routeTags": [
+        "traditional",
+        "japanese",
+        "vocal"
+      ],
+      "moods": [
+        "nostalgic"
+      ],
+      "eras": [
+        "traditional"
+      ],
+      "regions": [
+        "japan"
+      ],
+      "instruments": [
+        "traditional-japanese"
+      ],
+      "vocalTraits": [
+        "female",
+        "soft"
+      ],
+      "energy": "medium"
+    },
+    "声-rap-battle": {
+      "routeTags": [
+        "rap",
+        "battle",
+        "modern"
+      ],
+      "moods": [
+        "aggressive",
+        "energetic"
+      ],
+      "eras": [
+        "modern"
+      ],
+      "regions": [
+        "global"
+      ],
+      "instruments": [
+        "drums",
+        "fx"
+      ],
+      "vocalTraits": [
+        "male",
+        "rap"
+      ],
+      "energy": "high"
+    },
+    "声-関西弁": {
+      "routeTags": [
+        "kansai",
+        "dialect",
+        "japan"
+      ],
+      "moods": [
+        "playful",
+        "warm"
+      ],
+      "eras": [
+        "modern"
+      ],
+      "regions": [
+        "japan"
+      ],
+      "instruments": [
+        "traditional-japanese"
+      ],
+      "vocalTraits": [
+        "male",
+        "soft"
+      ],
+      "energy": "medium"
+    },
+    "声-津軽弁": {
+      "routeTags": [
+        "tsugaru",
+        "dialect",
+        "japan"
+      ],
+      "moods": [
+        "nostalgic",
+        "melancholic"
+      ],
+      "eras": [
+        "traditional"
+      ],
+      "regions": [
+        "japan"
+      ],
+      "instruments": [
+        "traditional-japanese"
+      ],
+      "vocalTraits": [
+        "female",
+        "soft"
+      ],
+      "energy": "low"
+    },
+    "声-東北弁": {
+      "routeTags": [
+        "tohoku",
+        "dialect",
+        "japan"
+      ],
+      "moods": [
+        "cool",
+        "calm"
+      ],
+      "eras": [
+        "modern"
+      ],
+      "regions": [
+        "japan"
+      ],
+      "instruments": [
+        "traditional-japanese"
+      ],
+      "vocalTraits": [
+        "male",
+        "soft"
+      ],
+      "energy": "medium"
+    },
+    "声-名古屋弁": {
+      "routeTags": [
+        "nagoya",
+        "dialect",
+        "japan"
+      ],
+      "moods": [
+        "groovy",
+        "playful"
+      ],
+      "eras": [
+        "modern"
+      ],
+      "regions": [
+        "japan"
+      ],
+      "instruments": [
+        "traditional-japanese"
+      ],
+      "vocalTraits": [
+        "male",
+        "soft"
+      ],
+      "energy": "medium"
+    },
+    "声-博多弁": {
+      "routeTags": [
+        "hakata",
+        "dialect",
+        "japan"
+      ],
+      "moods": [
+        "energetic",
+        "dramatic"
+      ],
+      "eras": [
+        "modern"
+      ],
+      "regions": [
+        "japan"
+      ],
+      "instruments": [
+        "traditional-japanese"
+      ],
+      "vocalTraits": [
+        "male",
+        "powerful"
+      ],
+      "energy": "high"
+    },
+    "声-鹿児島弁": {
+      "routeTags": [
+        "kagoshima",
+        "dialect",
+        "japan"
+      ],
+      "moods": [
+        "mysterious",
+        "dark"
+      ],
+      "eras": [
+        "modern"
+      ],
+      "regions": [
+        "japan"
+      ],
+      "instruments": [
+        "traditional-japanese"
+      ],
+      "vocalTraits": [
+        "male",
+        "soft"
+      ],
+      "energy": "medium"
+    },
+    "声-沖縄方言": {
+      "routeTags": [
+        "okinawa",
+        "dialect",
+        "japan"
+      ],
+      "moods": [
+        "bright",
+        "hopeful"
+      ],
+      "eras": [
+        "modern"
+      ],
+      "regions": [
+        "japan"
+      ],
+      "instruments": [
+        "traditional-japanese"
+      ],
+      "vocalTraits": [
+        "female",
+        "soft"
+      ],
+      "energy": "medium"
+    },
+    "声-会津弁": {
+      "routeTags": [
+        "aizu",
+        "dialect",
+        "japan"
+      ],
+      "moods": [
+        "nostalgic",
+        "calm"
+      ],
+      "eras": [
+        "traditional"
+      ],
+      "regions": [
+        "japan"
+      ],
+      "instruments": [
+        "traditional-japanese"
+      ],
+      "vocalTraits": [
+        "female",
+        "soft"
+      ],
+      "energy": "low"
+    },
+    "声-新潟弁": {
+      "routeTags": [
+        "niigata",
+        "dialect",
+        "japan"
+      ],
+      "moods": [
+        "cool",
+        "melancholic"
+      ],
+      "eras": [
+        "modern"
+      ],
+      "regions": [
+        "japan"
+      ],
+      "instruments": [
+        "traditional-japanese"
+      ],
+      "vocalTraits": [
+        "male",
+        "soft"
+      ],
+      "energy": "medium"
+    },
+    "声-越後弁": {
+      "routeTags": [
+        "echigo",
+        "dialect",
+        "japan"
+      ],
+      "moods": [
+        "dreamy",
+        "nostalgic"
+      ],
+      "eras": [
+        "traditional"
+      ],
+      "regions": [
+        "japan"
+      ],
+      "instruments": [
+        "traditional-japanese"
+      ],
+      "vocalTraits": [
+        "female",
+        "soft"
+      ],
+      "energy": "low"
+    },
+    "声-庄内弁": {
+      "routeTags": [
+        "shonai-dialect",
+        "tohoku-style",
+        "regional-vocal"
+      ],
+      "moods": [],
+      "eras": [],
+      "regions": [
+        "japan"
+      ],
+      "instruments": [],
+      "vocalTraits": [],
+      "energy": "medium"
+    },
+    "声-岩手弁": {
+      "routeTags": [
+        "iwate-dialect",
+        "tohoku-style",
+        "regional-vocal"
+      ],
+      "moods": [],
+      "eras": [],
+      "regions": [
+        "japan"
+      ],
+      "instruments": [],
+      "vocalTraits": [],
+      "energy": "medium"
+    },
+    "声-秋田弁": {
+      "routeTags": [
+        "akita-dialect",
+        "tohoku-style",
+        "regional-vocal"
+      ],
+      "moods": [],
+      "eras": [],
+      "regions": [
+        "japan"
+      ],
+      "instruments": [],
+      "vocalTraits": [],
+      "energy": "medium"
+    },
+    "声-山形弁": {
+      "routeTags": [
+        "yamagata-dialect",
+        "tohoku-style",
+        "regional-vocal"
+      ],
+      "moods": [],
+      "eras": [],
+      "regions": [
+        "japan"
+      ],
+      "instruments": [],
+      "vocalTraits": [],
+      "energy": "medium"
+    },
+    "声-福島弁": {
+      "routeTags": [
+        "fukushima-dialect",
+        "tohoku-style",
+        "regional-vocal"
+      ],
+      "moods": [],
+      "eras": [],
+      "regions": [
+        "japan"
+      ],
+      "instruments": [],
+      "vocalTraits": [],
+      "energy": "medium"
+    },
+    "声-長野弁": {
+      "routeTags": [
+        "nagano-dialect",
+        "chubu-style",
+        "regional-vocal"
+      ],
+      "moods": [],
+      "eras": [],
+      "regions": [
+        "japan"
+      ],
+      "instruments": [],
+      "vocalTraits": [],
+      "energy": "medium"
+    },
+    "声-富山弁": {
+      "routeTags": [
+        "toyama-dialect",
+        "chubu-style",
+        "regional-vocal"
+      ],
+      "moods": [],
+      "eras": [],
+      "regions": [
+        "japan"
+      ],
+      "instruments": [],
+      "vocalTraits": [],
+      "energy": "medium"
+    },
+    "声-石川弁": {
+      "routeTags": [
+        "ishikawa-dialect",
+        "chubu-style",
+        "regional-vocal"
+      ],
+      "moods": [],
+      "eras": [],
+      "regions": [
+        "japan"
+      ],
+      "instruments": [],
+      "vocalTraits": [],
+      "energy": "medium"
+    },
+    "声-福井弁": {
+      "routeTags": [
+        "fukui-dialect",
+        "chubu-style",
+        "regional-vocal"
+      ],
+      "moods": [],
+      "eras": [],
+      "regions": [
+        "japan"
+      ],
+      "instruments": [],
+      "vocalTraits": [],
+      "energy": "medium"
+    },
+    "声-岐阜弁": {
+      "routeTags": [
+        "gifu-dialect",
+        "chubu-style",
+        "regional-vocal"
+      ],
+      "moods": [],
+      "eras": [],
+      "regions": [
+        "japan"
+      ],
+      "instruments": [],
+      "vocalTraits": [],
+      "energy": "medium"
+    },
+    "声-静岡弁": {
+      "routeTags": [
+        "shizuoka-dialect",
+        "chubu-style",
+        "regional-vocal"
+      ],
+      "moods": [],
+      "eras": [],
+      "regions": [
+        "japan"
+      ],
+      "instruments": [],
+      "vocalTraits": [],
+      "energy": "medium"
+    },
+    "声-三河弁": {
+      "routeTags": [
+        "mikawa-dialect",
+        "chubu-style",
+        "regional-vocal"
+      ],
+      "moods": [],
+      "eras": [],
+      "regions": [
+        "japan"
+      ],
+      "instruments": [],
+      "vocalTraits": [],
+      "energy": "medium"
+    },
+    "声-大阪弁": {
+      "routeTags": [
+        "osaka-dialect",
+        "kyushu-style",
+        "regional-japan"
+      ],
+      "moods": [
+        "playful"
+      ],
+      "eras": [
+        "modern"
+      ],
+      "regions": [
+        "japan"
+      ],
+      "instruments": [
+        "synth",
+        "electric-piano"
+      ],
+      "vocalTraits": [
+        "male",
+        "soft"
+      ],
+      "energy": "medium"
+    },
+    "声-京都弁": {
+      "routeTags": [
+        "kyoto-dialect",
+        "traditional-japan",
+        "regional-japan"
+      ],
+      "moods": [
+        "nostalgic"
+      ],
+      "eras": [
+        "retro"
+      ],
+      "regions": [
+        "japan"
+      ],
+      "instruments": [
+        "synth",
+        "electric-piano"
+      ],
+      "vocalTraits": [
+        "female",
+        "soft"
+      ],
+      "energy": "medium"
+    },
+    "声-神戸弁": {
+      "routeTags": [
+        "kobe-dialect",
+        "regional-japan"
+      ],
+      "moods": [
+        "calm"
+      ],
+      "eras": [
+        "modern"
+      ],
+      "regions": [
+        "japan"
+      ],
+      "instruments": [
+        "synth",
+        "electric-piano"
+      ],
+      "vocalTraits": [
+        "male",
+        "soft"
+      ],
+      "energy": "medium"
+    },
+    "声-奈良弁": {
+      "routeTags": [
+        "nara-dialect",
+        "regional-japan"
+      ],
+      "moods": [
+        "dreamy"
+      ],
+      "eras": [
+        "retro"
+      ],
+      "regions": [
+        "japan"
+      ],
+      "instruments": [
+        "synth",
+        "electric-piano"
+      ],
+      "vocalTraits": [
+        "female",
+        "soft"
+      ],
+      "energy": "medium"
+    },
+    "声-和歌山弁": {
+      "routeTags": [
+        "wakayama-dialect",
+        "regional-japan"
+      ],
+      "moods": [
+        "hopeful"
+      ],
+      "eras": [
+        "modern"
+      ],
+      "regions": [
+        "japan"
+      ],
+      "instruments": [
+        "synth",
+        "electric-piano"
+      ],
+      "vocalTraits": [
+        "male",
+        "soft"
+      ],
+      "energy": "medium"
+    },
+    "声-岡山弁": {
+      "routeTags": [
+        "okayama-dialect",
+        "regional-japan"
+      ],
+      "moods": [
+        "playful"
+      ],
+      "eras": [
+        "modern"
+      ],
+      "regions": [
+        "japan"
+      ],
+      "instruments": [
+        "synth",
+        "electric-piano"
+      ],
+      "vocalTraits": [
+        "female",
+        "soft"
+      ],
+      "energy": "medium"
+    },
+    "声-広島弁": {
+      "routeTags": [
+        "hiroshima-dialect",
+        "regional-japan"
+      ],
+      "moods": [
+        "calm"
+      ],
+      "eras": [
+        "modern"
+      ],
+      "regions": [
+        "japan"
+      ],
+      "instruments": [
+        "synth",
+        "electric-piano"
+      ],
+      "vocalTraits": [
+        "male",
+        "soft"
+      ],
+      "energy": "medium"
+    },
+    "声-山口弁": {
+      "routeTags": [
+        "yamaguchi-dialect",
+        "regional-japan"
+      ],
+      "moods": [
+        "nostalgic"
+      ],
+      "eras": [
+        "retro"
+      ],
+      "regions": [
+        "japan"
+      ],
+      "instruments": [
+        "synth",
+        "electric-piano"
+      ],
+      "vocalTraits": [
+        "female",
+        "soft"
+      ],
+      "energy": "medium"
+    },
+    "声-島根弁": {
+      "routeTags": [
+        "shimane-dialect",
+        "regional-japan"
+      ],
+      "moods": [
+        "dreamy"
+      ],
+      "eras": [
+        "modern"
+      ],
+      "regions": [
+        "japan"
+      ],
+      "instruments": [
+        "synth",
+        "electric-piano"
+      ],
+      "vocalTraits": [
+        "male",
+        "soft"
+      ],
+      "energy": "medium"
+    },
+    "声-鳥取弁": {
+      "routeTags": [
+        "tottori-dialect",
+        "regional-japan"
+      ],
+      "moods": [
+        "hopeful"
+      ],
+      "eras": [
+        "modern"
+      ],
+      "regions": [
+        "japan"
+      ],
+      "instruments": [
+        "synth",
+        "electric-piano"
+      ],
+      "vocalTraits": [
+        "female",
+        "soft"
+      ],
+      "energy": "medium"
+    },
+    "声-徳島弁": {
+      "routeTags": [
+        "tokushima-dialect",
+        "regional-japan"
+      ],
+      "moods": [
+        "playful"
+      ],
+      "eras": [
+        "modern"
+      ],
+      "regions": [
+        "japan"
+      ],
+      "instruments": [
+        "synth",
+        "electric-piano"
+      ],
+      "vocalTraits": [
+        "male",
+        "soft"
+      ],
+      "energy": "medium"
+    },
+    "声-香川弁": {
+      "routeTags": [
+        "kagawa-dialect",
+        "regional-japan"
+      ],
+      "moods": [
+        "nostalgic"
+      ],
+      "eras": [
+        "retro"
+      ],
+      "regions": [
+        "japan"
+      ],
+      "instruments": [
+        "synth",
+        "electric-piano"
+      ],
+      "vocalTraits": [
+        "female",
+        "soft"
+      ],
+      "energy": "medium"
+    },
+    "声-愛媛弁": {
+      "routeTags": [
+        "ehime-dialect",
+        "japanese-dialect",
+        "regional-voice"
+      ],
+      "moods": [],
+      "eras": [],
+      "regions": [
+        "japan"
+      ],
+      "instruments": [],
+      "vocalTraits": [],
+      "energy": "medium"
+    },
+    "声-高知弁": {
+      "routeTags": [
+        "kochi-dialect",
+        "japanese-dialect",
+        "regional-voice"
+      ],
+      "moods": [],
+      "eras": [],
+      "regions": [
+        "japan"
+      ],
+      "instruments": [],
+      "vocalTraits": [],
+      "energy": "medium"
+    },
+    "声-佐賀弁": {
+      "routeTags": [
+        "saga-dialect",
+        "japanese-dialect",
+        "regional-voice"
+      ],
+      "moods": [],
+      "eras": [],
+      "regions": [
+        "japan"
+      ],
+      "instruments": [],
+      "vocalTraits": [],
+      "energy": "medium"
+    },
+    "声-長崎弁": {
+      "routeTags": [
+        "nagasaki-dialect",
+        "japanese-dialect",
+        "regional-voice"
+      ],
+      "moods": [],
+      "eras": [],
+      "regions": [
+        "japan"
+      ],
+      "instruments": [],
+      "vocalTraits": [],
+      "energy": "medium"
+    },
+    "声-熊本弁": {
+      "routeTags": [
+        "kumamoto-dialect",
+        "japanese-dialect",
+        "regional-voice"
+      ],
+      "moods": [],
+      "eras": [],
+      "regions": [
+        "japan"
+      ],
+      "instruments": [],
+      "vocalTraits": [],
+      "energy": "medium"
+    },
+    "声-大分弁": {
+      "routeTags": [
+        "oita-dialect",
+        "japanese-dialect",
+        "regional-voice"
+      ],
+      "moods": [],
+      "eras": [],
+      "regions": [
+        "japan"
+      ],
+      "instruments": [],
+      "vocalTraits": [],
+      "energy": "medium"
+    },
+    "声-宮崎弁": {
+      "routeTags": [
+        "miyazaki-dialect",
+        "japanese-dialect",
+        "regional-voice"
+      ],
+      "moods": [],
+      "eras": [],
+      "regions": [
+        "japan"
+      ],
+      "instruments": [],
+      "vocalTraits": [],
+      "energy": "medium"
+    },
+    "声-宮古方言": {
+      "routeTags": [
+        "miyako-dialect",
+        "japanese-dialect",
+        "regional-voice"
+      ],
+      "moods": [],
+      "eras": [],
+      "regions": [
+        "japan"
+      ],
+      "instruments": [],
+      "vocalTraits": [],
+      "energy": "medium"
+    },
+    "声-八重山方言": {
+      "routeTags": [
+        "yaeyama-dialect",
+        "japanese-dialect",
+        "regional-voice"
+      ],
+      "moods": [],
+      "eras": [],
+      "regions": [
+        "japan"
+      ],
+      "instruments": [],
+      "vocalTraits": [],
+      "energy": "medium"
+    },
+    "ボーカル-クリア": {
+      "routeTags": [
+        "clear",
+        "vocal",
+        "pure"
+      ],
+      "moods": [
+        "bright"
+      ],
+      "eras": [
+        "timeless"
+      ],
+      "regions": [
+        "global"
+      ],
+      "instruments": [],
+      "vocalTraits": [
+        "soft"
+      ],
+      "energy": "medium"
+    },
+    "ボーカル-暖かい": {
+      "routeTags": [
+        "warm",
+        "vocal",
+        "cozy"
+      ],
+      "moods": [
+        "warm"
+      ],
+      "eras": [
+        "timeless"
+      ],
+      "regions": [
+        "global"
+      ],
+      "instruments": [],
+      "vocalTraits": [
+        "soft"
+      ],
+      "energy": "medium"
+    },
+    "ボーカル-生": {
+      "routeTags": [
+        "raw",
+        "vocal",
+        "natural"
+      ],
+      "moods": [],
+      "eras": [
+        "timeless"
+      ],
+      "regions": [
+        "global"
+      ],
+      "instruments": [],
+      "vocalTraits": [
+        "soft"
+      ],
+      "energy": "medium"
+    },
+    "ボーカル-強力な": {
+      "routeTags": [
+        "powerful",
+        "vocal",
+        "strong"
+      ],
+      "moods": [
+        "dramatic"
+      ],
+      "eras": [
+        "timeless"
+      ],
+      "regions": [
+        "global"
+      ],
+      "instruments": [],
+      "vocalTraits": [
+        "powerful"
+      ],
+      "energy": "high"
+    },
+    "ボーカル-息が詰まる": {
+      "routeTags": [
+        "breathy",
+        "vocal",
+        "intimate"
+      ],
+      "moods": [
+        "romantic"
+      ],
+      "eras": [
+        "timeless"
+      ],
+      "regions": [
+        "global"
+      ],
+      "instruments": [],
+      "vocalTraits": [
+        "breathy"
+      ],
+      "energy": "low"
+    },
+    "ボーカル-ソウルフルな": {
+      "routeTags": [
+        "soulful",
+        "vocal",
+        "groovy"
+      ],
+      "moods": [],
+      "eras": [
+        "timeless"
+      ],
+      "regions": [
+        "global"
+      ],
+      "instruments": [],
+      "vocalTraits": [
+        "soulful"
+      ],
+      "energy": "medium"
+    },
+    "ボーカル-ガラガラ音": {
+      "routeTags": [
+        "raspy",
+        "vocal",
+        "textured"
+      ],
+      "moods": [
+        "mysterious"
+      ],
+      "eras": [
+        "timeless"
+      ],
+      "regions": [
+        "global"
+      ],
+      "instruments": [],
+      "vocalTraits": [
+        "breathy"
+      ],
+      "energy": "medium"
+    },
+    "ボーカル-オペラ的な": {
+      "routeTags": [
+        "operatic",
+        "vocal",
+        "high-range"
+      ],
+      "moods": [
+        "dramatic"
+      ],
+      "eras": [
+        "timeless"
+      ],
+      "regions": [
+        "global"
+      ],
+      "instruments": [
+        "choir"
+      ],
+      "vocalTraits": [
+        "powerful",
+        "ethereal"
+      ],
+      "energy": "high"
+    },
+    "ボーカル-ささやき声で": {
+      "routeTags": [
+        "whisper",
+        "vocal",
+        "intimate"
+      ],
+      "moods": [
+        "calm",
+        "melancholic"
+      ],
+      "eras": [
+        "modern"
+      ],
+      "regions": [
+        "global"
+      ],
+      "instruments": [
+        "synth"
+      ],
+      "vocalTraits": [
+        "whisper",
+        "soft",
+        "breathy"
+      ],
+      "energy": "low"
+    },
+    "ボーカル-メロディックな": {
+      "routeTags": [
+        "melodic",
+        "vocal",
+        "catchy"
+      ],
+      "moods": [
+        "hopeful",
+        "playful"
+      ],
+      "eras": [
+        "80s"
+      ],
+      "regions": [
+        "japan"
+      ],
+      "instruments": [
+        "piano"
+      ],
+      "vocalTraits": [
+        "soft",
+        "soulful"
+      ],
+      "energy": "medium"
+    },
+    "ボーカル-単純": {
+      "routeTags": [
+        "simple",
+        "vocal",
+        "clean"
+      ],
+      "moods": [
+        "calm",
+        "nostalgic"
+      ],
+      "eras": [
+        "70s"
+      ],
+      "regions": [
+        "america"
+      ],
+      "instruments": [
+        "strings"
+      ],
+      "vocalTraits": [
+        "soft"
+      ],
+      "energy": "low"
+    },
+    "ボーカル-複雑な": {
+      "routeTags": [
+        "complex",
+        "vocal",
+        "rich"
+      ],
+      "moods": [
+        "dramatic",
+        "epic"
+      ],
+      "eras": [
+        "2000s"
+      ],
+      "regions": [
+        "europe"
+      ],
+      "instruments": [
+        "orchestra"
+      ],
+      "vocalTraits": [
+        "powerful"
+      ],
+      "energy": "high"
+    },
+    "ボーカル-近い": {
+      "routeTags": [
+        "close",
+        "vocal",
+        "intimate"
+      ],
+      "moods": [
+        "romantic",
+        "warm"
+      ],
+      "eras": [
+        "90s"
+      ],
+      "regions": [
+        "japan"
+      ],
+      "instruments": [
+        "strings"
+      ],
+      "vocalTraits": [
+        "soft",
+        "breathy"
+      ],
+      "energy": "medium"
+    },
+    "ボーカル-層状の": {
+      "routeTags": [
+        "layered",
+        "vocal",
+        "textured"
+      ],
+      "moods": [
+        "mysterious",
+        "dark"
+      ],
+      "eras": [
+        "modern"
+      ],
+      "regions": [
+        "global"
+      ],
+      "instruments": [
+        "choir"
+      ],
+      "vocalTraits": [
+        "powerful",
+        "ethereal"
+      ],
+      "energy": "high"
+    },
+    "ボーカル-リッチ": {
+      "routeTags": [
+        "rich",
+        "vocal",
+        "full"
+      ],
+      "moods": [
+        "joyful",
+        "bright"
+      ],
+      "eras": [
+        "80s"
+      ],
+      "regions": [
+        "america"
+      ],
+      "instruments": [
+        "strings"
+      ],
+      "vocalTraits": [
+        "powerful",
+        "soulful"
+      ],
+      "energy": "high"
+    },
+    "ボーカル-まばらな": {
+      "routeTags": [
+        "sparse",
+        "vocal",
+        "minimal"
+      ],
+      "moods": [
+        "calm",
+        "dreamy"
+      ],
+      "eras": [
+        "2010s"
+      ],
+      "regions": [
+        "europe"
+      ],
+      "instruments": [
+        "piano"
+      ],
+      "vocalTraits": [
+        "soft",
+        "whisper"
+      ],
+      "energy": "low"
+    },
+    "ボーカル-急上昇する": {
+      "routeTags": [
+        "soaring",
+        "vocal",
+        "ascending"
+      ],
+      "moods": [
+        "hopeful",
+        "energetic"
+      ],
+      "eras": [
+        "70s"
+      ],
+      "regions": [
+        "japan"
+      ],
+      "instruments": [
+        "strings"
+      ],
+      "vocalTraits": [
+        "powerful"
+      ],
+      "energy": "high"
+    },
+    "ボーカル-響く": {
+      "routeTags": [
+        "echoing",
+        "vocal",
+        "resonant"
+      ],
+      "moods": [
+        "nostalgic",
+        "melancholic"
+      ],
+      "eras": [
+        "90s"
+      ],
+      "regions": [
+        "global"
+      ],
+      "instruments": [
+        "choir"
+      ],
+      "vocalTraits": [
+        "soft",
+        "ethereal"
+      ],
+      "energy": "medium"
+    },
+    "ボーカル-繊細": {
+      "routeTags": [
+        "delicate",
+        "vocal",
+        "fragile"
+      ],
+      "moods": [
+        "sad",
+        "dreamy"
+      ],
+      "eras": [
+        "modern"
+      ],
+      "regions": [
+        "europe"
+      ],
+      "instruments": [
+        "piano"
+      ],
+      "vocalTraits": [
+        "soft",
+        "breathy"
+      ],
+      "energy": "low"
+    },
+    "ボーカル-アンセミックな": {
+      "routeTags": [
+        "anthemic",
+        "vocal-harmonies",
+        "grand"
+      ],
+      "moods": [
+        "hopeful"
+      ],
+      "eras": [
+        "timeless"
+      ],
+      "regions": [
+        "global"
+      ],
+      "instruments": [
+        "choir"
+      ],
+      "vocalTraits": [
+        "powerful"
+      ],
+      "energy": "high"
+    },
+    "ボーカル-明るい": {
+      "routeTags": [
+        "bright",
+        "vocal-tones",
+        "uplifting"
+      ],
+      "moods": [
+        "bright"
+      ],
+      "eras": [
+        "modern"
+      ],
+      "regions": [
+        "global"
+      ],
+      "instruments": [
+        "synth"
+      ],
+      "vocalTraits": [],
+      "energy": "medium"
+    },
+    "ボーカル-柔らかい": {
+      "routeTags": [
+        "soft",
+        "vocal-tones",
+        "gentle"
+      ],
+      "moods": [
+        "calm"
+      ],
+      "eras": [
+        "timeless"
+      ],
+      "regions": [
+        "global"
+      ],
+      "instruments": [
+        "piano"
+      ],
+      "vocalTraits": [
+        "soft"
+      ],
+      "energy": "low"
+    },
+    "ボーカル-深い": {
+      "routeTags": [
+        "deep",
+        "vocal-tones",
+        "resonant"
+      ],
+      "moods": [
+        "melancholic"
+      ],
+      "eras": [
+        "timeless"
+      ],
+      "regions": [
+        "global"
+      ],
+      "instruments": [
+        "strings"
+      ],
+      "vocalTraits": [
+        "powerful"
+      ],
+      "energy": "medium"
+    },
+    "ボーカル-スムーズ": {
+      "routeTags": [
+        "smooth",
+        "vocal-tones",
+        "fluid"
+      ],
+      "moods": [
+        "dreamy"
+      ],
+      "eras": [
+        "modern"
+      ],
+      "regions": [
+        "global"
+      ],
+      "instruments": [
+        "synth"
+      ],
+      "vocalTraits": [
+        "breathy"
+      ],
+      "energy": "medium"
+    },
+    "ボーカル-エッジの効いた": {
+      "routeTags": [
+        "edgy",
+        "vocal-tones",
+        "sharp"
+      ],
+      "moods": [
+        "aggressive"
+      ],
+      "eras": [
+        "modern"
+      ],
+      "regions": [
+        "global"
+      ],
+      "instruments": [
+        "electric-piano"
+      ],
+      "vocalTraits": [
+        "powerful"
+      ],
+      "energy": "high"
+    },
+    "ボーカル-甘い": {
+      "routeTags": [
+        "sweet",
+        "vocal-tones",
+        "cute"
+      ],
+      "moods": [
+        "cute"
+      ],
+      "eras": [
+        "timeless"
+      ],
+      "regions": [
+        "global"
+      ],
+      "instruments": [
+        "synth"
+      ],
+      "vocalTraits": [
+        "soft"
+      ],
+      "energy": "low"
+    },
+    "ボーカル-暗い": {
+      "routeTags": [
+        "dark",
+        "vocal-tones",
+        "shadowy"
+      ],
+      "moods": [
+        "dark"
+      ],
+      "eras": [
+        "timeless"
+      ],
+      "regions": [
+        "global"
+      ],
+      "instruments": [
+        "strings"
+      ],
+      "vocalTraits": [
+        "breathy"
+      ],
+      "energy": "medium"
+    },
+    "ボーカル-メランコリック": {
+      "routeTags": [
+        "melancholic",
+        "vocal-tones",
+        "sad"
+      ],
+      "moods": [
+        "melancholic"
+      ],
+      "eras": [
+        "timeless"
+      ],
+      "regions": [
+        "global"
+      ],
+      "instruments": [
+        "piano"
+      ],
+      "vocalTraits": [
+        "soft"
+      ],
+      "energy": "low"
+    },
+    "ボーカル-希望に満ちた": {
+      "routeTags": [
+        "hopeful",
+        "vocal-tones",
+        "optimistic"
+      ],
+      "moods": [
+        "hopeful"
+      ],
+      "eras": [
+        "timeless"
+      ],
+      "regions": [
+        "global"
+      ],
+      "instruments": [
+        "strings"
+      ],
+      "vocalTraits": [
+        "powerful"
+      ],
+      "energy": "high"
+    },
+    "ボーカル-激しい": {
+      "routeTags": [
+        "intense",
+        "vocal-tones",
+        "aggressive"
+      ],
+      "moods": [
+        "aggressive"
+      ],
+      "eras": [
+        "modern"
+      ],
+      "regions": [
+        "global"
+      ],
+      "instruments": [
+        "electric-piano"
+      ],
+      "vocalTraits": [
+        "powerful"
+      ],
+      "energy": "high"
+    }
+  }
+}

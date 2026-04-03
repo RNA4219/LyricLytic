@@ -1,16 +1,19 @@
 import { useEffect, useState, useRef, useCallback, useMemo } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import Editor from '@monaco-editor/react';
+import { DndProvider } from 'react-dnd';
+import { TouchBackend } from 'react-dnd-touch-backend';
 import { getProject, getWorkingDraft, getDraftSections, saveDraft, getVersions, createVersion, deleteProject, deleteVersion, restoreVersion as restoreVersionApi, getFragments, createFragment, Project, LyricVersion, DraftSectionInput, VersionSectionInput } from '../lib/api';
 import { useLLMSettings } from '../lib/llm';
 import { useLanguage } from '../lib/LanguageContext';
 import { useProject } from '../lib/ProjectContext';
-import { usePaneResize, useKeyboardShortcuts, createEditorShortcuts, usePhoneticGuide, useSectionDragDrop, useUIState, useBpm, useStyleVocal, useClipboard, BPM_PRESETS } from '../lib/hooks';
+import { usePaneResize, useKeyboardShortcuts, createEditorShortcuts, usePhoneticGuide, useUIState, useBpm, useStyleVocal, useClipboard, BPM_PRESETS } from '../lib/hooks';
 import { EDITOR, SECTION_PRESETS } from '../lib/config';
 import ActionPane from './editor/ActionPane';
 import EditorOverlays from './editor/EditorOverlays';
 import { Section, mapDraftSections, parseBodyToSections, sectionsToBody, generateUniqueSectionName, buildLyricsOnlyBody } from '../lib/section';
 import VersionPane from './editor/VersionPane';
+import SectionListCard, { SectionDragPreview, type SectionDragPreviewState } from './editor/SectionListCard';
 import { analyzeRhymeGuideRows, buildFallbackRhymeGuideRows, getGuideHighlightParts, countRomanizedGuideUnits } from '../lib/rhyme/analysis';
 
 function EditorPage() {
@@ -28,6 +31,7 @@ function EditorPage() {
   const [lastSaved, setLastSaved] = useState<Date | null>(null);
   const [fragments, setFragments] = useState<Array<{ collected_fragment_id: string; text: string; source?: string; status: string }>>([]);
   const [lastHiddenVersion, setLastHiddenVersion] = useState<{ version: LyricVersion; batchId: string } | null>(null);
+  const [sectionDragPreview, setSectionDragPreview] = useState<SectionDragPreviewState | null>(null);
   const { settings: llmSettings, updateSettings: setLLMSettings } = useLLMSettings();
   const [allViewText, setAllViewText] = useState('');
   const [editorScrollTop, setEditorScrollTop] = useState(0);
@@ -59,14 +63,6 @@ function EditorPage() {
     setHeight: setPhoneticGuideHeight,
     setRows: setPhoneticGuideRows,
   } = usePhoneticGuide();
-
-  // Section drag & drop hook
-  const {
-    draggedSectionId,
-    dragOverSectionId,
-    dragPointerPosition,
-    handlePointerDown: handleSectionPointerDown,
-  } = useSectionDragDrop(sections, { onReorder: setSections });
 
   // UI state hook (dialogs & toasts)
   const {
@@ -562,9 +558,30 @@ function EditorPage() {
 
   const currentProjectId = projectId ?? '';
   const activeSectionData = sections.find(s => s.id === activeSection);
-  const draggedSectionData = sections.find((s) => s.id === draggedSectionId) ?? null;
   const isAllView = activeSection === EDITOR.ALL_SECTIONS_ID;
   const editorValue = isAllView ? allViewText : (activeSectionData?.bodyText || '');
+  const moveSection = useCallback((dragIndex: number, hoverIndex: number) => {
+    if (dragIndex === hoverIndex) {
+      return;
+    }
+
+    const nextSections = [...sections];
+    const [movedSection] = nextSections.splice(dragIndex, 1);
+
+    if (!movedSection) {
+      return;
+    }
+
+    nextSections.splice(hoverIndex, 0, movedSection);
+    const reorderedSections = nextSections.map((section, idx) => ({ ...section, sortOrder: idx }));
+
+    setSections(reorderedSections);
+    if (isAllView) {
+      setAllViewText(sectionsToBody(reorderedSections));
+    }
+    queueAutoSave(reorderedSections);
+  }, [isAllView, queueAutoSave, sections]);
+
   const lineCharacterCounts = useMemo(() => {
     const lines = editorValue.split('\n');
     let guideIndex = 0;
@@ -952,81 +969,42 @@ function EditorPage() {
             </div>
           </div>
 
-          <div className="section-list">
-            <div
-              className={`section-tab section-tab-all ${isAllView ? 'active' : ''}`}
-              onClick={() => setActiveSection(EDITOR.ALL_SECTIONS_ID)}
-            >
-              <div className="section-tab-meta">
-                <span className="section-order">ALL</span>
-                <span className="section-all-label">ALL</span>
-              </div>
-            </div>
-
-            {sections.map((s, index) => (
-              s.id === draggedSectionId ? (
-                <div
-                  key={s.id}
-                  data-section-id={s.id}
-                  className={`section-tab-placeholder ${s.id === dragOverSectionId ? 'drag-over' : ''}`}
-                >
-                  <span className="section-placeholder-label">Moving {s.displayName}</span>
-                </div>
-              ) : (
-                <div
-                  key={s.id}
-                  data-section-id={s.id}
-                  className={`section-tab ${s.id === activeSection ? 'active' : ''} ${s.id === dragOverSectionId ? 'drag-over' : ''} ${s.id === draggedSectionId ? 'dragging' : ''}`}
-                  onClick={() => setActiveSection(s.id)}
-                  onPointerDown={(e) => handleSectionPointerDown(s.id, e.clientX, e.clientY)}
-                >
-                  <div className="section-tab-row">
-                    <div className="section-tab-meta">
-                      <span className="section-drag-handle">⋮⋮</span>
-                      <span className="section-order">{index + 1}</span>
-                      <input
-                        value={s.displayName}
-                        onChange={(e) => renameSection(s.id, e.target.value)}
-                        onClick={(e) => e.stopPropagation()}
-                        onPointerDown={(e) => handleSectionPointerDown(s.id, e.clientX, e.clientY)}
-                        className="section-name-input"
-                      />
-                    </div>
-                    <div className="section-tab-actions">
-                      <button onClick={(e) => { e.stopPropagation(); deleteSection(s.id); }} title="Delete">×</button>
-                    </div>
-                  </div>
-                  {s.bodyText && (
-                    <div className="section-preview">{s.bodyText.slice(0, 40)}...</div>
-                  )}
-                </div>
-              )
-            ))}
-          </div>
-
-          {draggedSectionData && dragPointerPosition && (
-            <div
-              className="section-drag-preview"
-              style={{
-                left: dragPointerPosition.x + 20,
-                top: dragPointerPosition.y - 8,
-              }}
-            >
-              <div className="section-drag-preview-badge">Moving</div>
-              <div className="section-tab-row">
+          <DndProvider
+            backend={TouchBackend}
+            options={{
+              enableMouseEvents: true,
+              delayTouchStart: 0,
+              delayMouseStart: 0,
+              touchSlop: 0,
+            }}
+          >
+            <div className="section-list">
+              <div
+                className={`section-tab section-tab-all ${isAllView ? 'active' : ''}`}
+                onClick={() => setActiveSection(EDITOR.ALL_SECTIONS_ID)}
+              >
                 <div className="section-tab-meta">
-                  <span className="section-drag-handle">⋮⋮</span>
-                  <span className="section-order">
-                    {sections.findIndex((section) => section.id === draggedSectionData.id) + 1}
-                  </span>
-                  <span className="section-all-label">{draggedSectionData.displayName}</span>
+                  <span className="section-order">ALL</span>
+                  <span className="section-all-label">ALL</span>
                 </div>
               </div>
-              {draggedSectionData.bodyText && (
-                <div className="section-preview">{draggedSectionData.bodyText.slice(0, 40)}...</div>
-              )}
+
+              {sections.map((section, index) => (
+                <SectionListCard
+                  key={section.id}
+                  section={section}
+                  index={index}
+                  isActive={section.id === activeSection}
+                  onActivate={setActiveSection}
+                  onRename={renameSection}
+                  onDelete={deleteSection}
+                  onMove={moveSection}
+                  onDragPreviewChange={setSectionDragPreview}
+                />
+              ))}
             </div>
-          )}
+            <SectionDragPreview preview={sectionDragPreview} />
+          </DndProvider>
         </section>
 
         <div

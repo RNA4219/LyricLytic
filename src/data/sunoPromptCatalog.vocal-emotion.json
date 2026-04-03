@@ -1,0 +1,1118 @@
+{
+  "target": "vocal",
+  "mode": "important",
+  "bucketKey": "vocal-emotion",
+  "sections": [
+    "感情",
+    "年代",
+    "Pop",
+    "Rock",
+    "Jazz"
+  ],
+  "entryCount": 28,
+  "entries": [
+    {
+      "id": "jazz-お手軽bluesrockセット",
+      "section": "Jazz",
+      "title": "お手軽BluesRockセット",
+      "prompt": "Seasoned Voice, Ballad Rock Blues, Bpm98, Acoustic Guitar, Hammond Organ, Electric Guitar, Piano, Percussion, Strings, Backing Vocals, Key:C/Am, Emotional Vocals,",
+      "description": "アコギ、エレギ、稀にハモンドの編成で、手軽にブルースロックを作成できます",
+      "tags": [
+        "janle",
+        "Jazz"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "jazz-ブルース-ラップ",
+      "section": "Jazz",
+      "title": "ブルース ラップ",
+      "prompt": "Blues Rap",
+      "description": "ブルースとラップを融合",
+      "tags": [
+        "janle",
+        "Jazz"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "jazz-ジャズ-ソウルフル",
+      "section": "Jazz",
+      "title": "ジャズ ソウルフル",
+      "prompt": "Jazz Soulful",
+      "description": "感情豊かで表現力豊かなボーカルが特徴のソウルフルなジャズ",
+      "tags": [
+        "janle",
+        "Jazz"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "rock-ハードロック",
+      "section": "Rock",
+      "title": "ハードロック",
+      "prompt": "Hard Rock",
+      "description": "攻撃的 なボーカルや音をゆがませたエレキ・ギターなどが特徴 1960年頃から始まる",
+      "tags": [
+        "janle",
+        "Rock"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "rock-ヘヴィメタル",
+      "section": "Rock",
+      "title": "ヘヴィメタル",
+      "prompt": "Heavy Metal",
+      "description": "攻撃的なサウンド歪んだギターリフ、パワフルボーカル、複雑なドラムパターンが",
+      "tags": [
+        "janle",
+        "Rock"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "rock-お手軽bluesrockセット",
+      "section": "Rock",
+      "title": "お手軽BluesRockセット",
+      "prompt": "Seasoned Voice, Ballad Rock Blues, Bpm98, Acoustic Guitar, Hammond Organ, Electric Guitar, Piano, Percussion, Strings, Backing Vocals, Key:C/Am, Emotional Vocals,",
+      "description": "アコギ、エレギ、稀にハモンドの編成で、手軽にブルースロックを作成できます",
+      "tags": [
+        "janle",
+        "Rock"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "rock-ポスト-ハードコア",
+      "section": "Rock",
+      "title": "ポスト・ハードコア",
+      "prompt": "Post-Hardcore",
+      "description": "ハードコアパンクから派生エモいボーカルと複雑な楽曲構成",
+      "tags": [
+        "janle",
+        "Rock"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "rock-ロック-コーラル",
+      "section": "Rock",
+      "title": "ロック コーラル",
+      "prompt": "Rock Choral",
+      "description": "合唱を取り入れたロック",
+      "tags": [
+        "janle",
+        "Rock"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "rock-サーフ-コーラル",
+      "section": "Rock",
+      "title": "サーフ コーラル",
+      "prompt": "Surf Choral",
+      "description": "合唱を取り入れたサーフ音楽",
+      "tags": [
+        "janle",
+        "Rock"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "年代-1960年代",
+      "section": "年代",
+      "title": "1960年代",
+      "prompt": "1960S Style",
+      "description": "1960風の音楽/声/楽器/エフェクト",
+      "tags": [
+        "年代"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "年代-1970年代",
+      "section": "年代",
+      "title": "1970年代",
+      "prompt": "1970S Style",
+      "description": "1970風の音楽/声/楽器/エフェクト",
+      "tags": [
+        "年代"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "年代-1970年代レトロ",
+      "section": "年代",
+      "title": "1970年代レトロ",
+      "prompt": "70S Retro",
+      "description": "1970風の音楽/声/楽器/エフェクト",
+      "tags": [
+        "年代"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "年代-1980年代",
+      "section": "年代",
+      "title": "1980年代",
+      "prompt": "1980S Style",
+      "description": "1980風の音楽/声/楽器/エフェクト",
+      "tags": [
+        "年代"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "年代-1980年代レトロ",
+      "section": "年代",
+      "title": "1980年代レトロ",
+      "prompt": "80S Retro",
+      "description": "1980風の音楽/声/楽器/エフェクト",
+      "tags": [
+        "年代"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "年代-1990年代",
+      "section": "年代",
+      "title": "1990年代",
+      "prompt": "1990S Style",
+      "description": "1990風の音楽/声/楽器/エフェクト",
+      "tags": [
+        "年代"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "年代-1990年代レトロ",
+      "section": "年代",
+      "title": "1990年代レトロ",
+      "prompt": "90S Retro",
+      "description": "1990風の音楽/声/楽器/エフェクト",
+      "tags": [
+        "年代"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "年代-2000年代",
+      "section": "年代",
+      "title": "2000年代",
+      "prompt": "2000S Style",
+      "description": "2000風の音楽/声/楽器/エフェクト",
+      "tags": [
+        "年代"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "年代-2010年代",
+      "section": "年代",
+      "title": "2010年代",
+      "prompt": "2010S Style",
+      "description": "2010風の音楽/声/楽器/エフェクト",
+      "tags": [
+        "年代"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "年代-今年風",
+      "section": "年代",
+      "title": "今年風",
+      "prompt": "This Year Style",
+      "description": "今年風の音楽/声/楽器/エフェクト",
+      "tags": [
+        "年代"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "年代-1900年代",
+      "section": "年代",
+      "title": "1900年代",
+      "prompt": "1900S Style",
+      "description": "1900風の音楽/声/楽器/エフェクト",
+      "tags": [
+        "年代"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "年代-1910年代",
+      "section": "年代",
+      "title": "1910年代",
+      "prompt": "1910S Style",
+      "description": "1910風の音楽/声/楽器/エフェクト",
+      "tags": [
+        "年代"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "年代-1920年代",
+      "section": "年代",
+      "title": "1920年代",
+      "prompt": "1920S Style",
+      "description": "1920風の音楽/声/楽器/エフェクト",
+      "tags": [
+        "年代"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "年代-1930年代",
+      "section": "年代",
+      "title": "1930年代",
+      "prompt": "1930S Style",
+      "description": "1930風の音楽/声/楽器/エフェクト",
+      "tags": [
+        "年代"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "年代-1940年代",
+      "section": "年代",
+      "title": "1940年代",
+      "prompt": "1940S Style",
+      "description": "1940風の音楽/声/楽器/エフェクト",
+      "tags": [
+        "年代"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "年代-1950年代",
+      "section": "年代",
+      "title": "1950年代",
+      "prompt": "1950S Style",
+      "description": "1950風の音楽/声/楽器/エフェクト",
+      "tags": [
+        "年代"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "年代-2020年代",
+      "section": "年代",
+      "title": "2020年代",
+      "prompt": "2020S Style",
+      "description": "2020風の音楽/声/楽器/エフェクト",
+      "tags": [
+        "年代"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "年代-2030年代",
+      "section": "年代",
+      "title": "2030年代",
+      "prompt": "2030S Style",
+      "description": "2030風の音楽/声/楽器/エフェクト",
+      "tags": [
+        "年代"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "年代-2100年代",
+      "section": "年代",
+      "title": "2100年代",
+      "prompt": "2100S Style",
+      "description": "2100風の音楽/声/楽器/エフェクト",
+      "tags": [
+        "年代"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    }
+  ],
+  "entryEnrichment": {
+    "jazz-お手軽bluesrockセット": {
+      "routeTags": [
+        "blues-rock",
+        "seasoned",
+        "emotional",
+        "acoustic"
+      ],
+      "moods": [
+        "dramatic",
+        "hopeful"
+      ],
+      "eras": [
+        "modern"
+      ],
+      "regions": [
+        "global"
+      ],
+      "instruments": [
+        "guitar",
+        "piano",
+        "strings",
+        "percussion",
+        "electronic"
+      ],
+      "vocalTraits": [
+        "female",
+        "powerful"
+      ],
+      "energy": "high"
+    },
+    "jazz-ブルース-ラップ": {
+      "routeTags": [
+        "blues",
+        "rap",
+        "urban",
+        "spoken"
+      ],
+      "moods": [
+        "aggressive",
+        "energetic"
+      ],
+      "eras": [
+        "2000s"
+      ],
+      "regions": [
+        "america"
+      ],
+      "instruments": [
+        "guitar",
+        "drums",
+        "electronic"
+      ],
+      "vocalTraits": [
+        "male",
+        "rap"
+      ],
+      "energy": "high"
+    },
+    "jazz-ジャズ-ソウルフル": {
+      "routeTags": [
+        "soulful-jazz",
+        "emotional",
+        "expressive"
+      ],
+      "moods": [
+        "romantic",
+        "hopeful"
+      ],
+      "eras": [
+        "modern"
+      ],
+      "regions": [
+        "global"
+      ],
+      "instruments": [
+        "piano",
+        "strings"
+      ],
+      "vocalTraits": [
+        "soulful",
+        "female"
+      ],
+      "energy": "medium"
+    },
+    "rock-ハードロック": {
+      "routeTags": [
+        "hard-rock",
+        "distorted-guitar",
+        "aggressive-vocals"
+      ],
+      "moods": [
+        "aggressive",
+        "dramatic"
+      ],
+      "eras": [
+        "70s"
+      ],
+      "regions": [
+        "global"
+      ],
+      "instruments": [],
+      "vocalTraits": [
+        "powerful"
+      ],
+      "energy": "high"
+    },
+    "rock-ヘヴィメタル": {
+      "routeTags": [
+        "heavy-metal",
+        "sludge-metal",
+        "complex-drums"
+      ],
+      "moods": [
+        "aggressive",
+        "dramatic"
+      ],
+      "eras": [
+        "modern"
+      ],
+      "regions": [
+        "global"
+      ],
+      "instruments": [
+        "drums"
+      ],
+      "vocalTraits": [
+        "powerful"
+      ],
+      "energy": "high"
+    },
+    "rock-お手軽bluesrockセット": {
+      "routeTags": [
+        "acoustic-blues",
+        "hammond-organ",
+        "seasoned-vocals"
+      ],
+      "moods": [
+        "nostalgic",
+        "melancholic"
+      ],
+      "eras": [
+        "70s"
+      ],
+      "regions": [
+        "america"
+      ],
+      "instruments": [
+        "piano",
+        "strings"
+      ],
+      "vocalTraits": [
+        "soft",
+        "soulful"
+      ],
+      "energy": "medium"
+    },
+    "rock-ポスト-ハードコア": {
+      "routeTags": [
+        "post-hardcore",
+        "emo",
+        "complex-structure"
+      ],
+      "moods": [
+        "aggressive",
+        "dramatic"
+      ],
+      "eras": [
+        "2000s"
+      ],
+      "regions": [
+        "global"
+      ],
+      "instruments": [
+        "bass",
+        "drums",
+        "synth"
+      ],
+      "vocalTraits": [
+        "male",
+        "whisper"
+      ],
+      "energy": "high"
+    },
+    "rock-ロック-コーラル": {
+      "routeTags": [
+        "choral",
+        "hymnal",
+        "harmonic"
+      ],
+      "moods": [
+        "spiritual",
+        "calm"
+      ],
+      "eras": [
+        "traditional"
+      ],
+      "regions": [
+        "global"
+      ],
+      "instruments": [
+        "strings",
+        "choir",
+        "piano"
+      ],
+      "vocalTraits": [
+        "choir",
+        "soft"
+      ],
+      "energy": "low"
+    },
+    "rock-サーフ-コーラル": {
+      "routeTags": [
+        "surf",
+        "choral",
+        "harmonic"
+      ],
+      "moods": [
+        "hopeful",
+        "spiritual"
+      ],
+      "eras": [
+        "modern"
+      ],
+      "regions": [
+        "japan"
+      ],
+      "instruments": [
+        "choir",
+        "strings"
+      ],
+      "vocalTraits": [
+        "choir",
+        "soft"
+      ],
+      "energy": "medium"
+    },
+    "年代-1960年代": {
+      "routeTags": [
+        "1960s-style",
+        "retro-vibes",
+        "classic-era"
+      ],
+      "moods": [],
+      "eras": [],
+      "regions": [],
+      "instruments": [],
+      "vocalTraits": [],
+      "energy": "medium"
+    },
+    "年代-1970年代": {
+      "routeTags": [
+        "1970s-style",
+        "retro-vibes",
+        "classic-era"
+      ],
+      "moods": [],
+      "eras": [
+        "70s"
+      ],
+      "regions": [],
+      "instruments": [],
+      "vocalTraits": [],
+      "energy": "medium"
+    },
+    "年代-1970年代レトロ": {
+      "routeTags": [
+        "70s",
+        "retro",
+        "analog"
+      ],
+      "moods": [
+        "nostalgic",
+        "dreamy"
+      ],
+      "eras": [
+        "70s"
+      ],
+      "regions": [
+        "global"
+      ],
+      "instruments": [
+        "synth",
+        "electric-piano",
+        "drums"
+      ],
+      "vocalTraits": [
+        "male",
+        "soft"
+      ],
+      "energy": "medium"
+    },
+    "年代-1980年代": {
+      "routeTags": [
+        "80s",
+        "retro",
+        "new-wave"
+      ],
+      "moods": [
+        "energetic",
+        "playful"
+      ],
+      "eras": [
+        "80s"
+      ],
+      "regions": [
+        "global"
+      ],
+      "instruments": [
+        "synth",
+        "drums"
+      ],
+      "vocalTraits": [
+        "female",
+        "powerful"
+      ],
+      "energy": "high"
+    },
+    "年代-1980年代レトロ": {
+      "routeTags": [
+        "80s",
+        "retro",
+        "pop"
+      ],
+      "moods": [
+        "joyful",
+        "bright"
+      ],
+      "eras": [
+        "80s"
+      ],
+      "regions": [
+        "global"
+      ],
+      "instruments": [
+        "synth",
+        "piano",
+        "strings"
+      ],
+      "vocalTraits": [
+        "female"
+      ],
+      "energy": "high"
+    },
+    "年代-1990年代": {
+      "routeTags": [
+        "90s",
+        "grunge",
+        "alternative"
+      ],
+      "moods": [
+        "melancholic",
+        "dark"
+      ],
+      "eras": [
+        "90s"
+      ],
+      "regions": [
+        "america"
+      ],
+      "instruments": [
+        "bass",
+        "drums"
+      ],
+      "vocalTraits": [
+        "male"
+      ],
+      "energy": "medium"
+    },
+    "年代-1990年代レトロ": {
+      "routeTags": [
+        "90s",
+        "retro",
+        "j-pop"
+      ],
+      "moods": [
+        "cute",
+        "hopeful"
+      ],
+      "eras": [
+        "90s"
+      ],
+      "regions": [
+        "japan"
+      ],
+      "instruments": [
+        "synth",
+        "piano",
+        "strings"
+      ],
+      "vocalTraits": [
+        "female",
+        "soft"
+      ],
+      "energy": "medium"
+    },
+    "年代-2000年代": {
+      "routeTags": [
+        "2000s",
+        "pop",
+        "electronic"
+      ],
+      "moods": [
+        "groovy",
+        "energetic"
+      ],
+      "eras": [
+        "2000s"
+      ],
+      "regions": [
+        "global"
+      ],
+      "instruments": [
+        "synth",
+        "drums",
+        "fx"
+      ],
+      "vocalTraits": [
+        "female",
+        "powerful"
+      ],
+      "energy": "high"
+    },
+    "年代-2010年代": {
+      "routeTags": [
+        "2010s",
+        "modern",
+        "indie"
+      ],
+      "moods": [
+        "calm",
+        "dreamy"
+      ],
+      "eras": [
+        "2010s"
+      ],
+      "regions": [
+        "global"
+      ],
+      "instruments": [
+        "piano",
+        "strings",
+        "woodwinds"
+      ],
+      "vocalTraits": [
+        "male",
+        "ethereal"
+      ],
+      "energy": "low"
+    },
+    "年代-今年風": {
+      "routeTags": [
+        "modern",
+        "contemporary",
+        "electronic"
+      ],
+      "moods": [
+        "bright",
+        "energetic"
+      ],
+      "eras": [
+        "modern"
+      ],
+      "regions": [
+        "global"
+      ],
+      "instruments": [
+        "synth",
+        "drums",
+        "fx"
+      ],
+      "vocalTraits": [
+        "female",
+        "rap"
+      ],
+      "energy": "high"
+    },
+    "年代-1900年代": {
+      "routeTags": [
+        "early-20th",
+        "classical",
+        "romantic"
+      ],
+      "moods": [
+        "romantic",
+        "dramatic"
+      ],
+      "eras": [
+        "traditional"
+      ],
+      "regions": [
+        "europe"
+      ],
+      "instruments": [
+        "strings",
+        "orchestra",
+        "piano"
+      ],
+      "vocalTraits": [
+        "choir",
+        "powerful"
+      ],
+      "energy": "high"
+    },
+    "年代-1910年代": {
+      "routeTags": [
+        "early-20th",
+        "jazz",
+        "swing"
+      ],
+      "moods": [
+        "groovy",
+        "playful"
+      ],
+      "eras": [
+        "traditional"
+      ],
+      "regions": [
+        "america"
+      ],
+      "instruments": [
+        "brass",
+        "piano",
+        "drums"
+      ],
+      "vocalTraits": [
+        "male",
+        "soulful"
+      ],
+      "energy": "medium"
+    },
+    "年代-1920年代": {
+      "routeTags": [
+        "early-20th",
+        "blues",
+        "traditional"
+      ],
+      "moods": [
+        "melancholic",
+        "sad"
+      ],
+      "eras": [
+        "traditional"
+      ],
+      "regions": [
+        "america"
+      ],
+      "instruments": [
+        "guitar",
+        "bass",
+        "drums"
+      ],
+      "vocalTraits": [
+        "male",
+        "breathy"
+      ],
+      "energy": "low"
+    },
+    "年代-1930年代": {
+      "routeTags": [
+        "early-20th",
+        "classical",
+        "opera"
+      ],
+      "moods": [
+        "dramatic",
+        "epic"
+      ],
+      "eras": [
+        "traditional"
+      ],
+      "regions": [
+        "europe"
+      ],
+      "instruments": [
+        "strings",
+        "orchestra",
+        "choir"
+      ],
+      "vocalTraits": [
+        "female",
+        "powerful"
+      ],
+      "energy": "high"
+    },
+    "年代-1940年代": {
+      "routeTags": [
+        "1940s",
+        "vintage",
+        "classic"
+      ],
+      "moods": [
+        "nostalgic"
+      ],
+      "eras": [
+        "traditional"
+      ],
+      "regions": [
+        "global"
+      ],
+      "instruments": [
+        "strings",
+        "piano"
+      ],
+      "vocalTraits": [
+        "soft"
+      ],
+      "energy": "medium"
+    },
+    "年代-1950年代": {
+      "routeTags": [
+        "1950s",
+        "retro",
+        "classic"
+      ],
+      "moods": [
+        "nostalgic"
+      ],
+      "eras": [
+        "retro"
+      ],
+      "regions": [
+        "global"
+      ],
+      "instruments": [
+        "strings",
+        "piano"
+      ],
+      "vocalTraits": [
+        "soft"
+      ],
+      "energy": "medium"
+    },
+    "年代-2020年代": {
+      "routeTags": [
+        "2020s",
+        "modern",
+        "contemporary"
+      ],
+      "moods": [],
+      "eras": [
+        "modern"
+      ],
+      "regions": [
+        "global"
+      ],
+      "instruments": [
+        "synth",
+        "electric-piano"
+      ],
+      "vocalTraits": [
+        "soft"
+      ],
+      "energy": "medium"
+    },
+    "年代-2030年代": {
+      "routeTags": [
+        "2030s",
+        "futuristic",
+        "near-future"
+      ],
+      "moods": [],
+      "eras": [
+        "futuristic"
+      ],
+      "regions": [
+        "global"
+      ],
+      "instruments": [
+        "synth",
+        "electric-piano"
+      ],
+      "vocalTraits": [
+        "soft"
+      ],
+      "energy": "medium"
+    },
+    "年代-2100年代": {
+      "routeTags": [
+        "2100s",
+        "dystopian",
+        "sci-fi"
+      ],
+      "moods": [
+        "mysterious"
+      ],
+      "eras": [
+        "futuristic"
+      ],
+      "regions": [
+        "global"
+      ],
+      "instruments": [
+        "synth",
+        "electric-piano"
+      ],
+      "vocalTraits": [
+        "soft"
+      ],
+      "energy": "medium"
+    }
+  }
+}

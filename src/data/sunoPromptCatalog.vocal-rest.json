@@ -1,0 +1,712 @@
+{
+  "target": "vocal",
+  "mode": "rest",
+  "bucketKey": "vocal-rest",
+  "sections": [
+    "Classic",
+    "Dance",
+    "techno",
+    "アフリカ",
+    "アメリカ",
+    "set",
+    "弦楽器",
+    "打楽器",
+    "電子楽器",
+    "和楽器",
+    "曲調",
+    "効果音",
+    "主要楽器"
+  ],
+  "entryCount": 48,
+  "entries": [
+    {
+      "id": "classic-バーバーショップ",
+      "section": "Classic",
+      "title": "バーバーショップ",
+      "prompt": "Barbershop",
+      "description": "アカペラのクローズハーモニー（密集和声）のスタイルで、無伴奏で歌われる音楽",
+      "tags": [
+        "janle",
+        "Classic"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "classic-聖歌隊付属セット",
+      "section": "Classic",
+      "title": "聖歌隊付属セット",
+      "prompt": "Ethereal, Boy Vocals, Girl Vocals, Euphonium, Harpsichord, Double Bass, Harp, Orchestra, Ethereal, Gospel, Pipe Organ, Choir Voices, Choir,",
+      "description": "合唱による聖歌隊付きの曲になります(AIの気分と詩にもよります。)",
+      "tags": [
+        "janle",
+        "Classic"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "classic-ゴスペルpopセット",
+      "section": "Classic",
+      "title": "ゴスペルPOPセット",
+      "prompt": "Orchestra, Japan, Ethereal, Barbershop, Gospel, Pipe Organ, Girl Vocals, Boy Vocals, Choir Voices, Chant Vocals",
+      "description": "ゴスペル風POP曲になります(AIの気分と詩にもよります。)",
+      "tags": [
+        "janle",
+        "Classic"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "classic-オペラ-コーラル",
+      "section": "Classic",
+      "title": "オペラ コーラル",
+      "prompt": "Opera Choral",
+      "description": "合唱団によるオペラ",
+      "tags": [
+        "janle",
+        "Classic"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "アフリカ-アフロ-ファンク-ラップ",
+      "section": "アフリカ",
+      "title": "アフロ ファンク ラップ",
+      "prompt": "Afro-Funk Rap",
+      "description": "アフロファンクとラップを融合",
+      "tags": [
+        "janle",
+        "アフリカ"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "アメリカ-サウス-コーラル",
+      "section": "アメリカ",
+      "title": "サウス コーラル",
+      "prompt": "South Choral",
+      "description": "合唱を取り入れたサザン音楽",
+      "tags": [
+        "janle",
+        "アメリカ"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "set-演歌セット1",
+      "section": "set",
+      "title": "演歌セット1",
+      "prompt": "Japanese Enka, Enka, Emotional Strings, Violin, Enka, [Traditional Voice], -Piano, -Rock Drums",
+      "description": "演歌になります (AIの気分と詩にもよります)",
+      "tags": [
+        "set"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "set-演歌セット2",
+      "section": "set",
+      "title": "演歌セット2",
+      "prompt": "Japanese Enka, Enka, Emotional Strings, Violin, Koto, Enka, [Traditional Voice], Vibrato Vocals, Fork Guitar, Japanese Enka, Slow Tempo, Shamisen, Taiko, Shakuhachi, Enka",
+      "description": "演歌になります (AIの気分と詩にもよります)尺八、琴、三味線、太鼓等を入れていますので、ガチャるもヨシ！お好みを残すもヨシ！",
+      "tags": [
+        "set"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "set-演歌セット3",
+      "section": "set",
+      "title": "演歌セット3",
+      "prompt": "Japanese Enka, Enka, Emotional Strings, Violin, Taiko, Shamisen, Koto, Kokyu, Suzu, Nokan, Shakuhachi, Slow Tempo, Traditional Voice, Vibrato, Emotional Vocals",
+      "description": "演歌になります (AIの気分と詩にもよります)",
+      "tags": [
+        "set"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "set-歌謡曲セット-70年代",
+      "section": "set",
+      "title": "歌謡曲セット(70年代)",
+      "prompt": "Kayōkyoku, Hard Outdated, Enka, Male Vocal, 70S Retro, Disco, Melodic, Cry Guitar, Enka Vocal",
+      "description": "70年代風の歌謡曲になります (AIの気分と詩にもよります。)",
+      "tags": [
+        "set"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "set-デュエットセット",
+      "section": "set",
+      "title": "デュエットセット",
+      "prompt": "Male&Female Vocals, Duet Vocals",
+      "description": "女性、男性が歌う。 本プロンプトは、歌唱指定の最低限ですので、ジャンル/曲調/楽器はお好みで。 【重要】「メタタグ」で()で歌詞を括ると()内を異性が歌ったり、歌詞中に 等で性別指定したりすると、任意の性別が歌唱する 。 ・‥事もある。 検証曲は、（）内を異性が歌うパターンと、Vease等の区分別に、異性が歌うパターンです。（歌詞は、楽曲タイトルからsunoのページにてご確認下さい）",
+      "tags": [
+        "set"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "set-ライブ化セット-live",
+      "section": "set",
+      "title": "ライブ化セット(Live)",
+      "prompt": "Live Band, Crowd Roar, Crowd Singing, Live Performance, Live Vocals, Live Guitar, Live Drums, Live Keyboard, Clapping, Sing-Along, Outdoor Concert, Festival,",
+      "description": "楽曲がライブ演奏風味になります。(MC的なモノが入る事も) このプロンプトだけでStyleの200文字中の、156文字を消費します。 この為、CoverSongで前曲の要素を引き継いでライブバージョンを作成したい場合は簡単にできますが、最初から制作の際には、他のStyle要素で文字数が圧迫する際、必要に応じて、本要素の一部を削除してください",
+      "tags": [
+        "set"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "set-j-popお手軽セット",
+      "section": "set",
+      "title": "J-POPお手軽セット",
+      "prompt": "Electric Piano, Emotional Vocals, This Year Style, Japan, Smooth, Acoustic Guitar, Cello, Violin, Strings, Piano, Emotional, Anime Song",
+      "description": "万人受けするJ-POP風味になります(AIの気分と詩にもよります) 楽器に全音域対応のピアノや、ストリングス等、多彩に仕込んでいて詩の内容によって発動。親族、彼女、友人に「へぇ～」と、無難な返事を頂きやすいプロンプト。(当サイト調べ)",
+      "tags": [
+        "set"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "set-j-pop-80年代セット2",
+      "section": "set",
+      "title": "J-POP 80年代セット2",
+      "prompt": "Soothing Vocals, Exhilarating, Cheap Drum Machine, Tr-808, Drum Machine, J-Pop, Synthesizer, Clean Guitar, Electric Piano, 1980S Style, 80S Retro",
+      "description": "80年代のシティポップ風味になります。クリーンギターとエレピがミソです(AIの気分と詩にもよります)",
+      "tags": [
+        "set"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "set-j-pop-80年代セット3",
+      "section": "set",
+      "title": "J-POP 80年代セット3",
+      "prompt": "80S Jpop Funk, Upbeat, Cheerful, Synth-Pop, Female High-Pitched Doll-Like Electronic Voice, Rhythm-Driven, 120 Bpm, Catchy Melodies With Electronic Elements, Smooth And Playful Vocal Performance Style",
+      "description": "80年代のJ-POPになります（女性ボーカル指定済）",
+      "tags": [
+        "set"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "set-j-pop聖歌隊付セット",
+      "section": "set",
+      "title": "J-POP聖歌隊付セット",
+      "prompt": "Ethereal, Boy Vocals, Girl Vocals, Euphonium, Harpsichord, Double Bass, Harp, Orchestra, Ethereal, Gospel, Pipe Organ, Choir Voices, Choir,",
+      "description": "合唱による聖歌隊付きの曲になります(AIの気分と詩にもよります。)",
+      "tags": [
+        "set"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "set-j-pop幻想セット",
+      "section": "set",
+      "title": "J-POP幻想セット",
+      "prompt": "Mysterious, Female Vocals, New Age, Celtic, Harp, Piano, Double Bass, Viola, Cello, Violin",
+      "description": "幻想的な曲になります(AIの気分と詩にもよります。) ストリングス＋ピアノ＋ハーブ他に加え、ケルティック音楽の進化系のNewAge指定で、エ●ヤ以下J-POP以上の楽曲になりやすいです",
+      "tags": [
+        "set"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "set-j-popゴスペルセット",
+      "section": "set",
+      "title": "J-POPゴスペルセット",
+      "prompt": "Orchestra, Japan, Ethereal, Barbershop, Gospel, Pipe Organ, Girl Vocals, Boy Vocals, Choir Voices, Chant Vocals",
+      "description": "ゴスペル風POP曲になります(AIの気分と詩にもよります。)",
+      "tags": [
+        "set"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "set-テクノセット-ymo風",
+      "section": "set",
+      "title": "テクノセット(YMO風)",
+      "prompt": "Arpeggio, Techno, 1980S Style, Cheap Effect, 80S Effect, Tr-808, Sampler, Synthesizer, Drum Machine, Cheap Drum Machine",
+      "description": "80年代のテクノ風味な音楽になります。TR-808指定が効くとかなり寄ります。参考曲1を聞くと、声も含めYMOを召喚出来る(こともある)事が分ります。(参考曲1は、YMO新曲 作者:dandyワニさん転載許可済)",
+      "tags": [
+        "set"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "set-攻殻セット",
+      "section": "set",
+      "title": "攻殻セット",
+      "prompt": "Progressive, Trance, Anime, Synth, Break Beats, Echo, Odd Time Signatures, Female Voice, Computer Voice, Moods:Battle, Paces:Fast, Vocal Styles:Melodic, Melodies:Catchy",
+      "description": "攻殻機動・・・おっと、近未来アニメOP風の疾走感のあるリズムの素敵楽曲になります。作者のHagieenさんが、日本語掲示板で研究成果を発表したものの転載です。 Styleのみではなく、歌詞欄での指定も参考にしてください 作者：Hagieenさん",
+      "tags": [
+        "set"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "set-お手軽bluesrockセット",
+      "section": "set",
+      "title": "お手軽BluesRockセット",
+      "prompt": "Seasoned Voice, Ballad Rock Blues, Bpm98, Acoustic Guitar, Hammond Organ, Electric Guitar, Piano, Percussion, Strings, Backing Vocals, Key:C/Am, Emotional Vocals,",
+      "description": "アコギ、エレギ、稀にハモンドの編成で、手軽にブルースロックを作成できます",
+      "tags": [
+        "set"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "set-お手軽discoセット-70年代",
+      "section": "set",
+      "title": "お手軽Discoセット(70年代)",
+      "prompt": "Disco Funk Soul, 70S, African American Male Vocals, Four On The Floor, Piano, Boogie Woogie,",
+      "description": "検証曲で分かる通り、どうやっても70年代のDisco曲で軽やかにフィーバーします。ボーカルにはアメリカチックに歌ってねと指示しています。 検証曲の詩は、WASAO_Officialさんより頂いた、津軽弁による情熱的な雪かきSONGで、イントネーションの近さもあってか、見事に吸収してくれます。",
+      "tags": [
+        "set"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "弦楽器-スラップベース",
+      "section": "弦楽器",
+      "title": "スラップベース",
+      "prompt": "Slap Bass",
+      "description": "ベースのスラップ奏法を指し、親指で弦を叩き、その他の指で弦を引っかけてはじく演奏方法",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "弦楽器-チョッパーベース",
+      "section": "弦楽器",
+      "title": "チョッパーベース",
+      "prompt": "Chopper Bass",
+      "description": "ベースのスラップ奏法を指し、親指で弦を叩き、その他の指で弦を引っかけてはじく演奏方法",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "弦楽器-ラップスチールギター",
+      "section": "弦楽器",
+      "title": "ラップスチールギター",
+      "prompt": "LapSteelGuitar",
+      "description": "水平に置いてスライド奏法で演奏されるギター。",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "弦楽器-ワイゼンボーン",
+      "section": "弦楽器",
+      "title": "ワイゼンボーン",
+      "prompt": "Weissenborn",
+      "description": "ハワイアンスタイルのラップスチールアコースティックギター。",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "打楽器-vibraphone",
+      "section": "打楽器",
+      "title": "Vibraphone",
+      "prompt": "Vibraphone",
+      "description": "ビブラフォン 打金属のバーを叩き、モーターで音を振動させる",
+      "tags": [
+        "楽器",
+        "打楽器"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "打楽器-スラップスティック",
+      "section": "打楽器",
+      "title": "スラップスティック",
+      "prompt": "Slapstick",
+      "description": "2枚の板を打ち合わせて鋭い音を出す打。",
+      "tags": [
+        "楽器",
+        "打楽器"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "電子楽器-ボコーダー",
+      "section": "電子楽器",
+      "title": "ボコーダー",
+      "prompt": "Vocoder",
+      "description": "音声信号を解析・変換し、ロボットのような音声効果を生み出す装置。",
+      "tags": [
+        "楽器",
+        "電子楽器"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "和楽器-龍笛",
+      "section": "和楽器",
+      "title": "龍笛",
+      "prompt": "Ryuteki",
+      "description": "雅楽で使用される横笛で、天の声を表現する象徴的存在。",
+      "tags": [
+        "楽器",
+        "和楽器"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "曲調-ライブ化セット-live",
+      "section": "曲調",
+      "title": "ライブ化セット(Live)",
+      "prompt": "Live Band, Crowd Roar, Crowd Singing, Live Performance, Live Vocals, Live Guitar, Live Drums, Live Keyboard, Clapping, Sing-Along, Outdoor Concert, Festival,",
+      "description": "楽曲がライブ演奏風味になります(MC的なモノが入る事も)。 このプロンプトだけでStyleの200文字中の、156文字を消費します。 この為、CoverSongで前曲の要素を引き継いでライブバージョンを作成したい場合は簡単にできますが、最初から制作の際には、他のStyle要素で文字数が圧迫する際、必要に応じて、本要素の一部を削除してください",
+      "tags": [
+        "曲調"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "効果音-アナウンサー",
+      "section": "効果音",
+      "title": "アナウンサー",
+      "prompt": "Announcer",
+      "description": "アナウンサーの声",
+      "tags": [
+        "効果音"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "効果音-観客の笑い声",
+      "section": "効果音",
+      "title": "観客の笑い声",
+      "prompt": "Audience Laughing",
+      "description": "観客の笑い声",
+      "tags": [
+        "効果音"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "効果音-犬の鳴き声",
+      "section": "効果音",
+      "title": "犬の鳴き声",
+      "prompt": "Barking",
+      "description": "犬の鳴き声",
+      "tags": [
+        "効果音"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "効果音-歓声",
+      "section": "効果音",
+      "title": "歓声",
+      "prompt": "Cheering",
+      "description": "歓声の音",
+      "tags": [
+        "効果音"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "効果音-歓声と拍手",
+      "section": "効果音",
+      "title": "歓声と拍手",
+      "prompt": "Cheers And Applause",
+      "description": "歓声と拍手の音",
+      "tags": [
+        "効果音"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "効果音-女性ナレーター",
+      "section": "効果音",
+      "title": "女性ナレーター",
+      "prompt": "Female Narrator",
+      "description": "女性ナレーターの声",
+      "tags": [
+        "効果音"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "効果音-笑い声",
+      "section": "効果音",
+      "title": "笑い声",
+      "prompt": "Giggling",
+      "description": "笑い声",
+      "tags": [
+        "効果音"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "効果音-うめき声",
+      "section": "効果音",
+      "title": "うめき声",
+      "prompt": "Groaning",
+      "description": "うめく音",
+      "tags": [
+        "効果音"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "効果音-男性ナレーター",
+      "section": "効果音",
+      "title": "男性ナレーター",
+      "prompt": "Man Narrator",
+      "description": "男性ナレーターの声",
+      "tags": [
+        "効果音"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "効果音-レポーター",
+      "section": "効果音",
+      "title": "レポーター",
+      "prompt": "Reporter",
+      "description": "レポーターの声",
+      "tags": [
+        "効果音"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "効果音-悲鳴",
+      "section": "効果音",
+      "title": "悲鳴",
+      "prompt": "Screams",
+      "description": "叫び声",
+      "tags": [
+        "効果音"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "効果音-会話調",
+      "section": "効果音",
+      "title": "会話調",
+      "prompt": "Spoken Word",
+      "description": "会話するような声",
+      "tags": [
+        "効果音"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "効果音-鳥の鳴き声",
+      "section": "効果音",
+      "title": "鳥の鳴き声",
+      "prompt": "Squawking",
+      "description": "鳥の鳴き声",
+      "tags": [
+        "効果音"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "効果音-ささやき",
+      "section": "効果音",
+      "title": "ささやき",
+      "prompt": "Whispers",
+      "description": "ささやく声",
+      "tags": [
+        "効果音"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "効果音-ライブ化セット-live",
+      "section": "効果音",
+      "title": "ライブ化セット(Live)",
+      "prompt": "Live Band, Crowd Roar, Crowd Singing, Live Performance, Live Vocals, Live Guitar, Live Drums, Live Keyboard, Clapping, Sing-Along, Outdoor Concert, Festival,",
+      "description": "楽曲がライブ演奏風味になります。(MC的なモノが入る事も) このプロンプトだけでStyleの200文字中の、156文字を消費します。 この為、CoverSongで前曲の要素を引き継いでライブバージョンを作成したい場合は簡単にできますが、最初から制作の際には、他のStyle要素で文字数が圧迫する際、必要に応じて、本要素の一部を削除してください",
+      "tags": [
+        "効果音"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "主要楽器-ボーカル",
+      "section": "主要楽器",
+      "title": "ボーカル",
+      "prompt": "[Primary Instruments:Vocals]",
+      "description": "「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-vibraphone",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Vibraphone]",
+      "prompt": "[Primary Instruments:Vibraphone]",
+      "description": "ビブラフォン 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。打楽器金属のバーを叩き、モーターで音を振動させる",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    }
+  ],
+  "entryEnrichment": {}
+}

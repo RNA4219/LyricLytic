@@ -1,0 +1,1522 @@
+{
+  "sourceUrl": "https://ai.suno.jp/prompt/",
+  "licenseUrl": "https://ai.suno.jp/license/",
+  "fetchedAt": "2026-04-03T19:08:00.680Z",
+  "entryCount": 2150,
+  "enrichmentMeta": {
+    "baseModel": "Qwen3.5-4B-Q4_K_M.gguf",
+    "baseUrl": "http://127.0.0.1:8082",
+    "enrichedAt": "2026-04-03T19:34:03.836Z",
+    "schemaVersion": 2,
+    "mode": "section",
+    "sectionCount": 45,
+    "batchSize": 6
+  },
+  "importantSectionMeta": {
+    "baseModel": "Qwen3.5-4B-Q4_K_M.gguf",
+    "baseUrl": "http://127.0.0.1:8082",
+    "enrichedAt": "2026-04-03T19:52:39.937Z",
+    "schemaVersion": 1,
+    "sections": [
+      "日本音楽",
+      "Pop",
+      "Rock",
+      "Jazz",
+      "Dance",
+      "techno",
+      "声",
+      "ボーカル",
+      "感情",
+      "年代"
+    ],
+    "entryCount": 767,
+    "batchSize": 12
+  },
+  "sectionEnrichment": {
+    "Dance": {
+      "routeTags": [
+        "dance",
+        "disco",
+        "edm",
+        "hiphop",
+        "house",
+        "rnb",
+        "rap",
+        "soul"
+      ],
+      "moods": [
+        "energetic",
+        "groovy",
+        "playful",
+        "romantic"
+      ],
+      "eras": [
+        "70s",
+        "80s",
+        "90s",
+        "2000s"
+      ],
+      "regions": [
+        "america",
+        "global"
+      ],
+      "instruments": [
+        "synth",
+        "piano",
+        "electric-piano",
+        "drums",
+        "strings",
+        "orchestra"
+      ],
+      "vocalTraits": [
+        "male",
+        "female",
+        "boy",
+        "girl",
+        "duet",
+        "choir"
+      ],
+      "energy": "high"
+    },
+    "弦楽器": {
+      "routeTags": [
+        "strings",
+        "orchestra",
+        "guitar",
+        "cello",
+        "harp",
+        "acoustic",
+        "electric"
+      ],
+      "moods": [
+        "calm",
+        "nostalgic",
+        "dreamy",
+        "epic",
+        "dramatic"
+      ],
+      "eras": [
+        "traditional",
+        "retro",
+        "timeless"
+      ],
+      "regions": [
+        "global"
+      ],
+      "instruments": [
+        "strings",
+        "guitar",
+        "bass",
+        "orchestra",
+        "choir",
+        "traditional-japanese"
+      ],
+      "vocalTraits": [
+        "female",
+        "male",
+        "soft",
+        "powerful"
+      ],
+      "energy": "medium"
+    },
+    "主要楽器": {
+      "routeTags": [
+        "vocals",
+        "piano",
+        "synth",
+        "organ",
+        "accordion",
+        "keyboard",
+        "electric-piano"
+      ],
+      "moods": [
+        "bright",
+        "hopeful",
+        "warm",
+        "cool",
+        "spiritual"
+      ],
+      "eras": [
+        "modern",
+        "timeless",
+        "retro"
+      ],
+      "regions": [
+        "global"
+      ],
+      "instruments": [
+        "synth",
+        "electric-piano",
+        "piano",
+        "guitar"
+      ],
+      "vocalTraits": [
+        "female",
+        "male",
+        "boy",
+        "girl",
+        "duet",
+        "choir"
+      ],
+      "energy": "variable"
+    },
+    "techno": {
+      "routeTags": [
+        "techno",
+        "synth",
+        "acid",
+        "ambient",
+        "breakbeat",
+        "gamemusic",
+        "ymo",
+        "goa"
+      ],
+      "moods": [
+        "dark",
+        "mysterious",
+        "aggressive",
+        "energetic",
+        "cool"
+      ],
+      "eras": [
+        "80s",
+        "90s",
+        "2000s",
+        "modern"
+      ],
+      "regions": [
+        "global"
+      ],
+      "instruments": [
+        "synth",
+        "electric-piano",
+        "drums",
+        "orchestra",
+        "electronic",
+        "fx"
+      ],
+      "vocalTraits": [
+        "female",
+        "male",
+        "boy",
+        "girl",
+        "duet",
+        "choir"
+      ],
+      "energy": "high"
+    },
+    "打楽器": {
+      "routeTags": [
+        "drums",
+        "snare",
+        "steel",
+        "tambourine",
+        "tom",
+        "vibraphone",
+        "bass",
+        "bongo"
+      ],
+      "moods": [
+        "energetic",
+        "playful",
+        "calm",
+        "dramatic"
+      ],
+      "eras": [
+        "traditional",
+        "retro",
+        "modern"
+      ],
+      "regions": [
+        "africa",
+        "america",
+        "oceania",
+        "global"
+      ],
+      "instruments": [
+        "drums",
+        "strings",
+        "orchestra",
+        "choir",
+        "percussion",
+        "traditional-asian"
+      ],
+      "vocalTraits": [
+        "female",
+        "male",
+        "boy",
+        "girl",
+        "duet",
+        "choir"
+      ],
+      "energy": "medium"
+    },
+    "Rock": {
+      "routeTags": [
+        "rock",
+        "hard",
+        "metal",
+        "blues",
+        "progressive",
+        "hardcore",
+        "bluesrock"
+      ],
+      "moods": [
+        "aggressive",
+        "dramatic",
+        "epic",
+        "dark",
+        "energetic"
+      ],
+      "eras": [
+        "70s",
+        "80s",
+        "90s",
+        "2000s"
+      ],
+      "regions": [
+        "america",
+        "europe",
+        "global"
+      ],
+      "instruments": [
+        "synth",
+        "piano",
+        "electric-piano",
+        "guitar",
+        "bass",
+        "drums"
+      ],
+      "vocalTraits": [
+        "female",
+        "male",
+        "boy",
+        "girl",
+        "duet",
+        "choir"
+      ],
+      "energy": "high"
+    },
+    "Pop": {
+      "routeTags": [
+        "pop",
+        "mainstream",
+        "catchy",
+        "variety"
+      ],
+      "moods": [
+        "joyful",
+        "bright",
+        "playful",
+        "energetic"
+      ],
+      "eras": [
+        "modern",
+        "2000s",
+        "2010s"
+      ],
+      "regions": [
+        "global",
+        "america",
+        "japan"
+      ],
+      "instruments": [
+        "synth",
+        "electric-piano",
+        "guitar",
+        "drums"
+      ],
+      "vocalTraits": [
+        "female",
+        "male",
+        "duet",
+        "powerful"
+      ],
+      "energy": "high"
+    },
+    "Jazz": {
+      "routeTags": [
+        "jazz",
+        "improvisation",
+        "swing",
+        "blues"
+      ],
+      "moods": [
+        "calm",
+        "melancholic",
+        "romantic",
+        "cool"
+      ],
+      "eras": [
+        "traditional",
+        "retro",
+        "70s",
+        "80s"
+      ],
+      "regions": [
+        "america",
+        "global"
+      ],
+      "instruments": [
+        "piano",
+        "electric-piano",
+        "guitar",
+        "brass",
+        "strings"
+      ],
+      "vocalTraits": [
+        "female",
+        "male",
+        "soulful",
+        "breathy"
+      ],
+      "energy": "medium"
+    },
+    "ラテン": {
+      "routeTags": [
+        "latin",
+        "dance",
+        "rhythmic",
+        "samba"
+      ],
+      "moods": [
+        "energetic",
+        "joyful",
+        "warm",
+        "groovy"
+      ],
+      "eras": [
+        "modern",
+        "retro"
+      ],
+      "regions": [
+        "latin",
+        "america",
+        "japan"
+      ],
+      "instruments": [
+        "drums",
+        "synth",
+        "guitar",
+        "strings"
+      ],
+      "vocalTraits": [
+        "female",
+        "male",
+        "powerful"
+      ],
+      "energy": "high"
+    },
+    "声": {
+      "routeTags": [
+        "vocals",
+        "singing",
+        "duet",
+        "acapella"
+      ],
+      "moods": [
+        "romantic"
+      ],
+      "eras": [
+        "timeless",
+        "modern"
+      ],
+      "regions": [
+        "global"
+      ],
+      "instruments": [],
+      "vocalTraits": [
+        "female",
+        "male",
+        "boy",
+        "girl",
+        "duet",
+        "whisper"
+      ],
+      "energy": "variable"
+    },
+    "感情2": {
+      "routeTags": [
+        "emotion",
+        "mood",
+        "atmosphere",
+        "feeling"
+      ],
+      "moods": [
+        "melancholic",
+        "dark",
+        "calm",
+        "hopeful",
+        "mysterious"
+      ],
+      "eras": [
+        "timeless"
+      ],
+      "regions": [
+        "global"
+      ],
+      "instruments": [],
+      "vocalTraits": [
+        "soft",
+        "powerful",
+        "breathy",
+        "ethereal"
+      ],
+      "energy": "variable"
+    },
+    "鍵盤楽器": {
+      "routeTags": [
+        "keyboard",
+        "piano",
+        "synth",
+        "organ"
+      ],
+      "moods": [
+        "calm",
+        "dreamy",
+        "nostalgic",
+        "cool"
+      ],
+      "eras": [
+        "retro",
+        "modern",
+        "timeless"
+      ],
+      "regions": [
+        "global"
+      ],
+      "instruments": [
+        "piano",
+        "electric-piano",
+        "synth",
+        "traditional-japanese"
+      ],
+      "vocalTraits": [],
+      "energy": "medium"
+    },
+    "日本音楽": {
+      "routeTags": [
+        "J-Pop",
+        "City Pop",
+        "Enka",
+        "Anime",
+        "New Age",
+        "Gospel",
+        "J-Rock"
+      ],
+      "moods": [
+        "nostalgic",
+        "romantic",
+        "hopeful",
+        "melancholic",
+        "mysterious"
+      ],
+      "eras": [
+        "80s",
+        "2000s",
+        "modern",
+        "timeless"
+      ],
+      "regions": [
+        "japan"
+      ],
+      "instruments": [
+        "piano",
+        "electric-piano",
+        "strings",
+        "orchestra",
+        "choir",
+        "guitar"
+      ],
+      "vocalTraits": [
+        "female",
+        "male",
+        "boy",
+        "girl",
+        "duet",
+        "choir"
+      ],
+      "energy": "variable"
+    },
+    "管楽器": {
+      "routeTags": [
+        "Saxophone",
+        "Trumpet",
+        "Trombone",
+        "Tuba",
+        "Flute",
+        "Brass",
+        "Woodwinds",
+        "Orchestra"
+      ],
+      "moods": [
+        "bright",
+        "dramatic",
+        "mysterious",
+        "cool",
+        "energetic"
+      ],
+      "eras": [
+        "modern",
+        "timeless"
+      ],
+      "regions": [
+        "global"
+      ],
+      "instruments": [
+        "brass",
+        "woodwinds",
+        "orchestra"
+      ],
+      "vocalTraits": [],
+      "energy": "medium"
+    },
+    "アフリカ": {
+      "routeTags": [
+        "African",
+        "Afro",
+        "Afrobeat",
+        "Griot",
+        "Afro Piano",
+        "Afro Jazz",
+        "Afro Arabic",
+        "Afro Caribbean"
+      ],
+      "moods": [
+        "groovy",
+        "spiritual",
+        "hopeful",
+        "warm",
+        "playful"
+      ],
+      "eras": [
+        "modern",
+        "timeless"
+      ],
+      "regions": [
+        "africa"
+      ],
+      "instruments": [
+        "piano",
+        "synth",
+        "traditional-asian",
+        "traditional-japanese"
+      ],
+      "vocalTraits": [],
+      "energy": "high"
+    },
+    "ペース": {
+      "routeTags": [
+        "Upbeat",
+        "Slow",
+        "Medium",
+        "Fast",
+        "Relaxed",
+        "Driving",
+        "Gentle",
+        "Brisk"
+      ],
+      "moods": [
+        "bright",
+        "calm",
+        "hopeful",
+        "playful",
+        "energetic"
+      ],
+      "eras": [
+        "modern"
+      ],
+      "regions": [
+        "global"
+      ],
+      "instruments": [],
+      "vocalTraits": [],
+      "energy": "variable"
+    },
+    "Africa": {
+      "routeTags": [
+        "Egypt",
+        "Morocco",
+        "Congo",
+        "Ghana",
+        "Kenya",
+        "South Africa",
+        "Uganda",
+        "Algeria"
+      ],
+      "moods": [
+        "spiritual",
+        "hopeful",
+        "warm",
+        "groovy",
+        "mysterious"
+      ],
+      "eras": [
+        "modern",
+        "timeless"
+      ],
+      "regions": [
+        "africa"
+      ],
+      "instruments": [
+        "piano",
+        "synth",
+        "traditional-asian",
+        "traditional-japanese"
+      ],
+      "vocalTraits": [],
+      "energy": "high"
+    },
+    "感情": {
+      "routeTags": [
+        "Bittersweet",
+        "Dark",
+        "Emotional",
+        "Relaxing",
+        "Romantic",
+        "Soothing",
+        "Vibrant",
+        "Eerie"
+      ],
+      "moods": [
+        "melancholic",
+        "dark",
+        "calm",
+        "romantic",
+        "bright"
+      ],
+      "eras": [
+        "modern",
+        "timeless"
+      ],
+      "regions": [
+        "global"
+      ],
+      "instruments": [],
+      "vocalTraits": [
+        "soft",
+        "powerful",
+        "ethereal",
+        "soulful"
+      ],
+      "energy": "variable"
+    },
+    "Europe": {
+      "routeTags": [
+        "europe",
+        "western",
+        "japan",
+        "asia"
+      ],
+      "moods": [],
+      "eras": [],
+      "regions": [
+        "europe"
+      ],
+      "instruments": [],
+      "vocalTraits": [],
+      "energy": "variable"
+    },
+    "テンポ": {
+      "routeTags": [
+        "tempo",
+        "bpm",
+        "speed",
+        "japan"
+      ],
+      "moods": [],
+      "eras": [],
+      "regions": [],
+      "instruments": [],
+      "vocalTraits": [],
+      "energy": "variable"
+    },
+    "Asia": {
+      "routeTags": [
+        "asia",
+        "east",
+        "south",
+        "japan"
+      ],
+      "moods": [],
+      "eras": [],
+      "regions": [
+        "asia"
+      ],
+      "instruments": [],
+      "vocalTraits": [],
+      "energy": "variable"
+    },
+    "Classic": {
+      "routeTags": [
+        "classic",
+        "traditional",
+        "japan",
+        "asia"
+      ],
+      "moods": [],
+      "eras": [
+        "traditional"
+      ],
+      "regions": [
+        "europe",
+        "asia"
+      ],
+      "instruments": [
+        "strings",
+        "brass",
+        "orchestra",
+        "piano",
+        "traditional-japanese"
+      ],
+      "vocalTraits": [
+        "female",
+        "male",
+        "choir",
+        "soulful"
+      ],
+      "energy": "medium"
+    },
+    "アメリカ": {
+      "routeTags": [
+        "america",
+        "usa",
+        "japan",
+        "asia"
+      ],
+      "moods": [],
+      "eras": [
+        "70s",
+        "80s",
+        "90s",
+        "2000s"
+      ],
+      "regions": [
+        "america"
+      ],
+      "instruments": [
+        "guitar",
+        "bass",
+        "drums",
+        "strings",
+        "brass",
+        "woodwinds"
+      ],
+      "vocalTraits": [
+        "female",
+        "male",
+        "boy",
+        "girl",
+        "duet",
+        "choir"
+      ],
+      "energy": "high"
+    },
+    "曲調": {
+      "routeTags": [
+        "tone",
+        "style",
+        "japan",
+        "asia"
+      ],
+      "moods": [
+        "bright",
+        "dark",
+        "aggressive",
+        "calm",
+        "melancholic"
+      ],
+      "eras": [],
+      "regions": [
+        "japan",
+        "asia"
+      ],
+      "instruments": [
+        "synth",
+        "electric-piano",
+        "traditional-japanese"
+      ],
+      "vocalTraits": [],
+      "energy": "variable"
+    },
+    "効果音": {
+      "routeTags": [
+        "sfx",
+        "noise",
+        "sound-effects",
+        "japanese-sfx"
+      ],
+      "moods": [],
+      "eras": [],
+      "regions": [],
+      "instruments": [],
+      "vocalTraits": [],
+      "energy": "variable"
+    },
+    "和楽器": {
+      "routeTags": [
+        "traditional-japanese",
+        "japanese-instruments",
+        "koto",
+        "shakuhachi"
+      ],
+      "moods": [],
+      "eras": [
+        "traditional"
+      ],
+      "regions": [
+        "japan"
+      ],
+      "instruments": [
+        "traditional-japanese",
+        "strings",
+        "woodwinds",
+        "percussion"
+      ],
+      "vocalTraits": [],
+      "energy": "medium"
+    },
+    "healing": {
+      "routeTags": [
+        "healing",
+        "relaxing",
+        "ambient",
+        "chill"
+      ],
+      "moods": [
+        "calm",
+        "dreamy",
+        "spiritual"
+      ],
+      "eras": [
+        "modern",
+        "timeless"
+      ],
+      "regions": [
+        "global"
+      ],
+      "instruments": [
+        "synth",
+        "piano",
+        "strings"
+      ],
+      "vocalTraits": [
+        "soft",
+        "ethereal"
+      ],
+      "energy": "low"
+    },
+    "中南米": {
+      "routeTags": [
+        "latin",
+        "latin-america",
+        "bachata",
+        "cumbia"
+      ],
+      "moods": [
+        "warm",
+        "playful",
+        "energetic"
+      ],
+      "eras": [
+        "modern",
+        "retro"
+      ],
+      "regions": [
+        "latin"
+      ],
+      "instruments": [
+        "guitar",
+        "brass",
+        "percussion",
+        "strings"
+      ],
+      "vocalTraits": [
+        "male",
+        "female",
+        "soulful"
+      ],
+      "energy": "high"
+    },
+    "アジア": {
+      "routeTags": [
+        "asian",
+        "indian",
+        "buddhist",
+        "raga"
+      ],
+      "moods": [
+        "spiritual",
+        "nostalgic",
+        "mysterious"
+      ],
+      "eras": [
+        "traditional",
+        "timeless"
+      ],
+      "regions": [
+        "asia"
+      ],
+      "instruments": [
+        "traditional-japanese",
+        "traditional-asian",
+        "strings",
+        "woodwinds"
+      ],
+      "vocalTraits": [
+        "soulful",
+        "ethereal"
+      ],
+      "energy": "medium"
+    },
+    "ボーカル": {
+      "routeTags": [
+        "vocal",
+        "voice-styles",
+        "raw-vocal",
+        "clear-vocal"
+      ],
+      "moods": [],
+      "eras": [],
+      "regions": [],
+      "instruments": [],
+      "vocalTraits": [
+        "female",
+        "male",
+        "boy",
+        "girl",
+        "soft",
+        "powerful"
+      ],
+      "energy": "variable"
+    },
+    "環境/雰囲気": {
+      "routeTags": [
+        "mood",
+        "atmosphere",
+        "vibe",
+        "emotion"
+      ],
+      "moods": [
+        "bright",
+        "joyful",
+        "hopeful",
+        "romantic",
+        "cute"
+      ],
+      "eras": [],
+      "regions": [],
+      "instruments": [],
+      "vocalTraits": [],
+      "energy": "variable"
+    },
+    "電子楽器": {
+      "routeTags": [
+        "synth",
+        "chiptune",
+        "drum",
+        "retro",
+        "electronic"
+      ],
+      "moods": [],
+      "eras": [
+        "retro",
+        "80s",
+        "90s",
+        "2000s"
+      ],
+      "regions": [],
+      "instruments": [
+        "synth",
+        "electric-piano",
+        "guitar",
+        "bass",
+        "drums",
+        "strings"
+      ],
+      "vocalTraits": [],
+      "energy": "high"
+    },
+    "set": {
+      "routeTags": [
+        "genre",
+        "style",
+        "vocal",
+        "live",
+        "japan"
+      ],
+      "moods": [
+        "romantic",
+        "nostalgic",
+        "melancholic",
+        "hopeful",
+        "dramatic"
+      ],
+      "eras": [
+        "70s",
+        "80s",
+        "2000s",
+        "modern"
+      ],
+      "regions": [
+        "japan",
+        "global"
+      ],
+      "instruments": [
+        "synth",
+        "electric-piano",
+        "guitar",
+        "bass",
+        "drums",
+        "strings"
+      ],
+      "vocalTraits": [
+        "female",
+        "male",
+        "boy",
+        "girl",
+        "duet",
+        "choir"
+      ],
+      "energy": "variable"
+    },
+    "ヨーロッパ": {
+      "routeTags": [
+        "europe",
+        "folk",
+        "fusion",
+        "traditional",
+        "dance"
+      ],
+      "moods": [
+        "bright",
+        "joyful",
+        "hopeful",
+        "romantic",
+        "calm"
+      ],
+      "eras": [
+        "traditional",
+        "retro",
+        "modern"
+      ],
+      "regions": [
+        "europe",
+        "global"
+      ],
+      "instruments": [
+        "synth",
+        "electric-piano",
+        "guitar",
+        "bass",
+        "drums",
+        "strings"
+      ],
+      "vocalTraits": [
+        "female",
+        "male",
+        "boy",
+        "girl",
+        "duet",
+        "choir"
+      ],
+      "energy": "variable"
+    },
+    "中南米地域": {
+      "routeTags": [
+        "latin",
+        "dance",
+        "rhythm",
+        "samba",
+        "flamenco"
+      ],
+      "moods": [
+        "bright",
+        "joyful",
+        "hopeful",
+        "romantic",
+        "playful"
+      ],
+      "eras": [
+        "modern",
+        "timeless"
+      ],
+      "regions": [
+        "latin",
+        "global"
+      ],
+      "instruments": [
+        "synth",
+        "electric-piano",
+        "guitar",
+        "bass",
+        "drums",
+        "strings"
+      ],
+      "vocalTraits": [
+        "female",
+        "male",
+        "boy",
+        "girl",
+        "duet",
+        "choir"
+      ],
+      "energy": "high"
+    },
+    "年代": {
+      "routeTags": [
+        "retro",
+        "era",
+        "style",
+        "vintage",
+        "classic"
+      ],
+      "moods": [
+        "bright",
+        "joyful",
+        "hopeful",
+        "romantic",
+        "calm"
+      ],
+      "eras": [
+        "traditional",
+        "retro",
+        "70s",
+        "80s"
+      ],
+      "regions": [],
+      "instruments": [],
+      "vocalTraits": [],
+      "energy": "variable"
+    },
+    "オセアニア": {
+      "routeTags": [
+        "oceania",
+        "pacific",
+        "islands",
+        "janle"
+      ],
+      "moods": [],
+      "eras": [],
+      "regions": [
+        "oceania"
+      ],
+      "instruments": [],
+      "vocalTraits": [],
+      "energy": "medium"
+    },
+    "中東": {
+      "routeTags": [
+        "middle-east",
+        "middle_east",
+        "arab",
+        "janle"
+      ],
+      "moods": [],
+      "eras": [],
+      "regions": [
+        "middle-east"
+      ],
+      "instruments": [],
+      "vocalTraits": [],
+      "energy": "medium"
+    },
+    "America": {
+      "routeTags": [
+        "america",
+        "north_america",
+        "caribbean",
+        "janle"
+      ],
+      "moods": [],
+      "eras": [],
+      "regions": [
+        "america"
+      ],
+      "instruments": [],
+      "vocalTraits": [],
+      "energy": "medium"
+    },
+    "ストーリー": {
+      "routeTags": [
+        "story",
+        "narrative",
+        "plot",
+        "janle"
+      ],
+      "moods": [],
+      "eras": [],
+      "regions": [],
+      "instruments": [],
+      "vocalTraits": [],
+      "energy": "variable"
+    },
+    "ハーモニー": {
+      "routeTags": [
+        "harmony",
+        "chord",
+        "texture",
+        "janle"
+      ],
+      "moods": [],
+      "eras": [],
+      "regions": [],
+      "instruments": [],
+      "vocalTraits": [],
+      "energy": "medium"
+    },
+    "メロディ": {
+      "routeTags": [
+        "melody",
+        "tune",
+        "rhythm",
+        "janle"
+      ],
+      "moods": [],
+      "eras": [],
+      "regions": [],
+      "instruments": [],
+      "vocalTraits": [],
+      "energy": "variable"
+    },
+    "リズム": {
+      "routeTags": [
+        "rhythm",
+        "beat",
+        "tempo",
+        "driving",
+        "complex",
+        "irregular",
+        "percussive",
+        "danceable"
+      ],
+      "moods": [
+        "calm",
+        "energetic",
+        "playful",
+        "dramatic"
+      ],
+      "eras": [
+        "modern",
+        "timeless"
+      ],
+      "regions": [
+        "global"
+      ],
+      "instruments": [
+        "drums",
+        "percussion",
+        "fx"
+      ],
+      "vocalTraits": [],
+      "energy": "variable"
+    },
+    "楽器編成": {
+      "routeTags": [
+        "orchestra",
+        "strings",
+        "brass",
+        "band",
+        "ensemble",
+        "classical",
+        "rock",
+        "bigband"
+      ],
+      "moods": [
+        "dramatic",
+        "epic",
+        "warm",
+        "cool"
+      ],
+      "eras": [
+        "traditional",
+        "modern"
+      ],
+      "regions": [
+        "global"
+      ],
+      "instruments": [
+        "strings",
+        "brass",
+        "orchestra",
+        "choir",
+        "drums",
+        "electric-piano"
+      ],
+      "vocalTraits": [
+        "choir"
+      ],
+      "energy": "medium"
+    },
+    "極地": {
+      "routeTags": [
+        "antarctic",
+        "northpole",
+        "cold",
+        "isolated",
+        "nature",
+        "atmospheric",
+        "minimal",
+        "ambient"
+      ],
+      "moods": [
+        "calm",
+        "melancholic",
+        "dreamy",
+        "mysterious"
+      ],
+      "eras": [
+        "timeless"
+      ],
+      "regions": [
+        "global"
+      ],
+      "instruments": [
+        "synth",
+        "piano",
+        "strings",
+        "woodwinds"
+      ],
+      "vocalTraits": [
+        "whisper",
+        "soft"
+      ],
+      "energy": "low"
+    }
+  },
+  "targetBuckets": {
+    "style": [
+      {
+        "key": "style-core",
+        "mode": "important",
+        "sections": [
+          "日本音楽",
+          "Pop",
+          "Rock",
+          "Jazz"
+        ],
+        "entryCount": 327
+      },
+      {
+        "key": "style-club",
+        "mode": "important",
+        "sections": [
+          "Dance",
+          "techno",
+          "年代",
+          "感情"
+        ],
+        "entryCount": 339
+      },
+      {
+        "key": "style-voice",
+        "mode": "important",
+        "sections": [
+          "声",
+          "ボーカル"
+        ],
+        "entryCount": 101
+      },
+      {
+        "key": "style-instruments",
+        "mode": "rest",
+        "sections": [
+          "弦楽器",
+          "主要楽器",
+          "打楽器",
+          "鍵盤楽器",
+          "管楽器",
+          "和楽器",
+          "電子楽器",
+          "楽器編成"
+        ],
+        "entryCount": 524
+      },
+      {
+        "key": "style-regions",
+        "mode": "rest",
+        "sections": [
+          "アフリカ",
+          "Africa",
+          "Europe",
+          "Asia",
+          "アメリカ",
+          "アジア",
+          "中南米",
+          "中南米地域",
+          "ヨーロッパ",
+          "オセアニア",
+          "中東",
+          "America",
+          "極地"
+        ],
+        "entryCount": 380
+      },
+      {
+        "key": "style-misc",
+        "mode": "rest",
+        "sections": [
+          "Classic",
+          "healing",
+          "ラテン",
+          "set",
+          "テンポ",
+          "曲調",
+          "効果音",
+          "メロディ",
+          "ストーリー",
+          "ハーモニー",
+          "ペース",
+          "リズム",
+          "感情2",
+          "環境/雰囲気"
+        ],
+        "entryCount": 479
+      }
+    ],
+    "vocal": [
+      {
+        "key": "vocal-core",
+        "mode": "important",
+        "sections": [
+          "声",
+          "ボーカル",
+          "日本音楽"
+        ],
+        "entryCount": 117
+      },
+      {
+        "key": "vocal-emotion",
+        "mode": "important",
+        "sections": [
+          "感情",
+          "年代",
+          "Pop",
+          "Rock",
+          "Jazz"
+        ],
+        "entryCount": 28
+      },
+      {
+        "key": "vocal-rest",
+        "mode": "rest",
+        "sections": [
+          "Classic",
+          "Dance",
+          "techno",
+          "アフリカ",
+          "アメリカ",
+          "set",
+          "弦楽器",
+          "打楽器",
+          "電子楽器",
+          "和楽器",
+          "曲調",
+          "効果音",
+          "主要楽器"
+        ],
+        "entryCount": 48
+      }
+    ]
+  }
+}

@@ -165,6 +165,7 @@ export const ja = {
   emotionHopeful: '希望/前向き',
   continuePromptPlaceholder: '現在の歌詞の続きを生成します...',
   paraphrasePromptPlaceholder: '言い換えたいテキストを入力...',
+  paraphrasePromptRequired: '言い換えたいテキストを入力してください',
   generatedCandidates: '生成候補',
   insertSelected: '選択を挿入',
   insertAll: 'すべて挿入',

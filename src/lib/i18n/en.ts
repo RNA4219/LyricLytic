@@ -165,6 +165,7 @@ export const en = {
   emotionHopeful: 'Hopeful/Optimistic',
   continuePromptPlaceholder: 'Generate continuation from current lyrics...',
   paraphrasePromptPlaceholder: 'Enter text to paraphrase...',
+  paraphrasePromptRequired: 'Please enter text to paraphrase',
   generatedCandidates: 'Generated Candidates',
   insertSelected: 'Insert Selected',
   insertAll: 'Insert All',

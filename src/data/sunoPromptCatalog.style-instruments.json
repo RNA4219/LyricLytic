@@ -1,0 +1,7365 @@
+{
+  "target": "style",
+  "mode": "rest",
+  "bucketKey": "style-instruments",
+  "sections": [
+    "弦楽器",
+    "主要楽器",
+    "打楽器",
+    "鍵盤楽器",
+    "管楽器",
+    "和楽器",
+    "電子楽器",
+    "楽器編成"
+  ],
+  "entryCount": 524,
+  "entries": [
+    {
+      "id": "鍵盤楽器-piano",
+      "section": "鍵盤楽器",
+      "title": "Piano",
+      "prompt": "Piano",
+      "description": "ピアノ オーケストラの全音域よりも広い弦をハンマーで叩き音を発しする。",
+      "tags": [
+        "楽器",
+        "鍵盤楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "鍵盤楽器-electric-piano",
+      "section": "鍵盤楽器",
+      "title": "Electric Piano",
+      "prompt": "Electric Piano",
+      "description": "エレクトリックピアノ 電気を利用するピアノ。柔らかい音色と携帯性が特徴",
+      "tags": [
+        "楽器",
+        "鍵盤楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "鍵盤楽器-digitalpiano",
+      "section": "鍵盤楽器",
+      "title": "DigitalPiano",
+      "prompt": "DigitalPiano",
+      "description": "デジタルピアノ アコースティックピアノに近い音とタッチの電子",
+      "tags": [
+        "楽器",
+        "鍵盤楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "鍵盤楽器-synthesizer",
+      "section": "鍵盤楽器",
+      "title": "Synthesizer",
+      "prompt": "Synthesizer",
+      "description": "シンセサイザー 電子音を生成する幅広い音作りが可能",
+      "tags": [
+        "楽器",
+        "鍵盤楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "鍵盤楽器-keyboard",
+      "section": "鍵盤楽器",
+      "title": "Keyboard",
+      "prompt": "Keyboard",
+      "description": "キーボード 多機能電子ピアノ音色以外にも多彩な音色を搭載",
+      "tags": [
+        "楽器",
+        "鍵盤楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "鍵盤楽器-toypiano",
+      "section": "鍵盤楽器",
+      "title": "ToyPiano",
+      "prompt": "ToyPiano",
+      "description": "トイピアノ 子供向けの小型ピアノ金属棒で音を出す玩具的",
+      "tags": [
+        "楽器",
+        "鍵盤楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "鍵盤楽器-organ",
+      "section": "鍵盤楽器",
+      "title": "Organ",
+      "prompt": "Organ",
+      "description": "オルガン 鍵盤で選択したパイプに加圧した空気を送って発音する鍵盤",
+      "tags": [
+        "楽器",
+        "鍵盤楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "鍵盤楽器-hammondorgan",
+      "section": "鍵盤楽器",
+      "title": "HammondOrgan",
+      "prompt": "HammondOrgan",
+      "description": "ハモンドオルガン アレです！ パイプオルガンの代わりとなる電気オルガン。歯車状の円盤「トーンホイール」を回転させることで音を発生",
+      "tags": [
+        "楽器",
+        "鍵盤楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "鍵盤楽器-pipe-organ",
+      "section": "鍵盤楽器",
+      "title": "Pipe Organ",
+      "prompt": "Pipe Organ",
+      "description": "パイプオルガン 鍵盤で選択したパイプに加圧した空気を送って発音する鍵盤",
+      "tags": [
+        "楽器",
+        "鍵盤楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "鍵盤楽器-melodica",
+      "section": "鍵盤楽器",
+      "title": "Melodica",
+      "prompt": "Melodica",
+      "description": "鍵盤ハーモニカ 鍵盤を吹いて音を出す軽量で携帯可能",
+      "tags": [
+        "楽器",
+        "鍵盤楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "鍵盤楽器-accordion",
+      "section": "鍵盤楽器",
+      "title": "Accordion",
+      "prompt": "Accordion",
+      "description": "アコーディオン 蛇腹を使って音を出す鍵盤フォーク音楽で重要",
+      "tags": [
+        "楽器",
+        "鍵盤楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "鍵盤楽器-korgm1",
+      "section": "鍵盤楽器",
+      "title": "KorgM1",
+      "prompt": "KorgM1",
+      "description": "コルグM1 1988年登場のワークステーション型シンセの先駆け標準的な音源を搭載",
+      "tags": [
+        "楽器",
+        "鍵盤楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "鍵盤楽器-moogliberation",
+      "section": "鍵盤楽器",
+      "title": "MoogLiberation",
+      "prompt": "MoogLiberation",
+      "description": "モーグ・リベレーション 1970年代後半のショルダーシンセ初期モデル",
+      "tags": [
+        "楽器",
+        "鍵盤楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "鍵盤楽器-rhodespiano",
+      "section": "鍵盤楽器",
+      "title": "RhodesPiano",
+      "prompt": "RhodesPiano",
+      "description": "ローズピアノ エレクトリックピアノの一種で温かみのある音が特徴",
+      "tags": [
+        "楽器",
+        "鍵盤楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "鍵盤楽器-rhodesmk8",
+      "section": "鍵盤楽器",
+      "title": "RhodesMK8",
+      "prompt": "RhodesMK8",
+      "description": "ローズMK8 21世紀に復活した高機能アナログエレクトリックピアノ",
+      "tags": [
+        "楽器",
+        "鍵盤楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "鍵盤楽器-yamahacp-70",
+      "section": "鍵盤楽器",
+      "title": "YamahaCP-70",
+      "prompt": "YamahaCP-70",
+      "description": "ヤマハCP-70 ステージ用小型エレクトリックグランドピアノ",
+      "tags": [
+        "楽器",
+        "鍵盤楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "鍵盤楽器-yamahadx7",
+      "section": "鍵盤楽器",
+      "title": "YamahaDX7",
+      "prompt": "YamahaDX7",
+      "description": "ヤマハDX7 FM音源を搭載した革新的なデジタルシンセサイザー",
+      "tags": [
+        "楽器",
+        "鍵盤楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "鍵盤楽器-yamahagx-1",
+      "section": "鍵盤楽器",
+      "title": "YamahaGX-1",
+      "prompt": "YamahaGX-1",
+      "description": "ヤマハGX-1 巨大で高価なポリフォニックシンセの先駆け（1970年代）",
+      "tags": [
+        "楽器",
+        "鍵盤楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "鍵盤楽器-yamaharefaceseries",
+      "section": "鍵盤楽器",
+      "title": "YamahaRefaceSeries",
+      "prompt": "YamahaRefaceSeries",
+      "description": "ヤマハリフェイスシリーズ 各種ヴィンテージ音源を小型で再現した電子キーボード群",
+      "tags": [
+        "楽器",
+        "鍵盤楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "鍵盤楽器-casiocz-101",
+      "section": "鍵盤楽器",
+      "title": "CasioCZ-101",
+      "prompt": "CasioCZ-101",
+      "description": "カシオCZ-101 位相変調方式のシンセサイザー小型ながら高機能",
+      "tags": [
+        "楽器",
+        "鍵盤楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "鍵盤楽器-clavioline",
+      "section": "鍵盤楽器",
+      "title": "Clavioline",
+      "prompt": "Clavioline",
+      "description": "クラヴィオライン 初期のモノフォニック電子鍵盤",
+      "tags": [
+        "楽器",
+        "鍵盤楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "鍵盤楽器-rolandd-50",
+      "section": "鍵盤楽器",
+      "title": "RolandD-50",
+      "prompt": "RolandD-50",
+      "description": "ローランドD-50 LA音源を採用した1980年代の代表的なデジタルシンセ",
+      "tags": [
+        "楽器",
+        "鍵盤楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "鍵盤楽器-seaboard",
+      "section": "鍵盤楽器",
+      "title": "Seaboard",
+      "prompt": "Seaboard",
+      "description": "シーボード 柔らかい表面で音程・音色・音量を滑らかに操作可能な近年の電子鍵盤",
+      "tags": [
+        "楽器",
+        "鍵盤楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "鍵盤楽器-hammondnovachord",
+      "section": "鍵盤楽器",
+      "title": "HammondNovachord",
+      "prompt": "HammondNovachord",
+      "description": "ハモンド・ノヴァコード 世界初のポリフォニック電子（1939年）",
+      "tags": [
+        "楽器",
+        "鍵盤楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "鍵盤楽器-electone",
+      "section": "鍵盤楽器",
+      "title": "Electone",
+      "prompt": "Electone",
+      "description": "エレクトーン 電子オルガン",
+      "tags": [
+        "楽器",
+        "鍵盤楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "鍵盤楽器-japanesetaishōgoto",
+      "section": "鍵盤楽器",
+      "title": "JapaneseTaishōgoto",
+      "prompt": "JapaneseTaishōgoto",
+      "description": "大正琴 金属弦を鍵盤で押さえながらピックで弾く日本発祥の",
+      "tags": [
+        "楽器",
+        "鍵盤楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "鍵盤楽器-harpsichord",
+      "section": "鍵盤楽器",
+      "title": "Harpsichord",
+      "prompt": "Harpsichord",
+      "description": "ハープシコード ピアノの祖先。鍵盤の経由で、羽毛の芯や皮革製の爪で弦をはじいて発音",
+      "tags": [
+        "楽器",
+        "鍵盤楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "鍵盤楽器-harpsichord",
+      "section": "鍵盤楽器",
+      "title": "Harpsichord",
+      "prompt": "Harpsichord",
+      "description": "チェンバロ ハープシコードと同じ",
+      "tags": [
+        "楽器",
+        "鍵盤楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "鍵盤楽器-celesta",
+      "section": "鍵盤楽器",
+      "title": "Celesta",
+      "prompt": "Celesta",
+      "description": "チェレスタ 金属板をハンマーで叩いて音を出す鍵盤おもちゃのような澄んだ音色",
+      "tags": [
+        "楽器",
+        "鍵盤楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "鍵盤楽器-cimbalomkeyboard",
+      "section": "鍵盤楽器",
+      "title": "CimbalomKeyboard",
+      "prompt": "CimbalomKeyboard",
+      "description": "ツィンバロム鍵盤版 打弦ツィンバロムを鍵盤で操作できる形にしたもの",
+      "tags": [
+        "楽器",
+        "鍵盤楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "鍵盤楽器-monochordkeyboard",
+      "section": "鍵盤楽器",
+      "title": "MonochordKeyboard",
+      "prompt": "MonochordKeyboard",
+      "description": "モノコード鍵盤 単弦モノコードに鍵盤操作機構を組み合わせた古典楽器",
+      "tags": [
+        "楽器",
+        "鍵盤楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "鍵盤楽器-arpprosoloist",
+      "section": "鍵盤楽器",
+      "title": "ARPProSoloist",
+      "prompt": "ARPProSoloist",
+      "description": "ARPプロ・ソロイスト 1970年代のプリセット付きモノフォニックシンセ鍵盤",
+      "tags": [
+        "楽器",
+        "鍵盤楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "鍵盤楽器-continuumfingerboard",
+      "section": "鍵盤楽器",
+      "title": "ContinuumFingerboard",
+      "prompt": "ContinuumFingerboard",
+      "description": "コンティニューム・フィンガーボード 鍵盤のない滑らかな操作面で音高をコントロールする電子",
+      "tags": [
+        "楽器",
+        "鍵盤楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "鍵盤楽器-keytar",
+      "section": "鍵盤楽器",
+      "title": "Keytar",
+      "prompt": "Keytar",
+      "description": "キ―ター ショルダーキーボードでライブ演奏向き",
+      "tags": [
+        "楽器",
+        "鍵盤楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "鍵盤楽器-ondesmartenot",
+      "section": "鍵盤楽器",
+      "title": "OndesMartenot",
+      "prompt": "OndesMartenot",
+      "description": "オンド・マルトノ 鍵盤とリボンで音高を操作する電子幻想的な音色が特徴",
+      "tags": [
+        "楽器",
+        "鍵盤楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "鍵盤楽器-wurlitzerelectricpiano",
+      "section": "鍵盤楽器",
+      "title": "WurlitzerElectricPiano",
+      "prompt": "WurlitzerElectricPiano",
+      "description": "ウーリッツァーピアノ ヴィンテージ感ある硬めの音色の電気ピアノ",
+      "tags": [
+        "楽器",
+        "鍵盤楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "鍵盤楽器-bandoneon",
+      "section": "鍵盤楽器",
+      "title": "Bandoneon",
+      "prompt": "Bandoneon",
+      "description": "バンドネオン タンゴで使用される蛇腹型哀愁のある音",
+      "tags": [
+        "楽器",
+        "鍵盤楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "鍵盤楽器-schmidtsynthesizer",
+      "section": "鍵盤楽器",
+      "title": "SchmidtSynthesizer",
+      "prompt": "SchmidtSynthesizer",
+      "description": "シュミットシンセサイザー 超高級・多機能な現代アナログポリシンセ",
+      "tags": [
+        "楽器",
+        "鍵盤楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "鍵盤楽器-clavichord",
+      "section": "鍵盤楽器",
+      "title": "Clavichord",
+      "prompt": "Clavichord",
+      "description": "クラヴィコード 鍵盤。柔らかい音量と繊細な音色",
+      "tags": [
+        "楽器",
+        "鍵盤楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "鍵盤楽器-alphasphere",
+      "section": "鍵盤楽器",
+      "title": "AlphaSphere",
+      "prompt": "AlphaSphere",
+      "description": "アルファスフィア 球体上のパッドで音階操作する実験的電子",
+      "tags": [
+        "楽器",
+        "鍵盤楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "鍵盤楽器-arpicordo",
+      "section": "鍵盤楽器",
+      "title": "Arpicordo",
+      "prompt": "Arpicordo",
+      "description": "アルピコルド イタリアで17世紀に使われたハープ的音色の鍵盤",
+      "tags": [
+        "楽器",
+        "鍵盤楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "鍵盤楽器-chromatone",
+      "section": "鍵盤楽器",
+      "title": "Chromatone",
+      "prompt": "Chromatone",
+      "description": "クロマトーン ヤンコ配列を電子として実装した現代の",
+      "tags": [
+        "楽器",
+        "鍵盤楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "鍵盤楽器-claviorganum",
+      "section": "鍵盤楽器",
+      "title": "Claviorganum",
+      "prompt": "Claviorganum",
+      "description": "クラヴィオルガヌム クラヴィコードやチェンバロとパイプオルガンを組み合わせた複合",
+      "tags": [
+        "楽器",
+        "鍵盤楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "鍵盤楽器-crumarmojo",
+      "section": "鍵盤楽器",
+      "title": "CrumarMojo",
+      "prompt": "CrumarMojo",
+      "description": "クルマー・モジョ ビンテージオルガンを模した現代の電子ドローバー鍵盤",
+      "tags": [
+        "楽器",
+        "鍵盤楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "鍵盤楽器-eigenharp",
+      "section": "鍵盤楽器",
+      "title": "Eigenharp",
+      "prompt": "Eigenharp",
+      "description": "アイゲンハープ ボタン式鍵盤とブレスセンサーを統合した先進的インターフェース",
+      "tags": [
+        "楽器",
+        "鍵盤楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "鍵盤楽器-farfisacompact",
+      "section": "鍵盤楽器",
+      "title": "FarfisaCompact",
+      "prompt": "FarfisaCompact",
+      "description": "ファルフィサ・コンパクト イタリア製のポータブルコンボオルガン",
+      "tags": [
+        "楽器",
+        "鍵盤楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "鍵盤楽器-fortepiano",
+      "section": "鍵盤楽器",
+      "title": "Fortepiano",
+      "prompt": "Fortepiano",
+      "description": "フォルテピアノ 18〜19世紀に使われた初期のピアノで音量変化が可能",
+      "tags": [
+        "楽器",
+        "鍵盤楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "鍵盤楽器-geigenwerk",
+      "section": "鍵盤楽器",
+      "title": "Geigenwerk",
+      "prompt": "Geigenwerk",
+      "description": "ガイゲンヴェルク 擦弦音を鍵盤でコントロールする16世紀の鍵盤弦",
+      "tags": [
+        "楽器",
+        "鍵盤楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "鍵盤楽器-glasschord",
+      "section": "鍵盤楽器",
+      "title": "Glasschord",
+      "prompt": "Glasschord",
+      "description": "グラスコード 金属棒をハンマーで叩くピアノのような構造の鍵盤打音",
+      "tags": [
+        "楽器",
+        "鍵盤楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "鍵盤楽器-hakencontinuum",
+      "section": "鍵盤楽器",
+      "title": "HakenContinuum",
+      "prompt": "HakenContinuum",
+      "description": "ハーケン・コンティニューム 滑らかな面で音高と音色を連続操作できる革新的電子鍵盤",
+      "tags": [
+        "楽器",
+        "鍵盤楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "鍵盤楽器-harmonium",
+      "section": "鍵盤楽器",
+      "title": "Harmonium",
+      "prompt": "Harmonium",
+      "description": "ハルモニウム 空気をリードに送り込んで音を出す小型オルガンインド音楽などで使用",
+      "tags": [
+        "楽器",
+        "鍵盤楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "鍵盤楽器-hohnerclavinet",
+      "section": "鍵盤楽器",
+      "title": "HohnerClavinet",
+      "prompt": "HohnerClavinet",
+      "description": "ホーナー・クラビネット ギターのような弦をピックアップで拾うファンク向け鍵盤",
+      "tags": [
+        "楽器",
+        "鍵盤楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "鍵盤楽器-lautenwerck",
+      "section": "鍵盤楽器",
+      "title": "Lautenwerck",
+      "prompt": "Lautenwerck",
+      "description": "ラウテンヴェルク リュートの音色を模した撥弦鍵盤バッハが愛用したとされる",
+      "tags": [
+        "楽器",
+        "鍵盤楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "鍵盤楽器-orphica",
+      "section": "鍵盤楽器",
+      "title": "Orphica",
+      "prompt": "Orphica",
+      "description": "オルフィカ 18〜19世紀に使われた小型ポータブルピアノ",
+      "tags": [
+        "楽器",
+        "鍵盤楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "鍵盤楽器-ottavino",
+      "section": "鍵盤楽器",
+      "title": "Ottavino",
+      "prompt": "Ottavino",
+      "description": "オッタヴィーノ チェンバロより1オクターブ高い音域の小型鍵盤",
+      "tags": [
+        "楽器",
+        "鍵盤楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "鍵盤楽器-physharmonica",
+      "section": "鍵盤楽器",
+      "title": "Physharmonica",
+      "prompt": "Physharmonica",
+      "description": "フィスハーモニカ リードオルガンの一種でドイツなどで19世紀に使用された",
+      "tags": [
+        "楽器",
+        "鍵盤楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "鍵盤楽器-pianet",
+      "section": "鍵盤楽器",
+      "title": "Pianet",
+      "prompt": "Pianet",
+      "description": "ピアネット リードを吸着・離脱させて発音するエレクトリックピアノ",
+      "tags": [
+        "楽器",
+        "鍵盤楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "鍵盤楽器-positiveorgan",
+      "section": "鍵盤楽器",
+      "title": "PositiveOrgan",
+      "prompt": "PositiveOrgan",
+      "description": "ポジティブオルガン 据え置き型の小型パイプオルガン室内用",
+      "tags": [
+        "楽器",
+        "鍵盤楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "鍵盤楽器-pumporgan",
+      "section": "鍵盤楽器",
+      "title": "PumpOrgan",
+      "prompt": "PumpOrgan",
+      "description": "リードオルガン 足踏みで空気を送りリードで発音する家庭用オルガン",
+      "tags": [
+        "楽器",
+        "鍵盤楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "鍵盤楽器-regal",
+      "section": "鍵盤楽器",
+      "title": "Regal",
+      "prompt": "Regal",
+      "description": "リーガル 小型のポータブルリードオルガンルネサンス期に教会や家庭で使用",
+      "tags": [
+        "楽器",
+        "鍵盤楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "鍵盤楽器-russianbayankeyboard",
+      "section": "鍵盤楽器",
+      "title": "RussianBayanKeyboard",
+      "prompt": "RussianBayanKeyboard",
+      "description": "ロシアバヤン鍵盤 ボタン式アコーディオンに似た鍵盤を持つ民族",
+      "tags": [
+        "楽器",
+        "鍵盤楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "鍵盤楽器-tangentpiano",
+      "section": "鍵盤楽器",
+      "title": "TangentPiano",
+      "prompt": "TangentPiano",
+      "description": "タンジェントピアノ クラヴィコードとピアノの中間的構造を持つ打弦鍵盤",
+      "tags": [
+        "楽器",
+        "鍵盤楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "鍵盤楽器-afghanharmonium",
+      "section": "鍵盤楽器",
+      "title": "AfghanHarmonium",
+      "prompt": "AfghanHarmonium",
+      "description": "アフガン・ハルモニウム インド式ハルモニウムの地域変種で手動リード鍵盤",
+      "tags": [
+        "楽器",
+        "鍵盤楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-orchestra",
+      "section": "弦楽器",
+      "title": "Orchestra",
+      "prompt": "Orchestra",
+      "description": "オーケストラ 弦、管楽器、打楽器などで構成された楽曲クラシック中心",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-strings",
+      "section": "弦楽器",
+      "title": "Strings",
+      "prompt": "Strings",
+      "description": "ストリングス ざっくりしたオーケストラ編成で演奏。",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-acoustic-guitar",
+      "section": "弦楽器",
+      "title": "Acoustic Guitar",
+      "prompt": "Acoustic Guitar",
+      "description": "アコースティックギター 電気回路を持たず、生音で演奏するギターの総称",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-clean-guitar",
+      "section": "弦楽器",
+      "title": "Clean Guitar",
+      "prompt": "Clean Guitar",
+      "description": "クリーンギター 歪ませていないエレキギター",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-cutting-guitar",
+      "section": "弦楽器",
+      "title": "Cutting Guitar",
+      "prompt": "Cutting Guitar",
+      "description": "カッティングギター 歯切れよく音を切る演奏法",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-electric-guitar",
+      "section": "弦楽器",
+      "title": "Electric Guitar",
+      "prompt": "Electric Guitar",
+      "description": "エレキギター 電気を利用する弦アンプを通じて多彩な音色を作るロックやジャズで使用",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-guitar",
+      "section": "弦楽器",
+      "title": "Guitar",
+      "prompt": "Guitar",
+      "description": "ギター 弦クラシック、アコースティック、エレクトリックなど多様な種類がある",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-wah-guitar",
+      "section": "弦楽器",
+      "title": "Wah Guitar",
+      "prompt": "Wah Guitar",
+      "description": "ワウギター ワウペダルというエフェクターを使ってギターを演奏したときに得られるサウンド",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-cello",
+      "section": "弦楽器",
+      "title": "Cello",
+      "prompt": "Cello",
+      "description": "チェロ 弦中低音域で深みのある音色が特徴オーケストラやソロで活躍",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-harp",
+      "section": "弦楽器",
+      "title": "Harp",
+      "prompt": "Harp",
+      "description": "ハープ 弦多くの弦があり、手で弾く優雅で幻想的な音色が特徴",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-viola",
+      "section": "弦楽器",
+      "title": "Viola",
+      "prompt": "Viola",
+      "description": "ビオラ 弦ヴァイオリンより少し大きく、暖かい音色",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-violin",
+      "section": "弦楽器",
+      "title": "Violin",
+      "prompt": "Violin",
+      "description": "ヴァイオリン 弦の一種高音域で優美な音色が特徴オーケストラで重要な役割を持つ",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-sitar",
+      "section": "弦楽器",
+      "title": "Sitar",
+      "prompt": "Sitar",
+      "description": "シタール インドの弦複雑な共鳴弦による独特な音色が特徴",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-bass-guitar",
+      "section": "弦楽器",
+      "title": "Bass Guitar",
+      "prompt": "Bass Guitar",
+      "description": "ベースギター 低音域を担当する弦リズムセクションの基盤を形成",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-スラップベース",
+      "section": "弦楽器",
+      "title": "スラップベース",
+      "prompt": "Slap Bass",
+      "description": "ベースのスラップ奏法を指し、親指で弦を叩き、その他の指で弦を引っかけてはじく演奏方法",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "弦楽器-チョッパーベース",
+      "section": "弦楽器",
+      "title": "チョッパーベース",
+      "prompt": "Chopper Bass",
+      "description": "ベースのスラップ奏法を指し、親指で弦を叩き、その他の指で弦を引っかけてはじく演奏方法",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "弦楽器-heavy-bass",
+      "section": "弦楽器",
+      "title": "Heavy Bass",
+      "prompt": "Heavy Bass",
+      "description": "ヘビーベース 重低音",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-ukulele",
+      "section": "弦楽器",
+      "title": "Ukulele",
+      "prompt": "Ukulele",
+      "description": "ウクレレ ハワイ発祥の弦軽快で明るい音色、小型で携帯しやすい",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-バリトンギター",
+      "section": "弦楽器",
+      "title": "バリトンギター",
+      "prompt": "BaritoneGuitar",
+      "description": "通常より長いスケールでチューニングが低いエレキギター。",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-リゾネーターギター",
+      "section": "弦楽器",
+      "title": "リゾネーターギター",
+      "prompt": "ResonatorGuitar",
+      "description": "金属製の共鳴盤で音を増幅するアコースティックギター。",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-ラップスチールギター",
+      "section": "弦楽器",
+      "title": "ラップスチールギター",
+      "prompt": "LapSteelGuitar",
+      "description": "水平に置いてスライド奏法で演奏されるギター。",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "弦楽器-ペダルスチールギター",
+      "section": "弦楽器",
+      "title": "ペダルスチールギター",
+      "prompt": "PedalSteelGuitar",
+      "description": "フットペダルで音程を変えるスライドギター。",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-12弦ギター",
+      "section": "弦楽器",
+      "title": "12弦ギター",
+      "prompt": "Twelve-StringGuitar",
+      "description": "6コース12弦で豊かな響きを持つギター。",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-フレットレスベース",
+      "section": "弦楽器",
+      "title": "フレットレスベース",
+      "prompt": "FretlessBass",
+      "description": "フレットのないベースギターで滑らかな音程変化が可能。",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-アコースティックベース",
+      "section": "弦楽器",
+      "title": "アコースティックベース",
+      "prompt": "AcousticBass",
+      "description": "共鳴胴を持つ非電化ベースギター。",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-エレクトリックアップライトベース",
+      "section": "弦楽器",
+      "title": "エレクトリックアップライトベース",
+      "prompt": "ElectricUprightBass",
+      "description": "立奏型の電気ベース。",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-アルペジオーネ",
+      "section": "弦楽器",
+      "title": "アルペジオーネ",
+      "prompt": "Arpeggione",
+      "description": "ギターのような形をした擦弦、シューベルトが作品を残した。",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-サイレントギター",
+      "section": "弦楽器",
+      "title": "サイレントギター",
+      "prompt": "SilentGuitar",
+      "description": "共鳴胴を持たない静音型エレキアコースティックギター。",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-トラベルギター",
+      "section": "弦楽器",
+      "title": "トラベルギター",
+      "prompt": "TravelGuitar",
+      "description": "持ち運びに適した小型軽量ギター。",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-ハイブリッドギター",
+      "section": "弦楽器",
+      "title": "ハイブリッドギター",
+      "prompt": "HybridGuitar",
+      "description": "アコースティックとエレキの要素を併せ持つギター。",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-セミアコースティックギター",
+      "section": "弦楽器",
+      "title": "セミアコースティックギター",
+      "prompt": "Semi-AcousticGuitar",
+      "description": "中空構造でフィードバックに強いエレキギター。",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-ホロウボディギター",
+      "section": "弦楽器",
+      "title": "ホロウボディギター",
+      "prompt": "HollowBodyGuitar",
+      "description": "空洞構造を持つジャズなどで使われるエレキギター。",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-アーチトップギター",
+      "section": "弦楽器",
+      "title": "アーチトップギター",
+      "prompt": "ArchtopGuitar",
+      "description": "Fホールを持つジャズ向きのギター。",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-テナーギター",
+      "section": "弦楽器",
+      "title": "テナーギター",
+      "prompt": "TenorGuitar",
+      "description": "4弦で主にジャズやフォークに用いられるギター。",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-バロックギター",
+      "section": "弦楽器",
+      "title": "バロックギター",
+      "prompt": "BaroqueGuitar",
+      "description": "17〜18世紀に使われた古典的ギターの祖先。",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-クラシックギター",
+      "section": "弦楽器",
+      "title": "クラシックギター",
+      "prompt": "ClassicalGuitar",
+      "description": "ナイロン弦を使用しクラシック音楽向けのギター。",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-フラメンコギター",
+      "section": "弦楽器",
+      "title": "フラメンコギター",
+      "prompt": "FlamencoGuitar",
+      "description": "クラシックギターに似るが打撃奏法に適した設計。",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-パーラーギター",
+      "section": "弦楽器",
+      "title": "パーラーギター",
+      "prompt": "ParlorGuitar",
+      "description": "小型のアコースティックギターで繊細な音が特徴。",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-ジャンボギター",
+      "section": "弦楽器",
+      "title": "ジャンボギター",
+      "prompt": "JumboGuitar",
+      "description": "大型ボディで低音に豊かな響きを持つギター。",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-グランドコンサートギター",
+      "section": "弦楽器",
+      "title": "グランドコンサートギター",
+      "prompt": "GrandConcertGuitar",
+      "description": "高音にフォーカスした小型クラシックギター。",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-ワイゼンボーン",
+      "section": "弦楽器",
+      "title": "ワイゼンボーン",
+      "prompt": "Weissenborn",
+      "description": "ハワイアンスタイルのラップスチールアコースティックギター。",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "弦楽器-タップギター",
+      "section": "弦楽器",
+      "title": "タップギター",
+      "prompt": "TapGuitar",
+      "description": "両手で指板を叩く演奏法に特化した特殊ギター。",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-チャップマンスティック",
+      "section": "弦楽器",
+      "title": "チャップマンスティック",
+      "prompt": "ChapmanStick",
+      "description": "タッピング演奏に特化した10〜12弦の。",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-タッチギター",
+      "section": "弦楽器",
+      "title": "タッチギター",
+      "prompt": "TouchGuitar",
+      "description": "両手タッピング専用のエレクトリック。",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-スティックベース",
+      "section": "弦楽器",
+      "title": "スティックベース",
+      "prompt": "StickBass",
+      "description": "チャップマンスティックの低音版。",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-ベースシックス",
+      "section": "弦楽器",
+      "title": "ベースシックス",
+      "prompt": "BassVI",
+      "description": "ギターのような構造でベース音域をカバーする6弦。",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-ダブルネックギター",
+      "section": "弦楽器",
+      "title": "ダブルネックギター",
+      "prompt": "DoubleNeckGuitar",
+      "description": "2つのネックを持つ多機能ギター。",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-トリプルネックギター",
+      "section": "弦楽器",
+      "title": "トリプルネックギター",
+      "prompt": "TripleNeckGuitar",
+      "description": "3つのネックを搭載した特殊構造のギター。",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-シガーボックスギター",
+      "section": "弦楽器",
+      "title": "シガーボックスギター",
+      "prompt": "CigarBoxGuitar",
+      "description": "葉巻箱を使ったDIY系ギター。",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-フレットレスギター",
+      "section": "弦楽器",
+      "title": "フレットレスギター",
+      "prompt": "FretlessGuitar",
+      "description": "フレットがなく滑らかなピッチ変化が可能なギター。",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-ハープギター",
+      "section": "弦楽器",
+      "title": "ハープギター",
+      "prompt": "HarpGuitar",
+      "description": "通常の弦に加え共鳴用や低音弦を持つギター。",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-プリペアドギター",
+      "section": "弦楽器",
+      "title": "プリペアドギター",
+      "prompt": "PreparedGuitar",
+      "description": "弦に異物を挟むなどして特殊音を出すギター。",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-ピッコロバイオリン",
+      "section": "弦楽器",
+      "title": "ピッコロバイオリン",
+      "prompt": "PiccoloViolin",
+      "description": "通常のバイオリンより小さく高音域向き。",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-オクターブバイオリン",
+      "section": "弦楽器",
+      "title": "オクターブバイオリン",
+      "prompt": "OctaveViolin",
+      "description": "バイオリンの1オクターブ下を奏でる。",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-5弦バイオリン",
+      "section": "弦楽器",
+      "title": "5弦バイオリン",
+      "prompt": "Five-StringViolin",
+      "description": "ヴィオラのC弦を加えた拡張音域のバイオリン。",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-ピッコロチェロ",
+      "section": "弦楽器",
+      "title": "ピッコロチェロ",
+      "prompt": "VioloncelloPiccolo",
+      "description": "古典派音楽で用いられる高音域の小型チェロ。",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-エレクトリックバイオリン",
+      "section": "弦楽器",
+      "title": "エレクトリックバイオリン",
+      "prompt": "ElectricViolin",
+      "description": "電子的に増幅可能なバイオリン。",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-エレクトリックチェロ",
+      "section": "弦楽器",
+      "title": "エレクトリックチェロ",
+      "prompt": "ElectricCello",
+      "description": "電子的に増幅可能なチェロ。",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-エレクトリックダブルベース",
+      "section": "弦楽器",
+      "title": "エレクトリックダブルベース",
+      "prompt": "ElectricDoubleBass",
+      "description": "コントラバスの電気式版。",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-エレクトリックハープ",
+      "section": "弦楽器",
+      "title": "エレクトリックハープ",
+      "prompt": "ElectricHarp",
+      "description": "電子的に増幅可能なハープ。",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-ヴィオラ-ダモーレ",
+      "section": "弦楽器",
+      "title": "ヴィオラ・ダモーレ",
+      "prompt": "Violad'amore",
+      "description": "共鳴弦を持つバロック時代の弦。",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-ヴィオール",
+      "section": "弦楽器",
+      "title": "ヴィオール",
+      "prompt": "Viol",
+      "description": "バロック時代の6〜7弦の擦弦、チェロの前身。",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-バリトン",
+      "section": "弦楽器",
+      "title": "バリトン",
+      "prompt": "Baryton",
+      "description": "18世紀に使われた共鳴弦付きの多弦擦弦。",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-オクトバス",
+      "section": "弦楽器",
+      "title": "オクトバス",
+      "prompt": "Octobass",
+      "description": "3メートルを超える巨大なコントラバス。",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-ヴィオロンチェロ-ダ-スパッラ",
+      "section": "弦楽器",
+      "title": "ヴィオロンチェロ・ダ・スパッラ",
+      "prompt": "Violoncellodaspalla",
+      "description": "肩で支えて弾く小型チェロ。",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-autoharp",
+      "section": "弦楽器",
+      "title": "Autoharp",
+      "prompt": "Autoharp",
+      "description": "オートハープ 多弦コードボタンを押しながら演奏",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-balalaika",
+      "section": "弦楽器",
+      "title": "Balalaika",
+      "prompt": "Balalaika",
+      "description": "バラライカ ロシアの三角形のボディを持つ弦軽やかで明るい音色",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-banjo",
+      "section": "弦楽器",
+      "title": "Banjo",
+      "prompt": "Banjo",
+      "description": "バンジョー アメリカ発祥の弦明るくリズミカルな音色が特徴",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-double-bass",
+      "section": "弦楽器",
+      "title": "Double Bass",
+      "prompt": "Double Bass",
+      "description": "コントラバス 弦の中で最も低音域を担当するオーケストラやジャズで使用",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-dulcimer",
+      "section": "弦楽器",
+      "title": "Dulcimer",
+      "prompt": "Dulcimer",
+      "description": "ダルシマー 打弦金属の弦をハンマーで叩いて音を出す",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-erhu",
+      "section": "弦楽器",
+      "title": "Erhu",
+      "prompt": "Erhu",
+      "description": "二胡 中国の弦弓で弾く悲しげで感情的な音色が特徴",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-fiddle",
+      "section": "弦楽器",
+      "title": "Fiddle",
+      "prompt": "Fiddle",
+      "description": "フィドル ヴァイオリンの別名主にフォーク音楽で使用される",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-hurdy-gurdy",
+      "section": "弦楽器",
+      "title": "Hurdy‐Gurdy",
+      "prompt": "Hurdy‐Gurdy",
+      "description": "ハーディガーディ 手回しで弦を鳴らす中世独特のドローン音",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-kalimba",
+      "section": "弦楽器",
+      "title": "Kalimba",
+      "prompt": "Kalimba",
+      "description": "カリンバ アフリカの親指ピアノ。澄んだ音色",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-lute",
+      "section": "弦楽器",
+      "title": "Lute",
+      "prompt": "Lute",
+      "description": "リュート 中世ヨーロッパの弦複数の弦を持ち、柔らかい音色",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-lyre",
+      "section": "弦楽器",
+      "title": "Lyre",
+      "prompt": "Lyre",
+      "description": "リラ 古代ギリシャの弦竪琴の一種で、詩の伴奏に使われた",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-mandolin",
+      "section": "弦楽器",
+      "title": "Mandolin",
+      "prompt": "Mandolin",
+      "description": "マンドリン 小型の弦ピックを使って明快な音色を奏でる",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-mbira",
+      "section": "弦楽器",
+      "title": "Mbira",
+      "prompt": "Mbira",
+      "description": "ムビラ アフリカの親指ピアノ深い音色",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-morin-khuur",
+      "section": "弦楽器",
+      "title": "Morin Khuur",
+      "prompt": "Morin Khuur",
+      "description": "モリンホール モンゴルの弦深い音色と哀愁",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-ocarina",
+      "section": "弦楽器",
+      "title": "Ocarina",
+      "prompt": "Ocarina",
+      "description": "オカリナ 陶器やプラスチック製の笛型柔らかな音色",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-oud",
+      "section": "弦楽器",
+      "title": "Oud",
+      "prompt": "Oud",
+      "description": "ウード 中東の撥弦暖かく深い音色",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-psaltery",
+      "section": "弦楽器",
+      "title": "Psaltery",
+      "prompt": "Psaltery",
+      "description": "サルタリオ 中世の打弦透明感のある音色",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-qanun",
+      "section": "弦楽器",
+      "title": "Qanun",
+      "prompt": "Qanun",
+      "description": "カヌーン 中東の多弦優雅な音色",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-santoor",
+      "section": "弦楽器",
+      "title": "Santoor",
+      "prompt": "Santoor",
+      "description": "サントゥール インドやペルシャの打弦明快な音色",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-sarangi",
+      "section": "弦楽器",
+      "title": "Sarangi",
+      "prompt": "Sarangi",
+      "description": "サランギ インドの弦哀愁のある音色",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-sarod",
+      "section": "弦楽器",
+      "title": "Sarod",
+      "prompt": "Sarod",
+      "description": "サロッド インドの撥弦滑らかで深い音色",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-zither",
+      "section": "弦楽器",
+      "title": "Zither",
+      "prompt": "Zither",
+      "description": "ジター ハープに似た多弦優しい音色",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-ニッケルハルパ",
+      "section": "弦楽器",
+      "title": "ニッケルハルパ",
+      "prompt": "Nyckelharpa",
+      "description": "スウェーデンの伝統的な鍵盤付き擦弦。",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-ハーダンゲルフィドル",
+      "section": "弦楽器",
+      "title": "ハーダンゲルフィドル",
+      "prompt": "Hardangerfiddle",
+      "description": "ノルウェーの装飾的な共鳴弦付きバイオリン。",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-コラ",
+      "section": "弦楽器",
+      "title": "コラ",
+      "prompt": "Kora",
+      "description": "西アフリカの21弦ハープ・リュート。",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-カマンチェ",
+      "section": "弦楽器",
+      "title": "カマンチェ",
+      "prompt": "Kamancheh",
+      "description": "イランやアゼルバイジャンの擦弦。",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-カヤグム",
+      "section": "弦楽器",
+      "title": "カヤグム",
+      "prompt": "Gayageum",
+      "description": "韓国の伝統的な12弦の撥弦。",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-コムンゴ",
+      "section": "弦楽器",
+      "title": "コムンゴ",
+      "prompt": "Geomungo",
+      "description": "韓国の6弦の撥弦。",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-箏",
+      "section": "弦楽器",
+      "title": "箏",
+      "prompt": "Koto",
+      "description": "日本の13弦の伝統的な撥弦。",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-三味線",
+      "section": "弦楽器",
+      "title": "三味線",
+      "prompt": "Shamisen",
+      "description": "日本の3弦の撥弦。",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-琵琶",
+      "section": "弦楽器",
+      "title": "琵琶",
+      "prompt": "Biwa",
+      "description": "日本の4弦の撥弦。",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-サズ",
+      "section": "弦楽器",
+      "title": "サズ",
+      "prompt": "Saz",
+      "description": "トルコの長いネックを持つ撥弦。",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-セタール",
+      "section": "弦楽器",
+      "title": "セタール",
+      "prompt": "Setar",
+      "description": "イランの4弦の撥弦。",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-タンプーラ",
+      "section": "弦楽器",
+      "title": "タンプーラ",
+      "prompt": "Tanpura",
+      "description": "インドの持続音を出す撥弦。",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-ヴィーナ",
+      "section": "弦楽器",
+      "title": "ヴィーナ",
+      "prompt": "Veena",
+      "description": "インドの7弦の撥弦。",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-阮",
+      "section": "弦楽器",
+      "title": "阮",
+      "prompt": "Ruan",
+      "description": "中国の丸い胴体を持つ撥弦。",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-三弦",
+      "section": "弦楽器",
+      "title": "三弦",
+      "prompt": "Sanxian",
+      "description": "中国の3弦の撥弦。",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-琵琶",
+      "section": "弦楽器",
+      "title": "琵琶",
+      "prompt": "Pipa",
+      "description": "中国の4弦の撥弦。",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-古筝",
+      "section": "弦楽器",
+      "title": "古筝",
+      "prompt": "Guzheng",
+      "description": "中国の21弦の撥弦。",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-揚琴",
+      "section": "弦楽器",
+      "title": "揚琴",
+      "prompt": "Yangqin",
+      "description": "中国の打弦。",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-ドンブラ",
+      "section": "弦楽器",
+      "title": "ドンブラ",
+      "prompt": "Dombra",
+      "description": "中央アジアの2弦の撥弦。",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-ドムラ",
+      "section": "弦楽器",
+      "title": "ドムラ",
+      "prompt": "Domra",
+      "description": "ロシアの3弦の撥弦。",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-バラライカ",
+      "section": "弦楽器",
+      "title": "バラライカ",
+      "prompt": "Balalaika",
+      "description": "ロシアの三角形の胴体を持つ撥弦。",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-バンドゥーラ",
+      "section": "弦楽器",
+      "title": "バンドゥーラ",
+      "prompt": "Bandura",
+      "description": "ウクライナの多弦撥弦。",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-チャランゴ",
+      "section": "弦楽器",
+      "title": "チャランゴ",
+      "prompt": "Charango",
+      "description": "南米アンデス地方の小型撥弦。",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-カヴァキーニョ",
+      "section": "弦楽器",
+      "title": "カヴァキーニョ",
+      "prompt": "Cavaquinho",
+      "description": "ブラジルの小型4弦撥弦。",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-トレス",
+      "section": "弦楽器",
+      "title": "トレス",
+      "prompt": "Tres",
+      "description": "キューバの3コースの撥弦。",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-レバブ",
+      "section": "弦楽器",
+      "title": "レバブ",
+      "prompt": "Rebab",
+      "description": "中東や北アフリカの擦弦。",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-サーランギー",
+      "section": "弦楽器",
+      "title": "サーランギー",
+      "prompt": "Sarangi",
+      "description": "インドの擦弦。",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-二胡",
+      "section": "弦楽器",
+      "title": "二胡",
+      "prompt": "Erhu",
+      "description": "中国の2弦の擦弦。",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-ヘグム",
+      "section": "弦楽器",
+      "title": "ヘグム",
+      "prompt": "Haegeum",
+      "description": "韓国の2弦の擦弦。",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-イギル",
+      "section": "弦楽器",
+      "title": "イギル",
+      "prompt": "Igil",
+      "description": "トゥヴァ共和国の2弦の擦弦。",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-胡弓",
+      "section": "弦楽器",
+      "title": "胡弓",
+      "prompt": "Kokyū",
+      "description": "日本の擦弦。",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-ガドゥルカ",
+      "section": "弦楽器",
+      "title": "ガドゥルカ",
+      "prompt": "Gadulka",
+      "description": "ブルガリアの擦弦。",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "弦楽器-モリンホール",
+      "section": "弦楽器",
+      "title": "モリンホール",
+      "prompt": "Morinkhuur",
+      "description": "モンゴルの馬頭琴。",
+      "tags": [
+        "楽器",
+        "弦楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "管楽器-saxophone",
+      "section": "管楽器",
+      "title": "Saxophone",
+      "prompt": "Saxophone",
+      "description": "サックス 音色が高低バランスが良く、金管の鋭さと木の柔らかさを兼ね備える",
+      "tags": [
+        "楽器",
+        "管楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "管楽器-ソプラノサクソフォン",
+      "section": "管楽器",
+      "title": "ソプラノサクソフォン",
+      "prompt": "SopranoSaxophone",
+      "description": "サクソフォン属の高音域を担当する。",
+      "tags": [
+        "楽器",
+        "管楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "管楽器-アルトサクソフォン",
+      "section": "管楽器",
+      "title": "アルトサクソフォン",
+      "prompt": "AltoSaxophone",
+      "description": "サクソフォン属で最も一般的な中音域の。",
+      "tags": [
+        "楽器",
+        "管楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "管楽器-テナーサクソフォン",
+      "section": "管楽器",
+      "title": "テナーサクソフォン",
+      "prompt": "TenorSaxophone",
+      "description": "サクソフォン属の中低音域を担当する。",
+      "tags": [
+        "楽器",
+        "管楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "管楽器-バリトンサクソフォン",
+      "section": "管楽器",
+      "title": "バリトンサクソフォン",
+      "prompt": "BaritoneSaxophone",
+      "description": "サクソフォン属の低音域を担当する大型。",
+      "tags": [
+        "楽器",
+        "管楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "管楽器-バスサクソフォン",
+      "section": "管楽器",
+      "title": "バスサクソフォン",
+      "prompt": "BassSaxophone",
+      "description": "サクソフォン属で最も低音域を担当する大型。",
+      "tags": [
+        "楽器",
+        "管楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "管楽器-trombone",
+      "section": "管楽器",
+      "title": "Trombone",
+      "prompt": "Trombone",
+      "description": "トロンボーン スライド式の管柔軟な音域",
+      "tags": [
+        "楽器",
+        "管楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "管楽器-trumpet",
+      "section": "管楽器",
+      "title": "Trumpet",
+      "prompt": "Trumpet",
+      "description": "トランペット 管明るい音色と高音域",
+      "tags": [
+        "楽器",
+        "管楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "管楽器-tuba",
+      "section": "管楽器",
+      "title": "Tuba",
+      "prompt": "Tuba",
+      "description": "チューバ 管最低音域を担当",
+      "tags": [
+        "楽器",
+        "管楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "管楽器-flute",
+      "section": "管楽器",
+      "title": "Flute",
+      "prompt": "Flute",
+      "description": "フルート 高音域における輝かしい音色と、低音域～中音域にかけての甘く優しい音色",
+      "tags": [
+        "楽器",
+        "管楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "管楽器-harmonica",
+      "section": "管楽器",
+      "title": "Harmonica",
+      "prompt": "Harmonica",
+      "description": "ハーモニカ リードを吹いて音を出すブルースやフォークで使用",
+      "tags": [
+        "楽器",
+        "管楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "管楽器-クラリネット",
+      "section": "管楽器",
+      "title": "クラリネット",
+      "prompt": "Clarinet",
+      "description": "シングルリードを使用する木管で、ジャズやクラシックで広く使用される。",
+      "tags": [
+        "楽器",
+        "管楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "管楽器-バスクラリネット",
+      "section": "管楽器",
+      "title": "バスクラリネット",
+      "prompt": "BassClarinet",
+      "description": "クラリネットの低音域バージョンで、深みのある音色が特徴。",
+      "tags": [
+        "楽器",
+        "管楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "管楽器-変ホ調クラリネット",
+      "section": "管楽器",
+      "title": "変ホ調クラリネット",
+      "prompt": "E-flatClarinet",
+      "description": "クラリネットの高音域バージョンで、明るく鋭い音色を持つ。",
+      "tags": [
+        "楽器",
+        "管楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "管楽器-コントラバスクラリネット",
+      "section": "管楽器",
+      "title": "コントラバスクラリネット",
+      "prompt": "ContrabassClarinet",
+      "description": "クラリネット属で最も低音域を担当する大型。",
+      "tags": [
+        "楽器",
+        "管楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "管楽器-オーボエ",
+      "section": "管楽器",
+      "title": "オーボエ",
+      "prompt": "Oboe",
+      "description": "ダブルリードを使用する木管で、澄んだ音色が特徴。",
+      "tags": [
+        "楽器",
+        "管楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "管楽器-イングリッシュホルン",
+      "section": "管楽器",
+      "title": "イングリッシュホルン",
+      "prompt": "EnglishHorn",
+      "description": "オーボエよりも低音域を担当するダブルリードの木管。",
+      "tags": [
+        "楽器",
+        "管楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "管楽器-ファゴット",
+      "section": "管楽器",
+      "title": "ファゴット",
+      "prompt": "Bassoon",
+      "description": "低音域を担当する大型のダブルリード木管。",
+      "tags": [
+        "楽器",
+        "管楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "管楽器-コントラファゴット",
+      "section": "管楽器",
+      "title": "コントラファゴット",
+      "prompt": "Contrabassoon",
+      "description": "ファゴットの1オクターブ下の音域を持つ大型木管。",
+      "tags": [
+        "楽器",
+        "管楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "管楽器-ピッコロ",
+      "section": "管楽器",
+      "title": "ピッコロ",
+      "prompt": "Piccolo",
+      "description": "フルートの高音域バージョンで、明るく鋭い音色が特徴。",
+      "tags": [
+        "楽器",
+        "管楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "管楽器-アルトフルート",
+      "section": "管楽器",
+      "title": "アルトフルート",
+      "prompt": "AltoFlute",
+      "description": "フルートの低音域バージョンで、柔らかく豊かな音色を持つ。",
+      "tags": [
+        "楽器",
+        "管楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "管楽器-バスフルート",
+      "section": "管楽器",
+      "title": "バスフルート",
+      "prompt": "BassFlute",
+      "description": "フルートのさらに低音域を担当する大型。",
+      "tags": [
+        "楽器",
+        "管楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "管楽器-bagpipes",
+      "section": "管楽器",
+      "title": "Bagpipes",
+      "prompt": "Bagpipes",
+      "description": "バグパイプ 空気袋を使う管独特の持続音",
+      "tags": [
+        "楽器",
+        "管楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "管楽器-baritonehorn",
+      "section": "管楽器",
+      "title": "BaritoneHorn",
+      "prompt": "BaritoneHorn",
+      "description": "バリトンホルン 管中低音域で柔らかな音色",
+      "tags": [
+        "楽器",
+        "管楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "管楽器-cornemuse",
+      "section": "管楽器",
+      "title": "Cornemuse",
+      "prompt": "Cornemuse",
+      "description": "コルヌーズ 中世ヨーロッパの管リードを持つ",
+      "tags": [
+        "楽器",
+        "管楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "管楽器-cornet",
+      "section": "管楽器",
+      "title": "Cornet",
+      "prompt": "Cornet",
+      "description": "コルネット 管トランペットに似た音色",
+      "tags": [
+        "楽器",
+        "管楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "管楽器-didgeridoo",
+      "section": "管楽器",
+      "title": "Didgeridoo",
+      "prompt": "Didgeridoo",
+      "description": "ディジュリドゥ オーストラリアの管低音の持続音が特徴",
+      "tags": [
+        "楽器",
+        "管楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "管楽器-euphonium",
+      "section": "管楽器",
+      "title": "Euphonium",
+      "prompt": "Euphonium",
+      "description": "ユーフォニアム 管中低音域で豊かな響き",
+      "tags": [
+        "楽器",
+        "管楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "管楽器-flugelhorn",
+      "section": "管楽器",
+      "title": "Flugelhorn",
+      "prompt": "Flugelhorn",
+      "description": "フリューゲルホルン 管トランペットに似るが柔らかい音色",
+      "tags": [
+        "楽器",
+        "管楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "管楽器-frenchhorn",
+      "section": "管楽器",
+      "title": "FrenchHorn",
+      "prompt": "FrenchHorn",
+      "description": "フレンチホルン 管深く丸みのある音色",
+      "tags": [
+        "楽器",
+        "管楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "管楽器-fujara",
+      "section": "管楽器",
+      "title": "Fujara",
+      "prompt": "Fujara",
+      "description": "フジャラ スロバキアの管牧歌的な音色",
+      "tags": [
+        "楽器",
+        "管楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "管楽器-panflute",
+      "section": "管楽器",
+      "title": "PanFlute",
+      "prompt": "PanFlute",
+      "description": "パンフルート 管を並べた管柔らかな音色",
+      "tags": [
+        "楽器",
+        "管楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "管楽器-sousaphone",
+      "section": "管楽器",
+      "title": "Sousaphone",
+      "prompt": "Sousaphone",
+      "description": "スーザフォーン マーチング用の大型管低音域",
+      "tags": [
+        "楽器",
+        "管楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "管楽器-リコーダー",
+      "section": "管楽器",
+      "title": "リコーダー",
+      "prompt": "Recorder",
+      "description": "教育用としても一般的な縦笛で、古楽や現代音楽でも使用される。",
+      "tags": [
+        "楽器",
+        "管楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "管楽器-ティンホイッスル",
+      "section": "管楽器",
+      "title": "ティンホイッスル",
+      "prompt": "TinWhistle",
+      "description": "アイルランドの伝統的な縦笛で、フォーク音楽で使用される。",
+      "tags": [
+        "楽器",
+        "管楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "管楽器-ショーム",
+      "section": "管楽器",
+      "title": "ショーム",
+      "prompt": "Shawm",
+      "description": "オーボエの前身となる中世のダブルリード木管。",
+      "tags": [
+        "楽器",
+        "管楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "管楽器-ウィンドコントローラー",
+      "section": "管楽器",
+      "title": "ウィンドコントローラー",
+      "prompt": "WindController",
+      "description": "電子的に音を制御する管型のMIDIコントローラー。",
+      "tags": [
+        "楽器",
+        "管楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "管楽器-尺八",
+      "section": "管楽器",
+      "title": "尺八",
+      "prompt": "Shakuhachi",
+      "description": "日本の伝統的な竹製縦笛で、禅や現代音楽でも使用される。",
+      "tags": [
+        "楽器",
+        "管楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "管楽器-フルス",
+      "section": "管楽器",
+      "title": "フルス",
+      "prompt": "Hulusi",
+      "description": "中国の葫蘆（ひょうたん）を使ったリードで、柔らかな音色が特徴。",
+      "tags": [
+        "楽器",
+        "管楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "管楽器-ドゥドゥク",
+      "section": "管楽器",
+      "title": "ドゥドゥク",
+      "prompt": "Duduk",
+      "description": "アルメニアのダブルリードで、哀愁を帯びた音色が特徴。",
+      "tags": [
+        "楽器",
+        "管楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "管楽器-ネイ",
+      "section": "管楽器",
+      "title": "ネイ",
+      "prompt": "Ney",
+      "description": "中東やペルシャ音楽で使用される縦笛で、息のコントロールが難しい。",
+      "tags": [
+        "楽器",
+        "管楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "管楽器-バンスリ",
+      "section": "管楽器",
+      "title": "バンスリ",
+      "prompt": "Bansuri",
+      "description": "インドの竹製横笛で、クラシック音楽や映画音楽で使用される。",
+      "tags": [
+        "楽器",
+        "管楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "管楽器-簫",
+      "section": "管楽器",
+      "title": "簫",
+      "prompt": "Xiao",
+      "description": "中国の縦笛で、柔らかく深い音色が特徴。",
+      "tags": [
+        "楽器",
+        "管楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "管楽器-笛子",
+      "section": "管楽器",
+      "title": "笛子",
+      "prompt": "Dizi",
+      "description": "中国の横笛で、明るく鋭い音色が特徴。",
+      "tags": [
+        "楽器",
+        "管楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "管楽器-嗩吶",
+      "section": "管楽器",
+      "title": "嗩吶",
+      "prompt": "Suona",
+      "description": "中国のダブルリードで、鋭く大きな音が特徴。",
+      "tags": [
+        "楽器",
+        "管楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "管楽器-カヴァル",
+      "section": "管楽器",
+      "title": "カヴァル",
+      "prompt": "Kaval",
+      "description": "バルカン半島の縦笛で、民族音楽で使用される。",
+      "tags": [
+        "楽器",
+        "管楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "管楽器-ズルナ",
+      "section": "管楽器",
+      "title": "ズルナ",
+      "prompt": "Zurna",
+      "description": "中東や中央アジアのダブルリードで、力強い音が特徴。",
+      "tags": [
+        "楽器",
+        "管楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "管楽器-ケーナ",
+      "section": "管楽器",
+      "title": "ケーナ",
+      "prompt": "Quena",
+      "description": "アンデス地方の縦笛で、フォルクローレ音楽で使用される。",
+      "tags": [
+        "楽器",
+        "管楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "管楽器-ケナーチョ",
+      "section": "管楽器",
+      "title": "ケナーチョ",
+      "prompt": "Quenacho",
+      "description": "ケーナよりも大きく低音域を担当する縦笛。",
+      "tags": [
+        "楽器",
+        "管楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "管楽器-シク",
+      "section": "管楽器",
+      "title": "シク",
+      "prompt": "Siku",
+      "description": "アンデス地方のパンフルートで、複数の管を束ねた構造。",
+      "tags": [
+        "楽器",
+        "管楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "管楽器-ディジュリドゥ",
+      "section": "管楽器",
+      "title": "ディジュリドゥ",
+      "prompt": "Didgeridoo",
+      "description": "オーストラリアの先住民で、持続音が特徴。",
+      "tags": [
+        "楽器",
+        "管楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "管楽器-ショファール",
+      "section": "管楽器",
+      "title": "ショファール",
+      "prompt": "Shofar",
+      "description": "ユダヤ教の儀式で使用される羊の角製の。",
+      "tags": [
+        "楽器",
+        "管楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "管楽器-笙",
+      "section": "管楽器",
+      "title": "笙",
+      "prompt": "Sheng",
+      "description": "中国の口吹きオルガンで、和音を出すことができる。",
+      "tags": [
+        "楽器",
+        "管楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "管楽器-ケーン",
+      "section": "管楽器",
+      "title": "ケーン",
+      "prompt": "Khene",
+      "description": "ラオスやタイの口吹きオルガンで、複数の管を束ねた構造。",
+      "tags": [
+        "楽器",
+        "管楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "管楽器-プンギ",
+      "section": "管楽器",
+      "title": "プンギ",
+      "prompt": "Pungi",
+      "description": "インドの蛇使いが使用するリードで、独特な音色が特徴。",
+      "tags": [
+        "楽器",
+        "管楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "打楽器-drums",
+      "section": "打楽器",
+      "title": "Drums",
+      "prompt": "Drums",
+      "description": "ドラム ドラムセットの一部または総称リズムの中核を担う",
+      "tags": [
+        "楽器",
+        "打楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "打楽器-snaredrum",
+      "section": "打楽器",
+      "title": "SnareDrum",
+      "prompt": "SnareDrum",
+      "description": "スネアドラム 小型の打スナッピーな音色が特徴",
+      "tags": [
+        "楽器",
+        "打楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "打楽器-steeldrums",
+      "section": "打楽器",
+      "title": "SteelDrums",
+      "prompt": "SteelDrums",
+      "description": "スチールドラム トリニダード・トバゴ発祥の打金属製で明るい音色",
+      "tags": [
+        "楽器",
+        "打楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "打楽器-tambourine",
+      "section": "打楽器",
+      "title": "Tambourine",
+      "prompt": "Tambourine",
+      "description": "タンバリン 手で叩いたり振ったりする打ジングル音が特徴",
+      "tags": [
+        "楽器",
+        "打楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "打楽器-tom-tom",
+      "section": "打楽器",
+      "title": "Tom-Tom",
+      "prompt": "Tom-Tom",
+      "description": "タムタム 大型の金属製打深い音",
+      "tags": [
+        "楽器",
+        "打楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "打楽器-vibraphone",
+      "section": "打楽器",
+      "title": "Vibraphone",
+      "prompt": "Vibraphone",
+      "description": "ビブラフォン 打金属のバーを叩き、モーターで音を振動させる",
+      "tags": [
+        "楽器",
+        "打楽器"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "打楽器-bassdrum",
+      "section": "打楽器",
+      "title": "BassDrum",
+      "prompt": "BassDrum",
+      "description": "バスドラム 低音域の打ドラムセットやオーケストラで使用",
+      "tags": [
+        "楽器",
+        "打楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "打楽器-birchcanoedrum",
+      "section": "打楽器",
+      "title": "BirchCanoeDrum",
+      "prompt": "BirchCanoeDrum",
+      "description": "バーチカヌードラム 南米の打木製で力強い音",
+      "tags": [
+        "楽器",
+        "打楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "打楽器-bodhrán",
+      "section": "打楽器",
+      "title": "Bodhrán",
+      "prompt": "Bodhrán",
+      "description": "ボーラン アイルランドの打手で叩く",
+      "tags": [
+        "楽器",
+        "打楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "打楽器-bongo",
+      "section": "打楽器",
+      "title": "Bongo",
+      "prompt": "Bongo",
+      "description": "ボンゴ 二つの異なるサイズの太鼓がセットになった打",
+      "tags": [
+        "楽器",
+        "打楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "打楽器-cajon",
+      "section": "打楽器",
+      "title": "Cajon",
+      "prompt": "Cajon",
+      "description": "カホン 箱型の打座って叩く多様なリズムを演奏可能",
+      "tags": [
+        "楽器",
+        "打楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "打楽器-castanets",
+      "section": "打楽器",
+      "title": "Castanets",
+      "prompt": "Castanets",
+      "description": "カスタネット 手に持って叩く打スペイン舞踊で使用",
+      "tags": [
+        "楽器",
+        "打楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "打楽器-chimes",
+      "section": "打楽器",
+      "title": "Chimes",
+      "prompt": "Chimes",
+      "description": "チャイムズ 金属製バーの打澄んだ音色",
+      "tags": [
+        "楽器",
+        "打楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "打楽器-conga",
+      "section": "打楽器",
+      "title": "Conga",
+      "prompt": "Conga",
+      "description": "コンガ キューバの打手で叩いて音を出す",
+      "tags": [
+        "楽器",
+        "打楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "打楽器-cymbals",
+      "section": "打楽器",
+      "title": "Cymbals",
+      "prompt": "Cymbals",
+      "description": "シンバル 打金属円盤を叩いて音を出す",
+      "tags": [
+        "楽器",
+        "打楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "打楽器-djembe",
+      "section": "打楽器",
+      "title": "Djembe",
+      "prompt": "Djembe",
+      "description": "ジャンベ アフリカの太鼓型打多様な音色を手で叩いて表現",
+      "tags": [
+        "楽器",
+        "打楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "打楽器-ghatam",
+      "section": "打楽器",
+      "title": "Ghatam",
+      "prompt": "Ghatam",
+      "description": "ガタム インドの土器型打叩いて音を出す",
+      "tags": [
+        "楽器",
+        "打楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "打楽器-glockenspiel",
+      "section": "打楽器",
+      "title": "Glockenspiel",
+      "prompt": "Glockenspiel",
+      "description": "グロッケンシュピール 金属製バーの打澄んだ高音",
+      "tags": [
+        "楽器",
+        "打楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "打楽器-hangdrum",
+      "section": "打楽器",
+      "title": "HangDrum",
+      "prompt": "HangDrum",
+      "description": "ハングドラム 金属製の打癒しの音色",
+      "tags": [
+        "楽器",
+        "打楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "打楽器-marimba",
+      "section": "打楽器",
+      "title": "Marimba",
+      "prompt": "Marimba",
+      "description": "マリンバ 木製のバーを叩く打温かく深い音色が特徴",
+      "tags": [
+        "楽器",
+        "打楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "打楽器-sleighbells",
+      "section": "打楽器",
+      "title": "SleighBells",
+      "prompt": "SleighBells",
+      "description": "スレイベル 鈴がついた打クリスマス音楽で使用",
+      "tags": [
+        "楽器",
+        "打楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "打楽器-spoons",
+      "section": "打楽器",
+      "title": "Spoons",
+      "prompt": "Spoons",
+      "description": "スプーン スプーンを叩いて音を出すリズム",
+      "tags": [
+        "楽器",
+        "打楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "打楽器-timpani",
+      "section": "打楽器",
+      "title": "Timpani",
+      "prompt": "Timpani",
+      "description": "ティンパニ 大型の打調律可能でオーケストラで重要",
+      "tags": [
+        "楽器",
+        "打楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "打楽器-triangle",
+      "section": "打楽器",
+      "title": "Triangle",
+      "prompt": "Triangle",
+      "description": "トライアングル 三角形の金属棒でできた打澄んだ高音が特徴",
+      "tags": [
+        "楽器",
+        "打楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "打楽器-washboard",
+      "section": "打楽器",
+      "title": "Washboard",
+      "prompt": "Washboard",
+      "description": "ウォッシュボード 洗濯板を使った打リズム楽器として使用",
+      "tags": [
+        "楽器",
+        "打楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "打楽器-xylophone",
+      "section": "打楽器",
+      "title": "Xylophone",
+      "prompt": "Xylophone",
+      "description": "グロッケンシュピール 打金属製のバーを叩いて音を出す",
+      "tags": [
+        "楽器",
+        "打楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "打楽器-クラベス",
+      "section": "打楽器",
+      "title": "クラベス",
+      "prompt": "Claves",
+      "description": "ラテン音楽で使用される木製の棒を打ち合わせて音を出す。",
+      "tags": [
+        "楽器",
+        "打楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "打楽器-ウッドブロック",
+      "section": "打楽器",
+      "title": "ウッドブロック",
+      "prompt": "Woodblock",
+      "description": "木製のブロックを叩いて乾いた音を出す打。",
+      "tags": [
+        "楽器",
+        "打楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "打楽器-カウベル",
+      "section": "打楽器",
+      "title": "カウベル",
+      "prompt": "Cowbell",
+      "description": "金属製のベルで、ラテン音楽やロックでリズムを強調する。",
+      "tags": [
+        "楽器",
+        "打楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "打楽器-アゴゴベル",
+      "section": "打楽器",
+      "title": "アゴゴベル",
+      "prompt": "AgogoBell",
+      "description": "異なる音高の金属ベルを組み合わせたブラジル起源の。",
+      "tags": [
+        "楽器",
+        "打楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "打楽器-ギロ",
+      "section": "打楽器",
+      "title": "ギロ",
+      "prompt": "Guiro",
+      "description": "溝のある表面をスティックで擦って音を出すラテン系の打。",
+      "tags": [
+        "楽器",
+        "打楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "打楽器-カバサ",
+      "section": "打楽器",
+      "title": "カバサ",
+      "prompt": "Cabasa",
+      "description": "金属ビーズを巻いたシリンダーを回して音を出す打。",
+      "tags": [
+        "楽器",
+        "打楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "打楽器-シェケレ",
+      "section": "打楽器",
+      "title": "シェケレ",
+      "prompt": "Shekere",
+      "description": "ビーズを編み込んだネットをかぶせたひょうたん製の打。",
+      "tags": [
+        "楽器",
+        "打楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "打楽器-カシシ",
+      "section": "打楽器",
+      "title": "カシシ",
+      "prompt": "Caxixi",
+      "description": "ビーズや種を入れた小さなバスケット型のシェイカー。",
+      "tags": [
+        "楽器",
+        "打楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "打楽器-スルド",
+      "section": "打楽器",
+      "title": "スルド",
+      "prompt": "Surdo",
+      "description": "ブラジルのサンバで使用される大型の低音太鼓。",
+      "tags": [
+        "楽器",
+        "打楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "打楽器-ヘピニキ",
+      "section": "打楽器",
+      "title": "ヘピニキ",
+      "prompt": "Repinique",
+      "description": "サンバで使用される高音域の小型太鼓。",
+      "tags": [
+        "楽器",
+        "打楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "打楽器-クイーカ",
+      "section": "打楽器",
+      "title": "クイーカ",
+      "prompt": "Cuica",
+      "description": "内部の棒を擦って独特の音を出すブラジルの打。",
+      "tags": [
+        "楽器",
+        "打楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "打楽器-パンデイロ",
+      "section": "打楽器",
+      "title": "パンデイロ",
+      "prompt": "Pandeiro",
+      "description": "ブラジルのタンバリンに似た打で、リズムの要。",
+      "tags": [
+        "楽器",
+        "打楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "打楽器-フレームドラム",
+      "section": "打楽器",
+      "title": "フレームドラム",
+      "prompt": "FrameDrum",
+      "description": "片面に皮を張ったシンプルな構造の太鼓で、世界各地に存在。",
+      "tags": [
+        "楽器",
+        "打楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "打楽器-オーシャンドラム",
+      "section": "打楽器",
+      "title": "オーシャンドラム",
+      "prompt": "OceanDrum",
+      "description": "内部に小さなビーズを入れたドラムで、波の音を模倣。",
+      "tags": [
+        "楽器",
+        "打楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "打楽器-レインスティック",
+      "section": "打楽器",
+      "title": "レインスティック",
+      "prompt": "Rainstick",
+      "description": "内部に小さな物体を入れた管を傾けて雨音を再現する。",
+      "tags": [
+        "楽器",
+        "打楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "打楽器-スラップスティック",
+      "section": "打楽器",
+      "title": "スラップスティック",
+      "prompt": "Slapstick",
+      "description": "2枚の板を打ち合わせて鋭い音を出す打。",
+      "tags": [
+        "楽器",
+        "打楽器"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "打楽器-ラチェット",
+      "section": "打楽器",
+      "title": "ラチェット",
+      "prompt": "Ratchet",
+      "description": "歯車と板を使って連続音を出す打。",
+      "tags": [
+        "楽器",
+        "打楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "打楽器-フレクサトーン",
+      "section": "打楽器",
+      "title": "フレクサトーン",
+      "prompt": "Flexatone",
+      "description": "金属板を振動させて不思議な音を出す打。",
+      "tags": [
+        "楽器",
+        "打楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "打楽器-アンビル",
+      "section": "打楽器",
+      "title": "アンビル",
+      "prompt": "Anvil",
+      "description": "金属を叩いて鐘のような音を出す打。",
+      "tags": [
+        "楽器",
+        "打楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "打楽器-チューブラーベル",
+      "section": "打楽器",
+      "title": "チューブラーベル",
+      "prompt": "TubularBells",
+      "description": "金属製の管を叩いて鐘の音を出す打。",
+      "tags": [
+        "楽器",
+        "打楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "打楽器-ログドラム",
+      "section": "打楽器",
+      "title": "ログドラム",
+      "prompt": "LogDrum",
+      "description": "中をくり抜いた木製のドラムで、異なる音高を持つ。",
+      "tags": [
+        "楽器",
+        "打楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "打楽器-テンプルブロック",
+      "section": "打楽器",
+      "title": "テンプルブロック",
+      "prompt": "TempleBlocks",
+      "description": "異なる音高の木製ブロックを並べた打。",
+      "tags": [
+        "楽器",
+        "打楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "打楽器-オクタバン",
+      "section": "打楽器",
+      "title": "オクタバン",
+      "prompt": "Octoban",
+      "description": "細長い筒状のドラムで、異なる音高を持つセット。",
+      "tags": [
+        "楽器",
+        "打楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "打楽器-ロートタム",
+      "section": "打楽器",
+      "title": "ロートタム",
+      "prompt": "Rototom",
+      "description": "チューニング可能なヘッドを持つドラムで、音高の変化が可能。",
+      "tags": [
+        "楽器",
+        "打楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "打楽器-グランカッサ",
+      "section": "打楽器",
+      "title": "グランカッサ",
+      "prompt": "GranCassa",
+      "description": "オーケストラで使用される大型のバスドラム。",
+      "tags": [
+        "楽器",
+        "打楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "打楽器-ブーバム",
+      "section": "打楽器",
+      "title": "ブーバム",
+      "prompt": "Boobams",
+      "description": "異なる長さの筒を並べたドラムで、メロディを奏でることが可能。",
+      "tags": [
+        "楽器",
+        "打楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "打楽器-ウドゥ",
+      "section": "打楽器",
+      "title": "ウドゥ",
+      "prompt": "Udu",
+      "description": "ナイジェリアの壺型土器打で水滴のような低音が特徴。",
+      "tags": [
+        "楽器",
+        "打楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "打楽器-トーキングドラム",
+      "section": "打楽器",
+      "title": "トーキングドラム",
+      "prompt": "TalkingDrum",
+      "description": "アフリカの音高を変えられるドラムで言葉のように演奏される。",
+      "tags": [
+        "楽器",
+        "打楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "打楽器-アシコ",
+      "section": "打楽器",
+      "title": "アシコ",
+      "prompt": "Ashiko",
+      "description": "円錐形の胴体を持つアフリカ系のロープチューンドラム。",
+      "tags": [
+        "楽器",
+        "打楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "打楽器-ブガラブー",
+      "section": "打楽器",
+      "title": "ブガラブー",
+      "prompt": "Bougarabou",
+      "description": "西アフリカの高音が特徴の大きな打。",
+      "tags": [
+        "楽器",
+        "打楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "打楽器-バタドラム",
+      "section": "打楽器",
+      "title": "バタドラム",
+      "prompt": "BatáDrum",
+      "description": "キューバや西アフリカの宗教儀式に使われる2面の打。",
+      "tags": [
+        "楽器",
+        "打楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "打楽器-タンボリン",
+      "section": "打楽器",
+      "title": "タンボリン",
+      "prompt": "Tamborim",
+      "description": "ブラジルのサンバに使われる小型の高音ドラム。",
+      "tags": [
+        "楽器",
+        "打楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "打楽器-ター",
+      "section": "打楽器",
+      "title": "ター",
+      "prompt": "Tar",
+      "description": "中東や地中海地域で使われるフレームドラム。",
+      "tags": [
+        "楽器",
+        "打楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "打楽器-リク",
+      "section": "打楽器",
+      "title": "リク",
+      "prompt": "Riq",
+      "description": "中東のタンバリン型打で細かいリズムが特徴。",
+      "tags": [
+        "楽器",
+        "打楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "打楽器-ダフ",
+      "section": "打楽器",
+      "title": "ダフ",
+      "prompt": "Daf",
+      "description": "イランや中央アジアで用いられる大きなフレームドラム。",
+      "tags": [
+        "楽器",
+        "打楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "打楽器-カンジーラ",
+      "section": "打楽器",
+      "title": "カンジーラ",
+      "prompt": "Kanjira",
+      "description": "南インドの小型フレームドラムでクラシカル音楽に使用。",
+      "tags": [
+        "楽器",
+        "打楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "打楽器-ムリダンガム",
+      "section": "打楽器",
+      "title": "ムリダンガム",
+      "prompt": "Mridangam",
+      "description": "南インドの二面太鼓で古典音楽に不可欠な打。",
+      "tags": [
+        "楽器",
+        "打楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "打楽器-タブラ",
+      "section": "打楽器",
+      "title": "タブラ",
+      "prompt": "Tabla",
+      "description": "北インドのペア太鼓で繊細かつ高速のリズムを出す。",
+      "tags": [
+        "楽器",
+        "打楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "打楽器-ナール",
+      "section": "打楽器",
+      "title": "ナール",
+      "prompt": "Naal",
+      "description": "インドの民俗音楽で使用される小型の両面太鼓。",
+      "tags": [
+        "楽器",
+        "打楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "打楽器-ドール",
+      "section": "打楽器",
+      "title": "ドール",
+      "prompt": "Dhol",
+      "description": "インドやパキスタンで祝祭に用いられる力強い音の両面太鼓。",
+      "tags": [
+        "楽器",
+        "打楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "打楽器-コール",
+      "section": "打楽器",
+      "title": "コール",
+      "prompt": "Khol",
+      "description": "バングラデシュ・インドの宗教音楽で使われる太鼓。",
+      "tags": [
+        "楽器",
+        "打楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "打楽器-トゥパン",
+      "section": "打楽器",
+      "title": "トゥパン",
+      "prompt": "Tupan",
+      "description": "バルカン半島で使われる大型両面太鼓。",
+      "tags": [
+        "楽器",
+        "打楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "打楽器-ダヴル",
+      "section": "打楽器",
+      "title": "ダヴル",
+      "prompt": "Davul",
+      "description": "トルコの伝統的な大型バスドラム。",
+      "tags": [
+        "楽器",
+        "打楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "打楽器-ベンディール",
+      "section": "打楽器",
+      "title": "ベンディール",
+      "prompt": "Bendir",
+      "description": "北アフリカや中東のフレームドラムでジングル付きのものもある。",
+      "tags": [
+        "楽器",
+        "打楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "打楽器-タポン",
+      "section": "打楽器",
+      "title": "タポン",
+      "prompt": "Taphon",
+      "description": "タイの伝統的な中型ドラム。",
+      "tags": [
+        "楽器",
+        "打楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "打楽器-クローンヤオ",
+      "section": "打楽器",
+      "title": "クローンヤオ",
+      "prompt": "KlongYao",
+      "description": "タイの装飾的な長胴ドラム。",
+      "tags": [
+        "楽器",
+        "打楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "打楽器-桶胴太鼓",
+      "section": "打楽器",
+      "title": "桶胴太鼓",
+      "prompt": "Okedo-daiko",
+      "description": "日本の桶状胴体を持つ和太鼓。",
+      "tags": [
+        "楽器",
+        "打楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "打楽器-締太鼓",
+      "section": "打楽器",
+      "title": "締太鼓",
+      "prompt": "Shime-daiko",
+      "description": "日本の祭りや舞台で使われる高音の小型太鼓。",
+      "tags": [
+        "楽器",
+        "打楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "打楽器-taiko",
+      "section": "打楽器",
+      "title": "Taiko",
+      "prompt": "Taiko",
+      "description": "太鼓 日本の伝統太鼓で、現代の演奏芸術や映画音楽にも活用。",
+      "tags": [
+        "楽器",
+        "打楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "打楽器-でんでん太鼓",
+      "section": "打楽器",
+      "title": "でんでん太鼓",
+      "prompt": "Den-dendaiko",
+      "description": "日本の手持ち回転打、教育・祭りで使用。",
+      "tags": [
+        "楽器",
+        "打楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "打楽器-ボナン",
+      "section": "打楽器",
+      "title": "ボナン",
+      "prompt": "Bonang",
+      "description": "インドネシアのガムランで使われる金属製の旋律打。",
+      "tags": [
+        "楽器",
+        "打楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "打楽器-ケンダン",
+      "section": "打楽器",
+      "title": "ケンダン",
+      "prompt": "Kendang",
+      "description": "ガムラン音楽のリズムをリードする両面太鼓。",
+      "tags": [
+        "楽器",
+        "打楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "打楽器-スリットドラム",
+      "section": "打楽器",
+      "title": "スリットドラム",
+      "prompt": "SlitDrum",
+      "description": "木や竹をくり抜いて音程を作る打でアジア・アフリカに分布。",
+      "tags": [
+        "楽器",
+        "打楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "打楽器-アシコ",
+      "section": "打楽器",
+      "title": "アシコ",
+      "prompt": "Ashiko",
+      "description": "西アフリカ起源の円錐形の木製太鼓で、手で叩いて演奏する。",
+      "tags": [
+        "楽器",
+        "打楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "打楽器-トーキングドラム",
+      "section": "打楽器",
+      "title": "トーキングドラム",
+      "prompt": "TalkingDrum",
+      "description": "西アフリカの肩に抱えて演奏する太鼓で、音高を変えられる。",
+      "tags": [
+        "楽器",
+        "打楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "打楽器-ウドゥ",
+      "section": "打楽器",
+      "title": "ウドゥ",
+      "prompt": "Udu",
+      "description": "ナイジェリア発祥の土器のような形状を持つ打で、低音が特徴。",
+      "tags": [
+        "楽器",
+        "打楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "打楽器-クパンロゴ",
+      "section": "打楽器",
+      "title": "クパンロゴ",
+      "prompt": "Kpanlogo",
+      "description": "ガーナの伝統的な太鼓で、ダンス音楽に使われる。",
+      "tags": [
+        "楽器",
+        "打楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "打楽器-バタドラム",
+      "section": "打楽器",
+      "title": "バタドラム",
+      "prompt": "BatáDrum",
+      "description": "キューバやナイジェリアの宗教儀式で使われるドラム。",
+      "tags": [
+        "楽器",
+        "打楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "打楽器-アタバキ",
+      "section": "打楽器",
+      "title": "アタバキ",
+      "prompt": "Atabaque",
+      "description": "ブラジルのカポエイラやカンドンブレで使用される円筒型の太鼓。",
+      "tags": [
+        "楽器",
+        "打楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "打楽器-レバナ",
+      "section": "打楽器",
+      "title": "レバナ",
+      "prompt": "Rebana",
+      "description": "インドネシアやマレーシアの宗教・祝祭で使われるフレームドラム。",
+      "tags": [
+        "楽器",
+        "打楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "打楽器-タブラ",
+      "section": "打楽器",
+      "title": "タブラ",
+      "prompt": "Tabla",
+      "description": "インド古典音楽で使用されるペアの打で、非常に細かい表現が可能。",
+      "tags": [
+        "楽器",
+        "打楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "打楽器-ムリダンガム",
+      "section": "打楽器",
+      "title": "ムリダンガム",
+      "prompt": "Mridangam",
+      "description": "南インド古典音楽で使用される両面太鼓。",
+      "tags": [
+        "楽器",
+        "打楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "打楽器-ケンダン",
+      "section": "打楽器",
+      "title": "ケンダン",
+      "prompt": "Kendang",
+      "description": "インドネシアのガムラン音楽で使われる両面太鼓。",
+      "tags": [
+        "楽器",
+        "打楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "打楽器-タポン",
+      "section": "打楽器",
+      "title": "タポン",
+      "prompt": "Taphon",
+      "description": "タイの伝統舞踊音楽で使われる細長い両面太鼓。",
+      "tags": [
+        "楽器",
+        "打楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "打楽器-長胴太鼓",
+      "section": "打楽器",
+      "title": "長胴太鼓",
+      "prompt": "Nagado-Daiko",
+      "description": "日本の伝統的な太鼓で、神楽や祭りに用いられる。",
+      "tags": [
+        "楽器",
+        "打楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "打楽器-桶胴太鼓",
+      "section": "打楽器",
+      "title": "桶胴太鼓",
+      "prompt": "Okedo-Daiko",
+      "description": "日本の持ち運び可能な桶状の太鼓。",
+      "tags": [
+        "楽器",
+        "打楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "打楽器-締太鼓",
+      "section": "打楽器",
+      "title": "締太鼓",
+      "prompt": "Shime-Daiko",
+      "description": "日本の小型で高音の太鼓で、舞台音楽や神楽に用いられる。",
+      "tags": [
+        "楽器",
+        "打楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "打楽器-でんでん太鼓",
+      "section": "打楽器",
+      "title": "でんでん太鼓",
+      "prompt": "Den-DenDaiko",
+      "description": "日本の民芸で、振るだけで音が鳴る。",
+      "tags": [
+        "楽器",
+        "打楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "打楽器-鼓",
+      "section": "打楽器",
+      "title": "鼓",
+      "prompt": "Tsuzumi",
+      "description": "日本の能楽や歌舞伎で使われる肩にかけて叩く小型太鼓。",
+      "tags": [
+        "楽器",
+        "打楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "打楽器-チェンダ",
+      "section": "打楽器",
+      "title": "チェンダ",
+      "prompt": "Chenda",
+      "description": "南インド・ケーララ州の祝祭で使用されるシリンダー型太鼓。",
+      "tags": [
+        "楽器",
+        "打楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "打楽器-ブク",
+      "section": "打楽器",
+      "title": "ブク",
+      "prompt": "Buk",
+      "description": "韓国の伝統的な太鼓で、宮廷音楽や農楽に用いられる。",
+      "tags": [
+        "楽器",
+        "打楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "打楽器-チャング",
+      "section": "打楽器",
+      "title": "チャング",
+      "prompt": "Janggu",
+      "description": "韓国の砂時計型両面太鼓で、様々なジャンルに対応。",
+      "tags": [
+        "楽器",
+        "打楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "打楽器-チベットシンギングボウル",
+      "section": "打楽器",
+      "title": "チベットシンギングボウル",
+      "prompt": "TibetanSingingBowl",
+      "description": "擦って持続音を出す金属製の仏具打。",
+      "tags": [
+        "楽器",
+        "打楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "打楽器-ダウル",
+      "section": "打楽器",
+      "title": "ダウル",
+      "prompt": "Davul",
+      "description": "トルコやバルカン地域で使われる大型両面太鼓。",
+      "tags": [
+        "楽器",
+        "打楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "打楽器-ダフ",
+      "section": "打楽器",
+      "title": "ダフ",
+      "prompt": "Daf",
+      "description": "中東やペルシャ音楽で使用される大きなフレームドラム。",
+      "tags": [
+        "楽器",
+        "打楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "打楽器-リク",
+      "section": "打楽器",
+      "title": "リク",
+      "prompt": "Riq",
+      "description": "中東のタンバリン型打で高音が特徴。",
+      "tags": [
+        "楽器",
+        "打楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "打楽器-コムス",
+      "section": "打楽器",
+      "title": "コムス",
+      "prompt": "Khomus",
+      "description": "シベリアや中央アジアの口琴で、振動音を発する。",
+      "tags": [
+        "楽器",
+        "打楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "打楽器-口琴",
+      "section": "打楽器",
+      "title": "口琴",
+      "prompt": "JawHarp",
+      "description": "アジアやヨーロッパで見られる金属片を歯で振動させる打。",
+      "tags": [
+        "楽器",
+        "打楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "電子楽器-sampler",
+      "section": "電子楽器",
+      "title": "Sampler",
+      "prompt": "Sampler",
+      "description": "サンプラー 音を録音し再生・編集可能な電子音楽で重要",
+      "tags": [
+        "楽器",
+        "電子楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "電子楽器-8-bit",
+      "section": "電子楽器",
+      "title": "8-Bit",
+      "prompt": "8-Bit",
+      "description": "8ビット ファミコンのような8bit音源",
+      "tags": [
+        "楽器",
+        "電子楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "電子楽器-chiptune",
+      "section": "電子楽器",
+      "title": "Chiptune",
+      "prompt": "Chiptune",
+      "description": "チップチューン ファミコンのような8bit音源 洞窟物語で使われているような音（By シオンさん）チップチューンとは、1980年代から1990年代初頭に発売された家庭用ゲーム機やパーソナルコンピューターに搭載されていた音源チップで制作された音楽です",
+      "tags": [
+        "楽器",
+        "電子楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "電子楽器-drummachine",
+      "section": "電子楽器",
+      "title": "DrumMachine",
+      "prompt": "DrumMachine",
+      "description": "ドラムマシン 電子的にリズムを生成する装置電子音楽でよく使用",
+      "tags": [
+        "楽器",
+        "電子楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "電子楽器-tr-808",
+      "section": "電子楽器",
+      "title": "Tr-808",
+      "prompt": "Tr-808",
+      "description": "ヤオヤ(八百屋) 電子ドラムマシンの名機。 特徴的なサウンドで電子音楽に多用。",
+      "tags": [
+        "楽器",
+        "電子楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "電子楽器-cheapdrummachine",
+      "section": "電子楽器",
+      "title": "CheapDrumMachine",
+      "prompt": "CheapDrumMachine",
+      "description": "チープドラムマシン 1970～80年代のドラムマシンのチープサウンド。TR-808と組み合わせると良い場合があります。",
+      "tags": [
+        "楽器",
+        "電子楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "電子楽器-synthbass",
+      "section": "電子楽器",
+      "title": "SynthBass",
+      "prompt": "SynthBass",
+      "description": "シンセベース",
+      "tags": [
+        "楽器",
+        "電子楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "電子楽器-16-bit",
+      "section": "電子楽器",
+      "title": "16-Bit",
+      "prompt": "16-Bit",
+      "description": "16ビット スーパーファミコンの様な16ビット音源",
+      "tags": [
+        "楽器",
+        "電子楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "電子楽器-32-bit",
+      "section": "電子楽器",
+      "title": "32-Bit",
+      "prompt": "32-Bit",
+      "description": "32ビット PlayStation、WiiUの様な32ビット音源",
+      "tags": [
+        "楽器",
+        "電子楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "電子楽器-64-bit",
+      "section": "電子楽器",
+      "title": "64-Bit",
+      "prompt": "64-Bit",
+      "description": "64ビット PlayStation 4、Nintendo Switchの様な64ビット音源",
+      "tags": [
+        "楽器",
+        "電子楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "電子楽器-theremin",
+      "section": "電子楽器",
+      "title": "Theremin",
+      "prompt": "Theremin",
+      "description": "テルミン 手を使って電磁場を操作して音を出すユニークな電子",
+      "tags": [
+        "楽器",
+        "電子楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "電子楽器-ボコーダー",
+      "section": "電子楽器",
+      "title": "ボコーダー",
+      "prompt": "Vocoder",
+      "description": "音声信号を解析・変換し、ロボットのような音声効果を生み出す装置。",
+      "tags": [
+        "楽器",
+        "電子楽器"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "電子楽器-グルーヴボックス",
+      "section": "電子楽器",
+      "title": "グルーヴボックス",
+      "prompt": "Groovebox",
+      "description": "シーケンサー、音源、エフェクトを統合したライブパフォーマンス向け機器。",
+      "tags": [
+        "楽器",
+        "電子楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "電子楽器-スタイロフォン",
+      "section": "電子楽器",
+      "title": "スタイロフォン",
+      "prompt": "Stylophone",
+      "description": "ペン型スタイラスで金属キーボードをタッチして演奏する小型電子。",
+      "tags": [
+        "楽器",
+        "電子楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "電子楽器-カオシレーター",
+      "section": "電子楽器",
+      "title": "カオシレーター",
+      "prompt": "Kaossilator",
+      "description": "タッチパッドで音程や音色を操作するシンセサイザー。",
+      "tags": [
+        "楽器",
+        "電子楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "電子楽器-リアクタブル",
+      "section": "電子楽器",
+      "title": "リアクタブル",
+      "prompt": "Reactable",
+      "description": "テーブル上で物体を配置・操作して音楽を生成するインタラクティブ。",
+      "tags": [
+        "楽器",
+        "電子楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "電子楽器-アイゲンハープ",
+      "section": "電子楽器",
+      "title": "アイゲンハープ",
+      "prompt": "Eigenharp",
+      "description": "多機能なコントローラーで、鍵盤、弦、ブレスコントローラーを備える。",
+      "tags": [
+        "楽器",
+        "電子楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "電子楽器-アルファスフィア",
+      "section": "電子楽器",
+      "title": "アルファスフィア",
+      "prompt": "AlphaSphere",
+      "description": "球体上のパッドを押して音を制御する新感覚の電子。",
+      "tags": [
+        "楽器",
+        "電子楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "電子楽器-パーカッサ-オーディオキューブ",
+      "section": "電子楽器",
+      "title": "パーカッサ・オーディオキューブ",
+      "prompt": "PercussaAudioCubes",
+      "description": "光と距離センサーを備えた立方体型コントローラー。",
+      "tags": [
+        "楽器",
+        "電子楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "電子楽器-チェンバリン",
+      "section": "電子楽器",
+      "title": "チェンバリン",
+      "prompt": "Chamberlin",
+      "description": "テープ再生機構を用いた初期のサンプラー型キーボード。",
+      "tags": [
+        "楽器",
+        "電子楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "電子楽器-メロトロン",
+      "section": "電子楽器",
+      "title": "メロトロン",
+      "prompt": "Mellotron",
+      "description": "各鍵に対応するテープを再生して音を出すヴィンテージキーボード。",
+      "tags": [
+        "楽器",
+        "電子楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "電子楽器-オムニコード",
+      "section": "電子楽器",
+      "title": "オムニコード",
+      "prompt": "Omnichord",
+      "description": "コードボタンとタッチプレートで演奏する電子オートハープ。",
+      "tags": [
+        "楽器",
+        "電子楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "電子楽器-ブクラ-ライトニング",
+      "section": "電子楽器",
+      "title": "ブクラ・ライトニング",
+      "prompt": "BuchlaLightning",
+      "description": "手の動きを赤外線で検知して音を制御するモーションセンサー。",
+      "tags": [
+        "楽器",
+        "電子楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "電子楽器-クラークドース",
+      "section": "電子楽器",
+      "title": "クラークドース",
+      "prompt": "Kraakdoos",
+      "description": "触れることで音が変化するノイズジェネレーター。",
+      "tags": [
+        "楽器",
+        "電子楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "楽器編成-orchestra",
+      "section": "楽器編成",
+      "title": "Orchestra",
+      "prompt": "Orchestra",
+      "description": "オーケストラ 弦、管楽器、打楽器などで構成された楽曲クラシック中心",
+      "tags": [
+        "楽器",
+        "楽器編成"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "楽器編成-strings",
+      "section": "楽器編成",
+      "title": "Strings",
+      "prompt": "Strings",
+      "description": "ストリングス ざっくりしたオーケストラ編成で演奏。",
+      "tags": [
+        "楽器",
+        "楽器編成"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "楽器編成-bigband",
+      "section": "楽器編成",
+      "title": "Bigband",
+      "prompt": "Bigband",
+      "description": "ビッグバンド ビッグバンドの編成で演奏",
+      "tags": [
+        "楽器",
+        "楽器編成"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "楽器編成-brassband",
+      "section": "楽器編成",
+      "title": "BrassBand",
+      "prompt": "BrassBand",
+      "description": "ブラスバンド ブラスバンドの編成で演奏",
+      "tags": [
+        "楽器",
+        "楽器編成"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "楽器編成-rockband",
+      "section": "楽器編成",
+      "title": "Rockband",
+      "prompt": "Rockband",
+      "description": "ロックバンド ロックバンドの編成で演奏",
+      "tags": [
+        "楽器",
+        "楽器編成"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "和楽器-biwa",
+      "section": "和楽器",
+      "title": "Biwa",
+      "prompt": "Biwa",
+      "description": "琵琶 日本や中国の撥弦歴史的な語り伴奏で使用",
+      "tags": [
+        "楽器",
+        "和楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "和楽器-kokyu",
+      "section": "和楽器",
+      "title": "Kokyu",
+      "prompt": "Kokyu",
+      "description": "胡弓 中国や日本の弦弓で弾き、哀愁のある音色",
+      "tags": [
+        "楽器",
+        "和楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "和楽器-koto",
+      "section": "和楽器",
+      "title": "Koto",
+      "prompt": "Koto",
+      "description": "琴 日本の伝統的な弦多弦で柔らかい音色が特徴",
+      "tags": [
+        "楽器",
+        "和楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "和楽器-nokan",
+      "section": "和楽器",
+      "title": "Nokan",
+      "prompt": "Nokan",
+      "description": "能管 日本の能楽で使われる横笛高音域が特徴",
+      "tags": [
+        "楽器",
+        "和楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "和楽器-shakuhachi",
+      "section": "和楽器",
+      "title": "Shakuhachi",
+      "prompt": "Shakuhachi",
+      "description": "尺八 日本の竹製の管深く情緒的な音色",
+      "tags": [
+        "楽器",
+        "和楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "和楽器-shamisen",
+      "section": "和楽器",
+      "title": "Shamisen",
+      "prompt": "Shamisen",
+      "description": "三味線 日本の弦撥で弾き、力強い音色が特徴",
+      "tags": [
+        "楽器",
+        "和楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "和楽器-suzu",
+      "section": "和楽器",
+      "title": "Suzu",
+      "prompt": "Suzu",
+      "description": "鈴 手で振って音を出す打高音の金属音が特徴",
+      "tags": [
+        "楽器",
+        "和楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "和楽器-taiko",
+      "section": "和楽器",
+      "title": "Taiko",
+      "prompt": "Taiko",
+      "description": "太鼓 日本の伝統的な打力強いリズム",
+      "tags": [
+        "楽器",
+        "和楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "和楽器-shinobue",
+      "section": "和楽器",
+      "title": "Shinobue",
+      "prompt": "Shinobue",
+      "description": "篠笛 篠竹（雌竹）に歌口と指孔（手孔）を開け、漆ないしは合成樹脂を管の内面に塗った簡素な構造の横笛",
+      "tags": [
+        "楽器",
+        "和楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "和楽器-笙",
+      "section": "和楽器",
+      "title": "笙",
+      "prompt": "Shō",
+      "description": "和の中で唯一のリード式管楽器で、和音を出せる雅楽の主要楽器。",
+      "tags": [
+        "楽器",
+        "和楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "和楽器-篳篥",
+      "section": "和楽器",
+      "title": "篳篥",
+      "prompt": "Hichiriki",
+      "description": "雅楽で使用される小型のダブルリード管で、哀愁のある音色。",
+      "tags": [
+        "楽器",
+        "和楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "和楽器-龍笛",
+      "section": "和楽器",
+      "title": "龍笛",
+      "prompt": "Ryuteki",
+      "description": "雅楽で使用される横笛で、天の声を表現する象徴的存在。",
+      "tags": [
+        "楽器",
+        "和楽器"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "和楽器-胡弓-こきゅう",
+      "section": "和楽器",
+      "title": "胡弓（こきゅう）",
+      "prompt": "Kokyū",
+      "description": "擦弦で三味線に似た構造を持ち、弓で演奏される（胡弓と表記が同じですが別の扱いもあり）。",
+      "tags": [
+        "楽器",
+        "和楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "和楽器-志野笛",
+      "section": "和楽器",
+      "title": "志野笛",
+      "prompt": "Shinobue",
+      "description": "篠笛とは異なる調律の横笛。民謡・祭りで使用される。",
+      "tags": [
+        "楽器",
+        "和楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "和楽器-一絃琴",
+      "section": "和楽器",
+      "title": "一絃琴",
+      "prompt": "Ichigenkin",
+      "description": "一弦のみの琴で、簡素ながら深い音色が特徴。",
+      "tags": [
+        "楽器",
+        "和楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "和楽器-能楽笛",
+      "section": "和楽器",
+      "title": "能楽笛",
+      "prompt": "Nōkan",
+      "description": "能楽専用の横笛で、篠笛よりも高音で音の揺れがある。",
+      "tags": [
+        "楽器",
+        "和楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "和楽器-大鼓",
+      "section": "和楽器",
+      "title": "大鼓",
+      "prompt": "Ōtsuzumi",
+      "description": "能楽などで用いられる肩にかけて打つ和太鼓。",
+      "tags": [
+        "楽器",
+        "和楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "和楽器-小鼓",
+      "section": "和楽器",
+      "title": "小鼓",
+      "prompt": "Kotsuzumi",
+      "description": "大鼓と対になる小型太鼓で、手で打つ。",
+      "tags": [
+        "楽器",
+        "和楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "和楽器-釣太鼓",
+      "section": "和楽器",
+      "title": "釣太鼓",
+      "prompt": "Tsuri-daiko",
+      "description": "雅楽で用いられる吊るされた大太鼓。",
+      "tags": [
+        "楽器",
+        "和楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "和楽器-鉦-かね",
+      "section": "和楽器",
+      "title": "鉦（かね）",
+      "prompt": "Kane",
+      "description": "金属製の打で、仏教儀式や盆踊りなどに使用。",
+      "tags": [
+        "楽器",
+        "和楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "和楽器-木魚",
+      "section": "和楽器",
+      "title": "木魚",
+      "prompt": "Mokugyo",
+      "description": "仏教で読経の際に使用する木製の打。",
+      "tags": [
+        "楽器",
+        "和楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "和楽器-拍子木",
+      "section": "和楽器",
+      "title": "拍子木",
+      "prompt": "Hyōshigi",
+      "description": "木製の棒を打ち鳴らして合図やリズムをとる。",
+      "tags": [
+        "楽器",
+        "和楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "和楽器-びんざさら",
+      "section": "和楽器",
+      "title": "びんざさら",
+      "prompt": "Binzasara",
+      "description": "連なった木片を蛇腹状にして擦り合わせる民族打。",
+      "tags": [
+        "楽器",
+        "和楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "和楽器-ささら",
+      "section": "和楽器",
+      "title": "ささら",
+      "prompt": "Sasara",
+      "description": "竹や木片を束ねた擦奏で、農村儀式などに使われる。",
+      "tags": [
+        "楽器",
+        "和楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "和楽器-団扇太鼓",
+      "section": "和楽器",
+      "title": "団扇太鼓",
+      "prompt": "Uchiwa-daiko",
+      "description": "団扇のような形状の和太鼓で、主に仏教行事に使用。",
+      "tags": [
+        "楽器",
+        "和楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "和楽器-長胴太鼓",
+      "section": "和楽器",
+      "title": "長胴太鼓",
+      "prompt": "Nagado-Daiko",
+      "description": "日本の伝統的な太鼓で、神楽や祭りに用いられる。",
+      "tags": [
+        "楽器",
+        "和楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "和楽器-桶胴太鼓",
+      "section": "和楽器",
+      "title": "桶胴太鼓",
+      "prompt": "Okedo-Daiko",
+      "description": "日本の持ち運び可能な桶状の太鼓。",
+      "tags": [
+        "楽器",
+        "和楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "和楽器-締太鼓",
+      "section": "和楽器",
+      "title": "締太鼓",
+      "prompt": "Shime-Daiko",
+      "description": "日本の小型で高音の太鼓で、舞台音楽や神楽に用いられる。",
+      "tags": [
+        "楽器",
+        "和楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "和楽器-でんでん太鼓",
+      "section": "和楽器",
+      "title": "でんでん太鼓",
+      "prompt": "Den-DenDaiko",
+      "description": "日本の民芸で、振るだけで音が鳴る。",
+      "tags": [
+        "楽器",
+        "和楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "和楽器-鼓",
+      "section": "和楽器",
+      "title": "鼓",
+      "prompt": "Tsuzumi",
+      "description": "日本の能楽や歌舞伎で使われる肩にかけて叩く小型太鼓。",
+      "tags": [
+        "楽器",
+        "和楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "和楽器-桶胴太鼓",
+      "section": "和楽器",
+      "title": "桶胴太鼓",
+      "prompt": "Okedo-daiko",
+      "description": "日本の桶状胴体を持つ和太鼓。",
+      "tags": [
+        "楽器",
+        "和楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "和楽器-締太鼓",
+      "section": "和楽器",
+      "title": "締太鼓",
+      "prompt": "Shime-daiko",
+      "description": "日本の祭りや舞台で使われる高音の小型太鼓。",
+      "tags": [
+        "楽器",
+        "和楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "和楽器-でんでん太鼓",
+      "section": "和楽器",
+      "title": "でんでん太鼓",
+      "prompt": "Den-dendaiko",
+      "description": "日本の手持ち回転打、教育・祭りで使用。",
+      "tags": [
+        "楽器",
+        "和楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-ボーカル",
+      "section": "主要楽器",
+      "title": "ボーカル",
+      "prompt": "[Primary Instruments:Vocals]",
+      "description": "「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-piano",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Piano]",
+      "prompt": "[Primary Instruments:Piano]",
+      "description": "ピアノ 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。オーケストラの全音域よりも広い弦をハンマーで叩き音を発しする。",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-accordion",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Accordion]",
+      "prompt": "[Primary Instruments:Accordion]",
+      "description": "アコーディオン 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。蛇腹を使って音を出す鍵盤楽器フォーク音楽で重要",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-electric-piano",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Electric Piano]",
+      "prompt": "[Primary Instruments:Electric Piano]",
+      "description": "エレクトリックピアノ 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。電気を利用するピアノ。柔らかい音色と携帯性が特徴",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-keyboard",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Keyboard]",
+      "prompt": "[Primary Instruments:Keyboard]",
+      "description": "キーボード 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。多機能電子楽器ピアノ音色以外にも多彩な音色を搭載",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-organ",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Organ]",
+      "prompt": "[Primary Instruments:Organ]",
+      "description": "オルガン 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。鍵盤で選択したパイプに加圧した空気を送って発音する鍵盤楽器",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-pipe-organ",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Pipe Organ]",
+      "prompt": "[Primary Instruments:Pipe Organ]",
+      "description": "パイプオルガン 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。鍵盤で選択したパイプに加圧した空気を送って発音する鍵盤楽器",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-synthesizer",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Synthesizer]",
+      "prompt": "[Primary Instruments:Synthesizer]",
+      "description": "シンセサイザー 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。電子音を生成する楽器幅広い音作りが可能",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-guitar",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Guitar]",
+      "prompt": "[Primary Instruments:Guitar]",
+      "description": "ギター 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。弦楽器クラシック、アコースティック、エレクトリックなど多様な種類がある",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-acoustic-guitar",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Acoustic Guitar]",
+      "prompt": "[Primary Instruments:Acoustic Guitar]",
+      "description": "アコースティックギター 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。電気回路を持たず、生音で演奏するギターの総称",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-electric-guitar",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Electric Guitar]",
+      "prompt": "[Primary Instruments:Electric Guitar]",
+      "description": "エレキギター 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。電気を利用する弦楽器アンプを通じて多彩な音色を作るロックやジャズで使用",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-cello",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Cello]",
+      "prompt": "[Primary Instruments:Cello]",
+      "description": "チェロ 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。弦楽器中低音域で深みのある音色が特徴オーケストラやソロで活躍",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-cutting-guitar",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Cutting Guitar]",
+      "prompt": "[Primary Instruments:Cutting Guitar]",
+      "description": "カッティングギター 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。歯切れよく音を切る演奏法",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-clean-guitar",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Clean Guitar]",
+      "prompt": "[Primary Instruments:Clean Guitar]",
+      "description": "クリーンギター 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。歪ませていないエレキギター",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-bass-guitar",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Bass Guitar]",
+      "prompt": "[Primary Instruments:Bass Guitar]",
+      "description": "ベースギター 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。低音域を担当する弦楽器リズムセクションの基盤を形成",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-heavy-bass",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Heavy Bass]",
+      "prompt": "[Primary Instruments:Heavy Bass]",
+      "description": "ヘビーベース 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。重低音",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-wah-guitar",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Wah Guitar]",
+      "prompt": "[Primary Instruments:Wah Guitar]",
+      "description": "ワウギター 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。ワウペダルというエフェクターを使ってギターを演奏したときに得られるサウンド",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-ukulele",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Ukulele]",
+      "prompt": "[Primary Instruments:Ukulele]",
+      "description": "ウクレレ 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。ハワイ発祥の弦楽器軽快で明るい音色、小型で携帯しやすい",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-orchestra",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Orchestra]",
+      "prompt": "[Primary Instruments:Orchestra]",
+      "description": "オーケストラ 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。弦楽器、管楽器、打楽器などで構成された楽曲クラシック中心",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-strings",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Strings]",
+      "prompt": "[Primary Instruments:Strings]",
+      "description": "ストリングス 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。ざっくりしたオーケストラ編成で演奏。",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-violin",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Violin]",
+      "prompt": "[Primary Instruments:Violin]",
+      "description": "ヴァイオリン 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。弦楽器の一種高音域で優美な音色が特徴オーケストラで重要な役割を持つ",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-viola",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Viola]",
+      "prompt": "[Primary Instruments:Viola]",
+      "description": "ビオラ 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。弦楽器ヴァイオリンより少し大きく、暖かい音色",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-harp",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Harp]",
+      "prompt": "[Primary Instruments:Harp]",
+      "description": "ハープ 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。弦楽器多くの弦があり、手で弾く優雅で幻想的な音色が特徴",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-sitar",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Sitar]",
+      "prompt": "[Primary Instruments:Sitar]",
+      "description": "シタール 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。インドの弦楽器複雑な共鳴弦による独特な音色が特徴",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-saxophone",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Saxophone]",
+      "prompt": "[Primary Instruments:Saxophone]",
+      "description": "サックス 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。音色が高低バランスが良く、金管楽器の鋭さと木管楽器の柔らかさを兼ね備える",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-trumpet",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Trumpet]",
+      "prompt": "[Primary Instruments:Trumpet]",
+      "description": "トランペット 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。管楽器明るい音色と高音域",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-tuba",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Tuba]",
+      "prompt": "[Primary Instruments:Tuba]",
+      "description": "チューバ 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。管楽器最低音域を担当",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-trombone",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Trombone]",
+      "prompt": "[Primary Instruments:Trombone]",
+      "description": "トロンボーン 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。スライド式の管楽器柔軟な音域",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-flute",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Flute]",
+      "prompt": "[Primary Instruments:Flute]",
+      "description": "フルート 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。高音域における輝かしい音色と、低音域～中音域にかけての甘く優しい音色",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-bagpipes",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Bagpipes]",
+      "prompt": "[Primary Instruments:Bagpipes]",
+      "description": "バグパイプ 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。空気袋を使う管楽器独特の持続音",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-drums",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Drums]",
+      "prompt": "[Primary Instruments:Drums]",
+      "description": "ドラム 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。ドラムセットの一部または総称リズムの中核を担う",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-snare-drum",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Snare Drum]",
+      "prompt": "[Primary Instruments:Snare Drum]",
+      "description": "スネアドラム 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。小型の打楽器スナッピーな音色が特徴",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-steel-drums",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Steel Drums]",
+      "prompt": "[Primary Instruments:Steel Drums]",
+      "description": "スチールドラム 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。トリニダード・トバゴ発祥の打楽器金属製で明るい音色",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-tambourine",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Tambourine]",
+      "prompt": "[Primary Instruments:Tambourine]",
+      "description": "タンバリン 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。手で叩いたり振ったりする打楽器ジングル音が特徴",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-tom-tom",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Tom-Tom]",
+      "prompt": "[Primary Instruments:Tom-Tom]",
+      "description": "タムタム 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。大型の金属製打楽器深い音",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-vibraphone",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Vibraphone]",
+      "prompt": "[Primary Instruments:Vibraphone]",
+      "description": "ビブラフォン 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。打楽器金属のバーを叩き、モーターで音を振動させる",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style",
+        "vocal"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-bandoneon",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Bandoneon]",
+      "prompt": "[Primary Instruments:Bandoneon]",
+      "description": "バンドネオン 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。タンゴで使用される蛇腹型楽器哀愁のある音",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-clavichord",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Clavichord]",
+      "prompt": "[Primary Instruments:Clavichord]",
+      "description": "クラヴィコード 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。鍵盤楽器。柔らかい音量と繊細な音色",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-electone",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Electone]",
+      "prompt": "[Primary Instruments:Electone]",
+      "description": "エレクトーン 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。電子オルガン",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-harpsichord",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Harpsichord]",
+      "prompt": "[Primary Instruments:Harpsichord]",
+      "description": "ハープシコード 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。ピアノの祖先。鍵盤の経由で、羽毛の芯や皮革製の爪で弦をはじいて発音",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-harpsichord",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Harpsichord]",
+      "prompt": "[Primary Instruments:Harpsichord]",
+      "description": "チェンバロ 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。ハープシコードと同じ",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-melodica",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Melodica]",
+      "prompt": "[Primary Instruments:Melodica]",
+      "description": "鍵盤ハーモニカ 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。鍵盤を吹いて音を出す軽量で携帯可能",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-sampler",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Sampler]",
+      "prompt": "[Primary Instruments:Sampler]",
+      "description": "サンプラー 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。音を録音し再生・編集可能な楽器電子音楽で重要",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-8-bit",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:8-Bit]",
+      "prompt": "[Primary Instruments:8-Bit]",
+      "description": "8ビット 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。ファミコンのような8bit音源",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-chiptune",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Chiptune]",
+      "prompt": "[Primary Instruments:Chiptune]",
+      "description": "チップチューン 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。ファミコンのような8bit音源 洞窟物語で使われているような音（By シオンさん）チップチューンとは、1980年代から1990年代初頭に発売された家庭用ゲーム機やパーソナルコンピューターに搭載されていた音源チップで制作された音楽です",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-drum-machine",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Drum Machine]",
+      "prompt": "[Primary Instruments:Drum Machine]",
+      "description": "ドラムマシン 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。電子的にリズムを生成する装置電子音楽でよく使用",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-tr-808",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Tr-808]",
+      "prompt": "[Primary Instruments:Tr-808]",
+      "description": "ヤオヤ 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。電子ドラムマシンの名機。 特徴的なサウンドで電子音楽に多用。",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-cheap-drum-machine",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Cheap Drum Machine]",
+      "prompt": "[Primary Instruments:Cheap Drum Machine]",
+      "description": "チープドラムマシン 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。1970～80年代のドラムマシンのチープサウンド。TR-808と組み合わせると良い場合があります。",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-synth-bass",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Synth Bass]",
+      "prompt": "[Primary Instruments:Synth Bass]",
+      "description": "シンセベース 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-orchestra",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Orchestra]",
+      "prompt": "[Primary Instruments:Orchestra]",
+      "description": "オーケストラ 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。弦楽器、管楽器、打楽器などで構成された楽曲クラシック中心",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-strings",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Strings]",
+      "prompt": "[Primary Instruments:Strings]",
+      "description": "ストリングス 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。ざっくりしたオーケストラ編成で演奏。",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-bigband",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Bigband]",
+      "prompt": "[Primary Instruments:Bigband]",
+      "description": "ビッグバンド 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。ビッグバンドの編成で演奏",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-brass-band",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Brass Band]",
+      "prompt": "[Primary Instruments:Brass Band]",
+      "description": "ブラスバンド 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。ブラスバンドの編成で演奏",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-rockband",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Rockband]",
+      "prompt": "[Primary Instruments:Rockband]",
+      "description": "ロックバンド 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。ロックバンドの編成で演奏",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-biwa",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Biwa]",
+      "prompt": "[Primary Instruments:Biwa]",
+      "description": "琵琶 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。日本や中国の撥弦楽器歴史的な語り伴奏で使用",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-kokyu",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Kokyu]",
+      "prompt": "[Primary Instruments:Kokyu]",
+      "description": "胡弓 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。中国や日本の弦楽器弓で弾き、哀愁のある音色",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-koto",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Koto]",
+      "prompt": "[Primary Instruments:Koto]",
+      "description": "琴 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。日本の伝統的な弦楽器多弦で柔らかい音色が特徴",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-nokan",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Nokan]",
+      "prompt": "[Primary Instruments:Nokan]",
+      "description": "能管 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。日本の能楽で使われる横笛高音域が特徴",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-shakuhachi",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Shakuhachi]",
+      "prompt": "[Primary Instruments:Shakuhachi]",
+      "description": "尺八 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。日本の竹製の管楽器深く情緒的な音色",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-shamisen",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Shamisen]",
+      "prompt": "[Primary Instruments:Shamisen]",
+      "description": "三味線 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。日本の弦楽器撥で弾き、力強い音色が特徴",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-suzu",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Suzu]",
+      "prompt": "[Primary Instruments:Suzu]",
+      "description": "鈴 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。手で振って音を出す打楽器高音の金属音が特徴",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-taiko",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Taiko]",
+      "prompt": "[Primary Instruments:Taiko]",
+      "description": "太鼓 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。日本の伝統的な打楽器力強いリズム",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-shinobue",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Shinobue]",
+      "prompt": "[Primary Instruments:Shinobue]",
+      "description": "篠笛 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。篠竹（雌竹）に歌口と指孔（手孔）を開け、漆ないしは合成樹脂を管の内面に塗った簡素な構造の横笛",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-autoharp",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Autoharp]",
+      "prompt": "[Primary Instruments:Autoharp]",
+      "description": "オートハープ 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。多弦楽器コードボタンを押しながら演奏",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-balalaika",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Balalaika]",
+      "prompt": "[Primary Instruments:Balalaika]",
+      "description": "バラライカ 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。ロシアの三角形のボディを持つ弦楽器軽やかで明るい音色",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-banjo",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Banjo]",
+      "prompt": "[Primary Instruments:Banjo]",
+      "description": "バンジョー 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。アメリカ発祥の弦楽器明るくリズミカルな音色が特徴",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-double-bass",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Double Bass]",
+      "prompt": "[Primary Instruments:Double Bass]",
+      "description": "コントラバス 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。弦楽器の中で最も低音域を担当するオーケストラやジャズで使用",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-dulcimer",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Dulcimer]",
+      "prompt": "[Primary Instruments:Dulcimer]",
+      "description": "ダルシマー 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。打弦楽器金属の弦をハンマーで叩いて音を出す",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-erhu",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Erhu]",
+      "prompt": "[Primary Instruments:Erhu]",
+      "description": "二胡 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。中国の弦楽器弓で弾く悲しげで感情的な音色が特徴",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-fiddle",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Fiddle]",
+      "prompt": "[Primary Instruments:Fiddle]",
+      "description": "フィドル 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。ヴァイオリンの別名主にフォーク音楽で使用される",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-hurdy-gurdy",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Hurdy‐Gurdy]",
+      "prompt": "[Primary Instruments:Hurdy‐Gurdy]",
+      "description": "ハーディガーディ 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。手回しで弦を鳴らす中世楽器独特のドローン音",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-kalimba",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Kalimba]",
+      "prompt": "[Primary Instruments:Kalimba]",
+      "description": "カリンバ 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。アフリカの親指ピアノ。澄んだ音色",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-lute",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Lute]",
+      "prompt": "[Primary Instruments:Lute]",
+      "description": "リュート 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。中世ヨーロッパの弦楽器複数の弦を持ち、柔らかい音色",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-lyre",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Lyre]",
+      "prompt": "[Primary Instruments:Lyre]",
+      "description": "リラ 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。古代ギリシャの弦楽器竪琴の一種で、詩の伴奏に使われた",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-mandolin",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Mandolin]",
+      "prompt": "[Primary Instruments:Mandolin]",
+      "description": "マンドリン 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。小型の弦楽器ピックを使って明快な音色を奏でる",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-mbira",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Mbira]",
+      "prompt": "[Primary Instruments:Mbira]",
+      "description": "ムビラ 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。アフリカの親指ピアノ深い音色",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-morin-khuur",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Morin Khuur]",
+      "prompt": "[Primary Instruments:Morin Khuur]",
+      "description": "モリンホール 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。モンゴルの弦楽器深い音色と哀愁",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-ocarina",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Ocarina]",
+      "prompt": "[Primary Instruments:Ocarina]",
+      "description": "オカリナ 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。陶器やプラスチック製の笛型楽器柔らかな音色",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-oud",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Oud]",
+      "prompt": "[Primary Instruments:Oud]",
+      "description": "ウード 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。中東の撥弦楽器暖かく深い音色",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-psaltery",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Psaltery]",
+      "prompt": "[Primary Instruments:Psaltery]",
+      "description": "サルタリオ 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。中世の打弦楽器透明感のある音色",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-qanun",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Qanun]",
+      "prompt": "[Primary Instruments:Qanun]",
+      "description": "カヌーン 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。中東の多弦楽器優雅な音色",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-santoor",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Santoor]",
+      "prompt": "[Primary Instruments:Santoor]",
+      "description": "サントゥール 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。インドやペルシャの打弦楽器明快な音色",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-sarangi",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Sarangi]",
+      "prompt": "[Primary Instruments:Sarangi]",
+      "description": "サランギ 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。インドの弦楽器哀愁のある音色",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-sarod",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Sarod]",
+      "prompt": "[Primary Instruments:Sarod]",
+      "description": "サロッド 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。インドの撥弦楽器滑らかで深い音色",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-zither",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Zither]",
+      "prompt": "[Primary Instruments:Zither]",
+      "description": "ジター 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。ハープに似た多弦楽器優しい音色",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-baritone-horn",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Baritone Horn]",
+      "prompt": "[Primary Instruments:Baritone Horn]",
+      "description": "バリトンホルン 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。管楽器中低音域で柔らかな音色",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-cornemuse",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Cornemuse]",
+      "prompt": "[Primary Instruments:Cornemuse]",
+      "description": "コルヌーズ 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。中世ヨーロッパの管楽器リードを持つ",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-cornet",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Cornet]",
+      "prompt": "[Primary Instruments:Cornet]",
+      "description": "コルネット 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。管楽器トランペットに似た音色",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-didgeridoo",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Didgeridoo]",
+      "prompt": "[Primary Instruments:Didgeridoo]",
+      "description": "ディジュリドゥ 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。オーストラリアの管楽器低音の持続音が特徴",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-euphonium",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Euphonium]",
+      "prompt": "[Primary Instruments:Euphonium]",
+      "description": "ユーフォニアム 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。管楽器中低音域で豊かな響き",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-flugelhorn",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Flugelhorn]",
+      "prompt": "[Primary Instruments:Flugelhorn]",
+      "description": "フリューゲルホルン 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。管楽器トランペットに似るが柔らかい音色",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-french-horn",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:French Horn]",
+      "prompt": "[Primary Instruments:French Horn]",
+      "description": "フレンチホルン 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。管楽器深く丸みのある音色",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-fujara",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Fujara]",
+      "prompt": "[Primary Instruments:Fujara]",
+      "description": "フジャラ 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。スロバキアの管楽器牧歌的な音色",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-harmonica",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Harmonica]",
+      "prompt": "[Primary Instruments:Harmonica]",
+      "description": "ハーモニカ 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。リードを吹いて音を出すブルースやフォークで使用",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-pan-flute",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Pan Flute]",
+      "prompt": "[Primary Instruments:Pan Flute]",
+      "description": "パンフルート 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。管を並べた管楽器柔らかな音色",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-sousaphone",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Sousaphone]",
+      "prompt": "[Primary Instruments:Sousaphone]",
+      "description": "スーザフォーン 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。マーチング用の大型管楽器低音域",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-bass-drum",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Bass Drum]",
+      "prompt": "[Primary Instruments:Bass Drum]",
+      "description": "バスドラム 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。低音域の打楽器ドラムセットやオーケストラで使用",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-birch-canoe-drum",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Birch Canoe Drum]",
+      "prompt": "[Primary Instruments:Birch Canoe Drum]",
+      "description": "バーチカヌードラム 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。南米の打楽器木製で力強い音",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-bodhrán",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Bodhrán]",
+      "prompt": "[Primary Instruments:Bodhrán]",
+      "description": "ボーラン 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。アイルランドの打楽器手で叩く",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-bongo",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Bongo]",
+      "prompt": "[Primary Instruments:Bongo]",
+      "description": "ボンゴ 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。二つの異なるサイズの太鼓がセットになった打楽器",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-cajon",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Cajon]",
+      "prompt": "[Primary Instruments:Cajon]",
+      "description": "カホン 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。箱型の打楽器座って叩く多様なリズムを演奏可能",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-castanets",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Castanets]",
+      "prompt": "[Primary Instruments:Castanets]",
+      "description": "カスタネット 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。手に持って叩く打楽器スペイン舞踊で使用",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-chimes",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Chimes]",
+      "prompt": "[Primary Instruments:Chimes]",
+      "description": "チャイムズ 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。金属製バーの打楽器澄んだ音色",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-conga",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Conga]",
+      "prompt": "[Primary Instruments:Conga]",
+      "description": "コンガ 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。キューバの打楽器手で叩いて音を出す",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-cymbals",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Cymbals]",
+      "prompt": "[Primary Instruments:Cymbals]",
+      "description": "シンバル 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。打楽器金属円盤を叩いて音を出す",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-djembe",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Djembe]",
+      "prompt": "[Primary Instruments:Djembe]",
+      "description": "ジャンベ 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。アフリカの太鼓型打楽器多様な音色を手で叩いて表現",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-ghatam",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Ghatam]",
+      "prompt": "[Primary Instruments:Ghatam]",
+      "description": "ガタム 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。インドの土器型打楽器叩いて音を出す",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-glockenspiel",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Glockenspiel]",
+      "prompt": "[Primary Instruments:Glockenspiel]",
+      "description": "グロッケンシュピール 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。金属製バーの打楽器澄んだ高音",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-hang-drum",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Hang Drum]",
+      "prompt": "[Primary Instruments:Hang Drum]",
+      "description": "ハングドラム 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。金属製の打楽器癒しの音色",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-marimba",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Marimba]",
+      "prompt": "[Primary Instruments:Marimba]",
+      "description": "マリンバ 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。木製のバーを叩く打楽器温かく深い音色が特徴",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-sleigh-bells",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Sleigh Bells]",
+      "prompt": "[Primary Instruments:Sleigh Bells]",
+      "description": "スレイベル 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。鈴がついた打楽器クリスマス音楽で使用",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-spoons",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Spoons]",
+      "prompt": "[Primary Instruments:Spoons]",
+      "description": "スプーン 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。スプーンを叩いて音を出すリズム楽器",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-timpani",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Timpani]",
+      "prompt": "[Primary Instruments:Timpani]",
+      "description": "ティンパニ 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。大型の打楽器調律可能でオーケストラで重要",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-triangle",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Triangle]",
+      "prompt": "[Primary Instruments:Triangle]",
+      "description": "トライアングル 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。三角形の金属棒でできた打楽器澄んだ高音が特徴",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-washboard",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Washboard]",
+      "prompt": "[Primary Instruments:Washboard]",
+      "description": "ウォッシュボード 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。洗濯板を使った打楽器リズム楽器として使用",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-xylophone",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Xylophone]",
+      "prompt": "[Primary Instruments:Xylophone]",
+      "description": "グロッケンシュピール 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。打楽器金属製のバーを叩いて音を出す",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-16-bit",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:16-Bit ]",
+      "prompt": "[Primary Instruments:16-Bit ]",
+      "description": "16ビット 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。スーパーファミコンの様な16ビット音源",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-32-bit",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:32-Bit ]",
+      "prompt": "[Primary Instruments:32-Bit ]",
+      "description": "32ビット 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。PlayStation、WiiUの様な32ビット音源",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-64-bit",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:64-Bit ]",
+      "prompt": "[Primary Instruments:64-Bit ]",
+      "description": "64ビット 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。PlayStation 4、Nintendo Switchの様な64ビット音源",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "主要楽器-primary-instruments-theremin",
+      "section": "主要楽器",
+      "title": "[Primary Instruments:Theremin]",
+      "prompt": "[Primary Instruments:Theremin]",
+      "description": "テルミン 「」としてAI指示する強いプロンプト。メイン以外は上段Menu「楽器」欄より追加がオススメ。手を使って電磁場を操作して音を出すユニークな電子楽器",
+      "tags": [
+        "詳細設定",
+        "主要楽器"
+      ],
+      "targets": [
+        "style"
+      ]
+    }
+  ],
+  "entryEnrichment": {}
+}

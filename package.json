@@ -11,6 +11,9 @@
     "test:run": "vitest run",
     "test:e2e": "playwright test",
     "test:e2e:ui": "playwright test --ui",
+    "update:suno-catalog": "node scripts/update-suno-prompt-catalog.mjs",
+    "enrich:suno-catalog": "node scripts/enrich-suno-prompt-catalog.mjs",
+    "enrich:suno-important": "node scripts/enrich-suno-important-sections.mjs",
     "tauri": "tauri",
     "tauri:dev": "tauri dev",
     "tauri:build": "tauri build"
@@ -22,6 +25,9 @@
     "@tauri-apps/plugin-fs": "^2.4.5",
     "@tauri-apps/plugin-shell": "^2.0.0",
     "react": "^18.3.1",
+    "react-dnd": "^16.0.1",
+    "react-dnd-html5-backend": "^16.0.1",
+    "react-dnd-touch-backend": "^16.0.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.22.0"
   },

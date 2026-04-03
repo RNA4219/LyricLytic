@@ -113,25 +113,43 @@
   display: flex;
   flex-direction: column;
   padding: 0.75rem 1rem;
-  background: rgba(30, 41, 59, 0.3);
-  border: 1px solid transparent;
-  border-radius: 8px;
+  background:
+    linear-gradient(180deg, rgba(29, 39, 61, 0.62), rgba(17, 24, 39, 0.5));
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  border-radius: 12px;
   cursor: pointer;
-  transition: all 0.2s;
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    opacity 0.2s ease;
   user-select: none;
   -webkit-user-select: none;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.04),
+    0 10px 24px rgba(15, 23, 42, 0.18);
+  position: relative;
 }
 
 .section-tab:hover {
-  background: rgba(30, 41, 59, 0.5);
-  border-color: rgba(192, 193, 255, 0.2);
-  transform: translateY(-1px);
+  background:
+    linear-gradient(180deg, rgba(38, 50, 77, 0.72), rgba(20, 28, 45, 0.62));
+  border-color: rgba(192, 193, 255, 0.18);
+  transform: translateY(-2px);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.05),
+    0 18px 34px rgba(15, 23, 42, 0.24);
 }
 
 /* Active state - Primary accent */
 .section-tab.active {
-  background: rgba(99, 102, 241, 0.1);
-  border-color: rgba(192, 193, 255, 0.3);
+  background:
+    linear-gradient(180deg, rgba(75, 85, 210, 0.22), rgba(31, 41, 68, 0.72));
+  border-color: rgba(192, 193, 255, 0.32);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.05),
+    0 16px 30px rgba(67, 56, 202, 0.18);
 }
 
 .section-tab-all {
@@ -205,46 +223,46 @@
 
 /* Drag and drop styles */
 .section-tab {
-  cursor: grab;
+  cursor: default;
 }
 
 .section-tab.dragging {
-  opacity: 0.06;
-  cursor: grabbing;
-  transform: scale(0.96);
-  border-style: dashed;
-  border-color: rgba(192, 193, 255, 0.3);
-  background: rgba(99, 102, 241, 0.04);
-  box-shadow: inset 0 0 0 1px rgba(192, 193, 255, 0.08);
+  opacity: 0.12;
+  transform: scale(0.975);
+  border-color: rgba(192, 193, 255, 0.2);
+  background:
+    linear-gradient(180deg, rgba(61, 73, 116, 0.36), rgba(22, 29, 44, 0.28));
+  box-shadow:
+    inset 0 0 0 1px rgba(192, 193, 255, 0.1),
+    0 6px 16px rgba(15, 23, 42, 0.14);
 }
 
 .section-tab.drag-over {
-  border-color: var(--primary);
-  background: rgba(99, 102, 241, 0.15);
-  box-shadow: 0 0 8px rgba(99, 102, 241, 0.3);
+  border-color: rgba(192, 193, 255, 0.42);
+  box-shadow:
+    inset 0 0 0 1px rgba(192, 193, 255, 0.12),
+    0 0 0 1px rgba(192, 193, 255, 0.14),
+    0 16px 30px rgba(67, 56, 202, 0.14);
 }
 
-.section-tab-placeholder {
-  display: flex;
-  align-items: center;
-  min-height: 72px;
-  padding: 0.9rem 1rem;
-  border-radius: 10px;
-  border: 1px dashed rgba(192, 193, 255, 0.28);
-  background: rgba(99, 102, 241, 0.06);
+.section-tab.drop-before::before,
+.section-tab.drop-after::after {
+  content: '';
+  position: absolute;
+  left: 0.75rem;
+  right: 0.75rem;
+  height: 3px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(129, 140, 248, 0.18), rgba(192, 193, 255, 0.92), rgba(129, 140, 248, 0.18));
+  box-shadow: 0 0 18px rgba(129, 140, 248, 0.32);
 }
 
-.section-tab-placeholder.drag-over {
-  border-color: rgba(192, 193, 255, 0.48);
-  background: rgba(99, 102, 241, 0.12);
-  box-shadow: inset 0 0 0 1px rgba(192, 193, 255, 0.12);
+.section-tab.drop-before::before {
+  top: -7px;
 }
 
-.section-placeholder-label {
-  font-size: 0.74rem;
-  color: var(--text-secondary);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
+.section-tab.drop-after::after {
+  bottom: -7px;
 }
 
 body.section-reorder-active,
@@ -265,10 +283,11 @@ body.section-reorder-active * {
     0 34px 68px rgba(2, 6, 23, 0.58),
     0 14px 28px rgba(76, 90, 200, 0.22),
     0 0 0 1px rgba(255, 255, 255, 0.04) inset;
-  transform: translate3d(0, -10px, 0) rotate(-2deg) scale(1.06);
+  opacity: 0.94;
+  transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  animation: section-drag-float 1.6s ease-in-out infinite alternate;
+  animation: section-drag-float 1.2s ease-in-out infinite alternate;
 }
 
 .section-drag-preview-badge {
@@ -281,7 +300,7 @@ body.section-reorder-active * {
   color: rgba(236, 241, 250, 0.88);
   font-size: 0.62rem;
   font-weight: 700;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
@@ -296,10 +315,10 @@ body.section-reorder-active * {
 
 @keyframes section-drag-float {
   from {
-    transform: translate3d(0, -10px, 0) rotate(-2deg) scale(1.06);
+    transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
   }
   to {
-    transform: translate3d(0, -14px, 0) rotate(-1.1deg) scale(1.075);
+    transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
   }
 }
 
