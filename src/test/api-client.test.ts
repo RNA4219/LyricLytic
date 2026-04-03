@@ -13,15 +13,46 @@ import {
   getProject,
   updateProject,
   deleteProject,
+  getDeletedProjects,
+  restoreProject,
   getWorkingDraft,
   getDraftSections,
   saveDraft,
   getVersions,
   createVersion,
+  getVersion,
+  getVersionSections,
   deleteVersion,
   getFragments,
   createFragment,
+  updateFragment,
   deleteFragment,
+  getSongArtifacts,
+  createSongArtifact,
+  deleteSongArtifact,
+  getRevisionNotes,
+  createRevisionNote,
+  deleteRevisionNote,
+  getStyleProfile,
+  createStyleProfile,
+  updateStyleProfile,
+  deleteStyleProfile,
+  exportProject,
+  startLlamaCppRuntime,
+  stopLlamaCppRuntime,
+  getLlamaCppRuntimeStatus,
+  detectLlamaCppExecutable,
+  analyzeRhymeText,
+  getDeletedItems,
+  restoreVersion,
+  restoreFragment,
+  restoreSongArtifact,
+  restoreStyleProfile,
+  permanentlyDeleteProject,
+  permanentlyDeleteVersion,
+  permanentlyDeleteFragment,
+  permanentlyDeleteSongArtifact,
+  permanentlyDeleteStyleProfile,
 } from '../lib/api/client';
 
 const mockInvoke = invoke as ReturnType<typeof vi.fn>;
@@ -266,6 +297,382 @@ describe('API Client', () => {
         await deleteFragment('f1');
 
         expect(mockInvoke).toHaveBeenCalledWith('delete_fragment', { fragmentId: 'f1' });
+      });
+    });
+  });
+
+  describe('Song Artifacts API', () => {
+    describe('getSongArtifacts', () => {
+      it('should call get_song_artifacts with projectId', async () => {
+        const mockArtifacts = [{ song_artifact_id: 'sa1', song_title: 'Test' }];
+        mockInvoke.mockResolvedValue(mockArtifacts);
+
+        const result = await getSongArtifacts('proj-1');
+
+        expect(mockInvoke).toHaveBeenCalledWith('get_song_artifacts', { projectId: 'proj-1' });
+        expect(result).toEqual(mockArtifacts);
+      });
+    });
+
+    describe('createSongArtifact', () => {
+      it('should call create_song_artifact with input', async () => {
+        const input = { project_id: 'proj-1', service_name: 'Suno', song_title: 'Test' };
+        const mockArtifact = { song_artifact_id: 'sa1', ...input };
+        mockInvoke.mockResolvedValue(mockArtifact);
+
+        const result = await createSongArtifact(input);
+
+        expect(mockInvoke).toHaveBeenCalledWith('create_song_artifact', { input });
+        expect(result).toEqual(mockArtifact);
+      });
+    });
+
+    describe('deleteSongArtifact', () => {
+      it('should call delete_song_artifact with artifactId', async () => {
+        mockInvoke.mockResolvedValue(undefined);
+
+        await deleteSongArtifact('sa1');
+
+        expect(mockInvoke).toHaveBeenCalledWith('delete_song_artifact', { artifactId: 'sa1' });
+      });
+    });
+  });
+
+  describe('Revision Notes API', () => {
+    describe('getRevisionNotes', () => {
+      it('should call get_revision_notes with lyricVersionId', async () => {
+        const mockNotes = [{ revision_note_id: 'rn1', content: 'Note' }];
+        mockInvoke.mockResolvedValue(mockNotes);
+
+        const result = await getRevisionNotes('lv1');
+
+        expect(mockInvoke).toHaveBeenCalledWith('get_revision_notes', { lyricVersionId: 'lv1' });
+        expect(result).toEqual(mockNotes);
+      });
+    });
+
+    describe('createRevisionNote', () => {
+      it('should call create_revision_note with input', async () => {
+        const input = { lyric_version_id: 'lv1', content: 'Note' };
+        const mockNote = { revision_note_id: 'rn1', ...input };
+        mockInvoke.mockResolvedValue(mockNote);
+
+        const result = await createRevisionNote(input);
+
+        expect(mockInvoke).toHaveBeenCalledWith('create_revision_note', { input });
+        expect(result).toEqual(mockNote);
+      });
+    });
+
+    describe('deleteRevisionNote', () => {
+      it('should call delete_revision_note with noteId', async () => {
+        mockInvoke.mockResolvedValue(undefined);
+
+        await deleteRevisionNote('rn1');
+
+        expect(mockInvoke).toHaveBeenCalledWith('delete_revision_note', { noteId: 'rn1' });
+      });
+    });
+  });
+
+  describe('Style Profiles API', () => {
+    describe('getStyleProfile', () => {
+      it('should call get_style_profile with projectId', async () => {
+        const mockProfile = { style_profile_id: 'sp1', genre: 'Pop' };
+        mockInvoke.mockResolvedValue(mockProfile);
+
+        const result = await getStyleProfile('proj-1');
+
+        expect(mockInvoke).toHaveBeenCalledWith('get_style_profile', { projectId: 'proj-1' });
+        expect(result).toEqual(mockProfile);
+      });
+
+      it('should return null when no profile exists', async () => {
+        mockInvoke.mockResolvedValue(null);
+
+        const result = await getStyleProfile('proj-1');
+
+        expect(result).toBeNull();
+      });
+    });
+
+    describe('createStyleProfile', () => {
+      it('should call create_style_profile with input', async () => {
+        const input = { project_id: 'proj-1', genre: 'Rock' };
+        const mockProfile = { style_profile_id: 'sp1', ...input };
+        mockInvoke.mockResolvedValue(mockProfile);
+
+        const result = await createStyleProfile(input);
+
+        expect(mockInvoke).toHaveBeenCalledWith('create_style_profile', { input });
+        expect(result).toEqual(mockProfile);
+      });
+    });
+
+    describe('updateStyleProfile', () => {
+      it('should call update_style_profile with profileId and input', async () => {
+        const input = { genre: 'Jazz' };
+        const mockProfile = { style_profile_id: 'sp1', genre: 'Jazz' };
+        mockInvoke.mockResolvedValue(mockProfile);
+
+        const result = await updateStyleProfile('sp1', input);
+
+        expect(mockInvoke).toHaveBeenCalledWith('update_style_profile', { profileId: 'sp1', input });
+        expect(result).toEqual(mockProfile);
+      });
+    });
+
+    describe('deleteStyleProfile', () => {
+      it('should call delete_style_profile with profileId', async () => {
+        mockInvoke.mockResolvedValue(undefined);
+
+        await deleteStyleProfile('sp1');
+
+        expect(mockInvoke).toHaveBeenCalledWith('delete_style_profile', { profileId: 'sp1' });
+      });
+    });
+  });
+
+  describe('Export API', () => {
+    describe('exportProject', () => {
+      it('should call export_project with input', async () => {
+        const input = { project_id: 'proj-1', destination_path: '/path/to/export.zip' };
+        mockInvoke.mockResolvedValue('/path/to/export.zip');
+
+        const result = await exportProject(input);
+
+        expect(mockInvoke).toHaveBeenCalledWith('export_project', { input });
+        expect(result).toBe('/path/to/export.zip');
+      });
+    });
+  });
+
+  describe('LLM Runtime API', () => {
+    describe('startLlamaCppRuntime', () => {
+      it('should call start_llama_cpp_runtime with input', async () => {
+        const input = { executable_path: '/path/to/llama', model_path: '/path/to/model' };
+        const mockStatus = { running: true, pid: 1234 };
+        mockInvoke.mockResolvedValue(mockStatus);
+
+        const result = await startLlamaCppRuntime(input);
+
+        expect(mockInvoke).toHaveBeenCalledWith('start_llama_cpp_runtime', { input });
+        expect(result).toEqual(mockStatus);
+      });
+    });
+
+    describe('stopLlamaCppRuntime', () => {
+      it('should call stop_llama_cpp_runtime', async () => {
+        const mockStatus = { running: false, pid: null };
+        mockInvoke.mockResolvedValue(mockStatus);
+
+        const result = await stopLlamaCppRuntime();
+
+        expect(mockInvoke).toHaveBeenCalledWith('stop_llama_cpp_runtime', undefined);
+        expect(result).toEqual(mockStatus);
+      });
+    });
+
+    describe('getLlamaCppRuntimeStatus', () => {
+      it('should call get_llama_cpp_runtime_status', async () => {
+        const mockStatus = { running: true, pid: 1234 };
+        mockInvoke.mockResolvedValue(mockStatus);
+
+        const result = await getLlamaCppRuntimeStatus();
+
+        expect(mockInvoke).toHaveBeenCalledWith('get_llama_cpp_runtime_status', undefined);
+        expect(result).toEqual(mockStatus);
+      });
+    });
+
+    describe('detectLlamaCppExecutable', () => {
+      it('should call detect_llama_cpp_executable', async () => {
+        const mockResult = { found: true, path: '/path/to/llama' };
+        mockInvoke.mockResolvedValue(mockResult);
+
+        const result = await detectLlamaCppExecutable();
+
+        expect(mockInvoke).toHaveBeenCalledWith('detect_llama_cpp_executable', undefined);
+        expect(result).toEqual(mockResult);
+      });
+    });
+
+    describe('analyzeRhymeText', () => {
+      it('should call analyze_rhyme_text with text', async () => {
+        const mockRows = [{ line: 'Hello', rhymes: [] }];
+        mockInvoke.mockResolvedValue(mockRows);
+
+        const result = await analyzeRhymeText('Hello world');
+
+        expect(mockInvoke).toHaveBeenCalledWith('analyze_rhyme_text', { text: 'Hello world' });
+        expect(result).toEqual(mockRows);
+      });
+    });
+  });
+
+  describe('Trash API', () => {
+    describe('getDeletedItems', () => {
+      it('should call get_deleted_items', async () => {
+        const mockItems = [{ id: '1', type: 'version' }];
+        mockInvoke.mockResolvedValue(mockItems);
+
+        const result = await getDeletedItems();
+
+        expect(mockInvoke).toHaveBeenCalledWith('get_deleted_items', undefined);
+        expect(result).toEqual(mockItems);
+      });
+    });
+
+    describe('getDeletedProjects', () => {
+      it('should call get_deleted_projects', async () => {
+        const mockProjects = [{ project_id: '1', title: 'Deleted' }];
+        mockInvoke.mockResolvedValue(mockProjects);
+
+        const result = await getDeletedProjects();
+
+        expect(mockInvoke).toHaveBeenCalledWith('get_deleted_projects', undefined);
+        expect(result).toEqual(mockProjects);
+      });
+    });
+
+    describe('restoreProject', () => {
+      it('should call restore_project with projectId and batchId', async () => {
+        mockInvoke.mockResolvedValue(undefined);
+
+        await restoreProject('proj-1', 'batch-1');
+
+        expect(mockInvoke).toHaveBeenCalledWith('restore_project', { projectId: 'proj-1', batchId: 'batch-1' });
+      });
+    });
+
+    describe('restoreVersion', () => {
+      it('should call restore_version with lyricVersionId and batchId', async () => {
+        mockInvoke.mockResolvedValue(undefined);
+
+        await restoreVersion('lv1', 'batch-1');
+
+        expect(mockInvoke).toHaveBeenCalledWith('restore_version', { lyricVersionId: 'lv1', batchId: 'batch-1' });
+      });
+    });
+
+    describe('restoreFragment', () => {
+      it('should call restore_fragment with fragmentId and batchId', async () => {
+        mockInvoke.mockResolvedValue(undefined);
+
+        await restoreFragment('f1', 'batch-1');
+
+        expect(mockInvoke).toHaveBeenCalledWith('restore_fragment', { fragmentId: 'f1', batchId: 'batch-1' });
+      });
+    });
+
+    describe('restoreSongArtifact', () => {
+      it('should call restore_song_artifact with artifactId and batchId', async () => {
+        mockInvoke.mockResolvedValue(undefined);
+
+        await restoreSongArtifact('sa1', 'batch-1');
+
+        expect(mockInvoke).toHaveBeenCalledWith('restore_song_artifact', { artifactId: 'sa1', batchId: 'batch-1' });
+      });
+    });
+
+    describe('restoreStyleProfile', () => {
+      it('should call restore_style_profile with profileId and batchId', async () => {
+        mockInvoke.mockResolvedValue(undefined);
+
+        await restoreStyleProfile('sp1', 'batch-1');
+
+        expect(mockInvoke).toHaveBeenCalledWith('restore_style_profile', { profileId: 'sp1', batchId: 'batch-1' });
+      });
+    });
+
+    describe('permanentlyDeleteProject', () => {
+      it('should call permanently_delete_project', async () => {
+        mockInvoke.mockResolvedValue(undefined);
+
+        await permanentlyDeleteProject('proj-1', 'batch-1');
+
+        expect(mockInvoke).toHaveBeenCalledWith('permanently_delete_project', { projectId: 'proj-1', batchId: 'batch-1' });
+      });
+    });
+
+    describe('permanentlyDeleteVersion', () => {
+      it('should call permanently_delete_version', async () => {
+        mockInvoke.mockResolvedValue(undefined);
+
+        await permanentlyDeleteVersion('lv1', 'batch-1');
+
+        expect(mockInvoke).toHaveBeenCalledWith('permanently_delete_version', { lyricVersionId: 'lv1', batchId: 'batch-1' });
+      });
+    });
+
+    describe('permanentlyDeleteFragment', () => {
+      it('should call permanently_delete_fragment', async () => {
+        mockInvoke.mockResolvedValue(undefined);
+
+        await permanentlyDeleteFragment('f1', 'batch-1');
+
+        expect(mockInvoke).toHaveBeenCalledWith('permanently_delete_fragment', { fragmentId: 'f1', batchId: 'batch-1' });
+      });
+    });
+
+    describe('permanentlyDeleteSongArtifact', () => {
+      it('should call permanently_delete_song_artifact', async () => {
+        mockInvoke.mockResolvedValue(undefined);
+
+        await permanentlyDeleteSongArtifact('sa1', 'batch-1');
+
+        expect(mockInvoke).toHaveBeenCalledWith('permanently_delete_song_artifact', { artifactId: 'sa1', batchId: 'batch-1' });
+      });
+    });
+
+    describe('permanentlyDeleteStyleProfile', () => {
+      it('should call permanently_delete_style_profile', async () => {
+        mockInvoke.mockResolvedValue(undefined);
+
+        await permanentlyDeleteStyleProfile('sp1', 'batch-1');
+
+        expect(mockInvoke).toHaveBeenCalledWith('permanently_delete_style_profile', { profileId: 'sp1', batchId: 'batch-1' });
+      });
+    });
+  });
+
+  describe('Additional Version API tests', () => {
+    describe('getVersion', () => {
+      it('should call get_version with lyricVersionId', async () => {
+        const mockVersion = { lyric_version_id: 'lv1', snapshot_name: 'v1' };
+        mockInvoke.mockResolvedValue(mockVersion);
+
+        const result = await getVersion('lv1');
+
+        expect(mockInvoke).toHaveBeenCalledWith('get_version', { lyricVersionId: 'lv1' });
+        expect(result).toEqual(mockVersion);
+      });
+    });
+
+    describe('getVersionSections', () => {
+      it('should call get_version_sections with lyricVersionId', async () => {
+        const mockSections = [{ version_section_id: 'vs1', display_name: 'Verse' }];
+        mockInvoke.mockResolvedValue(mockSections);
+
+        const result = await getVersionSections('lv1');
+
+        expect(mockInvoke).toHaveBeenCalledWith('get_version_sections', { lyricVersionId: 'lv1' });
+        expect(result).toEqual(mockSections);
+      });
+    });
+  });
+
+  describe('Additional Fragment API tests', () => {
+    describe('updateFragment', () => {
+      it('should call update_fragment with fragmentId and input', async () => {
+        const input = { text: 'Updated text' };
+        const mockFragment = { collected_fragment_id: 'f1', text: 'Updated text' };
+        mockInvoke.mockResolvedValue(mockFragment);
+
+        const result = await updateFragment('f1', input);
+
+        expect(mockInvoke).toHaveBeenCalledWith('update_fragment', { fragmentId: 'f1', input });
+        expect(result).toEqual(mockFragment);
       });
     });
   });

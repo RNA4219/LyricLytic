@@ -108,26 +108,23 @@ describe('config.ts', () => {
       expect(LLM_DEFAULTS.RUNTIME).toBe('openai_compatible');
     });
 
-    it('should have localhost URLs only', () => {
+    it('should have localhost URL for OpenAI compatible', () => {
       expect(LLM_DEFAULTS.BASE_URL_OPENAI).toContain('127.0.0.1');
-      expect(LLM_DEFAULTS.BASE_URL_OLLAMA).toContain('127.0.0.1');
-      expect(LLM_DEFAULTS.BASE_URL_LM_STUDIO).toContain('127.0.0.1');
     });
 
-    it('should have correct default ports', () => {
+    it('should have correct default port for OpenAI compatible', () => {
       expect(LLM_DEFAULTS.BASE_URL_OPENAI).toContain(':8080');
-      expect(LLM_DEFAULTS.BASE_URL_OLLAMA).toContain(':11434');
-      expect(LLM_DEFAULTS.BASE_URL_LM_STUDIO).toContain(':1234');
     });
 
     it('should have reasonable timeout', () => {
-      expect(LLM_DEFAULTS.TIMEOUT_MS).toBe(30000);
+      // 300000ms = 5 minutes, suitable for long LLM operations
+      expect(LLM_DEFAULTS.TIMEOUT_MS).toBe(300000);
       expect(LLM_DEFAULTS.TIMEOUT_MS).toBeGreaterThan(1000);
-      expect(LLM_DEFAULTS.TIMEOUT_MS).toBeLessThanOrEqual(120000);
     });
 
     it('should have reasonable max tokens', () => {
-      expect(LLM_DEFAULTS.MAX_TOKENS).toBe(1024);
+      // 262144 = large context window support
+      expect(LLM_DEFAULTS.MAX_TOKENS).toBe(262144);
       expect(LLM_DEFAULTS.MAX_TOKENS).toBeGreaterThan(0);
     });
 
@@ -137,10 +134,8 @@ describe('config.ts', () => {
       expect(LLM_DEFAULTS.TEMPERATURE).toBeLessThanOrEqual(2);
     });
 
-    it('should have model names defined', () => {
+    it('should have model name defined for OpenAI compatible', () => {
       expect(LLM_DEFAULTS.MODEL_OPENAI).toBe('local-model');
-      expect(LLM_DEFAULTS.MODEL_OLLAMA).toBe('llama3.2');
-      expect(LLM_DEFAULTS.MODEL_LM_STUDIO).toBe('local-model');
     });
   });
 

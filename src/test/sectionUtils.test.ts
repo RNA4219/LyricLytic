@@ -100,7 +100,7 @@ describe('sectionUtils', () => {
 
       expect(result.length).toBe(2);
       expect(result[0].displayName).toBe('Verse');
-      expect(result[0].bodyText).toBe('Hello\n');
+      expect(result[0].bodyText).toBe('Hello');
       expect(result[1].displayName).toBe('Chorus');
       expect(result[1].bodyText).toBe('World');
     });

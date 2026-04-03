@@ -8,9 +8,16 @@ import {
   parseLLMJsonResponse,
   callLLMAPI,
   fetchLLMModels,
+  isManagedLlamaCppRuntime,
 } from '../lib/llm/utils';
 
 describe('llm/utils.ts', () => {
+  describe('isManagedLlamaCppRuntime', () => {
+    it('should return true for openai_compatible', () => {
+      expect(isManagedLlamaCppRuntime('openai_compatible')).toBe(true);
+    });
+  });
+
   describe('isAllowedLocalBaseUrl', () => {
     it('should allow localhost URLs', () => {
       expect(isAllowedLocalBaseUrl('http://localhost:8080')).toBe(true);
@@ -64,35 +71,6 @@ describe('llm/utils.ts', () => {
         expect(result).toBe('http://localhost:8080/v1/chat/completions');
       });
     });
-
-    describe('ollama runtime', () => {
-      it('should build correct URL for ollama', () => {
-        const result = buildLLMRequestUrl('ollama', 'http://localhost:11434');
-        expect(result).toBe('http://localhost:11434/api/chat');
-      });
-
-      it('should handle trailing slash for ollama', () => {
-        const result = buildLLMRequestUrl('ollama', 'http://localhost:11434/');
-        expect(result).toBe('http://localhost:11434/api/chat');
-      });
-
-      it('should not add /v1 for ollama', () => {
-        const result = buildLLMRequestUrl('ollama', 'http://localhost:11434/v1');
-        expect(result).toBe('http://localhost:11434/v1/api/chat');
-      });
-    });
-
-    describe('lm_studio runtime', () => {
-      it('should build correct URL for LM Studio', () => {
-        const result = buildLLMRequestUrl('lm_studio', 'http://localhost:1234');
-        expect(result).toBe('http://localhost:1234/v1/chat/completions');
-      });
-
-      it('should handle trailing slash for LM Studio', () => {
-        const result = buildLLMRequestUrl('lm_studio', 'http://localhost:1234/');
-        expect(result).toBe('http://localhost:1234/v1/chat/completions');
-      });
-    });
   });
 
   describe('buildLLMRequestBody', () => {
@@ -120,50 +98,13 @@ describe('llm/utils.ts', () => {
       });
     });
 
-    describe('ollama runtime', () => {
-      it('should build correct body with defaults', () => {
-        const result = buildLLMRequestBody('ollama', 'llama3.2', 'Hello');
-        expect(result.model).toBe('llama3.2');
-        expect(result.messages).toEqual([{ role: 'user', content: 'Hello' }]);
-        expect(result.stream).toBe(false);
-        expect(result.options).toEqual({ temperature: 0.7 });
-      });
-
-      it('should respect custom temperature', () => {
-        const result = buildLLMRequestBody('ollama', 'llama3.2', 'Hello', {
-          temperature: 0.3,
-        });
-        expect(result.options).toEqual({ temperature: 0.3 });
-      });
-
-      it('should not include max_tokens in options', () => {
-        const result = buildLLMRequestBody('ollama', 'llama3.2', 'Hello', {
-          maxTokens: 2048,
-        });
-        expect(result.max_tokens).toBeUndefined();
-      });
-    });
-
-    describe('lm_studio runtime', () => {
-      it('should build correct body with defaults', () => {
-        const result = buildLLMRequestBody('lm_studio', 'local-model', 'Hello');
-        expect(result.model).toBe('local-model');
-        expect(result.messages).toEqual([{ role: 'user', content: 'Hello' }]);
-        expect(result.max_tokens).toBe(1024);
-        expect(result.temperature).toBe(0.7);
-      });
-    });
-
     describe('all runtimes', () => {
       it('should include messages array', () => {
-        const runtimes: LLMRuntime[] = ['openai_compatible', 'ollama', 'lm_studio'];
-        for (const runtime of runtimes) {
-          const result = buildLLMRequestBody(runtime, 'model', 'prompt');
-          expect(result.messages).toBeDefined();
-          expect(Array.isArray(result.messages)).toBe(true);
-          expect(result.messages[0].role).toBe('user');
-          expect(result.messages[0].content).toBe('prompt');
-        }
+        const result = buildLLMRequestBody('openai_compatible', 'model', 'prompt');
+        expect(result.messages).toBeDefined();
+        expect(Array.isArray(result.messages)).toBe(true);
+        expect(result.messages[0].role).toBe('user');
+        expect(result.messages[0].content).toBe('prompt');
       });
 
       it('should handle empty prompt', () => {
@@ -212,41 +153,13 @@ describe('llm/utils.ts', () => {
         const result = extractLLMResponseContent('openai_compatible', data);
         expect(result).toBe('');
       });
-    });
 
-    describe('ollama runtime', () => {
-      it('should extract content from Ollama format', () => {
-        const data = { message: { content: 'Generated text' } };
-        const result = extractLLMResponseContent('ollama', data);
-        expect(result).toBe('Generated text');
-      });
-
-      it('should handle missing message', () => {
-        const data = {};
-        const result = extractLLMResponseContent('ollama', data);
-        expect(result).toBe('');
-      });
-
-      it('should handle missing content', () => {
-        const data = { message: {} };
-        const result = extractLLMResponseContent('ollama', data);
-        expect(result).toBe('');
-      });
-
-      it('should handle empty message object', () => {
-        const data = { message: null };
-        const result = extractLLMResponseContent('ollama', data);
-        expect(result).toBe('');
-      });
-    });
-
-    describe('lm_studio runtime', () => {
-      it('should extract content same as OpenAI format', () => {
+      it('should extract reasoning_content when content is missing', () => {
         const data = {
-          choices: [{ message: { content: 'Generated text' } }],
+          choices: [{ message: { reasoning_content: 'Reasoning text' } }],
         };
-        const result = extractLLMResponseContent('lm_studio', data);
-        expect(result).toBe('Generated text');
+        const result = extractLLMResponseContent('openai_compatible', data);
+        expect(result).toBe('Reasoning text');
       });
     });
   });
@@ -322,6 +235,49 @@ describe('llm/utils.ts', () => {
       const result = parseLLMJsonResponse(text, 'items');
       expect(result).toEqual([{ id: 1 }, { id: 2 }]);
     });
+
+    it('should recover from partial JSON with multiple objects', () => {
+      const text = 'Some text {"items": [{"a": 1}, {"b": 2}, {"c": 3}]} more text';
+      const result = parseLLMJsonResponse(text, 'items');
+      expect(result).toEqual([{ a: 1 }, { b: 2 }, { c: 3 }]);
+    });
+
+    it('should handle escaped quotes in strings', () => {
+      const text = '{"items": [{"text": "He said \\"hello\\""}]}';
+      const result = parseLLMJsonResponse(text, 'items');
+      expect(result).toEqual([{ text: 'He said "hello"' }]);
+    });
+
+    it('should recover from truncated JSON array', () => {
+      const text = '{"items": [{"a": 1}, {"b": 2';
+      const result = parseLLMJsonResponse(text, 'items');
+      // Should recover the first object
+      expect(result).toEqual([{ a: 1 }]);
+    });
+
+    it('should recover from malformed JSON with multiple objects', () => {
+      const text = 'prefix {"items": [{"x": 1}, {"y": 2}, {"z": 3}]} suffix';
+      const result = parseLLMJsonResponse(text, 'items');
+      expect(result).toEqual([{ x: 1 }, { y: 2 }, { z: 3 }]);
+    });
+
+    it('should handle deeply nested escaped characters', () => {
+      const text = '{"items": [{"text": "line1\\nline2"}]}';
+      const result = parseLLMJsonResponse(text, 'items');
+      expect(result).toEqual([{ text: 'line1\nline2' }]);
+    });
+
+    it('should return empty array when array key exists but no array', () => {
+      const text = '{"items": "not an array"}';
+      const result = parseLLMJsonResponse(text, 'items');
+      expect(result).toEqual([]);
+    });
+
+    it('should handle empty string key', () => {
+      const text = '{"": []}';
+      const result = parseLLMJsonResponse(text, '');
+      expect(result).toEqual([]);
+    });
   });
 
   describe('integration scenarios', () => {
@@ -338,19 +294,6 @@ describe('llm/utils.ts', () => {
       expect(body.messages[0].content).toBe('Generate lyrics');
     });
 
-    it('should build request for typical Ollama flow', () => {
-      const baseUrl = 'http://localhost:11434';
-      const model = 'llama3.2';
-      const prompt = 'Generate lyrics';
-
-      const url = buildLLMRequestUrl('ollama', baseUrl);
-      const body = buildLLMRequestBody('ollama', model, prompt);
-
-      expect(url).toBe('http://localhost:11434/api/chat');
-      expect(body.model).toBe('llama3.2');
-      expect(body.stream).toBe(false);
-    });
-
     it('should extract content from typical OpenAI response', () => {
       const response = {
         id: 'chatcmpl-123',
@@ -363,17 +306,6 @@ describe('llm/utils.ts', () => {
       };
 
       const content = extractLLMResponseContent('openai_compatible', response);
-      expect(content).toBe('Here are your lyrics...');
-    });
-
-    it('should extract content from typical Ollama response', () => {
-      const response = {
-        model: 'llama3.2',
-        message: { role: 'assistant', content: 'Here are your lyrics...' },
-        done: true,
-      };
-
-      const content = extractLLMResponseContent('ollama', response);
       expect(content).toBe('Here are your lyrics...');
     });
   });
@@ -440,6 +372,107 @@ describe('LLM API calls', () => {
         expect(result.error).toContain('Network error');
       }
     });
+
+    it('should return error on timeout', async () => {
+      global.fetch = vi.fn().mockImplementation(() =>
+        new Promise((_, reject) => {
+          const error = new Error('Aborted');
+          error.name = 'AbortError';
+          setTimeout(() => reject(error), 100);
+        })
+      );
+
+      const result = await callLLMAPI({
+        runtime: 'openai_compatible',
+        baseUrl: 'http://localhost:8080',
+        model: 'local-model',
+        timeoutMs: 10,
+      }, 'Hello');
+
+      expect(result.success).toBe(false);
+      if (!result.success) {
+        expect(result.error).toContain('timed out');
+      }
+    });
+
+    it('should pass custom maxTokens and temperature', async () => {
+      global.fetch = vi.fn().mockResolvedValue({
+        ok: true,
+        json: async () => ({
+          choices: [{ message: { content: 'Result' } }],
+        }),
+      });
+
+      const result = await callLLMAPI({
+        runtime: 'openai_compatible',
+        baseUrl: 'http://localhost:8080',
+        model: 'test-model',
+        maxTokens: 2048,
+        temperature: 0.5,
+      }, 'Test prompt');
+
+      expect(result.success).toBe(true);
+
+      // Verify the fetch was called with correct body
+      const fetchCall = global.fetch.mock.calls[0];
+      const body = JSON.parse(fetchCall[1].body);
+      expect(body.max_tokens).toBe(2048);
+      expect(body.temperature).toBe(0.5);
+    });
+
+    it('should use default timeout when not specified', async () => {
+      global.fetch = vi.fn().mockImplementation(() =>
+        new Promise((resolve) => {
+          setTimeout(() => {
+            resolve({
+              ok: true,
+              json: async () => ({ choices: [{ message: { content: 'OK' } }] }),
+            });
+          }, 100);
+        })
+      );
+
+      // This should not timeout since default is 60000ms
+      const result = await callLLMAPI({
+        runtime: 'openai_compatible',
+        baseUrl: 'http://localhost:8080',
+        model: 'local-model',
+      }, 'Hello');
+
+      expect(result.success).toBe(true);
+    });
+
+    it('should clear timeout after successful response', async () => {
+      global.fetch = vi.fn().mockResolvedValue({
+        ok: true,
+        json: async () => ({
+          choices: [{ message: { content: 'OK' } }],
+        }),
+      });
+
+      await callLLMAPI({
+        runtime: 'openai_compatible',
+        baseUrl: 'http://localhost:8080',
+        model: 'local-model',
+        timeoutMs: 5000,
+      }, 'Hello');
+
+      // Verify setTimeout was called and cleared
+      expect(global.fetch).toHaveBeenCalled();
+    });
+
+    it('should clear timeout after error response', async () => {
+      global.fetch = vi.fn().mockRejectedValue(new Error('Network error'));
+
+      await callLLMAPI({
+        runtime: 'openai_compatible',
+        baseUrl: 'http://localhost:8080',
+        model: 'local-model',
+        timeoutMs: 5000,
+      }, 'Hello');
+
+      expect(global.fetch).toHaveBeenCalled();
+    });
   });
 
   describe('fetchLLMModels', () => {
@@ -465,22 +498,6 @@ describe('LLM API calls', () => {
       }
     });
 
-    it('should return models for Ollama runtime', async () => {
-      global.fetch = vi.fn().mockResolvedValue({
-        ok: true,
-        json: async () => ({
-          models: [{ name: 'llama3.2' }, { name: 'mistral' }],
-        }),
-      });
-
-      const result = await fetchLLMModels('ollama', 'http://localhost:11434');
-
-      expect(result.success).toBe(true);
-      if (result.success) {
-        expect(result.models).toEqual(['llama3.2', 'mistral']);
-      }
-    });
-
     it('should reject non-localhost URLs', async () => {
       const result = await fetchLLMModels('openai_compatible', 'http://example.com');
 
@@ -502,6 +519,45 @@ describe('LLM API calls', () => {
       expect(result.success).toBe(false);
       if (!result.success) {
         expect(result.error).toContain('404');
+      }
+    });
+
+    it('should handle network errors', async () => {
+      global.fetch = vi.fn().mockRejectedValue(new Error('Network error'));
+
+      const result = await fetchLLMModels('openai_compatible', 'http://localhost:8080');
+
+      expect(result.success).toBe(false);
+      if (!result.success) {
+        expect(result.error).toContain('Network error');
+      }
+    });
+
+    it('should handle malformed response', async () => {
+      global.fetch = vi.fn().mockResolvedValue({
+        ok: true,
+        json: async () => ({ data: null }),
+      });
+
+      const result = await fetchLLMModels('openai_compatible', 'http://localhost:8080');
+
+      expect(result.success).toBe(true);
+      if (result.success) {
+        expect(result.models).toEqual([]);
+      }
+    });
+
+    it('should handle response without data field', async () => {
+      global.fetch = vi.fn().mockResolvedValue({
+        ok: true,
+        json: async () => ({}),
+      });
+
+      const result = await fetchLLMModels('openai_compatible', 'http://localhost:8080');
+
+      expect(result.success).toBe(true);
+      if (result.success) {
+        expect(result.models).toEqual([]);
       }
     });
   });

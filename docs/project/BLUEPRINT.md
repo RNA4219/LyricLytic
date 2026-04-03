@@ -77,6 +77,7 @@ P9: エクスポート → P10: LLM接続 → P11: OS検証
 | PoCタスク分解 | `docs/requirements/poc-task-breakdown-v1.md` |
 | システム構成 | `docs/implementation/system-architecture-v1.md` |
 | コマンド契約 | `docs/implementation/command-contracts-v1.md` |
+| Frontend Constants | `docs/implementation/frontend-constants-v1.md` |
 | SQLite Schema | `docs/requirements/sqlite-schema-v1.sql` |
 | 画面フロー | `docs/requirements/screen-flow-v1.md` |
 | フロントエンド要件 | `docs/requirements/frontend-requirements-v1.md` |

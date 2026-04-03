@@ -438,6 +438,68 @@ describe('useSections', () => {
         result.current.queueAutoSave(result.current.sections);
       }).not.toThrow();
     });
+
+    it('should call onSave after delay', async () => {
+      vi.useFakeTimers();
+      const onSave = vi.fn();
+      const { result } = renderHook(() => useSections({ onSave, autoSaveDelay: 1000 }));
+
+      act(() => {
+        result.current.addSection('Verse');
+      });
+
+      act(() => {
+        result.current.queueAutoSave(result.current.sections);
+      });
+
+      expect(onSave).not.toHaveBeenCalled();
+
+      await act(async () => {
+        vi.advanceTimersByTime(1000);
+      });
+
+      expect(onSave).toHaveBeenCalledWith(result.current.sections);
+
+      vi.useRealTimers();
+    });
+
+    it('should clear existing timeout when called again', async () => {
+      vi.useFakeTimers();
+      const onSave = vi.fn();
+      const { result } = renderHook(() => useSections({ onSave, autoSaveDelay: 1000 }));
+
+      act(() => {
+        result.current.addSection('Verse');
+      });
+
+      act(() => {
+        result.current.queueAutoSave(result.current.sections);
+      });
+
+      await act(async () => {
+        vi.advanceTimersByTime(500);
+      });
+
+      // Call again before first timeout fires
+      act(() => {
+        result.current.queueAutoSave(result.current.sections);
+      });
+
+      await act(async () => {
+        vi.advanceTimersByTime(500);
+      });
+
+      // Should not have been called yet
+      expect(onSave).not.toHaveBeenCalled();
+
+      await act(async () => {
+        vi.advanceTimersByTime(500);
+      });
+
+      expect(onSave).toHaveBeenCalledTimes(1);
+
+      vi.useRealTimers();
+    });
   });
 
   describe('resetFromData', () => {

@@ -54,7 +54,6 @@ describe('useLLMSettings', () => {
   describe('loading saved settings', () => {
     it('should load settings from localStorage', () => {
       const savedSettings = {
-        runtime: 'ollama',
         baseUrl: 'http://127.0.0.1:11434',
         model: 'llama3.2',
         enabled: true,
@@ -67,7 +66,8 @@ describe('useLLMSettings', () => {
 
       const { result } = renderHook(() => useLLMSettings());
 
-      expect(result.current.settings.runtime).toBe('ollama');
+      // runtime is always forced to 'openai_compatible' for security
+      expect(result.current.settings.runtime).toBe('openai_compatible');
       expect(result.current.settings.baseUrl).toBe('http://127.0.0.1:11434');
       expect(result.current.settings.model).toBe('llama3.2');
       expect(result.current.settings.enabled).toBe(true);
@@ -120,9 +120,9 @@ describe('useLLMSettings', () => {
       const { result } = renderHook(() => useLLMSettings());
 
       const newSettings = {
-        runtime: 'ollama' as const,
-        baseUrl: 'http://127.0.0.1:11434',
-        model: 'llama3.2',
+        runtime: 'openai_compatible' as const,
+        baseUrl: 'http://127.0.0.1:8080',
+        model: 'local-model',
         modelPath: '',
         enabled: true,
         timeoutMs: 60000,
@@ -172,30 +172,30 @@ describe('useLLMSettings', () => {
       const { result } = renderHook(() => useLLMSettings());
 
       act(() => {
-        result.current.updatePartialSettings('runtime', 'ollama');
+        result.current.updatePartialSettings('runtime', 'openai_compatible');
       });
 
-      expect(result.current.settings.runtime).toBe('ollama');
+      expect(result.current.settings.runtime).toBe('openai_compatible');
     });
 
     it('should update baseUrl', () => {
       const { result } = renderHook(() => useLLMSettings());
 
       act(() => {
-        result.current.updatePartialSettings('baseUrl', 'http://127.0.0.1:11434');
+        result.current.updatePartialSettings('baseUrl', 'http://127.0.0.1:8080');
       });
 
-      expect(result.current.settings.baseUrl).toBe('http://127.0.0.1:11434');
+      expect(result.current.settings.baseUrl).toBe('http://127.0.0.1:8080');
     });
 
     it('should update model', () => {
       const { result } = renderHook(() => useLLMSettings());
 
       act(() => {
-        result.current.updatePartialSettings('model', 'llama3.2');
+        result.current.updatePartialSettings('model', 'local-model');
       });
 
-      expect(result.current.settings.model).toBe('llama3.2');
+      expect(result.current.settings.model).toBe('local-model');
     });
 
     it('should update temperature', () => {
@@ -244,15 +244,15 @@ describe('useLLMSettings', () => {
       const { result } = renderHook(() => useLLMSettings());
 
       act(() => {
-        result.current.updatePartialSettings('runtime', 'ollama');
-        result.current.updatePartialSettings('baseUrl', 'http://127.0.0.1:11434');
-        result.current.updatePartialSettings('model', 'llama3.2');
+        result.current.updatePartialSettings('runtime', 'openai_compatible');
+        result.current.updatePartialSettings('baseUrl', 'http://127.0.0.1:8080');
+        result.current.updatePartialSettings('model', 'local-model');
         result.current.updatePartialSettings('enabled', true);
       });
 
-      expect(result.current.settings.runtime).toBe('ollama');
-      expect(result.current.settings.baseUrl).toBe('http://127.0.0.1:11434');
-      expect(result.current.settings.model).toBe('llama3.2');
+      expect(result.current.settings.runtime).toBe('openai_compatible');
+      expect(result.current.settings.baseUrl).toBe('http://127.0.0.1:8080');
+      expect(result.current.settings.model).toBe('local-model');
       expect(result.current.settings.enabled).toBe(true);
     });
   });
@@ -261,7 +261,6 @@ describe('useLLMSettings', () => {
     it('should reset all settings to defaults', () => {
       // First set some custom settings
       localStorageMock.store[STORAGE_KEYS.LLM_SETTINGS] = JSON.stringify({
-        runtime: 'ollama',
         enabled: true,
         temperature: 0.1,
       });
@@ -269,8 +268,8 @@ describe('useLLMSettings', () => {
       const { result } = renderHook(() => useLLMSettings());
 
       // Verify custom settings loaded
-      expect(result.current.settings.runtime).toBe('ollama');
       expect(result.current.settings.enabled).toBe(true);
+      expect(result.current.settings.temperature).toBe(0.1);
 
       // Reset
       act(() => {

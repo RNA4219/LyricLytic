@@ -30,7 +30,7 @@ export function useKeyboardShortcuts(options: UseKeyboardShortcutsOptions): void
       target.tagName === 'INPUT' ||
       target.tagName === 'TEXTAREA' ||
       target.isContentEditable ||
-      !!target.closest('.monaco-editor')
+      (typeof target.closest === 'function' && !!target.closest('.monaco-editor'))
     ) {
       return;
     }

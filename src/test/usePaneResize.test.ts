@@ -91,6 +91,24 @@ describe('usePaneResize', () => {
 
       expect(result.current.isLeftPaneVisible).toBe(true);
     });
+
+    it('should toggle left pane with toggleLeftPane', () => {
+      const { result } = renderHook(() => usePaneResize());
+
+      expect(result.current.isLeftPaneVisible).toBe(true);
+
+      act(() => {
+        result.current.toggleLeftPane();
+      });
+
+      expect(result.current.isLeftPaneVisible).toBe(false);
+
+      act(() => {
+        result.current.toggleLeftPane();
+      });
+
+      expect(result.current.isLeftPaneVisible).toBe(true);
+    });
   });
 
   describe('setWidth functions', () => {
@@ -280,6 +298,129 @@ describe('usePaneResize', () => {
 
       expect(document.body.classList.contains('is-resizing-pane')).toBe(false);
       expect(onResizeEnd).toHaveBeenCalled();
+    });
+
+    it('should update section pane height on mouse move', () => {
+      const { result } = renderHook(() => usePaneResize());
+
+      // Set up a mock element for rightPaneRef
+      const mockElement = document.createElement('div');
+      mockElement.getBoundingClientRect = vi.fn(() => ({
+        top: 100,
+        left: 0,
+        width: 400,
+        height: 600,
+        right: 400,
+        bottom: 700,
+        x: 0,
+        y: 100,
+        toJSON: () => ({}),
+      }));
+
+      // Assign the ref
+      result.current.rightPaneRef.current = mockElement;
+
+      act(() => {
+        result.current.handleSectionPaneResizeStart();
+      });
+
+      const mouseMoveEvent = new MouseEvent('mousemove', {
+        clientY: 400, // 400 - 100 = 300, 300/600 = 50%
+      });
+
+      act(() => {
+        window.dispatchEvent(mouseMoveEvent);
+      });
+
+      expect(result.current.sectionPaneHeight).toBe(50);
+    });
+
+    it('should clamp section pane height to min percentage', () => {
+      const { result } = renderHook(() => usePaneResize());
+
+      const mockElement = document.createElement('div');
+      mockElement.getBoundingClientRect = vi.fn(() => ({
+        top: 0,
+        left: 0,
+        width: 400,
+        height: 600,
+        right: 400,
+        bottom: 600,
+        x: 0,
+        y: 0,
+        toJSON: () => ({}),
+      }));
+
+      result.current.rightPaneRef.current = mockElement;
+
+      act(() => {
+        result.current.handleSectionPaneResizeStart();
+      });
+
+      const mouseMoveEvent = new MouseEvent('mousemove', {
+        clientY: 50, // 50/600 = 8.3%, should clamp to 20%
+      });
+
+      act(() => {
+        window.dispatchEvent(mouseMoveEvent);
+      });
+
+      expect(result.current.sectionPaneHeight).toBe(20); // MIN_HEIGHT_PERCENT
+    });
+
+    it('should clamp section pane height to max percentage', () => {
+      const { result } = renderHook(() => usePaneResize());
+
+      const mockElement = document.createElement('div');
+      mockElement.getBoundingClientRect = vi.fn(() => ({
+        top: 0,
+        left: 0,
+        width: 400,
+        height: 600,
+        right: 400,
+        bottom: 600,
+        x: 0,
+        y: 0,
+        toJSON: () => ({}),
+      }));
+
+      result.current.rightPaneRef.current = mockElement;
+
+      act(() => {
+        result.current.handleSectionPaneResizeStart();
+      });
+
+      const mouseMoveEvent = new MouseEvent('mousemove', {
+        clientY: 580, // 580/600 = 96.7%, should clamp to 80%
+      });
+
+      act(() => {
+        window.dispatchEvent(mouseMoveEvent);
+      });
+
+      expect(result.current.sectionPaneHeight).toBe(80); // MAX_HEIGHT_PERCENT
+    });
+
+    it('should not resize section pane when ref is null', () => {
+      const { result } = renderHook(() => usePaneResize());
+
+      // ref is null by default
+      expect(result.current.rightPaneRef.current).toBe(null);
+
+      act(() => {
+        result.current.handleSectionPaneResizeStart();
+      });
+
+      const mouseMoveEvent = new MouseEvent('mousemove', {
+        clientY: 400,
+      });
+
+      act(() => {
+        window.dispatchEvent(mouseMoveEvent);
+      });
+
+      // Should remain at default since ref is null
+      expect(result.current.sectionPaneHeight).toBe(50);
     });
   });
 

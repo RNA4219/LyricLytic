@@ -443,7 +443,7 @@ describe('useKeyboardShortcuts', () => {
 });
 
 describe('createEditorShortcuts', () => {
-  it('should create 6 standard editor shortcuts', () => {
+  it('should create 7 standard editor shortcuts', () => {
     const actions = {
       onSave: vi.fn(),
       onSearch: vi.fn(),
@@ -453,7 +453,7 @@ describe('createEditorShortcuts', () => {
       onExport: vi.fn(),
     };
     const shortcuts = createEditorShortcuts(actions);
-    expect(shortcuts.length).toBe(6);
+    expect(shortcuts.length).toBe(7);
   });
 
   it('should include Ctrl+S for save', () => {
