@@ -9,6 +9,7 @@ import {
   startLlamaCppRuntime,
 } from '../lib/api';
 import { LLMSettings, fetchLLMModels, isManagedLlamaCppRuntime } from '../lib/llm';
+import { isAuxiliaryModelFile, isLikelyModelFile, getModelFileName } from '../lib/llm/modelUtils';
 import { useLanguage } from '../lib/LanguageContext';
 import { LLM_DEFAULTS } from '../lib/config';
 
@@ -20,8 +21,6 @@ interface LLMSettingsPanelProps {
 type ConnectionStatus = 'unknown' | 'testing' | 'connected' | 'error';
 type RuntimeActionStatus = 'idle' | 'running' | 'stopped' | 'starting' | 'error';
 type DirEntry = { name: string; isDirectory: boolean; isFile: boolean };
-
-const MODEL_FILE_PATTERN = /\.(gguf|ggml|safetensors)$/i;
 
 const DEFAULT_SETTINGS: LLMSettings = {
   runtime: 'openai_compatible',
@@ -45,13 +44,6 @@ function LLMSettingsPanel({ settings: externalSettings, onSettingsChange }: LLMS
   const [runtimeActionStatus, setRuntimeActionStatus] = useState<RuntimeActionStatus>('idle');
   const [runtimeActionError, setRuntimeActionError] = useState<string | null>(null);
 
-  const isAuxiliaryModelFile = (name: string) => {
-    const lower = name.toLowerCase();
-    return lower.includes('mmproj') || lower.includes('clip') || lower.includes('vision') || lower.includes('projector');
-  };
-
-  const isLikelyModelFile = (value: string) => MODEL_FILE_PATTERN.test(value.trim());
-
   useEffect(() => {
     setSettings(externalSettings ?? DEFAULT_SETTINGS);
   }, [externalSettings]);
@@ -60,14 +52,8 @@ function LLMSettingsPanel({ settings: externalSettings, onSettingsChange }: LLMS
     if (!rootPath.trim()) return [];
 
     const trimmedPath = rootPath.trim();
-    const lowerPath = trimmedPath.toLowerCase();
-    if (
-      lowerPath.endsWith('.gguf') ||
-      lowerPath.endsWith('.ggml') ||
-      lowerPath.endsWith('.safetensors')
-    ) {
-      const fileName = trimmedPath.split(/[\\/]/).filter(Boolean).pop() || trimmedPath;
-      return [fileName.replace(/\.(gguf|ggml|safetensors)$/i, '')];
+    if (isLikelyModelFile(trimmedPath)) {
+      return [getModelFileName(trimmedPath)];
     }
 
     const results = new Set<string>();
