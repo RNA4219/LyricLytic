@@ -5,7 +5,7 @@ import { getProject, getWorkingDraft, getDraftSections, saveDraft, getVersions, 
 import { useLLMSettings } from '../lib/llm';
 import { useLanguage } from '../lib/LanguageContext';
 import { useProject } from '../lib/ProjectContext';
-import { usePaneResize, useKeyboardShortcuts, createEditorShortcuts, usePhoneticGuide } from '../lib/hooks';
+import { usePaneResize, useKeyboardShortcuts, createEditorShortcuts, usePhoneticGuide, useSectionDragDrop } from '../lib/hooks';
 import { EDITOR, SECTION_PRESETS } from '../lib/config';
 import ActionPane from './editor/ActionPane';
 import EditorOverlays from './editor/EditorOverlays';
@@ -45,11 +45,6 @@ function EditorPage() {
   const [editorScrollTop, setEditorScrollTop] = useState(0);
   const [bpmMode, setBpmMode] = useState<'preset' | 'custom'>('preset');
   const [bpmValue, setBpmValue] = useState(120);
-  const [draggedSectionId, setDraggedSectionId] = useState<string | null>(null);
-  const [dragOverSectionId, setDragOverSectionId] = useState<string | null>(null);
-  const [dragPointerPosition, setDragPointerPosition] = useState<{ x: number; y: number } | null>(null);
-  const pointerDragStartRef = useRef<{ sectionId: string; x: number; y: number } | null>(null);
-  const activePointerDragRef = useRef<string | null>(null);
   const editorContainerRef = useRef<HTMLDivElement | null>(null);
   const isResizingPhoneticGuideRef = useRef(false);
 
@@ -60,6 +55,17 @@ function EditorPage() {
     setHeight: setPhoneticGuideHeight,
     setRows: setPhoneticGuideRows,
   } = usePhoneticGuide();
+
+  // Section drag & drop hook
+  const {
+    draggedSectionId,
+    dragOverSectionId,
+    dragPointerPosition,
+    handlePointerDown: handleSectionPointerDown,
+    setDragOverSectionId,
+    handleDragEnd,
+    commitReorder,
+  } = useSectionDragDrop(sections, { onReorder: setSections });
 
   const saveTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const saveToastTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
