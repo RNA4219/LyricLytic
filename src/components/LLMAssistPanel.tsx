@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { isAllowedLocalBaseUrl, callLLMAPI, parseLLMJsonResponse } from '../lib/llm/utils';
 import { useLanguage } from '../lib/LanguageContext';
+import { useLLMPanel } from '../lib/hooks';
 import type { LLMPanelBaseProps } from '../lib/llm/types';
 
 interface LyricCandidate {
@@ -31,14 +32,13 @@ function LLMAssistPanel({
   currentVocal,
 }: LLMAssistPanelProps) {
   const { t, language } = useLanguage();
+  const { error, setError, copyMessage, copyToClipboard: copyToClipboardBase } = useLLMPanel();
   const [prompt, setPrompt] = useState('');
   const [generating, setGenerating] = useState(false);
   const [candidates, setCandidates] = useState<LyricCandidate[]>([]);
   const [selectedCandidate, setSelectedCandidate] = useState<LyricCandidate | null>(null);
   const [rawResponse, setRawResponse] = useState<string | null>(null);
-  const [error, setError] = useState<string | null>(null);
   const [target, setTarget] = useState<AssistTarget>('lyrics');
-  const [copyMessage, setCopyMessage] = useState<string | null>(null);
   const [candidateCount, setCandidateCount] = useState(3);
   const [candidateCountMode, setCandidateCountMode] = useState<'preset' | 'custom'>('preset');
   const [candidateCountInput, setCandidateCountInput] = useState('3');
@@ -58,11 +58,7 @@ function LLMAssistPanel({
   };
 
   const copyGeneratedText = async (text: string) => {
-    await navigator.clipboard.writeText(text);
-    setCopyMessage(t('copiedToClipboard'));
-    window.setTimeout(() => {
-      setCopyMessage((current) => (current === t('copiedToClipboard') ? null : current));
-    }, 1800);
+    await copyToClipboardBase(text, t('copiedToClipboard'));
   };
 
   const buildJsonPrompt = (userPrompt: string): string => {

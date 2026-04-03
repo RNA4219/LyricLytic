@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { isAllowedLocalBaseUrl, callLLMAPI, parseLLMJsonResponse } from '../lib/llm/utils';
 import { useLanguage } from '../lib/LanguageContext';
 import { analyzeRhymeGuideRows } from '../lib/rhyme/analysis';
+import { useLLMPanel } from '../lib/hooks';
 import type { LLMPanelBaseProps } from '../lib/llm/types';
 
 interface ExpressionMatch {
@@ -45,6 +46,7 @@ function LLMReviewPanel({
   sectionText,
 }: LLMReviewPanelProps) {
   const { t } = useLanguage();
+  const { error, setError, copyMessage, copyToClipboard: copyToClipboardBase } = useLLMPanel();
   const [reviewMode, setReviewMode] = useState<ReviewMode>('novel');
   const [sampleCountPreset, setSampleCountPreset] = useState<string>('1000');
   const [customSampleCount, setCustomSampleCount] = useState('1000');
@@ -54,10 +56,8 @@ function LLMReviewPanel({
   const [analyzing, setAnalyzing] = useState(false);
   const [expressions, setExpressions] = useState<ExpressionMatch[]>([]);
   const [candidates, setCandidates] = useState<LowFreqCandidate[]>([]);
-  const [error, setError] = useState<string | null>(null);
   const [showCandidatePanel, setShowCandidatePanel] = useState(false);
   const [guideMetaMap, setGuideMetaMap] = useState<Record<string, PhraseGuideMeta>>({});
-  const [copyMessage, setCopyMessage] = useState<string | null>(null);
 
   const getThresholdForMode = () => {
     if (reviewMode === 'common') {
@@ -188,18 +188,9 @@ Important: Output ONLY the JSON object, no other text, no explanations, no markd
     return count;
   };
 
-  const flashCopyMessage = () => {
-    setCopyMessage(t('copiedToClipboard'));
-    window.clearTimeout((flashCopyMessage as typeof flashCopyMessage & { timer?: number }).timer);
-    (flashCopyMessage as typeof flashCopyMessage & { timer?: number }).timer = window.setTimeout(() => {
-      setCopyMessage(null);
-    }, 1500);
-  };
-
   const copyToClipboard = async (text: string) => {
     try {
-      await navigator.clipboard.writeText(text);
-      flashCopyMessage();
+      await copyToClipboardBase(text, t('copiedToClipboard'));
     } catch {
       setError(t('copyFailed'));
     }
