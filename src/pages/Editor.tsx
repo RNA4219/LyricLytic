@@ -5,7 +5,7 @@ import { getProject, getWorkingDraft, getDraftSections, saveDraft, getVersions, 
 import { useLLMSettings } from '../lib/llm';
 import { useLanguage } from '../lib/LanguageContext';
 import { useProject } from '../lib/ProjectContext';
-import { usePaneResize, useKeyboardShortcuts, createEditorShortcuts, usePhoneticGuide, useSectionDragDrop, useUIState, useBpm, useStyleVocal, BPM_PRESETS } from '../lib/hooks';
+import { usePaneResize, useKeyboardShortcuts, createEditorShortcuts, usePhoneticGuide, useSectionDragDrop, useUIState, useBpm, useStyleVocal, useClipboard, BPM_PRESETS } from '../lib/hooks';
 import { EDITOR, SECTION_PRESETS } from '../lib/config';
 import ActionPane from './editor/ActionPane';
 import EditorOverlays from './editor/EditorOverlays';
@@ -90,6 +90,11 @@ function EditorPage() {
     showAllCopyFeedback,
     showLyricsOnlyCopyFeedback,
   } = useUIState();
+
+  // Clipboard hook
+  const { copy: clipboardCopy } = useClipboard({
+    onError: () => setError(t('copyFailed')),
+  });
 
   const saveTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const editorInstanceRef = useRef<{
@@ -727,15 +732,9 @@ function EditorPage() {
     showFeedback?: () => void,
   ) => {
     if (!text.trim()) return;
-
-    try {
-      await navigator.clipboard.writeText(text);
-      showFeedback?.();
-    } catch (error) {
-      console.error('Failed to copy text:', error);
-      setError(t('copyFailed'));
-    }
-  }, [t]);
+    await clipboardCopy(text);
+    showFeedback?.();
+  }, [clipboardCopy]);
 
   const handleCopyAllWithTags = useCallback(() => {
     void copyTextToClipboard(
