@@ -376,4 +376,120 @@ describe('LLMAssistPanel', () => {
       expect(runtimeNote).not.toBeInTheDocument();
     });
   });
+
+  describe('line count custom input', () => {
+    it('should show custom line count input when custom is selected', () => {
+      renderWithProvider(<LLMAssistPanel {...mockProps} />);
+      const lineSelect = screen.getByLabelText('行数');
+      fireEvent.change(lineSelect, { target: { value: 'custom' } });
+      const textboxes = screen.getAllByRole('textbox');
+      const customInput = textboxes.find(tb => tb.classList.contains('llm-candidate-count-input'));
+      expect(customInput).toBeDefined();
+    });
+
+    it('should update line count from custom input', () => {
+      renderWithProvider(<LLMAssistPanel {...mockProps} />);
+      const lineSelect = screen.getByLabelText('行数');
+      fireEvent.change(lineSelect, { target: { value: 'custom' } });
+      const textboxes = screen.getAllByRole('textbox');
+      const customInput = textboxes.find(tb => tb.classList.contains('llm-candidate-count-input'));
+      if (customInput) {
+        fireEvent.change(customInput, { target: { value: '10' } });
+        expect(customInput).toHaveValue('10');
+      }
+    });
+
+    it('should clamp line count to valid range', () => {
+      renderWithProvider(<LLMAssistPanel {...mockProps} />);
+      const lineSelect = screen.getByLabelText('行数');
+      fireEvent.change(lineSelect, { target: { value: 'custom' } });
+      const textboxes = screen.getAllByRole('textbox');
+      const customInput = textboxes.find(tb => tb.classList.contains('llm-candidate-count-input'));
+      if (customInput) {
+        fireEvent.change(customInput, { target: { value: '100' } });
+        fireEvent.blur(customInput);
+        // Should be clamped to max 16
+        expect(customInput).toHaveValue('16');
+      }
+    });
+  });
+
+  describe('raw response handling', () => {
+    it('should handle non-JSON response as single candidate', async () => {
+      const mockFetch = vi.fn().mockResolvedValue({
+        ok: true,
+        json: () => Promise.resolve({ choices: [{ message: { content: 'Plain text response' } }] }),
+      });
+      global.fetch = mockFetch;
+
+      renderWithProvider(<LLMAssistPanel {...mockProps} />);
+      const generateBtns = screen.getAllByRole('button', { name: '生成' });
+      const actionBtn = generateBtns.find(b => b.classList.contains('generate-btn'));
+      if (actionBtn) fireEvent.click(actionBtn);
+
+      await waitFor(() => {
+        // Plain text is treated as a single candidate with default title
+        expect(screen.getByText('生成された歌詞')).toBeInTheDocument();
+      });
+    });
+  });
+
+  describe('copy all candidates', () => {
+    it('should copy all candidates with titles', async () => {
+      const mockResponse = {
+        candidates: [
+          { id: 1, title: 'Option 1', text: 'Text 1' },
+          { id: 2, title: 'Option 2', text: 'Text 2' },
+        ],
+      };
+
+      const mockFetch = vi.fn().mockResolvedValue({
+        ok: true,
+        json: () => Promise.resolve({ choices: [{ message: { content: JSON.stringify(mockResponse) } }] }),
+      });
+      global.fetch = mockFetch;
+
+      const clipboardMock = vi.fn().mockResolvedValue(undefined);
+      Object.defineProperty(navigator, 'clipboard', {
+        value: { writeText: clipboardMock },
+        writable: true,
+      });
+
+      renderWithProvider(<LLMAssistPanel {...mockProps} />);
+      const generateBtns = screen.getAllByRole('button', { name: '生成' });
+      const actionBtn = generateBtns.find(b => b.classList.contains('generate-btn'));
+      if (actionBtn) fireEvent.click(actionBtn);
+
+      await waitFor(() => {
+        expect(screen.getByText('すべてコピー')).toBeInTheDocument();
+      });
+
+      fireEvent.click(screen.getByText('すべてコピー'));
+      expect(clipboardMock).toHaveBeenCalled();
+    });
+  });
+
+  describe('candidate preview', () => {
+    it('should truncate long candidate text', async () => {
+      const longText = 'A'.repeat(300);
+      const mockResponse = {
+        candidates: [{ id: 1, title: 'Long', text: longText }],
+      };
+
+      const mockFetch = vi.fn().mockResolvedValue({
+        ok: true,
+        json: () => Promise.resolve({ choices: [{ message: { content: JSON.stringify(mockResponse) } }] }),
+      });
+      global.fetch = mockFetch;
+
+      renderWithProvider(<LLMAssistPanel {...mockProps} />);
+      const generateBtns = screen.getAllByRole('button', { name: '生成' });
+      const actionBtn = generateBtns.find(b => b.classList.contains('generate-btn'));
+      if (actionBtn) fireEvent.click(actionBtn);
+
+      await waitFor(() => {
+        expect(screen.getByText(/AAA\.\.\./)).toBeInTheDocument();
+      });
+    });
+  });
 });
