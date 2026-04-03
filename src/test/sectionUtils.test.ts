@@ -6,7 +6,7 @@ import {
   parseBodyToSections,
   sectionsToBody,
   mapDraftSections,
-} from '../pages/editor/sectionUtils';
+} from '../lib/section';
 import { DraftSection } from '../lib/api';
 
 describe('sectionUtils', () => {

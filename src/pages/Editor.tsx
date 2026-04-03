@@ -9,7 +9,7 @@ import { usePaneResize, useKeyboardShortcuts, createEditorShortcuts } from '../l
 import { EDITOR, SECTION_PRESETS } from '../lib/config';
 import ActionPane from './editor/ActionPane';
 import EditorOverlays from './editor/EditorOverlays';
-import { Section, mapDraftSections, parseBodyToSections, sectionsToBody, generateUniqueSectionName } from './editor/sectionUtils';
+import { Section, mapDraftSections, parseBodyToSections, sectionsToBody, generateUniqueSectionName } from '../lib/section';
 import VersionPane from './editor/VersionPane';
 import { analyzeRhymeGuideRows, buildFallbackRhymeGuideRows, getGuideHighlightParts, type RhymeGuideRow } from '../lib/rhyme/analysis';
 

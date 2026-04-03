@@ -16,14 +16,7 @@ import {
   VersionSectionInput,
   CollectedFragment,
 } from './api';
-
-export interface Section {
-  id: string;
-  type: string;
-  displayName: string;
-  sortOrder: number;
-  bodyText: string;
-}
+import { Section } from './section';
 
 export interface ProjectDataState {
   project: Project | null;

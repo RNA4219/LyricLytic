@@ -3,7 +3,7 @@ import LLMAssistPanel from '../../components/LLMAssistPanel';
 import LLMReviewPanel from '../../components/LLMReviewPanel';
 import LLMSettingsPanel from '../../components/LLMSettingsPanel';
 import { LLMSettings } from '../../lib/llm';
-import { Section } from './sectionUtils';
+import { Section } from '../../lib/section';
 
 interface ActionPaneProps {
   sections: Section[];

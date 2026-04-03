@@ -1,24 +1,5 @@
-import { DraftSection } from '../../lib/api';
-import { SECTION_PRESETS } from '../../lib/config';
-
-export interface Section {
-  id: string;
-  type: string;
-  displayName: string;
-  sortOrder: number;
-  bodyText: string;
-}
-
-// Re-export SECTION_PRESETS for backward compatibility
-export { SECTION_PRESETS };
-
-function trimTrailingSeparatorLines(lines: string[]): string[] {
-  const next = [...lines];
-  while (next.length > 0 && next[next.length - 1].trim() === '') {
-    next.pop();
-  }
-  return next;
-}
+import { DraftSection } from '../api';
+import { Section } from './types';
 
 /**
  * Generate a unique display name for a new section.
@@ -58,6 +39,14 @@ export function generateUniqueSectionName(
   });
 
   return `${baseName} ${maxNumber + 1}`;
+}
+
+function trimTrailingSeparatorLines(lines: string[]): string[] {
+  const next = [...lines];
+  while (next.length > 0 && next[next.length - 1].trim() === '') {
+    next.pop();
+  }
+  return next;
 }
 
 export function parseBodyToSections(body: string): Section[] {
