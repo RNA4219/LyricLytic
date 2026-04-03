@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { isAllowedLocalBaseUrl, callLLMAPI, parseLLMJsonResponse, LLMRuntime } from '../lib/llm/utils';
+import { isAllowedLocalBaseUrl, callLLMAPI, parseLLMJsonResponse } from '../lib/llm/utils';
 import { useLanguage } from '../lib/LanguageContext';
+import type { LLMPanelBaseProps } from '../lib/llm/types';
 
 interface LyricCandidate {
   id: number;
@@ -10,15 +11,7 @@ interface LyricCandidate {
 
 type AssistTarget = 'lyrics' | 'style' | 'vocal';
 
-interface LLMAssistPanelProps {
-  runtime: LLMRuntime;
-  baseUrl: string;
-  model: string;
-  modelPath: string;
-  enabled: boolean;
-  timeoutMs?: number;
-  maxTokens?: number;
-  temperature?: number;
+interface LLMAssistPanelProps extends LLMPanelBaseProps {
   currentLyrics: string;
   currentStyle: string;
   currentVocal: string;

@@ -1,7 +1,8 @@
 import { useEffect, useMemo, useState } from 'react';
-import { isAllowedLocalBaseUrl, callLLMAPI, parseLLMJsonResponse, LLMRuntime } from '../lib/llm/utils';
+import { isAllowedLocalBaseUrl, callLLMAPI, parseLLMJsonResponse } from '../lib/llm/utils';
 import { useLanguage } from '../lib/LanguageContext';
 import { analyzeRhymeGuideRows } from '../lib/rhyme/analysis';
+import type { LLMPanelBaseProps } from '../lib/llm/types';
 
 interface ExpressionMatch {
   text: string;
@@ -17,15 +18,7 @@ interface LowFreqCandidate {
   occurrence_ratio?: number;
 }
 
-interface LLMReviewPanelProps {
-  runtime: LLMRuntime;
-  baseUrl: string;
-  model: string;
-  modelPath: string;
-  enabled: boolean;
-  timeoutMs?: number;
-  maxTokens?: number;
-  temperature?: number;
+interface LLMReviewPanelProps extends LLMPanelBaseProps {
   sectionText: string;
 }
 
