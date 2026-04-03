@@ -50,7 +50,7 @@ export function buildJsonResponseFormat(options: JsonResponseFormatOptions): str
     return `      "${field.name}": ${exampleValue}`;
   });
 
-  const examples = Array.from({ length: exampleCount }, (_, i) => {
+  const examples = Array.from({ length: exampleCount }, () => {
     return `    {
 ${fieldLines.join(',\n')}
     }`;

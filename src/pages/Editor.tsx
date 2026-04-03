@@ -11,7 +11,7 @@ import ActionPane from './editor/ActionPane';
 import EditorOverlays from './editor/EditorOverlays';
 import { Section, mapDraftSections, parseBodyToSections, sectionsToBody, generateUniqueSectionName, buildLyricsOnlyBody } from '../lib/section';
 import VersionPane from './editor/VersionPane';
-import { analyzeRhymeGuideRows, buildFallbackRhymeGuideRows, getGuideHighlightParts, countRomanizedGuideUnits, type RhymeGuideRow } from '../lib/rhyme/analysis';
+import { analyzeRhymeGuideRows, buildFallbackRhymeGuideRows, getGuideHighlightParts, countRomanizedGuideUnits } from '../lib/rhyme/analysis';
 
 function EditorPage() {
   const { projectId } = useParams<{ projectId: string }>();
@@ -66,9 +66,6 @@ function EditorPage() {
     dragOverSectionId,
     dragPointerPosition,
     handlePointerDown: handleSectionPointerDown,
-    setDragOverSectionId,
-    handleDragEnd,
-    commitReorder,
   } = useSectionDragDrop(sections, { onReorder: setSections });
 
   // UI state hook (dialogs & toasts)
@@ -981,7 +978,7 @@ function EditorPage() {
                   data-section-id={s.id}
                   className={`section-tab ${s.id === activeSection ? 'active' : ''} ${s.id === dragOverSectionId ? 'drag-over' : ''} ${s.id === draggedSectionId ? 'dragging' : ''}`}
                   onClick={() => setActiveSection(s.id)}
-                  onPointerDown={(e) => handleSectionPointerDown(e, s.id)}
+                  onPointerDown={(e) => handleSectionPointerDown(s.id, e.clientX, e.clientY)}
                 >
                   <div className="section-tab-row">
                     <div className="section-tab-meta">
@@ -991,7 +988,7 @@ function EditorPage() {
                         value={s.displayName}
                         onChange={(e) => renameSection(s.id, e.target.value)}
                         onClick={(e) => e.stopPropagation()}
-                        onPointerDown={(e) => handleSectionPointerDown(e, s.id)}
+                        onPointerDown={(e) => handleSectionPointerDown(s.id, e.clientX, e.clientY)}
                         className="section-name-input"
                       />
                     </div>

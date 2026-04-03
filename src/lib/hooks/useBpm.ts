@@ -13,7 +13,7 @@ export interface UseBpmReturn {
 
 export function useBpm(initialBpm?: number): UseBpmReturn {
   const defaultBpm = initialBpm ?? 120;
-  const initialMode = BPM_PRESETS.includes(defaultBpm) ? 'preset' : 'custom';
+  const initialMode = (BPM_PRESETS as readonly number[]).includes(defaultBpm) ? 'preset' : 'custom';
 
   const [bpmValue, setBpmValueState] = useState(defaultBpm);
   const [bpmMode, setBpmMode] = useState<'preset' | 'custom'>(initialMode);
@@ -35,7 +35,7 @@ export function useBpm(initialBpm?: number): UseBpmReturn {
 
   const setBpmValue = useCallback((value: number) => {
     setBpmValueState(value);
-    setBpmMode(BPM_PRESETS.includes(value) ? 'preset' : 'custom');
+    setBpmMode((BPM_PRESETS as readonly number[]).includes(value) ? 'preset' : 'custom');
   }, []);
 
   const calculateEstimatedSeconds = useCallback((characterCount: number) => {

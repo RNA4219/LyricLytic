@@ -1,9 +1,10 @@
 import { useState, useCallback, useRef, useEffect } from 'react';
 import { EDITOR } from '../config';
-import { generateUniqueSectionName, Section, SectionPreset } from '../section';
+import { generateUniqueSectionName, Section } from '../section';
 
 // Re-export Section and SectionPreset for backward compatibility
-export { Section, SectionPreset } from '../section';
+export type { Section } from '../section';
+export type { SectionPreset } from '../section';
 
 export interface UseSectionsOptions {
   autoSaveDelay?: number;

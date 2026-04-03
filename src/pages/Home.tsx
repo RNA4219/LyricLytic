@@ -10,7 +10,6 @@ import {
   getDraftSections,
   Project,
   StyleProfile,
-  DraftSection,
 } from '../lib/api';
 import { useLanguage } from '../lib/LanguageContext';
 import TrashPanel from '../components/TrashPanel';

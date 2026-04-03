@@ -1,4 +1,4 @@
-import { useState, useRef, useCallback } from 'react';
+import { useState, useCallback } from 'react';
 import type { RhymeGuideRow } from '../rhyme/analysis';
 
 export interface UsePhoneticGuideOptions {

@@ -35,7 +35,7 @@ export function normalizeSectionName(name?: string): string {
 
 export interface DraftSection {
   draft_section_id: string;
-  section_type: string | null;
+  section_type?: string;
   display_name: string;
   sort_order: number;
   body_text: string;
@@ -65,7 +65,7 @@ export function buildProjectPreview(
 
   for (const key of PREVIEW_SECTION_PRIORITY) {
     const match = nonEmptySections.find((section) => {
-      const type = normalizeSectionName(section.section_type);
+      const type = normalizeSectionName(section.section_type ?? undefined);
       const displayName = normalizeSectionName(section.display_name);
       return type === key || displayName === key;
     });
