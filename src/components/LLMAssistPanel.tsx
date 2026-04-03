@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { isAllowedLocalBaseUrl, callLLMAPI, parseLLMJsonResponse } from '../lib/llm/utils';
 import { useLanguage } from '../lib/LanguageContext';
 import { useLLMPanel } from '../lib/hooks';
+import { buildLanguageInstruction } from '../lib/llm/promptBuilder';
 import type { LLMPanelBaseProps } from '../lib/llm/types';
 
 interface LyricCandidate {
@@ -63,11 +64,7 @@ function LLMAssistPanel({
 
   const buildJsonPrompt = (userPrompt: string): string => {
     const forceEnglishOutput = target === 'style' || target === 'vocal';
-    const languageInstruction = forceEnglishOutput
-      ? 'Generate all output text in English.'
-      : language === 'ja'
-        ? 'Generate all output text in Japanese.'
-        : 'Generate all output text in English.';
+    const languageInstruction = buildLanguageInstruction({ language, forceEnglish: forceEnglishOutput });
 
     const targetInstruction = target === 'style'
       ? 'Generate concise style direction notes for a song. Focus on genre, mood, arrangement hints, production texture, and sonic imagery. Do not generate lyrics.'
