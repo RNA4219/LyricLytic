@@ -5,7 +5,7 @@ import { getProject, getWorkingDraft, getDraftSections, saveDraft, getVersions, 
 import { useLLMSettings } from '../lib/llm';
 import { useLanguage } from '../lib/LanguageContext';
 import { useProject } from '../lib/ProjectContext';
-import { usePaneResize, useKeyboardShortcuts, createEditorShortcuts } from '../lib/hooks';
+import { usePaneResize, useKeyboardShortcuts, createEditorShortcuts, usePhoneticGuide } from '../lib/hooks';
 import { EDITOR, SECTION_PRESETS } from '../lib/config';
 import ActionPane from './editor/ActionPane';
 import EditorOverlays from './editor/EditorOverlays';
@@ -48,12 +48,18 @@ function EditorPage() {
   const [draggedSectionId, setDraggedSectionId] = useState<string | null>(null);
   const [dragOverSectionId, setDragOverSectionId] = useState<string | null>(null);
   const [dragPointerPosition, setDragPointerPosition] = useState<{ x: number; y: number } | null>(null);
-  const [phoneticGuideHeight, setPhoneticGuideHeight] = useState(220);
-  const [phoneticGuideRows, setPhoneticGuideRows] = useState<RhymeGuideRow[]>([]);
   const pointerDragStartRef = useRef<{ sectionId: string; x: number; y: number } | null>(null);
   const activePointerDragRef = useRef<string | null>(null);
   const editorContainerRef = useRef<HTMLDivElement | null>(null);
   const isResizingPhoneticGuideRef = useRef(false);
+
+  // Phonetic guide hook
+  const {
+    height: phoneticGuideHeight,
+    rows: phoneticGuideRows,
+    setHeight: setPhoneticGuideHeight,
+    setRows: setPhoneticGuideRows,
+  } = usePhoneticGuide();
 
   const saveTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const saveToastTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
