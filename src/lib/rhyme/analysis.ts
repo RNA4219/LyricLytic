@@ -20,6 +20,17 @@ export interface GuideHighlightParts {
   match: string;
 }
 
+/**
+ * Count the number of romanized guide units (tokens), excluding pipe characters.
+ */
+export function countRomanizedGuideUnits(value: string): number {
+  return value
+    .split(/\s+/)
+    .filter(Boolean)
+    .filter((token) => token !== '|')
+    .length;
+}
+
 function katakanaToHiragana(value: string) {
   return value.replace(/[\u30a1-\u30f6]/g, (char) =>
     String.fromCharCode(char.charCodeAt(0) - 0x60),

@@ -105,3 +105,14 @@ export function mapDraftSections(draftSections: DraftSection[]): Section[] {
     bodyText: section.body_text,
   }));
 }
+
+/**
+ * Build lyrics-only body from sections, excluding section tags.
+ * Joins bodyText with double newlines, filtering out empty sections.
+ */
+export function buildLyricsOnlyBody(sections: Section[]): string {
+  return sections
+    .map((section) => section.bodyText.trimEnd())
+    .filter((body) => body.length > 0)
+    .join('\n\n');
+}

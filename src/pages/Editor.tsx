@@ -9,26 +9,11 @@ import { usePaneResize, useKeyboardShortcuts, createEditorShortcuts } from '../l
 import { EDITOR, SECTION_PRESETS } from '../lib/config';
 import ActionPane from './editor/ActionPane';
 import EditorOverlays from './editor/EditorOverlays';
-import { Section, mapDraftSections, parseBodyToSections, sectionsToBody, generateUniqueSectionName } from '../lib/section';
+import { Section, mapDraftSections, parseBodyToSections, sectionsToBody, generateUniqueSectionName, buildLyricsOnlyBody } from '../lib/section';
 import VersionPane from './editor/VersionPane';
-import { analyzeRhymeGuideRows, buildFallbackRhymeGuideRows, getGuideHighlightParts, type RhymeGuideRow } from '../lib/rhyme/analysis';
+import { analyzeRhymeGuideRows, buildFallbackRhymeGuideRows, getGuideHighlightParts, countRomanizedGuideUnits, type RhymeGuideRow } from '../lib/rhyme/analysis';
 
 const BPM_PRESETS = [172, 144, 132, 128, 124, 122, 121, 120, 92, 90];
-
-function countRomanizedGuideUnits(value: string) {
-  return value
-    .split(/\s+/)
-    .filter(Boolean)
-    .filter((token) => token !== '|')
-    .length;
-}
-
-function buildLyricsOnlyBody(sections: Section[]) {
-  return sections
-    .map((section) => section.bodyText.trimEnd())
-    .filter((body) => body.length > 0)
-    .join('\n\n');
-}
 
 function EditorPage() {
   const { projectId } = useParams<{ projectId: string }>();
