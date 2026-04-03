@@ -12,6 +12,8 @@ interface LyricCandidate {
 }
 
 type AssistTarget = 'lyrics' | 'style' | 'vocal';
+type AssistMode = 'generate' | 'continue' | 'paraphrase';
+type EmotionTone = 'neutral' | 'happy' | 'sad' | 'angry' | 'romantic' | 'melancholic' | 'energetic' | 'calm' | 'dark' | 'hopeful';
 
 interface LLMAssistPanelProps extends LLMPanelBaseProps {
   currentLyrics: string;
@@ -46,6 +48,21 @@ function LLMAssistPanel({
   const [lyricLineCount, setLyricLineCount] = useState(4);
   const [lyricLineCountMode, setLyricLineCountMode] = useState<'preset' | 'custom'>('preset');
   const [lyricLineCountInput, setLyricLineCountInput] = useState('4');
+  const [assistMode, setAssistMode] = useState<AssistMode>('generate');
+  const [emotionTone, setEmotionTone] = useState<EmotionTone>('neutral');
+
+  const emotionToneOptions: { value: EmotionTone; labelKey: string; promptHint: string }[] = [
+    { value: 'neutral', labelKey: 'emotionNeutral', promptHint: '' },
+    { value: 'happy', labelKey: 'emotionHappy', promptHint: 'bright, joyful, uplifting tone' },
+    { value: 'sad', labelKey: 'emotionSad', promptHint: 'sad, melancholic, heartbreaking tone' },
+    { value: 'angry', labelKey: 'emotionAngry', promptHint: 'intense, aggressive, powerful tone' },
+    { value: 'romantic', labelKey: 'emotionRomantic', promptHint: 'romantic, sweet, loving tone' },
+    { value: 'melancholic', labelKey: 'emotionMelancholic', promptHint: 'melancholic, fleeting, ephemeral tone' },
+    { value: 'energetic', labelKey: 'emotionEnergetic', promptHint: 'energetic, dynamic, lively tone' },
+    { value: 'calm', labelKey: 'emotionCalm', promptHint: 'calm, peaceful, serene tone' },
+    { value: 'dark', labelKey: 'emotionDark', promptHint: 'dark, ominous, mysterious tone' },
+    { value: 'hopeful', labelKey: 'emotionHopeful', promptHint: 'hopeful, optimistic, forward-looking tone' },
+  ];
 
   const normalizedCandidateCount = Math.max(3, Math.min(99, candidateCount));
   const normalizedLyricLineCount = Math.max(2, Math.min(16, lyricLineCount));
@@ -62,9 +79,15 @@ function LLMAssistPanel({
     await copyToClipboardBase(text, t('copiedToClipboard'));
   };
 
+  const getLastLyricsLines = (lyrics: string, lineCount: number): string => {
+    const lines = lyrics.trim().split('\n').filter(l => l.trim());
+    return lines.slice(-lineCount).join('\n');
+  };
+
   const buildJsonPrompt = (userPrompt: string): string => {
     const forceEnglishOutput = target === 'style' || target === 'vocal';
     const languageInstruction = buildLanguageInstruction({ language, forceEnglish: forceEnglishOutput });
+    const emotionHint = emotionToneOptions.find(e => e.value === emotionTone)?.promptHint || '';
 
     const targetInstruction = target === 'style'
       ? 'Generate concise style direction notes for a song. Focus on genre, mood, arrangement hints, production texture, and sonic imagery. Do not generate lyrics.'
@@ -78,8 +101,21 @@ function LLMAssistPanel({
         ? 'vocal direction'
         : 'lyrics';
 
+    const modeInstruction = assistMode === 'continue'
+      ? `Continue writing from the existing lyrics. Extend the song naturally, maintaining the same style and flow. Generate what comes NEXT after the provided context.`
+      : assistMode === 'paraphrase'
+        ? `Paraphrase or rephrase the input text. Keep the meaning but change the expression. Offer alternative ways to say the same thing.`
+        : `Generate new ${targetLabel} candidates based on the existing references.`;
+
     const references = (() => {
       if (target === 'lyrics') {
+        if (assistMode === 'continue') {
+          const contextLines = getLastLyricsLines(currentLyrics, 6);
+          return {
+            recentLyrics: contextLines || 'none',
+            style: currentStyle.trim() || 'none',
+          };
+        }
         return {
           lyrics: currentLyrics.trim() || 'none',
           style: currentStyle.trim() || 'none',
@@ -99,16 +135,36 @@ function LLMAssistPanel({
       };
     })();
 
-    const requestText = userPrompt.trim() || (
-      forceEnglishOutput
-        ? `Generate new ${targetLabel} candidates based on the existing references.`
-        : language === 'ja'
-          ? `既存の参照情報をもとに、新しい${targetLabel}候補を生成してください。`
-          : `Generate new ${targetLabel} candidates based on the existing references.`
-    );
+    const requestText = (() => {
+      if (assistMode === 'continue') {
+        return language === 'ja'
+          ? '現在の歌詞から続きを書いてください。'
+          : 'Continue writing from the current lyrics.';
+      }
+      if (assistMode === 'paraphrase') {
+        const inputText = userPrompt.trim();
+        if (!inputText) {
+          return language === 'ja'
+            ? '言い換えるテキストを入力してください。'
+            : 'Please provide text to paraphrase.';
+        }
+        return language === 'ja'
+          ? `以下のテキストを言い換えてください：\n${inputText}`
+          : `Paraphrase the following text:\n${inputText}`;
+      }
+      return userPrompt.trim() || (
+        forceEnglishOutput
+          ? `Generate new ${targetLabel} candidates based on the existing references.`
+          : language === 'ja'
+            ? `既存の参照情報をもとに、新しい${targetLabel}候補を生成してください。`
+            : `Generate new ${targetLabel} candidates based on the existing references.`
+      );
+    })();
 
     return `${targetInstruction}
 ${languageInstruction}
+${emotionHint ? `Emotion/Tone: ${emotionHint}` : ''}
+${modeInstruction}
 
 Respond ONLY with valid JSON in this exact format:
 {
@@ -306,6 +362,41 @@ Important rules:
         ))}
       </div>
 
+      {target === 'lyrics' && (
+        <div className="llm-mode-tabs" role="tablist" aria-label="Assist mode">
+          {(['generate', 'continue', 'paraphrase'] as AssistMode[]).map((mode) => (
+            <button
+              key={mode}
+              type="button"
+              role="tab"
+              aria-selected={assistMode === mode}
+              className={`llm-mode-tab ${assistMode === mode ? 'active' : ''}`}
+              onClick={() => setAssistMode(mode)}
+              disabled={generating}
+            >
+              {mode === 'generate' ? t('generate') : mode === 'continue' ? t('continueWriting') : t('paraphrase')}
+            </button>
+          ))}
+        </div>
+      )}
+
+      <div className="llm-emotion-row">
+        <label htmlFor="llm-emotion">{t('emotionTone')}</label>
+        <select
+          id="llm-emotion"
+          value={emotionTone}
+          onChange={(e) => setEmotionTone(e.target.value as EmotionTone)}
+          className="llm-emotion-select"
+          disabled={generating}
+        >
+          {emotionToneOptions.map((opt) => (
+            <option key={opt.value} value={opt.value}>
+              {t(opt.labelKey as keyof typeof import('../lib/i18n/ja').ja)}
+            </option>
+          ))}
+        </select>
+      </div>
+
       <div className="llm-config-row">
         <div className="llm-candidate-count-row">
           <label htmlFor="llm-candidate-count">{t('candidateCount')}</label>
@@ -373,11 +464,15 @@ Important rules:
       <textarea
         value={prompt}
         onChange={(e) => setPrompt(e.target.value)}
-        placeholder={target === 'style'
-          ? t('llmPromptPlaceholderStyle')
-          : target === 'vocal'
-            ? t('llmPromptPlaceholderVocal')
-            : t('llmPromptPlaceholderLlama')}
+        placeholder={assistMode === 'continue'
+          ? t('continuePromptPlaceholder')
+          : assistMode === 'paraphrase'
+            ? t('paraphrasePromptPlaceholder')
+            : target === 'style'
+              ? t('llmPromptPlaceholderStyle')
+              : target === 'vocal'
+                ? t('llmPromptPlaceholderVocal')
+                : t('llmPromptPlaceholderLlama')}
         className="llm-prompt-input"
         disabled={generating}
       />
