@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { isAllowedLocalBaseUrl, callLLMAPI, parseLLMJsonResponse } from '../lib/llm/utils';
 import { useLanguage } from '../lib/LanguageContext';
-import { analyzeRhymeGuideRows } from '../lib/rhyme/analysis';
+import { analyzeRhymeGuideRows, countTrailingTokenMatches } from '../lib/rhyme/analysis';
 import { useLLMPanel } from '../lib/hooks';
 import type { LLMPanelBaseProps } from '../lib/llm/types';
 
@@ -160,32 +160,6 @@ Original lyrics:
 ${text}
 
 Important: Output ONLY the JSON object, no other text, no explanations, no markdown formatting.`;
-  };
-
-  const countTrailingTokenMatches = (base: string, target: string) => {
-    const tokenizeTail = (value: string) => {
-      const tokens = value
-        .split(/\s+/)
-        .map((token) => token.trim())
-        .filter((token) => token.length > 0);
-      const lastPipeIndex = tokens.lastIndexOf('|');
-      const tailTokens = lastPipeIndex >= 0 ? tokens.slice(lastPipeIndex + 1) : tokens;
-      return tailTokens.filter((token) => token !== '|').slice(-6);
-    };
-
-    const baseTokens = tokenizeTail(base);
-    const targetTokens = tokenizeTail(target);
-
-    let count = 0;
-    while (count < baseTokens.length && count < targetTokens.length) {
-      const baseToken = baseTokens[baseTokens.length - 1 - count];
-      const targetToken = targetTokens[targetTokens.length - 1 - count];
-      if (baseToken !== targetToken) {
-        break;
-      }
-      count += 1;
-    }
-    return count;
   };
 
   const copyToClipboard = async (text: string) => {
