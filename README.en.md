@@ -258,6 +258,23 @@ This includes:
 - `llama.cpp`
 - SudachiPy / SudachiDict-core
 
+## About the Suno Prompt / Metatag Catalog
+
+The local catalog used for `Style / Vocal` assistance is derived from these public pages:
+
+- Prompt list: [SunoAI Wiki / prompt](https://ai.suno.jp/prompt/)
+- Metatag list: [SunoAI Wiki / metatag](https://ai.suno.jp/metatag/)
+- Usage policy: [license / copyright / privacy](https://ai.suno.jp/license/)
+
+LyricLytic reshapes that public data into a local helper catalog for generation assistance.  
+I appreciate the effort that went into publishing and maintaining those prompt and metatag references.
+
+To avoid making users scrape anything themselves, LyricLytic bundles the catalog locally and does not fetch it on every use.  
+Updates are intended to run only once a week through GitHub Actions so access stays light.
+
+The source policy page states that SunoAI prompt and metatag reuse is allowed and aligned with `CC0`.  
+LyricLytic follows that policy and uses the data only for generation-support workflows.
+
 ## If you get stuck
 
 - If this README does not solve it, reply or DM [@rna4219 on X](https://x.com/rna4219)

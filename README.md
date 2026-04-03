@@ -259,6 +259,23 @@ npm run tauri:dev
 - `llama.cpp`
 - SudachiPy / SudachiDict-core
 
+## Suno 用プロンプト / メタタグ辞書について
+
+`Style / Vocal` 生成補助で使う Suno 向け辞書データは、次の公開ページをもとにローカルへ取り込んでいます。
+
+- プロンプト一覧: [SunoAI まとめ Wiki / prompt](https://ai.suno.jp/prompt/)
+- メタタグ一覧: [SunoAI まとめ Wiki / metatag](https://ai.suno.jp/metatag/)
+- 利用条件: [license / 著作権 / プライバシーポリシー](https://ai.suno.jp/license/)
+
+公開データを扱いやすい形に整理して LyricLytic の補助辞書へ組み込ませて頂いています。  
+メタタグやプロンプトをまとめて公開して下さっていることに感謝します。ありがとうございます。
+
+LyricLytic では、ユーザー操作のたびに外部サイトへ取りに行かないようにし、アプリ内へローカル同梱して利用しています。  
+更新は GitHub Actions により週 1 回だけ行う想定で、過剰なアクセスを避ける方針です。
+
+取得元の利用条件ページでは、SunoAI 用プロンプト / メタタグの複製・二次利用は自由で、`CC0` に準拠する旨が案内されています。  
+LyricLytic でもその方針を尊重し、生成補助用途に限定して参照しています。
+
 ## 困ったとき
 
 - README で解決しない場合は、X の [@rna4219](https://x.com/rna4219) にリプライやDMを飛ばしてください
