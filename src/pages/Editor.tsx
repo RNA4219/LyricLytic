@@ -5,15 +5,13 @@ import { getProject, getWorkingDraft, getDraftSections, saveDraft, getVersions, 
 import { useLLMSettings } from '../lib/llm';
 import { useLanguage } from '../lib/LanguageContext';
 import { useProject } from '../lib/ProjectContext';
-import { usePaneResize, useKeyboardShortcuts, createEditorShortcuts, usePhoneticGuide, useSectionDragDrop, useUIState } from '../lib/hooks';
+import { usePaneResize, useKeyboardShortcuts, createEditorShortcuts, usePhoneticGuide, useSectionDragDrop, useUIState, useBpm, BPM_PRESETS } from '../lib/hooks';
 import { EDITOR, SECTION_PRESETS } from '../lib/config';
 import ActionPane from './editor/ActionPane';
 import EditorOverlays from './editor/EditorOverlays';
 import { Section, mapDraftSections, parseBodyToSections, sectionsToBody, generateUniqueSectionName, buildLyricsOnlyBody } from '../lib/section';
 import VersionPane from './editor/VersionPane';
 import { analyzeRhymeGuideRows, buildFallbackRhymeGuideRows, getGuideHighlightParts, countRomanizedGuideUnits, type RhymeGuideRow } from '../lib/rhyme/analysis';
-
-const BPM_PRESETS = [172, 144, 132, 128, 124, 122, 121, 120, 92, 90];
 
 function EditorPage() {
   const { projectId } = useParams<{ projectId: string }>();
@@ -35,10 +33,18 @@ function EditorPage() {
   const [vocalText, setVocalText] = useState('');
   const [allViewText, setAllViewText] = useState('');
   const [editorScrollTop, setEditorScrollTop] = useState(0);
-  const [bpmMode, setBpmMode] = useState<'preset' | 'custom'>('preset');
-  const [bpmValue, setBpmValue] = useState(120);
   const editorContainerRef = useRef<HTMLDivElement | null>(null);
   const isResizingPhoneticGuideRef = useRef(false);
+
+  // BPM hook
+  const {
+    bpmValue,
+    bpmMode,
+    handleBpmPresetChange,
+    handleCustomBpmChange,
+    setBpmValue,
+    calculateEstimatedSeconds,
+  } = useBpm();
 
   // Phonetic guide hook
   const {
@@ -238,7 +244,6 @@ function EditorPage() {
         setVocalText(draftData.vocal_text || '');
         const nextBpm = draftData.bpm ?? versionData[0]?.bpm ?? 120;
         setBpmValue(nextBpm);
-        setBpmMode(BPM_PRESETS.includes(nextBpm) ? 'preset' : 'custom');
       } else {
         setSections([]);
         setAllViewText('');
@@ -247,7 +252,6 @@ function EditorPage() {
         setVocalText('');
         const nextBpm = versionData[0]?.bpm ?? 120;
         setBpmValue(nextBpm);
-        setBpmMode(BPM_PRESETS.includes(nextBpm) ? 'preset' : 'custom');
       }
 
       if (
@@ -322,22 +326,15 @@ function EditorPage() {
     queueAutoSave(sections);
   }, [sections, queueAutoSave]);
 
-  const handleBpmPresetChange = useCallback((value: string) => {
-    if (value === 'custom') {
-      setBpmMode('custom');
-      return;
-    }
-
-    setBpmMode('preset');
-    setBpmValue(Number(value));
+  const handleBpmPresetChangeWrapper = useCallback((value: string) => {
+    handleBpmPresetChange(value);
     queueAutoSave(sections);
-  }, [queueAutoSave, sections]);
+  }, [handleBpmPresetChange, queueAutoSave, sections]);
 
-  const handleCustomBpmChange = useCallback((value: string) => {
-    const nextBpm = Math.max(40, Number(value) || 120);
-    setBpmValue(nextBpm);
+  const handleCustomBpmChangeWrapper = useCallback((value: string) => {
+    handleCustomBpmChange(value);
     queueAutoSave(sections);
-  }, [queueAutoSave, sections]);
+  }, [handleCustomBpmChange, queueAutoSave, sections]);
 
   const updateSections = useCallback((
     updater: (currentSections: Section[]) => Section[],
@@ -609,7 +606,6 @@ function EditorPage() {
     setStyleText(nextStyleText);
     setVocalText(nextVocalText);
     setBpmValue(nextBpm);
-    setBpmMode(BPM_PRESETS.includes(nextBpm) ? 'preset' : 'custom');
     if (parsed.length > 0) {
       setActiveSection(EDITOR.ALL_SECTIONS_ID);
     }
@@ -710,10 +706,7 @@ function EditorPage() {
     return lineCharacterCounts.reduce<number>((sum, count) => sum + (count ?? 0), 0);
   }, [lineCharacterCounts]);
 
-  const estimatedSeconds = useMemo(() => {
-    if (bpmValue <= 0) return 0;
-    return Math.max(0, Math.round((totalLyricChars * 60) / bpmValue));
-  }, [bpmValue, totalLyricChars]);
+  const estimatedSeconds = calculateEstimatedSeconds(totalLyricChars);
 
   const rhymeGuideSourceLabel = useMemo(() => {
     const source = phoneticGuideRows[0]?.source;
@@ -860,7 +853,7 @@ function EditorPage() {
                   <span className="editor-metric-label">{t('bpm')}</span>
                     <select
                       value={bpmMode === 'preset' ? String(bpmValue) : 'custom'}
-                      onChange={(e) => handleBpmPresetChange(e.target.value)}
+                      onChange={(e) => handleBpmPresetChangeWrapper(e.target.value)}
                       className="editor-bpm-select"
                     >
                     {BPM_PRESETS.map((preset) => (
@@ -877,7 +870,7 @@ function EditorPage() {
                         max={260}
                         step={1}
                         value={bpmValue}
-                        onChange={(e) => handleCustomBpmChange(e.target.value)}
+                        onChange={(e) => handleCustomBpmChangeWrapper(e.target.value)}
                         className="editor-bpm-input"
                       />
                   )}

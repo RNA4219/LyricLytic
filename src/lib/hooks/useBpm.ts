@@ -1,6 +1,6 @@
 import { useState, useCallback } from 'react';
 
-const BPM_PRESETS = [172, 144, 132, 128, 124, 122, 121, 120, 92, 90];
+export const BPM_PRESETS = [172, 144, 132, 128, 124, 122, 121, 120, 92, 90] as const;
 
 export interface UseBpmReturn {
   bpmValue: number;
