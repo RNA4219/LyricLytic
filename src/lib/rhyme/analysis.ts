@@ -31,6 +31,38 @@ export function countRomanizedGuideUnits(value: string): number {
     .length;
 }
 
+/**
+ * Count the number of matching trailing tokens between two strings.
+ * Tokens are compared from the end, stopping at the first mismatch.
+ * Pipe characters are handled specially - tokens after the last pipe are compared.
+ * Maximum of 6 trailing tokens are compared.
+ */
+export function countTrailingTokenMatches(base: string, target: string): number {
+  const tokenizeTail = (value: string): string[] => {
+    const tokens = value
+      .split(/\s+/)
+      .map((token) => token.trim())
+      .filter((token) => token.length > 0);
+    const lastPipeIndex = tokens.lastIndexOf('|');
+    const tailTokens = lastPipeIndex >= 0 ? tokens.slice(lastPipeIndex + 1) : tokens;
+    return tailTokens.filter((token) => token !== '|').slice(-6);
+  };
+
+  const baseTokens = tokenizeTail(base);
+  const targetTokens = tokenizeTail(target);
+
+  let count = 0;
+  while (count < baseTokens.length && count < targetTokens.length) {
+    const baseToken = baseTokens[baseTokens.length - 1 - count];
+    const targetToken = targetTokens[targetTokens.length - 1 - count];
+    if (baseToken !== targetToken) {
+      break;
+    }
+    count += 1;
+  }
+  return count;
+}
+
 function katakanaToHiragana(value: string) {
   return value.replace(/[\u30a1-\u30f6]/g, (char) =>
     String.fromCharCode(char.charCodeAt(0) - 0x60),
