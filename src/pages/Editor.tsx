@@ -5,7 +5,7 @@ import { getProject, getWorkingDraft, getDraftSections, saveDraft, getVersions, 
 import { useLLMSettings } from '../lib/llm';
 import { useLanguage } from '../lib/LanguageContext';
 import { useProject } from '../lib/ProjectContext';
-import { usePaneResize, useKeyboardShortcuts, createEditorShortcuts, usePhoneticGuide, useSectionDragDrop, useUIState, useBpm, BPM_PRESETS } from '../lib/hooks';
+import { usePaneResize, useKeyboardShortcuts, createEditorShortcuts, usePhoneticGuide, useSectionDragDrop, useUIState, useBpm, useStyleVocal, BPM_PRESETS } from '../lib/hooks';
 import { EDITOR, SECTION_PRESETS } from '../lib/config';
 import ActionPane from './editor/ActionPane';
 import EditorOverlays from './editor/EditorOverlays';
@@ -29,12 +29,18 @@ function EditorPage() {
   const [fragments, setFragments] = useState<Array<{ collected_fragment_id: string; text: string; source?: string; status: string }>>([]);
   const [lastHiddenVersion, setLastHiddenVersion] = useState<{ version: LyricVersion; batchId: string } | null>(null);
   const { settings: llmSettings, updateSettings: setLLMSettings } = useLLMSettings();
-  const [styleText, setStyleText] = useState('');
-  const [vocalText, setVocalText] = useState('');
   const [allViewText, setAllViewText] = useState('');
   const [editorScrollTop, setEditorScrollTop] = useState(0);
   const editorContainerRef = useRef<HTMLDivElement | null>(null);
   const isResizingPhoneticGuideRef = useRef(false);
+
+  // Style & Vocal hook
+  const {
+    styleText,
+    vocalText,
+    setStyleText,
+    setVocalText,
+  } = useStyleVocal();
 
   // BPM hook
   const {
