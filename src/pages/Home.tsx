@@ -14,84 +14,15 @@ import {
 } from '../lib/api';
 import { useLanguage } from '../lib/LanguageContext';
 import TrashPanel from '../components/TrashPanel';
-
-const LAST_PROJECT_KEY = 'lyriclytic_last_project';
-const PROJECT_ORDER_KEY = 'lyriclytic_project_order';
-const PREVIEW_SECTION_PRIORITY = ['intro', 'chorus', 'verse', 'pre-chorus', 'bridge', 'outro'];
-
-function readProjectOrder() {
-  try {
-    const raw = localStorage.getItem(PROJECT_ORDER_KEY);
-    if (!raw) return [] as string[];
-    const parsed = JSON.parse(raw);
-    return Array.isArray(parsed) ? parsed.filter((value): value is string => typeof value === 'string') : [];
-  } catch {
-    return [] as string[];
-  }
-}
-
-function writeProjectOrder(order: string[]) {
-  localStorage.setItem(PROJECT_ORDER_KEY, JSON.stringify(order));
-}
-
-function touchProjectOrder(projectId: string) {
-  const nextOrder = [projectId, ...readProjectOrder().filter((id) => id !== projectId)];
-  writeProjectOrder(nextOrder);
-  return nextOrder;
-}
-
-function removeProjectFromOrder(projectId: string) {
-  const nextOrder = readProjectOrder().filter((id) => id !== projectId);
-  writeProjectOrder(nextOrder);
-  return nextOrder;
-}
-
-function normalizeSectionName(name?: string) {
-  return (name ?? '').trim().toLowerCase();
-}
-
-function extractSectionPreview(section: DraftSection | undefined, language: 'ja' | 'en') {
-  if (!section) return null;
-  const firstNonEmptyLine = section.body_text
-    .split(/\r?\n/)
-    .map((line) => line.trim())
-    .find((line) => line.length > 0);
-
-  if (!firstNonEmptyLine) return null;
-
-  const label = section.display_name?.trim() || (language === 'ja' ? '歌詞' : 'Lyrics');
-  return `${label}: ${firstNonEmptyLine}`;
-}
-
-function buildProjectPreview(
-  sections: DraftSection[],
-  bodyText: string,
-  language: 'ja' | 'en',
-) {
-  const nonEmptySections = [...sections]
-    .sort((a, b) => a.sort_order - b.sort_order)
-    .filter((section) => section.body_text.trim().length > 0);
-
-  for (const key of PREVIEW_SECTION_PRIORITY) {
-    const match = nonEmptySections.find((section) => {
-      const type = normalizeSectionName(section.section_type);
-      const displayName = normalizeSectionName(section.display_name);
-      return type === key || displayName === key;
-    });
-    const preview = extractSectionPreview(match, language);
-    if (preview) return preview;
-  }
-
-  const firstSectionPreview = extractSectionPreview(nonEmptySections[0], language);
-  if (firstSectionPreview) return firstSectionPreview;
-
-  const firstBodyLine = bodyText
-    .split(/\r?\n/)
-    .map((line) => line.trim())
-    .find((line) => line.length > 0 && !/^\[[^\]]+\]$/.test(line));
-
-  return firstBodyLine ?? null;
-}
+import {
+  touchProjectOrder,
+  removeProjectFromOrder,
+  buildProjectPreview,
+  getLastProjectId,
+  setLastProjectId,
+  clearLastProjectId,
+  readProjectOrder,
+} from '../lib/utils/projectStorage';
 
 function Home() {
   const navigate = useNavigate();
@@ -108,7 +39,7 @@ function Home() {
   const [pendingDeleteProject, setPendingDeleteProject] = useState<Project | null>(null);
   const [showTrashPanel, setShowTrashPanel] = useState(false);
   const [lastOpenedProjectId, setLastOpenedProjectId] = useState<string | null>(() => (
-    localStorage.getItem(LAST_PROJECT_KEY)
+    getLastProjectId()
   ));
   const [projectOrder, setProjectOrder] = useState<string[]>(() => readProjectOrder());
 
@@ -165,7 +96,7 @@ function Home() {
       const project = await createProject({
         title: newProjectTitle.trim() || t('newProject'),
       });
-      localStorage.setItem(LAST_PROJECT_KEY, project.project_id);
+      setLastProjectId(project.project_id);
       setLastOpenedProjectId(project.project_id);
       setProjectOrder(touchProjectOrder(project.project_id));
       navigate(`/project/${project.project_id}`);
@@ -176,7 +107,7 @@ function Home() {
   };
 
   const openProject = (projectId: string) => {
-    localStorage.setItem(LAST_PROJECT_KEY, projectId);
+    setLastProjectId(projectId);
     setLastOpenedProjectId(projectId);
     setProjectOrder(touchProjectOrder(projectId));
     navigate(`/project/${projectId}`);
@@ -193,8 +124,8 @@ function Home() {
     try {
       await deleteProject(projectId);
       setProjects((current) => current.filter((project) => project.project_id !== projectId));
-      if (localStorage.getItem(LAST_PROJECT_KEY) === projectId) {
-        localStorage.removeItem(LAST_PROJECT_KEY);
+      if (getLastProjectId() === projectId) {
+        clearLastProjectId();
         setLastOpenedProjectId(null);
       }
       setProjectOrder(removeProjectFromOrder(projectId));
