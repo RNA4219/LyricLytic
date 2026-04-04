@@ -5,10 +5,10 @@
 [English README](README.en.md)
 
 LyricLytic は、AI 音楽生成向けの歌詞制作をローカルで完結させるためのデスクトップアプリです。  
-歌詞本文、BPM、韻ガイド、AI補助、スナップショット保存、差分比較を 1 つのワークスペースで扱えます。
+歌詞本文作成、BPM、韻ガイド、AI補助、スナップショット保存、差分比較を 1 つのワークスペースで扱い、作詞・AI作曲の補助が行えます。
 
 ライセンスに従う限り、AI機能含め基本的に無料で使えます。  
-改造やローカル運用もしやすい構成です。
+開発者にとっては改造やローカル運用もしやすい構成です。
 
 - ローカルファースト
 - `llama.cpp` 直起動
@@ -20,7 +20,7 @@ LyricLytic は、AI 音楽生成向けの歌詞制作をローカルで完結さ
 
 実際の動作中画面です。
 
-![LyricLytic runtime](docs/runtime-captures/lyriclytic-desktop-20260401_2.png)
+![LyricLytic runtime](docs/runtime-captures/lyriclytic-desktop_1.1.0.png)
 
 ### 起動した直後にプロジェクトが無い場合
 
@@ -40,9 +40,9 @@ LyricLytic は、AI 音楽生成向けの歌詞制作をローカルで完結さ
 
 - 歌詞・Style・Vocalをまとめられる
 - セクションごとに整理する
-- BPM を見ながら長さの目安を取る
-- 韻ガイドで響きを確認する
-- AI で Lyrics / Style / Vocal の案を出す
+- BPM と文字数を見ながら長さの目安を取る
+- 韻ガイドで響きを確認し、韻が踏めているか確認する
+- AI で 音楽生成AI向けの Lyrics / Style / Vocal の案を出す
 - スナップショット保存で後から差分比較する
 
 ## 主な機能
@@ -67,41 +67,12 @@ LyricLytic は、AI 音楽生成向けの歌詞制作をローカルで完結さ
   - 復元
   - 完全削除
 
-## 動作方針
-
-- 主対応 OS は Windows
-- macOS は導入手順のみ記載
-- macOS は起動するように実装をしていますが、所持していないため、動作保証しかねます。
-- テストより実機挙動を優先して運用しています
-
-## AI補助機能を使いたいけど何をすればいい？
-
-LyricLytic を使うには、ざっくり次の 4 つだけです。
-
-1. `llama.cpp` を入れる
-2. モデルを 1 つダウンロードする
-3. LyricLytic を起動する
-4. `AI起動` と `接続確認` を押す
-
-以下に順番どおり書いています。
-
-## まず何をすればいい？
-
-初めてなら、この順番で大丈夫です。
-
-1. `llama.cpp` を入れる
-2. おすすめモデルを 1 つダウンロードする
-3. LyricLytic を起動する
-4. `LLM構成` を開く
-5. `llama-server` の場所と `.gguf` を指定する
-6. `AI起動` を押す
-7. `接続確認` を押す
-8. ホームで `+ 新規プロジェクト` を押す
-9. 歌詞を書き始める
-
-難しそうに見えても、実際に触る場所はかなり少ないです。
-
 ## クイックスタート
+
+AI補助機能を利用しない場合は以下のトピックをスキップして起動が出来ます。
+2. `llama.cpp` を入れる
+3. モデルをダウンロードする 
+5. 最初の設定
 
 ### 1. 前提ソフト
 
@@ -137,14 +108,14 @@ brew install llama.cpp
 /usr/local/bin/llama-server
 ```
 
-### 3. モデルをダウンロードする
+### 3. モデルをダウンロードする 
 
-2026-04-01 時点でのおすすめモデルは次の 3 つです。
+2026-04-04 時点でのおすすめモデルは次の 3 つです。
 
 1. 軽さ優先: `Qwen3.5-4B`
    - [Hugging Face](https://huggingface.co/unsloth/Qwen3.5-4B-GGUF?show_file_info=Qwen3.5-4B-UD-Q4_K_XL.gguf&library=llama-cpp-python)
-2. バランス型: `Qwen3.5-9B`
-   - [Hugging Face](https://huggingface.co/unsloth/Qwen3.5-9B-GGUF?show_file_info=Qwen3.5-9B-UD-Q4_K_XL.gguf)
+2. バランス型: `gemma-4-E4B-it`
+   - [Hugging Face](https://huggingface.co/unsloth/gemma-4-E4B-it-GGUF?local-app=llama.cpp)
 3. 表現力重視: `GPT-OSS-Swallow-20B`
    - [Hugging Face](https://huggingface.co/mmnga-o/GPT-OSS-Swallow-20B-RL-v0.1-gguf/blob/main/GPT-OSS-Swallow-20B-RL-v0.1-Q4_K_M.gguf)
 
@@ -211,6 +182,40 @@ npm run tauri:dev
 
 ここまでできれば、すぐに AI補助機能を試せます。
 
+## AI補助機能を使いたいけど何をすればいい？
+
+LyricLytic を使うには、ざっくり次の 4 つだけです。
+
+1. `llama.cpp` を入れる (llama.cppはAIを動かすためのツールです。)
+2. モデルを 1 つダウンロードする
+3. LyricLytic を起動する
+4. `AI起動` と `接続確認` を押す
+
+以下に順番どおり書いています。
+
+## AI補助機能込みで使いたいけど、まず何をすればいい？
+
+初めてなら、この順番で大丈夫です。
+
+1. `llama.cpp` を入れる
+2. おすすめモデルを 1 つダウンロードする
+3. LyricLytic を起動する
+4. `LLM構成` を開く
+5. `llama-server` の場所と `.gguf` を指定する
+6. `AI起動` を押す
+7. `接続確認` を押す
+8. ホームで `+ 新規プロジェクト` を押す
+9. 歌詞を書き始める
+
+難しそうに見えても、実際に触る場所はかなり少ないです。
+
+## 動作方針
+
+- 主対応 OS は Windows
+- macOS は導入手順のみ記載
+- macOS は起動するように実装をしていますが、所持していないため、動作保証しかねます。
+- テストより実機挙動を優先して運用しています
+
 ## 迷いやすいポイント
 
 ### `llama.cpp 実行ファイルパス` には何を入れる？
@@ -242,7 +247,7 @@ npm run tauri:dev
 - `最大出力トークン` は大きめから始める
 - `Temperature` は文章のばらつきの強さ
   - 低いほど安定
-  - 高いほど遊びが増える
+  - 高いほど語彙が増える
 
 ## ライセンス
 
@@ -262,6 +267,7 @@ npm run tauri:dev
 ## Suno 用プロンプト / メタタグ辞書について
 
 `Style / Vocal` 生成補助で使う Suno 向け辞書データは、次の公開ページをもとにローカルへ取り込んでいます。
+生成において精度を上げるための利用となります。
 
 - プロンプト一覧: [SunoAI まとめ Wiki / prompt](https://ai.suno.jp/prompt/)
 - メタタグ一覧: [SunoAI まとめ Wiki / metatag](https://ai.suno.jp/metatag/)
@@ -279,7 +285,7 @@ LyricLytic でもその方針を尊重し、生成補助用途に限定して参
 ## 困ったとき
 
 - README で解決しない場合は、X の [@rna4219](https://x.com/rna4219) にリプライやDMを飛ばしてください
-- リリースから3カ月 (2026/07/01) まではサポート予定です
+- v1.0.0 リリースから3カ月 (2026/07/01) まではサポート予定です
 - Windows が主対応です
 - macOS は起動するように実装をしていますが、所持していないため、動作保証しかねます。
 
