@@ -1,7 +1,7 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { render, screen, fireEvent, waitFor, act } from '@testing-library/react';
 import { LanguageProvider, useLanguage } from '../lib/LanguageContext';
-import { ReactNode } from 'react';
+import { Component, ReactNode } from 'react';
 
 function TestComponent() {
   const { language, setLanguage, t } = useLanguage();
@@ -24,6 +24,24 @@ function renderWithProvider(ui: ReactNode, initialLanguage?: string) {
     localStorage.setItem('lyriclytic_language', initialLanguage);
   }
   return render(<LanguageProvider>{ui}</LanguageProvider>);
+}
+
+class TestErrorBoundary extends Component<
+  { children: ReactNode },
+  { error: Error | null }
+> {
+  state = { error: null };
+
+  static getDerivedStateFromError(error: Error) {
+    return { error };
+  }
+
+  render() {
+    if (this.state.error) {
+      return <span data-testid="caught-error">{this.state.error.message}</span>;
+    }
+    return this.props.children;
+  }
 }
 
 describe('LanguageContext', () => {
@@ -214,25 +232,32 @@ describe('LanguageContext', () => {
   describe('error handling', () => {
     it('should throw error when useLanguage is used outside provider', () => {
       const consoleError = vi.spyOn(console, 'error').mockImplementation(() => {});
+      const preventExpectedError = (event: ErrorEvent) => {
+        if (event.message.includes('useLanguage must be used within LanguageProvider')) {
+          event.preventDefault();
+        }
+      };
+      window.addEventListener('error', preventExpectedError);
 
       function ComponentWithoutProvider() {
         useLanguage();
         return null;
       }
 
-      let error: Error | null = null;
       try {
-        render(<ComponentWithoutProvider />);
-      } catch (e) {
-        error = e as Error;
+        render(
+          <TestErrorBoundary>
+            <ComponentWithoutProvider />
+          </TestErrorBoundary>,
+        );
+
+        expect(screen.getByTestId('caught-error').textContent).toBe(
+          'useLanguage must be used within LanguageProvider',
+        );
+      } finally {
+        window.removeEventListener('error', preventExpectedError);
+        consoleError.mockRestore();
       }
-
-      expect(error).not.toBeNull();
-      expect(error?.message).toBe('useLanguage must be used within LanguageProvider');
-
-      // Clear any remaining errors
-      consoleError.mockClear();
-      consoleError.mockRestore();
     });
   });
 

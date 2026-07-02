@@ -87,7 +87,7 @@ describe('Home page language tests', () => {
   describe('Japanese display', () => {
     it('should display all UI elements in Japanese by default', () => {
       render(
-        <BrowserRouter>
+        <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
           <LanguageProvider>
             <MockHome />
           </LanguageProvider>
@@ -103,7 +103,7 @@ describe('Home page language tests', () => {
 
     it('should show Japanese date format', () => {
       render(
-        <BrowserRouter>
+        <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
           <LanguageProvider>
             <MockHome />
           </LanguageProvider>
@@ -117,7 +117,7 @@ describe('Home page language tests', () => {
 
     it('should show create form in Japanese', async () => {
       render(
-        <BrowserRouter>
+        <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
           <LanguageProvider>
             <MockHome />
           </LanguageProvider>
@@ -138,7 +138,7 @@ describe('Home page language tests', () => {
     it('should display all UI elements in English', async () => {
       localStorage.setItem('lyriclytic_language', 'en');
       render(
-        <BrowserRouter>
+        <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
           <LanguageProvider>
             <MockHome />
           </LanguageProvider>
@@ -155,7 +155,7 @@ describe('Home page language tests', () => {
     it('should show English date format', () => {
       localStorage.setItem('lyriclytic_language', 'en');
       render(
-        <BrowserRouter>
+        <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
           <LanguageProvider>
             <MockHome />
           </LanguageProvider>
@@ -170,7 +170,7 @@ describe('Home page language tests', () => {
     it('should show create form in English', async () => {
       localStorage.setItem('lyriclytic_language', 'en');
       render(
-        <BrowserRouter>
+        <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
           <LanguageProvider>
             <MockHome />
           </LanguageProvider>
@@ -190,7 +190,7 @@ describe('Home page language tests', () => {
   describe('Language switching', () => {
     it('should update all text when language changes', async () => {
       render(
-        <BrowserRouter>
+        <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
           <LanguageProvider>
             <MockHome />
           </LanguageProvider>
@@ -203,7 +203,7 @@ describe('Home page language tests', () => {
       // Switch to English
       localStorage.setItem('lyriclytic_language', 'en');
       render(
-        <BrowserRouter>
+        <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
           <LanguageProvider>
             <MockHome />
           </LanguageProvider>
@@ -217,7 +217,7 @@ describe('Home page language tests', () => {
   describe('Project count display', () => {
     it('should show correct project count in Japanese', () => {
       render(
-        <BrowserRouter>
+        <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
           <LanguageProvider>
             <MockHome />
           </LanguageProvider>
@@ -230,7 +230,7 @@ describe('Home page language tests', () => {
     it('should show correct project count in English', () => {
       localStorage.setItem('lyriclytic_language', 'en');
       render(
-        <BrowserRouter>
+        <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
           <LanguageProvider>
             <MockHome />
           </LanguageProvider>
@@ -244,7 +244,7 @@ describe('Home page language tests', () => {
   describe('Subtitle translation', () => {
     it('should show correct subtitle in Japanese', () => {
       render(
-        <BrowserRouter>
+        <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
           <LanguageProvider>
             <MockHome />
           </LanguageProvider>
@@ -257,7 +257,7 @@ describe('Home page language tests', () => {
     it('should show correct subtitle in English', () => {
       localStorage.setItem('lyriclytic_language', 'en');
       render(
-        <BrowserRouter>
+        <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
           <LanguageProvider>
             <MockHome />
           </LanguageProvider>

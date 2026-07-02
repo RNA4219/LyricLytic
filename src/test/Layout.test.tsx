@@ -20,7 +20,7 @@ const mockStopRuntime = stopLlamaCppRuntime as ReturnType<typeof vi.fn>;
 
 function renderLayout() {
   return render(
-    <BrowserRouter>
+    <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
       <LanguageProvider>
         <ProjectProvider>
           <Layout />
@@ -33,6 +33,8 @@ function renderLayout() {
 describe('Layout component', () => {
   beforeEach(() => {
     localStorage.clear();
+    vi.clearAllMocks();
+    mockGetStatus.mockImplementation(() => new Promise(() => {}));
   });
 
   describe('language switch buttons', () => {

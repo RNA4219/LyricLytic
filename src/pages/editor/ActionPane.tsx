@@ -1,4 +1,5 @@
 import CopyOptionsPanel from '../../components/CopyOptionsPanel';
+import AffectMetricsPanel from '../../components/AffectMetricsPanel';
 import LLMAssistPanel from '../../components/LLMAssistPanel';
 import LLMReviewPanel from '../../components/LLMReviewPanel';
 import LLMSettingsPanel from '../../components/LLMSettingsPanel';
@@ -38,6 +39,7 @@ function ActionPane({
       {/* Content Area */}
       <div className="inspector-content">
         <div className="inspector-section inspector-section-llm">
+          <AffectMetricsPanel text={currentLyrics} />
           <LLMAssistPanel
             runtime={llmSettings.runtime}
             baseUrl={llmSettings.baseUrl}

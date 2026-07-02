@@ -208,6 +208,14 @@ export const en = {
   vowelSpelling: 'Vowel',
   consonantSpelling: 'Consonant',
   noPhoneticGuide: 'No lyrics lines to display',
+  affectMetricsTitle: 'Affect Metrics',
+  affectValence: 'Valence',
+  affectArousal: 'Arousal',
+  affectStability: 'Stability',
+  affectDensity: 'Density',
+  affectLyricLines: 'Lyric lines',
+  affectLexicalVariety: 'Lexical variety',
+  affectMetricsNote: 'Reference values only. Use them as hints for emotional tone and density, not as quality scores.',
 
   // Language
   language: 'Language',

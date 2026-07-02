@@ -1,5 +1,12 @@
 # 要件定義レビュー・ゲートログ
 
+## 2026-07-03: 歌詞感情メトリクス追加
+
+- Gate: 要件拡張
+- 対象: `docs/requirements/requirements.md`, `docs/requirements/lyric-affect-metrics-v1.md`, `docs/implementation/lyric-affect-metrics-v1.md`
+- 理由: 歌詞の感情や密度を数値で確認したいという要望に対応するため。
+- 判定: 実装可。ローカル同期計算に限定し、外部通信・採点・自動補正は行わない。
+
 ## Gate 1
 
 実施日: 2026-03-31  

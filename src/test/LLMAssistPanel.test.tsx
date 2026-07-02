@@ -527,7 +527,13 @@ describe('LLMAssistPanel', () => {
         expect(screen.getByTitle('選択をコピー')).toBeInTheDocument();
       });
 
-      fireEvent.click(screen.getByTitle('選択をコピー'));
+      await act(async () => {
+        fireEvent.click(screen.getByTitle('選択をコピー'));
+      });
+
+      await waitFor(() => {
+        expect(screen.getByText('クリップボードにコピーしました')).toBeInTheDocument();
+      });
     });
   });
 
@@ -649,8 +655,13 @@ describe('LLMAssistPanel', () => {
         expect(screen.getByText('すべてコピー')).toBeInTheDocument();
       });
 
-      fireEvent.click(screen.getByText('すべてコピー'));
-      expect(clipboardMock).toHaveBeenCalled();
+      await act(async () => {
+        fireEvent.click(screen.getByText('すべてコピー'));
+      });
+
+      await waitFor(() => {
+        expect(clipboardMock).toHaveBeenCalled();
+      });
     });
   });
 

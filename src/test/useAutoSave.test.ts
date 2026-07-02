@@ -102,18 +102,23 @@ describe('useAutoSave', () => {
     });
 
     it('should set error when save fails', async () => {
+      const consoleError = vi.spyOn(console, 'error').mockImplementation(() => {});
       const saveFn = vi.fn().mockRejectedValue(new Error('Save failed'));
       const { result } = renderHook(() => useAutoSave({ saveFn, delayMs: 100 }));
 
-      act(() => {
-        result.current.queueAutoSave('data');
-      });
+      try {
+        act(() => {
+          result.current.queueAutoSave('data');
+        });
 
-      await act(async () => {
-        await vi.advanceTimersByTimeAsync(100);
-      });
+        await act(async () => {
+          await vi.advanceTimersByTimeAsync(100);
+        });
 
-      expect(result.current.error).toBe('Auto-save failed');
+        expect(result.current.error).toBe('Auto-save failed');
+      } finally {
+        consoleError.mockRestore();
+      }
     });
   });
 
@@ -185,14 +190,19 @@ describe('useAutoSave', () => {
     });
 
     it('should set error when save fails', async () => {
+      const consoleError = vi.spyOn(console, 'error').mockImplementation(() => {});
       const saveFn = vi.fn().mockRejectedValue(new Error('Save failed'));
       const { result } = renderHook(() => useAutoSave({ saveFn }));
 
-      await act(async () => {
-        await result.current.saveNow('data');
-      });
+      try {
+        await act(async () => {
+          await result.current.saveNow('data');
+        });
 
-      expect(result.current.error).toBe('Auto-save failed');
+        expect(result.current.error).toBe('Auto-save failed');
+      } finally {
+        consoleError.mockRestore();
+      }
     });
   });
 
@@ -216,24 +226,29 @@ describe('useAutoSave', () => {
 
   describe('clearError', () => {
     it('should clear error', async () => {
+      const consoleError = vi.spyOn(console, 'error').mockImplementation(() => {});
       const saveFn = vi.fn().mockRejectedValue(new Error('Save failed'));
       const { result } = renderHook(() => useAutoSave({ saveFn, delayMs: 100 }));
 
-      act(() => {
-        result.current.queueAutoSave('data');
-      });
+      try {
+        act(() => {
+          result.current.queueAutoSave('data');
+        });
 
-      await act(async () => {
-        await vi.advanceTimersByTimeAsync(100);
-      });
+        await act(async () => {
+          await vi.advanceTimersByTimeAsync(100);
+        });
 
-      expect(result.current.error).toBe('Auto-save failed');
+        expect(result.current.error).toBe('Auto-save failed');
 
-      act(() => {
-        result.current.clearError();
-      });
+        act(() => {
+          result.current.clearError();
+        });
 
-      expect(result.current.error).toBe(null);
+        expect(result.current.error).toBe(null);
+      } finally {
+        consoleError.mockRestore();
+      }
     });
   });
 });

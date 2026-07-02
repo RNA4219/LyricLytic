@@ -208,6 +208,14 @@ export const ja = {
   vowelSpelling: '母音',
   consonantSpelling: '子音',
   noPhoneticGuide: '表示できる歌詞行がありません',
+  affectMetricsTitle: '感情メトリクス',
+  affectValence: '明暗',
+  affectArousal: '熱量',
+  affectStability: '安定',
+  affectDensity: '密度',
+  affectLyricLines: '歌詞行',
+  affectLexicalVariety: '語彙幅',
+  affectMetricsNote: '参考値です。歌詞の良し悪しではなく、温度感と詰まり具合の目安として扱います。',
 
   // Language
   language: '言語',

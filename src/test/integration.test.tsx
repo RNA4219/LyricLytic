@@ -7,7 +7,7 @@ import { LanguageProvider, useLanguage } from '../lib/LanguageContext';
 // Mock component simulating full app language behavior
 function MockApp() {
   return (
-    <BrowserRouter>
+    <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
       <LanguageProvider>
         <MockHeader />
         <MockHome />
