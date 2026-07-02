@@ -2,8 +2,8 @@ import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { renderHook, act, waitFor } from '@testing-library/react';
 import { useProjectData } from '../lib/useProjectData';
 
-// Mock the API module
-vi.mock('../lib/api', () => ({
+// Mock the API client module used by the hook.
+vi.mock('../lib/api/client', () => ({
   getProject: vi.fn(),
   getWorkingDraft: vi.fn(),
   getDraftSections: vi.fn(),
@@ -27,7 +27,7 @@ import {
   createFragment,
   deleteVersion,
   deleteProject,
-} from '../lib/api';
+} from '../lib/api/client';
 
 const mockGetProject = getProject as ReturnType<typeof vi.fn>;
 const mockGetWorkingDraft = getWorkingDraft as ReturnType<typeof vi.fn>;
