@@ -8,14 +8,16 @@ import {
   saveDraft,
   createVersion,
   createFragment,
-  deleteVersion,
   deleteProject,
+  deleteVersion as hideVersionRecord,
+} from './api/client';
+import type {
   Project,
   LyricVersion,
   DraftSectionInput,
   VersionSectionInput,
   CollectedFragment,
-} from './api';
+} from './api/types';
 import { Section } from './section';
 
 export interface ProjectDataState {
@@ -159,10 +161,13 @@ export function useProjectData(projectId: string | undefined): UseProjectDataRet
   }, [handleSaveDraft]);
 
   const handleDeleteVersion = useCallback(async (version: LyricVersion) => {
-    if (!confirm(`Delete version "${version.snapshot_name}"? It can be restored from deleted items.`)) return;
+    const okToHide = window.confirm(
+      'Hide saved version "' + version.snapshot_name + '"? It can be restored from deleted items.',
+    );
+    if (!okToHide) return;
 
     try {
-      await deleteVersion(version.lyric_version_id);
+      await hideVersionRecord(version.lyric_version_id);
       setVersions(versions.filter(v => v.lyric_version_id !== version.lyric_version_id));
     } catch (e) {
       setError('Failed to delete version');
