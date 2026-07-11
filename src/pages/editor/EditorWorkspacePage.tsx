@@ -13,6 +13,8 @@ import VersionPane from './VersionPane';
 import type { SectionDragPreviewState } from './SectionListCard';
 import PhoneticGuidePanel from './PhoneticGuidePanel';
 import RightStackPane from './RightStackPane';
+import WorkflowGuide from './WorkflowGuide';
+import { createStarterSections, getStarterProject, isDraftEmpty } from '../../lib/onboarding';
 import { analyzeRhymeGuideRows, buildFallbackRhymeGuideRows, getGuideHighlightParts, countRomanizedGuideUnits } from '../../lib/rhyme/analysis';
 
 function EditorPage() {
@@ -32,8 +34,10 @@ function EditorPage() {
   const { settings: llmSettings, updateSettings: setLLMSettings } = useLLMSettings();
   const [allViewText, setAllViewText] = useState('');
   const [editorScrollTop, setEditorScrollTop] = useState(0);
+  const [analysisSpotlight, setAnalysisSpotlight] = useState(false);
   const editorContainerRef = useRef<HTMLDivElement | null>(null);
   const isResizingPhoneticGuideRef = useRef(false);
+  const analysisSpotlightTimerRef = useRef<number | null>(null);
 
   // Style & Vocal hook
   const {
@@ -147,6 +151,9 @@ function EditorPage() {
     return () => {
       editorScrollDisposeRef.current?.dispose();
       editorCursorDisposeRef.current?.dispose();
+      if (analysisSpotlightTimerRef.current !== null) {
+        window.clearTimeout(analysisSpotlightTimerRef.current);
+      }
     };
   }, []);
 
@@ -476,6 +483,42 @@ function EditorPage() {
     await handleAutoSave(parsed, { styleText: nextStyleText, vocalText: nextVocalText });
   };
 
+  const handleApplyStarterProject = useCallback(async () => {
+    if (!isDraftEmpty(sections, styleText, vocalText)) return;
+
+    const starter = getStarterProject(language);
+    const nextSections = createStarterSections(language);
+    setSections(nextSections);
+    setAllViewText(sectionsToBody(nextSections));
+    setStyleText(starter.styleText);
+    setVocalText(starter.vocalText);
+    setBpmValue(starter.bpm);
+    setActiveSection(EDITOR.ALL_SECTIONS_ID);
+
+    try {
+      const persisted = await handleAutoSave(nextSections, {
+        bpm: starter.bpm,
+        styleText: starter.styleText,
+        vocalText: starter.vocalText,
+      });
+      if (!persisted) setError(t('autoSaveFailed'));
+    } catch (saveError) {
+      setError(t('autoSaveFailed'));
+      console.error(saveError);
+    }
+  }, [handleAutoSave, language, sections, setBpmValue, setStyleText, setVocalText, styleText, t, vocalText]);
+
+  const handleRevealAnalysis = useCallback(() => {
+    setAnalysisSpotlight(true);
+    document.getElementById('affect-metrics')?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    if (analysisSpotlightTimerRef.current !== null) {
+      window.clearTimeout(analysisSpotlightTimerRef.current);
+    }
+    analysisSpotlightTimerRef.current = window.setTimeout(() => {
+      setAnalysisSpotlight(false);
+      analysisSpotlightTimerRef.current = null;
+    }, 3600);
+  }, []);
   const appendTextToEditorSelection = useCallback((text: string) => {
     const editor = editorInstanceRef.current;
     const selection = editor?.getSelection?.() ?? lastEditorSelectionRef.current;
@@ -525,6 +568,8 @@ function EditorPage() {
   const activeSectionData = sections.find(s => s.id === activeSection);
   const isAllView = activeSection === EDITOR.ALL_SECTIONS_ID;
   const editorValue = isAllView ? allViewText : (activeSectionData?.bodyText || '');
+  const hasLyrics = sections.some((section) => section.bodyText.trim().length > 0);
+  const canUseStarterSample = isDraftEmpty(sections, styleText, vocalText);
   const moveSection = useCallback((dragIndex: number, hoverIndex: number) => {
     if (dragIndex === hoverIndex) {
       return;
@@ -692,7 +737,7 @@ function EditorPage() {
   };
 
   return (
-    <div className={`editor-workspace ${isLeftPaneVisible ? '' : 'left-pane-hidden'}`}>
+    <div className={`editor-workspace ${isLeftPaneVisible ? '' : 'left-pane-hidden'} ${analysisSpotlight ? 'workflow-analysis-spotlight' : ''}`}>
       {isLeftPaneVisible && (
         <>
             <VersionPane
@@ -817,6 +862,14 @@ function EditorPage() {
                   </button>
                 </div>
                 <button
+                  type="button"
+                  className="editor-export-btn"
+                  onClick={() => setShowExportPanel(true)}
+                  title={t('workflowOpenExport')}
+                >
+                  {t('workflowOpenExport')}
+                </button>
+                <button
                   className="editor-save-btn"
                   onClick={handleSaveSnapshot}
                   title={t('saveSnapshot')}
@@ -853,6 +906,15 @@ function EditorPage() {
               </div>
             )}
   
+            <WorkflowGuide
+              hasLyrics={hasLyrics}
+              canUseSample={canUseStarterSample}
+              onUseSample={() => void handleApplyStarterProject()}
+              onFocusEditor={() => editorInstanceRef.current?.focus?.()}
+              onRevealAnalysis={handleRevealAnalysis}
+              onExport={() => setShowExportPanel(true)}
+            />
+
             <div className="editor-container" ref={editorContainerRef}>
             <div className="editor-shell">
               <div className="editor-main">

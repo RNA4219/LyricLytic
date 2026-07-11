@@ -864,3 +864,89 @@
     font-size: 1.25rem;
   }
 }
+
+/* First session - show a concrete lyric workflow before an empty workspace. */
+.home-first-session {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(220px, 0.7fr);
+  gap: 1.25rem;
+  margin: 1.25rem 0;
+  padding: 1.25rem;
+  border: 1px solid rgba(151, 169, 255, 0.22);
+  border-radius: 18px;
+  background: radial-gradient(circle at 90% 10%, rgba(120, 145, 255, 0.18), transparent 44%), rgba(17, 25, 49, 0.72);
+  box-shadow: 0 18px 36px rgba(5, 10, 26, 0.2);
+}
+.home-first-session-kicker {
+  display: inline-flex;
+  margin-bottom: 0.45rem;
+  color: rgba(190, 202, 255, 0.78);
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+}
+.home-first-session h2 {
+  margin: 0;
+  color: var(--on-surface);
+  font-size: clamp(1.1rem, 2vw, 1.45rem);
+}
+.home-first-session p,
+.home-first-session ol {
+  margin: 0.65rem 0 0;
+  color: var(--on-surface-variant);
+  font-size: 0.85rem;
+  line-height: 1.65;
+}
+.home-first-session ol {
+  display: grid;
+  gap: 0.35rem;
+  padding-left: 1.25rem;
+}
+.home-first-session-actions {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.65rem;
+}
+.home-first-session-primary,
+.home-first-session-secondary {
+  min-height: 2.7rem;
+  padding: 0.65rem 0.85rem;
+  border-radius: 11px;
+  font-size: 0.84rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+.home-first-session-primary {
+  border: 1px solid rgba(213, 220, 255, 0.34);
+  background: linear-gradient(135deg, #aeb9ff, #7e8cff);
+  color: #172044;
+}
+.home-first-session-secondary {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--on-surface);
+}
+.home-first-session-primary:hover,
+.home-first-session-secondary:hover {
+  transform: translateY(-1px);
+}
+.home-first-session-primary:disabled,
+.home-first-session-secondary:disabled {
+  cursor: wait;
+  opacity: 0.58;
+  transform: none;
+}
+.home-first-session-feedback {
+  align-self: flex-start;
+  color: rgba(191, 202, 255, 0.82);
+  font-size: 0.76rem;
+  text-decoration: none;
+}
+.home-first-session-feedback:hover {
+  color: var(--on-surface);
+  text-decoration: underline;
+}
+@media (max-width: 700px) {
+  .home-first-session { grid-template-columns: 1fr; }
+}

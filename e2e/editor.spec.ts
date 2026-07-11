@@ -304,3 +304,26 @@ test.describe('Editor - Monaco Editor', () => {
     await expect(editor).toBeVisible();
   });
 });
+test.describe('Editor - First session flow', () => {
+  test.beforeEach(async ({ page }) => {
+    await setupTauriMock(page);
+    await page.goto('/');
+  });
+
+  test('takes a new writer from a sample lyric to analysis and export', async ({ page }) => {
+    await page.getByRole('button', { name: /\+ 新規プロジェクト/ }).click();
+    await page.getByPlaceholder('プロジェクト名').fill('First session');
+    await page.getByRole('button', { name: '作成' }).click();
+    await page.waitForURL(/\/project\//);
+
+    await expect(page.locator('.workflow-guide')).toBeVisible();
+    await page.getByRole('button', { name: 'サンプルを入れる' }).click();
+
+    await expect(page.getByRole('button', { name: '分析を見つける' })).toBeEnabled();
+    await page.getByRole('button', { name: '分析を見つける' }).click();
+    await expect(page.locator('.editor-workspace')).toHaveClass(/workflow-analysis-spotlight/);
+
+    await page.locator('.workflow-guide').getByRole('button', { name: '書き出す' }).click();
+    await expect(page.getByRole('dialog', { name: 'プロジェクトを書き出す' })).toBeVisible();
+  });
+});

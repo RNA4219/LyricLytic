@@ -62,7 +62,7 @@ function AffectMetricsPanel({ text, sections = [] }: AffectMetricsPanelProps) {
   ];
 
   return (
-    <section className="affect-panel" aria-label={t('affectMetricsTitle')}>
+    <section id="affect-metrics" className="affect-panel" aria-label={t('affectMetricsTitle')}>
       <div className="llm-section-header affect-panel-header">
         <h3>{t('affectMetricsTitle')}</h3>
         <span className="affect-density-badge">

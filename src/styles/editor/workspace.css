@@ -743,3 +743,144 @@ body.is-resizing-pane-horizontal {
     left: 0.85rem;
   }
 }
+
+/* A compact guide keeps the first useful path visible without hiding advanced tools. */
+.workflow-guide {
+  display: grid;
+  gap: 0.75rem;
+  margin: 0.75rem 1rem 0;
+  padding: 0.85rem 1rem;
+  border: 1px solid rgba(157, 174, 255, 0.2);
+  border-radius: 14px;
+  background: linear-gradient(110deg, rgba(75, 91, 168, 0.2), rgba(12, 19, 38, 0.76));
+}
+.workflow-guide-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.workflow-guide-kicker {
+  display: block;
+  color: rgba(191, 202, 255, 0.7);
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+}
+.workflow-guide h2 {
+  margin: 0.15rem 0 0;
+  color: var(--on-surface);
+  font-size: 0.98rem;
+}
+.workflow-guide-heading p {
+  margin: 0.25rem 0 0;
+  color: rgba(220, 228, 247, 0.68);
+  font-size: 0.76rem;
+  line-height: 1.5;
+}
+.workflow-guide-dismiss {
+  width: 1.75rem;
+  height: 1.75rem;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--on-surface-variant);
+  cursor: pointer;
+}
+.workflow-steps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.65rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.workflow-steps li {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 0.5rem;
+  min-width: 0;
+  padding: 0.65rem;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.035);
+}
+.workflow-steps li.is-complete { background: rgba(102, 200, 158, 0.1); }
+.workflow-step-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.35rem;
+  height: 1.35rem;
+  border-radius: 999px;
+  background: rgba(190, 202, 255, 0.16);
+  color: rgba(230, 236, 255, 0.9);
+  font-size: 0.68rem;
+  font-weight: 800;
+}
+.workflow-steps li.is-complete .workflow-step-number {
+  background: rgba(102, 200, 158, 0.3);
+  color: #d9ffeb;
+}
+.workflow-steps strong {
+  display: block;
+  color: var(--on-surface);
+  font-size: 0.77rem;
+}
+.workflow-steps p {
+  margin: 0.25rem 0 0.5rem;
+  color: rgba(220, 228, 247, 0.62);
+  font-size: 0.7rem;
+  line-height: 1.45;
+}
+.workflow-step-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+.workflow-primary-action,
+.workflow-secondary-action,
+.editor-export-btn {
+  min-height: 2rem;
+  border-radius: 8px;
+  padding: 0.35rem 0.55rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+.workflow-primary-action {
+  border: 1px solid rgba(206, 216, 255, 0.34);
+  background: rgba(174, 185, 255, 0.92);
+  color: #172044;
+}
+.workflow-secondary-action,
+.editor-export-btn {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--on-surface);
+}
+.workflow-secondary-action:disabled {
+  cursor: not-allowed;
+  opacity: 0.42;
+}
+.workflow-feedback-link {
+  justify-self: start;
+  color: rgba(191, 202, 255, 0.76);
+  font-size: 0.7rem;
+  text-decoration: none;
+}
+.workflow-feedback-link:hover {
+  color: var(--on-surface);
+  text-decoration: underline;
+}
+.workflow-analysis-spotlight .affect-panel,
+.workflow-analysis-spotlight .phonetic-guide-panel {
+  animation: workflow-analysis-pulse 1.2s ease-in-out 3;
+}
+@keyframes workflow-analysis-pulse {
+  50% {
+    box-shadow: inset 0 0 0 2px rgba(169, 202, 255, 0.74), 0 0 18px rgba(116, 151, 255, 0.3);
+  }
+}
+@media (max-width: 1120px) {
+  .workflow-steps { grid-template-columns: 1fr; }
+}

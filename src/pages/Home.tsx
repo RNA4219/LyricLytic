@@ -8,11 +8,13 @@ import {
   getStyleProfile,
   getWorkingDraft,
   getDraftSections,
+  saveDraft,
   Project,
   StyleProfile,
 } from '../lib/api';
 import { useLanguage } from '../lib/LanguageContext';
 import TrashPanel from '../components/TrashPanel';
+import { createStarterDraftSections, getStarterProject } from '../lib/onboarding';
 import {
   touchProjectOrder,
   removeProjectFromOrder,
@@ -33,6 +35,7 @@ function Home() {
   const [error, setError] = useState<string | null>(null);
   const [newProjectTitle, setNewProjectTitle] = useState('');
   const [showNewProjectInput, setShowNewProjectInput] = useState(false);
+  const [creatingStarter, setCreatingStarter] = useState(false);
   const [editingProjectId, setEditingProjectId] = useState<string | null>(null);
   const [editingProjectTitle, setEditingProjectTitle] = useState('');
   const [pendingDeleteProject, setPendingDeleteProject] = useState<Project | null>(null);
@@ -105,6 +108,35 @@ function Home() {
     }
   };
 
+  const handleCreateStarterProject = async () => {
+    const starter = getStarterProject(language);
+    const starterSections = createStarterDraftSections(language);
+    const bodyText = starter.sections
+      .map((section) => `[${section.displayName}]\n${section.bodyText}`)
+      .join('\n\n');
+
+    try {
+      setCreatingStarter(true);
+      const project = await createProject({ title: starter.title });
+      await saveDraft({
+        project_id: project.project_id,
+        body_text: bodyText,
+        sections: starterSections,
+        bpm: starter.bpm,
+        style_text: starter.styleText,
+        vocal_text: starter.vocalText,
+      });
+      setLastProjectId(project.project_id);
+      setLastOpenedProjectId(project.project_id);
+      setProjectOrder(touchProjectOrder(project.project_id));
+      navigate(`/project/${project.project_id}`);
+    } catch (e) {
+      setError(t('starterProjectFailed'));
+      console.error(e);
+    } finally {
+      setCreatingStarter(false);
+    }
+  };
   const openProject = (projectId: string) => {
     setLastProjectId(projectId);
     setLastOpenedProjectId(projectId);
@@ -259,6 +291,46 @@ function Home() {
         )}
         </section>
 
+        {!loading && projects.length === 0 && (
+          <section className="home-first-session" aria-labelledby="first-session-title">
+            <div className="home-first-session-copy">
+              <span className="home-first-session-kicker">{t('firstSessionKicker')}</span>
+              <h2 id="first-session-title">{t('firstSessionTitle')}</h2>
+              <p>{t('firstSessionDescription')}</p>
+              <ol>
+                <li>{t('firstSessionStepWrite')}</li>
+                <li>{t('firstSessionStepAnalyze')}</li>
+                <li>{t('firstSessionStepExport')}</li>
+              </ol>
+            </div>
+            <div className="home-first-session-actions">
+              <button
+                type="button"
+                className="home-first-session-primary"
+                onClick={() => void handleCreateStarterProject()}
+                disabled={creatingStarter}
+              >
+                {creatingStarter ? t('creatingStarterProject') : t('openStarterProject')}
+              </button>
+              <button
+                type="button"
+                className="home-first-session-secondary"
+                onClick={() => setShowNewProjectInput(true)}
+                disabled={creatingStarter}
+              >
+                {t('startBlankProject')}
+              </button>
+              <a
+                className="home-first-session-feedback"
+                href="https://github.com/RNA4219/LyricLytic/issues/new?template=first-session-feedback.yml&title=%5BFeedback%5D+First+session"
+                target="_blank"
+                rel="noreferrer"
+              >
+                {t('firstSessionFeedbackLink')}
+              </a>
+            </div>
+          </section>
+        )}
         {error && <div className="home-error-banner">{error}</div>}
 
         <section className="home-section">

@@ -1,0 +1,32 @@
+name: First session feedback
+description: 最初の制作体験で役立ったこと・迷ったことを共有する
+title: "[Feedback] First session: "
+labels: ["feedback"]
+body:
+  - type: checkboxes
+    id: tried
+    attributes:
+      label: 最初に試したこと
+      options:
+        - label: サンプル曲を開いた
+        - label: 空のプロジェクトから書き始めた
+        - label: 韻ガイドを確認した
+        - label: 感情メトリクスを確認した
+        - label: TXT / Markdown / バックアップを書き出した
+  - type: textarea
+    id: useful
+    attributes:
+      label: 役に立った機能
+      description: 最初の10分で「これは使いたい」と思えた機能を教えてください。歌詞本文は共有不要です。
+    validations:
+      required: true
+  - type: textarea
+    id: friction
+    attributes:
+      label: 迷ったこと・止まった場所
+      description: 期待した操作と実際の画面の違いがあれば教えてください。
+  - type: input
+    id: version
+    attributes:
+      label: LyricLytic version / OS
+      placeholder: "v1.2.0 / Windows 11"

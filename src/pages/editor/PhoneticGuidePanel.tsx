@@ -28,7 +28,7 @@ function PhoneticGuidePanel({
         aria-orientation="horizontal"
         aria-label="歌詞入力欄と韻ガイドの高さ調整"
       />
-      <div className="phonetic-guide-panel" style={{ height: `${height}px` }}>
+      <div id="phonetic-guide" className="phonetic-guide-panel" style={{ height: `${height}px` }}>
         <div className="phonetic-guide-header">
           <h4>{t('rhymeGuide')}</h4>
           <span className="phonetic-guide-source">
