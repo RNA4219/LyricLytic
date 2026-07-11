@@ -53,7 +53,7 @@ jobs:
           cargo audit --json | tee cargo-audit.json
       - name: Build Windows installers
         if: runner.os == 'Windows'
-        run: npx tauri build --bundles msi,nsis
+        run: npx tauri build --bundles msi nsis
       - name: Build macOS app and DMG
         if: runner.os == 'macOS'
         run: npx tauri build --bundles app,dmg
