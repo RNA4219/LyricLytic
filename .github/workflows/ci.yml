@@ -53,10 +53,10 @@ jobs:
           cargo audit --json | tee cargo-audit.json
       - name: Build Windows installers
         if: runner.os == 'Windows'
-        run: npm run tauri:build -- --bundles msi,nsis
+        run: npx tauri build --bundles msi,nsis
       - name: Build macOS app and DMG
         if: runner.os == 'macOS'
-        run: npm run tauri:build -- --bundles app,dmg
+        run: npx tauri build --bundles app,dmg
       - name: Verify bundled Sudachi dictionary and platform artifacts
         shell: bash
         run: |
