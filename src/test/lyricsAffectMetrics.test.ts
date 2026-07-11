@@ -1,5 +1,10 @@
 import { describe, it, expect } from 'vitest';
-import { analyzeLyricAffect } from '../lib/affect/lyricsAffectMetrics';
+import {
+  analyzeLyricAffect,
+  analyzeLyricAffectInsight,
+  compareLyricAffectVersions,
+} from '../lib/affect/lyricsAffectMetrics';
+import { affectGoldenLyrics } from './fixtures/affectGoldenLyrics';
 
 describe('analyzeLyricAffect', () => {
   it('returns neutral safe metrics for empty text', () => {
@@ -54,5 +59,72 @@ describe('analyzeLyricAffect', () => {
     const packed = analyzeLyricAffect('怖くて不安で震える鼓動が止まらない！\n怒りと涙と希望が胸の奥でぶつかり続ける！');
 
     expect(packed.waveParameter.density).toBeGreaterThan(sparse.waveParameter.density);
+  });
+
+  it('returns section metrics and wave points for tagged lyrics', () => {
+    const insight = analyzeLyricAffectInsight({ fullText: affectGoldenLyrics.sparseBallad });
+
+    expect(insight.sections.map((section) => section.displayName)).toEqual([
+      'Verse',
+      'Pre',
+      'Chorus',
+      'Bridge',
+    ]);
+    expect(insight.wave).toHaveLength(4);
+    for (const point of insight.wave) {
+      expect(point.valence).toBeGreaterThanOrEqual(-1);
+      expect(point.valence).toBeLessThanOrEqual(1);
+      expect(point.arousal).toBeGreaterThanOrEqual(0);
+      expect(point.arousal).toBeLessThanOrEqual(1);
+      expect(point.density).toBeGreaterThanOrEqual(0);
+      expect(point.density).toBeLessThanOrEqual(1);
+      expect(point.tension).toBeGreaterThanOrEqual(0);
+      expect(point.tension).toBeLessThanOrEqual(1);
+    }
+  });
+
+  it('returns evidence with emotion, marker, and line context', () => {
+    const metrics = analyzeLyricAffect(affectGoldenLyrics.dark);
+
+    expect(metrics.evidence.length).toBeGreaterThan(0);
+    expect(metrics.evidence[0]).toEqual(expect.objectContaining({
+      emotion: expect.any(String),
+      marker: expect.any(String),
+      lineNumber: expect.any(Number),
+      lineText: expect.any(String),
+    }));
+  });
+
+  it('raises production alerts for low chorus density and flat waves', () => {
+    const lowChorus = analyzeLyricAffectInsight({ fullText: affectGoldenLyrics.lowChorusDensity });
+    const flatBallad = analyzeLyricAffectInsight({ fullText: affectGoldenLyrics.sparseBallad });
+
+    expect(lowChorus.alerts.map((alert) => alert.kind)).toContain('chorus_density_below_verse');
+    expect(flatBallad.alerts.map((alert) => alert.kind)).toContain('flat_late_wave');
+  });
+
+  it('keeps golden lyric tendencies stable', () => {
+    const bright = analyzeLyricAffect(affectGoldenLyrics.bright);
+    const dark = analyzeLyricAffect(affectGoldenLyrics.dark);
+    const denseRap = analyzeLyricAffect(affectGoldenLyrics.denseRap);
+    const sparseBallad = analyzeLyricAffect(affectGoldenLyrics.sparseBallad);
+
+    expect(bright.topEmotions[0].name).toBe('joy');
+    expect(dark.topEmotions.map((emotion) => emotion.name)).toContain('fear');
+    expect(dark.trend.valence).toBeLessThan(bright.trend.valence);
+    expect(denseRap.waveParameter.density).toBeGreaterThan(sparseBallad.waveParameter.density);
+    expect(denseRap.derived.tension).toBeGreaterThan(sparseBallad.derived.tension);
+  });
+
+  it('compares snapshot lyrics with deltas and notes', () => {
+    const comparison = compareLyricAffectVersions(
+      affectGoldenLyrics.bright,
+      affectGoldenLyrics.dark,
+    );
+
+    expect(comparison.delta.valence).toBeLessThan(0);
+    expect(comparison.delta.tension).toBeGreaterThan(0);
+    expect(comparison.notes.map((note) => note.kind)).toContain('valence_down');
+    expect(comparison.sectionDeltas.length).toBeGreaterThan(0);
   });
 });

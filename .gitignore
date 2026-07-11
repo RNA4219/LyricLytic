@@ -32,6 +32,9 @@ coverage/
 
 # Tauri
 src-tauri/target/
+# Build-time verified Sudachi resources
+src-tauri/resources/sudachi/
+
 
 # Local app data / sqlite
 *.db
@@ -45,3 +48,7 @@ temp/
 
 # Edge headless profile
 docs/requirements/frontend-design/.edge-headless-profile/
+!src-tauri/tests/
+!src-tauri/tests/fixtures/
+!src-tauri/tests/fixtures/v1.1.0/
+!src-tauri/tests/fixtures/v1.1.0/*.db

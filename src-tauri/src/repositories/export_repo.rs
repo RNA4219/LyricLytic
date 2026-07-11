@@ -1,6 +1,8 @@
 mod artifact_data;
 mod project_data;
+mod quick_export;
 mod version_data;
+pub use quick_export::export_quick;
 
 use crate::error::{AppError, AppResult};
 use artifact_data::*;
@@ -37,6 +39,7 @@ pub fn create_export_zip(
     conn: &Connection,
     project_id: &str,
     include_deleted: bool,
+    destination_path: &str,
 ) -> AppResult<String> {
     let project = get_project(conn, project_id)?;
     let project_title = project.title.clone();
@@ -69,12 +72,7 @@ pub fn create_export_zip(
         },
     };
 
-    let timestamp = Utc::now().format("%Y%m%d-%H%M%S");
-    let slug = sanitize_slug(&project_title);
-    let filename = format!("{}_{}.lyrlytic.zip", slug, timestamp);
-    let zip_path = std::env::temp_dir().join(&filename);
-
-    let file = std::fs::File::create(&zip_path)
+    let file = std::fs::File::create(destination_path)
         .map_err(|error| AppError::Other(format!("Failed to create zip file: {}", error)))?;
     let mut zip = ZipWriter::new(file);
     let options = SimpleFileOptions::default().compression_method(CompressionMethod::Stored);
@@ -118,7 +116,7 @@ pub fn create_export_zip(
     zip.finish()
         .map_err(|error| AppError::Other(format!("Failed to finalize zip: {}", error)))?;
 
-    Ok(zip_path.to_string_lossy().to_string())
+    Ok(destination_path.to_string())
 }
 
 fn add_json_file<T: serde::Serialize>(
@@ -148,10 +146,66 @@ fn add_text_file(zip: &mut ZipWriter<std::fs::File>, name: &str, content: &str) 
     Ok(())
 }
 
-fn sanitize_slug(title: &str) -> String {
-    title
-        .chars()
-        .map(|ch| if ch.is_alphanumeric() { ch } else { '-' })
-        .collect::<String>()
-        .to_lowercase()
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use rusqlite::Connection;
+    use std::fs;
+    use std::time::{SystemTime, UNIX_EPOCH};
+    use zip::ZipArchive;
+
+    #[test]
+    fn export_format_v1_keeps_legacy_entry_set_and_manifest_shape() {
+        let conn = Connection::open_in_memory().expect("open");
+        for (_, migration) in crate::db::MIGRATIONS {
+            conn.execute_batch(migration).expect("migration");
+        }
+        conn.execute_batch(
+            "INSERT INTO projects(project_id,title,created_at,updated_at) VALUES ('p1','Fixture','2026-01-01','2026-01-01');
+             INSERT INTO project_tags(project_id,tag,created_at) VALUES ('p1','demo','2026-01-01');
+             INSERT INTO working_drafts(working_draft_id,project_id,latest_body_text,updated_at,style_text,vocal_text) VALUES ('d1','p1','[Verse]\\nhello','2026-01-01','','');
+             INSERT INTO draft_sections(draft_section_id,working_draft_id,section_type,display_name,sort_order,body_text,created_at,updated_at) VALUES ('ds1','d1','Verse','Verse',0,'hello','2026-01-01','2026-01-01');
+             INSERT INTO lyric_versions(lyric_version_id,project_id,snapshot_name,body_text,created_at) VALUES ('v1','p1','First','hello','2026-01-01');
+             INSERT INTO version_sections(version_section_id,lyric_version_id,section_type,display_name,sort_order,body_text,created_at,updated_at) VALUES ('vs1','v1','Verse','Verse',0,'hello','2026-01-01','2026-01-01');",
+        ).expect("fixture rows");
+
+        let nonce = SystemTime::now()
+            .duration_since(UNIX_EPOCH)
+            .unwrap()
+            .as_nanos();
+        let destination = std::env::temp_dir().join(format!("lyriclytic-export-v1-{nonce}.zip"));
+        create_export_zip(&conn, "p1", false, destination.to_str().unwrap()).expect("export");
+        let file = fs::File::open(&destination).expect("zip");
+        let mut archive = ZipArchive::new(file).expect("archive");
+        let names = (0..archive.len())
+            .map(|index| archive.by_index(index).unwrap().name().to_string())
+            .collect::<Vec<_>>();
+        let expected = [
+            "manifest.json",
+            "project.json",
+            "project_tags.json",
+            "working-draft.json",
+            "draft_sections.json",
+            "lyric-versions.json",
+            "version-sections.json",
+            "revision-notes.json",
+            "song-artifacts.json",
+            "collected-fragments.json",
+            "fragment_tags.json",
+            "texts/",
+            "texts/working-draft.txt",
+            "texts/versions/",
+            "texts/versions/v1.txt",
+        ];
+        assert_eq!(names, expected);
+        let mut manifest = archive.by_name("manifest.json").unwrap();
+        let mut json = String::new();
+        std::io::Read::read_to_string(&mut manifest, &mut json).unwrap();
+        let value: serde_json::Value = serde_json::from_str(&json).unwrap();
+        assert_eq!(value["format_version"], "1");
+        assert_eq!(value["format"], "lyrlytic-project-export");
+        drop(manifest);
+        drop(archive);
+        let _ = fs::remove_file(destination);
+    }
 }

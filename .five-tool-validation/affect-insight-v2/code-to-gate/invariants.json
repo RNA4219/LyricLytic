@@ -1,0 +1,429 @@
+{
+  "version": "ctg/v1",
+  "generated_at": "2026-07-02T22:12:48.821Z",
+  "run_id": "ctg-202607022212-local",
+  "repo": {
+    "root": ".",
+    "revision": "93983a796f65",
+    "branch": "main",
+    "dirty": true
+  },
+  "tool": {
+    "name": "code-to-gate",
+    "version": "1.5.0",
+    "plugin_versions": []
+  },
+  "artifact": "invariants",
+  "schema": "invariants@v1",
+  "completeness": "complete",
+  "invariants": [
+    {
+      "id": "inv-technical-000",
+      "statement": "Exceptions must not be silently swallowed without logging or handling",
+      "kind": "technical",
+      "confidence": 0.85,
+      "sourceFindingIds": [
+        "finding-TRY_CATCH_SWALLOW-000"
+      ],
+      "evidence": [
+        {
+          "id": "evidence-inv-technical-000-00",
+          "path": "scripts/enrich-suno-important-sections.mjs",
+          "startLine": 60,
+          "endLine": 66,
+          "kind": "text",
+          "excerptHash": "5545a3d9"
+        }
+      ],
+      "rationale": "Derived from medium severity finding (TRY_CATCH_SWALLOW): The catch block returns null/undefined without logging the error. This silently hides exceptions, making debugging difficult.",
+      "tags": [
+        "maintainability",
+        "medium"
+      ]
+    },
+    {
+      "id": "inv-technical-001",
+      "statement": "Exceptions must not be silently swallowed without logging or handling",
+      "kind": "technical",
+      "confidence": 0.85,
+      "sourceFindingIds": [
+        "finding-TRY_CATCH_SWALLOW-001"
+      ],
+      "evidence": [
+        {
+          "id": "evidence-inv-technical-001-00",
+          "path": "scripts/enrich-suno-prompt-catalog.mjs",
+          "startLine": 47,
+          "endLine": 53,
+          "kind": "text",
+          "excerptHash": "5545a3d9"
+        }
+      ],
+      "rationale": "Derived from medium severity finding (TRY_CATCH_SWALLOW): The catch block returns null/undefined without logging the error. This silently hides exceptions, making debugging difficult.",
+      "tags": [
+        "maintainability",
+        "medium"
+      ]
+    },
+    {
+      "id": "inv-technical-002",
+      "statement": "Modules must maintain reasonable size for maintainability",
+      "kind": "technical",
+      "confidence": 0.85,
+      "sourceFindingIds": [
+        "finding-LARGE_MODULE-002"
+      ],
+      "evidence": [
+        {
+          "id": "evidence-inv-technical-002-00",
+          "path": "scripts/enrich-suno-important-sections.mjs",
+          "startLine": 1,
+          "endLine": 30,
+          "kind": "text",
+          "excerptHash": "1c9ada43"
+        }
+      ],
+      "rationale": "Derived from medium severity finding (LARGE_MODULE): This file has 25 function definitions, exceeding the 20 threshold. Files with many functions are hard to understand and test. Consider grouping related functions into separate modules.",
+      "tags": [
+        "maintainability",
+        "medium"
+      ]
+    },
+    {
+      "id": "inv-technical-003",
+      "statement": "Modules must maintain reasonable size for maintainability",
+      "kind": "technical",
+      "confidence": 0.85,
+      "sourceFindingIds": [
+        "finding-LARGE_MODULE-003"
+      ],
+      "evidence": [
+        {
+          "id": "evidence-inv-technical-003-00",
+          "path": "scripts/enrich-suno-prompt-catalog.mjs",
+          "startLine": 1,
+          "endLine": 30,
+          "kind": "text",
+          "excerptHash": "5b426dec"
+        }
+      ],
+      "rationale": "Derived from medium severity finding (LARGE_MODULE): This file has 29 function definitions, exceeding the 20 threshold. Files with many functions are hard to understand and test. Consider grouping related functions into separate modules.",
+      "tags": [
+        "maintainability",
+        "medium"
+      ]
+    },
+    {
+      "id": "inv-technical-004",
+      "statement": "Modules must maintain reasonable size for maintainability",
+      "kind": "technical",
+      "confidence": 0.85,
+      "sourceFindingIds": [
+        "finding-LARGE_MODULE-004"
+      ],
+      "evidence": [
+        {
+          "id": "evidence-inv-technical-004-00",
+          "path": "src/components/DiffViewer.tsx",
+          "startLine": 1,
+          "endLine": 30,
+          "kind": "text",
+          "excerptHash": "0cd03f04"
+        }
+      ],
+      "rationale": "Derived from medium severity finding (LARGE_MODULE): This file has 24 function definitions, exceeding the 20 threshold. Files with many functions are hard to understand and test. Consider grouping related functions into separate modules.",
+      "tags": [
+        "maintainability",
+        "medium"
+      ]
+    },
+    {
+      "id": "inv-technical-005",
+      "statement": "Modules must maintain reasonable size for maintainability",
+      "kind": "technical",
+      "confidence": 0.9,
+      "sourceFindingIds": [
+        "finding-LARGE_MODULE-005"
+      ],
+      "evidence": [
+        {
+          "id": "evidence-inv-technical-005-00",
+          "path": "src/components/LLMAssistPanel.tsx",
+          "startLine": 1,
+          "endLine": 20,
+          "kind": "text",
+          "excerptHash": "0d6ff8c5"
+        }
+      ],
+      "rationale": "Derived from medium severity finding (LARGE_MODULE): This file has 614 lines, exceeding the 500 line threshold. Large files are hard to maintain, test, and understand. Consider splitting into smaller, focused modules.",
+      "tags": [
+        "maintainability",
+        "medium"
+      ]
+    },
+    {
+      "id": "inv-technical-006",
+      "statement": "Modules must maintain reasonable size for maintainability",
+      "kind": "technical",
+      "confidence": 0.9,
+      "sourceFindingIds": [
+        "finding-LARGE_MODULE-006"
+      ],
+      "evidence": [
+        {
+          "id": "evidence-inv-technical-006-00",
+          "path": "src/components/LLMReviewPanel.tsx",
+          "startLine": 1,
+          "endLine": 20,
+          "kind": "text",
+          "excerptHash": "21428f97"
+        }
+      ],
+      "rationale": "Derived from medium severity finding (LARGE_MODULE): This file has 565 lines, exceeding the 500 line threshold. Large files are hard to maintain, test, and understand. Consider splitting into smaller, focused modules.",
+      "tags": [
+        "maintainability",
+        "medium"
+      ]
+    },
+    {
+      "id": "inv-technical-007",
+      "statement": "Modules must maintain reasonable size for maintainability",
+      "kind": "technical",
+      "confidence": 0.9,
+      "sourceFindingIds": [
+        "finding-LARGE_MODULE-007"
+      ],
+      "evidence": [
+        {
+          "id": "evidence-inv-technical-007-00",
+          "path": "src/components/LLMSettingsPanel.tsx",
+          "startLine": 1,
+          "endLine": 20,
+          "kind": "text",
+          "excerptHash": "7b674086"
+        }
+      ],
+      "rationale": "Derived from medium severity finding (LARGE_MODULE): This file has 555 lines, exceeding the 500 line threshold. Large files are hard to maintain, test, and understand. Consider splitting into smaller, focused modules.",
+      "tags": [
+        "maintainability",
+        "medium"
+      ]
+    },
+    {
+      "id": "inv-technical-008",
+      "statement": "Modules must maintain reasonable size for maintainability",
+      "kind": "technical",
+      "confidence": 0.9,
+      "sourceFindingIds": [
+        "finding-LARGE_MODULE-008"
+      ],
+      "evidence": [
+        {
+          "id": "evidence-inv-technical-008-00",
+          "path": "src/lib/affect/lyricsAffectMetrics.ts",
+          "startLine": 1,
+          "endLine": 20,
+          "kind": "text",
+          "excerptHash": "2f1de8cd"
+        }
+      ],
+      "rationale": "Derived from medium severity finding (LARGE_MODULE): This file has 753 lines, exceeding the 500 line threshold. Large files are hard to maintain, test, and understand. Consider splitting into smaller, focused modules.",
+      "tags": [
+        "maintainability",
+        "medium"
+      ]
+    },
+    {
+      "id": "inv-technical-009",
+      "statement": "Modules must maintain reasonable size for maintainability",
+      "kind": "technical",
+      "confidence": 0.85,
+      "sourceFindingIds": [
+        "finding-LARGE_MODULE-009"
+      ],
+      "evidence": [
+        {
+          "id": "evidence-inv-technical-009-00",
+          "path": "src/lib/api/client.ts",
+          "startLine": 1,
+          "endLine": 30,
+          "kind": "text",
+          "excerptHash": "11c873c9"
+        }
+      ],
+      "rationale": "Derived from medium severity finding (LARGE_MODULE): This file has 47 function definitions, exceeding the 20 threshold. Files with many functions are hard to understand and test. Consider grouping related functions into separate modules.",
+      "tags": [
+        "maintainability",
+        "medium"
+      ]
+    },
+    {
+      "id": "inv-technical-010",
+      "statement": "Modules must maintain reasonable size for maintainability",
+      "kind": "technical",
+      "confidence": 0.85,
+      "sourceFindingIds": [
+        "finding-LARGE_MODULE-010"
+      ],
+      "evidence": [
+        {
+          "id": "evidence-inv-technical-010-00",
+          "path": "src/lib/llm/sunoPromptCatalog.ts",
+          "startLine": 1,
+          "endLine": 30,
+          "kind": "text",
+          "excerptHash": "1015215c"
+        }
+      ],
+      "rationale": "Derived from medium severity finding (LARGE_MODULE): This file has 35 function definitions, exceeding the 20 threshold. Files with many functions are hard to understand and test. Consider grouping related functions into separate modules.",
+      "tags": [
+        "maintainability",
+        "medium"
+      ]
+    },
+    {
+      "id": "inv-technical-011",
+      "statement": "Modules must maintain reasonable size for maintainability",
+      "kind": "technical",
+      "confidence": 0.85,
+      "sourceFindingIds": [
+        "finding-LARGE_MODULE-011"
+      ],
+      "evidence": [
+        {
+          "id": "evidence-inv-technical-011-00",
+          "path": "src/lib/llm/utils.ts",
+          "startLine": 1,
+          "endLine": 30,
+          "kind": "text",
+          "excerptHash": "4c80c82c"
+        }
+      ],
+      "rationale": "Derived from medium severity finding (LARGE_MODULE): This file has 30 function definitions, exceeding the 20 threshold. Files with many functions are hard to understand and test. Consider grouping related functions into separate modules.",
+      "tags": [
+        "maintainability",
+        "medium"
+      ]
+    },
+    {
+      "id": "inv-technical-012",
+      "statement": "Modules must maintain reasonable size for maintainability",
+      "kind": "technical",
+      "confidence": 0.85,
+      "sourceFindingIds": [
+        "finding-LARGE_MODULE-012"
+      ],
+      "evidence": [
+        {
+          "id": "evidence-inv-technical-012-00",
+          "path": "src/lib/rhyme/analysis.ts",
+          "startLine": 1,
+          "endLine": 30,
+          "kind": "text",
+          "excerptHash": "2da5c882"
+        }
+      ],
+      "rationale": "Derived from medium severity finding (LARGE_MODULE): This file has 39 function definitions, exceeding the 20 threshold. Files with many functions are hard to understand and test. Consider grouping related functions into separate modules.",
+      "tags": [
+        "maintainability",
+        "medium"
+      ]
+    },
+    {
+      "id": "inv-technical-013",
+      "statement": "Modules must maintain reasonable size for maintainability",
+      "kind": "technical",
+      "confidence": 0.9,
+      "sourceFindingIds": [
+        "finding-LARGE_MODULE-013"
+      ],
+      "evidence": [
+        {
+          "id": "evidence-inv-technical-013-00",
+          "path": "src/pages/Editor.tsx",
+          "startLine": 1,
+          "endLine": 20,
+          "kind": "text",
+          "excerptHash": "1d53ca49"
+        }
+      ],
+      "rationale": "Derived from medium severity finding (LARGE_MODULE): This file has 966 lines, exceeding the 500 line threshold. Large files are hard to maintain, test, and understand. Consider splitting into smaller, focused modules.",
+      "tags": [
+        "maintainability",
+        "medium"
+      ]
+    },
+    {
+      "id": "inv-technical-014",
+      "statement": "Modules must maintain reasonable size for maintainability",
+      "kind": "technical",
+      "confidence": 0.85,
+      "sourceFindingIds": [
+        "finding-LARGE_MODULE-014"
+      ],
+      "evidence": [
+        {
+          "id": "evidence-inv-technical-014-00",
+          "path": "src/pages/Home.tsx",
+          "startLine": 1,
+          "endLine": 30,
+          "kind": "text",
+          "excerptHash": "282a7892"
+        }
+      ],
+      "rationale": "Derived from medium severity finding (LARGE_MODULE): This file has 24 function definitions, exceeding the 20 threshold. Files with many functions are hard to understand and test. Consider grouping related functions into separate modules.",
+      "tags": [
+        "maintainability",
+        "medium"
+      ]
+    },
+    {
+      "id": "inv-technical-015",
+      "statement": "Modules must maintain reasonable size for maintainability",
+      "kind": "technical",
+      "confidence": 0.85,
+      "sourceFindingIds": [
+        "finding-LARGE_MODULE-015"
+      ],
+      "evidence": [
+        {
+          "id": "evidence-inv-technical-015-00",
+          "path": "src-tauri/src/commands/llm_runtime.rs",
+          "startLine": 1,
+          "endLine": 30,
+          "kind": "text",
+          "excerptHash": "6a11ee33"
+        }
+      ],
+      "rationale": "Derived from medium severity finding (LARGE_MODULE): This file has 22 function definitions, exceeding the 20 threshold. Files with many functions are hard to understand and test. Consider grouping related functions into separate modules.",
+      "tags": [
+        "maintainability",
+        "medium"
+      ]
+    },
+    {
+      "id": "inv-technical-016",
+      "statement": "Deprecated API: window.confirm must be addressed",
+      "kind": "technical",
+      "confidence": 0.9,
+      "sourceFindingIds": [
+        "finding-DEPRECATED_API_USAGE-016"
+      ],
+      "evidence": [
+        {
+          "id": "evidence-inv-technical-016-00",
+          "path": "src/lib/useProjectData.ts",
+          "startLine": 164,
+          "endLine": 164,
+          "kind": "text",
+          "excerptHash": "7c181973"
+        }
+      ],
+      "rationale": "Derived from medium severity finding (DEPRECATED_API_USAGE): The API 'window.confirm' is deprecated. Recommended replacement: custom confirmation UI. Using deprecated APIs creates maintenance debt and may lead to breaking changes.",
+      "tags": [
+        "maintainability",
+        "medium"
+      ]
+    }
+  ]
+}

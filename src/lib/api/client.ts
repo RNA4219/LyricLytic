@@ -24,6 +24,10 @@ import type {
   StyleProfile,
   CreateStyleProfileInput,
   UpdateStyleProfileInput,
+  TextEncoding,
+  ExportQuickInput,
+  ReadTextFileResult,
+  ModelCandidate,
   ExportProjectInput,
   DeletedItem,
   StartLlamaCppInput,
@@ -71,6 +75,9 @@ const COMMANDS = {
 
   // Revision Notes
   GET_REVISION_NOTES: 'get_revision_notes',
+  EXPORT_QUICK: 'export_quick',
+  READ_TEXT_FILE: 'read_text_file',
+  LIST_MODEL_CANDIDATES: 'list_model_candidates',
   CREATE_REVISION_NOTE: 'create_revision_note',
   DELETE_REVISION_NOTE: 'delete_revision_note',
 
@@ -103,9 +110,36 @@ const COMMANDS = {
   PERMANENTLY_DELETE_STYLE_PROFILE: 'permanently_delete_style_profile',
 } as const;
 
-/**
- * Typed invoke wrapper with better error handling
- */
+export type ApiErrorCode =
+  | 'validation'
+  | 'database_integrity'
+  | 'encoding'
+  | 'not_found'
+  | 'database'
+  | 'io'
+  | 'unknown';
+
+export class ApiError extends Error {
+  constructor(
+    public readonly code: ApiErrorCode,
+    message: string,
+    public readonly command: string,
+  ) {
+    super(`Command "${command}" failed: ${message}`);
+    this.name = 'ApiError';
+  }
+}
+
+function normalizeErrorCode(message: string): ApiErrorCode {
+  if (message.startsWith('Validation error:')) return 'validation';
+  if (message.startsWith('Database integrity error:')) return 'database_integrity';
+  if (message.startsWith('Encoding error:')) return 'encoding';
+  if (message.startsWith('Not found:')) return 'not_found';
+  if (message.startsWith('Database error:')) return 'database';
+  if (message.startsWith('IO error:')) return 'io';
+  return 'unknown';
+}
+/** Typed invoke wrapper with better error handling. */
 async function call<T>(command: string, args?: Record<string, unknown>): Promise<T> {
   try {
     // Check for test mock
@@ -115,9 +149,8 @@ async function call<T>(command: string, args?: Record<string, unknown>): Promise
     }
     return await invoke<T>(command, args);
   } catch (error) {
-    // Normalize error message
     const message = error instanceof Error ? error.message : String(error);
-    throw new Error(`Command "${command}" failed: ${message}`);
+    throw new ApiError(normalizeErrorCode(message), message, command);
   }
 }
 
@@ -255,6 +288,18 @@ export async function deleteStyleProfile(profileId: string): Promise<void> {
 
 export async function exportProject(input: ExportProjectInput): Promise<string> {
   return call<string>(COMMANDS.EXPORT_PROJECT, { input });
+}
+
+export async function exportQuick(input: ExportQuickInput): Promise<string> {
+  return call<string>(COMMANDS.EXPORT_QUICK, { input });
+}
+
+export async function readTextFile(path: string, encoding: TextEncoding): Promise<ReadTextFileResult> {
+  return call<ReadTextFileResult>(COMMANDS.READ_TEXT_FILE, { input: { path, encoding } });
+}
+
+export async function listModelCandidates(rootPath: string): Promise<ModelCandidate[]> {
+  return call<ModelCandidate[]>(COMMANDS.LIST_MODEL_CANDIDATES, { input: { root_path: rootPath } });
 }
 
 // ===== LLM Runtime API =====

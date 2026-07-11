@@ -2,6 +2,8 @@ import DiffViewer from '../../components/DiffViewer';
 import ExportPanel from '../../components/ExportPanel';
 import ImportDialog from '../../components/ImportDialog';
 import { LyricVersion, Project } from '../../lib/api';
+import Modal from '../../components/Modal';
+import { useLanguage } from '../../lib/LanguageContext';
 
 interface EditorOverlaysProps {
   projectId: string;
@@ -11,7 +13,6 @@ interface EditorOverlaysProps {
   showDiffViewer: boolean;
   showExportPanel: boolean;
   showImportDialog: boolean;
-  bodyText: string;
   onCloseDeleteDialog: () => void;
   onDeleteProject: () => void;
   onCloseDiffViewer: () => void;
@@ -30,7 +31,6 @@ function EditorOverlays({
   showDiffViewer,
   showExportPanel,
   showImportDialog,
-  bodyText,
   onCloseDeleteDialog,
   onDeleteProject,
   onCloseDiffViewer,
@@ -40,33 +40,30 @@ function EditorOverlays({
   onImportAsBody,
   onCloseImportDialog,
 }: EditorOverlaysProps) {
+  const { t } = useLanguage();
   return (
     <>
       {showDeleteDialog && (
-        <div className="dialog-overlay">
-          <div className="dialog">
-            <h3>Delete Project?</h3>
-            <p>Are you sure you want to delete "{project.title}"?</p>
-            <p className="warning">This action can be undone from the deleted items.</p>
+        <Modal title={t('deleteProject')} onClose={onCloseDeleteDialog}>
+            <p>{t('deleteConfirm')}</p>
+            <p className="warning">{t('deleteWarning')}</p>
             <div className="dialog-buttons">
-              <button onClick={onCloseDeleteDialog}>Cancel</button>
-              <button onClick={onDeleteProject} className="danger">Delete</button>
+              <button onClick={onCloseDeleteDialog}>{t('cancel')}</button>
+              <button onClick={onDeleteProject} className="danger">{t('delete')}</button>
             </div>
-          </div>
-        </div>
+        </Modal>
       )}
 
       {showDiffViewer && (
-        <div className="modal-overlay">
+        <Modal title={t('diffTitle')} onClose={onCloseDiffViewer} overlayClassName="modal-overlay">
           <DiffViewer versions={versions} onClose={onCloseDiffViewer} onRestore={onRestoreVersion} />
-        </div>
+        </Modal>
       )}
 
       {showExportPanel && (
         <ExportPanel
           project={project}
           versions={versions}
-          bodyText={bodyText}
           onClose={onCloseExportPanel}
         />
       )}

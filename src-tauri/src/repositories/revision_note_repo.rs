@@ -1,7 +1,7 @@
-use crate::error::AppResult;
+use crate::error::{AppError, AppResult};
 use crate::models::{CreateRevisionNoteInput, RevisionNote};
 use chrono::Utc;
-use rusqlite::{params, Connection};
+use rusqlite::{params, Connection, OptionalExtension};
 use uuid::Uuid;
 
 pub fn get_by_version(conn: &Connection, lyric_version_id: &str) -> AppResult<Vec<RevisionNote>> {
@@ -10,23 +10,24 @@ pub fn get_by_version(conn: &Connection, lyric_version_id: &str) -> AppResult<Ve
                 note_type, comment, created_at, updated_at
          FROM revision_notes
          WHERE lyric_version_id = ?1 AND deleted_at IS NULL
-         ORDER BY created_at DESC"
+         ORDER BY created_at DESC",
     )?;
 
-    let notes = stmt.query_map(params![lyric_version_id], |row| {
-        Ok(RevisionNote {
-            revision_note_id: row.get(0)?,
-            lyric_version_id: row.get(1)?,
-            version_section_id: row.get(2)?,
-            range_start: row.get(3)?,
-            range_end: row.get(4)?,
-            note_type: row.get(5)?,
-            comment: row.get(6)?,
-            created_at: row.get(7)?,
-            updated_at: row.get(8)?,
-        })
-    })?
-    .collect::<std::result::Result<Vec<_>, _>>()?;
+    let notes = stmt
+        .query_map(params![lyric_version_id], |row| {
+            Ok(RevisionNote {
+                revision_note_id: row.get(0)?,
+                lyric_version_id: row.get(1)?,
+                version_section_id: row.get(2)?,
+                range_start: row.get(3)?,
+                range_end: row.get(4)?,
+                note_type: row.get(5)?,
+                comment: row.get(6)?,
+                created_at: row.get(7)?,
+                updated_at: row.get(8)?,
+            })
+        })?
+        .collect::<std::result::Result<Vec<_>, _>>()?;
 
     Ok(notes)
 }
@@ -35,6 +36,18 @@ pub fn create(conn: &Connection, input: CreateRevisionNoteInput) -> AppResult<Re
     let now = Utc::now();
     let note_id = Uuid::new_v4().to_string();
     let now_rfc3339 = now.to_rfc3339();
+    let section_version = conn
+        .query_row(
+            "SELECT lyric_version_id FROM version_sections WHERE version_section_id = ?1 AND deleted_at IS NULL",
+            params![input.version_section_id],
+            |row| row.get::<_, String>(0),
+        )
+        .optional()?;
+    if section_version.as_deref() != Some(input.lyric_version_id.as_str()) {
+        return Err(AppError::Validation(
+            "Revision note section must belong to the selected version".into(),
+        ));
+    }
 
     conn.execute(
         "INSERT INTO revision_notes (
@@ -73,23 +86,26 @@ fn get_by_id(conn: &Connection, note_id: &str) -> AppResult<RevisionNote> {
         "SELECT revision_note_id, lyric_version_id, version_section_id, range_start, range_end,
                 note_type, comment, created_at, updated_at
          FROM revision_notes
-         WHERE revision_note_id = ?1 AND deleted_at IS NULL"
+         WHERE revision_note_id = ?1 AND deleted_at IS NULL",
     )?;
 
-    let note = stmt.query_row(params![note_id], |row| {
-        Ok(RevisionNote {
-            revision_note_id: row.get(0)?,
-            lyric_version_id: row.get(1)?,
-            version_section_id: row.get(2)?,
-            range_start: row.get(3)?,
-            range_end: row.get(4)?,
-            note_type: row.get(5)?,
-            comment: row.get(6)?,
-            created_at: row.get(7)?,
-            updated_at: row.get(8)?,
+    let note = stmt
+        .query_row(params![note_id], |row| {
+            Ok(RevisionNote {
+                revision_note_id: row.get(0)?,
+                lyric_version_id: row.get(1)?,
+                version_section_id: row.get(2)?,
+                range_start: row.get(3)?,
+                range_end: row.get(4)?,
+                note_type: row.get(5)?,
+                comment: row.get(6)?,
+                created_at: row.get(7)?,
+                updated_at: row.get(8)?,
+            })
         })
-    })
-    .map_err(|_| crate::error::AppError::NotFound(format!("RevisionNote not found: {}", note_id)))?;
+        .map_err(|_| {
+            crate::error::AppError::NotFound(format!("RevisionNote not found: {}", note_id))
+        })?;
 
     Ok(note)
 }

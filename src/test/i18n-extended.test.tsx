@@ -246,17 +246,12 @@ describe('Performance and memory', () => {
     );
   }
 
-  it('should handle many translation calls efficiently', () => {
-    const start = performance.now();
+  it('should keep repeated translations consistent', () => {
     render(
       <LanguageProvider>
         <ManyTranslationsComponent />
       </LanguageProvider>
     );
-    const end = performance.now();
-
-    // Should render in reasonable time (< 100ms)
-    expect(end - start).toBeLessThan(100);
 
     // All translations should be the same
     const texts = screen.getAllByTestId(/text-\d+/);

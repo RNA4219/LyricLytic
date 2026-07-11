@@ -12,8 +12,16 @@ pub(super) struct LyricVersionExport {
     pub created_at: String,
 }
 
-pub(super) fn get_lyric_versions(conn: &Connection, project_id: &str, include_deleted: bool) -> AppResult<Vec<LyricVersionExport>> {
-    let deleted_filter = if include_deleted { "" } else { "AND deleted_at IS NULL" };
+pub(super) fn get_lyric_versions(
+    conn: &Connection,
+    project_id: &str,
+    include_deleted: bool,
+) -> AppResult<Vec<LyricVersionExport>> {
+    let deleted_filter = if include_deleted {
+        ""
+    } else {
+        "AND deleted_at IS NULL"
+    };
     let sql = format!(
         "SELECT lyric_version_id, project_id, snapshot_name, body_text, parent_lyric_version_id, note, created_at
          FROM lyric_versions WHERE project_id = ?1 {} ORDER BY created_at DESC",
@@ -48,8 +56,16 @@ pub(super) struct VersionSectionExport {
     pub body_text: String,
 }
 
-pub(super) fn get_version_sections(conn: &Connection, project_id: &str, include_deleted: bool) -> AppResult<Vec<VersionSectionExport>> {
-    let deleted_filter = if include_deleted { "" } else { "AND vs.deleted_at IS NULL" };
+pub(super) fn get_version_sections(
+    conn: &Connection,
+    project_id: &str,
+    include_deleted: bool,
+) -> AppResult<Vec<VersionSectionExport>> {
+    let deleted_filter = if include_deleted {
+        ""
+    } else {
+        "AND vs.deleted_at IS NULL"
+    };
     let sql = format!(
         "SELECT vs.version_section_id, vs.lyric_version_id, vs.section_type, vs.display_name, vs.sort_order, vs.body_text
          FROM version_sections vs
@@ -87,8 +103,16 @@ pub(super) struct RevisionNoteExport {
     pub created_at: String,
 }
 
-pub(super) fn get_revision_notes(conn: &Connection, project_id: &str, include_deleted: bool) -> AppResult<Vec<RevisionNoteExport>> {
-    let deleted_filter = if include_deleted { "" } else { "AND rn.deleted_at IS NULL" };
+pub(super) fn get_revision_notes(
+    conn: &Connection,
+    project_id: &str,
+    include_deleted: bool,
+) -> AppResult<Vec<RevisionNoteExport>> {
+    let deleted_filter = if include_deleted {
+        ""
+    } else {
+        "AND rn.deleted_at IS NULL"
+    };
     let sql = format!(
         "SELECT rn.revision_note_id, rn.lyric_version_id, rn.version_section_id, rn.range_start, rn.range_end, rn.note_type, rn.comment, rn.created_at
          FROM revision_notes rn

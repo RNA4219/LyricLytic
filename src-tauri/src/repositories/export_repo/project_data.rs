@@ -39,7 +39,10 @@ pub(super) struct WorkingDraftExport {
     pub updated_at: String,
 }
 
-pub(super) fn get_working_draft(conn: &Connection, project_id: &str) -> AppResult<Option<WorkingDraftExport>> {
+pub(super) fn get_working_draft(
+    conn: &Connection,
+    project_id: &str,
+) -> AppResult<Option<WorkingDraftExport>> {
     let result = conn.query_row(
         "SELECT working_draft_id, project_id, latest_body_text, updated_at FROM working_drafts WHERE project_id = ?1 AND deleted_at IS NULL",
         params![project_id],
@@ -56,7 +59,10 @@ pub(super) fn get_working_draft(conn: &Connection, project_id: &str) -> AppResul
     match result {
         Ok(draft) => Ok(Some(draft)),
         Err(rusqlite::Error::QueryReturnedNoRows) => Ok(None),
-        Err(error) => Err(AppError::Other(format!("Failed to get working draft: {}", error))),
+        Err(error) => Err(AppError::Other(format!(
+            "Failed to get working draft: {}",
+            error
+        ))),
     }
 }
 
@@ -73,7 +79,10 @@ pub(super) struct StyleProfileExport {
     pub updated_at: String,
 }
 
-pub(super) fn get_style_profile(conn: &Connection, project_id: &str) -> AppResult<Option<StyleProfileExport>> {
+pub(super) fn get_style_profile(
+    conn: &Connection,
+    project_id: &str,
+) -> AppResult<Option<StyleProfileExport>> {
     let result = conn.query_row(
         "SELECT style_profile_id, project_id, tone, vocabulary_bias, taboo_words, structure_preference, memo, created_at, updated_at FROM style_profiles WHERE project_id = ?1 AND deleted_at IS NULL",
         params![project_id],
@@ -95,12 +104,16 @@ pub(super) fn get_style_profile(conn: &Connection, project_id: &str) -> AppResul
     match result {
         Ok(profile) => Ok(Some(profile)),
         Err(rusqlite::Error::QueryReturnedNoRows) => Ok(None),
-        Err(error) => Err(AppError::Other(format!("Failed to get style profile: {}", error))),
+        Err(error) => Err(AppError::Other(format!(
+            "Failed to get style profile: {}",
+            error
+        ))),
     }
 }
 
 pub(super) fn get_project_tags(conn: &Connection, project_id: &str) -> AppResult<Vec<String>> {
-    let mut stmt = conn.prepare("SELECT tag FROM project_tags WHERE project_id = ?1 ORDER BY tag")?;
+    let mut stmt =
+        conn.prepare("SELECT tag FROM project_tags WHERE project_id = ?1 ORDER BY tag")?;
     let tags = stmt
         .query_map(params![project_id], |row| row.get(0))?
         .collect::<std::result::Result<Vec<_>, _>>()?;
@@ -117,8 +130,16 @@ pub(super) struct DraftSectionExport {
     pub body_text: String,
 }
 
-pub(super) fn get_draft_sections(conn: &Connection, project_id: &str, include_deleted: bool) -> AppResult<Vec<DraftSectionExport>> {
-    let deleted_filter = if include_deleted { "" } else { "AND deleted_at IS NULL" };
+pub(super) fn get_draft_sections(
+    conn: &Connection,
+    project_id: &str,
+    include_deleted: bool,
+) -> AppResult<Vec<DraftSectionExport>> {
+    let deleted_filter = if include_deleted {
+        ""
+    } else {
+        "AND ds.deleted_at IS NULL"
+    };
     let sql = format!(
         "SELECT ds.draft_section_id, ds.working_draft_id, ds.section_type, ds.display_name, ds.sort_order, ds.body_text
          FROM draft_sections ds

@@ -145,31 +145,40 @@ describe('useAutoSave', () => {
       expect(result.current.lastSaved).toBeInstanceOf(Date);
     });
 
-    it('should not save while already saving', async () => {
-      let resolveSave: () => void;
-      const saveFn = vi.fn().mockImplementation(() => new Promise<void>((resolve) => {
-        resolveSave = resolve;
-      }));
+    it('should save the latest value after an in-flight save completes', async () => {
+      let resolveFirstSave: () => void;
+      let invocation = 0;
+      const saveFn = vi.fn().mockImplementation(async () => {
+        invocation += 1;
+        if (invocation === 1) {
+          await new Promise<void>((resolve) => {
+            resolveFirstSave = resolve;
+          });
+        }
+      });
       const { result } = renderHook(() => useAutoSave({ saveFn }));
 
+      let firstSave!: Promise<void>;
       act(() => {
-        void result.current.saveNow('data1');
+        firstSave = result.current.saveNow('data1');
       });
-
       await act(async () => {
         await vi.advanceTimersByTimeAsync(0);
       });
 
-      await act(async () => {
-        await result.current.saveNow('data2');
+      let secondSave!: Promise<void>;
+      act(() => {
+        secondSave = result.current.saveNow('data2');
       });
-
-      resolveSave!();
-      await act(async () => {
-        await vi.runAllTimersAsync();
-      });
-
       expect(saveFn).toHaveBeenCalledTimes(1);
+
+      await act(async () => {
+        resolveFirstSave!();
+        await Promise.all([firstSave, secondSave]);
+      });
+
+      expect(saveFn).toHaveBeenCalledTimes(2);
+      expect(saveFn).toHaveBeenNthCalledWith(2, 'data2');
     });
 
     it('should cancel pending save when called', async () => {
@@ -224,6 +233,17 @@ describe('useAutoSave', () => {
     });
   });
 
+    it('clears the debounce timer when unmounted', async () => {
+      const saveFn = vi.fn().mockResolvedValue(undefined);
+      const { result, unmount } = renderHook(() => useAutoSave({ saveFn, delayMs: 1000 }));
+      act(() => result.current.queueAutoSave('data'));
+      unmount();
+      await act(async () => {
+        await vi.advanceTimersByTimeAsync(2000);
+      });
+      expect(saveFn).not.toHaveBeenCalled();
+    });
+
   describe('clearError', () => {
     it('should clear error', async () => {
       const consoleError = vi.spyOn(console, 'error').mockImplementation(() => {});
@@ -246,6 +266,34 @@ describe('useAutoSave', () => {
         });
 
         expect(result.current.error).toBe(null);
+      } finally {
+        consoleError.mockRestore();
+      }
+    });
+  });
+
+  describe('flush result', () => {
+    it('returns false and retains pending data after a failed explicit flush', async () => {
+      const consoleError = vi.spyOn(console, 'error').mockImplementation(() => {});
+      const saveFn = vi.fn().mockRejectedValueOnce(new Error('Save failed')).mockResolvedValue(undefined);
+      const { result } = renderHook(() => useAutoSave({ saveFn }));
+
+      try {
+        let flushed = true;
+        await act(async () => {
+          result.current.queueAutoSave('latest');
+          flushed = await result.current.flush();
+        });
+        expect(flushed).toBe(false);
+        expect(result.current.hasPending).toBe(true);
+        expect(result.current.error).toBe('Auto-save failed');
+
+        await act(async () => {
+          flushed = await result.current.retry();
+        });
+        expect(flushed).toBe(true);
+        expect(result.current.hasPending).toBe(false);
+        expect(saveFn).toHaveBeenNthCalledWith(2, 'latest');
       } finally {
         consoleError.mockRestore();
       }

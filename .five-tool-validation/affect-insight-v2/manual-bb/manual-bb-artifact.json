@@ -1,0 +1,184 @@
+{
+  "feature_spec": {
+    "feature_id": "LL-AFFECT-INSIGHT-V2",
+    "title": "歌詞感情インサイト v2",
+    "summary": "歌詞の感情・密度をセクション別、波形、スナップショット比較、根拠、制作メモとして表示する",
+    "actors": ["作詞者", "AI 音楽生成向け歌詞編集者"],
+    "acceptance_criteria": [
+      "右ペインで全文・セクション別・波形・根拠・制作メモを確認できる",
+      "DiffViewer で感情差分と変化メモを確認できる",
+      "ゴールデン歌詞セットの自動回帰が通る"
+    ],
+    "changed_areas": [
+      "src/lib/affect/lyricsAffectMetrics.ts",
+      "src/components/AffectMetricsPanel.tsx",
+      "src/components/DiffViewer.tsx",
+      "src/test/lyricsAffectMetrics.test.ts",
+      "src/test/AffectMetricsPanel.test.tsx",
+      "e2e/affect-insight.manual.spec.ts"
+    ],
+    "source_refs": [
+      {"id": "REQ-V2", "kind": "spec", "path": "docs/requirements/lyric-affect-insight-v2.md"},
+      {"id": "AUTO-VITEST", "kind": "auto_test", "path": ".five-tool-validation/affect-insight-v2/hate/vitest-results.json"},
+      {"id": "CTG", "kind": "code_review", "path": ".five-tool-validation/affect-insight-v2/code-to-gate/analysis-report.md"}
+    ],
+    "assumptions": [
+      {
+        "id": "ASM-LOCAL",
+        "text": "ローカル同期計算のみを対象にし、外部モデル精度は評価しない",
+        "severity": "low",
+        "impact_on_coverage": "手動ケースは UI 表示と説明可能性を中心にする"
+      }
+    ]
+  },
+  "observation_set": [
+    {
+      "id": "OBS-SECTION-01",
+      "title": "セクション名ごとに制作判断の粒度が変わる",
+      "view": "black",
+      "techniques": ["equivalence_partitioning", "rule"],
+      "rationale": "Verse と Chorus の密度差が制作判断に直結するため",
+      "source_refs": ["REQ-V2"]
+    },
+    {
+      "id": "OBS-DIFF-01",
+      "title": "左右バージョン選択で感情差分が変わる",
+      "view": "black",
+      "techniques": ["state_transition"],
+      "rationale": "DiffViewer の選択状態に依存して比較結果が変わるため",
+      "source_refs": ["REQ-V2"]
+    },
+    {
+      "id": "OBS-ORACLE-01",
+      "title": "根拠表示がブラックボックス感を下げる",
+      "view": "black",
+      "techniques": ["data", "exploratory"],
+      "rationale": "数値だけではユーザーが判断根拠を確認できないため",
+      "source_refs": ["REQ-V2"]
+    }
+  ],
+  "risk_register": [
+    {
+      "id": "RISK-01",
+      "scenario": "感情値が採点や品質判定に見えてしまう",
+      "risk_score": 44,
+      "priority": "P2",
+      "rationale": "制作メモ表現と注意文で緩和済みだが、最終 UX は目視確認が必要"
+    },
+    {
+      "id": "RISK-02",
+      "scenario": "Chorus / Verse の判定が表記揺れで意図通りにならない",
+      "risk_score": 38,
+      "priority": "P2",
+      "rationale": "英日代表表記は実装済み。独自セクション名は custom として扱う"
+    },
+    {
+      "id": "RISK-03",
+      "scenario": "波形や根拠リストが右ペインで読みづらい",
+      "risk_score": 36,
+      "priority": "P2",
+      "rationale": "コンパクト UI とスモークテストあり。実機目視は推奨"
+    }
+  ],
+  "manual_case_set": [
+    {
+      "tc_id": "TC-AFFECT-001",
+      "title": "Verse と Chorus を含む歌詞でセクション別メトリクスを確認する",
+      "priority": "P1",
+      "primary_view": "black",
+      "techniques": ["equivalence_partitioning"],
+      "preconditions": ["Verse / Chorus を含むプロジェクトを開く"],
+      "steps": ["右ペインの感情メトリクスを確認する", "セクション別欄を見る"],
+      "expected_results": ["Verse と Chorus が個別行で表示される", "密度と緊張が数値で表示される"],
+      "oracle": {"type": "specified", "refs": ["AC-SECTION-METRICS"]},
+      "estimate_minutes": 4,
+      "trace_to": ["OBS-SECTION-01", "RISK-02"]
+    },
+    {
+      "tc_id": "TC-AFFECT-002",
+      "title": "DiffViewer で明るい版と暗い版の感情差分を確認する",
+      "priority": "P1",
+      "primary_view": "black",
+      "techniques": ["state_transition"],
+      "preconditions": ["明るい歌詞版と暗い歌詞版を保存済み"],
+      "steps": ["バージョン比較を開く", "左右の版を選択する", "感情差分欄を見る"],
+      "expected_results": ["明暗・密度・緊張の差分が表示される", "変化メモが表示される"],
+      "oracle": {"type": "specified", "refs": ["AC-SNAPSHOT-COMPARE"]},
+      "estimate_minutes": 5,
+      "trace_to": ["OBS-DIFF-01"]
+    },
+    {
+      "tc_id": "TC-AFFECT-003",
+      "title": "根拠と制作メモが採点ではなく参考情報として読めることを確認する",
+      "priority": "P2",
+      "primary_view": "black",
+      "techniques": ["exploratory"],
+      "preconditions": ["感情語を含む歌詞を入力済み"],
+      "steps": ["根拠欄を見る", "制作メモ欄を見る", "注意文を見る"],
+      "expected_results": ["語句・行番号・該当行が表示される", "保存や編集を阻害しない", "品質点ではない旨が読める"],
+      "oracle": {"type": "specified", "refs": ["AC-EVIDENCE", "AC-PRODUCTION-ALERTS"]},
+      "estimate_minutes": 5,
+      "trace_to": ["OBS-ORACLE-01", "RISK-01", "RISK-03"]
+    }
+  ],
+  "effort_plan": {
+    "prep_minutes": 5,
+    "execution_minutes": 14,
+    "evidence_minutes": 6,
+    "retry_buffer_minutes": 5,
+    "total_minutes": 30
+  },
+  "execution_evidence": {
+    "run_id": "RUN-2026-07-03-AFFECT-BB-001",
+    "feature_id": "LL-AFFECT-INSIGHT-V2",
+    "build_id": "local-vite-2026-07-03",
+    "env": "local browser E2E",
+    "device": "Desktop Chrome via Playwright system-chrome, 1440x980",
+    "tester": "codex",
+    "command": "MANUAL_BB_EXTERNAL_SERVER=1 npx playwright test -c playwright.manual-bb.config.ts e2e/affect-insight.manual.spec.ts --global-timeout=120000 --timeout=60000",
+    "result_summary": "pass",
+    "cases": [
+      {
+        "tc_id": "TC-AFFECT-001",
+        "oracle_type": "specified",
+        "oracle_refs": ["AC-SECTION-METRICS"],
+        "expected": ["Verse と Chorus が個別行で表示される", "密度と緊張が数値で表示される"],
+        "actual": ["右ペインの感情メトリクスで Verse / Chorus 行、密度、緊張、Chorus 密度メモを確認"],
+        "result": "pass",
+        "attachments": [".five-tool-validation/affect-insight-v2/manual-bb/screenshots/TC-AFFECT-001-003-affect-panel.png"]
+      },
+      {
+        "tc_id": "TC-AFFECT-002",
+        "oracle_type": "specified",
+        "oracle_refs": ["AC-SNAPSHOT-COMPARE"],
+        "expected": ["明暗・密度・緊張の差分が表示される", "変化メモが表示される"],
+        "actual": ["DiffViewer で感情差分、変化メモ、明るさ低下、緊張度上昇を確認"],
+        "result": "pass",
+        "attachments": [".five-tool-validation/affect-insight-v2/manual-bb/screenshots/TC-AFFECT-002-diff-viewer.png"]
+      },
+      {
+        "tc_id": "TC-AFFECT-003",
+        "oracle_type": "specified",
+        "oracle_refs": ["AC-EVIDENCE", "AC-PRODUCTION-ALERTS"],
+        "expected": ["語句・行番号・該当行が表示される", "保存や編集を阻害しない", "品質点ではない旨が読める"],
+        "actual": ["根拠、制作メモ、参考値注意文、編集コンテナの表示継続を確認"],
+        "result": "pass",
+        "attachments": [".five-tool-validation/affect-insight-v2/manual-bb/screenshots/TC-AFFECT-001-003-affect-panel.png"]
+      }
+    ],
+    "incidents": []
+  },
+  "gate_decision": {
+    "feature_id": "LL-AFFECT-INSIGHT-V2",
+    "profile": "standard",
+    "status": "go",
+    "reasons": [
+      "自動テスト 1356/1356 pass",
+      "code-to-gate critical/high/risk 0",
+      "Playwright system-chrome で TC-AFFECT-001..003 を実行し pass",
+      "P0/P1 blocker と critical assumption は残っていない"
+    ],
+    "blocking_risks": [],
+    "waivers": []
+  }
+}

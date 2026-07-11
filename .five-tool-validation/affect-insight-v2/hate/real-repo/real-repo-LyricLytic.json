@@ -1,0 +1,96 @@
+{
+  "schema_version": "HATE/v1",
+  "record_type": "real-repo-evaluation-report",
+  "report_id": "real-repo-LyricLytic",
+  "overall_status": "pass",
+  "repo_id": "LyricLytic",
+  "suite_id": "default",
+  "repo_class": "medium",
+  "ownership_scope": "owned",
+  "run_id": "real-repo-run-0d87d0aed1d82f74",
+  "source_version": "lyric-affect-insight-v2",
+  "roster_hash": "sha256:3b60dd18e4e0bdb21fbc73ee887c7764ae7e8eca855f44df87a588a398eeaad7",
+  "policy_hash": "policy-37a8eec1ce19687d",
+  "environment_fingerprint": {
+    "os": "Windows",
+    "os_release": "11",
+    "python": "3.13.7",
+    "shell": "powershell.exe"
+  },
+  "started_at": "2026-07-02T22:13:45Z",
+  "finished_at": "2026-07-02T22:13:59Z",
+  "baseline": {
+    "decision": "pass",
+    "record_count": null,
+    "runtime_ms": null,
+    "failure_kind": ""
+  },
+  "current": {
+    "decision": "pass",
+    "record_count": 1356,
+    "parser_status": "passed",
+    "runtime_ms": 13940,
+    "unsafe_artifact_findings": 0,
+    "command_exit_code": 0,
+    "failure_kind": "",
+    "command_summary": {
+      "passed": 1356,
+      "total_tests": 1356
+    },
+    "runner_dialect": "vitest",
+    "runner_parser": {
+      "parser_status": "parsed",
+      "ignored_noise": []
+    },
+    "command_excerpt": "> lyriclytic@1.1.0 test\n> vitest --run --reporter=dot\n\n\n RUN  v4.1.2 C:/Users/ryo-n/Codex_dev/LyricLytic\n\n············································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································\n\n Test Files  39 passed (39)\n      Tests  1356 passed (1356)\n   Start at  07:13:46\n   Duration  12.92s (transform 5.10s, setup 6.60s, import 12.57s, tests 16.39s, environment 75.96s)",
+    "output_safety": {
+      "redaction_status": "not_required",
+      "redaction_rule_version": "real-repo-output-safety/v1",
+      "redactions": [],
+      "redaction_count": 0,
+      "line_endings_normalized": false,
+      "control_characters_removed": false,
+      "ansi_removed": false,
+      "truncated": false,
+      "limit": 2000,
+      "raw_output_sha256": "978ad17063e940141e8289d101eca25dc0b828971fc9e96e73d114b12f5f8eef",
+      "raw_access": "not_required",
+      "safe_for_read_model": true
+    },
+    "timeout_cleanup": {
+      "timeout_reason": "none",
+      "cleanup_attempted": false,
+      "cleanup_method": "none",
+      "cleanup_completed": null,
+      "fallback_kill_used": false
+    }
+  },
+  "regressions": [],
+  "external_hold": {
+    "detected": false,
+    "ownership_scope": "owned",
+    "implementation_failure": null,
+    "records": []
+  },
+  "timeout_ms": 120000,
+  "runtime_budget_ms": 120000,
+  "timeout_recorded": false,
+  "subset": {
+    "is_subset": false,
+    "label": "",
+    "limitation_visible": true,
+    "proves_full_suite": true
+  },
+  "findings": [],
+  "summary": {
+    "finding_count": 0,
+    "regression_detected": false,
+    "regression_classes": [],
+    "timeout_recorded": false,
+    "subset_limited": false,
+    "executed_record_count": 1356
+  },
+  "sourceRefs": [
+    "file:real-repo-roster.json#LyricLytic:default"
+  ]
+}

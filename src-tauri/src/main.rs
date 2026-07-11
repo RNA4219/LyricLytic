@@ -2,10 +2,13 @@
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
 mod commands;
+#[cfg(test)]
+mod compatibility_tests;
 mod db;
 mod error;
 mod models;
 mod repositories;
+mod services;
 
 fn main() {
     tauri::Builder::default()
@@ -14,7 +17,7 @@ fn main() {
         .manage(commands::llm_runtime::LlamaCppRuntimeState::default())
         .setup(|app| {
             let app_handle = app.handle();
-            db::init_database(&app_handle)?;
+            db::init_database(app_handle)?;
             Ok(())
         })
         .invoke_handler(tauri::generate_handler![
@@ -43,6 +46,8 @@ fn main() {
             commands::song_artifact::create_song_artifact,
             commands::song_artifact::delete_song_artifact,
             commands::revision_note::get_revision_notes,
+            commands::file_io::read_text_file,
+            commands::file_io::list_model_candidates,
             commands::revision_note::create_revision_note,
             commands::revision_note::delete_revision_note,
             commands::style_profile::get_style_profile,
@@ -50,6 +55,7 @@ fn main() {
             commands::style_profile::update_style_profile,
             commands::style_profile::delete_style_profile,
             commands::export::export_project,
+            commands::export::export_quick,
             commands::llm_runtime::get_llama_cpp_runtime_status,
             commands::llm_runtime::detect_llama_cpp_executable,
             commands::llm_runtime::start_llama_cpp_runtime,

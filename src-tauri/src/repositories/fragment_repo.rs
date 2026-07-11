@@ -10,39 +10,44 @@ pub fn get_by_project(conn: &Connection, project_id: &str) -> AppResult<Vec<Coll
         "SELECT collected_fragment_id, project_id, text, source, status, created_at, updated_at
          FROM collected_fragments
          WHERE project_id = ?1 AND deleted_at IS NULL
-         ORDER BY created_at DESC"
+         ORDER BY created_at DESC",
     )?;
 
-    let fragments = stmt.query_map(params![project_id], |row| {
-        Ok(CollectedFragment {
-            collected_fragment_id: row.get(0)?,
-            project_id: row.get(1)?,
-            text: row.get(2)?,
-            source: row.get(3)?,
-            status: row.get(4)?,
-            tags: vec![], // Will be populated below
-            created_at: row.get(5)?,
-            updated_at: row.get(6)?,
-        })
-    })?
-    .collect::<std::result::Result<Vec<_>, _>>()?;
+    let fragments = stmt
+        .query_map(params![project_id], |row| {
+            Ok(CollectedFragment {
+                collected_fragment_id: row.get(0)?,
+                project_id: row.get(1)?,
+                text: row.get(2)?,
+                source: row.get(3)?,
+                status: row.get(4)?,
+                tags: vec![], // Will be populated below
+                created_at: row.get(5)?,
+                updated_at: row.get(6)?,
+            })
+        })?
+        .collect::<std::result::Result<Vec<_>, _>>()?;
 
     // Fetch tags for each fragment
-    let fragments_with_tags = fragments.into_iter().map(|mut fragment| {
-        let tags = get_tags_for_fragment(conn, &fragment.collected_fragment_id).unwrap_or_default();
-        fragment.tags = tags;
-        fragment
-    }).collect();
+    let fragments_with_tags = fragments
+        .into_iter()
+        .map(|mut fragment| {
+            let tags =
+                get_tags_for_fragment(conn, &fragment.collected_fragment_id).unwrap_or_default();
+            fragment.tags = tags;
+            fragment
+        })
+        .collect();
 
     Ok(fragments_with_tags)
 }
 
 fn get_tags_for_fragment(conn: &Connection, fragment_id: &str) -> AppResult<Vec<String>> {
-    let mut stmt = conn.prepare(
-        "SELECT tag FROM fragment_tags WHERE collected_fragment_id = ?1 ORDER BY tag"
-    )?;
+    let mut stmt = conn
+        .prepare("SELECT tag FROM fragment_tags WHERE collected_fragment_id = ?1 ORDER BY tag")?;
 
-    let tags = stmt.query_map(params![fragment_id], |row| row.get(0))?
+    let tags = stmt
+        .query_map(params![fragment_id], |row| row.get(0))?
         .collect::<std::result::Result<Vec<_>, _>>()?;
 
     Ok(tags)
@@ -75,7 +80,11 @@ pub fn create(conn: &Connection, input: CreateFragmentInput) -> AppResult<Collec
     get_by_id(conn, &fragment_id)
 }
 
-pub fn update(conn: &Connection, fragment_id: &str, input: UpdateFragmentInput) -> AppResult<CollectedFragment> {
+pub fn update(
+    conn: &Connection,
+    fragment_id: &str,
+    input: UpdateFragmentInput,
+) -> AppResult<CollectedFragment> {
     let now = Utc::now();
     let existing = get_by_id(conn, fragment_id)?;
     let now_rfc3339 = now.to_rfc3339();
@@ -115,22 +124,25 @@ fn get_by_id(conn: &Connection, fragment_id: &str) -> AppResult<CollectedFragmen
     let mut stmt = conn.prepare(
         "SELECT collected_fragment_id, project_id, text, source, status, created_at, updated_at
          FROM collected_fragments
-         WHERE collected_fragment_id = ?1 AND deleted_at IS NULL"
+         WHERE collected_fragment_id = ?1 AND deleted_at IS NULL",
     )?;
 
-    let fragment = stmt.query_row(params![fragment_id], |row| {
-        Ok(CollectedFragment {
-            collected_fragment_id: row.get(0)?,
-            project_id: row.get(1)?,
-            text: row.get(2)?,
-            source: row.get(3)?,
-            status: row.get(4)?,
-            tags: vec![], // Will be populated below
-            created_at: row.get(5)?,
-            updated_at: row.get(6)?,
+    let fragment = stmt
+        .query_row(params![fragment_id], |row| {
+            Ok(CollectedFragment {
+                collected_fragment_id: row.get(0)?,
+                project_id: row.get(1)?,
+                text: row.get(2)?,
+                source: row.get(3)?,
+                status: row.get(4)?,
+                tags: vec![], // Will be populated below
+                created_at: row.get(5)?,
+                updated_at: row.get(6)?,
+            })
         })
-    })
-    .map_err(|_| crate::error::AppError::NotFound(format!("Fragment not found: {}", fragment_id)))?;
+        .map_err(|_| {
+            crate::error::AppError::NotFound(format!("Fragment not found: {}", fragment_id))
+        })?;
 
     // Fetch tags
     let tags = get_tags_for_fragment(conn, fragment_id).unwrap_or_default();
@@ -152,19 +164,20 @@ pub fn get_all_deleted(conn: &Connection) -> AppResult<Vec<DeletedFragment>> {
         "SELECT collected_fragment_id, project_id, text, deleted_at, deleted_batch_id
          FROM collected_fragments
          WHERE deleted_at IS NOT NULL
-         ORDER BY deleted_at DESC"
+         ORDER BY deleted_at DESC",
     )?;
 
-    let fragments = stmt.query_map(params![], |row| {
-        Ok(DeletedFragment {
-            collected_fragment_id: row.get(0)?,
-            project_id: row.get(1)?,
-            text: row.get(2)?,
-            deleted_at: row.get(3)?,
-            deleted_batch_id: row.get(4)?,
-        })
-    })?
-    .collect::<std::result::Result<Vec<_>, _>>()?;
+    let fragments = stmt
+        .query_map(params![], |row| {
+            Ok(DeletedFragment {
+                collected_fragment_id: row.get(0)?,
+                project_id: row.get(1)?,
+                text: row.get(2)?,
+                deleted_at: row.get(3)?,
+                deleted_batch_id: row.get(4)?,
+            })
+        })?
+        .collect::<std::result::Result<Vec<_>, _>>()?;
 
     Ok(fragments)
 }

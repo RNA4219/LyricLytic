@@ -15,6 +15,7 @@ import {
 } from '../lib/api';
 import { useLanguage } from '../lib/LanguageContext';
 
+import Modal from './Modal';
 interface TrashPanelProps {
   onRestore: () => void;
   onClose?: () => void;
@@ -156,12 +157,7 @@ function TrashPanel({ onRestore, onClose }: TrashPanelProps) {
   };
 
   return (
-    <div className="dialog-overlay">
-      <div className="dialog trash-panel-dialog">
-        <div className="trash-header">
-          <h3>🗑️ {t('deletedItems')}</h3>
-          <button onClick={handleClose} className="close-btn">×</button>
-        </div>
+    <Modal title={`🗑️ ${t('deletedItems')}`} onClose={handleClose} className="trash-panel-dialog">
 
         {loading ? (
           <p className="loading-text">{t('loading')}</p>
@@ -194,8 +190,7 @@ function TrashPanel({ onRestore, onClose }: TrashPanelProps) {
         <div className="dialog-buttons">
           <button onClick={handleClose}>{t('close')}</button>
         </div>
-      </div>
-    </div>
+    </Modal>
   );
 }
 

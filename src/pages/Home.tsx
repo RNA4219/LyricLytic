@@ -221,6 +221,8 @@ function Home() {
   return (
     <div className="home-shell home-shell-minimal">
       <main className="home-main home-main-minimal">
+        <p className="subtitle">{t('subtitle')}</p>
+
         <section className="home-create-section">
         {!showNewProjectInput ? (
           <button className="home-primary-cta" onClick={() => setShowNewProjectInput(true)}>
@@ -366,7 +368,13 @@ function Home() {
           <button className="home-trash-link" onClick={() => setShowTrashPanel(true)}>
             {t('deletedItems')}
           </button>
+          <button className="home-more-btn" onClick={() => setShowTrashPanel(true)}>
+            {t('more')}
+          </button>
         </section>
+        <footer className="home-footer">
+          <p>{t('footerText')}</p>
+        </footer>
       </main>
 
       {pendingDeleteProject && (

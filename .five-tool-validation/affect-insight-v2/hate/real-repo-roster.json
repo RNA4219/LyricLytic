@@ -1,0 +1,13 @@
+{
+  "source_version": "lyric-affect-insight-v2",
+  "repositories": [
+    {
+      "repo_id": "LyricLytic",
+      "repo_class": "medium",
+      "path": "C:/Users/ryo-n/Codex_dev/LyricLytic",
+      "command": ["npm", "test", "--", "--run", "--reporter=dot"],
+      "subset": false,
+      "timeout_ms": 120000
+    }
+  ]
+}

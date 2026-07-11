@@ -9,6 +9,12 @@ pub enum AppError {
     NotFound(String),
     #[error("IO error: {0}")]
     Io(#[from] std::io::Error),
+    #[error("Validation error: {0}")]
+    Validation(String),
+    #[error("Database integrity error: {0}")]
+    DatabaseIntegrity(String),
+    #[error("Encoding error: {0}")]
+    Encoding(String),
     #[error("{0}")]
     Other(String),
 }

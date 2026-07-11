@@ -1,10 +1,10 @@
 {
   "version": "ctg/v1",
-  "generated_at": "2026-07-02T21:47:21.408Z",
-  "run_id": "ctg-202607022147-local",
+  "generated_at": "2026-07-02T21:55:06.399Z",
+  "run_id": "ctg-202607022155-local",
   "repo": {
     "root": ".",
-    "revision": "63ff56cfb326",
+    "revision": "93983a796f65",
     "branch": "main",
     "dirty": true
   },
@@ -74,36 +74,7 @@
       "fingerprint": "d9888ea618c3a063"
     },
     {
-      "id": "finding-RAW_SQL-002",
-      "ruleId": "RAW_SQL",
-      "category": "data",
-      "severity": "high",
-      "confidence": 0.85,
-      "title": "Raw SQL query detected - potential SQL injection vulnerability",
-      "summary": "A raw SQL query is constructed using string concatenation or template literals, which can allow SQL injection if user input is incorporated. Use parameterized queries, prepared statements, or an ORM instead.",
-      "evidence": [
-        {
-          "id": "evidence-finding-RAW_SQL-002-00",
-          "path": "src/lib/useProjectData.ts",
-          "startLine": 160,
-          "endLine": 164,
-          "kind": "text",
-          "excerptHash": "7b9d0b9f"
-        }
-      ],
-      "tags": [
-        "domain:data-access",
-        "owasp-api3",
-        "security",
-        "sql-injection"
-      ],
-      "upstream": {
-        "tool": "native"
-      },
-      "fingerprint": "9ce540b025350389"
-    },
-    {
-      "id": "finding-LARGE_MODULE-003",
+      "id": "finding-LARGE_MODULE-002",
       "ruleId": "LARGE_MODULE",
       "category": "maintainability",
       "severity": "medium",
@@ -112,7 +83,7 @@
       "summary": "This file has 25 function definitions, exceeding the 20 threshold. Files with many functions are hard to understand and test. Consider grouping related functions into separate modules.",
       "evidence": [
         {
-          "id": "evidence-finding-LARGE_MODULE-003-00",
+          "id": "evidence-finding-LARGE_MODULE-002-00",
           "path": "scripts/enrich-suno-important-sections.mjs",
           "startLine": 1,
           "endLine": 30,
@@ -132,7 +103,7 @@
       "fingerprint": "8cf1a882fd37a6e0"
     },
     {
-      "id": "finding-LARGE_MODULE-004",
+      "id": "finding-LARGE_MODULE-003",
       "ruleId": "LARGE_MODULE",
       "category": "maintainability",
       "severity": "medium",
@@ -141,7 +112,7 @@
       "summary": "This file has 29 function definitions, exceeding the 20 threshold. Files with many functions are hard to understand and test. Consider grouping related functions into separate modules.",
       "evidence": [
         {
-          "id": "evidence-finding-LARGE_MODULE-004-00",
+          "id": "evidence-finding-LARGE_MODULE-003-00",
           "path": "scripts/enrich-suno-prompt-catalog.mjs",
           "startLine": 1,
           "endLine": 30,
@@ -161,7 +132,7 @@
       "fingerprint": "9b7f7851cb611531"
     },
     {
-      "id": "finding-LARGE_MODULE-005",
+      "id": "finding-LARGE_MODULE-004",
       "ruleId": "LARGE_MODULE",
       "category": "maintainability",
       "severity": "medium",
@@ -170,7 +141,7 @@
       "summary": "This file has 614 lines, exceeding the 500 line threshold. Large files are hard to maintain, test, and understand. Consider splitting into smaller, focused modules.",
       "evidence": [
         {
-          "id": "evidence-finding-LARGE_MODULE-005-00",
+          "id": "evidence-finding-LARGE_MODULE-004-00",
           "path": "src/components/LLMAssistPanel.tsx",
           "startLine": 1,
           "endLine": 20,
@@ -190,7 +161,7 @@
       "fingerprint": "d036102138fe36d9"
     },
     {
-      "id": "finding-LARGE_MODULE-006",
+      "id": "finding-LARGE_MODULE-005",
       "ruleId": "LARGE_MODULE",
       "category": "maintainability",
       "severity": "medium",
@@ -199,7 +170,7 @@
       "summary": "This file has 565 lines, exceeding the 500 line threshold. Large files are hard to maintain, test, and understand. Consider splitting into smaller, focused modules.",
       "evidence": [
         {
-          "id": "evidence-finding-LARGE_MODULE-006-00",
+          "id": "evidence-finding-LARGE_MODULE-005-00",
           "path": "src/components/LLMReviewPanel.tsx",
           "startLine": 1,
           "endLine": 20,
@@ -219,7 +190,7 @@
       "fingerprint": "e95b185f602a7c6b"
     },
     {
-      "id": "finding-LARGE_MODULE-007",
+      "id": "finding-LARGE_MODULE-006",
       "ruleId": "LARGE_MODULE",
       "category": "maintainability",
       "severity": "medium",
@@ -228,7 +199,7 @@
       "summary": "This file has 555 lines, exceeding the 500 line threshold. Large files are hard to maintain, test, and understand. Consider splitting into smaller, focused modules.",
       "evidence": [
         {
-          "id": "evidence-finding-LARGE_MODULE-007-00",
+          "id": "evidence-finding-LARGE_MODULE-006-00",
           "path": "src/components/LLMSettingsPanel.tsx",
           "startLine": 1,
           "endLine": 20,
@@ -248,7 +219,7 @@
       "fingerprint": "f7fb3027ed576ea2"
     },
     {
-      "id": "finding-LARGE_MODULE-008",
+      "id": "finding-LARGE_MODULE-007",
       "ruleId": "LARGE_MODULE",
       "category": "maintainability",
       "severity": "medium",
@@ -257,7 +228,7 @@
       "summary": "This file has 47 function definitions, exceeding the 20 threshold. Files with many functions are hard to understand and test. Consider grouping related functions into separate modules.",
       "evidence": [
         {
-          "id": "evidence-finding-LARGE_MODULE-008-00",
+          "id": "evidence-finding-LARGE_MODULE-007-00",
           "path": "src/lib/api/client.ts",
           "startLine": 1,
           "endLine": 30,
@@ -277,7 +248,7 @@
       "fingerprint": "e3024eee06da9c6f"
     },
     {
-      "id": "finding-LARGE_MODULE-009",
+      "id": "finding-LARGE_MODULE-008",
       "ruleId": "LARGE_MODULE",
       "category": "maintainability",
       "severity": "medium",
@@ -286,7 +257,7 @@
       "summary": "This file has 35 function definitions, exceeding the 20 threshold. Files with many functions are hard to understand and test. Consider grouping related functions into separate modules.",
       "evidence": [
         {
-          "id": "evidence-finding-LARGE_MODULE-009-00",
+          "id": "evidence-finding-LARGE_MODULE-008-00",
           "path": "src/lib/llm/sunoPromptCatalog.ts",
           "startLine": 1,
           "endLine": 30,
@@ -306,7 +277,7 @@
       "fingerprint": "50daf7e8084deb79"
     },
     {
-      "id": "finding-LARGE_MODULE-010",
+      "id": "finding-LARGE_MODULE-009",
       "ruleId": "LARGE_MODULE",
       "category": "maintainability",
       "severity": "medium",
@@ -315,7 +286,7 @@
       "summary": "This file has 30 function definitions, exceeding the 20 threshold. Files with many functions are hard to understand and test. Consider grouping related functions into separate modules.",
       "evidence": [
         {
-          "id": "evidence-finding-LARGE_MODULE-010-00",
+          "id": "evidence-finding-LARGE_MODULE-009-00",
           "path": "src/lib/llm/utils.ts",
           "startLine": 1,
           "endLine": 30,
@@ -335,7 +306,7 @@
       "fingerprint": "a39e8daa4d7531ff"
     },
     {
-      "id": "finding-LARGE_MODULE-011",
+      "id": "finding-LARGE_MODULE-010",
       "ruleId": "LARGE_MODULE",
       "category": "maintainability",
       "severity": "medium",
@@ -344,7 +315,7 @@
       "summary": "This file has 39 function definitions, exceeding the 20 threshold. Files with many functions are hard to understand and test. Consider grouping related functions into separate modules.",
       "evidence": [
         {
-          "id": "evidence-finding-LARGE_MODULE-011-00",
+          "id": "evidence-finding-LARGE_MODULE-010-00",
           "path": "src/lib/rhyme/analysis.ts",
           "startLine": 1,
           "endLine": 30,
@@ -364,21 +335,21 @@
       "fingerprint": "d1731309cfc118df"
     },
     {
-      "id": "finding-LARGE_MODULE-012",
+      "id": "finding-LARGE_MODULE-011",
       "ruleId": "LARGE_MODULE",
       "category": "maintainability",
-      "severity": "high",
+      "severity": "medium",
       "confidence": 0.9,
-      "title": "Module exceeds line count threshold (1054 lines)",
-      "summary": "This file has 1054 lines, exceeding the 500 line threshold. Large files are hard to maintain, test, and understand. Consider splitting into smaller, focused modules.",
+      "title": "Module exceeds line count threshold (966 lines)",
+      "summary": "This file has 966 lines, exceeding the 500 line threshold. Large files are hard to maintain, test, and understand. Consider splitting into smaller, focused modules.",
       "evidence": [
         {
-          "id": "evidence-finding-LARGE_MODULE-012-00",
+          "id": "evidence-finding-LARGE_MODULE-011-00",
           "path": "src/pages/Editor.tsx",
           "startLine": 1,
           "endLine": 20,
           "kind": "text",
-          "excerptHash": "7ac152e0"
+          "excerptHash": "1d53ca49"
         }
       ],
       "tags": [
@@ -390,10 +361,10 @@
       "upstream": {
         "tool": "native"
       },
-      "fingerprint": "032355aee54d8f64"
+      "fingerprint": "80d3f921d7506e80"
     },
     {
-      "id": "finding-LARGE_MODULE-013",
+      "id": "finding-LARGE_MODULE-012",
       "ruleId": "LARGE_MODULE",
       "category": "maintainability",
       "severity": "medium",
@@ -402,7 +373,7 @@
       "summary": "This file has 24 function definitions, exceeding the 20 threshold. Files with many functions are hard to understand and test. Consider grouping related functions into separate modules.",
       "evidence": [
         {
-          "id": "evidence-finding-LARGE_MODULE-013-00",
+          "id": "evidence-finding-LARGE_MODULE-012-00",
           "path": "src/pages/Home.tsx",
           "startLine": 1,
           "endLine": 30,
@@ -422,7 +393,7 @@
       "fingerprint": "7ff00e003401375e"
     },
     {
-      "id": "finding-LARGE_MODULE-014",
+      "id": "finding-LARGE_MODULE-013",
       "ruleId": "LARGE_MODULE",
       "category": "maintainability",
       "severity": "medium",
@@ -431,7 +402,7 @@
       "summary": "This file has 22 function definitions, exceeding the 20 threshold. Files with many functions are hard to understand and test. Consider grouping related functions into separate modules.",
       "evidence": [
         {
-          "id": "evidence-finding-LARGE_MODULE-014-00",
+          "id": "evidence-finding-LARGE_MODULE-013-00",
           "path": "src-tauri/src/commands/llm_runtime.rs",
           "startLine": 1,
           "endLine": 30,
@@ -451,56 +422,39 @@
       "fingerprint": "c78115847e90d6bf"
     },
     {
-      "id": "finding-CIRCULAR_DEPENDENCY-015",
-      "ruleId": "CIRCULAR_DEPENDENCY",
+      "id": "finding-DEPRECATED_API_USAGE-014",
+      "ruleId": "DEPRECATED_API_USAGE",
       "category": "maintainability",
-      "severity": "high",
-      "confidence": 0.95,
-      "title": "Circular dependency detected (2 files in cycle)",
-      "summary": "Import cycle: src/lib/api.ts → src/lib/useProjectData.ts → src/lib/api.ts. Circular dependencies can cause \"Cannot access before initialization\" errors and make the code harder to maintain.",
+      "severity": "medium",
+      "confidence": 0.9,
+      "title": "Deprecated API: window.confirm",
+      "summary": "The API 'window.confirm' is deprecated. Recommended replacement: custom confirmation UI. Using deprecated APIs creates maintenance debt and may lead to breaking changes.",
       "evidence": [
         {
-          "id": "evidence-finding-CIRCULAR_DEPENDENCY-015-00",
-          "path": "src/lib/api.ts",
-          "startLine": 1,
-          "endLine": 1,
-          "kind": "text",
-          "excerptHash": "4ff41a3d"
-        },
-        {
-          "id": "evidence-finding-CIRCULAR_DEPENDENCY-015-01",
+          "id": "evidence-finding-DEPRECATED_API_USAGE-014-00",
           "path": "src/lib/useProjectData.ts",
-          "startLine": 1,
-          "endLine": 1,
+          "startLine": 164,
+          "endLine": 164,
           "kind": "text",
-          "excerptHash": "5cbd6a89"
-        },
-        {
-          "id": "evidence-finding-CIRCULAR_DEPENDENCY-015-02",
-          "path": "src/lib/api.ts",
-          "startLine": 1,
-          "endLine": 1,
-          "kind": "text",
-          "excerptHash": "4ff41a3d"
+          "excerptHash": "7c181973"
         }
       ],
       "tags": [
-        "domain:api-boundary"
+        "domain:code-health"
       ],
-      "fingerprint": "a7ceaadd294de678"
+      "fingerprint": "9c3af779413105da"
     }
   ],
   "unsupported_claims": [],
   "bySeverity": {
     "critical": 0,
-    "high": 3,
-    "medium": 13,
+    "high": 0,
+    "medium": 15,
     "low": 0
   },
   "byRule": {
     "TRY_CATCH_SWALLOW": 2,
-    "RAW_SQL": 1,
     "LARGE_MODULE": 12,
-    "CIRCULAR_DEPENDENCY": 1
+    "DEPRECATED_API_USAGE": 1
   }
 }

@@ -1,0 +1,81 @@
+{
+  "schema_version": "manual-bb-execution-evidence/v1",
+  "run_id": "RUN-2026-07-03-AFFECT-BB-001",
+  "feature_id": "LL-AFFECT-INSIGHT-V2",
+  "executed_at": "2026-07-03T07:37:38+09:00",
+  "build_id": "local-vite-2026-07-03",
+  "env": "local browser E2E",
+  "device": "Desktop Chrome via Playwright system-chrome, 1440x980",
+  "tester": "codex",
+  "commands": [
+    "npm run dev -- --host 127.0.0.1",
+    "MANUAL_BB_EXTERNAL_SERVER=1 npx playwright test -c playwright.manual-bb.config.ts e2e/affect-insight.manual.spec.ts --global-timeout=120000 --timeout=60000"
+  ],
+  "summary": {
+    "total_cases": 3,
+    "passed": 3,
+    "failed": 0,
+    "blocked": 0,
+    "incidents": 0
+  },
+  "cases": [
+    {
+      "tc_id": "TC-AFFECT-001",
+      "priority": "P1",
+      "oracle_type": "specified",
+      "oracle_refs": ["AC-SECTION-METRICS"],
+      "expected": [
+        "Verse と Chorus が個別行で表示される",
+        "密度と緊張が数値で表示される"
+      ],
+      "actual": [
+        "右ペインの感情メトリクスで Verse / Chorus 行、密度、緊張、Chorus 密度メモを確認"
+      ],
+      "result": "pass",
+      "attachments": [
+        ".five-tool-validation/affect-insight-v2/manual-bb/screenshots/TC-AFFECT-001-003-affect-panel.png"
+      ]
+    },
+    {
+      "tc_id": "TC-AFFECT-002",
+      "priority": "P1",
+      "oracle_type": "specified",
+      "oracle_refs": ["AC-SNAPSHOT-COMPARE"],
+      "expected": [
+        "明暗・密度・緊張の差分が表示される",
+        "変化メモが表示される"
+      ],
+      "actual": [
+        "DiffViewer で感情差分、変化メモ、明るさ低下、緊張度上昇を確認"
+      ],
+      "result": "pass",
+      "attachments": [
+        ".five-tool-validation/affect-insight-v2/manual-bb/screenshots/TC-AFFECT-002-diff-viewer.png"
+      ]
+    },
+    {
+      "tc_id": "TC-AFFECT-003",
+      "priority": "P2",
+      "oracle_type": "specified",
+      "oracle_refs": ["AC-EVIDENCE", "AC-PRODUCTION-ALERTS"],
+      "expected": [
+        "語句・行番号・該当行が表示される",
+        "保存や編集を阻害しない",
+        "品質点ではない旨が読める"
+      ],
+      "actual": [
+        "根拠、制作メモ、参考値注意文、編集コンテナの表示継続を確認"
+      ],
+      "result": "pass",
+      "attachments": [
+        ".five-tool-validation/affect-insight-v2/manual-bb/screenshots/TC-AFFECT-001-003-affect-panel.png"
+      ]
+    }
+  ],
+  "playwright": {
+    "config": "playwright.manual-bb.config.ts",
+    "spec": "e2e/affect-insight.manual.spec.ts",
+    "project": "system-chrome",
+    "last_run": "test-results/.last-run.json"
+  }
+}

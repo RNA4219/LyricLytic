@@ -2,7 +2,7 @@ use crate::error::{AppError, AppResult};
 use crate::models::{CreateVersionInput, LyricVersion, VersionSection};
 use crate::repositories::touch_project_updated_at;
 use chrono::Utc;
-use rusqlite::{params, Connection};
+use rusqlite::{params, Connection, OptionalExtension};
 use uuid::Uuid;
 
 pub fn get_by_project(conn: &Connection, project_id: &str) -> AppResult<Vec<LyricVersion>> {
@@ -13,23 +13,24 @@ pub fn get_by_project(conn: &Connection, project_id: &str) -> AppResult<Vec<Lyri
          ORDER BY created_at DESC"
     )?;
 
-    let versions = stmt.query_map(params![project_id], |row| {
-        Ok(LyricVersion {
-            lyric_version_id: row.get(0)?,
-            project_id: row.get(1)?,
-            snapshot_name: row.get(2)?,
-            body_text: row.get(3)?,
-            bpm: row.get(4)?,
-            style_text: row.get(5)?,
-            vocal_text: row.get(6)?,
-            parent_lyric_version_id: row.get(7)?,
-            note: row.get(8)?,
-            created_at: row.get(9)?,
-            deleted_at: row.get(10)?,
-            deleted_batch_id: row.get(11)?,
-        })
-    })?
-    .collect::<std::result::Result<Vec<_>, _>>()?;
+    let versions = stmt
+        .query_map(params![project_id], |row| {
+            Ok(LyricVersion {
+                lyric_version_id: row.get(0)?,
+                project_id: row.get(1)?,
+                snapshot_name: row.get(2)?,
+                body_text: row.get(3)?,
+                bpm: row.get(4)?,
+                style_text: row.get(5)?,
+                vocal_text: row.get(6)?,
+                parent_lyric_version_id: row.get(7)?,
+                note: row.get(8)?,
+                created_at: row.get(9)?,
+                deleted_at: row.get(10)?,
+                deleted_batch_id: row.get(11)?,
+            })
+        })?
+        .collect::<std::result::Result<Vec<_>, _>>()?;
 
     Ok(versions)
 }
@@ -41,23 +42,24 @@ pub fn get_by_id(conn: &Connection, lyric_version_id: &str) -> AppResult<LyricVe
          WHERE lyric_version_id = ?1 AND deleted_at IS NULL"
     )?;
 
-    let version = stmt.query_row(params![lyric_version_id], |row| {
-        Ok(LyricVersion {
-            lyric_version_id: row.get(0)?,
-            project_id: row.get(1)?,
-            snapshot_name: row.get(2)?,
-            body_text: row.get(3)?,
-            bpm: row.get(4)?,
-            style_text: row.get(5)?,
-            vocal_text: row.get(6)?,
-            parent_lyric_version_id: row.get(7)?,
-            note: row.get(8)?,
-            created_at: row.get(9)?,
-            deleted_at: row.get(10)?,
-            deleted_batch_id: row.get(11)?,
+    let version = stmt
+        .query_row(params![lyric_version_id], |row| {
+            Ok(LyricVersion {
+                lyric_version_id: row.get(0)?,
+                project_id: row.get(1)?,
+                snapshot_name: row.get(2)?,
+                body_text: row.get(3)?,
+                bpm: row.get(4)?,
+                style_text: row.get(5)?,
+                vocal_text: row.get(6)?,
+                parent_lyric_version_id: row.get(7)?,
+                note: row.get(8)?,
+                created_at: row.get(9)?,
+                deleted_at: row.get(10)?,
+                deleted_batch_id: row.get(11)?,
+            })
         })
-    })
-    .map_err(|_| AppError::NotFound(format!("Version not found: {}", lyric_version_id)))?;
+        .map_err(|_| AppError::NotFound(format!("Version not found: {}", lyric_version_id)))?;
 
     Ok(version)
 }
@@ -66,6 +68,20 @@ pub fn create(conn: &Connection, input: CreateVersionInput) -> AppResult<LyricVe
     let now = Utc::now();
     let version_id = Uuid::new_v4().to_string();
     let now_rfc3339 = now.to_rfc3339();
+    if let Some(parent_id) = input.parent_lyric_version_id.as_deref() {
+        let parent_project = conn
+            .query_row(
+                "SELECT project_id FROM lyric_versions WHERE lyric_version_id = ?1 AND deleted_at IS NULL",
+                params![parent_id],
+                |row| row.get::<_, String>(0),
+            )
+            .optional()?;
+        if parent_project.as_deref() != Some(input.project_id.as_str()) {
+            return Err(AppError::Validation(
+                "Parent version must belong to the same project".into(),
+            ));
+        }
+    }
 
     conn.execute(
         "INSERT INTO lyric_versions (lyric_version_id, project_id, snapshot_name, body_text, bpm, style_text, vocal_text, parent_lyric_version_id, note, created_at)
@@ -107,7 +123,10 @@ pub fn create(conn: &Connection, input: CreateVersionInput) -> AppResult<LyricVe
     get_by_id(conn, &version_id)
 }
 
-pub fn get_sections_by_version(conn: &Connection, lyric_version_id: &str) -> AppResult<Vec<VersionSection>> {
+pub fn get_sections_by_version(
+    conn: &Connection,
+    lyric_version_id: &str,
+) -> AppResult<Vec<VersionSection>> {
     let mut stmt = conn.prepare(
         "SELECT version_section_id, lyric_version_id, section_type, display_name, sort_order, body_text
          FROM version_sections
@@ -115,17 +134,18 @@ pub fn get_sections_by_version(conn: &Connection, lyric_version_id: &str) -> App
          ORDER BY sort_order"
     )?;
 
-    let sections = stmt.query_map(params![lyric_version_id], |row| {
-        Ok(VersionSection {
-            version_section_id: row.get(0)?,
-            lyric_version_id: row.get(1)?,
-            section_type: row.get(2)?,
-            display_name: row.get(3)?,
-            sort_order: row.get(4)?,
-            body_text: row.get(5)?,
-        })
-    })?
-    .collect::<std::result::Result<Vec<_>, _>>()?;
+    let sections = stmt
+        .query_map(params![lyric_version_id], |row| {
+            Ok(VersionSection {
+                version_section_id: row.get(0)?,
+                lyric_version_id: row.get(1)?,
+                section_type: row.get(2)?,
+                display_name: row.get(3)?,
+                sort_order: row.get(4)?,
+                body_text: row.get(5)?,
+            })
+        })?
+        .collect::<std::result::Result<Vec<_>, _>>()?;
 
     Ok(sections)
 }
@@ -138,23 +158,24 @@ pub fn get_all_deleted(conn: &Connection) -> AppResult<Vec<LyricVersion>> {
          ORDER BY deleted_at DESC"
     )?;
 
-    let versions = stmt.query_map(params![], |row| {
-        Ok(LyricVersion {
-            lyric_version_id: row.get(0)?,
-            project_id: row.get(1)?,
-            snapshot_name: row.get(2)?,
-            body_text: row.get(3)?,
-            bpm: row.get(4)?,
-            style_text: row.get(5)?,
-            vocal_text: row.get(6)?,
-            parent_lyric_version_id: row.get(7)?,
-            note: row.get(8)?,
-            created_at: row.get(9)?,
-            deleted_at: row.get(10)?,
-            deleted_batch_id: row.get(11)?,
-        })
-    })?
-    .collect::<std::result::Result<Vec<_>, _>>()?;
+    let versions = stmt
+        .query_map(params![], |row| {
+            Ok(LyricVersion {
+                lyric_version_id: row.get(0)?,
+                project_id: row.get(1)?,
+                snapshot_name: row.get(2)?,
+                body_text: row.get(3)?,
+                bpm: row.get(4)?,
+                style_text: row.get(5)?,
+                vocal_text: row.get(6)?,
+                parent_lyric_version_id: row.get(7)?,
+                note: row.get(8)?,
+                created_at: row.get(9)?,
+                deleted_at: row.get(10)?,
+                deleted_batch_id: row.get(11)?,
+            })
+        })?
+        .collect::<std::result::Result<Vec<_>, _>>()?;
 
     Ok(versions)
 }

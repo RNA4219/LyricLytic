@@ -1,10 +1,10 @@
 {
   "version": "ctg/v1",
-  "generated_at": "2026-07-02T21:47:22.985Z",
-  "run_id": "ctg-202607022147-local",
+  "generated_at": "2026-07-02T21:55:07.973Z",
+  "run_id": "ctg-202607022155-local",
   "repo": {
     "root": ".",
-    "revision": "63ff56cfb326",
+    "revision": "93983a796f65",
     "branch": "main",
     "dirty": true
   },
@@ -61,36 +61,15 @@
     },
     {
       "id": "seed-002",
-      "title": "Test for RAW_SQL: Raw SQL query detected - potential SQL injection vulnerability",
-      "intent": "boundary",
-      "sourceRiskIds": [],
-      "sourceFindingIds": [
-        "finding-RAW_SQL-002"
-      ],
-      "evidence": [
-        {
-          "id": "evidence-seed-002-00",
-          "path": "src/lib/useProjectData.ts",
-          "startLine": 160,
-          "endLine": 164,
-          "kind": "text",
-          "excerptHash": "7b9d0b9f"
-        }
-      ],
-      "suggestedLevel": "integration",
-      "notes": "A raw SQL query is constructed using string concatenation or template literals, which can allow SQL injection if user input is incorporated. Use parameterized queries, prepared statements, or an ORM instead."
-    },
-    {
-      "id": "seed-003",
       "title": "Test for LARGE_MODULE: Module has too many functions (25)",
       "intent": "regression",
       "sourceRiskIds": [],
       "sourceFindingIds": [
-        "finding-LARGE_MODULE-003"
+        "finding-LARGE_MODULE-002"
       ],
       "evidence": [
         {
-          "id": "evidence-seed-003-00",
+          "id": "evidence-seed-002-00",
           "path": "scripts/enrich-suno-important-sections.mjs",
           "startLine": 1,
           "endLine": 30,
@@ -102,16 +81,16 @@
       "notes": "This file has 25 function definitions, exceeding the 20 threshold. Files with many functions are hard to understand and test. Consider grouping related functions into separate modules."
     },
     {
-      "id": "seed-004",
+      "id": "seed-003",
       "title": "Test for LARGE_MODULE: Module has too many functions (29)",
       "intent": "regression",
       "sourceRiskIds": [],
       "sourceFindingIds": [
-        "finding-LARGE_MODULE-004"
+        "finding-LARGE_MODULE-003"
       ],
       "evidence": [
         {
-          "id": "evidence-seed-004-00",
+          "id": "evidence-seed-003-00",
           "path": "scripts/enrich-suno-prompt-catalog.mjs",
           "startLine": 1,
           "endLine": 30,
@@ -123,16 +102,16 @@
       "notes": "This file has 29 function definitions, exceeding the 20 threshold. Files with many functions are hard to understand and test. Consider grouping related functions into separate modules."
     },
     {
-      "id": "seed-005",
+      "id": "seed-004",
       "title": "Test for LARGE_MODULE: Module exceeds line count threshold (614 lines)",
       "intent": "regression",
       "sourceRiskIds": [],
       "sourceFindingIds": [
-        "finding-LARGE_MODULE-005"
+        "finding-LARGE_MODULE-004"
       ],
       "evidence": [
         {
-          "id": "evidence-seed-005-00",
+          "id": "evidence-seed-004-00",
           "path": "src/components/LLMAssistPanel.tsx",
           "startLine": 1,
           "endLine": 20,
@@ -144,16 +123,16 @@
       "notes": "This file has 614 lines, exceeding the 500 line threshold. Large files are hard to maintain, test, and understand. Consider splitting into smaller, focused modules."
     },
     {
-      "id": "seed-006",
+      "id": "seed-005",
       "title": "Test for LARGE_MODULE: Module exceeds line count threshold (565 lines)",
       "intent": "regression",
       "sourceRiskIds": [],
       "sourceFindingIds": [
-        "finding-LARGE_MODULE-006"
+        "finding-LARGE_MODULE-005"
       ],
       "evidence": [
         {
-          "id": "evidence-seed-006-00",
+          "id": "evidence-seed-005-00",
           "path": "src/components/LLMReviewPanel.tsx",
           "startLine": 1,
           "endLine": 20,
@@ -165,16 +144,16 @@
       "notes": "This file has 565 lines, exceeding the 500 line threshold. Large files are hard to maintain, test, and understand. Consider splitting into smaller, focused modules."
     },
     {
-      "id": "seed-007",
+      "id": "seed-006",
       "title": "Test for LARGE_MODULE: Module exceeds line count threshold (555 lines)",
       "intent": "regression",
       "sourceRiskIds": [],
       "sourceFindingIds": [
-        "finding-LARGE_MODULE-007"
+        "finding-LARGE_MODULE-006"
       ],
       "evidence": [
         {
-          "id": "evidence-seed-007-00",
+          "id": "evidence-seed-006-00",
           "path": "src/components/LLMSettingsPanel.tsx",
           "startLine": 1,
           "endLine": 20,
@@ -186,16 +165,16 @@
       "notes": "This file has 555 lines, exceeding the 500 line threshold. Large files are hard to maintain, test, and understand. Consider splitting into smaller, focused modules."
     },
     {
-      "id": "seed-008",
+      "id": "seed-007",
       "title": "Test for LARGE_MODULE: Module has too many functions (47)",
       "intent": "regression",
       "sourceRiskIds": [],
       "sourceFindingIds": [
-        "finding-LARGE_MODULE-008"
+        "finding-LARGE_MODULE-007"
       ],
       "evidence": [
         {
-          "id": "evidence-seed-008-00",
+          "id": "evidence-seed-007-00",
           "path": "src/lib/api/client.ts",
           "startLine": 1,
           "endLine": 30,
@@ -207,16 +186,16 @@
       "notes": "This file has 47 function definitions, exceeding the 20 threshold. Files with many functions are hard to understand and test. Consider grouping related functions into separate modules."
     },
     {
-      "id": "seed-009",
+      "id": "seed-008",
       "title": "Test for LARGE_MODULE: Module has too many functions (35)",
       "intent": "regression",
       "sourceRiskIds": [],
       "sourceFindingIds": [
-        "finding-LARGE_MODULE-009"
+        "finding-LARGE_MODULE-008"
       ],
       "evidence": [
         {
-          "id": "evidence-seed-009-00",
+          "id": "evidence-seed-008-00",
           "path": "src/lib/llm/sunoPromptCatalog.ts",
           "startLine": 1,
           "endLine": 30,
@@ -228,16 +207,16 @@
       "notes": "This file has 35 function definitions, exceeding the 20 threshold. Files with many functions are hard to understand and test. Consider grouping related functions into separate modules."
     },
     {
-      "id": "seed-010",
+      "id": "seed-009",
       "title": "Test for LARGE_MODULE: Module has too many functions (30)",
       "intent": "regression",
       "sourceRiskIds": [],
       "sourceFindingIds": [
-        "finding-LARGE_MODULE-010"
+        "finding-LARGE_MODULE-009"
       ],
       "evidence": [
         {
-          "id": "evidence-seed-010-00",
+          "id": "evidence-seed-009-00",
           "path": "src/lib/llm/utils.ts",
           "startLine": 1,
           "endLine": 30,
@@ -249,16 +228,16 @@
       "notes": "This file has 30 function definitions, exceeding the 20 threshold. Files with many functions are hard to understand and test. Consider grouping related functions into separate modules."
     },
     {
-      "id": "seed-011",
+      "id": "seed-010",
       "title": "Test for LARGE_MODULE: Module has too many functions (39)",
       "intent": "regression",
       "sourceRiskIds": [],
       "sourceFindingIds": [
-        "finding-LARGE_MODULE-011"
+        "finding-LARGE_MODULE-010"
       ],
       "evidence": [
         {
-          "id": "evidence-seed-011-00",
+          "id": "evidence-seed-010-00",
           "path": "src/lib/rhyme/analysis.ts",
           "startLine": 1,
           "endLine": 30,
@@ -270,8 +249,29 @@
       "notes": "This file has 39 function definitions, exceeding the 20 threshold. Files with many functions are hard to understand and test. Consider grouping related functions into separate modules."
     },
     {
+      "id": "seed-011",
+      "title": "Test for LARGE_MODULE: Module exceeds line count threshold (966 lines)",
+      "intent": "regression",
+      "sourceRiskIds": [],
+      "sourceFindingIds": [
+        "finding-LARGE_MODULE-011"
+      ],
+      "evidence": [
+        {
+          "id": "evidence-seed-011-00",
+          "path": "src/pages/Editor.tsx",
+          "startLine": 1,
+          "endLine": 20,
+          "kind": "text",
+          "excerptHash": "1d53ca49"
+        }
+      ],
+      "suggestedLevel": "unit",
+      "notes": "This file has 966 lines, exceeding the 500 line threshold. Large files are hard to maintain, test, and understand. Consider splitting into smaller, focused modules."
+    },
+    {
       "id": "seed-012",
-      "title": "Test for LARGE_MODULE: Module exceeds line count threshold (1054 lines)",
+      "title": "Test for LARGE_MODULE: Module has too many functions (24)",
       "intent": "regression",
       "sourceRiskIds": [],
       "sourceFindingIds": [
@@ -280,27 +280,6 @@
       "evidence": [
         {
           "id": "evidence-seed-012-00",
-          "path": "src/pages/Editor.tsx",
-          "startLine": 1,
-          "endLine": 20,
-          "kind": "text",
-          "excerptHash": "7ac152e0"
-        }
-      ],
-      "suggestedLevel": "integration",
-      "notes": "This file has 1054 lines, exceeding the 500 line threshold. Large files are hard to maintain, test, and understand. Consider splitting into smaller, focused modules."
-    },
-    {
-      "id": "seed-013",
-      "title": "Test for LARGE_MODULE: Module has too many functions (24)",
-      "intent": "regression",
-      "sourceRiskIds": [],
-      "sourceFindingIds": [
-        "finding-LARGE_MODULE-013"
-      ],
-      "evidence": [
-        {
-          "id": "evidence-seed-013-00",
           "path": "src/pages/Home.tsx",
           "startLine": 1,
           "endLine": 30,
@@ -312,16 +291,16 @@
       "notes": "This file has 24 function definitions, exceeding the 20 threshold. Files with many functions are hard to understand and test. Consider grouping related functions into separate modules."
     },
     {
-      "id": "seed-014",
+      "id": "seed-013",
       "title": "Test for LARGE_MODULE: Module has too many functions (22)",
       "intent": "regression",
       "sourceRiskIds": [],
       "sourceFindingIds": [
-        "finding-LARGE_MODULE-014"
+        "finding-LARGE_MODULE-013"
       ],
       "evidence": [
         {
-          "id": "evidence-seed-014-00",
+          "id": "evidence-seed-013-00",
           "path": "src-tauri/src/commands/llm_runtime.rs",
           "startLine": 1,
           "endLine": 30,
@@ -333,41 +312,25 @@
       "notes": "This file has 22 function definitions, exceeding the 20 threshold. Files with many functions are hard to understand and test. Consider grouping related functions into separate modules."
     },
     {
-      "id": "seed-015",
-      "title": "Test for CIRCULAR_DEPENDENCY: Circular dependency detected (2 files in cycle)",
+      "id": "seed-014",
+      "title": "Test for DEPRECATED_API_USAGE: Deprecated API: window.confirm",
       "intent": "regression",
       "sourceRiskIds": [],
       "sourceFindingIds": [
-        "finding-CIRCULAR_DEPENDENCY-015"
+        "finding-DEPRECATED_API_USAGE-014"
       ],
       "evidence": [
         {
-          "id": "evidence-seed-015-00",
-          "path": "src/lib/api.ts",
-          "startLine": 1,
-          "endLine": 1,
-          "kind": "text",
-          "excerptHash": "4ff41a3d"
-        },
-        {
-          "id": "evidence-seed-015-01",
+          "id": "evidence-seed-014-00",
           "path": "src/lib/useProjectData.ts",
-          "startLine": 1,
-          "endLine": 1,
+          "startLine": 164,
+          "endLine": 164,
           "kind": "text",
-          "excerptHash": "5cbd6a89"
-        },
-        {
-          "id": "evidence-seed-015-02",
-          "path": "src/lib/api.ts",
-          "startLine": 1,
-          "endLine": 1,
-          "kind": "text",
-          "excerptHash": "4ff41a3d"
+          "excerptHash": "7c181973"
         }
       ],
-      "suggestedLevel": "integration",
-      "notes": "Import cycle: src/lib/api.ts → src/lib/useProjectData.ts → src/lib/api.ts. Circular dependencies can cause \"Cannot access before initialization\" errors and make the code harder to maintain."
+      "suggestedLevel": "unit",
+      "notes": "The API 'window.confirm' is deprecated. Recommended replacement: custom confirmation UI. Using deprecated APIs creates maintenance debt and may lead to breaking changes."
     }
   ],
   "oracle_gaps": [],

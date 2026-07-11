@@ -1,0 +1,593 @@
+{
+  "version": "ctg/v1",
+  "generated_at": "2026-07-02T22:12:47.001Z",
+  "run_id": "ctg-202607022212-local",
+  "repo": {
+    "root": ".",
+    "revision": "93983a796f65",
+    "branch": "main",
+    "dirty": true
+  },
+  "tool": {
+    "name": "code-to-gate",
+    "version": "1.5.0",
+    "plugin_versions": [
+      {
+        "name": "CLIENT_TRUSTED_PRICE",
+        "version": "1.5.0",
+        "visibility": "public"
+      },
+      {
+        "name": "WEAK_AUTH_GUARD",
+        "version": "1.5.0",
+        "visibility": "public"
+      },
+      {
+        "name": "TRY_CATCH_SWALLOW",
+        "version": "1.5.0",
+        "visibility": "public"
+      },
+      {
+        "name": "MISSING_SERVER_VALIDATION",
+        "version": "1.5.0",
+        "visibility": "public"
+      },
+      {
+        "name": "UNTESTED_CRITICAL_PATH",
+        "version": "1.5.0",
+        "visibility": "public"
+      },
+      {
+        "name": "RAW_SQL",
+        "version": "1.5.0",
+        "visibility": "public"
+      },
+      {
+        "name": "ENV_DIRECT_ACCESS",
+        "version": "1.5.0",
+        "visibility": "public"
+      },
+      {
+        "name": "UNSAFE_DELETE",
+        "version": "1.5.0",
+        "visibility": "public"
+      },
+      {
+        "name": "LARGE_MODULE",
+        "version": "1.5.0",
+        "visibility": "public"
+      },
+      {
+        "name": "DEBT_MARKER",
+        "version": "1.5.0",
+        "visibility": "public"
+      },
+      {
+        "name": "SUPPRESSION_DEBT",
+        "version": "1.5.0",
+        "visibility": "public"
+      },
+      {
+        "name": "HARDCODED_SECRET",
+        "version": "1.5.0",
+        "visibility": "public"
+      },
+      {
+        "name": "MISSING_RATE_LIMIT",
+        "version": "1.5.0",
+        "visibility": "public"
+      },
+      {
+        "name": "UNSAFE_REDIRECT",
+        "version": "1.5.0",
+        "visibility": "public"
+      },
+      {
+        "name": "DEPRECATED_API_USAGE",
+        "version": "1.5.0",
+        "visibility": "public"
+      },
+      {
+        "name": "CIRCULAR_DEPENDENCY",
+        "version": "1.5.0",
+        "visibility": "public"
+      },
+      {
+        "name": "MISSING_INPUT_SANITIZATION",
+        "version": "1.5.0",
+        "visibility": "public"
+      }
+    ]
+  },
+  "artifact": "findings",
+  "schema": "findings@v1",
+  "completeness": "complete",
+  "findings": [
+    {
+      "id": "finding-TRY_CATCH_SWALLOW-000",
+      "ruleId": "TRY_CATCH_SWALLOW",
+      "category": "maintainability",
+      "severity": "medium",
+      "confidence": 0.85,
+      "title": "Catch block returns null without logging",
+      "summary": "The catch block returns null/undefined without logging the error. This silently hides exceptions, making debugging difficult.",
+      "evidence": [
+        {
+          "id": "evidence-finding-TRY_CATCH_SWALLOW-000-00",
+          "path": "scripts/enrich-suno-important-sections.mjs",
+          "startLine": 60,
+          "endLine": 66,
+          "kind": "text",
+          "excerptHash": "5545a3d9"
+        }
+      ],
+      "tags": [
+        "domain:code-health",
+        "error-handling",
+        "maintainability"
+      ],
+      "upstream": {
+        "tool": "native"
+      },
+      "fingerprint": "d9888ea618c3a063"
+    },
+    {
+      "id": "finding-TRY_CATCH_SWALLOW-001",
+      "ruleId": "TRY_CATCH_SWALLOW",
+      "category": "maintainability",
+      "severity": "medium",
+      "confidence": 0.85,
+      "title": "Catch block returns null without logging",
+      "summary": "The catch block returns null/undefined without logging the error. This silently hides exceptions, making debugging difficult.",
+      "evidence": [
+        {
+          "id": "evidence-finding-TRY_CATCH_SWALLOW-001-00",
+          "path": "scripts/enrich-suno-prompt-catalog.mjs",
+          "startLine": 47,
+          "endLine": 53,
+          "kind": "text",
+          "excerptHash": "5545a3d9"
+        }
+      ],
+      "tags": [
+        "domain:code-health",
+        "error-handling",
+        "maintainability"
+      ],
+      "upstream": {
+        "tool": "native"
+      },
+      "fingerprint": "d9888ea618c3a063"
+    },
+    {
+      "id": "finding-LARGE_MODULE-002",
+      "ruleId": "LARGE_MODULE",
+      "category": "maintainability",
+      "severity": "medium",
+      "confidence": 0.85,
+      "title": "Module has too many functions (25)",
+      "summary": "This file has 25 function definitions, exceeding the 20 threshold. Files with many functions are hard to understand and test. Consider grouping related functions into separate modules.",
+      "evidence": [
+        {
+          "id": "evidence-finding-LARGE_MODULE-002-00",
+          "path": "scripts/enrich-suno-important-sections.mjs",
+          "startLine": 1,
+          "endLine": 30,
+          "kind": "text",
+          "excerptHash": "1c9ada43"
+        }
+      ],
+      "tags": [
+        "complexity",
+        "domain:code-health",
+        "maintainability",
+        "refactoring"
+      ],
+      "upstream": {
+        "tool": "native"
+      },
+      "fingerprint": "8cf1a882fd37a6e0"
+    },
+    {
+      "id": "finding-LARGE_MODULE-003",
+      "ruleId": "LARGE_MODULE",
+      "category": "maintainability",
+      "severity": "medium",
+      "confidence": 0.85,
+      "title": "Module has too many functions (29)",
+      "summary": "This file has 29 function definitions, exceeding the 20 threshold. Files with many functions are hard to understand and test. Consider grouping related functions into separate modules.",
+      "evidence": [
+        {
+          "id": "evidence-finding-LARGE_MODULE-003-00",
+          "path": "scripts/enrich-suno-prompt-catalog.mjs",
+          "startLine": 1,
+          "endLine": 30,
+          "kind": "text",
+          "excerptHash": "5b426dec"
+        }
+      ],
+      "tags": [
+        "complexity",
+        "domain:code-health",
+        "maintainability",
+        "refactoring"
+      ],
+      "upstream": {
+        "tool": "native"
+      },
+      "fingerprint": "9b7f7851cb611531"
+    },
+    {
+      "id": "finding-LARGE_MODULE-004",
+      "ruleId": "LARGE_MODULE",
+      "category": "maintainability",
+      "severity": "medium",
+      "confidence": 0.85,
+      "title": "Module has too many functions (24)",
+      "summary": "This file has 24 function definitions, exceeding the 20 threshold. Files with many functions are hard to understand and test. Consider grouping related functions into separate modules.",
+      "evidence": [
+        {
+          "id": "evidence-finding-LARGE_MODULE-004-00",
+          "path": "src/components/DiffViewer.tsx",
+          "startLine": 1,
+          "endLine": 30,
+          "kind": "text",
+          "excerptHash": "0cd03f04"
+        }
+      ],
+      "tags": [
+        "complexity",
+        "domain:code-health",
+        "maintainability",
+        "refactoring"
+      ],
+      "upstream": {
+        "tool": "native"
+      },
+      "fingerprint": "7ce01af7bf6c4ad5"
+    },
+    {
+      "id": "finding-LARGE_MODULE-005",
+      "ruleId": "LARGE_MODULE",
+      "category": "maintainability",
+      "severity": "medium",
+      "confidence": 0.9,
+      "title": "Module exceeds line count threshold (614 lines)",
+      "summary": "This file has 614 lines, exceeding the 500 line threshold. Large files are hard to maintain, test, and understand. Consider splitting into smaller, focused modules.",
+      "evidence": [
+        {
+          "id": "evidence-finding-LARGE_MODULE-005-00",
+          "path": "src/components/LLMAssistPanel.tsx",
+          "startLine": 1,
+          "endLine": 20,
+          "kind": "text",
+          "excerptHash": "0d6ff8c5"
+        }
+      ],
+      "tags": [
+        "domain:code-health",
+        "maintainability",
+        "refactoring",
+        "size"
+      ],
+      "upstream": {
+        "tool": "native"
+      },
+      "fingerprint": "d036102138fe36d9"
+    },
+    {
+      "id": "finding-LARGE_MODULE-006",
+      "ruleId": "LARGE_MODULE",
+      "category": "maintainability",
+      "severity": "medium",
+      "confidence": 0.9,
+      "title": "Module exceeds line count threshold (565 lines)",
+      "summary": "This file has 565 lines, exceeding the 500 line threshold. Large files are hard to maintain, test, and understand. Consider splitting into smaller, focused modules.",
+      "evidence": [
+        {
+          "id": "evidence-finding-LARGE_MODULE-006-00",
+          "path": "src/components/LLMReviewPanel.tsx",
+          "startLine": 1,
+          "endLine": 20,
+          "kind": "text",
+          "excerptHash": "21428f97"
+        }
+      ],
+      "tags": [
+        "domain:code-health",
+        "maintainability",
+        "refactoring",
+        "size"
+      ],
+      "upstream": {
+        "tool": "native"
+      },
+      "fingerprint": "e95b185f602a7c6b"
+    },
+    {
+      "id": "finding-LARGE_MODULE-007",
+      "ruleId": "LARGE_MODULE",
+      "category": "maintainability",
+      "severity": "medium",
+      "confidence": 0.9,
+      "title": "Module exceeds line count threshold (555 lines)",
+      "summary": "This file has 555 lines, exceeding the 500 line threshold. Large files are hard to maintain, test, and understand. Consider splitting into smaller, focused modules.",
+      "evidence": [
+        {
+          "id": "evidence-finding-LARGE_MODULE-007-00",
+          "path": "src/components/LLMSettingsPanel.tsx",
+          "startLine": 1,
+          "endLine": 20,
+          "kind": "text",
+          "excerptHash": "7b674086"
+        }
+      ],
+      "tags": [
+        "domain:code-health",
+        "maintainability",
+        "refactoring",
+        "size"
+      ],
+      "upstream": {
+        "tool": "native"
+      },
+      "fingerprint": "f7fb3027ed576ea2"
+    },
+    {
+      "id": "finding-LARGE_MODULE-008",
+      "ruleId": "LARGE_MODULE",
+      "category": "maintainability",
+      "severity": "medium",
+      "confidence": 0.9,
+      "title": "Module exceeds line count threshold (753 lines)",
+      "summary": "This file has 753 lines, exceeding the 500 line threshold. Large files are hard to maintain, test, and understand. Consider splitting into smaller, focused modules.",
+      "evidence": [
+        {
+          "id": "evidence-finding-LARGE_MODULE-008-00",
+          "path": "src/lib/affect/lyricsAffectMetrics.ts",
+          "startLine": 1,
+          "endLine": 20,
+          "kind": "text",
+          "excerptHash": "2f1de8cd"
+        }
+      ],
+      "tags": [
+        "domain:code-health",
+        "maintainability",
+        "refactoring",
+        "size"
+      ],
+      "upstream": {
+        "tool": "native"
+      },
+      "fingerprint": "ec7ebb95ab45f70a"
+    },
+    {
+      "id": "finding-LARGE_MODULE-009",
+      "ruleId": "LARGE_MODULE",
+      "category": "maintainability",
+      "severity": "medium",
+      "confidence": 0.85,
+      "title": "Module has too many functions (47)",
+      "summary": "This file has 47 function definitions, exceeding the 20 threshold. Files with many functions are hard to understand and test. Consider grouping related functions into separate modules.",
+      "evidence": [
+        {
+          "id": "evidence-finding-LARGE_MODULE-009-00",
+          "path": "src/lib/api/client.ts",
+          "startLine": 1,
+          "endLine": 30,
+          "kind": "text",
+          "excerptHash": "11c873c9"
+        }
+      ],
+      "tags": [
+        "complexity",
+        "domain:api-boundary",
+        "maintainability",
+        "refactoring"
+      ],
+      "upstream": {
+        "tool": "native"
+      },
+      "fingerprint": "e3024eee06da9c6f"
+    },
+    {
+      "id": "finding-LARGE_MODULE-010",
+      "ruleId": "LARGE_MODULE",
+      "category": "maintainability",
+      "severity": "medium",
+      "confidence": 0.85,
+      "title": "Module has too many functions (35)",
+      "summary": "This file has 35 function definitions, exceeding the 20 threshold. Files with many functions are hard to understand and test. Consider grouping related functions into separate modules.",
+      "evidence": [
+        {
+          "id": "evidence-finding-LARGE_MODULE-010-00",
+          "path": "src/lib/llm/sunoPromptCatalog.ts",
+          "startLine": 1,
+          "endLine": 30,
+          "kind": "text",
+          "excerptHash": "1015215c"
+        }
+      ],
+      "tags": [
+        "complexity",
+        "domain:code-health",
+        "maintainability",
+        "refactoring"
+      ],
+      "upstream": {
+        "tool": "native"
+      },
+      "fingerprint": "50daf7e8084deb79"
+    },
+    {
+      "id": "finding-LARGE_MODULE-011",
+      "ruleId": "LARGE_MODULE",
+      "category": "maintainability",
+      "severity": "medium",
+      "confidence": 0.85,
+      "title": "Module has too many functions (30)",
+      "summary": "This file has 30 function definitions, exceeding the 20 threshold. Files with many functions are hard to understand and test. Consider grouping related functions into separate modules.",
+      "evidence": [
+        {
+          "id": "evidence-finding-LARGE_MODULE-011-00",
+          "path": "src/lib/llm/utils.ts",
+          "startLine": 1,
+          "endLine": 30,
+          "kind": "text",
+          "excerptHash": "4c80c82c"
+        }
+      ],
+      "tags": [
+        "complexity",
+        "domain:code-health",
+        "maintainability",
+        "refactoring"
+      ],
+      "upstream": {
+        "tool": "native"
+      },
+      "fingerprint": "a39e8daa4d7531ff"
+    },
+    {
+      "id": "finding-LARGE_MODULE-012",
+      "ruleId": "LARGE_MODULE",
+      "category": "maintainability",
+      "severity": "medium",
+      "confidence": 0.85,
+      "title": "Module has too many functions (39)",
+      "summary": "This file has 39 function definitions, exceeding the 20 threshold. Files with many functions are hard to understand and test. Consider grouping related functions into separate modules.",
+      "evidence": [
+        {
+          "id": "evidence-finding-LARGE_MODULE-012-00",
+          "path": "src/lib/rhyme/analysis.ts",
+          "startLine": 1,
+          "endLine": 30,
+          "kind": "text",
+          "excerptHash": "2da5c882"
+        }
+      ],
+      "tags": [
+        "complexity",
+        "domain:code-health",
+        "maintainability",
+        "refactoring"
+      ],
+      "upstream": {
+        "tool": "native"
+      },
+      "fingerprint": "d1731309cfc118df"
+    },
+    {
+      "id": "finding-LARGE_MODULE-013",
+      "ruleId": "LARGE_MODULE",
+      "category": "maintainability",
+      "severity": "medium",
+      "confidence": 0.9,
+      "title": "Module exceeds line count threshold (966 lines)",
+      "summary": "This file has 966 lines, exceeding the 500 line threshold. Large files are hard to maintain, test, and understand. Consider splitting into smaller, focused modules.",
+      "evidence": [
+        {
+          "id": "evidence-finding-LARGE_MODULE-013-00",
+          "path": "src/pages/Editor.tsx",
+          "startLine": 1,
+          "endLine": 20,
+          "kind": "text",
+          "excerptHash": "1d53ca49"
+        }
+      ],
+      "tags": [
+        "domain:code-health",
+        "maintainability",
+        "refactoring",
+        "size"
+      ],
+      "upstream": {
+        "tool": "native"
+      },
+      "fingerprint": "80d3f921d7506e80"
+    },
+    {
+      "id": "finding-LARGE_MODULE-014",
+      "ruleId": "LARGE_MODULE",
+      "category": "maintainability",
+      "severity": "medium",
+      "confidence": 0.85,
+      "title": "Module has too many functions (24)",
+      "summary": "This file has 24 function definitions, exceeding the 20 threshold. Files with many functions are hard to understand and test. Consider grouping related functions into separate modules.",
+      "evidence": [
+        {
+          "id": "evidence-finding-LARGE_MODULE-014-00",
+          "path": "src/pages/Home.tsx",
+          "startLine": 1,
+          "endLine": 30,
+          "kind": "text",
+          "excerptHash": "282a7892"
+        }
+      ],
+      "tags": [
+        "complexity",
+        "domain:code-health",
+        "maintainability",
+        "refactoring"
+      ],
+      "upstream": {
+        "tool": "native"
+      },
+      "fingerprint": "7ff00e003401375e"
+    },
+    {
+      "id": "finding-LARGE_MODULE-015",
+      "ruleId": "LARGE_MODULE",
+      "category": "maintainability",
+      "severity": "medium",
+      "confidence": 0.85,
+      "title": "Module has too many functions (22)",
+      "summary": "This file has 22 function definitions, exceeding the 20 threshold. Files with many functions are hard to understand and test. Consider grouping related functions into separate modules.",
+      "evidence": [
+        {
+          "id": "evidence-finding-LARGE_MODULE-015-00",
+          "path": "src-tauri/src/commands/llm_runtime.rs",
+          "startLine": 1,
+          "endLine": 30,
+          "kind": "text",
+          "excerptHash": "6a11ee33"
+        }
+      ],
+      "tags": [
+        "complexity",
+        "domain:code-health",
+        "maintainability",
+        "refactoring"
+      ],
+      "upstream": {
+        "tool": "native"
+      },
+      "fingerprint": "c78115847e90d6bf"
+    },
+    {
+      "id": "finding-DEPRECATED_API_USAGE-016",
+      "ruleId": "DEPRECATED_API_USAGE",
+      "category": "maintainability",
+      "severity": "medium",
+      "confidence": 0.9,
+      "title": "Deprecated API: window.confirm",
+      "summary": "The API 'window.confirm' is deprecated. Recommended replacement: custom confirmation UI. Using deprecated APIs creates maintenance debt and may lead to breaking changes.",
+      "evidence": [
+        {
+          "id": "evidence-finding-DEPRECATED_API_USAGE-016-00",
+          "path": "src/lib/useProjectData.ts",
+          "startLine": 164,
+          "endLine": 164,
+          "kind": "text",
+          "excerptHash": "7c181973"
+        }
+      ],
+      "tags": [
+        "domain:code-health"
+      ],
+      "fingerprint": "9c3af779413105da"
+    }
+  ],
+  "unsupported_claims": []
+}

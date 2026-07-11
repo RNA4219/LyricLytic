@@ -1,10 +1,10 @@
 {
   "version": "ctg/v1",
-  "generated_at": "2026-07-02T21:47:22.990Z",
-  "run_id": "ctg-202607022147-local",
+  "generated_at": "2026-07-02T21:55:07.977Z",
+  "run_id": "ctg-202607022155-local",
   "repo": {
     "root": ".",
-    "revision": "63ff56cfb326",
+    "revision": "93983a796f65",
     "branch": "main",
     "dirty": true
   },
@@ -29,6 +29,51 @@
     {
       "path": ".claude/commands/status.md",
       "hash": "c97e1675d7e01bc382aad54a2d1aded91d1dce3982b887ea70d852010b2b01ab",
+      "kind": "source"
+    },
+    {
+      "path": ".five-tool-validation/code-to-gate/analysis-report.md",
+      "hash": "9a414398c8ab2fbdb65a9a2f888cc2f600bdd83a0a41e3e6428048a676a526cb",
+      "kind": "source"
+    },
+    {
+      "path": ".five-tool-validation/code-to-gate/audit.json",
+      "hash": "18d89cabb9855986767a8c8b967d96c0dbfc8dbf786db239a7b036864cad3c6e",
+      "kind": "source"
+    },
+    {
+      "path": ".five-tool-validation/code-to-gate/findings.json",
+      "hash": "9793dd3c15302e626f731862398fc238f22a29cedceafbb2d1a9f7d3739bb770",
+      "kind": "source"
+    },
+    {
+      "path": ".five-tool-validation/code-to-gate/invariants.json",
+      "hash": "7dc0c9f222fd35589f1638c530987ed69692698ba38b9a39cf862a838a43eca6",
+      "kind": "source"
+    },
+    {
+      "path": ".five-tool-validation/code-to-gate/raw-findings.json",
+      "hash": "ad6ff958f3a3df4eb8453ca1a9803c88cd906d5659dc6b0ed0a968ae56705096",
+      "kind": "source"
+    },
+    {
+      "path": ".five-tool-validation/code-to-gate/repo-graph.json",
+      "hash": "d2c562a394ee47f201eaab8519ec39ebd9f2c7cad4698baaed624dacd07b9172",
+      "kind": "source"
+    },
+    {
+      "path": ".five-tool-validation/code-to-gate/risk-register.yaml",
+      "hash": "04cd91a53d22388a01fdb2593d9eb496fe1a5f9777e13aca996d7e7683afb6a0",
+      "kind": "config"
+    },
+    {
+      "path": ".five-tool-validation/code-to-gate/test-seeds.json",
+      "hash": "77d50498c252a17df1ebdeab297d0cbc7c1bb845174081e8ee25899ff378e904",
+      "kind": "source"
+    },
+    {
+      "path": ".five-tool-validation/vitest-results.json",
+      "hash": "aed44cab73608beea2765dbada01046f12f78f228168814ae5f2e486b6c3cd05",
       "kind": "source"
     },
     {
@@ -528,7 +573,7 @@
     },
     {
       "path": "src/lib/api.ts",
-      "hash": "49947739d7ad3090997deb28b2ea833af7d6e67356f403a3ae8e31f5e1785818",
+      "hash": "6446d41b35aa1e0adebb6f900a962670fee3b77a8d1ed25e8613ad2c5282fd24",
       "kind": "source"
     },
     {
@@ -618,7 +663,7 @@
     },
     {
       "path": "src/lib/LanguageContext.tsx",
-      "hash": "82f071bedf401fcb3e9443bd9b3ab03245d471c0829beb8e3dd178970130edd1",
+      "hash": "7234fee554c50c56c1ea4039f8dab0ba36d7ffc40e003852744437231c21e274",
       "kind": "source"
     },
     {
@@ -688,7 +733,7 @@
     },
     {
       "path": "src/lib/useProjectData.ts",
-      "hash": "d3955110ef3c90965a8b7558840f27f845c72f7eace1e9723092b86603d53918",
+      "hash": "c0f39311bcd44d3c9817d547a885fa6919ed1c0a7a2d160425f2b203687a8826",
       "kind": "source"
     },
     {
@@ -712,6 +757,16 @@
       "kind": "source"
     },
     {
+      "path": "src/pages/editor/PhoneticGuidePanel.tsx",
+      "hash": "9e2be0f97750ddb61d2974ca1da227d505a4baaef39f68c322015c2a6abddce2",
+      "kind": "source"
+    },
+    {
+      "path": "src/pages/editor/RightStackPane.tsx",
+      "hash": "d0eae7b6c2e3fd4cdeb29b09838d526c7f3f57285370000fc84afdc22b7a10c5",
+      "kind": "source"
+    },
+    {
       "path": "src/pages/editor/SectionListCard.tsx",
       "hash": "1ff1941fe864f5fb1aab65cdf51d5b41315aacc5f3c0acd1326f3fc155813de3",
       "kind": "source"
@@ -723,7 +778,7 @@
     },
     {
       "path": "src/pages/Editor.tsx",
-      "hash": "995d969fd9a3cb800efac659fbe8ada98c7748010973b5ed25ea5ba0ecada8fe",
+      "hash": "6892f7e0c7c3f881cacd1415c3b03bf39763531dc76cd2d20a5354b6d81416f8",
       "kind": "source"
     },
     {
@@ -898,7 +953,7 @@
     },
     {
       "path": "src/test/useProjectData.test.ts",
-      "hash": "fb379e7a0dbed381bc6776ea7f8b4123c27de073815bf5034775923fcd254332",
+      "hash": "f3a23f2d17a4433c2ffba23ab795c1f33655ab10aca65233a17b951dc402c8da",
       "kind": "source"
     },
     {

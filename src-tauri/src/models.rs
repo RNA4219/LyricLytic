@@ -86,6 +86,8 @@ pub struct SaveDraftInput {
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct DraftSectionInput {
+    #[serde(default)]
+    pub draft_section_id: Option<String>,
     pub section_type: Option<String>,
     pub display_name: String,
     pub sort_order: i32,

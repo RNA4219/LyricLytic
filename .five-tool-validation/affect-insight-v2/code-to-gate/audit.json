@@ -1,0 +1,1219 @@
+{
+  "version": "ctg/v1",
+  "generated_at": "2026-07-02T22:12:48.826Z",
+  "run_id": "ctg-202607022212-local",
+  "repo": {
+    "root": ".",
+    "revision": "93983a796f65",
+    "branch": "main",
+    "dirty": true
+  },
+  "tool": {
+    "name": "code-to-gate",
+    "version": "1.5.0",
+    "plugin_versions": []
+  },
+  "artifact": "audit",
+  "schema": "audit@v1",
+  "inputs": [
+    {
+      "path": ".claude/commands/pipeline.md",
+      "hash": "1eb2c65636f4d93cd50331680640446b484818150d84e063740931fcd44afb72",
+      "kind": "source"
+    },
+    {
+      "path": ".claude/commands/run.md",
+      "hash": "c8b637e907d62e67cac2caa2b617723c751ff138ad4d28bcbfc7135a0d709cd3",
+      "kind": "source"
+    },
+    {
+      "path": ".claude/commands/status.md",
+      "hash": "c97e1675d7e01bc382aad54a2d1aded91d1dce3982b887ea70d852010b2b01ab",
+      "kind": "source"
+    },
+    {
+      "path": ".five-tool-validation/code-to-gate/analysis-report.md",
+      "hash": "7f9ec9273655f3689fc52f030597084c0951a43b8b9ca563b899aa979b8280d3",
+      "kind": "source"
+    },
+    {
+      "path": ".five-tool-validation/code-to-gate/audit.json",
+      "hash": "e3fad956133bdc982005f75f676787b22ed9e658e46d3a4b299188e794e73e21",
+      "kind": "source"
+    },
+    {
+      "path": ".five-tool-validation/code-to-gate/findings.json",
+      "hash": "9b4c8789d203eb75205f6be271dcdb16bb866f914f66853445a8e28e0c9f88b8",
+      "kind": "source"
+    },
+    {
+      "path": ".five-tool-validation/code-to-gate/invariants.json",
+      "hash": "fb4f84c144653aede4e4764cc7836ec79d3408a1f7343b9e86ede5ca58ff36bb",
+      "kind": "source"
+    },
+    {
+      "path": ".five-tool-validation/code-to-gate/raw-findings.json",
+      "hash": "e557fe946d562b3c4f63565dbb134835604d1a28fef7648cd3ec3ef557aa1715",
+      "kind": "source"
+    },
+    {
+      "path": ".five-tool-validation/code-to-gate/repo-graph.json",
+      "hash": "ac86a7f254edb1bcc2065f6e35b56b9040111a855dbe72e988153feebe0f429c",
+      "kind": "source"
+    },
+    {
+      "path": ".five-tool-validation/code-to-gate/risk-register.yaml",
+      "hash": "1f830481990110aa91bcccf8c59e8cc74f7e82f783afdc15755dcd42c6a205a9",
+      "kind": "config"
+    },
+    {
+      "path": ".five-tool-validation/code-to-gate/test-seeds.json",
+      "hash": "b0bea0626166e6f0b8031ebe8498d4e8e6ee1fbdfe631f91f3639045c456bc4a",
+      "kind": "source"
+    },
+    {
+      "path": ".five-tool-validation/vitest-results.json",
+      "hash": "aed44cab73608beea2765dbada01046f12f78f228168814ae5f2e486b6c3cd05",
+      "kind": "source"
+    },
+    {
+      "path": ".github/workflows/update-suno-prompt-catalog.yml",
+      "hash": "2cd8f81622ad0ea08e54439ffea5ec3f940a2802490289e2ac2b9abc655eae82",
+      "kind": "config"
+    },
+    {
+      "path": "docs/acceptance-testing-report-20260401.md",
+      "hash": "f958b606e723b5c7af7908d84698016726bd6b547c991fc1345fe83f92734a7e",
+      "kind": "source"
+    },
+    {
+      "path": "docs/birdseye/index.json",
+      "hash": "320159243cf6619210d11aa32895d842862f3e9b85fd7443cc10394af20789fd",
+      "kind": "source"
+    },
+    {
+      "path": "docs/BIRDSEYE.md",
+      "hash": "c18c125d895c5a5c0c06b4a681b23aa9f43906680409d90141048cb4c64f6be3",
+      "kind": "source"
+    },
+    {
+      "path": "docs/implementation/acceptance-review-20260401.md",
+      "hash": "ffce9b29cd7b699c5671d7af617d5892950b06467c50905c89ec63a49bc8a13f",
+      "kind": "source"
+    },
+    {
+      "path": "docs/implementation/bootstrap-checklist-v1.md",
+      "hash": "d8c99777d1e00f442baa7eb2ec7f5c124e01103316e962415592f02047ea4a84",
+      "kind": "source"
+    },
+    {
+      "path": "docs/implementation/command-contracts-v1.md",
+      "hash": "0afaed7753c289f2ffd3203bda6f2343d5fc6e302cf456e1f6905807deaa48c9",
+      "kind": "source"
+    },
+    {
+      "path": "docs/implementation/frontend-constants-v1.md",
+      "hash": "8457e46763ae6642b3e41f859993c7b92a43ff271a75757d87bdb5a96130b710",
+      "kind": "source"
+    },
+    {
+      "path": "docs/implementation/implementation-prep-v1.md",
+      "hash": "e2b3bfb8f37c49f835b3025605cda20c331c23594bbe98ec2a6d4d712fa9f8fd",
+      "kind": "source"
+    },
+    {
+      "path": "docs/implementation/llama-cpp-runtime-memo-20260401.md",
+      "hash": "039fc7dad4b053e9725dd09d42d2961fd42c1cc5cc636ed13e1213e6b64a96a4",
+      "kind": "source"
+    },
+    {
+      "path": "docs/implementation/lyric-affect-insight-v2.md",
+      "hash": "aad12805a59c4f9384520da7ca0a2320c2f73ea8acc7981ab316eb10978623c6",
+      "kind": "source"
+    },
+    {
+      "path": "docs/implementation/lyric-affect-metrics-v1.md",
+      "hash": "76d64c0f0dae971932a71ee43144b07e5dabbe0f76cbfb60c784c8bcc8165a56",
+      "kind": "source"
+    },
+    {
+      "path": "docs/implementation/README.md",
+      "hash": "1b52d8d95079d985d70670a89d0d0f63bb760acf883591cbc844319d9c2e5823",
+      "kind": "source"
+    },
+    {
+      "path": "docs/implementation/rhyme-implementation-checklist-v1.md",
+      "hash": "3f30481a48794c4ba3374af9ba8888a1b7cc7afa132e10c07cc1f780ee24ebcb",
+      "kind": "source"
+    },
+    {
+      "path": "docs/implementation/system-architecture-v1.md",
+      "hash": "99646a20dee20b39681cdfc8c424263acb9b8c78768bce09a816ed3ed3b6f2d6",
+      "kind": "source"
+    },
+    {
+      "path": "docs/implementation/test-design-v1.md",
+      "hash": "6c66fb46d022066cd32d207e33b3b04ac27b4047418fbce72299dd3830d77d3e",
+      "kind": "source"
+    },
+    {
+      "path": "docs/inspection-report-20260401.md",
+      "hash": "1e3b0ce0d23c4b6f7e3fb6f0672dedb950374c25a79528dfce8d1375d09e97d0",
+      "kind": "source"
+    },
+    {
+      "path": "docs/notes/detailed-requirements-source.txt",
+      "hash": "907e6e4d7656b6c4f20965ca2e00cecf994515a6bb1b8662d47c7604180df1de",
+      "kind": "source"
+    },
+    {
+      "path": "docs/poc-completion-report-20260401.md",
+      "hash": "635f6de3dd1e21a9095c393ea3b933a45394b5de76e4f55e4c1f6c201fb62973",
+      "kind": "source"
+    },
+    {
+      "path": "docs/project/BLUEPRINT.md",
+      "hash": "664a814b37a494cb6b9a340f05d9211c208d098594403c659f23fdb725ac9b43",
+      "kind": "source"
+    },
+    {
+      "path": "docs/project/GUARDRAILS.md",
+      "hash": "922afb165bd3d03b82e63c40f7b8f85e902ed210739e35253eb8b34d819080bb",
+      "kind": "source"
+    },
+    {
+      "path": "docs/project/HUB.codex.md",
+      "hash": "248a42723d8edd95c7a1af247f8580c3166b7ea57da84da8278bf2e17b4f25d4",
+      "kind": "source"
+    },
+    {
+      "path": "docs/releases/v0.1.0.md",
+      "hash": "85461a5e9df69aadb5c271195fada34a25b5cda88211f4235d9d48876d7cab6a",
+      "kind": "source"
+    },
+    {
+      "path": "docs/releases/v1.1.0.md",
+      "hash": "2bc617956d2981bd15ec497749aec313f5a2e553f99239583403c35aab8b6734",
+      "kind": "source"
+    },
+    {
+      "path": "docs/requirements/acceptance-test-cases-v1.md",
+      "hash": "13b72625e2d7ccd68fa45d3abe121c7adcf06accb315d490b164e09a1428bde7",
+      "kind": "source"
+    },
+    {
+      "path": "docs/requirements/export-spec-v1.md",
+      "hash": "b3ebf2b26968f623f21d8037a18504305f27d50228ddf53b3ba137327dbf579d",
+      "kind": "source"
+    },
+    {
+      "path": "docs/requirements/frontend-design/product_requirements_document.md",
+      "hash": "57dcf2a557cb02a07acfc07168b82ffaf14278e7ed26adb4ff165d3ffdd97a49",
+      "kind": "source"
+    },
+    {
+      "path": "docs/requirements/frontend-design/runtime-visual-gap-checklist-20260401.md",
+      "hash": "0dffa9f4835915d5e124bdc6ca86fdc84968634f9d62a794b37b973959275704",
+      "kind": "source"
+    },
+    {
+      "path": "docs/requirements/frontend-design/runtime-visual-gap-review-20260401.md",
+      "hash": "d1dee8194b2fc84c09025410fccf0ba44ee4f7ddb270ed6b45a136c5c0e464d6",
+      "kind": "source"
+    },
+    {
+      "path": "docs/requirements/frontend-design/stitch/verse_atelier/DESIGN.md",
+      "hash": "c51f6dd11e20ee13fd5020903bd9191d3c8722ed94c912e2e1389a896955a52b",
+      "kind": "source"
+    },
+    {
+      "path": "docs/requirements/frontend-requirements-v1.md",
+      "hash": "ea8f5c72cb8c1eb6f85ca1f39b907355821754ddb90539ba5a988423e19afd36",
+      "kind": "source"
+    },
+    {
+      "path": "docs/requirements/implementation-gap-checklist-20260401.md",
+      "hash": "b3c38e14f4e72cf118bab173df607af46e4a171428f33e01912bb5f7396808c5",
+      "kind": "source"
+    },
+    {
+      "path": "docs/requirements/local-llm-connector-v1.md",
+      "hash": "b65f24a6aea14c87ad120778bcf25b5e3985d007c164947dbe499f2fc17baf48",
+      "kind": "source"
+    },
+    {
+      "path": "docs/requirements/logical-delete-ui-v1.md",
+      "hash": "6e8631cb6d7a16ade8250bfd7a0884cfab2a006e94b1fdf04e40d7c0089c9d9f",
+      "kind": "source"
+    },
+    {
+      "path": "docs/requirements/lyric-affect-insight-v2.md",
+      "hash": "3154c4c062c69d72141b25a6f6deb50ca1247180533356767bd55e88ea121ec5",
+      "kind": "source"
+    },
+    {
+      "path": "docs/requirements/lyric-affect-metrics-v1.md",
+      "hash": "2e8ecb55f179522bca92ab8e599c75890e7a4d84bb92c472b89b6ea4cb6e45e8",
+      "kind": "source"
+    },
+    {
+      "path": "docs/requirements/os-differences-v1.md",
+      "hash": "938433fcdd179c4ca1aa81c792c938493ce4101e09b20f0e5a90a50c85971f51",
+      "kind": "source"
+    },
+    {
+      "path": "docs/requirements/poc-task-breakdown-v1.md",
+      "hash": "33fb17a12ddbcfc74738caeda2d59f0c86a074e380b27109001ade8146d4bf19",
+      "kind": "source"
+    },
+    {
+      "path": "docs/requirements/requirements.md",
+      "hash": "fb8b0a815f2fd53b03c0769972fb2e0af15f0a2bb12b849e11a6c1729e62f042",
+      "kind": "source"
+    },
+    {
+      "path": "docs/requirements/review-log.md",
+      "hash": "aa748844b0460893612303eba9eff2df0b1ed658f31280615842c8da3bd74f37",
+      "kind": "source"
+    },
+    {
+      "path": "docs/requirements/rhyme-analysis-v1.md",
+      "hash": "09ac25acf649c88c2cf59cd0562bf93c0259d560b16026b2cfbbdbc767bef1b5",
+      "kind": "source"
+    },
+    {
+      "path": "docs/requirements/screen-flow-v1.md",
+      "hash": "e94df07dd2b1374c8890409640372b51a2daec899b549a26592bed1093f331d5",
+      "kind": "source"
+    },
+    {
+      "path": "docs/research/deep-research-report-20260331.md",
+      "hash": "0218330b1e04d8fa459474dca8289be96c3a1eae0a50f7ccc2f93195b5e705b2",
+      "kind": "source"
+    },
+    {
+      "path": "docs/tasks/INTENT-001-phase0-1.md",
+      "hash": "02963b2377e9d016df826c118bc80f938c63c2a989f813efed6231583656aded",
+      "kind": "source"
+    },
+    {
+      "path": "docs/tasks/INTENT-002-phase2-3.md",
+      "hash": "a81b6aada5462925d91b711da320a3a2710fcd5223a7c8faeb5a18d4fb70f6bc",
+      "kind": "source"
+    },
+    {
+      "path": "docs/tasks/INTENT-003-phase5-6.md",
+      "hash": "42201de86d677809f37e4e8eb28be24bad3591231c49871c54c6f06b15ce2749",
+      "kind": "source"
+    },
+    {
+      "path": "docs/tasks/INTENT-004-additional-features.md",
+      "hash": "2c7b1c35239605b1cb556d9176f96432eef93e6a4f943c549490f6b05e96834d",
+      "kind": "source"
+    },
+    {
+      "path": "docs/tasks/TASK-001-tauri-minimal.md",
+      "hash": "c3b44360469a2589ebe1b513621990ef49fed01dfbcd8ae103578f333908c4cc",
+      "kind": "source"
+    },
+    {
+      "path": "docs/tasks/TASK-002-sqlite-init.md",
+      "hash": "17446533749618104a8dbafc4c649c71ee47a58bd4cfe799f0df9656d3913e92",
+      "kind": "source"
+    },
+    {
+      "path": "docs/tasks/TASK-003-repository-crud.md",
+      "hash": "a08bb272751746799aa84a39220976d20eb5d4c696419f63fd1ae84f4903ced8",
+      "kind": "source"
+    },
+    {
+      "path": "docs/tasks/TASK-004-os-boot-check.md",
+      "hash": "c681213f05f4c0d65d01fb1fa666aef4656fa86de1bbfab400d34d23e28a2675",
+      "kind": "source"
+    },
+    {
+      "path": "docs/tasks/TASK-005-monaco-integration.md",
+      "hash": "d5e9f9aabc1ce0142015ade300b42412a73ceeeb2eba22a86b4adadb737227b5",
+      "kind": "source"
+    },
+    {
+      "path": "docs/tasks/TASK-006-section-management.md",
+      "hash": "5008ec5769d61496506ddb037f7dd897cd4fda8a60a3217ddd71637d37e84086",
+      "kind": "source"
+    },
+    {
+      "path": "docs/tasks/TASK-007-diff-editor.md",
+      "hash": "f40048241a2ebe048c2a2252d6130dc24410356fcbe034751dc5faba050f641a",
+      "kind": "source"
+    },
+    {
+      "path": "docs/tasks/TASK-008-fragment-management.md",
+      "hash": "23a621385e1f598f1009fd23cfa199c825f73ed80021e9227aa15209d14a4298",
+      "kind": "source"
+    },
+    {
+      "path": "docs/tasks/TASK-009-search-import-copy.md",
+      "hash": "fe113a227a2faaae2d8c2228b3795f705d30ad8023657b1d9e178ca402c0f4ba",
+      "kind": "source"
+    },
+    {
+      "path": "e2e/app.spec.ts",
+      "hash": "a105903646d7e819606da13a145ee5fb6d05c72aedcb25ec0b84e76eea950973",
+      "kind": "source"
+    },
+    {
+      "path": "e2e/editor.spec.ts",
+      "hash": "66dacf20239047a37d9e78de92ce459b9760332b06d2b6226bab21c889c7e944",
+      "kind": "source"
+    },
+    {
+      "path": "e2e/language.spec.ts",
+      "hash": "686683bffe8d226fbf089a1583fa7ccf3f2bbcb13130024da56a958428162f9f",
+      "kind": "source"
+    },
+    {
+      "path": "package-lock.json",
+      "hash": "395227a8000a8855d369a89cbba154656ad0b9336ddf96b117d27dcbadd1d008",
+      "kind": "source"
+    },
+    {
+      "path": "package.json",
+      "hash": "3861fd5ef6efaa7b889e786123d13e03aa86be1ec28b6be29d623282d4147d68",
+      "kind": "config"
+    },
+    {
+      "path": "playwright.config.ts",
+      "hash": "c5f7aed17bf9f48f93c0e9dfe56ee724ae3bd134244e735981c3642dc9b624f1",
+      "kind": "source"
+    },
+    {
+      "path": "README.en.md",
+      "hash": "e0665d35dadabc04ffe09ef769844fb9bf0be8f2909046c313b5e50d4ad59c33",
+      "kind": "source"
+    },
+    {
+      "path": "README.md",
+      "hash": "5c6f31280ec126ead51ef9bb3f809c83fac85ddebf76a8abb837e01d851832ed",
+      "kind": "source"
+    },
+    {
+      "path": "scripts/enrich-suno-important-sections.mjs",
+      "hash": "4fa6aa39a6588767713b9ace0ad3339e4798f0907439e32f86faaadf4f0547e2",
+      "kind": "source"
+    },
+    {
+      "path": "scripts/enrich-suno-prompt-catalog.mjs",
+      "hash": "6b199c2e5d15881662277a5bb5b127d3db74d265c084819ff1f310ee59f52269",
+      "kind": "source"
+    },
+    {
+      "path": "scripts/lib/suno-catalog-shards.mjs",
+      "hash": "952a0134cf5e453e75a2f205bac8118afcaf6fb97a0562653d1c2c5deb312aa8",
+      "kind": "source"
+    },
+    {
+      "path": "scripts/update-suno-prompt-catalog.mjs",
+      "hash": "c3358300755121da1fa0bb65c3f3d4db57f2a4c406e01d667ce49c9f8152041d",
+      "kind": "source"
+    },
+    {
+      "path": "src/App.tsx",
+      "hash": "86133103f3a5506224fa9d5360117441a1dd41bba63452405fa02971b6647992",
+      "kind": "source"
+    },
+    {
+      "path": "src/components/AffectMetricsPanel.tsx",
+      "hash": "617aea5664a184cded1986ce441437b2a7bd903bf6baef39f5a0652fed0ff7e1",
+      "kind": "source"
+    },
+    {
+      "path": "src/components/CopyOptionsPanel.tsx",
+      "hash": "167bb3ec5e282b20917476900a25cec923d1ed64c19523825dbe7fa9c8adffcf",
+      "kind": "source"
+    },
+    {
+      "path": "src/components/DiffViewer.tsx",
+      "hash": "1ec3d009a6e9649b92b1a940d27b3bb929feb57fe8a78deadbed754d2b806e5e",
+      "kind": "source"
+    },
+    {
+      "path": "src/components/ExportPanel.tsx",
+      "hash": "bfac9eb4cc5feecd717a3438ef53f949a4d2e542e260dbd40b41596dcce9d293",
+      "kind": "source"
+    },
+    {
+      "path": "src/components/FragmentPanel.tsx",
+      "hash": "ea6f82da3ad83539f9e48e244e34cd715fd83ee37c0a7247f59706ef1d0f3dc2",
+      "kind": "source"
+    },
+    {
+      "path": "src/components/ImportDialog.tsx",
+      "hash": "aad624873f6e6bf90d41618458d3e885cb3873ce64582c7b32500a95c0d9210a",
+      "kind": "source"
+    },
+    {
+      "path": "src/components/Layout.tsx",
+      "hash": "e41c3c1a647efbefad661de8a474c8a824b1693a91d6c102570284449435191c",
+      "kind": "source"
+    },
+    {
+      "path": "src/components/LLMAssistPanel.tsx",
+      "hash": "22c21420f93d8d7628e8e63c7df11b9fe4eeff373a953331ed16d2aac54c947e",
+      "kind": "source"
+    },
+    {
+      "path": "src/components/LLMReviewPanel.tsx",
+      "hash": "4805159b757d02c6d2ccc68ae5387b82295f91dc77bb4f771d2bbd077f6400b2",
+      "kind": "source"
+    },
+    {
+      "path": "src/components/LLMSettingsPanel.tsx",
+      "hash": "728f9ace91d68e1eaa7b61834602165f4c3be054eaeffefd786a4f0bea9cbd03",
+      "kind": "source"
+    },
+    {
+      "path": "src/components/RevisionNotePanel.tsx",
+      "hash": "32390c86703f1197b0d96dae5e3121bfaf74fc7a9f9be990489319ef9c35bcbc",
+      "kind": "source"
+    },
+    {
+      "path": "src/components/search/searchUtils.ts",
+      "hash": "cf7fbed93fbb21ca910da485a8d04c8dddab29f2c5a1566983a4bf8baa21c0d1",
+      "kind": "source"
+    },
+    {
+      "path": "src/components/SearchPanel.tsx",
+      "hash": "296779ebb8ae92287c7c7a4044fde67b824d4944f93eeb2204be5d89f73c6952",
+      "kind": "source"
+    },
+    {
+      "path": "src/components/SongArtifactPanel.tsx",
+      "hash": "4129337c270d1e653d131b958313847e5e6f5bfe8cdbe10ad394aef96c2f9209",
+      "kind": "source"
+    },
+    {
+      "path": "src/components/songArtifacts/SongArtifactForm.tsx",
+      "hash": "31529260f911191c2f9f9eee164f085f613c56a7b246877354cd10d5885f8a0e",
+      "kind": "source"
+    },
+    {
+      "path": "src/components/songArtifacts/SongArtifactList.tsx",
+      "hash": "bbc0a75767ad21fbd86e116bc2eacff7c3b5e1a2c46b26e000f6a49aa51bf3fc",
+      "kind": "source"
+    },
+    {
+      "path": "src/components/StyleProfilePanel.tsx",
+      "hash": "4576fa8b9bd74bfbbcf463778063e52874869ae839984e0b6e31a7f2763f1ea7",
+      "kind": "source"
+    },
+    {
+      "path": "src/components/TrashPanel.tsx",
+      "hash": "f13d845be441c6ab1fec50c94511d09c0c3883bd30ea34d329d9a6d85342c65e",
+      "kind": "source"
+    },
+    {
+      "path": "src/data/sunoPromptCatalog.json",
+      "hash": "fe79c7924317370a77b1a093cff6afab758161727761ae75004a576e7af31246",
+      "kind": "source"
+    },
+    {
+      "path": "src/data/sunoPromptCatalog.meta.json",
+      "hash": "7e841b850a95b34c7fa21ffa55e143ba7429354ce153988c4bad819bd49f8138",
+      "kind": "source"
+    },
+    {
+      "path": "src/data/sunoPromptCatalog.style-club.json",
+      "hash": "c214e7589d832c52f4aef20201bfb4008b8648decf2de2c338f57a0afda6a807",
+      "kind": "source"
+    },
+    {
+      "path": "src/data/sunoPromptCatalog.style-core.json",
+      "hash": "5a41de5bc2f77acececc0a7ddd34f39ec25b00c0a6f0470ecb14263c183e157e",
+      "kind": "source"
+    },
+    {
+      "path": "src/data/sunoPromptCatalog.style-instruments.json",
+      "hash": "b27fb5b19c65e49e52959970d3256003b4a760742eede2838644fd45f9898fe9",
+      "kind": "source"
+    },
+    {
+      "path": "src/data/sunoPromptCatalog.style-misc.json",
+      "hash": "cf1709374795004024d02db929d1a5306dcffb5576cf199a9984b92031fc9954",
+      "kind": "source"
+    },
+    {
+      "path": "src/data/sunoPromptCatalog.style-regions.json",
+      "hash": "089009f161c5ace6af97656f22bec04e2cb0c1fe2aeaacc092f56998dd917bf1",
+      "kind": "source"
+    },
+    {
+      "path": "src/data/sunoPromptCatalog.style-voice.json",
+      "hash": "b256dcc330dad754f95c28ff736db25af3d142b24e1080ba93021f24cc429faa",
+      "kind": "source"
+    },
+    {
+      "path": "src/data/sunoPromptCatalog.vocal-core.json",
+      "hash": "42c7a2fff7a7a92cb2ad65fdcc7a62432cb6cdf84cb2e0eab83fb806ff4a4c05",
+      "kind": "source"
+    },
+    {
+      "path": "src/data/sunoPromptCatalog.vocal-emotion.json",
+      "hash": "747a7b1f943be6132aa40c8da69557f93e185bafceec8da2a132c44f9a17c621",
+      "kind": "source"
+    },
+    {
+      "path": "src/data/sunoPromptCatalog.vocal-rest.json",
+      "hash": "f85de0e2775dc5b101ae50f46e5612cd80254a632ed46e5d5b2d3b3c50539443",
+      "kind": "source"
+    },
+    {
+      "path": "src/lib/affect/lyricsAffectMetrics.ts",
+      "hash": "d44387471156e39b406ddfeb86f219c5856141eb38be2046dfd561d9fa075a2b",
+      "kind": "source"
+    },
+    {
+      "path": "src/lib/api/client.ts",
+      "hash": "deea29384c7e8d3331a59aa58c257ef0572523038aa2d4e7e162a9da9fbbddfa",
+      "kind": "source"
+    },
+    {
+      "path": "src/lib/api/types.ts",
+      "hash": "7a96ac8d5b9404ee108443f82613c0dded8e2ecee1b3d321cbadc2066478d504",
+      "kind": "source"
+    },
+    {
+      "path": "src/lib/api.ts",
+      "hash": "6446d41b35aa1e0adebb6f900a962670fee3b77a8d1ed25e8613ad2c5282fd24",
+      "kind": "source"
+    },
+    {
+      "path": "src/lib/config.ts",
+      "hash": "65bae6203ea9ccb2b26c440e7cdb7093903fe2b0cc835a4cc7ec364d1a3eaef9",
+      "kind": "source"
+    },
+    {
+      "path": "src/lib/hooks/index.ts",
+      "hash": "223dd287e0dd59451dfa6a0911207698560f03b37bb52fadaf65db1027e6dfc3",
+      "kind": "source"
+    },
+    {
+      "path": "src/lib/hooks/useAutoSave.ts",
+      "hash": "252155b01d4d44f9a300ff08bc3c1259e54c811047072508e4126f832fd5a504",
+      "kind": "source"
+    },
+    {
+      "path": "src/lib/hooks/useBpm.ts",
+      "hash": "7da755ffae59705ff8aeab4130066a0e6670065fc84724bd604b52fa1b90b012",
+      "kind": "source"
+    },
+    {
+      "path": "src/lib/hooks/useClipboard.ts",
+      "hash": "be9d85e30433efefdb00621e012ffc57f3c618227ce43cf671b2e4fe7e3028b5",
+      "kind": "source"
+    },
+    {
+      "path": "src/lib/hooks/useKeyboardShortcuts.ts",
+      "hash": "ef58dfaa9bb699e350539305aabe6f8b06aa62a51235244c88eb2f553ac0713c",
+      "kind": "source"
+    },
+    {
+      "path": "src/lib/hooks/useLLMPanel.ts",
+      "hash": "593466be63046a16a3c29e7503ef881ede93f8f43ef1a1c582259a36e309b483",
+      "kind": "source"
+    },
+    {
+      "path": "src/lib/hooks/usePaneResize.ts",
+      "hash": "569af72068f42ee239749d3025a15a08ef29ffae9f01356fae9d6dcb997b107f",
+      "kind": "source"
+    },
+    {
+      "path": "src/lib/hooks/usePhoneticGuide.ts",
+      "hash": "be85d5d9684d95a548d6ce4a15c5f2b200468d1ebb1c389171b1a11d26636ebb",
+      "kind": "source"
+    },
+    {
+      "path": "src/lib/hooks/useSectionActions.ts",
+      "hash": "bc700b5c4e7156172405e75d6a2af4ff3c337d915eb4819e51befee17d71ff0b",
+      "kind": "source"
+    },
+    {
+      "path": "src/lib/hooks/useSectionDragDrop.ts",
+      "hash": "3b5af088bfea7995fbf5fb06140f6306747ec283e432f8a1e26908388982e108",
+      "kind": "source"
+    },
+    {
+      "path": "src/lib/hooks/useSections.ts",
+      "hash": "30a01e8065cd40e4a371500a40965949ab4075e643bb140da1d3ae07d1f3e667",
+      "kind": "source"
+    },
+    {
+      "path": "src/lib/hooks/useStyleVocal.ts",
+      "hash": "7b371948fe0159be82f3832b24391f9f60047a0e560d79f367c8c769f1929c7b",
+      "kind": "source"
+    },
+    {
+      "path": "src/lib/hooks/useUIState.ts",
+      "hash": "d5939b1fed0eae6c99c68fbb865e11ee94de4948fa05ed6ada905362d34844c8",
+      "kind": "source"
+    },
+    {
+      "path": "src/lib/i18n/en.ts",
+      "hash": "edc5a2fd676ab03fc83802eb49a3db0d93050eafa52c487bb8586219d57dfe1c",
+      "kind": "source"
+    },
+    {
+      "path": "src/lib/i18n/index.ts",
+      "hash": "af800a815d08c207282de5e93baa6a849e54357f5cf1b058c985513b2357bc9a",
+      "kind": "source"
+    },
+    {
+      "path": "src/lib/i18n/ja.ts",
+      "hash": "fd98362fe707e2346763553f09ad011f854285bdc706a13d406c92b442f00852",
+      "kind": "source"
+    },
+    {
+      "path": "src/lib/LanguageContext.tsx",
+      "hash": "7234fee554c50c56c1ea4039f8dab0ba36d7ffc40e003852744437231c21e274",
+      "kind": "source"
+    },
+    {
+      "path": "src/lib/llm/index.ts",
+      "hash": "663ec16b51dbacfbb1f7b721c01b48f8b08a751d8c9d83d26b1cc1a24fd09408",
+      "kind": "source"
+    },
+    {
+      "path": "src/lib/llm/modelUtils.ts",
+      "hash": "00e60fe6cd24f37d1f3d69ce4b2945635fa8a61086aa3e6db424baf23ee2337a",
+      "kind": "source"
+    },
+    {
+      "path": "src/lib/llm/promptBuilder.ts",
+      "hash": "7d5f67f712347140637337581ef7e6c425e767532104db06bbb325b6195ce35a",
+      "kind": "source"
+    },
+    {
+      "path": "src/lib/llm/sunoPromptCatalog.ts",
+      "hash": "f934ba6683856cbc47be326aa9c775808d4f5f6b83a369e535f034e15ddbf3b7",
+      "kind": "source"
+    },
+    {
+      "path": "src/lib/llm/types.ts",
+      "hash": "a06abeeb45967ad915e8be8ce11821e420dfd075b1ba90ebadecb3d096e49878",
+      "kind": "source"
+    },
+    {
+      "path": "src/lib/llm/useLLMSettings.ts",
+      "hash": "9b97ce06b7585c864e9fde36281ec27de3a3d6eaa46b879f2213cfe233ea2d89",
+      "kind": "source"
+    },
+    {
+      "path": "src/lib/llm/utils.ts",
+      "hash": "4afe089809faba708924a7dff14af841b2eb24d21b2d8d618bb23828d962728c",
+      "kind": "source"
+    },
+    {
+      "path": "src/lib/ProjectContext.tsx",
+      "hash": "195bf04dd23f3f7c29a445c513baf6d4ab043ffcf32a77c56255ef745284d681",
+      "kind": "source"
+    },
+    {
+      "path": "src/lib/rhyme/analysis.ts",
+      "hash": "67c9a3c3d33abd2c8b1e872d6ad098e54beb28bac067eea85bcaf08234a9d2e4",
+      "kind": "source"
+    },
+    {
+      "path": "src/lib/rhyme/constants.ts",
+      "hash": "fe17b0a7eb4840cbdc1fd6ed37bdaf868f59978405e2abda281e831c8c05ea76",
+      "kind": "source"
+    },
+    {
+      "path": "src/lib/section/index.ts",
+      "hash": "72b9ae1d8fe6592fe949e547535fb65c5f556c7def96809a153cfa97e8d3e412",
+      "kind": "source"
+    },
+    {
+      "path": "src/lib/section/types.ts",
+      "hash": "c2c9ce86fd1460ed89a81e1cca2a15510febb3e4a18cc6279047699ba1d161bc",
+      "kind": "source"
+    },
+    {
+      "path": "src/lib/section/utils.ts",
+      "hash": "022e0071e268f5f36a64e14ef43922b7d044a1da6ae0cac0ed37db12894c245d",
+      "kind": "source"
+    },
+    {
+      "path": "src/lib/useProjectData.ts",
+      "hash": "c0f39311bcd44d3c9817d547a885fa6919ed1c0a7a2d160425f2b203687a8826",
+      "kind": "source"
+    },
+    {
+      "path": "src/lib/utils/projectStorage.ts",
+      "hash": "9f542736209ce350a11b594a2ca916bb840c8450c771e8c7c99c613ffaf46e45",
+      "kind": "source"
+    },
+    {
+      "path": "src/main.tsx",
+      "hash": "4e1f703d371d7769de9d4e0f53a1de8eeb52f80e9df62818130c74585648f1fb",
+      "kind": "source"
+    },
+    {
+      "path": "src/pages/editor/ActionPane.tsx",
+      "hash": "53fa18949c6910f005b3c691ab1e4c542d8398462a84d87d684b17576fc0ef5f",
+      "kind": "source"
+    },
+    {
+      "path": "src/pages/editor/EditorOverlays.tsx",
+      "hash": "cbc4159cd712b18ff637e035a19a8ca1e61f9117f21a1bf96189506321dab5f5",
+      "kind": "source"
+    },
+    {
+      "path": "src/pages/editor/PhoneticGuidePanel.tsx",
+      "hash": "9e2be0f97750ddb61d2974ca1da227d505a4baaef39f68c322015c2a6abddce2",
+      "kind": "source"
+    },
+    {
+      "path": "src/pages/editor/RightStackPane.tsx",
+      "hash": "d0eae7b6c2e3fd4cdeb29b09838d526c7f3f57285370000fc84afdc22b7a10c5",
+      "kind": "source"
+    },
+    {
+      "path": "src/pages/editor/SectionListCard.tsx",
+      "hash": "1ff1941fe864f5fb1aab65cdf51d5b41315aacc5f3c0acd1326f3fc155813de3",
+      "kind": "source"
+    },
+    {
+      "path": "src/pages/editor/VersionPane.tsx",
+      "hash": "ac0f06f9c8a11a24974b111d5428f564eba10e7a9c60fc42cedb2b9adee6c5e3",
+      "kind": "source"
+    },
+    {
+      "path": "src/pages/Editor.tsx",
+      "hash": "6892f7e0c7c3f881cacd1415c3b03bf39763531dc76cd2d20a5354b6d81416f8",
+      "kind": "source"
+    },
+    {
+      "path": "src/pages/Home.tsx",
+      "hash": "f03cc549526615d81d2ae469cff8a44ca03a46a5e29f3cae177fdf82e18eceef",
+      "kind": "source"
+    },
+    {
+      "path": "src/test/AffectMetricsPanel.test.tsx",
+      "hash": "c0b6da19caebb33cca777b0e7ec9f313914ce469015b28d025d9c79b1d72a5aa",
+      "kind": "source"
+    },
+    {
+      "path": "src/test/api-client.test.ts",
+      "hash": "6558e9c94e5c8b301b5a27e74929f8c4271b1f5f9f0f6eaf199f6525cc364d57",
+      "kind": "source"
+    },
+    {
+      "path": "src/test/config.test.ts",
+      "hash": "8f180e76a3292d0fa87cab6a5c4b034024c21f3a5f21bad13e44b22fd7746699",
+      "kind": "source"
+    },
+    {
+      "path": "src/test/countTrailingTokenMatches.test.ts",
+      "hash": "7ce939095563475e7b55faff209416328f073386abc044f8a9001779f3427005",
+      "kind": "source"
+    },
+    {
+      "path": "src/test/editor-utils.test.ts",
+      "hash": "01683746f98de67f02d4f82fb212138f825fc7213d4e37bf7918f688cf41082a",
+      "kind": "source"
+    },
+    {
+      "path": "src/test/fixtures/affectGoldenLyrics.ts",
+      "hash": "7f7e7bd0511855bbe8d8440a81a14e9bcb5e15b1118dec4b79f201fb5e3a4b9a",
+      "kind": "source"
+    },
+    {
+      "path": "src/test/Home.test.tsx",
+      "hash": "915b97bb2e1f4b2daaa9f852cbbc47293f63f426a873bb0bc91dfc8bfa45353b",
+      "kind": "source"
+    },
+    {
+      "path": "src/test/i18n-extended.test.tsx",
+      "hash": "7ac43887fcaabfc3cf4439ff0cce25e3876173fb80982f45fbc7ff6a58ab24cc",
+      "kind": "source"
+    },
+    {
+      "path": "src/test/i18n-scenarios.test.tsx",
+      "hash": "dc7b580380ff3e9db77bde863afcb5909fb009f631f74aa890e3cda31279bab8",
+      "kind": "source"
+    },
+    {
+      "path": "src/test/i18n.test.ts",
+      "hash": "2d97abf5e9c64a8ddb8acff8e07c7af834d871e92eadba7857dafcb91459cca7",
+      "kind": "source"
+    },
+    {
+      "path": "src/test/integration.test.tsx",
+      "hash": "7cd44da44f1cd02abd5eea5ae7ab235a6401a1533be0071068f5f9977ee370e8",
+      "kind": "source"
+    },
+    {
+      "path": "src/test/LanguageContext.test.tsx",
+      "hash": "799a9d163c0012ffdf733822e5d049bf9df7c272661015df18f1bbf3045cd0be",
+      "kind": "source"
+    },
+    {
+      "path": "src/test/Layout.test.tsx",
+      "hash": "32e9d312cd03a6f5aba3b49898e14be5de5f927652c59d1ea842d6a526f1d5e2",
+      "kind": "source"
+    },
+    {
+      "path": "src/test/llm-utils.test.ts",
+      "hash": "b39e109ac51bedeecf79cf3d5923bee6f5df05e9e88452eaff9e30bbc277652f",
+      "kind": "source"
+    },
+    {
+      "path": "src/test/LLMAssistPanel.test.tsx",
+      "hash": "9e83c604d9b0849c7f96323fef5b0e068fcc30f59330c76e5b38deddbc03f4ec",
+      "kind": "source"
+    },
+    {
+      "path": "src/test/lyricsAffectMetrics.test.ts",
+      "hash": "0e2be65cccdfb234eec2985b25bd87d9bde4d25b48c0084a6e89add954f743f2",
+      "kind": "source"
+    },
+    {
+      "path": "src/test/modelUtils.test.ts",
+      "hash": "1d3acf32756a709f509f586c970daa01f7c738295121c925428116169e3b485d",
+      "kind": "source"
+    },
+    {
+      "path": "src/test/promptBuilder.test.ts",
+      "hash": "0cf1aac1f8ded6c8049e3afcf19eb2228b9d9e2d1341a169151244549f636474",
+      "kind": "source"
+    },
+    {
+      "path": "src/test/rhyme-analysis.test.ts",
+      "hash": "892016a6b97ccd9619c8dc98e7d8985dca3038cfe85809828a5fdbefa0434df9",
+      "kind": "source"
+    },
+    {
+      "path": "src/test/sectionUtils.test.ts",
+      "hash": "f06d7d5a9581b03f537e1f3e25b20ef1eee1f98bec75fc3a313983b726bf66e2",
+      "kind": "source"
+    },
+    {
+      "path": "src/test/setup.ts",
+      "hash": "887186f7a47b61b4a77668acb06dafa82f010de39b529e5f55dcc52de35e2135",
+      "kind": "source"
+    },
+    {
+      "path": "src/test/sunoPromptCatalog.test.ts",
+      "hash": "2cdaafb61f575c1c915b025f85ec27611b254c9e5c138bda3268f3c4facfae16",
+      "kind": "source"
+    },
+    {
+      "path": "src/test/translations-detailed.test.tsx",
+      "hash": "d1ecaf8452d7c3753d441f959e50fc3f9b6542fa2a50f22b09e5ede190121b9d",
+      "kind": "source"
+    },
+    {
+      "path": "src/test/TrashPanel.test.tsx",
+      "hash": "a9e4543e5c8d878d7789ef17ccac2ce1a6b71e4a31b0bbc94f6ddf88d3eb145d",
+      "kind": "source"
+    },
+    {
+      "path": "src/test/ui-components.test.tsx",
+      "hash": "01d5a492ee4a749da2e6083566633f96d734a8122f89481abd8a4c0663ac46c0",
+      "kind": "source"
+    },
+    {
+      "path": "src/test/ui-patterns.test.tsx",
+      "hash": "9183d6619d4aa5e4aa5c94550bcf8a660b3466370b508b087379be6c981f236e",
+      "kind": "source"
+    },
+    {
+      "path": "src/test/useAutoSave.test.ts",
+      "hash": "3c3fd928c2b91a1b4395b821f3a40c24fdd24836fe18c9234a3f93cb0b1386ad",
+      "kind": "source"
+    },
+    {
+      "path": "src/test/useBpm.test.ts",
+      "hash": "bb9803eebd64ee01e406b4f9d45a8e07934d0069fa9ef0b8ecf9667ef1766510",
+      "kind": "source"
+    },
+    {
+      "path": "src/test/useClipboard.test.ts",
+      "hash": "8d9f48488a66dcc281278a018934b5247285e35750e0aa1fb299ea659c3b46a9",
+      "kind": "source"
+    },
+    {
+      "path": "src/test/useKeyboardShortcuts.test.ts",
+      "hash": "dfcb4aceca291fdfa92c0e639f54356573b39f3e70896d5dfd0e4789c8c89c97",
+      "kind": "source"
+    },
+    {
+      "path": "src/test/useLanguage.test.tsx",
+      "hash": "f36e4db334f0abc1f8150a52573562be4fe732a16bb86fed226dca48c02a0881",
+      "kind": "source"
+    },
+    {
+      "path": "src/test/useLLMPanel.test.ts",
+      "hash": "0cb6a0f12991ba0db47be26afd50fec03b1903b983b909ef1696c6aaf2b9fd01",
+      "kind": "source"
+    },
+    {
+      "path": "src/test/useLLMSettings.test.ts",
+      "hash": "f446eca8391712546be0f7ad5970757aa2f664ce9f0e3a59eea6716c36f58586",
+      "kind": "source"
+    },
+    {
+      "path": "src/test/usePaneResize.test.ts",
+      "hash": "44c30f020da02a70d53cd291e11be20533d56c15472dd443e7c5481fb48b01ff",
+      "kind": "source"
+    },
+    {
+      "path": "src/test/usePhoneticGuide.test.ts",
+      "hash": "c0d0b7b684e46eb4f7e7e40441a9df9ac5d36a45c88cf907eccd3d8aef099bd2",
+      "kind": "source"
+    },
+    {
+      "path": "src/test/useProjectData.test.ts",
+      "hash": "f3a23f2d17a4433c2ffba23ab795c1f33655ab10aca65233a17b951dc402c8da",
+      "kind": "source"
+    },
+    {
+      "path": "src/test/useSectionActions.test.ts",
+      "hash": "9698141b8d47c1384e986a9b294b68e4fde68282b838d07c7d5437482c846b1a",
+      "kind": "source"
+    },
+    {
+      "path": "src/test/useSectionDragDrop.test.ts",
+      "hash": "c1aa26e0cadadd035c9dc1b58b62025a40a2160e7dc61c4fbfa54dd1f68996d6",
+      "kind": "source"
+    },
+    {
+      "path": "src/test/useSections.test.ts",
+      "hash": "ea76ddc31b4857dca7f587566c4f6037991167b6fe12d7534a2bf0972a27e1b7",
+      "kind": "source"
+    },
+    {
+      "path": "src/test/useStyleVocal.test.ts",
+      "hash": "14e56368af7e9328929c0f13d9546f73fd34d0320e210d3db4fb37010322b78a",
+      "kind": "source"
+    },
+    {
+      "path": "src/test/useUIState.test.ts",
+      "hash": "00f1363008a01f256cff4d37da8f963cae01ae6716543d9dfcb7e54a6cd82a22",
+      "kind": "source"
+    },
+    {
+      "path": "src-tauri/build.rs",
+      "hash": "a84c7f1a694a44cc1ed70997d34eec98dc0ca19b3e1d10990505ff1ccb63e0b4",
+      "kind": "source"
+    },
+    {
+      "path": "src-tauri/capabilities/default.json",
+      "hash": "8c4ed734c8319b7f6a5dd8ea60e62abaa8ba18048e6c43586e5ae99d2fdbf9f8",
+      "kind": "source"
+    },
+    {
+      "path": "src-tauri/gen/schemas/acl-manifests.json",
+      "hash": "d5b96c76c0e3f7d9e46c34f4de83aba6be7d4a9b4e9dfefccb28cf07b846bd51",
+      "kind": "source"
+    },
+    {
+      "path": "src-tauri/gen/schemas/capabilities.json",
+      "hash": "b2956da7b82932138cc69d56ea4a7ca478f26e575b914c2fd8f51f05a5584345",
+      "kind": "source"
+    },
+    {
+      "path": "src-tauri/gen/schemas/desktop-schema.json",
+      "hash": "5d1b1ba6408640103bb5214db091630e07d60c261df7074ec13a19484844bd93",
+      "kind": "source"
+    },
+    {
+      "path": "src-tauri/gen/schemas/windows-schema.json",
+      "hash": "5d1b1ba6408640103bb5214db091630e07d60c261df7074ec13a19484844bd93",
+      "kind": "source"
+    },
+    {
+      "path": "src-tauri/scripts/rhyme_analysis.py",
+      "hash": "f241ab93d3a0c4b3147d5c8bb145e3b8897bfd1f5a403e7dc9bed1391dd21514",
+      "kind": "source"
+    },
+    {
+      "path": "src-tauri/src/commands/draft.rs",
+      "hash": "61cb4311a9e04ea25423c3603865455a17d7e5d03e49d57db995d3251ad87667",
+      "kind": "source"
+    },
+    {
+      "path": "src-tauri/src/commands/export.rs",
+      "hash": "367a154e11d988a8026a66c89a32f4a49b81e427a37816af68e94e437765aa98",
+      "kind": "source"
+    },
+    {
+      "path": "src-tauri/src/commands/fragment.rs",
+      "hash": "10aa5d599b015b176aa8af831b14f9edc7a6a1b07d19314372af52c869f420d9",
+      "kind": "source"
+    },
+    {
+      "path": "src-tauri/src/commands/llm_runtime.rs",
+      "hash": "48315f62007f70451a19f4d02ad2ba767aaaf52383d78d2a47c2d0d4f828ae83",
+      "kind": "source"
+    },
+    {
+      "path": "src-tauri/src/commands/mod.rs",
+      "hash": "09a18b621a2c248ba80b05192e74c63dc3716e517dd428d15e49511417fdcbc2",
+      "kind": "source"
+    },
+    {
+      "path": "src-tauri/src/commands/project.rs",
+      "hash": "2898958c9c0fafac7253ead1e9831d53e0ce4fd42d65b7613ad91ce3f1e4d9f0",
+      "kind": "source"
+    },
+    {
+      "path": "src-tauri/src/commands/revision_note.rs",
+      "hash": "98146ea8d3c044b7e6eef83c0ec77f96572b161bd8b1bb4e37f925d249bb1871",
+      "kind": "source"
+    },
+    {
+      "path": "src-tauri/src/commands/rhyme.rs",
+      "hash": "43af388b1a9cd8e5aed7c5fec62e27c5679a70744b5d3ad3a36d42f273fbc5f4",
+      "kind": "source"
+    },
+    {
+      "path": "src-tauri/src/commands/song_artifact.rs",
+      "hash": "05442f17b203a7577323ef52676e9129ea7b24a5be3a979ff16304aac1ef09d9",
+      "kind": "source"
+    },
+    {
+      "path": "src-tauri/src/commands/style_profile.rs",
+      "hash": "6a5e36b6ae427afa03142a86c59b5b4f71e4c417f685ed2b7300d0856416d132",
+      "kind": "source"
+    },
+    {
+      "path": "src-tauri/src/commands/trash.rs",
+      "hash": "750659c892eac75a99de937e23f3cd5358d05e55082504021342354f102557bd",
+      "kind": "source"
+    },
+    {
+      "path": "src-tauri/src/commands/version.rs",
+      "hash": "89e30ab1fcea00f3481c9f72f35133cdb3944cf5431991dcaf3d57a45b887e46",
+      "kind": "source"
+    },
+    {
+      "path": "src-tauri/src/db.rs",
+      "hash": "07b2e32b5cc26bf61dc9dc10e010c380e789b8cd4b294fd40c3417837a891575",
+      "kind": "source"
+    },
+    {
+      "path": "src-tauri/src/error.rs",
+      "hash": "c97e14458f74a57a9470c0fc1caee57a5d536c1caa77b1a0cd6a1c6e65cf55e4",
+      "kind": "source"
+    },
+    {
+      "path": "src-tauri/src/main.rs",
+      "hash": "d5cab09b274dd25d8d0ac21a3ef92237ea0adc1ec9d1f347fbc3fa05166bec1a",
+      "kind": "source"
+    },
+    {
+      "path": "src-tauri/src/models.rs",
+      "hash": "a0e5685b9841073514d55868cee9b1febb2ec9a38ddbdfcf4bf40b64ad0d67a1",
+      "kind": "source"
+    },
+    {
+      "path": "src-tauri/src/repositories/draft_repo.rs",
+      "hash": "4de0625234b4e88dff9cab966968f4ede3bd0db73849fb38fc2567bc181556bf",
+      "kind": "source"
+    },
+    {
+      "path": "src-tauri/src/repositories/export_repo/artifact_data.rs",
+      "hash": "a01bee1817983fe141e18f9c970057be29d1ca698580862eb0a0c31fcc10a684",
+      "kind": "source"
+    },
+    {
+      "path": "src-tauri/src/repositories/export_repo/project_data.rs",
+      "hash": "747edc6178c2ce71e7d91cf69c1a23db251058875b9899f36a7aa5cf6258241c",
+      "kind": "source"
+    },
+    {
+      "path": "src-tauri/src/repositories/export_repo/version_data.rs",
+      "hash": "755d3bcaae508f757f1432649a6e54a55ab57a8bc7e6dbcdb56f24c0f634218d",
+      "kind": "source"
+    },
+    {
+      "path": "src-tauri/src/repositories/export_repo.rs",
+      "hash": "c81596d6965aee6c7fa4a7ff5f6a02a760b6479bf8e322b658ae52f09120ee3a",
+      "kind": "source"
+    },
+    {
+      "path": "src-tauri/src/repositories/fragment_repo.rs",
+      "hash": "65ef2816e0760406356668bf64f78f12f54d1ef31d6997cf7b10539dc21b28d3",
+      "kind": "source"
+    },
+    {
+      "path": "src-tauri/src/repositories/mod.rs",
+      "hash": "8dd4f11c93de251fa7cd6f511f696b76ab53f923ff6f89efcd758284b4425eb1",
+      "kind": "source"
+    },
+    {
+      "path": "src-tauri/src/repositories/project_repo.rs",
+      "hash": "3137e4221c935e8d6cfa769054f537a6def777d3de6a7a661306cf2256b9d040",
+      "kind": "source"
+    },
+    {
+      "path": "src-tauri/src/repositories/revision_note_repo.rs",
+      "hash": "7936ca58ff247eec26033e713421714404483d077795e83ba83f94f4e690369c",
+      "kind": "source"
+    },
+    {
+      "path": "src-tauri/src/repositories/song_artifact_repo.rs",
+      "hash": "057107d4769637174522e55265aa1ae7d8fc18dd7b680f7702619e4aff6bb5d5",
+      "kind": "source"
+    },
+    {
+      "path": "src-tauri/src/repositories/style_profile_repo.rs",
+      "hash": "156bd917b8426705cb7abf4ad725830a344bfc5c0c1e7eb6c8c5e0948815a937",
+      "kind": "source"
+    },
+    {
+      "path": "src-tauri/src/repositories/version_repo.rs",
+      "hash": "9af978ab18c29373045944e5b7ef13fccc89afa81977d85a21d2db02c7805af3",
+      "kind": "source"
+    },
+    {
+      "path": "src-tauri/tauri.conf.json",
+      "hash": "c97301594a223af299313239571999eb2eacd41eeedac75940f7f069823f5be8",
+      "kind": "source"
+    },
+    {
+      "path": "THIRD_PARTY_LICENSES.md",
+      "hash": "da7de796ca53db2159de10866a66ed1eac4428481020df05348ca9cd9a8c2d70",
+      "kind": "source"
+    },
+    {
+      "path": "tsconfig.json",
+      "hash": "0da14ec12daadc25969923a1c525717dbadefedf203d74538a04a11e6a374cdf",
+      "kind": "config"
+    },
+    {
+      "path": "tsconfig.node.json",
+      "hash": "902730920d314eaa48418be21012811b1f54215bcef6a14f1ba0b0e2ebfecc66",
+      "kind": "config"
+    },
+    {
+      "path": "vite.config.ts",
+      "hash": "781846aaa6870cfe1be11171f2e92ccf122b57043d5259c28a07c6c71009b5b7",
+      "kind": "source"
+    },
+    {
+      "path": "vitest.config.ts",
+      "hash": "c267bb7337be2e9258e02c0f1dfb263ed1956d815415b0d56219f4ced2c83a8a",
+      "kind": "config"
+    }
+  ],
+  "policy": {
+    "id": "default",
+    "hash": "none"
+  },
+  "exit": {
+    "code": 0,
+    "status": "passed",
+    "reason": "Analysis complete"
+  }
+}

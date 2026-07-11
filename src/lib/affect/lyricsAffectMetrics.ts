@@ -13,6 +13,14 @@ export interface EmotionScore {
   score: number;
 }
 
+export interface EmotionEvidence {
+  emotion: EmotionName;
+  marker: string;
+  lineNumber: number;
+  lineText: string;
+  score: number;
+}
+
 export interface LyricAffectMetrics {
   topEmotions: EmotionScore[];
   trend: {
@@ -28,6 +36,10 @@ export interface LyricAffectMetrics {
     afterglow: number;
     density: number;
   };
+  derived: {
+    tension: number;
+  };
+  evidence: EmotionEvidence[];
   textStats: {
     lineCount: number;
     lyricLineCount: number;
@@ -35,6 +47,105 @@ export interface LyricAffectMetrics {
     averageLineLength: number;
     lexicalVariety: number;
   };
+}
+
+export interface SectionAffectInput {
+  id: string;
+  type: string;
+  displayName: string;
+  sortOrder?: number;
+  bodyText: string;
+}
+
+export interface SectionAffectMetrics {
+  id: string;
+  type: string;
+  displayName: string;
+  role: SectionAffectRole;
+  metrics: LyricAffectMetrics;
+}
+
+export type SectionAffectRole =
+  | 'verse'
+  | 'pre'
+  | 'chorus'
+  | 'bridge'
+  | 'outro'
+  | 'intro'
+  | 'custom';
+
+export interface AffectWavePoint {
+  id: string;
+  label: string;
+  scope: 'section' | 'line';
+  valence: number;
+  arousal: number;
+  density: number;
+  tension: number;
+}
+
+export type AffectAlertKind =
+  | 'chorus_density_below_verse'
+  | 'flat_late_wave'
+  | 'mixed_language_low_confidence'
+  | 'sustained_tension';
+
+export interface AffectProductionAlert {
+  kind: AffectAlertKind;
+  severity: 'info' | 'watch';
+  sectionName?: string;
+  detail: {
+    value?: number;
+    baseline?: number;
+    delta?: number;
+  };
+}
+
+export interface LyricAffectInsight {
+  overall: LyricAffectMetrics;
+  sections: SectionAffectMetrics[];
+  wave: AffectWavePoint[];
+  alerts: AffectProductionAlert[];
+}
+
+export interface AffectMetricDelta {
+  valence: number;
+  arousal: number;
+  density: number;
+  tension: number;
+}
+
+export type AffectComparisonNoteKind =
+  | 'valence_up'
+  | 'valence_down'
+  | 'density_up'
+  | 'density_down'
+  | 'tension_up'
+  | 'tension_down'
+  | 'section_density_up'
+  | 'section_density_down'
+  | 'section_tension_up'
+  | 'section_tension_down';
+
+export interface AffectComparisonNote {
+  kind: AffectComparisonNoteKind;
+  metric: keyof AffectMetricDelta;
+  delta: number;
+  sectionName?: string;
+}
+
+export interface SectionAffectDelta {
+  sectionName: string;
+  role: SectionAffectRole;
+  delta: AffectMetricDelta;
+}
+
+export interface LyricAffectComparison {
+  left: LyricAffectMetrics;
+  right: LyricAffectMetrics;
+  delta: AffectMetricDelta;
+  sectionDeltas: SectionAffectDelta[];
+  notes: AffectComparisonNote[];
 }
 
 const EMOTIONS: EmotionName[] = [
@@ -140,6 +251,12 @@ export function analyzeLyricAffect(text: string): LyricAffectMetrics {
   );
   const glow = clamp01(Math.max(0, valence) * 0.62 + scoreLookup(emotionScores, 'joy') * 0.22 + scoreLookup(emotionScores, 'calm') * 0.16);
   const afterglow = clamp01(stability * 0.5 + Math.abs(valence) * 0.22 + scoreLookup(emotionScores, 'calm') * 0.2 + scoreLookup(emotionScores, 'sadness') * 0.08);
+  const tension = clamp01(
+    scoreLookup(emotionScores, 'tension') * 0.68 +
+    scoreLookup(emotionScores, 'fear') * 0.16 +
+    scoreLookup(emotionScores, 'anger') * 0.08 +
+    arousal * 0.08,
+  );
 
   return {
     topEmotions,
@@ -156,6 +273,10 @@ export function analyzeLyricAffect(text: string): LyricAffectMetrics {
       afterglow: round3(afterglow),
       density: round3(density),
     },
+    derived: {
+      tension: round3(tension),
+    },
+    evidence: collectEmotionEvidence(lyricLines).slice(0, 8),
     textStats: {
       lineCount: text.split('\n').length,
       lyricLineCount,
@@ -166,11 +287,83 @@ export function analyzeLyricAffect(text: string): LyricAffectMetrics {
   };
 }
 
+export function analyzeLyricAffectInsight(input: {
+  fullText: string;
+  sections?: SectionAffectInput[];
+}): LyricAffectInsight {
+  const overall = analyzeLyricAffect(input.fullText);
+  const sectionSource = (input.sections && input.sections.length > 0)
+    ? input.sections
+    : parseTaggedSections(input.fullText);
+  const sections = buildSectionMetrics(sectionSource);
+  const wave = sections.length > 0
+    ? sections.map(sectionToWavePoint)
+    : buildLineWavePoints(input.fullText);
+
+  return {
+    overall,
+    sections,
+    wave,
+    alerts: buildProductionAlerts(input.fullText, sections, wave),
+  };
+}
+
+export function compareLyricAffectVersions(leftText: string, rightText: string): LyricAffectComparison {
+  const left = analyzeLyricAffect(leftText);
+  const right = analyzeLyricAffect(rightText);
+  const delta = buildMetricDelta(left, right);
+  const sectionDeltas = compareSectionMetrics(
+    buildSectionMetrics(parseTaggedSections(leftText)),
+    buildSectionMetrics(parseTaggedSections(rightText)),
+  );
+
+  return {
+    left,
+    right,
+    delta,
+    sectionDeltas,
+    notes: buildComparisonNotes(delta, sectionDeltas),
+  };
+}
+
 function getLyricLines(text: string): string[] {
   return text
     .split('\n')
     .map((line) => line.trim())
     .filter((line) => line.length > 0 && !/^\[[^\]]+\]$/.test(line));
+}
+
+function parseTaggedSections(text: string): SectionAffectInput[] {
+  const lines = text.split('\n');
+  const sections: SectionAffectInput[] = [];
+  let currentName: string | null = null;
+  let currentLines: string[] = [];
+
+  const flush = () => {
+    if (!currentName) return;
+    const index = sections.length;
+    sections.push({
+      id: `parsed-${index}`,
+      type: currentName,
+      displayName: currentName,
+      sortOrder: index,
+      bodyText: currentLines.join('\n').trim(),
+    });
+  };
+
+  for (const line of lines) {
+    const headerMatch = line.match(/^\[([^\]]+)\]$/);
+    if (headerMatch) {
+      flush();
+      currentName = headerMatch[1].trim();
+      currentLines = [];
+      continue;
+    }
+    currentLines.push(line);
+  }
+
+  flush();
+  return sections;
 }
 
 function tokenizeLyrics(text: string): string[] {
@@ -203,6 +396,279 @@ function scoreEmotions(
   });
 
   return scores.sort((a, b) => b.score - a.score);
+}
+
+function collectEmotionEvidence(lyricLines: string[]): EmotionEvidence[] {
+  const evidence: EmotionEvidence[] = [];
+
+  lyricLines.forEach((line, lineIndex) => {
+    const normalizedLine = line.toLowerCase();
+    for (const emotion of EMOTIONS) {
+      for (const marker of EMOTION_MARKERS[emotion]) {
+        const markerHits = countMarker(normalizedLine, marker.toLowerCase());
+        if (markerHits <= 0) continue;
+        evidence.push({
+          emotion,
+          marker,
+          lineNumber: lineIndex + 1,
+          lineText: line,
+          score: round3(clamp01(markerHits * 0.34 + [...line].length / 120)),
+        });
+      }
+    }
+  });
+
+  return evidence.sort((a, b) => b.score - a.score || a.lineNumber - b.lineNumber);
+}
+
+function buildSectionMetrics(sections: SectionAffectInput[]): SectionAffectMetrics[] {
+  return [...sections]
+    .sort((a, b) => (a.sortOrder ?? 0) - (b.sortOrder ?? 0))
+    .map((section) => ({
+      id: section.id,
+      type: section.type,
+      displayName: section.displayName,
+      role: normalizeSectionRole(`${section.type} ${section.displayName}`),
+      metrics: analyzeLyricAffect(section.bodyText),
+    }));
+}
+
+function sectionToWavePoint(section: SectionAffectMetrics): AffectWavePoint {
+  return {
+    id: section.id,
+    label: section.displayName,
+    scope: 'section',
+    valence: section.metrics.trend.valence,
+    arousal: section.metrics.trend.arousal,
+    density: section.metrics.waveParameter.density,
+    tension: section.metrics.derived.tension,
+  };
+}
+
+function buildLineWavePoints(text: string): AffectWavePoint[] {
+  return getLyricLines(text).map((line, index) => {
+    const metrics = analyzeLyricAffect(line);
+    return {
+      id: `line-${index + 1}`,
+      label: `${index + 1}`,
+      scope: 'line',
+      valence: metrics.trend.valence,
+      arousal: metrics.trend.arousal,
+      density: metrics.waveParameter.density,
+      tension: metrics.derived.tension,
+    };
+  });
+}
+
+function buildProductionAlerts(
+  text: string,
+  sections: SectionAffectMetrics[],
+  wave: AffectWavePoint[],
+): AffectProductionAlert[] {
+  const alerts: AffectProductionAlert[] = [];
+  const verse = sections.find((section) => section.role === 'verse');
+  const chorus = sections.find((section) => section.role === 'chorus');
+
+  if (verse && chorus) {
+    const verseDensity = verse.metrics.waveParameter.density;
+    const chorusDensity = chorus.metrics.waveParameter.density;
+    if (chorusDensity + 0.05 < verseDensity) {
+      alerts.push({
+        kind: 'chorus_density_below_verse',
+        severity: 'watch',
+        sectionName: chorus.displayName,
+        detail: {
+          value: chorusDensity,
+          baseline: verseDensity,
+          delta: round3(chorusDensity - verseDensity),
+        },
+      });
+    }
+  }
+
+  if (isFlatWave(wave)) {
+    alerts.push({
+      kind: 'flat_late_wave',
+      severity: 'info',
+      detail: {
+        value: computeWaveRange(wave),
+      },
+    });
+  }
+
+  if (hasMixedJapaneseAndLatin(text)) {
+    alerts.push({
+      kind: 'mixed_language_low_confidence',
+      severity: 'info',
+      detail: {},
+    });
+  }
+
+  const sustained = findSustainedTensionSection(sections);
+  if (sustained) {
+    alerts.push({
+      kind: 'sustained_tension',
+      severity: 'watch',
+      sectionName: sustained.displayName,
+      detail: {
+        value: sustained.metrics.derived.tension,
+      },
+    });
+  }
+
+  return alerts.slice(0, 4);
+}
+
+function normalizeSectionRole(value: string): SectionAffectRole {
+  const normalized = value.toLowerCase();
+  if (/pre[-\s]?chorus|pre|bメロ|b melody/.test(normalized)) return 'pre';
+  if (/chorus|hook|サビ/.test(normalized)) return 'chorus';
+  if (/bridge|ブリッジ|cメロ/.test(normalized)) return 'bridge';
+  if (/outro|ending|アウトロ/.test(normalized)) return 'outro';
+  if (/intro|イントロ/.test(normalized)) return 'intro';
+  if (/verse|ヴァース|aメロ|a melody/.test(normalized)) return 'verse';
+  return 'custom';
+}
+
+function isFlatWave(wave: AffectWavePoint[]): boolean {
+  if (wave.length < 4) return false;
+  const range = computeWaveRange(wave);
+  return range < 0.32;
+}
+
+function computeWaveRange(wave: AffectWavePoint[]): number {
+  if (wave.length < 2) return 0;
+  const ranges = [
+    computeValueRange(wave.map((point) => normalizeValence01(point.valence))),
+    computeValueRange(wave.map((point) => point.arousal)),
+    computeValueRange(wave.map((point) => point.density)),
+    computeValueRange(wave.map((point) => point.tension)),
+  ];
+  return round3(ranges.reduce((sum, range) => sum + range, 0) / ranges.length);
+}
+
+function computeValueRange(values: number[]): number {
+  return values.length > 0 ? Math.max(...values) - Math.min(...values) : 0;
+}
+
+function hasMixedJapaneseAndLatin(text: string): boolean {
+  const lyricText = getLyricLines(text).join('\n');
+  return /[a-z]/i.test(lyricText) && /[\p{Script=Hiragana}\p{Script=Katakana}\p{Script=Han}]/u.test(lyricText);
+}
+
+function findSustainedTensionSection(sections: SectionAffectMetrics[]): SectionAffectMetrics | null {
+  for (let index = 1; index < sections.length; index += 1) {
+    const previous = sections[index - 1];
+    const current = sections[index];
+    if (
+      previous.metrics.derived.tension >= 0.38 &&
+      current.metrics.derived.tension >= 0.38 &&
+      previous.metrics.trend.valence < 0 &&
+      current.metrics.trend.valence < 0
+    ) {
+      return current;
+    }
+  }
+  return null;
+}
+
+function buildMetricDelta(left: LyricAffectMetrics, right: LyricAffectMetrics): AffectMetricDelta {
+  return {
+    valence: round3(right.trend.valence - left.trend.valence),
+    arousal: round3(right.trend.arousal - left.trend.arousal),
+    density: round3(right.waveParameter.density - left.waveParameter.density),
+    tension: round3(right.derived.tension - left.derived.tension),
+  };
+}
+
+function compareSectionMetrics(
+  leftSections: SectionAffectMetrics[],
+  rightSections: SectionAffectMetrics[],
+): SectionAffectDelta[] {
+  const rightByKey = new Map(rightSections.map((section) => [sectionCompareKey(section), section]));
+  const deltas: SectionAffectDelta[] = [];
+
+  for (const leftSection of leftSections) {
+    const rightSection = rightByKey.get(sectionCompareKey(leftSection));
+    if (!rightSection) continue;
+    deltas.push({
+      sectionName: rightSection.displayName,
+      role: rightSection.role,
+      delta: buildMetricDelta(leftSection.metrics, rightSection.metrics),
+    });
+  }
+
+  return deltas;
+}
+
+function sectionCompareKey(section: SectionAffectMetrics): string {
+  return section.role !== 'custom' ? section.role : section.displayName.toLowerCase();
+}
+
+function buildComparisonNotes(
+  delta: AffectMetricDelta,
+  sectionDeltas: SectionAffectDelta[],
+): AffectComparisonNote[] {
+  const notes: AffectComparisonNote[] = [];
+  pushDeltaNote(notes, delta.valence, 'valence', 'valence_up', 'valence_down');
+  pushDeltaNote(notes, delta.density, 'density', 'density_up', 'density_down');
+  pushDeltaNote(notes, delta.tension, 'tension', 'tension_up', 'tension_down');
+
+  const biggestSectionDensity = findBiggestSectionDelta(sectionDeltas, 'density');
+  if (biggestSectionDensity) {
+    pushDeltaNote(
+      notes,
+      biggestSectionDensity.delta.density,
+      'density',
+      'section_density_up',
+      'section_density_down',
+      biggestSectionDensity.sectionName,
+    );
+  }
+
+  const biggestSectionTension = findBiggestSectionDelta(sectionDeltas, 'tension');
+  if (biggestSectionTension) {
+    pushDeltaNote(
+      notes,
+      biggestSectionTension.delta.tension,
+      'tension',
+      'section_tension_up',
+      'section_tension_down',
+      biggestSectionTension.sectionName,
+    );
+  }
+
+  return notes.slice(0, 4);
+}
+
+function pushDeltaNote(
+  notes: AffectComparisonNote[],
+  delta: number,
+  metric: keyof AffectMetricDelta,
+  upKind: AffectComparisonNoteKind,
+  downKind: AffectComparisonNoteKind,
+  sectionName?: string,
+) {
+  if (Math.abs(delta) < 0.06) return;
+  notes.push({
+    kind: delta > 0 ? upKind : downKind,
+    metric,
+    delta,
+    sectionName,
+  });
+}
+
+function findBiggestSectionDelta(
+  sectionDeltas: SectionAffectDelta[],
+  metric: keyof AffectMetricDelta,
+): SectionAffectDelta | null {
+  let best: SectionAffectDelta | null = null;
+  for (const sectionDelta of sectionDeltas) {
+    if (!best || Math.abs(sectionDelta.delta[metric]) > Math.abs(best.delta[metric])) {
+      best = sectionDelta;
+    }
+  }
+  return best && Math.abs(best.delta[metric]) >= 0.08 ? best : null;
 }
 
 function computeValence(scores: EmotionScore[]): number {
@@ -246,6 +712,10 @@ function computeLineVariance(lengths: number[]): number {
 
 function scoreLookup(scores: EmotionScore[], emotion: EmotionName): number {
   return scores.find((score) => score.name === emotion)?.score ?? 0;
+}
+
+function normalizeValence01(value: number): number {
+  return (value + 1) / 2;
 }
 
 function countMarker(text: string, marker: string): number {

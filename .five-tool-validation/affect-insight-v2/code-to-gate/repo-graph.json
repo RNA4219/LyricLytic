@@ -1,0 +1,3669 @@
+{
+  "version": "ctg/v1",
+  "generated_at": "2026-07-02T22:12:45.286Z",
+  "run_id": "ctg-202607022212-local",
+  "repo": {
+    "root": ".",
+    "revision": "93983a796f65",
+    "branch": "main",
+    "dirty": true
+  },
+  "tool": {
+    "name": "code-to-gate",
+    "version": "1.5.0",
+    "plugin_versions": []
+  },
+  "artifact": "normalized-repo-graph",
+  "schema": "normalized-repo-graph@v1",
+  "files": [
+    {
+      "id": "file:.claude/commands/pipeline.md",
+      "path": ".claude/commands/pipeline.md",
+      "language": "unknown",
+      "role": "docs",
+      "hash": "1eb2c65636f4d93cd50331680640446b484818150d84e063740931fcd44afb72",
+      "sizeBytes": 706,
+      "lineCount": 41,
+      "moduleId": "module:.claude/commands/pipeline.md",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:.claude/commands/run.md",
+      "path": ".claude/commands/run.md",
+      "language": "unknown",
+      "role": "docs",
+      "hash": "c8b637e907d62e67cac2caa2b617723c751ff138ad4d28bcbfc7135a0d709cd3",
+      "sizeBytes": 594,
+      "lineCount": 35,
+      "moduleId": "module:.claude/commands/run.md",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:.claude/commands/status.md",
+      "path": ".claude/commands/status.md",
+      "language": "unknown",
+      "role": "docs",
+      "hash": "c97e1675d7e01bc382aad54a2d1aded91d1dce3982b887ea70d852010b2b01ab",
+      "sizeBytes": 929,
+      "lineCount": 41,
+      "moduleId": "module:.claude/commands/status.md",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:.five-tool-validation/code-to-gate/analysis-report.md",
+      "path": ".five-tool-validation/code-to-gate/analysis-report.md",
+      "language": "unknown",
+      "role": "docs",
+      "hash": "7f9ec9273655f3689fc52f030597084c0951a43b8b9ca563b899aa979b8280d3",
+      "sizeBytes": 7408,
+      "lineCount": 112,
+      "moduleId": "module:.five-tool-validation/code-to-gate/analysis-report.md",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:.five-tool-validation/code-to-gate/audit.json",
+      "path": ".five-tool-validation/code-to-gate/audit.json",
+      "language": "unknown",
+      "role": "source",
+      "hash": "e3fad956133bdc982005f75f676787b22ed9e658e46d3a4b299188e794e73e21",
+      "sizeBytes": 40198,
+      "lineCount": 1200,
+      "moduleId": "module:.five-tool-validation/code-to-gate/audit.json",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:.five-tool-validation/code-to-gate/findings.json",
+      "path": ".five-tool-validation/code-to-gate/findings.json",
+      "language": "unknown",
+      "role": "source",
+      "hash": "9b4c8789d203eb75205f6be271dcdb16bb866f914f66853445a8e28e0c9f88b8",
+      "sizeBytes": 15950,
+      "lineCount": 536,
+      "moduleId": "module:.five-tool-validation/code-to-gate/findings.json",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:.five-tool-validation/code-to-gate/invariants.json",
+      "path": ".five-tool-validation/code-to-gate/invariants.json",
+      "language": "unknown",
+      "role": "source",
+      "hash": "fb4f84c144653aede4e4764cc7836ec79d3408a1f7343b9e86ede5ca58ff36bb",
+      "sizeBytes": 12897,
+      "lineCount": 382,
+      "moduleId": "module:.five-tool-validation/code-to-gate/invariants.json",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:.five-tool-validation/code-to-gate/raw-findings.json",
+      "path": ".five-tool-validation/code-to-gate/raw-findings.json",
+      "language": "unknown",
+      "role": "source",
+      "hash": "e557fe946d562b3c4f63565dbb134835604d1a28fef7648cd3ec3ef557aa1715",
+      "sizeBytes": 14222,
+      "lineCount": 461,
+      "moduleId": "module:.five-tool-validation/code-to-gate/raw-findings.json",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:.five-tool-validation/code-to-gate/repo-graph.json",
+      "path": ".five-tool-validation/code-to-gate/repo-graph.json",
+      "language": "unknown",
+      "role": "source",
+      "hash": "ac86a7f254edb1bcc2065f6e35b56b9040111a855dbe72e988153feebe0f429c",
+      "sizeBytes": 113763,
+      "lineCount": 3604,
+      "moduleId": "module:.five-tool-validation/code-to-gate/repo-graph.json",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:.five-tool-validation/code-to-gate/risk-register.yaml",
+      "path": ".five-tool-validation/code-to-gate/risk-register.yaml",
+      "language": "unknown",
+      "role": "config",
+      "hash": "1f830481990110aa91bcccf8c59e8cc74f7e82f783afdc15755dcd42c6a205a9",
+      "sizeBytes": 361,
+      "lineCount": 22,
+      "moduleId": "module:.five-tool-validation/code-to-gate/risk-register.yaml",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:.five-tool-validation/code-to-gate/test-seeds.json",
+      "path": ".five-tool-validation/code-to-gate/test-seeds.json",
+      "language": "unknown",
+      "role": "source",
+      "hash": "b0bea0626166e6f0b8031ebe8498d4e8e6ee1fbdfe631f91f3639045c456bc4a",
+      "sizeBytes": 11303,
+      "lineCount": 339,
+      "moduleId": "module:.five-tool-validation/code-to-gate/test-seeds.json",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:.five-tool-validation/vitest-results.json",
+      "path": ".five-tool-validation/vitest-results.json",
+      "language": "unknown",
+      "role": "source",
+      "hash": "aed44cab73608beea2765dbada01046f12f78f228168814ae5f2e486b6c3cd05",
+      "sizeBytes": 402032,
+      "lineCount": 1,
+      "moduleId": "module:.five-tool-validation/vitest-results.json",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:.github/workflows/update-suno-prompt-catalog.yml",
+      "path": ".github/workflows/update-suno-prompt-catalog.yml",
+      "language": "unknown",
+      "role": "config",
+      "hash": "2cd8f81622ad0ea08e54439ffea5ec3f940a2802490289e2ac2b9abc655eae82",
+      "sizeBytes": 871,
+      "lineCount": 38,
+      "moduleId": "module:.github/workflows/update-suno-prompt-catalog.yml",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:docs/acceptance-testing-report-20260401.md",
+      "path": "docs/acceptance-testing-report-20260401.md",
+      "language": "unknown",
+      "role": "docs",
+      "hash": "f958b606e723b5c7af7908d84698016726bd6b547c991fc1345fe83f92734a7e",
+      "sizeBytes": 15627,
+      "lineCount": 352,
+      "moduleId": "module:docs/acceptance-testing-report-20260401.md",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:docs/birdseye/index.json",
+      "path": "docs/birdseye/index.json",
+      "language": "unknown",
+      "role": "docs",
+      "hash": "320159243cf6619210d11aa32895d842862f3e9b85fd7443cc10394af20789fd",
+      "sizeBytes": 7027,
+      "lineCount": 221,
+      "moduleId": "module:docs/birdseye/index.json",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:docs/BIRDSEYE.md",
+      "path": "docs/BIRDSEYE.md",
+      "language": "unknown",
+      "role": "docs",
+      "hash": "c18c125d895c5a5c0c06b4a681b23aa9f43906680409d90141048cb4c64f6be3",
+      "sizeBytes": 4649,
+      "lineCount": 108,
+      "moduleId": "module:docs/BIRDSEYE.md",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:docs/implementation/acceptance-review-20260401.md",
+      "path": "docs/implementation/acceptance-review-20260401.md",
+      "language": "unknown",
+      "role": "docs",
+      "hash": "ffce9b29cd7b699c5671d7af617d5892950b06467c50905c89ec63a49bc8a13f",
+      "sizeBytes": 6283,
+      "lineCount": 157,
+      "moduleId": "module:docs/implementation/acceptance-review-20260401.md",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:docs/implementation/bootstrap-checklist-v1.md",
+      "path": "docs/implementation/bootstrap-checklist-v1.md",
+      "language": "unknown",
+      "role": "docs",
+      "hash": "d8c99777d1e00f442baa7eb2ec7f5c124e01103316e962415592f02047ea4a84",
+      "sizeBytes": 3005,
+      "lineCount": 97,
+      "moduleId": "module:docs/implementation/bootstrap-checklist-v1.md",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:docs/implementation/command-contracts-v1.md",
+      "path": "docs/implementation/command-contracts-v1.md",
+      "language": "unknown",
+      "role": "docs",
+      "hash": "0afaed7753c289f2ffd3203bda6f2343d5fc6e302cf456e1f6905807deaa48c9",
+      "sizeBytes": 4173,
+      "lineCount": 316,
+      "moduleId": "module:docs/implementation/command-contracts-v1.md",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:docs/implementation/frontend-constants-v1.md",
+      "path": "docs/implementation/frontend-constants-v1.md",
+      "language": "unknown",
+      "role": "docs",
+      "hash": "8457e46763ae6642b3e41f859993c7b92a43ff271a75757d87bdb5a96130b710",
+      "sizeBytes": 3779,
+      "lineCount": 113,
+      "moduleId": "module:docs/implementation/frontend-constants-v1.md",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:docs/implementation/implementation-prep-v1.md",
+      "path": "docs/implementation/implementation-prep-v1.md",
+      "language": "unknown",
+      "role": "docs",
+      "hash": "e2b3bfb8f37c49f835b3025605cda20c331c23594bbe98ec2a6d4d712fa9f8fd",
+      "sizeBytes": 3396,
+      "lineCount": 90,
+      "moduleId": "module:docs/implementation/implementation-prep-v1.md",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:docs/implementation/llama-cpp-runtime-memo-20260401.md",
+      "path": "docs/implementation/llama-cpp-runtime-memo-20260401.md",
+      "language": "unknown",
+      "role": "docs",
+      "hash": "039fc7dad4b053e9725dd09d42d2961fd42c1cc5cc636ed13e1213e6b64a96a4",
+      "sizeBytes": 4117,
+      "lineCount": 118,
+      "moduleId": "module:docs/implementation/llama-cpp-runtime-memo-20260401.md",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:docs/implementation/lyric-affect-insight-v2.md",
+      "path": "docs/implementation/lyric-affect-insight-v2.md",
+      "language": "unknown",
+      "role": "docs",
+      "hash": "aad12805a59c4f9384520da7ca0a2320c2f73ea8acc7981ab316eb10978623c6",
+      "sizeBytes": 3161,
+      "lineCount": 78,
+      "moduleId": "module:docs/implementation/lyric-affect-insight-v2.md",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:docs/implementation/lyric-affect-metrics-v1.md",
+      "path": "docs/implementation/lyric-affect-metrics-v1.md",
+      "language": "unknown",
+      "role": "docs",
+      "hash": "76d64c0f0dae971932a71ee43144b07e5dabbe0f76cbfb60c784c8bcc8165a56",
+      "sizeBytes": 2542,
+      "lineCount": 83,
+      "moduleId": "module:docs/implementation/lyric-affect-metrics-v1.md",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:docs/implementation/README.md",
+      "path": "docs/implementation/README.md",
+      "language": "unknown",
+      "role": "docs",
+      "hash": "1b52d8d95079d985d70670a89d0d0f63bb760acf883591cbc844319d9c2e5823",
+      "sizeBytes": 1703,
+      "lineCount": 38,
+      "moduleId": "module:docs/implementation/README.md",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:docs/implementation/rhyme-implementation-checklist-v1.md",
+      "path": "docs/implementation/rhyme-implementation-checklist-v1.md",
+      "language": "unknown",
+      "role": "docs",
+      "hash": "3f30481a48794c4ba3374af9ba8888a1b7cc7afa132e10c07cc1f780ee24ebcb",
+      "sizeBytes": 4964,
+      "lineCount": 126,
+      "moduleId": "module:docs/implementation/rhyme-implementation-checklist-v1.md",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:docs/implementation/system-architecture-v1.md",
+      "path": "docs/implementation/system-architecture-v1.md",
+      "language": "unknown",
+      "role": "docs",
+      "hash": "99646a20dee20b39681cdfc8c424263acb9b8c78768bce09a816ed3ed3b6f2d6",
+      "sizeBytes": 3838,
+      "lineCount": 176,
+      "moduleId": "module:docs/implementation/system-architecture-v1.md",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:docs/implementation/test-design-v1.md",
+      "path": "docs/implementation/test-design-v1.md",
+      "language": "unknown",
+      "role": "docs",
+      "hash": "6c66fb46d022066cd32d207e33b3b04ac27b4047418fbce72299dd3830d77d3e",
+      "sizeBytes": 15534,
+      "lineCount": 366,
+      "moduleId": "module:docs/implementation/test-design-v1.md",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:docs/inspection-report-20260401.md",
+      "path": "docs/inspection-report-20260401.md",
+      "language": "unknown",
+      "role": "docs",
+      "hash": "1e3b0ce0d23c4b6f7e3fb6f0672dedb950374c25a79528dfce8d1375d09e97d0",
+      "sizeBytes": 4151,
+      "lineCount": 112,
+      "moduleId": "module:docs/inspection-report-20260401.md",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:docs/notes/detailed-requirements-source.txt",
+      "path": "docs/notes/detailed-requirements-source.txt",
+      "language": "unknown",
+      "role": "docs",
+      "hash": "907e6e4d7656b6c4f20965ca2e00cecf994515a6bb1b8662d47c7604180df1de",
+      "sizeBytes": 18236,
+      "lineCount": 566,
+      "moduleId": "module:docs/notes/detailed-requirements-source.txt",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:docs/poc-completion-report-20260401.md",
+      "path": "docs/poc-completion-report-20260401.md",
+      "language": "unknown",
+      "role": "docs",
+      "hash": "635f6de3dd1e21a9095c393ea3b933a45394b5de76e4f55e4c1f6c201fb62973",
+      "sizeBytes": 3918,
+      "lineCount": 132,
+      "moduleId": "module:docs/poc-completion-report-20260401.md",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:docs/project/BLUEPRINT.md",
+      "path": "docs/project/BLUEPRINT.md",
+      "language": "unknown",
+      "role": "docs",
+      "hash": "664a814b37a494cb6b9a340f05d9211c208d098594403c659f23fdb725ac9b43",
+      "sizeBytes": 3388,
+      "lineCount": 95,
+      "moduleId": "module:docs/project/BLUEPRINT.md",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:docs/project/GUARDRAILS.md",
+      "path": "docs/project/GUARDRAILS.md",
+      "language": "unknown",
+      "role": "docs",
+      "hash": "922afb165bd3d03b82e63c40f7b8f85e902ed210739e35253eb8b34d819080bb",
+      "sizeBytes": 3764,
+      "lineCount": 127,
+      "moduleId": "module:docs/project/GUARDRAILS.md",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:docs/project/HUB.codex.md",
+      "path": "docs/project/HUB.codex.md",
+      "language": "unknown",
+      "role": "docs",
+      "hash": "248a42723d8edd95c7a1af247f8580c3166b7ea57da84da8278bf2e17b4f25d4",
+      "sizeBytes": 5922,
+      "lineCount": 131,
+      "moduleId": "module:docs/project/HUB.codex.md",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:docs/releases/v0.1.0.md",
+      "path": "docs/releases/v0.1.0.md",
+      "language": "unknown",
+      "role": "docs",
+      "hash": "85461a5e9df69aadb5c271195fada34a25b5cda88211f4235d9d48876d7cab6a",
+      "sizeBytes": 1457,
+      "lineCount": 45,
+      "moduleId": "module:docs/releases/v0.1.0.md",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:docs/releases/v1.1.0.md",
+      "path": "docs/releases/v1.1.0.md",
+      "language": "unknown",
+      "role": "docs",
+      "hash": "2bc617956d2981bd15ec497749aec313f5a2e553f99239583403c35aab8b6734",
+      "sizeBytes": 1844,
+      "lineCount": 44,
+      "moduleId": "module:docs/releases/v1.1.0.md",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:docs/requirements/acceptance-test-cases-v1.md",
+      "path": "docs/requirements/acceptance-test-cases-v1.md",
+      "language": "unknown",
+      "role": "docs",
+      "hash": "13b72625e2d7ccd68fa45d3abe121c7adcf06accb315d490b164e09a1428bde7",
+      "sizeBytes": 10579,
+      "lineCount": 314,
+      "moduleId": "module:docs/requirements/acceptance-test-cases-v1.md",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:docs/requirements/export-spec-v1.md",
+      "path": "docs/requirements/export-spec-v1.md",
+      "language": "unknown",
+      "role": "docs",
+      "hash": "b3ebf2b26968f623f21d8037a18504305f27d50228ddf53b3ba137327dbf579d",
+      "sizeBytes": 6756,
+      "lineCount": 216,
+      "moduleId": "module:docs/requirements/export-spec-v1.md",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:docs/requirements/frontend-design/product_requirements_document.md",
+      "path": "docs/requirements/frontend-design/product_requirements_document.md",
+      "language": "unknown",
+      "role": "docs",
+      "hash": "57dcf2a557cb02a07acfc07168b82ffaf14278e7ed26adb4ff165d3ffdd97a49",
+      "sizeBytes": 3455,
+      "lineCount": 93,
+      "moduleId": "module:docs/requirements/frontend-design/product_requirements_document.md",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:docs/requirements/frontend-design/runtime-visual-gap-checklist-20260401.md",
+      "path": "docs/requirements/frontend-design/runtime-visual-gap-checklist-20260401.md",
+      "language": "unknown",
+      "role": "docs",
+      "hash": "0dffa9f4835915d5e124bdc6ca86fdc84968634f9d62a794b37b973959275704",
+      "sizeBytes": 7568,
+      "lineCount": 112,
+      "moduleId": "module:docs/requirements/frontend-design/runtime-visual-gap-checklist-20260401.md",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:docs/requirements/frontend-design/runtime-visual-gap-review-20260401.md",
+      "path": "docs/requirements/frontend-design/runtime-visual-gap-review-20260401.md",
+      "language": "unknown",
+      "role": "docs",
+      "hash": "d1dee8194b2fc84c09025410fccf0ba44ee4f7ddb270ed6b45a136c5c0e464d6",
+      "sizeBytes": 7807,
+      "lineCount": 171,
+      "moduleId": "module:docs/requirements/frontend-design/runtime-visual-gap-review-20260401.md",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:docs/requirements/frontend-design/stitch/verse_atelier/DESIGN.md",
+      "path": "docs/requirements/frontend-design/stitch/verse_atelier/DESIGN.md",
+      "language": "unknown",
+      "role": "docs",
+      "hash": "c51f6dd11e20ee13fd5020903bd9191d3c8722ed94c912e2e1389a896955a52b",
+      "sizeBytes": 6343,
+      "lineCount": 101,
+      "moduleId": "module:docs/requirements/frontend-design/stitch/verse_atelier/DESIGN.md",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:docs/requirements/frontend-requirements-v1.md",
+      "path": "docs/requirements/frontend-requirements-v1.md",
+      "language": "unknown",
+      "role": "docs",
+      "hash": "ea8f5c72cb8c1eb6f85ca1f39b907355821754ddb90539ba5a988423e19afd36",
+      "sizeBytes": 12005,
+      "lineCount": 415,
+      "moduleId": "module:docs/requirements/frontend-requirements-v1.md",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:docs/requirements/implementation-gap-checklist-20260401.md",
+      "path": "docs/requirements/implementation-gap-checklist-20260401.md",
+      "language": "unknown",
+      "role": "docs",
+      "hash": "b3c38e14f4e72cf118bab173df607af46e4a171428f33e01912bb5f7396808c5",
+      "sizeBytes": 14820,
+      "lineCount": 183,
+      "moduleId": "module:docs/requirements/implementation-gap-checklist-20260401.md",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:docs/requirements/local-llm-connector-v1.md",
+      "path": "docs/requirements/local-llm-connector-v1.md",
+      "language": "unknown",
+      "role": "docs",
+      "hash": "b65f24a6aea14c87ad120778bcf25b5e3985d007c164947dbe499f2fc17baf48",
+      "sizeBytes": 6724,
+      "lineCount": 204,
+      "moduleId": "module:docs/requirements/local-llm-connector-v1.md",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:docs/requirements/logical-delete-ui-v1.md",
+      "path": "docs/requirements/logical-delete-ui-v1.md",
+      "language": "unknown",
+      "role": "docs",
+      "hash": "6e8631cb6d7a16ade8250bfd7a0884cfab2a006e94b1fdf04e40d7c0089c9d9f",
+      "sizeBytes": 6209,
+      "lineCount": 187,
+      "moduleId": "module:docs/requirements/logical-delete-ui-v1.md",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:docs/requirements/lyric-affect-insight-v2.md",
+      "path": "docs/requirements/lyric-affect-insight-v2.md",
+      "language": "unknown",
+      "role": "docs",
+      "hash": "3154c4c062c69d72141b25a6f6deb50ca1247180533356767bd55e88ea121ec5",
+      "sizeBytes": 4528,
+      "lineCount": 82,
+      "moduleId": "module:docs/requirements/lyric-affect-insight-v2.md",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:docs/requirements/lyric-affect-metrics-v1.md",
+      "path": "docs/requirements/lyric-affect-metrics-v1.md",
+      "language": "unknown",
+      "role": "docs",
+      "hash": "2e8ecb55f179522bca92ab8e599c75890e7a4d84bb92c472b89b6ea4cb6e45e8",
+      "sizeBytes": 2791,
+      "lineCount": 56,
+      "moduleId": "module:docs/requirements/lyric-affect-metrics-v1.md",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:docs/requirements/os-differences-v1.md",
+      "path": "docs/requirements/os-differences-v1.md",
+      "language": "unknown",
+      "role": "docs",
+      "hash": "938433fcdd179c4ca1aa81c792c938493ce4101e09b20f0e5a90a50c85971f51",
+      "sizeBytes": 8784,
+      "lineCount": 205,
+      "moduleId": "module:docs/requirements/os-differences-v1.md",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:docs/requirements/poc-task-breakdown-v1.md",
+      "path": "docs/requirements/poc-task-breakdown-v1.md",
+      "language": "unknown",
+      "role": "docs",
+      "hash": "33fb17a12ddbcfc74738caeda2d59f0c86a074e380b27109001ade8146d4bf19",
+      "sizeBytes": 9259,
+      "lineCount": 234,
+      "moduleId": "module:docs/requirements/poc-task-breakdown-v1.md",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:docs/requirements/requirements.md",
+      "path": "docs/requirements/requirements.md",
+      "language": "unknown",
+      "role": "docs",
+      "hash": "fb8b0a815f2fd53b03c0769972fb2e0af15f0a2bb12b849e11a6c1729e62f042",
+      "sizeBytes": 44257,
+      "lineCount": 979,
+      "moduleId": "module:docs/requirements/requirements.md",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:docs/requirements/review-log.md",
+      "path": "docs/requirements/review-log.md",
+      "language": "unknown",
+      "role": "docs",
+      "hash": "aa748844b0460893612303eba9eff2df0b1ed658f31280615842c8da3bd74f37",
+      "sizeBytes": 42104,
+      "lineCount": 1004,
+      "moduleId": "module:docs/requirements/review-log.md",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:docs/requirements/rhyme-analysis-v1.md",
+      "path": "docs/requirements/rhyme-analysis-v1.md",
+      "language": "unknown",
+      "role": "docs",
+      "hash": "09ac25acf649c88c2cf59cd0562bf93c0259d560b16026b2cfbbdbc767bef1b5",
+      "sizeBytes": 5027,
+      "lineCount": 134,
+      "moduleId": "module:docs/requirements/rhyme-analysis-v1.md",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:docs/requirements/screen-flow-v1.md",
+      "path": "docs/requirements/screen-flow-v1.md",
+      "language": "unknown",
+      "role": "docs",
+      "hash": "e94df07dd2b1374c8890409640372b51a2daec899b549a26592bed1093f331d5",
+      "sizeBytes": 7801,
+      "lineCount": 169,
+      "moduleId": "module:docs/requirements/screen-flow-v1.md",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:docs/research/deep-research-report-20260331.md",
+      "path": "docs/research/deep-research-report-20260331.md",
+      "language": "unknown",
+      "role": "docs",
+      "hash": "0218330b1e04d8fa459474dca8289be96c3a1eae0a50f7ccc2f93195b5e705b2",
+      "sizeBytes": 25053,
+      "lineCount": 204,
+      "moduleId": "module:docs/research/deep-research-report-20260331.md",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:docs/tasks/INTENT-001-phase0-1.md",
+      "path": "docs/tasks/INTENT-001-phase0-1.md",
+      "language": "unknown",
+      "role": "docs",
+      "hash": "02963b2377e9d016df826c118bc80f938c63c2a989f813efed6231583656aded",
+      "sizeBytes": 682,
+      "lineCount": 39,
+      "moduleId": "module:docs/tasks/INTENT-001-phase0-1.md",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:docs/tasks/INTENT-002-phase2-3.md",
+      "path": "docs/tasks/INTENT-002-phase2-3.md",
+      "language": "unknown",
+      "role": "docs",
+      "hash": "a81b6aada5462925d91b711da320a3a2710fcd5223a7c8faeb5a18d4fb70f6bc",
+      "sizeBytes": 681,
+      "lineCount": 38,
+      "moduleId": "module:docs/tasks/INTENT-002-phase2-3.md",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:docs/tasks/INTENT-003-phase5-6.md",
+      "path": "docs/tasks/INTENT-003-phase5-6.md",
+      "language": "unknown",
+      "role": "docs",
+      "hash": "42201de86d677809f37e4e8eb28be24bad3591231c49871c54c6f06b15ce2749",
+      "sizeBytes": 656,
+      "lineCount": 37,
+      "moduleId": "module:docs/tasks/INTENT-003-phase5-6.md",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:docs/tasks/INTENT-004-additional-features.md",
+      "path": "docs/tasks/INTENT-004-additional-features.md",
+      "language": "unknown",
+      "role": "docs",
+      "hash": "2c7b1c35239605b1cb556d9176f96432eef93e6a4f943c549490f6b05e96834d",
+      "sizeBytes": 553,
+      "lineCount": 35,
+      "moduleId": "module:docs/tasks/INTENT-004-additional-features.md",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:docs/tasks/TASK-001-tauri-minimal.md",
+      "path": "docs/tasks/TASK-001-tauri-minimal.md",
+      "language": "unknown",
+      "role": "docs",
+      "hash": "c3b44360469a2589ebe1b513621990ef49fed01dfbcd8ae103578f333908c4cc",
+      "sizeBytes": 904,
+      "lineCount": 53,
+      "moduleId": "module:docs/tasks/TASK-001-tauri-minimal.md",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:docs/tasks/TASK-002-sqlite-init.md",
+      "path": "docs/tasks/TASK-002-sqlite-init.md",
+      "language": "unknown",
+      "role": "docs",
+      "hash": "17446533749618104a8dbafc4c649c71ee47a58bd4cfe799f0df9656d3913e92",
+      "sizeBytes": 841,
+      "lineCount": 51,
+      "moduleId": "module:docs/tasks/TASK-002-sqlite-init.md",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:docs/tasks/TASK-003-repository-crud.md",
+      "path": "docs/tasks/TASK-003-repository-crud.md",
+      "language": "unknown",
+      "role": "docs",
+      "hash": "a08bb272751746799aa84a39220976d20eb5d4c696419f63fd1ae84f4903ced8",
+      "sizeBytes": 933,
+      "lineCount": 53,
+      "moduleId": "module:docs/tasks/TASK-003-repository-crud.md",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:docs/tasks/TASK-004-os-boot-check.md",
+      "path": "docs/tasks/TASK-004-os-boot-check.md",
+      "language": "unknown",
+      "role": "docs",
+      "hash": "c681213f05f4c0d65d01fb1fa666aef4656fa86de1bbfab400d34d23e28a2675",
+      "sizeBytes": 790,
+      "lineCount": 55,
+      "moduleId": "module:docs/tasks/TASK-004-os-boot-check.md",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:docs/tasks/TASK-005-monaco-integration.md",
+      "path": "docs/tasks/TASK-005-monaco-integration.md",
+      "language": "unknown",
+      "role": "docs",
+      "hash": "d5e9f9aabc1ce0142015ade300b42412a73ceeeb2eba22a86b4adadb737227b5",
+      "sizeBytes": 744,
+      "lineCount": 50,
+      "moduleId": "module:docs/tasks/TASK-005-monaco-integration.md",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:docs/tasks/TASK-006-section-management.md",
+      "path": "docs/tasks/TASK-006-section-management.md",
+      "language": "unknown",
+      "role": "docs",
+      "hash": "5008ec5769d61496506ddb037f7dd897cd4fda8a60a3217ddd71637d37e84086",
+      "sizeBytes": 787,
+      "lineCount": 44,
+      "moduleId": "module:docs/tasks/TASK-006-section-management.md",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:docs/tasks/TASK-007-diff-editor.md",
+      "path": "docs/tasks/TASK-007-diff-editor.md",
+      "language": "unknown",
+      "role": "docs",
+      "hash": "f40048241a2ebe048c2a2252d6130dc24410356fcbe034751dc5faba050f641a",
+      "sizeBytes": 605,
+      "lineCount": 42,
+      "moduleId": "module:docs/tasks/TASK-007-diff-editor.md",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:docs/tasks/TASK-008-fragment-management.md",
+      "path": "docs/tasks/TASK-008-fragment-management.md",
+      "language": "unknown",
+      "role": "docs",
+      "hash": "23a621385e1f598f1009fd23cfa199c825f73ed80021e9227aa15209d14a4298",
+      "sizeBytes": 709,
+      "lineCount": 44,
+      "moduleId": "module:docs/tasks/TASK-008-fragment-management.md",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:docs/tasks/TASK-009-search-import-copy.md",
+      "path": "docs/tasks/TASK-009-search-import-copy.md",
+      "language": "unknown",
+      "role": "docs",
+      "hash": "fe113a227a2faaae2d8c2228b3795f705d30ad8023657b1d9e178ca402c0f4ba",
+      "sizeBytes": 635,
+      "lineCount": 33,
+      "moduleId": "module:docs/tasks/TASK-009-search-import-copy.md",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:e2e/app.spec.ts",
+      "path": "e2e/app.spec.ts",
+      "language": "ts",
+      "role": "test",
+      "hash": "a105903646d7e819606da13a145ee5fb6d05c72aedcb25ec0b84e76eea950973",
+      "sizeBytes": 7982,
+      "lineCount": 217,
+      "moduleId": "module:e2e/app.spec.ts",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:e2e/editor.spec.ts",
+      "path": "e2e/editor.spec.ts",
+      "language": "ts",
+      "role": "test",
+      "hash": "66dacf20239047a37d9e78de92ce459b9760332b06d2b6226bab21c889c7e944",
+      "sizeBytes": 11243,
+      "lineCount": 306,
+      "moduleId": "module:e2e/editor.spec.ts",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:e2e/language.spec.ts",
+      "path": "e2e/language.spec.ts",
+      "language": "ts",
+      "role": "test",
+      "hash": "686683bffe8d226fbf089a1583fa7ccf3f2bbcb13130024da56a958428162f9f",
+      "sizeBytes": 8882,
+      "lineCount": 240,
+      "moduleId": "module:e2e/language.spec.ts",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:package-lock.json",
+      "path": "package-lock.json",
+      "language": "unknown",
+      "role": "source",
+      "hash": "395227a8000a8855d369a89cbba154656ad0b9336ddf96b117d27dcbadd1d008",
+      "sizeBytes": 164974,
+      "lineCount": 4875,
+      "moduleId": "module:package-lock.json",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:package.json",
+      "path": "package.json",
+      "language": "unknown",
+      "role": "config",
+      "hash": "3861fd5ef6efaa7b889e786123d13e03aa86be1ec28b6be29d623282d4147d68",
+      "sizeBytes": 1497,
+      "lineCount": 50,
+      "moduleId": "module:package.json",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:playwright.config.ts",
+      "path": "playwright.config.ts",
+      "language": "ts",
+      "role": "source",
+      "hash": "c5f7aed17bf9f48f93c0e9dfe56ee724ae3bd134244e735981c3642dc9b624f1",
+      "sizeBytes": 592,
+      "lineCount": 26,
+      "moduleId": "module:playwright.config.ts",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:README.en.md",
+      "path": "README.en.md",
+      "language": "unknown",
+      "role": "docs",
+      "hash": "e0665d35dadabc04ffe09ef769844fb9bf0be8f2909046c313b5e50d4ad59c33",
+      "sizeBytes": 8877,
+      "lineCount": 310,
+      "moduleId": "module:README.en.md",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:README.md",
+      "path": "README.md",
+      "language": "unknown",
+      "role": "docs",
+      "hash": "5c6f31280ec126ead51ef9bb3f809c83fac85ddebf76a8abb837e01d851832ed",
+      "sizeBytes": 11199,
+      "lineCount": 319,
+      "moduleId": "module:README.md",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:scripts/enrich-suno-important-sections.mjs",
+      "path": "scripts/enrich-suno-important-sections.mjs",
+      "language": "js",
+      "role": "source",
+      "hash": "4fa6aa39a6588767713b9ace0ad3339e4798f0907439e32f86faaadf4f0547e2",
+      "sizeBytes": 7765,
+      "lineCount": 241,
+      "moduleId": "module:scripts/enrich-suno-important-sections.mjs",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:scripts/enrich-suno-prompt-catalog.mjs",
+      "path": "scripts/enrich-suno-prompt-catalog.mjs",
+      "language": "js",
+      "role": "source",
+      "hash": "6b199c2e5d15881662277a5bb5b127d3db74d265c084819ff1f310ee59f52269",
+      "sizeBytes": 8032,
+      "lineCount": 252,
+      "moduleId": "module:scripts/enrich-suno-prompt-catalog.mjs",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:scripts/lib/suno-catalog-shards.mjs",
+      "path": "scripts/lib/suno-catalog-shards.mjs",
+      "language": "js",
+      "role": "source",
+      "hash": "952a0134cf5e453e75a2f205bac8118afcaf6fb97a0562653d1c2c5deb312aa8",
+      "sizeBytes": 4266,
+      "lineCount": 107,
+      "moduleId": "module:scripts/lib/suno-catalog-shards.mjs",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:scripts/update-suno-prompt-catalog.mjs",
+      "path": "scripts/update-suno-prompt-catalog.mjs",
+      "language": "js",
+      "role": "source",
+      "hash": "c3358300755121da1fa0bb65c3f3d4db57f2a4c406e01d667ce49c9f8152041d",
+      "sizeBytes": 4745,
+      "lineCount": 147,
+      "moduleId": "module:scripts/update-suno-prompt-catalog.mjs",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/App.tsx",
+      "path": "src/App.tsx",
+      "language": "tsx",
+      "role": "source",
+      "hash": "86133103f3a5506224fa9d5360117441a1dd41bba63452405fa02971b6647992",
+      "sizeBytes": 412,
+      "lineCount": 17,
+      "moduleId": "module:src/App.tsx",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/components/AffectMetricsPanel.tsx",
+      "path": "src/components/AffectMetricsPanel.tsx",
+      "language": "tsx",
+      "role": "source",
+      "hash": "617aea5664a184cded1986ce441437b2a7bd903bf6baef39f5a0652fed0ff7e1",
+      "sizeBytes": 8815,
+      "lineCount": 247,
+      "moduleId": "module:src/components/AffectMetricsPanel.tsx",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/components/CopyOptionsPanel.tsx",
+      "path": "src/components/CopyOptionsPanel.tsx",
+      "language": "tsx",
+      "role": "source",
+      "hash": "167bb3ec5e282b20917476900a25cec923d1ed64c19523825dbe7fa9c8adffcf",
+      "sizeBytes": 3752,
+      "lineCount": 136,
+      "moduleId": "module:src/components/CopyOptionsPanel.tsx",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/components/DiffViewer.tsx",
+      "path": "src/components/DiffViewer.tsx",
+      "language": "tsx",
+      "role": "source",
+      "hash": "1ec3d009a6e9649b92b1a940d27b3bb929feb57fe8a78deadbed754d2b806e5e",
+      "sizeBytes": 13236,
+      "lineCount": 412,
+      "moduleId": "module:src/components/DiffViewer.tsx",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/components/ExportPanel.tsx",
+      "path": "src/components/ExportPanel.tsx",
+      "language": "tsx",
+      "role": "source",
+      "hash": "bfac9eb4cc5feecd717a3438ef53f949a4d2e542e260dbd40b41596dcce9d293",
+      "sizeBytes": 5819,
+      "lineCount": 183,
+      "moduleId": "module:src/components/ExportPanel.tsx",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/components/FragmentPanel.tsx",
+      "path": "src/components/FragmentPanel.tsx",
+      "language": "tsx",
+      "role": "source",
+      "hash": "ea6f82da3ad83539f9e48e244e34cd715fd83ee37c0a7247f59706ef1d0f3dc2",
+      "sizeBytes": 7454,
+      "lineCount": 217,
+      "moduleId": "module:src/components/FragmentPanel.tsx",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/components/ImportDialog.tsx",
+      "path": "src/components/ImportDialog.tsx",
+      "language": "tsx",
+      "role": "source",
+      "hash": "aad624873f6e6bf90d41618458d3e885cb3873ce64582c7b32500a95c0d9210a",
+      "sizeBytes": 6370,
+      "lineCount": 198,
+      "moduleId": "module:src/components/ImportDialog.tsx",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/components/Layout.tsx",
+      "path": "src/components/Layout.tsx",
+      "language": "tsx",
+      "role": "source",
+      "hash": "e41c3c1a647efbefad661de8a474c8a824b1693a91d6c102570284449435191c",
+      "sizeBytes": 5360,
+      "lineCount": 165,
+      "moduleId": "module:src/components/Layout.tsx",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/components/LLMAssistPanel.tsx",
+      "path": "src/components/LLMAssistPanel.tsx",
+      "language": "tsx",
+      "role": "source",
+      "hash": "22c21420f93d8d7628e8e63c7df11b9fe4eeff373a953331ed16d2aac54c947e",
+      "sizeBytes": 22567,
+      "lineCount": 614,
+      "moduleId": "module:src/components/LLMAssistPanel.tsx",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/components/LLMReviewPanel.tsx",
+      "path": "src/components/LLMReviewPanel.tsx",
+      "language": "tsx",
+      "role": "source",
+      "hash": "4805159b757d02c6d2ccc68ae5387b82295f91dc77bb4f771d2bbd077f6400b2",
+      "sizeBytes": 18736,
+      "lineCount": 565,
+      "moduleId": "module:src/components/LLMReviewPanel.tsx",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/components/LLMSettingsPanel.tsx",
+      "path": "src/components/LLMSettingsPanel.tsx",
+      "language": "tsx",
+      "role": "source",
+      "hash": "728f9ace91d68e1eaa7b61834602165f4c3be054eaeffefd786a4f0bea9cbd03",
+      "sizeBytes": 18246,
+      "lineCount": 555,
+      "moduleId": "module:src/components/LLMSettingsPanel.tsx",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/components/RevisionNotePanel.tsx",
+      "path": "src/components/RevisionNotePanel.tsx",
+      "language": "tsx",
+      "role": "source",
+      "hash": "32390c86703f1197b0d96dae5e3121bfaf74fc7a9f9be990489319ef9c35bcbc",
+      "sizeBytes": 5600,
+      "lineCount": 181,
+      "moduleId": "module:src/components/RevisionNotePanel.tsx",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/components/search/searchUtils.ts",
+      "path": "src/components/search/searchUtils.ts",
+      "language": "ts",
+      "role": "source",
+      "hash": "cf7fbed93fbb21ca910da485a8d04c8dddab29f2c5a1566983a4bf8baa21c0d1",
+      "sizeBytes": 3227,
+      "lineCount": 114,
+      "moduleId": "module:src/components/search/searchUtils.ts",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/components/SearchPanel.tsx",
+      "path": "src/components/SearchPanel.tsx",
+      "language": "tsx",
+      "role": "source",
+      "hash": "296779ebb8ae92287c7c7a4044fde67b824d4944f93eeb2204be5d89f73c6952",
+      "sizeBytes": 4539,
+      "lineCount": 153,
+      "moduleId": "module:src/components/SearchPanel.tsx",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/components/SongArtifactPanel.tsx",
+      "path": "src/components/SongArtifactPanel.tsx",
+      "language": "tsx",
+      "role": "source",
+      "hash": "4129337c270d1e653d131b958313847e5e6f5bfe8cdbe10ad394aef96c2f9209",
+      "sizeBytes": 5028,
+      "lineCount": 161,
+      "moduleId": "module:src/components/SongArtifactPanel.tsx",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/components/songArtifacts/SongArtifactForm.tsx",
+      "path": "src/components/songArtifacts/SongArtifactForm.tsx",
+      "language": "tsx",
+      "role": "source",
+      "hash": "31529260f911191c2f9f9eee164f085f613c56a7b246877354cd10d5885f8a0e",
+      "sizeBytes": 3417,
+      "lineCount": 125,
+      "moduleId": "module:src/components/songArtifacts/SongArtifactForm.tsx",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/components/songArtifacts/SongArtifactList.tsx",
+      "path": "src/components/songArtifacts/SongArtifactList.tsx",
+      "language": "tsx",
+      "role": "source",
+      "hash": "bbc0a75767ad21fbd86e116bc2eacff7c3b5e1a2c46b26e000f6a49aa51bf3fc",
+      "sizeBytes": 2037,
+      "lineCount": 72,
+      "moduleId": "module:src/components/songArtifacts/SongArtifactList.tsx",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/components/StyleProfilePanel.tsx",
+      "path": "src/components/StyleProfilePanel.tsx",
+      "language": "tsx",
+      "role": "source",
+      "hash": "4576fa8b9bd74bfbbcf463778063e52874869ae839984e0b6e31a7f2763f1ea7",
+      "sizeBytes": 6457,
+      "lineCount": 202,
+      "moduleId": "module:src/components/StyleProfilePanel.tsx",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/components/TrashPanel.tsx",
+      "path": "src/components/TrashPanel.tsx",
+      "language": "tsx",
+      "role": "source",
+      "hash": "f13d845be441c6ab1fec50c94511d09c0c3883bd30ea34d329d9a6d85342c65e",
+      "sizeBytes": 6283,
+      "lineCount": 203,
+      "moduleId": "module:src/components/TrashPanel.tsx",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/data/sunoPromptCatalog.json",
+      "path": "src/data/sunoPromptCatalog.json",
+      "language": "unknown",
+      "role": "source",
+      "hash": "fe79c7924317370a77b1a093cff6afab758161727761ae75004a576e7af31246",
+      "sizeBytes": 796317,
+      "lineCount": 29667,
+      "moduleId": "module:src/data/sunoPromptCatalog.json",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/data/sunoPromptCatalog.meta.json",
+      "path": "src/data/sunoPromptCatalog.meta.json",
+      "language": "unknown",
+      "role": "source",
+      "hash": "7e841b850a95b34c7fa21ffa55e143ba7429354ce153988c4bad819bd49f8138",
+      "sizeBytes": 26853,
+      "lineCount": 1523,
+      "moduleId": "module:src/data/sunoPromptCatalog.meta.json",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/data/sunoPromptCatalog.style-club.json",
+      "path": "src/data/sunoPromptCatalog.style-club.json",
+      "language": "unknown",
+      "role": "source",
+      "hash": "c214e7589d832c52f4aef20201bfb4008b8648decf2de2c338f57a0afda6a807",
+      "sizeBytes": 270514,
+      "lineCount": 13632,
+      "moduleId": "module:src/data/sunoPromptCatalog.style-club.json",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/data/sunoPromptCatalog.style-core.json",
+      "path": "src/data/sunoPromptCatalog.style-core.json",
+      "language": "unknown",
+      "role": "source",
+      "hash": "5a41de5bc2f77acececc0a7ddd34f39ec25b00c0a6f0470ecb14263c183e157e",
+      "sizeBytes": 272346,
+      "lineCount": 13355,
+      "moduleId": "module:src/data/sunoPromptCatalog.style-core.json",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/data/sunoPromptCatalog.style-instruments.json",
+      "path": "src/data/sunoPromptCatalog.style-instruments.json",
+      "language": "unknown",
+      "role": "source",
+      "hash": "b27fb5b19c65e49e52959970d3256003b4a760742eede2838644fd45f9898fe9",
+      "sizeBytes": 206439,
+      "lineCount": 7366,
+      "moduleId": "module:src/data/sunoPromptCatalog.style-instruments.json",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/data/sunoPromptCatalog.style-misc.json",
+      "path": "src/data/sunoPromptCatalog.style-misc.json",
+      "language": "unknown",
+      "role": "source",
+      "hash": "cf1709374795004024d02db929d1a5306dcffb5576cf199a9984b92031fc9954",
+      "sizeBytes": 181825,
+      "lineCount": 6631,
+      "moduleId": "module:src/data/sunoPromptCatalog.style-misc.json",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/data/sunoPromptCatalog.style-regions.json",
+      "path": "src/data/sunoPromptCatalog.style-regions.json",
+      "language": "unknown",
+      "role": "source",
+      "hash": "089009f161c5ace6af97656f22bec04e2cb0c1fe2aeaacc092f56998dd917bf1",
+      "sizeBytes": 140953,
+      "lineCount": 5347,
+      "moduleId": "module:src/data/sunoPromptCatalog.style-regions.json",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/data/sunoPromptCatalog.style-voice.json",
+      "path": "src/data/sunoPromptCatalog.style-voice.json",
+      "language": "unknown",
+      "role": "source",
+      "hash": "b256dcc330dad754f95c28ff736db25af3d142b24e1080ba93021f24cc429faa",
+      "sizeBytes": 87938,
+      "lineCount": 3679,
+      "moduleId": "module:src/data/sunoPromptCatalog.style-voice.json",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/data/sunoPromptCatalog.vocal-core.json",
+      "path": "src/data/sunoPromptCatalog.vocal-core.json",
+      "language": "unknown",
+      "role": "source",
+      "hash": "42c7a2fff7a7a92cb2ad65fdcc7a62432cb6cdf84cb2e0eab83fb806ff4a4c05",
+      "sizeBytes": 104139,
+      "lineCount": 4331,
+      "moduleId": "module:src/data/sunoPromptCatalog.vocal-core.json",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/data/sunoPromptCatalog.vocal-emotion.json",
+      "path": "src/data/sunoPromptCatalog.vocal-emotion.json",
+      "language": "unknown",
+      "role": "source",
+      "hash": "747a7b1f943be6132aa40c8da69557f93e185bafceec8da2a132c44f9a17c621",
+      "sizeBytes": 21567,
+      "lineCount": 1119,
+      "moduleId": "module:src/data/sunoPromptCatalog.vocal-emotion.json",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/data/sunoPromptCatalog.vocal-rest.json",
+      "path": "src/data/sunoPromptCatalog.vocal-rest.json",
+      "language": "unknown",
+      "role": "source",
+      "hash": "f85de0e2775dc5b101ae50f46e5612cd80254a632ed46e5d5b2d3b3c50539443",
+      "sizeBytes": 22673,
+      "lineCount": 713,
+      "moduleId": "module:src/data/sunoPromptCatalog.vocal-rest.json",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/lib/affect/lyricsAffectMetrics.ts",
+      "path": "src/lib/affect/lyricsAffectMetrics.ts",
+      "language": "ts",
+      "role": "source",
+      "hash": "d44387471156e39b406ddfeb86f219c5856141eb38be2046dfd561d9fa075a2b",
+      "sizeBytes": 22504,
+      "lineCount": 753,
+      "moduleId": "module:src/lib/affect/lyricsAffectMetrics.ts",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/lib/api/client.ts",
+      "path": "src/lib/api/client.ts",
+      "language": "ts",
+      "role": "source",
+      "hash": "deea29384c7e8d3331a59aa58c257ef0572523038aa2d4e7e162a9da9fbbddfa",
+      "sizeBytes": 11241,
+      "lineCount": 323,
+      "moduleId": "module:src/lib/api/client.ts",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/lib/api/types.ts",
+      "path": "src/lib/api/types.ts",
+      "language": "ts",
+      "role": "source",
+      "hash": "7a96ac8d5b9404ee108443f82613c0dded8e2ecee1b3d321cbadc2066478d504",
+      "sizeBytes": 5895,
+      "lineCount": 289,
+      "moduleId": "module:src/lib/api/types.ts",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/lib/api.ts",
+      "path": "src/lib/api.ts",
+      "language": "ts",
+      "role": "source",
+      "hash": "6446d41b35aa1e0adebb6f900a962670fee3b77a8d1ed25e8613ad2c5282fd24",
+      "sizeBytes": 116,
+      "lineCount": 4,
+      "moduleId": "module:src/lib/api.ts",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/lib/config.ts",
+      "path": "src/lib/config.ts",
+      "language": "ts",
+      "role": "source",
+      "hash": "65bae6203ea9ccb2b26c440e7cdb7093903fe2b0cc835a4cc7ec364d1a3eaef9",
+      "sizeBytes": 1557,
+      "lineCount": 79,
+      "moduleId": "module:src/lib/config.ts",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/lib/hooks/index.ts",
+      "path": "src/lib/hooks/index.ts",
+      "language": "ts",
+      "role": "source",
+      "hash": "223dd287e0dd59451dfa6a0911207698560f03b37bb52fadaf65db1027e6dfc3",
+      "sizeBytes": 397,
+      "lineCount": 12,
+      "moduleId": "module:src/lib/hooks/index.ts",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/lib/hooks/useAutoSave.ts",
+      "path": "src/lib/hooks/useAutoSave.ts",
+      "language": "ts",
+      "role": "source",
+      "hash": "252155b01d4d44f9a300ff08bc3c1259e54c811047072508e4126f832fd5a504",
+      "sizeBytes": 2564,
+      "lineCount": 106,
+      "moduleId": "module:src/lib/hooks/useAutoSave.ts",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/lib/hooks/useBpm.ts",
+      "path": "src/lib/hooks/useBpm.ts",
+      "language": "ts",
+      "role": "source",
+      "hash": "7da755ffae59705ff8aeab4130066a0e6670065fc84724bd604b52fa1b90b012",
+      "sizeBytes": 1679,
+      "lineCount": 54,
+      "moduleId": "module:src/lib/hooks/useBpm.ts",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/lib/hooks/useClipboard.ts",
+      "path": "src/lib/hooks/useClipboard.ts",
+      "language": "ts",
+      "role": "source",
+      "hash": "be9d85e30433efefdb00621e012ffc57f3c618227ce43cf671b2e4fe7e3028b5",
+      "sizeBytes": 1999,
+      "lineCount": 75,
+      "moduleId": "module:src/lib/hooks/useClipboard.ts",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/lib/hooks/useKeyboardShortcuts.ts",
+      "path": "src/lib/hooks/useKeyboardShortcuts.ts",
+      "language": "ts",
+      "role": "source",
+      "hash": "ef58dfaa9bb699e350539305aabe6f8b06aa62a51235244c88eb2f553ac0713c",
+      "sizeBytes": 2578,
+      "lineCount": 82,
+      "moduleId": "module:src/lib/hooks/useKeyboardShortcuts.ts",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/lib/hooks/useLLMPanel.ts",
+      "path": "src/lib/hooks/useLLMPanel.ts",
+      "language": "ts",
+      "role": "source",
+      "hash": "593466be63046a16a3c29e7503ef881ede93f8f43ef1a1c582259a36e309b483",
+      "sizeBytes": 2173,
+      "lineCount": 82,
+      "moduleId": "module:src/lib/hooks/useLLMPanel.ts",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/lib/hooks/usePaneResize.ts",
+      "path": "src/lib/hooks/usePaneResize.ts",
+      "language": "ts",
+      "role": "source",
+      "hash": "569af72068f42ee239749d3025a15a08ef29ffae9f01356fae9d6dcb997b107f",
+      "sizeBytes": 4660,
+      "lineCount": 148,
+      "moduleId": "module:src/lib/hooks/usePaneResize.ts",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/lib/hooks/usePhoneticGuide.ts",
+      "path": "src/lib/hooks/usePhoneticGuide.ts",
+      "language": "ts",
+      "role": "source",
+      "hash": "be85d5d9684d95a548d6ce4a15c5f2b200468d1ebb1c389171b1a11d26636ebb",
+      "sizeBytes": 1344,
+      "lineCount": 49,
+      "moduleId": "module:src/lib/hooks/usePhoneticGuide.ts",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/lib/hooks/useSectionActions.ts",
+      "path": "src/lib/hooks/useSectionActions.ts",
+      "language": "ts",
+      "role": "source",
+      "hash": "bc700b5c4e7156172405e75d6a2af4ff3c337d915eb4819e51befee17d71ff0b",
+      "sizeBytes": 2217,
+      "lineCount": 77,
+      "moduleId": "module:src/lib/hooks/useSectionActions.ts",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/lib/hooks/useSectionDragDrop.ts",
+      "path": "src/lib/hooks/useSectionDragDrop.ts",
+      "language": "ts",
+      "role": "source",
+      "hash": "3b5af088bfea7995fbf5fb06140f6306747ec283e432f8a1e26908388982e108",
+      "sizeBytes": 3756,
+      "lineCount": 114,
+      "moduleId": "module:src/lib/hooks/useSectionDragDrop.ts",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/lib/hooks/useSections.ts",
+      "path": "src/lib/hooks/useSections.ts",
+      "language": "ts",
+      "role": "source",
+      "hash": "30a01e8065cd40e4a371500a40965949ab4075e643bb140da1d3ae07d1f3e667",
+      "sizeBytes": 4544,
+      "lineCount": 146,
+      "moduleId": "module:src/lib/hooks/useSections.ts",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/lib/hooks/useStyleVocal.ts",
+      "path": "src/lib/hooks/useStyleVocal.ts",
+      "language": "ts",
+      "role": "source",
+      "hash": "7b371948fe0159be82f3832b24391f9f60047a0e560d79f367c8c769f1929c7b",
+      "sizeBytes": 1293,
+      "lineCount": 45,
+      "moduleId": "module:src/lib/hooks/useStyleVocal.ts",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/lib/hooks/useUIState.ts",
+      "path": "src/lib/hooks/useUIState.ts",
+      "language": "ts",
+      "role": "source",
+      "hash": "d5939b1fed0eae6c99c68fbb865e11ee94de4948fa05ed6ada905362d34844c8",
+      "sizeBytes": 3747,
+      "lineCount": 110,
+      "moduleId": "module:src/lib/hooks/useUIState.ts",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/lib/i18n/en.ts",
+      "path": "src/lib/i18n/en.ts",
+      "language": "ts",
+      "role": "source",
+      "hash": "edc5a2fd676ab03fc83802eb49a3db0d93050eafa52c487bb8586219d57dfe1c",
+      "sizeBytes": 11458,
+      "lineCount": 297,
+      "moduleId": "module:src/lib/i18n/en.ts",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/lib/i18n/index.ts",
+      "path": "src/lib/i18n/index.ts",
+      "language": "ts",
+      "role": "source",
+      "hash": "af800a815d08c207282de5e93baa6a849e54357f5cf1b058c985513b2357bc9a",
+      "sizeBytes": 145,
+      "lineCount": 9,
+      "moduleId": "module:src/lib/i18n/index.ts",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/lib/i18n/ja.ts",
+      "path": "src/lib/i18n/ja.ts",
+      "language": "ts",
+      "role": "source",
+      "hash": "fd98362fe707e2346763553f09ad011f854285bdc706a13d406c92b442f00852",
+      "sizeBytes": 13763,
+      "lineCount": 297,
+      "moduleId": "module:src/lib/i18n/ja.ts",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/lib/LanguageContext.tsx",
+      "path": "src/lib/LanguageContext.tsx",
+      "language": "tsx",
+      "role": "source",
+      "hash": "7234fee554c50c56c1ea4039f8dab0ba36d7ffc40e003852744437231c21e274",
+      "sizeBytes": 1416,
+      "lineCount": 49,
+      "moduleId": "module:src/lib/LanguageContext.tsx",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/lib/llm/index.ts",
+      "path": "src/lib/llm/index.ts",
+      "language": "ts",
+      "role": "source",
+      "hash": "663ec16b51dbacfbb1f7b721c01b48f8b08a751d8c9d83d26b1cc1a24fd09408",
+      "sizeBytes": 83,
+      "lineCount": 3,
+      "moduleId": "module:src/lib/llm/index.ts",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/lib/llm/modelUtils.ts",
+      "path": "src/lib/llm/modelUtils.ts",
+      "language": "ts",
+      "role": "source",
+      "hash": "00e60fe6cd24f37d1f3d69ce4b2945635fa8a61086aa3e6db424baf23ee2337a",
+      "sizeBytes": 971,
+      "lineCount": 31,
+      "moduleId": "module:src/lib/llm/modelUtils.ts",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/lib/llm/promptBuilder.ts",
+      "path": "src/lib/llm/promptBuilder.ts",
+      "language": "ts",
+      "role": "source",
+      "hash": "7d5f67f712347140637337581ef7e6c425e767532104db06bbb325b6195ce35a",
+      "sizeBytes": 1528,
+      "lineCount": 65,
+      "moduleId": "module:src/lib/llm/promptBuilder.ts",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/lib/llm/sunoPromptCatalog.ts",
+      "path": "src/lib/llm/sunoPromptCatalog.ts",
+      "language": "ts",
+      "role": "source",
+      "hash": "f934ba6683856cbc47be326aa9c775808d4f5f6b83a369e535f034e15ddbf3b7",
+      "sizeBytes": 14110,
+      "lineCount": 446,
+      "moduleId": "module:src/lib/llm/sunoPromptCatalog.ts",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/lib/llm/types.ts",
+      "path": "src/lib/llm/types.ts",
+      "language": "ts",
+      "role": "source",
+      "hash": "a06abeeb45967ad915e8be8ce11821e420dfd075b1ba90ebadecb3d096e49878",
+      "sizeBytes": 573,
+      "lineCount": 33,
+      "moduleId": "module:src/lib/llm/types.ts",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/lib/llm/useLLMSettings.ts",
+      "path": "src/lib/llm/useLLMSettings.ts",
+      "language": "ts",
+      "role": "source",
+      "hash": "9b97ce06b7585c864e9fde36281ec27de3a3d6eaa46b879f2213cfe233ea2d89",
+      "sizeBytes": 1982,
+      "lineCount": 81,
+      "moduleId": "module:src/lib/llm/useLLMSettings.ts",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/lib/llm/utils.ts",
+      "path": "src/lib/llm/utils.ts",
+      "language": "ts",
+      "role": "source",
+      "hash": "4afe089809faba708924a7dff14af841b2eb24d21b2d8d618bb23828d962728c",
+      "sizeBytes": 6646,
+      "lineCount": 268,
+      "moduleId": "module:src/lib/llm/utils.ts",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/lib/ProjectContext.tsx",
+      "path": "src/lib/ProjectContext.tsx",
+      "language": "tsx",
+      "role": "source",
+      "hash": "195bf04dd23f3f7c29a445c513baf6d4ab043ffcf32a77c56255ef745284d681",
+      "sizeBytes": 736,
+      "lineCount": 26,
+      "moduleId": "module:src/lib/ProjectContext.tsx",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/lib/rhyme/analysis.ts",
+      "path": "src/lib/rhyme/analysis.ts",
+      "language": "ts",
+      "role": "source",
+      "hash": "67c9a3c3d33abd2c8b1e872d6ad098e54beb28bac067eea85bcaf08234a9d2e4",
+      "sizeBytes": 7285,
+      "lineCount": 271,
+      "moduleId": "module:src/lib/rhyme/analysis.ts",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/lib/rhyme/constants.ts",
+      "path": "src/lib/rhyme/constants.ts",
+      "language": "ts",
+      "role": "source",
+      "hash": "fe17b0a7eb4840cbdc1fd6ed37bdaf868f59978405e2abda281e831c8c05ea76",
+      "sizeBytes": 2309,
+      "lineCount": 79,
+      "moduleId": "module:src/lib/rhyme/constants.ts",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/lib/section/index.ts",
+      "path": "src/lib/section/index.ts",
+      "language": "ts",
+      "role": "source",
+      "hash": "72b9ae1d8fe6592fe949e547535fb65c5f556c7def96809a153cfa97e8d3e412",
+      "sizeBytes": 72,
+      "lineCount": 5,
+      "moduleId": "module:src/lib/section/index.ts",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/lib/section/types.ts",
+      "path": "src/lib/section/types.ts",
+      "language": "ts",
+      "role": "source",
+      "hash": "c2c9ce86fd1460ed89a81e1cca2a15510febb3e4a18cc6279047699ba1d161bc",
+      "sizeBytes": 303,
+      "lineCount": 14,
+      "moduleId": "module:src/lib/section/types.ts",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/lib/section/utils.ts",
+      "path": "src/lib/section/utils.ts",
+      "language": "ts",
+      "role": "source",
+      "hash": "022e0071e268f5f36a64e14ef43922b7d044a1da6ae0cac0ed37db12894c245d",
+      "sizeBytes": 3296,
+      "lineCount": 118,
+      "moduleId": "module:src/lib/section/utils.ts",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/lib/useProjectData.ts",
+      "path": "src/lib/useProjectData.ts",
+      "language": "ts",
+      "role": "source",
+      "hash": "c0f39311bcd44d3c9817d547a885fa6919ed1c0a7a2d160425f2b203687a8826",
+      "sizeBytes": 6732,
+      "lineCount": 231,
+      "moduleId": "module:src/lib/useProjectData.ts",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/lib/utils/projectStorage.ts",
+      "path": "src/lib/utils/projectStorage.ts",
+      "language": "ts",
+      "role": "source",
+      "hash": "9f542736209ce350a11b594a2ca916bb840c8450c771e8c7c99c613ffaf46e45",
+      "sizeBytes": 3130,
+      "lineCount": 99,
+      "moduleId": "module:src/lib/utils/projectStorage.ts",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/main.tsx",
+      "path": "src/main.tsx",
+      "language": "tsx",
+      "role": "source",
+      "hash": "4e1f703d371d7769de9d4e0f53a1de8eeb52f80e9df62818130c74585648f1fb",
+      "sizeBytes": 551,
+      "lineCount": 19,
+      "moduleId": "module:src/main.tsx",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/pages/editor/ActionPane.tsx",
+      "path": "src/pages/editor/ActionPane.tsx",
+      "language": "tsx",
+      "role": "source",
+      "hash": "53fa18949c6910f005b3c691ab1e4c542d8398462a84d87d684b17576fc0ef5f",
+      "sizeBytes": 2450,
+      "lineCount": 78,
+      "moduleId": "module:src/pages/editor/ActionPane.tsx",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/pages/editor/EditorOverlays.tsx",
+      "path": "src/pages/editor/EditorOverlays.tsx",
+      "language": "tsx",
+      "role": "source",
+      "hash": "cbc4159cd712b18ff637e035a19a8ca1e61f9117f21a1bf96189506321dab5f5",
+      "sizeBytes": 2380,
+      "lineCount": 87,
+      "moduleId": "module:src/pages/editor/EditorOverlays.tsx",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/pages/editor/PhoneticGuidePanel.tsx",
+      "path": "src/pages/editor/PhoneticGuidePanel.tsx",
+      "language": "tsx",
+      "role": "source",
+      "hash": "9e2be0f97750ddb61d2974ca1da227d505a4baaef39f68c322015c2a6abddce2",
+      "sizeBytes": 2416,
+      "lineCount": 69,
+      "moduleId": "module:src/pages/editor/PhoneticGuidePanel.tsx",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/pages/editor/RightStackPane.tsx",
+      "path": "src/pages/editor/RightStackPane.tsx",
+      "language": "tsx",
+      "role": "source",
+      "hash": "d0eae7b6c2e3fd4cdeb29b09838d526c7f3f57285370000fc84afdc22b7a10c5",
+      "sizeBytes": 4561,
+      "lineCount": 139,
+      "moduleId": "module:src/pages/editor/RightStackPane.tsx",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/pages/editor/SectionListCard.tsx",
+      "path": "src/pages/editor/SectionListCard.tsx",
+      "language": "tsx",
+      "role": "source",
+      "hash": "1ff1941fe864f5fb1aab65cdf51d5b41315aacc5f3c0acd1326f3fc155813de3",
+      "sizeBytes": 8410,
+      "lineCount": 284,
+      "moduleId": "module:src/pages/editor/SectionListCard.tsx",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/pages/editor/VersionPane.tsx",
+      "path": "src/pages/editor/VersionPane.tsx",
+      "language": "tsx",
+      "role": "source",
+      "hash": "ac0f06f9c8a11a24974b111d5428f564eba10e7a9c60fc42cedb2b9adee6c5e3",
+      "sizeBytes": 6912,
+      "lineCount": 185,
+      "moduleId": "module:src/pages/editor/VersionPane.tsx",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/pages/Editor.tsx",
+      "path": "src/pages/Editor.tsx",
+      "language": "tsx",
+      "role": "source",
+      "hash": "6892f7e0c7c3f881cacd1415c3b03bf39763531dc76cd2d20a5354b6d81416f8",
+      "sizeBytes": 33724,
+      "lineCount": 966,
+      "moduleId": "module:src/pages/Editor.tsx",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/pages/Home.tsx",
+      "path": "src/pages/Home.tsx",
+      "language": "tsx",
+      "role": "source",
+      "hash": "f03cc549526615d81d2ae469cff8a44ca03a46a5e29f3cae177fdf82e18eceef",
+      "sizeBytes": 14720,
+      "lineCount": 401,
+      "moduleId": "module:src/pages/Home.tsx",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/test/AffectMetricsPanel.test.tsx",
+      "path": "src/test/AffectMetricsPanel.test.tsx",
+      "language": "tsx",
+      "role": "test",
+      "hash": "c0b6da19caebb33cca777b0e7ec9f313914ce469015b28d025d9c79b1d72a5aa",
+      "sizeBytes": 2693,
+      "lineCount": 80,
+      "moduleId": "module:src/test/AffectMetricsPanel.test.tsx",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/test/api-client.test.ts",
+      "path": "src/test/api-client.test.ts",
+      "language": "ts",
+      "role": "test",
+      "hash": "6558e9c94e5c8b301b5a27e74929f8c4271b1f5f9f0f6eaf199f6525cc364d57",
+      "sizeBytes": 22727,
+      "lineCount": 679,
+      "moduleId": "module:src/test/api-client.test.ts",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/test/config.test.ts",
+      "path": "src/test/config.test.ts",
+      "language": "ts",
+      "role": "test",
+      "hash": "8f180e76a3292d0fa87cab6a5c4b034024c21f3a5f21bad13e44b22fd7746699",
+      "sizeBytes": 7186,
+      "lineCount": 185,
+      "moduleId": "module:src/test/config.test.ts",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/test/countTrailingTokenMatches.test.ts",
+      "path": "src/test/countTrailingTokenMatches.test.ts",
+      "language": "ts",
+      "role": "test",
+      "hash": "7ce939095563475e7b55faff209416328f073386abc044f8a9001779f3427005",
+      "sizeBytes": 1656,
+      "lineCount": 52,
+      "moduleId": "module:src/test/countTrailingTokenMatches.test.ts",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/test/editor-utils.test.ts",
+      "path": "src/test/editor-utils.test.ts",
+      "language": "ts",
+      "role": "test",
+      "hash": "01683746f98de67f02d4f82fb212138f825fc7213d4e37bf7918f688cf41082a",
+      "sizeBytes": 3207,
+      "lineCount": 82,
+      "moduleId": "module:src/test/editor-utils.test.ts",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/test/fixtures/affectGoldenLyrics.ts",
+      "path": "src/test/fixtures/affectGoldenLyrics.ts",
+      "language": "ts",
+      "role": "test",
+      "hash": "7f7e7bd0511855bbe8d8440a81a14e9bcb5e15b1118dec4b79f201fb5e3a4b9a",
+      "sizeBytes": 884,
+      "lineCount": 49,
+      "moduleId": "module:src/test/fixtures/affectGoldenLyrics.ts",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/test/Home.test.tsx",
+      "path": "src/test/Home.test.tsx",
+      "language": "tsx",
+      "role": "test",
+      "hash": "915b97bb2e1f4b2daaa9f852cbbc47293f63f426a873bb0bc91dfc8bfa45353b",
+      "sizeBytes": 8806,
+      "lineCount": 271,
+      "moduleId": "module:src/test/Home.test.tsx",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/test/i18n-extended.test.tsx",
+      "path": "src/test/i18n-extended.test.tsx",
+      "language": "tsx",
+      "role": "test",
+      "hash": "7ac43887fcaabfc3cf4439ff0cce25e3876173fb80982f45fbc7ff6a58ab24cc",
+      "sizeBytes": 8953,
+      "lineCount": 318,
+      "moduleId": "module:src/test/i18n-extended.test.tsx",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/test/i18n-scenarios.test.tsx",
+      "path": "src/test/i18n-scenarios.test.tsx",
+      "language": "tsx",
+      "role": "test",
+      "hash": "dc7b580380ff3e9db77bde863afcb5909fb009f631f74aa890e3cda31279bab8",
+      "sizeBytes": 13651,
+      "lineCount": 301,
+      "moduleId": "module:src/test/i18n-scenarios.test.tsx",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/test/i18n.test.ts",
+      "path": "src/test/i18n.test.ts",
+      "language": "ts",
+      "role": "test",
+      "hash": "2d97abf5e9c64a8ddb8acff8e07c7af834d871e92eadba7857dafcb91459cca7",
+      "sizeBytes": 5010,
+      "lineCount": 104,
+      "moduleId": "module:src/test/i18n.test.ts",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/test/integration.test.tsx",
+      "path": "src/test/integration.test.tsx",
+      "language": "tsx",
+      "role": "test",
+      "hash": "7cd44da44f1cd02abd5eea5ae7ab235a6401a1533be0071068f5f9977ee370e8",
+      "sizeBytes": 7680,
+      "lineCount": 265,
+      "moduleId": "module:src/test/integration.test.tsx",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/test/LanguageContext.test.tsx",
+      "path": "src/test/LanguageContext.test.tsx",
+      "language": "tsx",
+      "role": "test",
+      "hash": "799a9d163c0012ffdf733822e5d049bf9df7c272661015df18f1bbf3045cd0be",
+      "sizeBytes": 9137,
+      "lineCount": 281,
+      "moduleId": "module:src/test/LanguageContext.test.tsx",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/test/Layout.test.tsx",
+      "path": "src/test/Layout.test.tsx",
+      "language": "tsx",
+      "role": "test",
+      "hash": "32e9d312cd03a6f5aba3b49898e14be5de5f927652c59d1ea842d6a526f1d5e2",
+      "sizeBytes": 10777,
+      "lineCount": 371,
+      "moduleId": "module:src/test/Layout.test.tsx",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/test/llm-utils.test.ts",
+      "path": "src/test/llm-utils.test.ts",
+      "language": "ts",
+      "role": "test",
+      "hash": "b39e109ac51bedeecf79cf3d5923bee6f5df05e9e88452eaff9e30bbc277652f",
+      "sizeBytes": 18939,
+      "lineCount": 564,
+      "moduleId": "module:src/test/llm-utils.test.ts",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/test/LLMAssistPanel.test.tsx",
+      "path": "src/test/LLMAssistPanel.test.tsx",
+      "language": "tsx",
+      "role": "test",
+      "hash": "9e83c604d9b0849c7f96323fef5b0e068fcc30f59330c76e5b38deddbc03f4ec",
+      "sizeBytes": 28270,
+      "lineCount": 692,
+      "moduleId": "module:src/test/LLMAssistPanel.test.tsx",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/test/lyricsAffectMetrics.test.ts",
+      "path": "src/test/lyricsAffectMetrics.test.ts",
+      "language": "ts",
+      "role": "test",
+      "hash": "0e2be65cccdfb234eec2985b25bd87d9bde4d25b48c0084a6e89add954f743f2",
+      "sizeBytes": 5455,
+      "lineCount": 131,
+      "moduleId": "module:src/test/lyricsAffectMetrics.test.ts",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/test/modelUtils.test.ts",
+      "path": "src/test/modelUtils.test.ts",
+      "language": "ts",
+      "role": "test",
+      "hash": "1d3acf32756a709f509f586c970daa01f7c738295121c925428116169e3b485d",
+      "sizeBytes": 2834,
+      "lineCount": 81,
+      "moduleId": "module:src/test/modelUtils.test.ts",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/test/promptBuilder.test.ts",
+      "path": "src/test/promptBuilder.test.ts",
+      "language": "ts",
+      "role": "test",
+      "hash": "0cf1aac1f8ded6c8049e3afcf19eb2228b9d9e2d1341a169151244549f636474",
+      "sizeBytes": 2386,
+      "lineCount": 70,
+      "moduleId": "module:src/test/promptBuilder.test.ts",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/test/rhyme-analysis.test.ts",
+      "path": "src/test/rhyme-analysis.test.ts",
+      "language": "ts",
+      "role": "test",
+      "hash": "892016a6b97ccd9619c8dc98e7d8985dca3038cfe85809828a5fdbefa0434df9",
+      "sizeBytes": 6989,
+      "lineCount": 208,
+      "moduleId": "module:src/test/rhyme-analysis.test.ts",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/test/sectionUtils.test.ts",
+      "path": "src/test/sectionUtils.test.ts",
+      "language": "ts",
+      "role": "test",
+      "hash": "f06d7d5a9581b03f537e1f3e25b20ef1eee1f98bec75fc3a313983b726bf66e2",
+      "sizeBytes": 16037,
+      "lineCount": 462,
+      "moduleId": "module:src/test/sectionUtils.test.ts",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/test/setup.ts",
+      "path": "src/test/setup.ts",
+      "language": "ts",
+      "role": "test",
+      "hash": "887186f7a47b61b4a77668acb06dafa82f010de39b529e5f55dcc52de35e2135",
+      "sizeBytes": 35,
+      "lineCount": 1,
+      "moduleId": "module:src/test/setup.ts",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/test/sunoPromptCatalog.test.ts",
+      "path": "src/test/sunoPromptCatalog.test.ts",
+      "language": "ts",
+      "role": "test",
+      "hash": "2cdaafb61f575c1c915b025f85ec27611b254c9e5c138bda3268f3c4facfae16",
+      "sizeBytes": 2447,
+      "lineCount": 69,
+      "moduleId": "module:src/test/sunoPromptCatalog.test.ts",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/test/translations-detailed.test.tsx",
+      "path": "src/test/translations-detailed.test.tsx",
+      "language": "tsx",
+      "role": "test",
+      "hash": "d1ecaf8452d7c3753d441f959e50fc3f9b6542fa2a50f22b09e5ede190121b9d",
+      "sizeBytes": 11560,
+      "lineCount": 384,
+      "moduleId": "module:src/test/translations-detailed.test.tsx",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/test/TrashPanel.test.tsx",
+      "path": "src/test/TrashPanel.test.tsx",
+      "language": "tsx",
+      "role": "test",
+      "hash": "a9e4543e5c8d878d7789ef17ccac2ce1a6b71e4a31b0bbc94f6ddf88d3eb145d",
+      "sizeBytes": 7678,
+      "lineCount": 271,
+      "moduleId": "module:src/test/TrashPanel.test.tsx",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/test/ui-components.test.tsx",
+      "path": "src/test/ui-components.test.tsx",
+      "language": "tsx",
+      "role": "test",
+      "hash": "01d5a492ee4a749da2e6083566633f96d734a8122f89481abd8a4c0663ac46c0",
+      "sizeBytes": 9876,
+      "lineCount": 384,
+      "moduleId": "module:src/test/ui-components.test.tsx",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/test/ui-patterns.test.tsx",
+      "path": "src/test/ui-patterns.test.tsx",
+      "language": "tsx",
+      "role": "test",
+      "hash": "9183d6619d4aa5e4aa5c94550bcf8a660b3466370b508b087379be6c981f236e",
+      "sizeBytes": 12812,
+      "lineCount": 450,
+      "moduleId": "module:src/test/ui-patterns.test.tsx",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/test/useAutoSave.test.ts",
+      "path": "src/test/useAutoSave.test.ts",
+      "language": "ts",
+      "role": "test",
+      "hash": "3c3fd928c2b91a1b4395b821f3a40c24fdd24836fe18c9234a3f93cb0b1386ad",
+      "sizeBytes": 7307,
+      "lineCount": 255,
+      "moduleId": "module:src/test/useAutoSave.test.ts",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/test/useBpm.test.ts",
+      "path": "src/test/useBpm.test.ts",
+      "language": "ts",
+      "role": "test",
+      "hash": "bb9803eebd64ee01e406b4f9d45a8e07934d0069fa9ef0b8ecf9667ef1766510",
+      "sizeBytes": 4169,
+      "lineCount": 145,
+      "moduleId": "module:src/test/useBpm.test.ts",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/test/useClipboard.test.ts",
+      "path": "src/test/useClipboard.test.ts",
+      "language": "ts",
+      "role": "test",
+      "hash": "8d9f48488a66dcc281278a018934b5247285e35750e0aa1fb299ea659c3b46a9",
+      "sizeBytes": 7242,
+      "lineCount": 250,
+      "moduleId": "module:src/test/useClipboard.test.ts",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/test/useKeyboardShortcuts.test.ts",
+      "path": "src/test/useKeyboardShortcuts.test.ts",
+      "language": "ts",
+      "role": "test",
+      "hash": "dfcb4aceca291fdfa92c0e639f54356573b39f3e70896d5dfd0e4789c8c89c97",
+      "sizeBytes": 15380,
+      "lineCount": 555,
+      "moduleId": "module:src/test/useKeyboardShortcuts.test.ts",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/test/useLanguage.test.tsx",
+      "path": "src/test/useLanguage.test.tsx",
+      "language": "tsx",
+      "role": "test",
+      "hash": "f36e4db334f0abc1f8150a52573562be4fe732a16bb86fed226dca48c02a0881",
+      "sizeBytes": 7931,
+      "lineCount": 259,
+      "moduleId": "module:src/test/useLanguage.test.tsx",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/test/useLLMPanel.test.ts",
+      "path": "src/test/useLLMPanel.test.ts",
+      "language": "ts",
+      "role": "test",
+      "hash": "0cb6a0f12991ba0db47be26afd50fec03b1903b983b909ef1696c6aaf2b9fd01",
+      "sizeBytes": 3549,
+      "lineCount": 140,
+      "moduleId": "module:src/test/useLLMPanel.test.ts",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/test/useLLMSettings.test.ts",
+      "path": "src/test/useLLMSettings.test.ts",
+      "language": "ts",
+      "role": "test",
+      "hash": "f446eca8391712546be0f7ad5970757aa2f664ce9f0e3a59eea6716c36f58586",
+      "sizeBytes": 11981,
+      "lineCount": 339,
+      "moduleId": "module:src/test/useLLMSettings.test.ts",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/test/usePaneResize.test.ts",
+      "path": "src/test/usePaneResize.test.ts",
+      "language": "ts",
+      "role": "test",
+      "hash": "44c30f020da02a70d53cd291e11be20533d56c15472dd443e7c5481fb48b01ff",
+      "sizeBytes": 12391,
+      "lineCount": 456,
+      "moduleId": "module:src/test/usePaneResize.test.ts",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/test/usePhoneticGuide.test.ts",
+      "path": "src/test/usePhoneticGuide.test.ts",
+      "language": "ts",
+      "role": "test",
+      "hash": "c0d0b7b684e46eb4f7e7e40441a9df9ac5d36a45c88cf907eccd3d8aef099bd2",
+      "sizeBytes": 2704,
+      "lineCount": 104,
+      "moduleId": "module:src/test/usePhoneticGuide.test.ts",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/test/useProjectData.test.ts",
+      "path": "src/test/useProjectData.test.ts",
+      "language": "ts",
+      "role": "test",
+      "hash": "f3a23f2d17a4433c2ffba23ab795c1f33655ab10aca65233a17b951dc402c8da",
+      "sizeBytes": 17936,
+      "lineCount": 553,
+      "moduleId": "module:src/test/useProjectData.test.ts",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/test/useSectionActions.test.ts",
+      "path": "src/test/useSectionActions.test.ts",
+      "language": "ts",
+      "role": "test",
+      "hash": "9698141b8d47c1384e986a9b294b68e4fde68282b838d07c7d5437482c846b1a",
+      "sizeBytes": 3520,
+      "lineCount": 128,
+      "moduleId": "module:src/test/useSectionActions.test.ts",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/test/useSectionDragDrop.test.ts",
+      "path": "src/test/useSectionDragDrop.test.ts",
+      "language": "ts",
+      "role": "test",
+      "hash": "c1aa26e0cadadd035c9dc1b58b62025a40a2160e7dc61c4fbfa54dd1f68996d6",
+      "sizeBytes": 9632,
+      "lineCount": 301,
+      "moduleId": "module:src/test/useSectionDragDrop.test.ts",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/test/useSections.test.ts",
+      "path": "src/test/useSections.test.ts",
+      "language": "ts",
+      "role": "test",
+      "hash": "ea76ddc31b4857dca7f587566c4f6037991167b6fe12d7534a2bf0972a27e1b7",
+      "sizeBytes": 14940,
+      "lineCount": 552,
+      "moduleId": "module:src/test/useSections.test.ts",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/test/useStyleVocal.test.ts",
+      "path": "src/test/useStyleVocal.test.ts",
+      "language": "ts",
+      "role": "test",
+      "hash": "14e56368af7e9328929c0f13d9546f73fd34d0320e210d3db4fb37010322b78a",
+      "sizeBytes": 2835,
+      "lineCount": 98,
+      "moduleId": "module:src/test/useStyleVocal.test.ts",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/test/useUIState.test.ts",
+      "path": "src/test/useUIState.test.ts",
+      "language": "ts",
+      "role": "test",
+      "hash": "00f1363008a01f256cff4d37da8f963cae01ae6716543d9dfcb7e54a6cd82a22",
+      "sizeBytes": 5871,
+      "lineCount": 227,
+      "moduleId": "module:src/test/useUIState.test.ts",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src-tauri/build.rs",
+      "path": "src-tauri/build.rs",
+      "language": "rs",
+      "role": "source",
+      "hash": "a84c7f1a694a44cc1ed70997d34eec98dc0ca19b3e1d10990505ff1ccb63e0b4",
+      "sizeBytes": 141,
+      "lineCount": 6,
+      "moduleId": "module:src-tauri/build.rs",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src-tauri/capabilities/default.json",
+      "path": "src-tauri/capabilities/default.json",
+      "language": "unknown",
+      "role": "source",
+      "hash": "8c4ed734c8319b7f6a5dd8ea60e62abaa8ba18048e6c43586e5ae99d2fdbf9f8",
+      "sizeBytes": 256,
+      "lineCount": 11,
+      "moduleId": "module:src-tauri/capabilities/default.json",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src-tauri/gen/schemas/acl-manifests.json",
+      "path": "src-tauri/gen/schemas/acl-manifests.json",
+      "language": "unknown",
+      "role": "source",
+      "hash": "d5b96c76c0e3f7d9e46c34f4de83aba6be7d4a9b4e9dfefccb28cf07b846bd51",
+      "sizeBytes": 139307,
+      "lineCount": 1,
+      "moduleId": "module:src-tauri/gen/schemas/acl-manifests.json",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src-tauri/gen/schemas/capabilities.json",
+      "path": "src-tauri/gen/schemas/capabilities.json",
+      "language": "unknown",
+      "role": "source",
+      "hash": "b2956da7b82932138cc69d56ea4a7ca478f26e575b914c2fd8f51f05a5584345",
+      "sizeBytes": 185,
+      "lineCount": 1,
+      "moduleId": "module:src-tauri/gen/schemas/capabilities.json",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src-tauri/gen/schemas/desktop-schema.json",
+      "path": "src-tauri/gen/schemas/desktop-schema.json",
+      "language": "unknown",
+      "role": "source",
+      "hash": "5d1b1ba6408640103bb5214db091630e07d60c261df7074ec13a19484844bd93",
+      "sizeBytes": 407344,
+      "lineCount": 6158,
+      "moduleId": "module:src-tauri/gen/schemas/desktop-schema.json",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src-tauri/gen/schemas/windows-schema.json",
+      "path": "src-tauri/gen/schemas/windows-schema.json",
+      "language": "unknown",
+      "role": "source",
+      "hash": "5d1b1ba6408640103bb5214db091630e07d60c261df7074ec13a19484844bd93",
+      "sizeBytes": 407344,
+      "lineCount": 6158,
+      "moduleId": "module:src-tauri/gen/schemas/windows-schema.json",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src-tauri/scripts/rhyme_analysis.py",
+      "path": "src-tauri/scripts/rhyme_analysis.py",
+      "language": "py",
+      "role": "source",
+      "hash": "f241ab93d3a0c4b3147d5c8bb145e3b8897bfd1f5a403e7dc9bed1391dd21514",
+      "sizeBytes": 6979,
+      "lineCount": 213,
+      "moduleId": "module:src-tauri/scripts/rhyme_analysis.py",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src-tauri/src/commands/draft.rs",
+      "path": "src-tauri/src/commands/draft.rs",
+      "language": "rs",
+      "role": "source",
+      "hash": "61cb4311a9e04ea25423c3603865455a17d7e5d03e49d57db995d3251ad87667",
+      "sizeBytes": 791,
+      "lineCount": 24,
+      "moduleId": "module:src-tauri/src/commands/draft.rs",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src-tauri/src/commands/export.rs",
+      "path": "src-tauri/src/commands/export.rs",
+      "language": "rs",
+      "role": "source",
+      "hash": "367a154e11d988a8026a66c89a32f4a49b81e427a37816af68e94e437765aa98",
+      "sizeBytes": 462,
+      "lineCount": 16,
+      "moduleId": "module:src-tauri/src/commands/export.rs",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src-tauri/src/commands/fragment.rs",
+      "path": "src-tauri/src/commands/fragment.rs",
+      "language": "rs",
+      "role": "source",
+      "hash": "10aa5d599b015b176aa8af831b14f9edc7a6a1b07d19314372af52c869f420d9",
+      "sizeBytes": 1037,
+      "lineCount": 29,
+      "moduleId": "module:src-tauri/src/commands/fragment.rs",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src-tauri/src/commands/llm_runtime.rs",
+      "path": "src-tauri/src/commands/llm_runtime.rs",
+      "language": "rs",
+      "role": "source",
+      "hash": "48315f62007f70451a19f4d02ad2ba767aaaf52383d78d2a47c2d0d4f828ae83",
+      "sizeBytes": 13459,
+      "lineCount": 451,
+      "moduleId": "module:src-tauri/src/commands/llm_runtime.rs",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src-tauri/src/commands/mod.rs",
+      "path": "src-tauri/src/commands/mod.rs",
+      "language": "rs",
+      "role": "source",
+      "hash": "09a18b621a2c248ba80b05192e74c63dc3716e517dd428d15e49511417fdcbc2",
+      "sizeBytes": 203,
+      "lineCount": 12,
+      "moduleId": "module:src-tauri/src/commands/mod.rs",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src-tauri/src/commands/project.rs",
+      "path": "src-tauri/src/commands/project.rs",
+      "language": "rs",
+      "role": "source",
+      "hash": "2898958c9c0fafac7253ead1e9831d53e0ce4fd42d65b7613ad91ce3f1e4d9f0",
+      "sizeBytes": 1604,
+      "lineCount": 49,
+      "moduleId": "module:src-tauri/src/commands/project.rs",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src-tauri/src/commands/revision_note.rs",
+      "path": "src-tauri/src/commands/revision_note.rs",
+      "language": "rs",
+      "role": "source",
+      "hash": "98146ea8d3c044b7e6eef83c0ec77f96572b161bd8b1bb4e37f925d249bb1871",
+      "sizeBytes": 809,
+      "lineCount": 23,
+      "moduleId": "module:src-tauri/src/commands/revision_note.rs",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src-tauri/src/commands/rhyme.rs",
+      "path": "src-tauri/src/commands/rhyme.rs",
+      "language": "rs",
+      "role": "source",
+      "hash": "43af388b1a9cd8e5aed7c5fec62e27c5679a70744b5d3ad3a36d42f273fbc5f4",
+      "sizeBytes": 5649,
+      "lineCount": 171,
+      "moduleId": "module:src-tauri/src/commands/rhyme.rs",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src-tauri/src/commands/song_artifact.rs",
+      "path": "src-tauri/src/commands/song_artifact.rs",
+      "language": "rs",
+      "role": "source",
+      "hash": "05442f17b203a7577323ef52676e9129ea7b24a5be3a979ff16304aac1ef09d9",
+      "sizeBytes": 805,
+      "lineCount": 23,
+      "moduleId": "module:src-tauri/src/commands/song_artifact.rs",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src-tauri/src/commands/style_profile.rs",
+      "path": "src-tauri/src/commands/style_profile.rs",
+      "language": "rs",
+      "role": "source",
+      "hash": "6a5e36b6ae427afa03142a86c59b5b4f71e4c417f685ed2b7300d0856416d132",
+      "sizeBytes": 1076,
+      "lineCount": 29,
+      "moduleId": "module:src-tauri/src/commands/style_profile.rs",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src-tauri/src/commands/trash.rs",
+      "path": "src-tauri/src/commands/trash.rs",
+      "language": "rs",
+      "role": "source",
+      "hash": "750659c892eac75a99de937e23f3cd5358d05e55082504021342354f102557bd",
+      "sizeBytes": 7997,
+      "lineCount": 212,
+      "moduleId": "module:src-tauri/src/commands/trash.rs",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src-tauri/src/commands/version.rs",
+      "path": "src-tauri/src/commands/version.rs",
+      "language": "rs",
+      "role": "source",
+      "hash": "89e30ab1fcea00f3481c9f72f35133cdb3944cf5431991dcaf3d57a45b887e46",
+      "sizeBytes": 1731,
+      "lineCount": 51,
+      "moduleId": "module:src-tauri/src/commands/version.rs",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src-tauri/src/db.rs",
+      "path": "src-tauri/src/db.rs",
+      "language": "rs",
+      "role": "source",
+      "hash": "07b2e32b5cc26bf61dc9dc10e010c380e789b8cd4b294fd40c3417837a891575",
+      "sizeBytes": 1827,
+      "lineCount": 59,
+      "moduleId": "module:src-tauri/src/db.rs",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src-tauri/src/error.rs",
+      "path": "src-tauri/src/error.rs",
+      "language": "rs",
+      "role": "source",
+      "hash": "c97e14458f74a57a9470c0fc1caee57a5d536c1caa77b1a0cd6a1c6e65cf55e4",
+      "sizeBytes": 597,
+      "lineCount": 25,
+      "moduleId": "module:src-tauri/src/error.rs",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src-tauri/src/main.rs",
+      "path": "src-tauri/src/main.rs",
+      "language": "rs",
+      "role": "source",
+      "hash": "d5cab09b274dd25d8d0ac21a3ef92237ea0adc1ec9d1f347fbc3fa05166bec1a",
+      "sizeBytes": 3121,
+      "lineCount": 71,
+      "moduleId": "module:src-tauri/src/main.rs",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src-tauri/src/models.rs",
+      "path": "src-tauri/src/models.rs",
+      "language": "rs",
+      "role": "source",
+      "hash": "a0e5685b9841073514d55868cee9b1febb2ec9a38ddbdfcf4bf40b64ad0d67a1",
+      "sizeBytes": 6967,
+      "lineCount": 247,
+      "moduleId": "module:src-tauri/src/models.rs",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src-tauri/src/repositories/draft_repo.rs",
+      "path": "src-tauri/src/repositories/draft_repo.rs",
+      "language": "rs",
+      "role": "source",
+      "hash": "4de0625234b4e88dff9cab966968f4ede3bd0db73849fb38fc2567bc181556bf",
+      "sizeBytes": 4556,
+      "lineCount": 129,
+      "moduleId": "module:src-tauri/src/repositories/draft_repo.rs",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src-tauri/src/repositories/export_repo/artifact_data.rs",
+      "path": "src-tauri/src/repositories/export_repo/artifact_data.rs",
+      "language": "rs",
+      "role": "source",
+      "hash": "a01bee1817983fe141e18f9c970057be29d1ca698580862eb0a0c31fcc10a684",
+      "sizeBytes": 3803,
+      "lineCount": 110,
+      "moduleId": "module:src-tauri/src/repositories/export_repo/artifact_data.rs",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src-tauri/src/repositories/export_repo/project_data.rs",
+      "path": "src-tauri/src/repositories/export_repo/project_data.rs",
+      "language": "rs",
+      "role": "source",
+      "hash": "747edc6178c2ce71e7d91cf69c1a23db251058875b9899f36a7aa5cf6258241c",
+      "sizeBytes": 5169,
+      "lineCount": 146,
+      "moduleId": "module:src-tauri/src/repositories/export_repo/project_data.rs",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src-tauri/src/repositories/export_repo/version_data.rs",
+      "path": "src-tauri/src/repositories/export_repo/version_data.rs",
+      "language": "rs",
+      "role": "source",
+      "hash": "755d3bcaae508f757f1432649a6e54a55ab57a8bc7e6dbcdb56f24c0f634218d",
+      "sizeBytes": 4248,
+      "lineCount": 118,
+      "moduleId": "module:src-tauri/src/repositories/export_repo/version_data.rs",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src-tauri/src/repositories/export_repo.rs",
+      "path": "src-tauri/src/repositories/export_repo.rs",
+      "language": "rs",
+      "role": "source",
+      "hash": "c81596d6965aee6c7fa4a7ff5f6a02a760b6479bf8e322b658ae52f09120ee3a",
+      "sizeBytes": 5904,
+      "lineCount": 158,
+      "moduleId": "module:src-tauri/src/repositories/export_repo.rs",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src-tauri/src/repositories/fragment_repo.rs",
+      "path": "src-tauri/src/repositories/fragment_repo.rs",
+      "language": "rs",
+      "role": "source",
+      "hash": "65ef2816e0760406356668bf64f78f12f54d1ef31d6997cf7b10539dc21b28d3",
+      "sizeBytes": 6605,
+      "lineCount": 193,
+      "moduleId": "module:src-tauri/src/repositories/fragment_repo.rs",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src-tauri/src/repositories/mod.rs",
+      "path": "src-tauri/src/repositories/mod.rs",
+      "language": "rs",
+      "role": "source",
+      "hash": "8dd4f11c93de251fa7cd6f511f696b76ab53f923ff6f89efcd758284b4425eb1",
+      "sizeBytes": 536,
+      "lineCount": 21,
+      "moduleId": "module:src-tauri/src/repositories/mod.rs",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src-tauri/src/repositories/project_repo.rs",
+      "path": "src-tauri/src/repositories/project_repo.rs",
+      "language": "rs",
+      "role": "source",
+      "hash": "3137e4221c935e8d6cfa769054f537a6def777d3de6a7a661306cf2256b9d040",
+      "sizeBytes": 10497,
+      "lineCount": 322,
+      "moduleId": "module:src-tauri/src/repositories/project_repo.rs",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src-tauri/src/repositories/revision_note_repo.rs",
+      "path": "src-tauri/src/repositories/revision_note_repo.rs",
+      "language": "rs",
+      "role": "source",
+      "hash": "7936ca58ff247eec26033e713421714404483d077795e83ba83f94f4e690369c",
+      "sizeBytes": 3153,
+      "lineCount": 95,
+      "moduleId": "module:src-tauri/src/repositories/revision_note_repo.rs",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src-tauri/src/repositories/song_artifact_repo.rs",
+      "path": "src-tauri/src/repositories/song_artifact_repo.rs",
+      "language": "rs",
+      "role": "source",
+      "hash": "057107d4769637174522e55265aa1ae7d8fc18dd7b680f7702619e4aff6bb5d5",
+      "sizeBytes": 5632,
+      "lineCount": 165,
+      "moduleId": "module:src-tauri/src/repositories/song_artifact_repo.rs",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src-tauri/src/repositories/style_profile_repo.rs",
+      "path": "src-tauri/src/repositories/style_profile_repo.rs",
+      "language": "rs",
+      "role": "source",
+      "hash": "156bd917b8426705cb7abf4ad725830a344bfc5c0c1e7eb6c8c5e0948815a937",
+      "sizeBytes": 5842,
+      "lineCount": 171,
+      "moduleId": "module:src-tauri/src/repositories/style_profile_repo.rs",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src-tauri/src/repositories/version_repo.rs",
+      "path": "src-tauri/src/repositories/version_repo.rs",
+      "language": "rs",
+      "role": "source",
+      "hash": "9af978ab18c29373045944e5b7ef13fccc89afa81977d85a21d2db02c7805af3",
+      "sizeBytes": 7985,
+      "lineCount": 225,
+      "moduleId": "module:src-tauri/src/repositories/version_repo.rs",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src-tauri/tauri.conf.json",
+      "path": "src-tauri/tauri.conf.json",
+      "language": "unknown",
+      "role": "source",
+      "hash": "c97301594a223af299313239571999eb2eacd41eeedac75940f7f069823f5be8",
+      "sizeBytes": 910,
+      "lineCount": 39,
+      "moduleId": "module:src-tauri/tauri.conf.json",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:THIRD_PARTY_LICENSES.md",
+      "path": "THIRD_PARTY_LICENSES.md",
+      "language": "unknown",
+      "role": "docs",
+      "hash": "da7de796ca53db2159de10866a66ed1eac4428481020df05348ca9cd9a8c2d70",
+      "sizeBytes": 3163,
+      "lineCount": 76,
+      "moduleId": "module:THIRD_PARTY_LICENSES.md",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:tsconfig.json",
+      "path": "tsconfig.json",
+      "language": "unknown",
+      "role": "config",
+      "hash": "0da14ec12daadc25969923a1c525717dbadefedf203d74538a04a11e6a374cdf",
+      "sizeBytes": 588,
+      "lineCount": 22,
+      "moduleId": "module:tsconfig.json",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:tsconfig.node.json",
+      "path": "tsconfig.node.json",
+      "language": "unknown",
+      "role": "config",
+      "hash": "902730920d314eaa48418be21012811b1f54215bcef6a14f1ba0b0e2ebfecc66",
+      "sizeBytes": 232,
+      "lineCount": 11,
+      "moduleId": "module:tsconfig.node.json",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:vite.config.ts",
+      "path": "vite.config.ts",
+      "language": "ts",
+      "role": "source",
+      "hash": "781846aaa6870cfe1be11171f2e92ccf122b57043d5259c28a07c6c71009b5b7",
+      "sizeBytes": 268,
+      "lineCount": 14,
+      "moduleId": "module:vite.config.ts",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:vitest.config.ts",
+      "path": "vitest.config.ts",
+      "language": "ts",
+      "role": "config",
+      "hash": "c267bb7337be2e9258e02c0f1dfb263ed1956d815415b0d56219f4ced2c83a8a",
+      "sizeBytes": 232,
+      "lineCount": 11,
+      "moduleId": "module:vitest.config.ts",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    }
+  ],
+  "modules": [],
+  "symbols": [],
+  "relations": [],
+  "tests": [
+    {
+      "id": "test:e2e/app.spec.ts",
+      "path": "e2e/app.spec.ts",
+      "framework": "vitest"
+    },
+    {
+      "id": "test:e2e/editor.spec.ts",
+      "path": "e2e/editor.spec.ts",
+      "framework": "vitest"
+    },
+    {
+      "id": "test:e2e/language.spec.ts",
+      "path": "e2e/language.spec.ts",
+      "framework": "vitest"
+    },
+    {
+      "id": "test:src/test/AffectMetricsPanel.test.tsx",
+      "path": "src/test/AffectMetricsPanel.test.tsx",
+      "framework": "vitest"
+    },
+    {
+      "id": "test:src/test/api-client.test.ts",
+      "path": "src/test/api-client.test.ts",
+      "framework": "vitest"
+    },
+    {
+      "id": "test:src/test/config.test.ts",
+      "path": "src/test/config.test.ts",
+      "framework": "vitest"
+    },
+    {
+      "id": "test:src/test/countTrailingTokenMatches.test.ts",
+      "path": "src/test/countTrailingTokenMatches.test.ts",
+      "framework": "vitest"
+    },
+    {
+      "id": "test:src/test/editor-utils.test.ts",
+      "path": "src/test/editor-utils.test.ts",
+      "framework": "vitest"
+    },
+    {
+      "id": "test:src/test/fixtures/affectGoldenLyrics.ts",
+      "path": "src/test/fixtures/affectGoldenLyrics.ts",
+      "framework": "vitest"
+    },
+    {
+      "id": "test:src/test/Home.test.tsx",
+      "path": "src/test/Home.test.tsx",
+      "framework": "vitest"
+    },
+    {
+      "id": "test:src/test/i18n-extended.test.tsx",
+      "path": "src/test/i18n-extended.test.tsx",
+      "framework": "vitest"
+    },
+    {
+      "id": "test:src/test/i18n-scenarios.test.tsx",
+      "path": "src/test/i18n-scenarios.test.tsx",
+      "framework": "vitest"
+    },
+    {
+      "id": "test:src/test/i18n.test.ts",
+      "path": "src/test/i18n.test.ts",
+      "framework": "vitest"
+    },
+    {
+      "id": "test:src/test/integration.test.tsx",
+      "path": "src/test/integration.test.tsx",
+      "framework": "vitest"
+    },
+    {
+      "id": "test:src/test/LanguageContext.test.tsx",
+      "path": "src/test/LanguageContext.test.tsx",
+      "framework": "vitest"
+    },
+    {
+      "id": "test:src/test/Layout.test.tsx",
+      "path": "src/test/Layout.test.tsx",
+      "framework": "vitest"
+    },
+    {
+      "id": "test:src/test/llm-utils.test.ts",
+      "path": "src/test/llm-utils.test.ts",
+      "framework": "vitest"
+    },
+    {
+      "id": "test:src/test/LLMAssistPanel.test.tsx",
+      "path": "src/test/LLMAssistPanel.test.tsx",
+      "framework": "vitest"
+    },
+    {
+      "id": "test:src/test/lyricsAffectMetrics.test.ts",
+      "path": "src/test/lyricsAffectMetrics.test.ts",
+      "framework": "vitest"
+    },
+    {
+      "id": "test:src/test/modelUtils.test.ts",
+      "path": "src/test/modelUtils.test.ts",
+      "framework": "vitest"
+    },
+    {
+      "id": "test:src/test/promptBuilder.test.ts",
+      "path": "src/test/promptBuilder.test.ts",
+      "framework": "vitest"
+    },
+    {
+      "id": "test:src/test/rhyme-analysis.test.ts",
+      "path": "src/test/rhyme-analysis.test.ts",
+      "framework": "vitest"
+    },
+    {
+      "id": "test:src/test/sectionUtils.test.ts",
+      "path": "src/test/sectionUtils.test.ts",
+      "framework": "vitest"
+    },
+    {
+      "id": "test:src/test/setup.ts",
+      "path": "src/test/setup.ts",
+      "framework": "vitest"
+    },
+    {
+      "id": "test:src/test/sunoPromptCatalog.test.ts",
+      "path": "src/test/sunoPromptCatalog.test.ts",
+      "framework": "vitest"
+    },
+    {
+      "id": "test:src/test/translations-detailed.test.tsx",
+      "path": "src/test/translations-detailed.test.tsx",
+      "framework": "vitest"
+    },
+    {
+      "id": "test:src/test/TrashPanel.test.tsx",
+      "path": "src/test/TrashPanel.test.tsx",
+      "framework": "vitest"
+    },
+    {
+      "id": "test:src/test/ui-components.test.tsx",
+      "path": "src/test/ui-components.test.tsx",
+      "framework": "vitest"
+    },
+    {
+      "id": "test:src/test/ui-patterns.test.tsx",
+      "path": "src/test/ui-patterns.test.tsx",
+      "framework": "vitest"
+    },
+    {
+      "id": "test:src/test/useAutoSave.test.ts",
+      "path": "src/test/useAutoSave.test.ts",
+      "framework": "vitest"
+    },
+    {
+      "id": "test:src/test/useBpm.test.ts",
+      "path": "src/test/useBpm.test.ts",
+      "framework": "vitest"
+    },
+    {
+      "id": "test:src/test/useClipboard.test.ts",
+      "path": "src/test/useClipboard.test.ts",
+      "framework": "vitest"
+    },
+    {
+      "id": "test:src/test/useKeyboardShortcuts.test.ts",
+      "path": "src/test/useKeyboardShortcuts.test.ts",
+      "framework": "vitest"
+    },
+    {
+      "id": "test:src/test/useLanguage.test.tsx",
+      "path": "src/test/useLanguage.test.tsx",
+      "framework": "vitest"
+    },
+    {
+      "id": "test:src/test/useLLMPanel.test.ts",
+      "path": "src/test/useLLMPanel.test.ts",
+      "framework": "vitest"
+    },
+    {
+      "id": "test:src/test/useLLMSettings.test.ts",
+      "path": "src/test/useLLMSettings.test.ts",
+      "framework": "vitest"
+    },
+    {
+      "id": "test:src/test/usePaneResize.test.ts",
+      "path": "src/test/usePaneResize.test.ts",
+      "framework": "vitest"
+    },
+    {
+      "id": "test:src/test/usePhoneticGuide.test.ts",
+      "path": "src/test/usePhoneticGuide.test.ts",
+      "framework": "vitest"
+    },
+    {
+      "id": "test:src/test/useProjectData.test.ts",
+      "path": "src/test/useProjectData.test.ts",
+      "framework": "vitest"
+    },
+    {
+      "id": "test:src/test/useSectionActions.test.ts",
+      "path": "src/test/useSectionActions.test.ts",
+      "framework": "vitest"
+    },
+    {
+      "id": "test:src/test/useSectionDragDrop.test.ts",
+      "path": "src/test/useSectionDragDrop.test.ts",
+      "framework": "vitest"
+    },
+    {
+      "id": "test:src/test/useSections.test.ts",
+      "path": "src/test/useSections.test.ts",
+      "framework": "vitest"
+    },
+    {
+      "id": "test:src/test/useStyleVocal.test.ts",
+      "path": "src/test/useStyleVocal.test.ts",
+      "framework": "vitest"
+    },
+    {
+      "id": "test:src/test/useUIState.test.ts",
+      "path": "src/test/useUIState.test.ts",
+      "framework": "vitest"
+    }
+  ],
+  "configs": [
+    {
+      "id": "config:.five-tool-validation/code-to-gate/risk-register.yaml",
+      "path": ".five-tool-validation/code-to-gate/risk-register.yaml"
+    },
+    {
+      "id": "config:.github/workflows/update-suno-prompt-catalog.yml",
+      "path": ".github/workflows/update-suno-prompt-catalog.yml"
+    },
+    {
+      "id": "config:package.json",
+      "path": "package.json"
+    },
+    {
+      "id": "config:tsconfig.json",
+      "path": "tsconfig.json"
+    },
+    {
+      "id": "config:tsconfig.node.json",
+      "path": "tsconfig.node.json"
+    },
+    {
+      "id": "config:vitest.config.ts",
+      "path": "vitest.config.ts"
+    }
+  ],
+  "entrypoints": [
+    {
+      "id": "entrypoint:docs/birdseye/index.json",
+      "path": "docs/birdseye/index.json",
+      "kind": "main-entry"
+    },
+    {
+      "id": "entrypoint:src/lib/api/client.ts",
+      "path": "src/lib/api/client.ts",
+      "kind": "api-route"
+    },
+    {
+      "id": "entrypoint:src/lib/api/types.ts",
+      "path": "src/lib/api/types.ts",
+      "kind": "api-route"
+    },
+    {
+      "id": "entrypoint:src/lib/hooks/index.ts",
+      "path": "src/lib/hooks/index.ts",
+      "kind": "main-entry"
+    },
+    {
+      "id": "entrypoint:src/lib/i18n/index.ts",
+      "path": "src/lib/i18n/index.ts",
+      "kind": "main-entry"
+    },
+    {
+      "id": "entrypoint:src/lib/llm/index.ts",
+      "path": "src/lib/llm/index.ts",
+      "kind": "main-entry"
+    },
+    {
+      "id": "entrypoint:src/lib/section/index.ts",
+      "path": "src/lib/section/index.ts",
+      "kind": "main-entry"
+    },
+    {
+      "id": "entrypoint:src/main.tsx",
+      "path": "src/main.tsx",
+      "kind": "main-entry"
+    },
+    {
+      "id": "entrypoint:src/pages/editor/EditorOverlays.tsx",
+      "path": "src/pages/editor/EditorOverlays.tsx",
+      "kind": "entrypoint"
+    },
+    {
+      "id": "entrypoint:src-tauri/build.rs",
+      "path": "src-tauri/build.rs",
+      "kind": "entrypoint"
+    },
+    {
+      "id": "entrypoint:src-tauri/scripts/rhyme_analysis.py",
+      "path": "src-tauri/scripts/rhyme_analysis.py",
+      "kind": "entrypoint"
+    },
+    {
+      "id": "entrypoint:src-tauri/src/main.rs",
+      "path": "src-tauri/src/main.rs",
+      "kind": "main-entry"
+    }
+  ],
+  "diagnostics": [],
+  "stats": {
+    "partial": false
+  }
+}

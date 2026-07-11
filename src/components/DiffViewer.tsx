@@ -2,6 +2,11 @@ import { useState, useMemo } from 'react';
 import { DiffEditor } from '@monaco-editor/react';
 import { LyricVersion } from '../lib/api';
 import { useLanguage } from '../lib/LanguageContext';
+import {
+  compareLyricAffectVersions,
+  AffectComparisonNote,
+  LyricAffectComparison,
+} from '../lib/affect/lyricsAffectMetrics';
 
 interface DiffStats {
   linesAdded: number;
@@ -85,7 +90,7 @@ interface DiffViewerProps {
 type CompareField = 'lyrics' | 'style' | 'vocal';
 
 function DiffViewer({ versions, onClose, onRestore }: DiffViewerProps) {
-  const { t } = useLanguage();
+  const { language, t } = useLanguage();
   const [leftVersionId, setLeftVersionId] = useState<string | null>(
     versions.length > 1 ? versions[1].lyric_version_id : null
   );
@@ -119,6 +124,11 @@ function DiffViewer({ versions, onClose, onRestore }: DiffViewerProps) {
     if (!leftVersion || !rightVersion) return null;
     return computeDiffStats(compareText.left, compareText.right);
   }, [leftVersion, rightVersion, compareText]);
+
+  const affectComparison = useMemo(() => {
+    if (!leftVersion || !rightVersion || compareField !== 'lyrics') return null;
+    return compareLyricAffectVersions(compareText.left, compareText.right);
+  }, [leftVersion, rightVersion, compareField, compareText]);
 
   const handleRestoreLeft = () => {
     if (leftVersion && onRestore) {
@@ -237,6 +247,21 @@ function DiffViewer({ versions, onClose, onRestore }: DiffViewerProps) {
         </div>
       )}
 
+      {affectComparison && (
+        <AffectDiffSummary
+          comparison={affectComparison}
+          language={language}
+          labels={{
+            title: t('affectComparisonTitle'),
+            notes: t('affectComparisonNotes'),
+            valence: t('affectValence'),
+            arousal: t('affectArousal'),
+            density: t('affectDensity'),
+            tension: t('affectTension'),
+          }}
+        />
+      )}
+
       <div className="diff-content">
         {leftVersion && rightVersion ? (
           <DiffEditor
@@ -268,6 +293,119 @@ function DiffViewer({ versions, onClose, onRestore }: DiffViewerProps) {
       </div>
     </div>
   );
+}
+
+function AffectDiffSummary({
+  comparison,
+  language,
+  labels,
+}: {
+  comparison: LyricAffectComparison;
+  language: 'ja' | 'en';
+  labels: {
+    title: string;
+    notes: string;
+    valence: string;
+    arousal: string;
+    density: string;
+    tension: string;
+  };
+}) {
+  const items = [
+    { key: 'valence', label: labels.valence, value: comparison.delta.valence },
+    { key: 'arousal', label: labels.arousal, value: comparison.delta.arousal },
+    { key: 'density', label: labels.density, value: comparison.delta.density },
+    { key: 'tension', label: labels.tension, value: comparison.delta.tension },
+  ] as const;
+
+  return (
+    <div className="diff-affect-summary">
+      <div className="diff-affect-header">
+        <span>{labels.title}</span>
+      </div>
+      <div className="diff-affect-grid">
+        {items.map((item) => (
+          <div key={item.key} className="diff-affect-cell">
+            <span>{item.label}</span>
+            <strong className={item.value >= 0 ? 'positive' : 'negative'}>{formatSigned(item.value)}</strong>
+          </div>
+        ))}
+      </div>
+      {comparison.notes.length > 0 && (
+        <div className="diff-affect-notes">
+          <span>{labels.notes}</span>
+          <ul>
+            {comparison.notes.slice(0, 3).map((note) => (
+              <li key={`${note.kind}-${note.sectionName ?? 'all'}`}>
+                {formatComparisonNote(note, language)}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </div>
+  );
+}
+
+function formatComparisonNote(note: AffectComparisonNote, language: 'ja' | 'en'): string {
+  const sectionPrefix = note.sectionName ? `${note.sectionName}: ` : '';
+  const delta = formatSigned(note.delta);
+
+  if (language === 'en') {
+    switch (note.kind) {
+      case 'valence_up':
+        return `Brightness increased ${delta}.`;
+      case 'valence_down':
+        return `Brightness decreased ${delta}.`;
+      case 'density_up':
+        return `Density increased ${delta}.`;
+      case 'density_down':
+        return `Density decreased ${delta}.`;
+      case 'tension_up':
+        return `Tension increased ${delta}.`;
+      case 'tension_down':
+        return `Tension decreased ${delta}.`;
+      case 'section_density_up':
+        return `${sectionPrefix}density increased ${delta}.`;
+      case 'section_density_down':
+        return `${sectionPrefix}density decreased ${delta}.`;
+      case 'section_tension_up':
+        return `${sectionPrefix}tension increased ${delta}.`;
+      case 'section_tension_down':
+        return `${sectionPrefix}tension decreased ${delta}.`;
+      default:
+        return `Affect changed ${delta}.`;
+    }
+  }
+
+  switch (note.kind) {
+    case 'valence_up':
+      return `明るさが上がりました ${delta}。`;
+    case 'valence_down':
+      return `明るさが下がりました ${delta}。`;
+    case 'density_up':
+      return `密度が上がりました ${delta}。`;
+    case 'density_down':
+      return `密度が下がりました ${delta}。`;
+    case 'tension_up':
+      return `緊張度が上がりました ${delta}。`;
+    case 'tension_down':
+      return `緊張度が下がりました ${delta}。`;
+    case 'section_density_up':
+      return `${sectionPrefix}密度が上がりました ${delta}。`;
+    case 'section_density_down':
+      return `${sectionPrefix}密度が下がりました ${delta}。`;
+    case 'section_tension_up':
+      return `${sectionPrefix}緊張度が上がりました ${delta}。`;
+    case 'section_tension_down':
+      return `${sectionPrefix}緊張度が下がりました ${delta}。`;
+    default:
+      return `感情値が変化しました ${delta}。`;
+  }
+}
+
+function formatSigned(value: number): string {
+  return `${value >= 0 ? '+' : ''}${value.toFixed(2)}`;
 }
 
 export default DiffViewer;

@@ -1,0 +1,75 @@
+{
+  "schema_version": "qeg-local-gate-input/v1",
+  "feature_id": "LL-AFFECT-INSIGHT-V2",
+  "profile": "standard",
+  "created_at": "2026-07-03T07:15:00+09:00",
+  "sourceRefs": [
+    {"id": "REQ", "path": "docs/requirements/lyric-affect-insight-v2.md"},
+    {"id": "IMPL", "path": "docs/implementation/lyric-affect-insight-v2.md"},
+    {"id": "RAND", "path": ".five-tool-validation/affect-insight-v2/rand/requirements-packet.json"},
+    {"id": "CTG", "path": ".five-tool-validation/affect-insight-v2/code-to-gate/analysis-report.md"},
+    {"id": "HATE", "path": ".five-tool-validation/affect-insight-v2/hate/qeg-bundle.json"},
+    {"id": "MANUAL_BB", "path": ".five-tool-validation/affect-insight-v2/manual-bb/manual-bb-artifact.json"},
+    {"id": "MANUAL_BB_EXECUTION", "path": ".five-tool-validation/affect-insight-v2/manual-bb/execution-evidence.json"}
+  ],
+  "claims": [
+    {
+      "id": "CLAIM-SECTION-METRICS",
+      "priority": "P1",
+      "statement": "セクション別メトリクスを算出し UI に表示できる",
+      "evidence": ["src/lib/affect/lyricsAffectMetrics.ts", "src/components/AffectMetricsPanel.tsx", "src/test/lyricsAffectMetrics.test.ts", "src/test/AffectMetricsPanel.test.tsx", "e2e/affect-insight.manual.spec.ts", ".five-tool-validation/affect-insight-v2/manual-bb/screenshots/TC-AFFECT-001-003-affect-panel.png"]
+    },
+    {
+      "id": "CLAIM-WAVE",
+      "priority": "P1",
+      "statement": "セクション順または行順の感情波形を表示できる",
+      "evidence": ["src/lib/affect/lyricsAffectMetrics.ts", "src/components/AffectMetricsPanel.tsx", "src/test/lyricsAffectMetrics.test.ts"]
+    },
+    {
+      "id": "CLAIM-SNAPSHOT-COMPARE",
+      "priority": "P1",
+      "statement": "DiffViewer で保存済みバージョン同士の感情差分を表示できる",
+      "evidence": ["src/components/DiffViewer.tsx", "src/test/AffectMetricsPanel.test.tsx", "e2e/affect-insight.manual.spec.ts", ".five-tool-validation/affect-insight-v2/manual-bb/screenshots/TC-AFFECT-002-diff-viewer.png"]
+    },
+    {
+      "id": "CLAIM-GOLDEN",
+      "priority": "P1",
+      "statement": "ゴールデン歌詞セットで主要傾向の退行を検知できる",
+      "evidence": ["src/test/fixtures/affectGoldenLyrics.ts", "src/test/lyricsAffectMetrics.test.ts"]
+    }
+  ],
+  "automated_evidence": {
+    "vitest": {
+      "status": "pass",
+      "total_tests": 1356,
+      "passed_tests": 1356,
+      "failed_tests": 0,
+      "path": ".five-tool-validation/affect-insight-v2/hate/vitest-results.json"
+    },
+    "build": {
+      "status": "pass",
+      "command": "npm run build"
+    },
+    "code_to_gate": {
+      "status": "pass",
+      "critical": 0,
+      "high": 0,
+      "risks": 0,
+      "medium": 17,
+      "path": ".five-tool-validation/affect-insight-v2/code-to-gate/analysis-report.md"
+    },
+    "hate": {
+      "status": "pass",
+      "executed_record_count": 1356,
+      "path": ".five-tool-validation/affect-insight-v2/hate/real-repo/real-repo-evaluation-run-report.json"
+    }
+  },
+  "manual_evidence": {
+    "status": "pass",
+    "path": ".five-tool-validation/affect-insight-v2/manual-bb/manual-bb-report.md",
+    "execution_path": ".five-tool-validation/affect-insight-v2/manual-bb/execution-evidence.json",
+    "executed_cases": 3,
+    "passed_cases": 3,
+    "failed_cases": 0
+  }
+}

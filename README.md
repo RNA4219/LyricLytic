@@ -79,10 +79,18 @@ AI補助機能を利用しない場合は以下のトピックをスキップし
 
 ### 1. 前提ソフト
 
-- Node.js 20 以上
+- Node.js 20.19以上、または22.12以上
 - Rust / Cargo
 - Windows の場合は WebView2 Runtime
 - `llama.cpp`
+
+初回buildではSudachiDict Core v20260428（約217MB展開後）を公式releaseから取得し、SHA-256を検証してTauri resourceへ同梱します。実行時のダウンロードとPython環境は不要です。
+
+    npm ci
+    npm run build
+    cd src-tauri
+    cargo build
+
 
 ### 2. `llama.cpp` を入れる
 
@@ -214,10 +222,10 @@ LyricLytic を使うには、ざっくり次の 4 つだけです。
 
 ## 動作方針
 
-- 主対応 OS は Windows
-- macOS は導入手順のみ記載
-- macOS は起動するように実装をしていますが、所持していないため、動作保証しかねます。
-- テストより実機挙動を優先して運用しています
+- Windowsを正式サポートします
+- macOSはCIでbuildとbundle生成を保証します
+- Windows release前にインストールから再起動復元、Import/Export、LLM、韻解析、ごみ箱まで実機確認します
+- 自動テスト、監査、実機確認をすべてrelease Gateとして扱います
 
 ## 迷いやすいポイント
 
@@ -265,7 +273,7 @@ LyricLytic を使うには、ざっくり次の 4 つだけです。
 - SQLite
 - Monaco Editor
 - `llama.cpp`
-- SudachiPy / SudachiDict-core
+- sudachi.rs 0.6.12-a1 / SudachiDict Core v20260428
 
 ## Suno 用プロンプト / メタタグ辞書について
 
@@ -287,10 +295,9 @@ LyricLytic でもその方針を尊重し、生成補助用途に限定して参
 
 ## 困ったとき
 
-- README で解決しない場合は、X の [@rna4219](https://x.com/rna4219) にリプライやDMを飛ばしてください
-- v1.0.0 リリースから3カ月 (2026/07/01) まではサポート予定です
-- Windows が主対応です
-- macOS は起動するように実装をしていますが、所持していないため、動作保証しかねます。
+- 利用方法や不具合はGitHub Issueへ報告してください
+- 脆弱性は[SECURITY.md](SECURITY.md)の非公開報告手順を利用してください
+- 対応OSと保証範囲は上記「動作方針」を参照してください
 
 ## 詳しいドキュメント
 

@@ -2,6 +2,7 @@ use crate::db;
 use crate::error::AppResult;
 use crate::models::{CreateProjectInput, Project, UpdateProjectInput};
 use crate::repositories::project_repo;
+use crate::services::write;
 use tauri::AppHandle;
 use uuid::Uuid;
 
@@ -13,8 +14,8 @@ pub fn get_projects(app: AppHandle) -> AppResult<Vec<Project>> {
 
 #[tauri::command]
 pub fn create_project(app: AppHandle, input: CreateProjectInput) -> AppResult<Project> {
-    let conn = db::get_connection(&app)?;
-    project_repo::create(&conn, input)
+    let mut conn = db::get_connection(&app)?;
+    write::create_project(&mut conn, input)
 }
 
 #[tauri::command]
@@ -24,16 +25,20 @@ pub fn get_project(app: AppHandle, project_id: String) -> AppResult<Project> {
 }
 
 #[tauri::command]
-pub fn update_project(app: AppHandle, project_id: String, input: UpdateProjectInput) -> AppResult<Project> {
-    let conn = db::get_connection(&app)?;
-    project_repo::update(&conn, &project_id, input)
+pub fn update_project(
+    app: AppHandle,
+    project_id: String,
+    input: UpdateProjectInput,
+) -> AppResult<Project> {
+    let mut conn = db::get_connection(&app)?;
+    write::update_project(&mut conn, &project_id, input)
 }
 
 #[tauri::command]
 pub fn delete_project(app: AppHandle, project_id: String) -> AppResult<()> {
-    let conn = db::get_connection(&app)?;
+    let mut conn = db::get_connection(&app)?;
     let batch_id = Uuid::new_v4().to_string();
-    project_repo::soft_delete(&conn, &project_id, &batch_id)
+    write::soft_delete_project(&mut conn, &project_id, &batch_id)
 }
 
 #[tauri::command]
@@ -44,6 +49,6 @@ pub fn get_deleted_projects(app: AppHandle) -> AppResult<Vec<Project>> {
 
 #[tauri::command]
 pub fn restore_project(app: AppHandle, project_id: String, batch_id: String) -> AppResult<()> {
-    let conn = db::get_connection(&app)?;
-    project_repo::restore(&conn, &project_id, &batch_id)
+    let mut conn = db::get_connection(&app)?;
+    write::restore_project(&mut conn, &project_id, &batch_id)
 }

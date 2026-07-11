@@ -10,7 +10,7 @@ pub fn get_by_project(conn: &Connection, project_id: &str) -> AppResult<Option<S
         "SELECT style_profile_id, project_id, tone, vocabulary_bias, taboo_words,
                 structure_preference, memo, created_at, updated_at
          FROM style_profiles
-         WHERE project_id = ?1 AND deleted_at IS NULL"
+         WHERE project_id = ?1 AND deleted_at IS NULL",
     )?;
 
     let result = stmt.query_row(params![project_id], |row| {
@@ -59,7 +59,11 @@ pub fn create(conn: &Connection, input: CreateStyleProfileInput) -> AppResult<St
     get_by_id(conn, &profile_id)
 }
 
-pub fn update(conn: &Connection, profile_id: &str, input: UpdateStyleProfileInput) -> AppResult<StyleProfile> {
+pub fn update(
+    conn: &Connection,
+    profile_id: &str,
+    input: UpdateStyleProfileInput,
+) -> AppResult<StyleProfile> {
     let now = Utc::now();
     let existing = get_by_id(conn, profile_id)?;
     let now_rfc3339 = now.to_rfc3339();
@@ -74,7 +78,15 @@ pub fn update(conn: &Connection, profile_id: &str, input: UpdateStyleProfileInpu
         "UPDATE style_profiles SET tone = ?1, vocabulary_bias = ?2, taboo_words = ?3,
          structure_preference = ?4, memo = ?5, updated_at = ?6
          WHERE style_profile_id = ?7",
-        params![tone, vocabulary_bias, taboo_words, structure_preference, memo, now_rfc3339, profile_id],
+        params![
+            tone,
+            vocabulary_bias,
+            taboo_words,
+            structure_preference,
+            memo,
+            now_rfc3339,
+            profile_id
+        ],
     )?;
 
     touch_project_updated_at(conn, &existing.project_id, &now_rfc3339)?;
@@ -103,23 +115,26 @@ fn get_by_id(conn: &Connection, profile_id: &str) -> AppResult<StyleProfile> {
         "SELECT style_profile_id, project_id, tone, vocabulary_bias, taboo_words,
                 structure_preference, memo, created_at, updated_at
          FROM style_profiles
-         WHERE style_profile_id = ?1 AND deleted_at IS NULL"
+         WHERE style_profile_id = ?1 AND deleted_at IS NULL",
     )?;
 
-    let profile = stmt.query_row(params![profile_id], |row| {
-        Ok(StyleProfile {
-            style_profile_id: row.get(0)?,
-            project_id: row.get(1)?,
-            tone: row.get(2)?,
-            vocabulary_bias: row.get(3)?,
-            taboo_words: row.get(4)?,
-            structure_preference: row.get(5)?,
-            memo: row.get(6)?,
-            created_at: row.get(7)?,
-            updated_at: row.get(8)?,
+    let profile = stmt
+        .query_row(params![profile_id], |row| {
+            Ok(StyleProfile {
+                style_profile_id: row.get(0)?,
+                project_id: row.get(1)?,
+                tone: row.get(2)?,
+                vocabulary_bias: row.get(3)?,
+                taboo_words: row.get(4)?,
+                structure_preference: row.get(5)?,
+                memo: row.get(6)?,
+                created_at: row.get(7)?,
+                updated_at: row.get(8)?,
+            })
         })
-    })
-    .map_err(|_| crate::error::AppError::NotFound(format!("StyleProfile not found: {}", profile_id)))?;
+        .map_err(|_| {
+            crate::error::AppError::NotFound(format!("StyleProfile not found: {}", profile_id))
+        })?;
 
     Ok(profile)
 }
@@ -137,18 +152,19 @@ pub fn get_all_deleted(conn: &Connection) -> AppResult<Vec<DeletedStyleProfile>>
         "SELECT style_profile_id, project_id, deleted_at, deleted_batch_id
          FROM style_profiles
          WHERE deleted_at IS NOT NULL
-         ORDER BY deleted_at DESC"
+         ORDER BY deleted_at DESC",
     )?;
 
-    let profiles = stmt.query_map(params![], |row| {
-        Ok(DeletedStyleProfile {
-            style_profile_id: row.get(0)?,
-            project_id: row.get(1)?,
-            deleted_at: row.get(2)?,
-            deleted_batch_id: row.get(3)?,
-        })
-    })?
-    .collect::<std::result::Result<Vec<_>, _>>()?;
+    let profiles = stmt
+        .query_map(params![], |row| {
+            Ok(DeletedStyleProfile {
+                style_profile_id: row.get(0)?,
+                project_id: row.get(1)?,
+                deleted_at: row.get(2)?,
+                deleted_batch_id: row.get(3)?,
+            })
+        })?
+        .collect::<std::result::Result<Vec<_>, _>>()?;
 
     Ok(profiles)
 }

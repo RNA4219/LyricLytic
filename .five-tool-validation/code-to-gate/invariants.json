@@ -1,10 +1,10 @@
 {
   "version": "ctg/v1",
-  "generated_at": "2026-07-02T21:47:22.987Z",
-  "run_id": "ctg-202607022147-local",
+  "generated_at": "2026-07-02T21:55:07.974Z",
+  "run_id": "ctg-202607022155-local",
   "repo": {
     "root": ".",
-    "revision": "63ff56cfb326",
+    "revision": "93983a796f65",
     "branch": "main",
     "dirty": true
   },
@@ -71,7 +71,7 @@
       "kind": "technical",
       "confidence": 0.85,
       "sourceFindingIds": [
-        "finding-LARGE_MODULE-003"
+        "finding-LARGE_MODULE-002"
       ],
       "evidence": [
         {
@@ -95,7 +95,7 @@
       "kind": "technical",
       "confidence": 0.85,
       "sourceFindingIds": [
-        "finding-LARGE_MODULE-004"
+        "finding-LARGE_MODULE-003"
       ],
       "evidence": [
         {
@@ -119,7 +119,7 @@
       "kind": "technical",
       "confidence": 0.9,
       "sourceFindingIds": [
-        "finding-LARGE_MODULE-005"
+        "finding-LARGE_MODULE-004"
       ],
       "evidence": [
         {
@@ -143,7 +143,7 @@
       "kind": "technical",
       "confidence": 0.9,
       "sourceFindingIds": [
-        "finding-LARGE_MODULE-006"
+        "finding-LARGE_MODULE-005"
       ],
       "evidence": [
         {
@@ -167,7 +167,7 @@
       "kind": "technical",
       "confidence": 0.9,
       "sourceFindingIds": [
-        "finding-LARGE_MODULE-007"
+        "finding-LARGE_MODULE-006"
       ],
       "evidence": [
         {
@@ -191,7 +191,7 @@
       "kind": "technical",
       "confidence": 0.85,
       "sourceFindingIds": [
-        "finding-LARGE_MODULE-008"
+        "finding-LARGE_MODULE-007"
       ],
       "evidence": [
         {
@@ -215,7 +215,7 @@
       "kind": "technical",
       "confidence": 0.85,
       "sourceFindingIds": [
-        "finding-LARGE_MODULE-009"
+        "finding-LARGE_MODULE-008"
       ],
       "evidence": [
         {
@@ -239,7 +239,7 @@
       "kind": "technical",
       "confidence": 0.85,
       "sourceFindingIds": [
-        "finding-LARGE_MODULE-010"
+        "finding-LARGE_MODULE-009"
       ],
       "evidence": [
         {
@@ -263,7 +263,7 @@
       "kind": "technical",
       "confidence": 0.85,
       "sourceFindingIds": [
-        "finding-LARGE_MODULE-011"
+        "finding-LARGE_MODULE-010"
       ],
       "evidence": [
         {
@@ -287,7 +287,7 @@
       "kind": "technical",
       "confidence": 0.9,
       "sourceFindingIds": [
-        "finding-LARGE_MODULE-012"
+        "finding-LARGE_MODULE-011"
       ],
       "evidence": [
         {
@@ -296,13 +296,13 @@
           "startLine": 1,
           "endLine": 20,
           "kind": "text",
-          "excerptHash": "7ac152e0"
+          "excerptHash": "1d53ca49"
         }
       ],
-      "rationale": "Derived from high severity finding (LARGE_MODULE): This file has 1054 lines, exceeding the 500 line threshold. Large files are hard to maintain, test, and understand. Consider splitting into smaller, focused modules.",
+      "rationale": "Derived from medium severity finding (LARGE_MODULE): This file has 966 lines, exceeding the 500 line threshold. Large files are hard to maintain, test, and understand. Consider splitting into smaller, focused modules.",
       "tags": [
         "maintainability",
-        "high"
+        "medium"
       ]
     },
     {
@@ -311,7 +311,7 @@
       "kind": "technical",
       "confidence": 0.85,
       "sourceFindingIds": [
-        "finding-LARGE_MODULE-013"
+        "finding-LARGE_MODULE-012"
       ],
       "evidence": [
         {
@@ -335,7 +335,7 @@
       "kind": "technical",
       "confidence": 0.85,
       "sourceFindingIds": [
-        "finding-LARGE_MODULE-014"
+        "finding-LARGE_MODULE-013"
       ],
       "evidence": [
         {
@@ -355,66 +355,26 @@
     },
     {
       "id": "inv-technical-014",
-      "statement": "Circular dependency detected (2 files in cycle) must be addressed",
+      "statement": "Deprecated API: window.confirm must be addressed",
       "kind": "technical",
-      "confidence": 0.95,
+      "confidence": 0.9,
       "sourceFindingIds": [
-        "finding-CIRCULAR_DEPENDENCY-015"
+        "finding-DEPRECATED_API_USAGE-014"
       ],
       "evidence": [
         {
           "id": "evidence-inv-technical-014-00",
-          "path": "src/lib/api.ts",
-          "startLine": 1,
-          "endLine": 1,
-          "kind": "text",
-          "excerptHash": "4ff41a3d"
-        },
-        {
-          "id": "evidence-inv-technical-014-01",
           "path": "src/lib/useProjectData.ts",
-          "startLine": 1,
-          "endLine": 1,
-          "kind": "text",
-          "excerptHash": "5cbd6a89"
-        },
-        {
-          "id": "evidence-inv-technical-014-02",
-          "path": "src/lib/api.ts",
-          "startLine": 1,
-          "endLine": 1,
-          "kind": "text",
-          "excerptHash": "4ff41a3d"
-        }
-      ],
-      "rationale": "Derived from high severity finding (CIRCULAR_DEPENDENCY): Import cycle: src/lib/api.ts → src/lib/useProjectData.ts → src/lib/api.ts. Circular dependencies can cause \"Cannot access before initialization\" errors and make the code harder to maintain.",
-      "tags": [
-        "maintainability",
-        "high"
-      ]
-    },
-    {
-      "id": "inv-data-000",
-      "statement": "SQL queries must use parameterized statements, not string concatenation",
-      "kind": "data",
-      "confidence": 0.85,
-      "sourceFindingIds": [
-        "finding-RAW_SQL-002"
-      ],
-      "evidence": [
-        {
-          "id": "evidence-inv-data-000-00",
-          "path": "src/lib/useProjectData.ts",
-          "startLine": 160,
+          "startLine": 164,
           "endLine": 164,
           "kind": "text",
-          "excerptHash": "7b9d0b9f"
+          "excerptHash": "7c181973"
         }
       ],
-      "rationale": "Derived from high severity finding (RAW_SQL): A raw SQL query is constructed using string concatenation or template literals, which can allow SQL injection if user input is incorporated. Use parameterized queries, prepared statements, or an ORM instead.",
+      "rationale": "Derived from medium severity finding (DEPRECATED_API_USAGE): The API 'window.confirm' is deprecated. Recommended replacement: custom confirmation UI. Using deprecated APIs creates maintenance debt and may lead to breaking changes.",
       "tags": [
-        "data",
-        "high"
+        "maintainability",
+        "medium"
       ]
     }
   ]

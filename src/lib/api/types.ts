@@ -115,6 +115,7 @@ export interface UpdateProjectInput {
 }
 
 export interface DraftSectionInput {
+  draft_section_id?: string;
   section_type?: string;
   display_name: string;
   sort_order: number;
@@ -203,6 +204,26 @@ export interface UpdateStyleProfileInput {
 export interface ExportProjectInput {
   project_id: string;
   include_deleted: boolean;
+  destination_path: string;
+}
+
+export interface ExportQuickInput {
+  project_id: string;
+  format: 'txt' | 'markdown' | 'json';
+  destination_path: string;
+}
+
+export type TextEncoding = 'utf-8' | 'shift_jis' | 'euc-jp' | 'iso-2022-jp' | 'windows-1252';
+
+export interface ReadTextFileResult {
+  text: string;
+  had_replacements: boolean;
+}
+
+export interface ModelCandidate {
+  path: string;
+  name: string;
+  size_bytes: number;
 }
 
 export interface StartLlamaCppInput {

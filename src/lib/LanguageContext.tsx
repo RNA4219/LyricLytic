@@ -1,7 +1,7 @@
 import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from 'react';
 import { Language, translations } from './i18n';
 
-type TranslationKey = keyof typeof translations.ja;
+export type TranslationKey = keyof typeof translations.ja;
 
 interface LanguageContextType {
   language: Language;

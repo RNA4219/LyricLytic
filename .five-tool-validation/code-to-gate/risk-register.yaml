@@ -1,13 +1,13 @@
 # code-to-gate risk-register
-# Generated: 2026-07-02T21:47:21.408Z
-# Run ID: ctg-202607022147-local
+# Generated: 2026-07-02T21:55:06.399Z
+# Run ID: ctg-202607022155-local
 
 version: ctg/v1
-generated_at: 2026-07-02T21:47:21.408Z
-run_id: ctg-202607022147-local
+generated_at: 2026-07-02T21:55:06.399Z
+run_id: ctg-202607022155-local
 artifact: risk-register
 schema: risk-register@v1
-completeness: complete
+completeness: partial
 
 repo:
   root: "."
@@ -18,67 +18,4 @@ tool:
   plugin_versions: []
 
 risks:
-
-  - id: "risk-RAW_SQL-002"
-    title: "Raw SQL query detected - potential SQL injection vulnerability"
-    severity: high
-    likelihood: medium
-    confidence: 0.85
-    impact:
-      - "A raw SQL query is constructed using string concatenation or template literals, which can allow SQL injection if user input is incorporated. Use parameterized queries, prepared statements, or an ORM instead."
-    sourceFindingIds:
-      - "finding-RAW_SQL-002"
-    evidence:
-      - id: "evidence-finding-RAW_SQL-002-00"
-        path: "src/lib/useProjectData.ts"
-        kind: text
-        startLine: 160
-        excerptHash: "7b9d0b9f"
-    recommendedActions:
-      - "Address finding finding-RAW_SQL-002: RAW_SQL"
-
-  - id: "risk-LARGE_MODULE-012"
-    title: "Module exceeds line count threshold (1054 lines)"
-    severity: high
-    likelihood: medium
-    confidence: 0.9
-    impact:
-      - "This file has 1054 lines, exceeding the 500 line threshold. Large files are hard to maintain, test, and understand. Consider splitting into smaller, focused modules."
-    sourceFindingIds:
-      - "finding-LARGE_MODULE-012"
-    evidence:
-      - id: "evidence-finding-LARGE_MODULE-012-00"
-        path: "src/pages/Editor.tsx"
-        kind: text
-        startLine: 1
-        excerptHash: "7ac152e0"
-    recommendedActions:
-      - "Address finding finding-LARGE_MODULE-012: LARGE_MODULE"
-
-  - id: "risk-CIRCULAR_DEPENDENCY-015"
-    title: "Circular dependency detected (2 files in cycle)"
-    severity: high
-    likelihood: medium
-    confidence: 0.95
-    impact:
-      - "Import cycle: src/lib/api.ts → src/lib/useProjectData.ts → src/lib/api.ts. Circular dependencies can cause \"Cannot access before initialization\" errors and make the code harder to maintain."
-    sourceFindingIds:
-      - "finding-CIRCULAR_DEPENDENCY-015"
-    evidence:
-      - id: "evidence-finding-CIRCULAR_DEPENDENCY-015-00"
-        path: "src/lib/api.ts"
-        kind: text
-        startLine: 1
-        excerptHash: "4ff41a3d"
-      - id: "evidence-finding-CIRCULAR_DEPENDENCY-015-01"
-        path: "src/lib/useProjectData.ts"
-        kind: text
-        startLine: 1
-        excerptHash: "5cbd6a89"
-      - id: "evidence-finding-CIRCULAR_DEPENDENCY-015-02"
-        path: "src/lib/api.ts"
-        kind: text
-        startLine: 1
-        excerptHash: "4ff41a3d"
-    recommendedActions:
-      - "Address finding finding-CIRCULAR_DEPENDENCY-015: CIRCULAR_DEPENDENCY"
+  []

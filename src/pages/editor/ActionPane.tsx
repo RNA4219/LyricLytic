@@ -39,7 +39,7 @@ function ActionPane({
       {/* Content Area */}
       <div className="inspector-content">
         <div className="inspector-section inspector-section-llm">
-          <AffectMetricsPanel text={currentLyrics} />
+          <AffectMetricsPanel text={currentLyrics} sections={sections} />
           <LLMAssistPanel
             runtime={llmSettings.runtime}
             baseUrl={llmSettings.baseUrl}

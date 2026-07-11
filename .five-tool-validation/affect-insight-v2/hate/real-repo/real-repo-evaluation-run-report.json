@@ -1,0 +1,33 @@
+{
+  "schema_version": "HATE/v1",
+  "record_type": "real-repo-evaluation-run-report",
+  "report_id": "real-repo-evaluation-run",
+  "source_version": "lyric-affect-insight-v2",
+  "run_id": "run-bcc2314d784d8150",
+  "roster_hash": "sha256:3b60dd18e4e0bdb21fbc73ee887c7764ae7e8eca855f44df87a588a398eeaad7",
+  "policy_hash": "policy-37a8eec1ce19687d",
+  "environment_fingerprint": {
+    "os": "Windows",
+    "os_release": "11",
+    "python": "3.13.7",
+    "shell": "powershell.exe"
+  },
+  "overall_status": "pass",
+  "roster_path": "C:\\Users\\ryo-n\\Codex_dev\\LyricLytic\\.five-tool-validation\\affect-insight-v2\\hate\\real-repo-roster.json",
+  "repo_count": 1,
+  "hold_count": 0,
+  "generated_reports": [
+    "real-repo-LyricLytic.json"
+  ],
+  "history_path": "real-repo-run-history.jsonl",
+  "summary": {
+    "passed": 1,
+    "held": 0,
+    "timeout_count": 0,
+    "executed_record_count": 1356,
+    "held_repos": []
+  },
+  "sourceRefs": [
+    "file:real-repo-roster.json"
+  ]
+}

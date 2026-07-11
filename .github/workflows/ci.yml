@@ -1,0 +1,98 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [windows-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22.12.0
+          cache: npm
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: src-tauri
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run build
+      - run: npm run test:run -- --maxWorkers=1
+      - run: npm run test:coverage
+      - run: npx playwright install chromium
+      - run: npm run test:e2e
+      - run: npm run audit:prod
+      - run: npm run audit:all
+      - working-directory: src-tauri
+        run: cargo fmt -- --check
+      - working-directory: src-tauri
+        run: cargo clippy --all-targets --all-features -- -D warnings
+      - working-directory: src-tauri
+        run: cargo test --all-features
+      - working-directory: src-tauri
+        run: cargo install cargo-audit --version 0.22.2 --locked
+      - name: Cargo audit (JSON evidence)
+        working-directory: src-tauri
+        shell: bash
+        run: |
+          set -o pipefail
+          cargo audit --json | tee cargo-audit.json
+      - name: Build Windows installers
+        if: runner.os == 'Windows'
+        run: npm run tauri:build -- --bundles msi,nsis
+      - name: Build macOS app and DMG
+        if: runner.os == 'macOS'
+        run: npm run tauri:build -- --bundles app,dmg
+      - name: Verify bundled Sudachi dictionary and platform artifacts
+        shell: bash
+        run: |
+          dictionary='system_core_20260428.dic'
+          test -s "src-tauri/resources/sudachi/$dictionary"
+          test -n "$(find src-tauri/target/release -type f -name "$dictionary" -print -quit)"
+          if [[ "${{ runner.os }}" == 'Windows' ]]; then
+            test -n "$(find src-tauri/target/release/bundle/msi -type f -name '*.msi' -print -quit)"
+            test -n "$(find src-tauri/target/release/bundle/nsis -type f -name '*.exe' -print -quit)"
+          else
+            test -n "$(find src-tauri/target/release/bundle/macos -type d -name '*.app' -print -quit)"
+            test -n "$(find src-tauri/target/release/bundle/dmg -type f -name '*.dmg' -print -quit)"
+          fi
+      - name: Upload audit evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cargo-audit-${{ matrix.os }}
+          path: src-tauri/cargo-audit.json
+          if-no-files-found: warn
+          retention-days: 14
+      - name: Upload Playwright diagnostics
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-${{ matrix.os }}
+          path: |
+            playwright-report/
+            test-results/
+          if-no-files-found: warn
+          retention-days: 14
+      - name: Upload Tauri bundles
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: tauri-bundle-${{ matrix.os }}
+          path: src-tauri/target/release/bundle/
+          if-no-files-found: error
+          retention-days: 14

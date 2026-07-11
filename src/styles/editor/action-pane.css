@@ -436,6 +436,155 @@
   justify-content: flex-start;
 }
 
+.affect-subpanel {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding-top: 0.65rem;
+  border-top: 1px solid rgba(148, 163, 184, 0.12);
+}
+
+.affect-subpanel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--outline);
+  font-size: 0.625rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.affect-section-list,
+.affect-wave-list,
+.affect-evidence-list,
+.affect-alert-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.affect-section-row,
+.affect-evidence-row,
+.affect-alert-row {
+  min-width: 0;
+  border-radius: 6px;
+  background: rgba(15, 23, 42, 0.62);
+  border: 1px solid rgba(148, 163, 184, 0.1);
+  padding: 0.5rem;
+}
+
+.affect-section-main,
+.affect-section-values {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.affect-section-main strong {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--on-surface);
+  font-size: 0.75rem;
+}
+
+.affect-section-main span,
+.affect-section-values,
+.affect-evidence-row,
+.affect-alert-row {
+  color: var(--on-surface-variant);
+  font-size: 0.6875rem;
+}
+
+.affect-section-values {
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  margin-top: 0.35rem;
+}
+
+.affect-wave-row {
+  display: grid;
+  grid-template-columns: minmax(42px, 0.8fr) repeat(4, minmax(58px, 1fr));
+  gap: 0.35rem;
+  align-items: center;
+}
+
+.affect-wave-label {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--on-surface);
+  font-size: 0.6875rem;
+  font-weight: 700;
+}
+
+.affect-wave-metric {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.2rem;
+}
+
+.affect-wave-metric span,
+.affect-wave-metric strong {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 0.5625rem;
+}
+
+.affect-wave-metric span {
+  color: var(--outline);
+}
+
+.affect-wave-metric strong {
+  color: var(--on-surface-variant);
+}
+
+.affect-wave-track {
+  height: 4px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(2, 6, 23, 0.8);
+}
+
+.affect-wave-track span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #60a5fa, #86efac);
+}
+
+.affect-evidence-row {
+  display: grid;
+  grid-template-columns: minmax(46px, auto) 1fr;
+  gap: 0.25rem 0.5rem;
+}
+
+.affect-evidence-marker {
+  color: #bfdbfe;
+  font-weight: 800;
+}
+
+.affect-evidence-row small {
+  grid-column: 1 / -1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--outline);
+  font-size: 0.625rem;
+}
+
+.affect-alert-row.watch {
+  border-color: rgba(251, 191, 36, 0.26);
+  background: rgba(120, 53, 15, 0.18);
+  color: #fde68a;
+}
+
 .affect-panel-note {
   margin: 0;
   color: var(--outline);

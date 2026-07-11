@@ -1,9 +1,15 @@
 import { useMemo } from 'react';
-import { analyzeLyricAffect, EmotionName } from '../lib/affect/lyricsAffectMetrics';
+import {
+  analyzeLyricAffectInsight,
+  AffectProductionAlert,
+  EmotionName,
+} from '../lib/affect/lyricsAffectMetrics';
 import { useLanguage } from '../lib/LanguageContext';
+import { Section, sectionsToBody } from '../lib/section';
 
 interface AffectMetricsPanelProps {
   text: string;
+  sections?: Section[];
 }
 
 const EMOTION_LABELS: Record<'ja' | 'en', Record<EmotionName, string>> = {
@@ -29,16 +35,30 @@ const EMOTION_LABELS: Record<'ja' | 'en', Record<EmotionName, string>> = {
   },
 };
 
-function AffectMetricsPanel({ text }: AffectMetricsPanelProps) {
+function AffectMetricsPanel({ text, sections = [] }: AffectMetricsPanelProps) {
   const { language, t } = useLanguage();
-  const metrics = useMemo(() => analyzeLyricAffect(text), [text]);
+  const fullText = useMemo(() => (
+    sections.length > 0 ? sectionsToBody(sections) : text
+  ), [sections, text]);
+  const sectionInputs = useMemo(() => sections.map((section) => ({
+    id: section.id,
+    type: section.type,
+    displayName: section.displayName,
+    sortOrder: section.sortOrder,
+    bodyText: section.bodyText,
+  })), [sections]);
+  const insight = useMemo(() => analyzeLyricAffectInsight({
+    fullText,
+    sections: sectionInputs,
+  }), [fullText, sectionInputs]);
+  const metrics = insight.overall;
   const labels = EMOTION_LABELS[language];
 
   const metricItems = [
     { key: 'valence', label: t('affectValence'), value: metrics.trend.valence, signed: true },
     { key: 'arousal', label: t('affectArousal'), value: metrics.trend.arousal },
-    { key: 'stability', label: t('affectStability'), value: metrics.trend.stability },
     { key: 'density', label: t('affectDensity'), value: metrics.waveParameter.density },
+    { key: 'tension', label: t('affectTension'), value: metrics.derived.tension },
   ];
 
   return (
@@ -73,6 +93,80 @@ function AffectMetricsPanel({ text }: AffectMetricsPanelProps) {
         ))}
       </div>
 
+      {insight.sections.length > 0 && (
+        <div className="affect-subpanel">
+          <div className="affect-subpanel-header">
+            <span>{t('affectSectionMetrics')}</span>
+          </div>
+          <div className="affect-section-list">
+            {insight.sections.map((section) => (
+              <div key={section.id} className="affect-section-row">
+                <div className="affect-section-main">
+                  <strong>{section.displayName}</strong>
+                  <span>{labels[section.metrics.topEmotions[0]?.name ?? 'calm']}</span>
+                </div>
+                <div className="affect-section-values">
+                  <span>{t('affectValence')} {formatSigned(section.metrics.trend.valence)}</span>
+                  <span>{t('affectDensity')} {formatScore(section.metrics.waveParameter.density)}</span>
+                  <span>{t('affectTension')} {formatScore(section.metrics.derived.tension)}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {insight.wave.length > 0 && (
+        <div className="affect-subpanel">
+          <div className="affect-subpanel-header">
+            <span>{t('affectWaveView')}</span>
+          </div>
+          <div className="affect-wave-list">
+            {insight.wave.slice(0, 8).map((point) => (
+              <div key={point.id} className="affect-wave-row">
+                <span className="affect-wave-label">{point.label}</span>
+                <MetricBar label={t('affectValence')} value={normalizeValence(point.valence)} signedValue={point.valence} />
+                <MetricBar label={t('affectArousal')} value={point.arousal} />
+                <MetricBar label={t('affectDensity')} value={point.density} />
+                <MetricBar label={t('affectTension')} value={point.tension} />
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {metrics.evidence.length > 0 && (
+        <div className="affect-subpanel">
+          <div className="affect-subpanel-header">
+            <span>{t('affectEvidence')}</span>
+          </div>
+          <div className="affect-evidence-list">
+            {metrics.evidence.slice(0, 5).map((item) => (
+              <div key={`${item.lineNumber}-${item.emotion}-${item.marker}`} className="affect-evidence-row">
+                <span className="affect-evidence-marker">{item.marker}</span>
+                <span>{labels[item.emotion]} / L{item.lineNumber}</span>
+                <small>{item.lineText}</small>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {insight.alerts.length > 0 && (
+        <div className="affect-subpanel">
+          <div className="affect-subpanel-header">
+            <span>{t('affectProductionAlerts')}</span>
+          </div>
+          <div className="affect-alert-list">
+            {insight.alerts.map((alert) => (
+              <div key={`${alert.kind}-${alert.sectionName ?? 'all'}`} className={`affect-alert-row ${alert.severity}`}>
+                {formatAlert(alert, language)}
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
       <div className="affect-stat-row">
         <span>{t('affectLyricLines')}: {metrics.textStats.lyricLineCount}</span>
         <span>{t('chars')}: {metrics.textStats.characterCount}</span>
@@ -84,12 +178,69 @@ function AffectMetricsPanel({ text }: AffectMetricsPanelProps) {
   );
 }
 
+function MetricBar({
+  label,
+  value,
+  signedValue,
+}: {
+  label: string;
+  value: number;
+  signedValue?: number;
+}) {
+  return (
+    <div className="affect-wave-metric">
+      <span>{label}</span>
+      <div className="affect-wave-track" aria-hidden="true">
+        <span style={{ width: `${Math.round(value * 100)}%` }} />
+      </div>
+      <strong>{typeof signedValue === 'number' ? formatSigned(signedValue) : formatScore(value)}</strong>
+    </div>
+  );
+}
+
 function formatScore(value: number): string {
   return value.toFixed(2);
 }
 
 function formatSigned(value: number): string {
   return `${value >= 0 ? '+' : ''}${value.toFixed(2)}`;
+}
+
+function normalizeValence(value: number): number {
+  return (value + 1) / 2;
+}
+
+function formatAlert(alert: AffectProductionAlert, language: 'ja' | 'en'): string {
+  const sectionName = alert.sectionName ? `${alert.sectionName}: ` : '';
+  const delta = typeof alert.detail.delta === 'number' ? ` (${formatSigned(alert.detail.delta)})` : '';
+
+  if (language === 'en') {
+    switch (alert.kind) {
+      case 'chorus_density_below_verse':
+        return `${sectionName}Chorus density is below Verse${delta}.`;
+      case 'flat_late_wave':
+        return 'The emotional wave is relatively flat across the song.';
+      case 'mixed_language_low_confidence':
+        return 'Japanese and Latin text are mixed, so density estimates may be softer.';
+      case 'sustained_tension':
+        return `${sectionName}High-tension sections continue in sequence.`;
+      default:
+        return 'Review this affect signal.';
+    }
+  }
+
+  switch (alert.kind) {
+    case 'chorus_density_below_verse':
+      return `${sectionName}Chorus の密度が Verse より低めです${delta}。`;
+    case 'flat_late_wave':
+      return '曲中の感情波形が比較的平坦です。';
+    case 'mixed_language_low_confidence':
+      return '英日混在のため、密度推定が弱く出る可能性があります。';
+    case 'sustained_tension':
+      return `${sectionName}高緊張のセクションが続いています。`;
+    default:
+      return '感情メトリクスを確認してください。';
+  }
 }
 
 export default AffectMetricsPanel;

@@ -12,19 +12,20 @@ pub fn get_all_active(conn: &Connection) -> AppResult<Vec<Project>> {
          ORDER BY updated_at DESC"
     )?;
 
-    let projects = stmt.query_map([], |row| {
-        Ok(Project {
-            project_id: row.get(0)?,
-            title: row.get(1)?,
-            theme: row.get(2)?,
-            memo: row.get(3)?,
-            created_at: row.get(4)?,
-            updated_at: row.get(5)?,
-            deleted_at: row.get(6)?,
-            deleted_batch_id: row.get(7)?,
-        })
-    })?
-    .collect::<std::result::Result<Vec<_>, _>>()?;
+    let projects = stmt
+        .query_map([], |row| {
+            Ok(Project {
+                project_id: row.get(0)?,
+                title: row.get(1)?,
+                theme: row.get(2)?,
+                memo: row.get(3)?,
+                created_at: row.get(4)?,
+                updated_at: row.get(5)?,
+                deleted_at: row.get(6)?,
+                deleted_batch_id: row.get(7)?,
+            })
+        })?
+        .collect::<std::result::Result<Vec<_>, _>>()?;
 
     Ok(projects)
 }
@@ -36,19 +37,20 @@ pub fn get_by_id(conn: &Connection, project_id: &str) -> AppResult<Project> {
          WHERE project_id = ?1 AND deleted_at IS NULL"
     )?;
 
-    let project = stmt.query_row(params![project_id], |row| {
-        Ok(Project {
-            project_id: row.get(0)?,
-            title: row.get(1)?,
-            theme: row.get(2)?,
-            memo: row.get(3)?,
-            created_at: row.get(4)?,
-            updated_at: row.get(5)?,
-            deleted_at: row.get(6)?,
-            deleted_batch_id: row.get(7)?,
+    let project = stmt
+        .query_row(params![project_id], |row| {
+            Ok(Project {
+                project_id: row.get(0)?,
+                title: row.get(1)?,
+                theme: row.get(2)?,
+                memo: row.get(3)?,
+                created_at: row.get(4)?,
+                updated_at: row.get(5)?,
+                deleted_at: row.get(6)?,
+                deleted_batch_id: row.get(7)?,
+            })
         })
-    })
-    .map_err(|_| AppError::NotFound(format!("Project not found: {}", project_id)))?;
+        .map_err(|_| AppError::NotFound(format!("Project not found: {}", project_id)))?;
 
     Ok(project)
 }
@@ -60,7 +62,14 @@ pub fn create(conn: &Connection, input: CreateProjectInput) -> AppResult<Project
     conn.execute(
         "INSERT INTO projects (project_id, title, theme, memo, created_at, updated_at)
          VALUES (?1, ?2, ?3, ?4, ?5, ?6)",
-        params![project_id, input.title, input.theme, input.memo, now.to_rfc3339(), now.to_rfc3339()],
+        params![
+            project_id,
+            input.title,
+            input.theme,
+            input.memo,
+            now.to_rfc3339(),
+            now.to_rfc3339()
+        ],
     )?;
 
     // Create default working draft
@@ -74,7 +83,11 @@ pub fn create(conn: &Connection, input: CreateProjectInput) -> AppResult<Project
     get_by_id(conn, &project_id)
 }
 
-pub fn update(conn: &Connection, project_id: &str, input: UpdateProjectInput) -> AppResult<Project> {
+pub fn update(
+    conn: &Connection,
+    project_id: &str,
+    input: UpdateProjectInput,
+) -> AppResult<Project> {
     let now = Utc::now();
     let existing = get_by_id(conn, project_id)?;
 
@@ -172,19 +185,20 @@ pub fn get_all_deleted(conn: &Connection) -> AppResult<Vec<Project>> {
          ORDER BY deleted_at DESC"
     )?;
 
-    let projects = stmt.query_map([], |row| {
-        Ok(Project {
-            project_id: row.get(0)?,
-            title: row.get(1)?,
-            theme: row.get(2)?,
-            memo: row.get(3)?,
-            created_at: row.get(4)?,
-            updated_at: row.get(5)?,
-            deleted_at: row.get(6)?,
-            deleted_batch_id: row.get(7)?,
-        })
-    })?
-    .collect::<std::result::Result<Vec<_>, _>>()?;
+    let projects = stmt
+        .query_map([], |row| {
+            Ok(Project {
+                project_id: row.get(0)?,
+                title: row.get(1)?,
+                theme: row.get(2)?,
+                memo: row.get(3)?,
+                created_at: row.get(4)?,
+                updated_at: row.get(5)?,
+                deleted_at: row.get(6)?,
+                deleted_batch_id: row.get(7)?,
+            })
+        })?
+        .collect::<std::result::Result<Vec<_>, _>>()?;
 
     Ok(projects)
 }

@@ -1,5 +1,12 @@
 # 要件定義レビュー・ゲートログ
 
+## 2026-07-03: 歌詞感情インサイト v2 拡張
+
+- Gate: 要件拡張
+- 対象: `docs/requirements/requirements.md`, `docs/requirements/lyric-affect-insight-v2.md`, `docs/implementation/lyric-affect-insight-v2.md`
+- 理由: 全文平均だけでなく、セクション別、波形、スナップショット比較、根拠、制作アラート、ゴールデン回帰を制作判断へ接続するため。
+- 判定: 実装可。保存スキーマ変更なし、ローカル同期計算、採点・自動修正なしを前提とする。
+
 ## 2026-07-03: 歌詞感情メトリクス追加
 
 - Gate: 要件拡張

@@ -1,11 +1,14 @@
-use crate::error::AppResult;
-use crate::models::{SaveDraftInput, WorkingDraft, DraftSection};
+use crate::error::{AppError, AppResult};
+use crate::models::{DraftSection, SaveDraftInput, WorkingDraft};
 use crate::repositories::touch_project_updated_at;
 use chrono::Utc;
-use rusqlite::{params, Connection};
+use rusqlite::{params, Connection, OptionalExtension};
 use uuid::Uuid;
 
-pub fn get_active_by_project(conn: &Connection, project_id: &str) -> AppResult<Option<WorkingDraft>> {
+pub fn get_active_by_project(
+    conn: &Connection,
+    project_id: &str,
+) -> AppResult<Option<WorkingDraft>> {
     let mut stmt = conn.prepare(
         "SELECT working_draft_id, project_id, latest_body_text, bpm, style_text, vocal_text, updated_at
          FROM working_drafts
@@ -39,17 +42,18 @@ pub fn get_sections(conn: &Connection, working_draft_id: &str) -> AppResult<Vec<
          ORDER BY sort_order"
     )?;
 
-    let sections = stmt.query_map(params![working_draft_id], |row| {
-        Ok(DraftSection {
-            draft_section_id: row.get(0)?,
-            working_draft_id: row.get(1)?,
-            section_type: row.get(2)?,
-            display_name: row.get(3)?,
-            sort_order: row.get(4)?,
-            body_text: row.get(5)?,
-        })
-    })?
-    .collect::<std::result::Result<Vec<_>, _>>()?;
+    let sections = stmt
+        .query_map(params![working_draft_id], |row| {
+            Ok(DraftSection {
+                draft_section_id: row.get(0)?,
+                working_draft_id: row.get(1)?,
+                section_type: row.get(2)?,
+                display_name: row.get(3)?,
+                sort_order: row.get(4)?,
+                body_text: row.get(5)?,
+            })
+        })?
+        .collect::<std::result::Result<Vec<_>, _>>()?;
 
     Ok(sections)
 }
@@ -90,18 +94,53 @@ pub fn save(conn: &Connection, input: SaveDraftInput) -> AppResult<WorkingDraft>
         params![input.body_text, bpm, style_text, vocal_text, now_rfc3339, draft.working_draft_id],
     )?;
 
-    // Delete existing sections
+    // Mark the previous active set as deleted. Submitted stable IDs are restored below.
+    let save_batch_id = Uuid::new_v4().to_string();
     conn.execute(
-        "DELETE FROM draft_sections WHERE working_draft_id = ?1",
-        params![draft.working_draft_id],
+        "UPDATE draft_sections
+         SET deleted_at = ?1, deleted_batch_id = ?2, updated_at = ?1
+         WHERE working_draft_id = ?3 AND deleted_at IS NULL",
+        params![now_rfc3339, save_batch_id, draft.working_draft_id],
     )?;
 
-    // Insert new sections
     for section in input.sections {
-        let section_id = Uuid::new_v4().to_string();
-        conn.execute(
-            "INSERT INTO draft_sections (draft_section_id, working_draft_id, section_type, display_name, sort_order, body_text, note, created_at, updated_at)
-             VALUES (?1, ?2, ?3, ?4, ?5, ?6, NULL, ?7, ?7)",
+        let section_id = section
+            .draft_section_id
+            .filter(|value| !value.trim().is_empty())
+            .unwrap_or_else(|| Uuid::new_v4().to_string());
+
+        let owner = conn
+            .query_row(
+                "SELECT working_draft_id FROM draft_sections WHERE draft_section_id = ?1",
+                params![section_id],
+                |row| row.get::<_, String>(0),
+            )
+            .optional()?;
+        if owner
+            .as_deref()
+            .is_some_and(|working_draft_id| working_draft_id != draft.working_draft_id)
+        {
+            return Err(AppError::Validation(format!(
+                "Draft section {section_id} belongs to another working draft"
+            )));
+        }
+
+        let changed = conn.execute(
+            "INSERT INTO draft_sections (
+                draft_section_id, working_draft_id, section_type, display_name,
+                sort_order, body_text, note, created_at, updated_at,
+                deleted_at, deleted_batch_id
+             )
+             VALUES (?1, ?2, ?3, ?4, ?5, ?6, NULL, ?7, ?7, NULL, NULL)
+             ON CONFLICT(draft_section_id) DO UPDATE SET
+                section_type = excluded.section_type,
+                display_name = excluded.display_name,
+                sort_order = excluded.sort_order,
+                body_text = excluded.body_text,
+                updated_at = excluded.updated_at,
+                deleted_at = NULL,
+                deleted_batch_id = NULL
+             WHERE draft_sections.working_draft_id = excluded.working_draft_id",
             params![
                 section_id,
                 draft.working_draft_id,
@@ -112,6 +151,11 @@ pub fn save(conn: &Connection, input: SaveDraftInput) -> AppResult<WorkingDraft>
                 now_rfc3339
             ],
         )?;
+        if changed != 1 {
+            return Err(AppError::Validation(format!(
+                "Draft section {section_id} could not be saved"
+            )));
+        }
     }
 
     touch_project_updated_at(conn, &input.project_id, &now_rfc3339)?;

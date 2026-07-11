@@ -1,8 +1,8 @@
-use crate::error::AppResult;
+use crate::error::{AppError, AppResult};
 use crate::models::{CreateSongArtifactInput, SongArtifact};
 use crate::repositories::touch_project_updated_at;
 use chrono::Utc;
-use rusqlite::{params, Connection};
+use rusqlite::{params, Connection, OptionalExtension};
 use uuid::Uuid;
 
 pub fn get_by_project(conn: &Connection, project_id: &str) -> AppResult<Vec<SongArtifact>> {
@@ -12,26 +12,27 @@ pub fn get_by_project(conn: &Connection, project_id: &str) -> AppResult<Vec<Song
                 created_at, updated_at
          FROM song_artifacts
          WHERE project_id = ?1 AND deleted_at IS NULL
-         ORDER BY created_at DESC"
+         ORDER BY created_at DESC",
     )?;
 
-    let artifacts = stmt.query_map(params![project_id], |row| {
-        Ok(SongArtifact {
-            song_artifact_id: row.get(0)?,
-            project_id: row.get(1)?,
-            lyric_version_id: row.get(2)?,
-            service_name: row.get(3)?,
-            song_title: row.get(4)?,
-            source_url: row.get(5)?,
-            source_file_path: row.get(6)?,
-            prompt_memo: row.get(7)?,
-            style_memo: row.get(8)?,
-            evaluation_memo: row.get(9)?,
-            created_at: row.get(10)?,
-            updated_at: row.get(11)?,
-        })
-    })?
-    .collect::<std::result::Result<Vec<_>, _>>()?;
+    let artifacts = stmt
+        .query_map(params![project_id], |row| {
+            Ok(SongArtifact {
+                song_artifact_id: row.get(0)?,
+                project_id: row.get(1)?,
+                lyric_version_id: row.get(2)?,
+                service_name: row.get(3)?,
+                song_title: row.get(4)?,
+                source_url: row.get(5)?,
+                source_file_path: row.get(6)?,
+                prompt_memo: row.get(7)?,
+                style_memo: row.get(8)?,
+                evaluation_memo: row.get(9)?,
+                created_at: row.get(10)?,
+                updated_at: row.get(11)?,
+            })
+        })?
+        .collect::<std::result::Result<Vec<_>, _>>()?;
 
     Ok(artifacts)
 }
@@ -40,6 +41,18 @@ pub fn create(conn: &Connection, input: CreateSongArtifactInput) -> AppResult<So
     let now = Utc::now();
     let artifact_id = Uuid::new_v4().to_string();
     let now_rfc3339 = now.to_rfc3339();
+    let version_project = conn
+        .query_row(
+            "SELECT project_id FROM lyric_versions WHERE lyric_version_id = ?1 AND deleted_at IS NULL",
+            params![input.lyric_version_id],
+            |row| row.get::<_, String>(0),
+        )
+        .optional()?;
+    if version_project.as_deref() != Some(input.project_id.as_str()) {
+        return Err(AppError::Validation(
+            "Song artifact version must belong to the same project".into(),
+        ));
+    }
 
     conn.execute(
         "INSERT INTO song_artifacts (
@@ -90,26 +103,29 @@ fn get_by_id(conn: &Connection, artifact_id: &str) -> AppResult<SongArtifact> {
                 source_url, source_file_path, prompt_memo, style_memo, evaluation_memo,
                 created_at, updated_at
          FROM song_artifacts
-         WHERE song_artifact_id = ?1 AND deleted_at IS NULL"
+         WHERE song_artifact_id = ?1 AND deleted_at IS NULL",
     )?;
 
-    let artifact = stmt.query_row(params![artifact_id], |row| {
-        Ok(SongArtifact {
-            song_artifact_id: row.get(0)?,
-            project_id: row.get(1)?,
-            lyric_version_id: row.get(2)?,
-            service_name: row.get(3)?,
-            song_title: row.get(4)?,
-            source_url: row.get(5)?,
-            source_file_path: row.get(6)?,
-            prompt_memo: row.get(7)?,
-            style_memo: row.get(8)?,
-            evaluation_memo: row.get(9)?,
-            created_at: row.get(10)?,
-            updated_at: row.get(11)?,
+    let artifact = stmt
+        .query_row(params![artifact_id], |row| {
+            Ok(SongArtifact {
+                song_artifact_id: row.get(0)?,
+                project_id: row.get(1)?,
+                lyric_version_id: row.get(2)?,
+                service_name: row.get(3)?,
+                song_title: row.get(4)?,
+                source_url: row.get(5)?,
+                source_file_path: row.get(6)?,
+                prompt_memo: row.get(7)?,
+                style_memo: row.get(8)?,
+                evaluation_memo: row.get(9)?,
+                created_at: row.get(10)?,
+                updated_at: row.get(11)?,
+            })
         })
-    })
-    .map_err(|_| crate::error::AppError::NotFound(format!("Song artifact not found: {}", artifact_id)))?;
+        .map_err(|_| {
+            crate::error::AppError::NotFound(format!("Song artifact not found: {}", artifact_id))
+        })?;
 
     Ok(artifact)
 }
@@ -132,17 +148,18 @@ pub fn get_all_deleted(conn: &Connection) -> AppResult<Vec<DeletedSongArtifact>>
          ORDER BY deleted_at DESC"
     )?;
 
-    let artifacts = stmt.query_map(params![], |row| {
-        Ok(DeletedSongArtifact {
-            song_artifact_id: row.get(0)?,
-            project_id: row.get(1)?,
-            service_name: row.get(2)?,
-            song_title: row.get(3)?,
-            deleted_at: row.get(4)?,
-            deleted_batch_id: row.get(5)?,
-        })
-    })?
-    .collect::<std::result::Result<Vec<_>, _>>()?;
+    let artifacts = stmt
+        .query_map(params![], |row| {
+            Ok(DeletedSongArtifact {
+                song_artifact_id: row.get(0)?,
+                project_id: row.get(1)?,
+                service_name: row.get(2)?,
+                song_title: row.get(3)?,
+                deleted_at: row.get(4)?,
+                deleted_batch_id: row.get(5)?,
+            })
+        })?
+        .collect::<std::result::Result<Vec<_>, _>>()?;
 
     Ok(artifacts)
 }

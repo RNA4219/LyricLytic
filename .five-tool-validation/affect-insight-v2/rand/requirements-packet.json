@@ -1,0 +1,55 @@
+{
+  "schema_version": "rand-requirements-packet/v1",
+  "status": "degraded",
+  "status_reason": "RanD CLI artifact was not generated for this local feature pass; this packet is a deterministic handoff derived from LyricLytic requirements docs.",
+  "feature_id": "LL-AFFECT-INSIGHT-V2",
+  "title": "歌詞感情インサイト v2",
+  "source_refs": [
+    "docs/requirements/lyric-affect-insight-v2.md",
+    "docs/implementation/lyric-affect-insight-v2.md",
+    "docs/requirements/requirements.md#17A.3"
+  ],
+  "requirements": [
+    {
+      "id": "AC-SECTION-METRICS",
+      "text": "Verse / Pre / Chorus / Bridge などの既存セクションごとに感情と密度を表示する"
+    },
+    {
+      "id": "AC-WAVE",
+      "text": "曲順に沿って valence / arousal / density / tension の感情波形を表示する"
+    },
+    {
+      "id": "AC-SNAPSHOT-COMPARE",
+      "text": "保存済みスナップショット同士で感情・密度差分と短い変化メモを表示する"
+    },
+    {
+      "id": "AC-EVIDENCE",
+      "text": "感情値に寄与した語句・行・表現の根拠を表示する"
+    },
+    {
+      "id": "AC-PRODUCTION-ALERTS",
+      "text": "Chorus 密度不足、平坦な波形、英日混在、高緊張連続などを制作メモとして提示する"
+    },
+    {
+      "id": "AC-GOLDEN-LYRICS",
+      "text": "明るい、暗い、高密度、低密度のゴールデン歌詞セットで回帰を検知する"
+    }
+  ],
+  "assumptions": [
+    "指標は採点ではなく制作判断の参考値として扱う",
+    "保存スキーマは変更しない",
+    "外部 API や affect-wave サーバーへ接続しない"
+  ],
+  "downstream_handoff": {
+    "code_to_gate_scope": "C:/Users/ryo-n/Codex_dev/LyricLytic",
+    "auto_test_commands": [
+      "npm test -- --run",
+      "npm run build"
+    ],
+    "manual_bb_focus": [
+      "右ペインのセクション別メトリクス視認性",
+      "DiffViewer 上の感情差分の理解しやすさ",
+      "制作メモが警告や採点に見えないこと"
+    ]
+  }
+}

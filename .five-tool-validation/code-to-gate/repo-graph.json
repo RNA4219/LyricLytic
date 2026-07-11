@@ -1,10 +1,10 @@
 {
   "version": "ctg/v1",
-  "generated_at": "2026-07-02T21:47:19.914Z",
-  "run_id": "ctg-202607022147-local",
+  "generated_at": "2026-07-02T21:55:04.249Z",
+  "run_id": "ctg-202607022155-local",
   "repo": {
     "root": ".",
-    "revision": "63ff56cfb326",
+    "revision": "93983a796f65",
     "branch": "main",
     "dirty": true
   },
@@ -53,6 +53,132 @@
       "sizeBytes": 929,
       "lineCount": 41,
       "moduleId": "module:.claude/commands/status.md",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:.five-tool-validation/code-to-gate/analysis-report.md",
+      "path": ".five-tool-validation/code-to-gate/analysis-report.md",
+      "language": "unknown",
+      "role": "docs",
+      "hash": "9a414398c8ab2fbdb65a9a2f888cc2f600bdd83a0a41e3e6428048a676a526cb",
+      "sizeBytes": 8206,
+      "lineCount": 138,
+      "moduleId": "module:.five-tool-validation/code-to-gate/analysis-report.md",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:.five-tool-validation/code-to-gate/audit.json",
+      "path": ".five-tool-validation/code-to-gate/audit.json",
+      "language": "unknown",
+      "role": "source",
+      "hash": "18d89cabb9855986767a8c8b967d96c0dbfc8dbf786db239a7b036864cad3c6e",
+      "sizeBytes": 39852,
+      "lineCount": 1190,
+      "moduleId": "module:.five-tool-validation/code-to-gate/audit.json",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:.five-tool-validation/code-to-gate/findings.json",
+      "path": ".five-tool-validation/code-to-gate/findings.json",
+      "language": "unknown",
+      "role": "source",
+      "hash": "9793dd3c15302e626f731862398fc238f22a29cedceafbb2d1a9f7d3739bb770",
+      "sizeBytes": 15950,
+      "lineCount": 536,
+      "moduleId": "module:.five-tool-validation/code-to-gate/findings.json",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:.five-tool-validation/code-to-gate/invariants.json",
+      "path": ".five-tool-validation/code-to-gate/invariants.json",
+      "language": "unknown",
+      "role": "source",
+      "hash": "7dc0c9f222fd35589f1638c530987ed69692698ba38b9a39cf862a838a43eca6",
+      "sizeBytes": 12894,
+      "lineCount": 382,
+      "moduleId": "module:.five-tool-validation/code-to-gate/invariants.json",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:.five-tool-validation/code-to-gate/raw-findings.json",
+      "path": ".five-tool-validation/code-to-gate/raw-findings.json",
+      "language": "unknown",
+      "role": "source",
+      "hash": "ad6ff958f3a3df4eb8453ca1a9803c88cd906d5659dc6b0ed0a968ae56705096",
+      "sizeBytes": 14222,
+      "lineCount": 461,
+      "moduleId": "module:.five-tool-validation/code-to-gate/raw-findings.json",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:.five-tool-validation/code-to-gate/repo-graph.json",
+      "path": ".five-tool-validation/code-to-gate/repo-graph.json",
+      "language": "unknown",
+      "role": "source",
+      "hash": "d2c562a394ee47f201eaab8519ec39ebd9f2c7cad4698baaed624dacd07b9172",
+      "sizeBytes": 112845,
+      "lineCount": 3576,
+      "moduleId": "module:.five-tool-validation/code-to-gate/repo-graph.json",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:.five-tool-validation/code-to-gate/risk-register.yaml",
+      "path": ".five-tool-validation/code-to-gate/risk-register.yaml",
+      "language": "unknown",
+      "role": "config",
+      "hash": "04cd91a53d22388a01fdb2593d9eb496fe1a5f9777e13aca996d7e7683afb6a0",
+      "sizeBytes": 1022,
+      "lineCount": 39,
+      "moduleId": "module:.five-tool-validation/code-to-gate/risk-register.yaml",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:.five-tool-validation/code-to-gate/test-seeds.json",
+      "path": ".five-tool-validation/code-to-gate/test-seeds.json",
+      "language": "unknown",
+      "role": "source",
+      "hash": "77d50498c252a17df1ebdeab297d0cbc7c1bb845174081e8ee25899ff378e904",
+      "sizeBytes": 11312,
+      "lineCount": 339,
+      "moduleId": "module:.five-tool-validation/code-to-gate/test-seeds.json",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:.five-tool-validation/vitest-results.json",
+      "path": ".five-tool-validation/vitest-results.json",
+      "language": "unknown",
+      "role": "source",
+      "hash": "aed44cab73608beea2765dbada01046f12f78f228168814ae5f2e486b6c3cd05",
+      "sizeBytes": 402032,
+      "lineCount": 1,
+      "moduleId": "module:.five-tool-validation/vitest-results.json",
       "parser": {
         "status": "skipped",
         "adapter": "ctg-text-v0"
@@ -1449,9 +1575,9 @@
       "path": "src/lib/api.ts",
       "language": "ts",
       "role": "source",
-      "hash": "49947739d7ad3090997deb28b2ea833af7d6e67356f403a3ae8e31f5e1785818",
-      "sizeBytes": 160,
-      "lineCount": 7,
+      "hash": "6446d41b35aa1e0adebb6f900a962670fee3b77a8d1ed25e8613ad2c5282fd24",
+      "sizeBytes": 116,
+      "lineCount": 4,
       "moduleId": "module:src/lib/api.ts",
       "parser": {
         "status": "skipped",
@@ -1701,9 +1827,9 @@
       "path": "src/lib/LanguageContext.tsx",
       "language": "tsx",
       "role": "source",
-      "hash": "82f071bedf401fcb3e9443bd9b3ab03245d471c0829beb8e3dd178970130edd1",
-      "sizeBytes": 1408,
-      "lineCount": 48,
+      "hash": "7234fee554c50c56c1ea4039f8dab0ba36d7ffc40e003852744437231c21e274",
+      "sizeBytes": 1416,
+      "lineCount": 49,
       "moduleId": "module:src/lib/LanguageContext.tsx",
       "parser": {
         "status": "skipped",
@@ -1897,9 +2023,9 @@
       "path": "src/lib/useProjectData.ts",
       "language": "ts",
       "role": "source",
-      "hash": "d3955110ef3c90965a8b7558840f27f845c72f7eace1e9723092b86603d53918",
-      "sizeBytes": 6604,
-      "lineCount": 226,
+      "hash": "c0f39311bcd44d3c9817d547a885fa6919ed1c0a7a2d160425f2b203687a8826",
+      "sizeBytes": 6732,
+      "lineCount": 231,
       "moduleId": "module:src/lib/useProjectData.ts",
       "parser": {
         "status": "skipped",
@@ -1963,6 +2089,34 @@
       }
     },
     {
+      "id": "file:src/pages/editor/PhoneticGuidePanel.tsx",
+      "path": "src/pages/editor/PhoneticGuidePanel.tsx",
+      "language": "tsx",
+      "role": "source",
+      "hash": "9e2be0f97750ddb61d2974ca1da227d505a4baaef39f68c322015c2a6abddce2",
+      "sizeBytes": 2416,
+      "lineCount": 69,
+      "moduleId": "module:src/pages/editor/PhoneticGuidePanel.tsx",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
+      "id": "file:src/pages/editor/RightStackPane.tsx",
+      "path": "src/pages/editor/RightStackPane.tsx",
+      "language": "tsx",
+      "role": "source",
+      "hash": "d0eae7b6c2e3fd4cdeb29b09838d526c7f3f57285370000fc84afdc22b7a10c5",
+      "sizeBytes": 4561,
+      "lineCount": 139,
+      "moduleId": "module:src/pages/editor/RightStackPane.tsx",
+      "parser": {
+        "status": "skipped",
+        "adapter": "ctg-text-v0"
+      }
+    },
+    {
       "id": "file:src/pages/editor/SectionListCard.tsx",
       "path": "src/pages/editor/SectionListCard.tsx",
       "language": "tsx",
@@ -1995,9 +2149,9 @@
       "path": "src/pages/Editor.tsx",
       "language": "tsx",
       "role": "source",
-      "hash": "995d969fd9a3cb800efac659fbe8ada98c7748010973b5ed25ea5ba0ecada8fe",
-      "sizeBytes": 37771,
-      "lineCount": 1054,
+      "hash": "6892f7e0c7c3f881cacd1415c3b03bf39763531dc76cd2d20a5354b6d81416f8",
+      "sizeBytes": 33724,
+      "lineCount": 966,
       "moduleId": "module:src/pages/Editor.tsx",
       "parser": {
         "status": "skipped",
@@ -2485,9 +2639,9 @@
       "path": "src/test/useProjectData.test.ts",
       "language": "ts",
       "role": "test",
-      "hash": "fb379e7a0dbed381bc6776ea7f8b4123c27de073815bf5034775923fcd254332",
-      "sizeBytes": 17896,
-      "lineCount": 552,
+      "hash": "f3a23f2d17a4433c2ffba23ab795c1f33655ab10aca65233a17b951dc402c8da",
+      "sizeBytes": 17936,
+      "lineCount": 553,
       "moduleId": "module:src/test/useProjectData.test.ts",
       "parser": {
         "status": "skipped",
@@ -3355,6 +3509,10 @@
     }
   ],
   "configs": [
+    {
+      "id": "config:.five-tool-validation/code-to-gate/risk-register.yaml",
+      "path": ".five-tool-validation/code-to-gate/risk-register.yaml"
+    },
     {
       "id": "config:.github/workflows/update-suno-prompt-catalog.yml",
       "path": ".github/workflows/update-suno-prompt-catalog.yml"

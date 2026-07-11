@@ -16,8 +16,16 @@ pub(super) struct SongArtifactExport {
     pub created_at: String,
 }
 
-pub(super) fn get_song_artifacts(conn: &Connection, project_id: &str, include_deleted: bool) -> AppResult<Vec<SongArtifactExport>> {
-    let deleted_filter = if include_deleted { "" } else { "AND deleted_at IS NULL" };
+pub(super) fn get_song_artifacts(
+    conn: &Connection,
+    project_id: &str,
+    include_deleted: bool,
+) -> AppResult<Vec<SongArtifactExport>> {
+    let deleted_filter = if include_deleted {
+        ""
+    } else {
+        "AND deleted_at IS NULL"
+    };
     let sql = format!(
         "SELECT song_artifact_id, project_id, lyric_version_id, service_name, song_title, source_url, source_file_path, prompt_memo, style_memo, evaluation_memo, created_at
          FROM song_artifacts WHERE project_id = ?1 {} ORDER BY created_at DESC",
@@ -56,8 +64,16 @@ pub(super) struct CollectedFragmentExport {
     pub created_at: String,
 }
 
-pub(super) fn get_collected_fragments(conn: &Connection, project_id: &str, include_deleted: bool) -> AppResult<Vec<CollectedFragmentExport>> {
-    let deleted_filter = if include_deleted { "" } else { "AND deleted_at IS NULL" };
+pub(super) fn get_collected_fragments(
+    conn: &Connection,
+    project_id: &str,
+    include_deleted: bool,
+) -> AppResult<Vec<CollectedFragmentExport>> {
+    let deleted_filter = if include_deleted {
+        ""
+    } else {
+        "AND deleted_at IS NULL"
+    };
     let sql = format!(
         "SELECT collected_fragment_id, project_id, text, source, status, created_at
          FROM collected_fragments WHERE project_id = ?1 {} ORDER BY created_at DESC",
@@ -87,7 +103,10 @@ pub(super) struct FragmentTagExport {
     pub tag: String,
 }
 
-pub(super) fn get_fragment_tags(conn: &Connection, project_id: &str) -> AppResult<Vec<FragmentTagExport>> {
+pub(super) fn get_fragment_tags(
+    conn: &Connection,
+    project_id: &str,
+) -> AppResult<Vec<FragmentTagExport>> {
     let mut stmt = conn.prepare(
         "SELECT ft.collected_fragment_id, ft.tag
          FROM fragment_tags ft

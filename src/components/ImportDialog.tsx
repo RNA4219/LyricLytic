@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { open } from '@tauri-apps/plugin-dialog';
-import { readFile } from '@tauri-apps/plugin-fs';
+import { readTextFile, type TextEncoding } from '../lib/api';
+import Modal from './Modal';
+import { useLanguage } from '../lib/LanguageContext';
 
 const ENCODINGS = [
   { value: 'utf-8', label: 'UTF-8' },
@@ -23,13 +25,9 @@ function ImportDialog({ onImportAsFragment, onImportAsBody, onClose }: ImportDia
   const [filePath, setFilePath] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [importMode, setImportMode] = useState<'fragment' | 'body'>('fragment');
+  const { t } = useLanguage();
   const [encoding, setEncoding] = useState<string>('utf-8');
   const [showEncodingSelect, setShowEncodingSelect] = useState(false);
-
-  const decodeBuffer = (buffer: Uint8Array, encodingName: string): string => {
-    const decoder = new TextDecoder(encodingName);
-    return decoder.decode(buffer);
-  };
 
   const handleSelectFile = async () => {
     try {
@@ -48,7 +46,7 @@ function ImportDialog({ onImportAsFragment, onImportAsBody, onClose }: ImportDia
         }
       }
     } catch (e) {
-      setError('Failed to read file. Please try another file or encoding.');
+      setError(t('readFileFailed'));
       setShowEncodingSelect(true);
       console.error(e);
     }
@@ -56,20 +54,20 @@ function ImportDialog({ onImportAsFragment, onImportAsBody, onClose }: ImportDia
 
   const readFileWithEncoding = async (path: string, enc: string) => {
     try {
-      const buffer = await readFile(path);
-      const text = decodeBuffer(buffer, enc);
+      const result = await readTextFile(path, enc as TextEncoding);
+      const text = result.text;
 
       // Check for replacement characters which indicate encoding issues
-      const hasReplacementChars = text.includes('\uFFFD');
+      const hasReplacementChars = result.had_replacements;
       if (hasReplacementChars && enc === 'utf-8') {
-        setError('File may not be UTF-8 encoded. Try selecting a different encoding.');
+        setError(t('possibleEncodingMismatch'));
         setShowEncodingSelect(true);
       } else {
         setFileContent(text);
         setError(null);
       }
     } catch (e) {
-      setError('Failed to read file with selected encoding.');
+      setError(t('readEncodingFailed'));
       setShowEncodingSelect(true);
       console.error(e);
     }
@@ -92,7 +90,7 @@ function ImportDialog({ onImportAsFragment, onImportAsBody, onClose }: ImportDia
       }
       onClose();
     } catch (e) {
-      setError('Import failed');
+      setError(t('importFailed'));
       console.error(e);
     }
   };
@@ -106,16 +104,14 @@ function ImportDialog({ onImportAsFragment, onImportAsBody, onClose }: ImportDia
   };
 
   return (
-    <div className="dialog-overlay">
-      <div className="dialog import-dialog">
-        <h3>Import Text File</h3>
+    <Modal title={t('importTextFile')} onClose={onClose} className="import-dialog">
 
         {!fileContent ? (
           <div className="import-file-select">
-            <p>Select a .txt file to import:</p>
+            <p>{t('selectTxtFile')}</p>
 
             <div className="encoding-select">
-              <label>Encoding:</label>
+              <label>{t('encodingLabel')}</label>
               <select value={encoding} onChange={(e) => setEncoding(e.target.value)}>
                 {ENCODINGS.map(enc => (
                   <option key={enc.value} value={enc.value}>{enc.label}</option>
@@ -124,7 +120,7 @@ function ImportDialog({ onImportAsFragment, onImportAsBody, onClose }: ImportDia
             </div>
 
             <button onClick={handleSelectFile} className="select-file-btn">
-              📁 Select File
+              📁 {t('selectFile')}
             </button>
 
             {error && (
@@ -138,7 +134,7 @@ function ImportDialog({ onImportAsFragment, onImportAsBody, onClose }: ImportDia
                       ))}
                     </select>
                     <button onClick={handleRetryEncoding} className="retry-btn">
-                      🔄 Retry with this encoding
+                      🔄 {t('retryWithEncoding')}
                     </button>
                   </div>
                 )}
@@ -161,7 +157,7 @@ function ImportDialog({ onImportAsFragment, onImportAsBody, onClose }: ImportDia
                   checked={importMode === 'fragment'}
                   onChange={() => setImportMode('fragment')}
                 />
-                Import as Fragment
+                {t('importAsFragment')}
               </label>
               <label>
                 <input
@@ -170,7 +166,7 @@ function ImportDialog({ onImportAsFragment, onImportAsBody, onClose }: ImportDia
                   checked={importMode === 'body'}
                   onChange={() => setImportMode('body')}
                 />
-                Import as Body Text
+                {t('importAsBody')}
               </label>
             </div>
 
@@ -178,20 +174,19 @@ function ImportDialog({ onImportAsFragment, onImportAsBody, onClose }: ImportDia
 
             <div className="dialog-buttons">
               <button onClick={handleReset}>
-                Reselect
+                {t('reselect')}
               </button>
               <button onClick={handleImport} className="primary">
-                Import
+                {t('importAction')}
               </button>
             </div>
           </>
         )}
 
         <button onClick={onClose} className="close-dialog-btn">
-          Cancel
+          {t('cancel')}
         </button>
-      </div>
-    </div>
+    </Modal>
   );
 }
 

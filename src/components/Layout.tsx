@@ -30,7 +30,7 @@ function loadStoredLlmSettings(): LLMSettings {
 
 function Layout() {
   const { language, setLanguage, t } = useLanguage();
-  const { projectTitle } = useProject();
+  const { projectTitle, runBeforeLeave } = useProject();
   const navigate = useNavigate();
   const location = useLocation();
   const [runtimeStatus, setRuntimeStatus] = useState<LlamaCppStatus | null>(null);
@@ -105,7 +105,9 @@ function Layout() {
           <button
             type="button"
             className="header-title-btn"
-            onClick={() => navigate('/')}
+            onClick={() => {
+              void runBeforeLeave().then((ok) => { if (ok) navigate('/'); });
+            }}
             title={t('appTitle')}
           >
             <h1>{t('appTitle')}</h1>

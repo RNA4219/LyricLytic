@@ -45,6 +45,7 @@ LyricLytic 配下のドキュメント・仕様・タスクを集約し、実装
 | `docs/implementation/bootstrap-checklist-v1.md` | 初期縦切り手順 |
 | `docs/implementation/rhyme-implementation-checklist-v1.md` | 韻ガイド実装チェックリスト |
 | `docs/implementation/lyric-affect-metrics-v1.md` | 歌詞感情メトリクス実装仕様 |
+| `docs/implementation/lyric-affect-insight-v2.md` | 歌詞感情インサイト拡張実装仕様 |
 | `docs/requirements/sqlite-schema-v1.sql` | SQLite 正本 |
 | `THIRD_PARTY_LICENSES.md` | 主要ソフトのライセンス一覧 |
 
@@ -57,6 +58,7 @@ LyricLytic 配下のドキュメント・仕様・タスクを集約し、実装
 | `docs/requirements/local-llm-connector-v1.md` | LLM 接続仕様 |
 | `docs/requirements/rhyme-analysis-v1.md` | 韻ガイド / 音韻解析仕様 |
 | `docs/requirements/lyric-affect-metrics-v1.md` | 歌詞感情メトリクス要件 |
+| `docs/requirements/lyric-affect-insight-v2.md` | セクション別・波形・比較を含む歌詞感情インサイト要件 |
 | `docs/requirements/logical-delete-ui-v1.md` | 論理削除 UI |
 | `docs/requirements/export-spec-v1.md` | エクスポート仕様 |
 | `docs/requirements/frontend-design/runtime-visual-gap-review-20260401.md` | モックと現行 UI の質感差分レビュー |

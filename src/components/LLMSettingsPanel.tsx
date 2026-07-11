@@ -1,15 +1,14 @@
 import { useEffect, useState } from 'react';
 import { open } from '@tauri-apps/plugin-dialog';
-import { readDir } from '@tauri-apps/plugin-fs';
-import { join } from '@tauri-apps/api/path';
 import {
   detectLlamaCppExecutable,
   getLlamaCppRuntimeStatus,
+  listModelCandidates,
   LlamaCppStatus,
   startLlamaCppRuntime,
 } from '../lib/api';
 import { LLMSettings, fetchLLMModels, isManagedLlamaCppRuntime } from '../lib/llm';
-import { isAuxiliaryModelFile, isLikelyModelFile, getModelFileName } from '../lib/llm/modelUtils';
+import { isLikelyModelFile, getModelFileName } from '../lib/llm/modelUtils';
 import { useLanguage } from '../lib/LanguageContext';
 import { LLM_DEFAULTS } from '../lib/config';
 
@@ -20,7 +19,6 @@ interface LLMSettingsPanelProps {
 
 type ConnectionStatus = 'unknown' | 'testing' | 'connected' | 'error';
 type RuntimeActionStatus = 'idle' | 'running' | 'stopped' | 'starting' | 'error';
-type DirEntry = { name: string; isDirectory: boolean; isFile: boolean };
 
 const DEFAULT_SETTINGS: LLMSettings = {
   runtime: 'openai_compatible',
@@ -56,43 +54,10 @@ function LLMSettingsPanel({ settings: externalSettings, onSettingsChange }: LLMS
       return [getModelFileName(trimmedPath)];
     }
 
-    const results = new Set<string>();
-
-    const walk = async (currentPath: string, depth: number) => {
-      if (depth > 4) return;
-      const entries = await readDir(currentPath);
-
-      for (const entry of entries as DirEntry[]) {
-        const entryPath = await join(currentPath, entry.name);
-
-        if (entry.isDirectory) {
-          await walk(entryPath, depth + 1);
-          continue;
-        }
-
-        if (!entry.isFile) continue;
-
-        const lowerName = entry.name.toLowerCase();
-        if (lowerName.endsWith('.gguf') || lowerName.endsWith('.ggml')) {
-          if (isAuxiliaryModelFile(entry.name)) {
-            continue;
-          }
-          results.add(entry.name.replace(/\.(gguf|ggml)$/i, ''));
-          continue;
-        }
-
-        if (lowerName.endsWith('.safetensors') || lowerName === 'config.json') {
-          const parts = currentPath.split(/[\\/]/).filter(Boolean);
-          const folderName = parts[parts.length - 1];
-          if (folderName) {
-            results.add(folderName);
-          }
-        }
-      }
-    };
-
-    await walk(trimmedPath, 0);
-    return Array.from(results).sort((a, b) => a.localeCompare(b));
+    const candidates = await listModelCandidates(trimmedPath);
+    return candidates
+      .map(candidate => candidate.name.replace(/\.gguf$/i, ''))
+      .sort((a, b) => a.localeCompare(b));
   };
 
   const syncRuntimeStatus = async () => {

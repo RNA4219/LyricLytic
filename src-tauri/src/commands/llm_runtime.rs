@@ -112,7 +112,9 @@ fn resolve_model_path(raw_model_path: &str) -> AppResult<PathBuf> {
     collect_model_candidates(&path, &mut candidates, 0)?;
 
     if candidates.is_empty() {
-        return Err(AppError::Other("No GGUF/GGML model file found under model path".into()));
+        return Err(AppError::Other(
+            "No GGUF/GGML model file found under model path".into(),
+        ));
     }
 
     let preferred = candidates
@@ -135,7 +137,11 @@ fn resolve_model_path(raw_model_path: &str) -> AppResult<PathBuf> {
         .ok_or_else(|| AppError::Other("No GGUF/GGML model file found under model path".into()))
 }
 
-fn status_from_meta(meta: &ManagedLlamaCppMeta, pid: Option<u32>, message: Option<String>) -> LlamaCppStatus {
+fn status_from_meta(
+    meta: &ManagedLlamaCppMeta,
+    pid: Option<u32>,
+    message: Option<String>,
+) -> LlamaCppStatus {
     LlamaCppStatus {
         running: pid.is_some(),
         pid,
@@ -225,7 +231,9 @@ fn wait_for_port(host: &str, port: u16, timeout: Duration) -> AppResult<()> {
         }
 
         if Instant::now() >= deadline {
-            return Err(AppError::Other("llama.cpp runtime did not become ready in time".into()));
+            return Err(AppError::Other(
+                "llama.cpp runtime did not become ready in time".into(),
+            ));
         }
 
         std::thread::sleep(Duration::from_millis(250));
@@ -311,7 +319,11 @@ fn refresh_status(guard: &mut Option<ManagedLlamaCppProcess>) -> AppResult<Llama
             return Ok(status);
         }
 
-        return Ok(status_from_meta(&process.meta, Some(process.child.id()), None));
+        return Ok(status_from_meta(
+            &process.meta,
+            Some(process.child.id()),
+            None,
+        ));
     }
 
     Ok(stopped_status(Some("Not running".into())))
@@ -347,9 +359,7 @@ pub fn detect_llama_cpp_executable(
 }
 
 #[tauri::command]
-pub fn stop_llama_cpp_runtime(
-    state: State<'_, LlamaCppRuntimeState>,
-) -> AppResult<LlamaCppStatus> {
+pub fn stop_llama_cpp_runtime(state: State<'_, LlamaCppRuntimeState>) -> AppResult<LlamaCppStatus> {
     let mut guard = state
         .process
         .lock()
@@ -376,7 +386,9 @@ pub fn start_llama_cpp_runtime(
 
     let executable = PathBuf::from(executable_path);
     if !executable.is_file() {
-        return Err(AppError::Other("llama.cpp executable path is invalid".into()));
+        return Err(AppError::Other(
+            "llama.cpp executable path is invalid".into(),
+        ));
     }
 
     let resolved_model_path = resolve_model_path(&input.model_path)?;
@@ -396,7 +408,11 @@ pub fn start_llama_cpp_runtime(
             && process.meta.ctx_size == requested_ctx_size;
 
         if process.child.try_wait()?.is_none() && same_process {
-            return Ok(status_from_meta(&process.meta, Some(process.child.id()), Some("Already running".into())));
+            return Ok(status_from_meta(
+                &process.meta,
+                Some(process.child.id()),
+                Some("Already running".into()),
+            ));
         }
 
         let _ = process.child.kill();
@@ -407,7 +423,8 @@ pub fn start_llama_cpp_runtime(
     let mut last_error: Option<String> = None;
 
     for ctx_size in ctx_retry_plan {
-        let child = launch_llama_cpp_process(&executable, &resolved_model_path, &host, port, ctx_size)?;
+        let child =
+            launch_llama_cpp_process(&executable, &resolved_model_path, &host, port, ctx_size)?;
 
         let meta = ManagedLlamaCppMeta {
             executable_path: executable.to_string_lossy().to_string(),
@@ -444,7 +461,7 @@ pub fn start_llama_cpp_runtime(
         }
     }
 
-    Err(AppError::Other(
-        last_error.unwrap_or_else(|| "Failed to start llama.cpp runtime".into()),
-    ))
+    Err(AppError::Other(last_error.unwrap_or_else(|| {
+        "Failed to start llama.cpp runtime".into()
+    })))
 }

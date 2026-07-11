@@ -9,4 +9,5 @@ export * from './useBpm';
 export * from './useAutoSave';
 export * from './useStyleVocal';
 export * from './useClipboard';
-export * from './useSectionActions';
+export * from './useSectionActions';export * from './useWindowCloseFlush';
+export * from './useDraftPersistence';
