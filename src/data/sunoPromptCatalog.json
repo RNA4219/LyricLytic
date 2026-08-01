@@ -1,8 +1,8 @@
 {
   "sourceUrl": "https://ai.suno.jp/prompt/",
   "licenseUrl": "https://ai.suno.jp/license/",
-  "fetchedAt": "2026-07-25T18:18:19.019Z",
-  "entryCount": 2150,
+  "fetchedAt": "2026-08-01T18:20:15.941Z",
+  "entryCount": 2152,
   "entries": [
     {
       "id": "日本音楽-ジェイポップ",
@@ -1099,6 +1099,20 @@
       "targets": [
         "style",
         "vocal"
+      ]
+    },
+    {
+      "id": "classic-ネオクラシカル-メタル",
+      "section": "Classic",
+      "title": "ネオクラシカル・メタル",
+      "prompt": "Neoclassical Metal",
+      "description": "クラシックとメタルをかけ合わせた格好いい音楽ジャンル",
+      "tags": [
+        "janle",
+        "Classic"
+      ],
+      "targets": [
+        "style"
       ]
     },
     {
@@ -6680,6 +6694,20 @@
       "title": "メタル",
       "prompt": "Metal",
       "description": "ロックよりも激しく、低音が身体に響くのが特徴的な音楽ジャンル",
+      "tags": [
+        "janle",
+        "Rock"
+      ],
+      "targets": [
+        "style"
+      ]
+    },
+    {
+      "id": "rock-ネオクラシカル-メタル",
+      "section": "Rock",
+      "title": "ネオクラシカル・メタル",
+      "prompt": "Neoclassical Metal",
+      "description": "クラシックとメタルをかけ合わせた格好いい音楽ジャンル",
       "tags": [
         "janle",
         "Rock"
